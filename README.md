@@ -71,6 +71,56 @@ Overriding Classes
 
 Most of these can be done through the simplicity of following the [PHP Manual – Overloading](http://php.net/manual/en/language.oop5.overloading.php).
 
+Git Branches
+=========
+
+It is exceptionally important you pay attention to these. Each branch is a different set of code and only the Master Branch has tags stating which release cycle we are in.
+
+**Development**
+
+This branch is unstable, nightly build code that is not guaranteed to work at all. It's kinda like “Im done for the day lets push what I have.”
+
+if you are looking to contribute a patch or a piece of code this is what you pull, fork, check out. Development goes on until i feel that what I have is stable enough for beta.
+
+**Beta**
+
+This branch – no one but me checks out from. This is when Development is stable enough for me to push here. I continue doing work on this branch and commit any new changes, code snipits and community work to development. When I feel that what people have committed won't break the beta we merge it together.
+
+**Master**
+
+Master makes use of tags to state what version Aisis is at. Aisis, Aisis Core and Admin Panel are three separate products with three separate version. Who's ever is higher is the one we use as the over all version. (See versioning bellow). No one but me has access to the Master. Every one can fork from master. Its best to fork from development.
+
+Versioning
+========
+
+Aisis, Aisis Core and Admin Panel are all three separate products. This means they are all bound to have seperate versions.
+
+How ever WordPress themes are versioned in the style.css file and this means that there is one version for the whole product.
+
+**Aisis**
+
+Aisis is the theme. Its the core WordPress theme. Its everything you would need if you stripped out Aisis Core. This is the dominate figure when it comes to versioning the product.
+
+**Aisis Core**
+
+This is the brains behind Aisis. This is what makes the whole theme function. What makes it style it's self according to the rules set in the various files. The classes, functions and associated files have say over how the theme acts and behaves.
+
+**Admin Panel**
+
+This is the brains behind the admin panel and a sub set of the Aisis Core. This package is responsible for how the theme administration section works, looks and acts. It draws on various parts of Aisis Core such as File handling and exceptions among others.
+
+**How versioning works**
+
+Essentially you have Aisis+AisisCore+AdminPanel = Version.
+
+So:
+
+if Aisis is version 1.0, Aisis Core is 1.1 and Admin Panels 1.2 the version is 1.2
+
+if Aisis is version 3.6, Aisis Core is 2.2 and Admin Panel is 3.6.3 the version is 3.6.3
+
+Its that simple. 
+
 Licences
 ======
 
