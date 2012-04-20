@@ -56,6 +56,7 @@
 		   function aisis_load_admin_js(){
 			   wp_enqueue_script( 'code-mirror-js', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/required/codemirror.js', false, true );
 			   wp_enqueue_script( 'code-highlight-css', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/required/css.js', false, true );
+			   wp_enqueue_script( 'code-highlight-css', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/required/php.js', false, true );
 			   wp_enqueue_script( 'toast', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.toastmessage.js', array('jquery'), false, true );			   			   
 			   wp_enqueue_script( 'admin-js', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/required/AdminPanelJS.js', array('jquery'), false, true );
 		   }

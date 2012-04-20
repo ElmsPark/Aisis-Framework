@@ -13,6 +13,12 @@ $(document).ready(function() {
     	lineNumbers: true,
 		lineWrapping: true
     });
+	
+	var editor = CodeMirror.fromTextArea(document.getElementById("php"), {
+    	lineNumbers: true,
+		lineWrapping: true
+    });
+	
 });
 
 

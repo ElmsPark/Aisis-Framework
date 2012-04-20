@@ -32,8 +32,7 @@ class AisisFileHandeling {
 	private $contents;
 	//Store the contents of the directory here
 	private $files = array();
-	private $fileCss; //the css file we want.
-	private $filePHP; //the php file we want.
+	private $fileReturned; //File we got
 	
 	/**
 	 * Can we write to said file?
@@ -54,10 +53,18 @@ class AisisFileHandeling {
 	   return true;
 	}
 	
-	/*
-	
-	*/
-	function get_css_file($path, $filename){
+	/**
+	 * We want to pass in the path to the file
+	 * and the file name and then we can get said
+	 * file that we want to write to.
+	 *
+	 * @param $path of type directory.
+	 * @param $filename of type file name with extension.
+	 * @param $extension of type extension (eg: css, php, html)
+	 *
+	 * @return filename.
+	 */
+	function get_file_to_write_to($path, $filename, $extension){
 		if(!is_dir($path)){
 			_e('the ' . $path . ' is not a directory');
 		}
@@ -70,9 +77,9 @@ class AisisFileHandeling {
 					$this->files[] = $file;
 					$count = count($this->files);
 					for($i = 0; $i<$count; $i++){
-						if(substr(strrchr($this->files[$i],'.'),1)=="css"){
+						if(substr(strrchr($this->files[$i],'.'),1)==$extension){
 							if($this->files[$i] == $filename){
-								$this->fileCss = $this->files[$i];
+								$this->fileReturned = $this->files[$i];
 							}
 						}
 					}
@@ -80,7 +87,7 @@ class AisisFileHandeling {
 			}
 		}
 		
-		return $this->fileCss;
+		return $this->fileReturned;
 	}
 	
 	/**

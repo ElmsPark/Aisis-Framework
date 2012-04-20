@@ -3,6 +3,8 @@
 	 *
 	 * ==================== [-DO NOT TOUCH!!!-] =======================
 	 *
+	 *		This file consists of all the basic theme functiosn that you
+	 *		can change.
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0

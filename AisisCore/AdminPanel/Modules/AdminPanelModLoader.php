@@ -38,7 +38,6 @@
 	 * We want to register the AdminPanelBase
 	 * which is home to all the basic options of the
 	 * theme it's self.
-	 *
 	 */
 	if(!function_exists('aisis_admin_site_base')){
 		function aisis_admin_site_base(){
@@ -51,12 +50,33 @@
 	 * We want to register the css editor for the
 	 * css editor portion of the admin panel.
 	 * this doe not include the media query css editor.
-	 *
 	 */
 	if(!function_exists('aisis_admin_css_editor')){
 		function aisis_admin_css_editor(){
 			global $module;
 			$module->admin_mod_register('CSSEditor.php');
+		}
+	}
+	
+	/**
+	 * We want to register the php editor for the 
+	 * use on the admin panel.
+	 */
+	if(!function_exists('aisis_admin_php_editor')){
+		function aisis_admin_php_editor(){
+			global $module;
+			$module->admin_mod_register('PHPEditor.php');
+		}
+	}
+	
+	/**
+	 * We want to register the js editor for the 
+	 * use on the admin panel.
+	 */
+	if(!function_exists('aisis_admin_js_editor')){
+		function aisis_admin_js_editor(){
+			global $module;
+			$module->admin_mod_register('JSEditor.php');
 		}
 	}
 ?>

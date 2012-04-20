@@ -23,7 +23,7 @@
 	 
 	 if(isset($_POST['published'])){
 		 $contents = stripslashes_deep($_POST['code']);
-		 if($fileContents->write_to_file($fileContents->get_css_file(CUSTOM, 'custom-css.css'), $contents, CUSTOM)){
+		 if($fileContents->write_to_file($fileContents->get_file_to_write_to(CUSTOM, 'custom-css.css', "css"), $contents, CUSTOM)){
 			 $update_css = true;
 		 }else{
 			 $update_css_failed = true;
@@ -32,7 +32,7 @@
 	 
 	 if(isset($_POST['published-media'])){
 		 $contents = stripslashes_deep($_POST['code-media']);
-		 if($fileContents->write_to_file($fileContents->get_css_file(CUSTOM, 'custom-media-query.css'), $contents, CUSTOM)){
+		 if($fileContents->write_to_file($fileContents->get_file_to_write_to(CUSTOM, 'custom-media-query.css', "css"), $contents, CUSTOM)){
 			 $update_media_css = true;
 		 }else{
 			 $update_media_css_failed = true;
