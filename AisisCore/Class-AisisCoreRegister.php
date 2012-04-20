@@ -1,0 +1,141 @@
+<?php
+	/**
+	 *
+	 * ==================== [-DO NOT TOUCH!!!-] =======================
+	 *
+	 *		This class is used for registering templates and other html
+	 *		based files for use across the site. Its laoded into the
+	 *		CoreLoader and thus allows each of the templates in the Templates
+	 *		package and other html based files for the theme its self.
+	 *
+	 *		This class is supper easy to use. in your template (if you
+	 *		over ride a template - call the new AisisCoreRegister('templatename');
+	 *		keeping note that the name is case sensitive.
+	 *
+	 *		This will then register the template you passed in.
+	 *
+	 *		It is suggested you over ride this class and change the directory to that
+	 *		of your custom-folder.
+	 *
+	 *		file name must be appended with .php
+	 *
+	 *		@see Aisis->AisisCore->AdminPanel->Modules->AdminPanelModuleRegister
+	 *		@see Aisis->AisisCore->Exceptions->LoadFileException
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore
+	 * =================================================================
+	 */
+	 
+	 class AisisCoreRegister{
+		 
+		 //Store all files of a directory
+		 private $files = array();
+		 private $directory_list = array();
+		 
+		/**
+		 * Load the filename. If the custom is not set to true we
+		 * will use the default path which is the AisisCore/Templates
+		 * instead of custom/Templates. 
+		 *
+		 * @param filename of type file ncluding the .php extension
+		 * @param custom of type boolean (default false)
+		 *
+		 */ 
+		public function aisis_register($filename, $custom=false){
+			
+			if(!file_exists(TEMPLATEPATH . '/AisisCore/Templates/' . $filename)){
+				_e('<div class="ext">'.new LoadFileException('<strong>Could not find specified file name: ' . $filename . '. Stack Trace: </strong>').'</div>');
+			}
+			
+			if($custom == true){
+				require_once(TEMPLATEPATH . '/custom/Templates/' . $filename);
+			}
+			
+			require_once(TEMPLATEPATH . '/AisisCore/Templates/' . $filename);
+		}
+		
+		/**
+		 * Load the filename. If the custom is not set to true we
+		 * will use the default path which is the AdminPanel/Modules
+		 * instead of custom/Templates. 
+		 *
+		 * @param filename of type file ncluding the .php extension
+		 * @param custom of type boolean (default false)
+		 *
+		 */ 
+		public function admin_mod_register($filename, $custom=false){
+
+			if(!file_exists(TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/' . $filename)){
+				_e('<div class="excNotice">'.new LoadFileException('<strong>Could not find specified file name: ' . $filename . '. Stack Trace: </strong>').'</div>');
+			}
+			
+			if($custom == true){
+				require_once(TEMPLATEPATH . '/custom/Templates/' . $filename);
+			}
+			
+			require_once(TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/' . $filename);
+		}
+		
+		/**
+		 * Check for files in a directory. Get that list of files
+		 * and return them based on the directory passed in.
+		 *
+		 * @param dir of type Directory
+		 * @return list of files of type array
+		 */
+		public function aisis_get_dir($dir){
+			
+			if(!is_dir($dir)){
+				_e('Not a Directory');
+			}
+			
+			$handler = opendir($dir);
+			while($file = readdir($handler)){
+				if($file != "." && $file != ".."){
+					$this->files[] = $file;
+				}
+			}
+			
+			return $this->files;
+			
+		}
+		
+		/**
+		 * Check if a directorys contents contain .php
+		 * files and then if so - load each file into
+		 * a require once statement.
+		 *
+		 * @param dir of type Directory
+		 */
+		public function load_if_extentsion_is_php($dir){
+			$list = array();
+			
+			$list = $this->aisis_get_dir($dir);
+			
+			$count = count($list);
+			for($i = 0; $i<$count; $i++){
+				if(substr(strrchr($list[$i],'.'),1)=="php"){
+					require_once($dir . $list[$i]);
+				}
+			}
+			
+		}
+		
+		/**
+		 * We only allow Dashes, Alphanumeric, Periods or underscores in the name.
+		 * Anything else and we thow and error.
+		 *
+		 * @param filename of type file name plus the extension.
+		 */
+		public function aisis_register_security($filename){
+			if(preg_match('/[^a-z0-9\\/\\\\_.:-]/i',$filename)){
+				_e('<div class="ext">'.new LoadFileSecutiryException('<strong>Security threat with file: ' . $filename . 
+						'. We only allow alphanumeric, dashes, underscores and periods in the name. Stack Trace: </strong>').'</div>');
+			}
+			
+			return true;
+		}
+	}
+?>
