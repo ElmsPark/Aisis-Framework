@@ -16,8 +16,13 @@
 	 * =================================================================
 	 */
 	 
-	 $admin = new AisisCoreRegister();
-	 $admin->load_if_extentsion_is_php(AISIS_ADMINPANEL);
+	 /**
+	  * Insantiate AisisCoreRegister
+	  * now we load every single file in the Admin Panel folder
+	  * We do not go traipsing through sub folders.
+	  */
+	 $admin_load_files = new AisisCoreRegister();
+	 $admin_load_files->load_if_extentsion_is_php(AISIS_ADMINPANEL);
 	 
 	 /**
 	  * Load the Admin Panel Module Package and all associated modules

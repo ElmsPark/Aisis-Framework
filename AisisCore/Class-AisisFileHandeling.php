@@ -29,23 +29,19 @@
 class AisisFileHandeling {
 	
 	//Store the contents of the file here.
-	private $contents;
+	private $file_contents;
 	//Store the contents of the directory here
-	private $files = array();
-	private $fileReturned; //File we got
+	private $package_files = array();
+	private $files_got_back; //File we got
 	
 	/**
-	 * Can we write to said file?
-	 * The path to the file is "hard coded" in.
-	 *
-	 * TODO: at a later date change the path
-	 * and allow the users to enter in there own paths
+	 * Does said file exist?
 	 *
 	 * @param filename of type String
 	 * @return true or false of type Boolean
 	 */
-	function check_exists($filename){
-	   if(!file_exists(CUSTOM . $filename)){
+	function check_exists($dir, $filename){
+	   if(!file_exists($dir . $filename)){
 		   ?> Please create custom-css.css in your custom folder.<?php
 		   return false;
 	   }
@@ -65,21 +61,21 @@ class AisisFileHandeling {
 	 * @return filename.
 	 */
 	function get_file_to_write_to($path, $filename, $extension){
-		if(!is_dir($path)){
+		if(!$this->check_dir($path)){
 			_e('the ' . $path . ' is not a directory');
 		}
 		
-		if($this->check_exists($filename)){
+		if($this->check_exists($path, $filename)){
 		
 			$handler = opendir($path);
 			while($file = readdir($handler)){
 				if($file != "." && $file != ".."){
-					$this->files[] = $file;
-					$count = count($this->files);
+					$this->package_files[] = $file;
+					$count = count($this->package_files);
 					for($i = 0; $i<$count; $i++){
-						if(substr(strrchr($this->files[$i],'.'),1)==$extension){
-							if($this->files[$i] == $filename){
-								$this->fileReturned = $this->files[$i];
+						if(substr(strrchr($this->package_files[$i],'.'),1)==$extension){
+							if($this->package_files[$i] == $filename){
+								$this->files_got_back = $this->package_files[$i];
 							}
 						}
 					}
@@ -87,7 +83,7 @@ class AisisFileHandeling {
 			}
 		}
 		
-		return $this->fileReturned;
+		return $this->files_got_back;
 	}
 	
 	/**
@@ -97,8 +93,8 @@ class AisisFileHandeling {
 	 * @param filename of type String
 	 * @return true or false of type Boolean
 	 */
-	function check_writable($filename){
-	   if ($this->check_exists($filename)){
+	function check_writable($path, $filename){
+	   if ($this->check_exists($path, $filename)){
 		   if(!is_writable(CUSTOM . $filename)){
 				?> This file does not seem to be writable. Please check your server permissions.<?php
 				return false;
@@ -114,9 +110,9 @@ class AisisFileHandeling {
 	 * @param filename of type String
 	 * @return contents of type string.
 	 */
-	function get_contents($filename){
-	   if($this->check_exists($filename) && $this->check_writable($filename)){
-		   return $this->contents = file_get_contents(CUSTOM . $filename);
+	function get_contents($path, $filename){
+	   if($this->check_exists($path, $filename) && $this->check_writable($path, $filename)){
+		   return $this->file_contents = file_get_contents(CUSTOM . $filename);
 	   }
 	}
 	
@@ -127,7 +123,7 @@ class AisisFileHandeling {
 	 * @return contents of type string.
 	 */
 	function write_to_file($filename, $contents, $dir){
-		if($this->check_exists($filename) && $this->check_writable($filename)){
+		if($this->check_exists($dir, $filename) && $this->check_writable($dir, $filename)){
 			if ($contents != ''){
 				$fp = fopen($dir.$filename, 'w');
 				fwrite($fp, $contents);
@@ -136,6 +132,19 @@ class AisisFileHandeling {
 			}
 		}
 		
+		return false;
+	}
+	
+	/**
+	 * quick utility function for seeing if said directy exists.
+	 *
+	 * @param dir of type directory
+	 * @return true or false
+	 */
+	function check_dir($dir){
+		if(is_dir($dir)){
+			return true;
+		}		
 		return false;
 	}
 }

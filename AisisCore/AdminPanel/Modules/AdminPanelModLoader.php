@@ -32,7 +32,7 @@
 	 * =================================================================
 	 */
 
-	$module = new AisisCoreRegister();
+	$aisis_load_module = new AisisCoreRegister();
 	
 	/**
 	 * We want to register the AdminPanelBase
@@ -41,8 +41,8 @@
 	 */
 	if(!function_exists('aisis_admin_site_base')){
 		function aisis_admin_site_base(){
-			global $module;
-			$module->admin_mod_register('AdminPanelBase.php');
+			global $aisis_load_module;
+			$aisis_load_module->admin_mod_register('AdminPanelBase.php');
 		}
 	}
 	
@@ -53,8 +53,8 @@
 	 */
 	if(!function_exists('aisis_admin_css_editor')){
 		function aisis_admin_css_editor(){
-			global $module;
-			$module->admin_mod_register('CSSEditor.php');
+			global $aisis_load_module;
+			$aisis_load_module->admin_mod_register('CSSEditor.php');
 		}
 	}
 	
@@ -64,8 +64,8 @@
 	 */
 	if(!function_exists('aisis_admin_php_editor')){
 		function aisis_admin_php_editor(){
-			global $module;
-			$module->admin_mod_register('PHPEditor.php');
+			global $aisis_load_module;
+			$aisis_load_module->admin_mod_register('PHPEditor.php');
 		}
 	}
 	
@@ -75,8 +75,8 @@
 	 */
 	if(!function_exists('aisis_admin_js_editor')){
 		function aisis_admin_js_editor(){
-			global $module;
-			$module->admin_mod_register('JSEditor.php');
+			global $aisis_load_module;
+			$aisis_load_module->admin_mod_register('JSEditor.php');
 		}
 	}
 ?>

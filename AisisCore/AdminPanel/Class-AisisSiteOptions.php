@@ -32,21 +32,21 @@
 		/**
 		 * Load the admin css editor
 		 */
-		public function css_editor(){
+		public function aisis_css_editor(){
 			aisis_admin_css_editor();
 		}
 		
 		/**
 		 * Load the admin php editor
 		 */
-		public function php_editor(){
+		public function aisis_php_editor(){
 			aisis_admin_php_editor();
 		}
 		
 		/**
 		 * Load the admin js editor
 		 */
-		public function js_editor(){
+		public function aisis_js_editor(){
 			aisis_admin_js_editor();
 		}
 	}

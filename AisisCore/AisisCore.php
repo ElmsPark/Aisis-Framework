@@ -49,16 +49,16 @@
 	}
 	
 	// Register Custom Menu Function
-	function register_custom_nav() {
+	function aisis_register_custom_nav() {
 		if (function_exists('register_nav_menus')) {
 			register_nav_menus( array(
-				'main-nav' => __( 'Main Navigation', 'themify' ),
+				'main-nav' => __( 'Main Navigation', 'aisis' ),
 			) );
 		}
 	}
 	
 	// Register Custom Menu Function - Action
-	add_action('init', 'register_custom_nav');
+	add_action('init', 'aisis_register_custom_nav');
 	
 	// Default Main Nav Function
 	function aisis_default_main_nav() {
@@ -67,11 +67,11 @@
 	}
 
 	// Add home link to menus
-	function new_nav_menu_items($items) {
+	function aisis_nav_items($items) {
 		$homelink = '<li><a href="'.bloginfo('url').'">Home</a></li>';
 		$items = $homelink . $items;
 		return $items;
 	}
-	add_filter( 'wp_nav_menu_items', 'new_nav_menu_items' );
-	add_filter( 'wp_list_pages', 'new_nav_menu_items' );
+	add_filter( 'wp_nav_menu_items', 'aisis_nav_items' );
+	add_filter( 'wp_list_pages', 'aisis_nav_items' );
 ?>

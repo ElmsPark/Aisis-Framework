@@ -40,6 +40,9 @@
 	 // Define Aisis Custom
 	 define('CUSTOM', TEMPLATEPATH . '/custom/');
 	 define('CUSTOM_TEMPLATES', TEMPLATEPATH . '/custom/Templates/');
+	 
+	 //Define Basics
+	 define('IMAGES', TEMPLATEPATH . '/images/');
 
 	 if(file_exists(TEMPLATEPATH . '/AisisCore/CoreLoader.php')){
 		require_once(TEMPLATEPATH . '/AisisCore/CoreLoader.php');

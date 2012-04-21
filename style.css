@@ -144,9 +144,11 @@ input[type="search"] {
 	padding : 6px 10px;
 	border-radius : 5px;
 }
+.objectWrapper{
+	margin: 0 0 560px;
+}
 .camera_wrap{
 	margin-top: 25px;
-	margin-bottom: 25px;
 }
 #nav-bar {
 	width : 100%;

@@ -67,6 +67,7 @@
 	  <?php get_search_form();?>
 	</header>
     
+    <div class="objectWrapper">
     <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
         <div data-thumb="<?php bloginfo('template_directory'); ?>/images/thumbs/bridge.jpg" data-src="<?php bloginfo('template_directory'); ?>/images/bridge.jpg">
             <div class="camera_caption fadeFromBottom">
@@ -75,9 +76,10 @@
         </div>
         <div data-thumb="<?php bloginfo('template_directory'); ?>/images/thumbs/leaf.jpg" data-src="<?php bloginfo('template_directory'); ?>/images/leaf.jpg">
             <div class="camera_caption fadeFromBottom">
-                It uses a light version of jQuery mobile, <em>navigate the slides by swiping with your fingers</em>
+                <p>It uses a light version of jQuery mobile, <em>navigate the slides by swiping with your fingers</em></p>
             </div>
         </div>
+    </div>
     </div>
    
 	<!-- /#header -->

@@ -31,7 +31,7 @@
 	 class AisisCoreRegister{
 		 
 		 //Store all files of a directory
-		 private $files = array();
+		 private $directory_files = array();
 		 private $directory_list = array();
 		 
 		/**
@@ -94,11 +94,11 @@
 			$handler = opendir($dir);
 			while($file = readdir($handler)){
 				if($file != "." && $file != ".."){
-					$this->files[] = $file;
+					$this->directory_files[] = $file;
 				}
 			}
 			
-			return $this->files;
+			return $this->directory_files;
 			
 		}
 		

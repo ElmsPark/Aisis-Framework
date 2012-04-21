@@ -15,27 +15,27 @@
 	 */
 	 
 
-	 $fileContents = new AisisFileHandeling();
-	 $update_css = false;
-	 $update_css_failed = false;
-	 $update_media_css = false;
-	 $update_media_css_failed = false;
+	 $aisis_file_contents = new AisisFileHandeling();
+	 $did_it_update_css = false;
+	 $did_update_css_fail = false;
+	 $did_it_update_media_css = false;
+	 $did_update_media_css_fail = false;
 	 
 	 if(isset($_POST['published'])){
-		 $contents = stripslashes_deep($_POST['code']);
-		 if($fileContents->write_to_file($fileContents->get_file_to_write_to(CUSTOM, 'custom-css.css', "css"), $contents, CUSTOM)){
-			 $update_css = true;
+		 $aisis_css_contents = stripslashes_deep($_POST['code']);
+		 if($aisis_file_contents->write_to_file($aisis_file_contents->get_file_to_write_to(CUSTOM, 'custom-css.css', "css"), $aisis_css_contents, CUSTOM)){
+			 $did_it_update_css = true;
 		 }else{
-			 $update_css_failed = true;
+			 $did_update_css_fail = true;
 		 }
 	 }
 	 
 	 if(isset($_POST['published-media'])){
-		 $contents = stripslashes_deep($_POST['code-media']);
-		 if($fileContents->write_to_file($fileContents->get_file_to_write_to(CUSTOM, 'custom-media-query.css', "css"), $contents, CUSTOM)){
-			 $update_media_css = true;
+		 $aisis_css_media_contents = stripslashes_deep($_POST['code-media']);
+		 if($aisis_file_contents->write_to_file($aisis_file_contents->get_file_to_write_to(CUSTOM, 'custom-media-query.css', "css"), $aisis_css_media_contents, CUSTOM)){
+			 $did_it_update_media_css = true;
 		 }else{
-			 $update_media_css_failed = true;
+			 $did_update_media_css_fail = true;
 		 }
 		 
 	 }
@@ -54,30 +54,30 @@
         </div>
         <h1>Css Editor</h1>
         <?php 
-		if($update_css == true){
+		if($did_it_update_css == true){
 			?><div class="success">We have successfully edited your custom css file. You will now see the resualts of that edit bellow.</div><?php
-		}elseif($update_css_failed == true){?>
+		}elseif($did_update_css_fail == true){?>
         	  <div class="err">Something went wrong and we could not update your css file. Do you have write access to this file?</div>
         <?php } ?>
     	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first.</div>
         <form method="post" action=<?php admin_url('admin-post.php?action=aisis-css-editor') ?>>
             <div class="contents">
-            	<textarea id="code" name="code"><?php echo $fileContents->get_contents('custom-css.css');?></textarea>
+            	<textarea id="code" name="code"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-css.css');?></textarea>
             </div> 
             <input type="submit" id="published" name="published" />
         </form>
         
         <h1>Css Media Query Editor</h1>
         <?php 
-		if($update_media_css == true){
+		if($did_it_update_media_css == true){
 			?><div class="success">We have successfully edited your custom media query css file. You will now see the resualts of that edit bellow.</div><?php
-		}elseif($update_media_css_failed == true){?>
+		}elseif($did_update_media_css_fail == true){?>
         	  <div class="err">Something went wrong and we could not update your custom media query css file. Do you have write access to this file?</div>
         <?php } ?>
     	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first.</div>
         <form method="post" action=<?php admin_url('admin-post.php?action=aisis-css-editor') ?>>
             <div class="contents">
-            	<textarea id="code-media" name="code-media"><?php echo $fileContents->get_contents('custom-media-query.css');?></textarea>
+            	<textarea id="code-media" name="code-media"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-media-query.css');?></textarea>
             </div> 
             <input type="submit" id="published-media" name="published-media" />
         </form>

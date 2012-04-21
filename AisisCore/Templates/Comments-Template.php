@@ -19,6 +19,9 @@
 	 *
 	 * =================================================================
 	 */
+	 
+	 //Set the variables to shut up the notices.
+	 global $user_identity, $post, $req, $comment_author_email, $comment_author_url, $comment_author;
 
 ?>
 

@@ -15,16 +15,16 @@
 	 */
 	 
 
-	 $fileContents = new AisisFileHandeling();
-	 $update_js = false;
-	 $update_js_failed = false;
+	 $aisis_file_contents = new AisisFileHandeling();
+	 $did_it_update_js = false;
+	 $did_update_js_fail = false;
 	 
 	 if(isset($_POST['published'])){
 		 $contents = stripslashes_deep($_POST['code']);
-		 if($fileContents->write_to_file($fileContents->get_file_to_write_to(CUSTOM, 'custom-js.js', "js"), $contents, CUSTOM)){
-			 $update_js = true;
+		 if($aisis_file_contents->write_to_file($aisis_file_contents->get_file_to_write_to(CUSTOM, 'custom-js.js', "js"), $contents, CUSTOM)){
+			 $did_it_update_js = true;
 		 }else{
-			 $update_js_failed = true;
+			 $did_update_js_fail = true;
 		 }
 	 }
 	 
@@ -42,17 +42,15 @@
         </div>
         <h1>PHP Editor</h1>
         <?php 
-		if($update_js == true){
+		if($did_it_update_js == true){
 			?><div class="success">We have successfully edited your custom JS file. You will now see the resualts of that edit bellow.</div><?php
-		}elseif($update_js_failed == true){?>
+		}elseif($did_update_js_fail == true){?>
         	  <div class="err">Something went wrong and we could not update your custom JS file. Do you have write access to this file?</div>
         <?php } ?>
-    	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first. 
-        If you in any way make any kind of syntax error or any other error you may result in a white screen of death. 
-        We advise you back up your <strong>custom/custom-functions.php</strong></div>
+    	<div class="notice">Please note that any changes you make here will over write your custom-js.js file in your custom/ folder.</div>
         <form method="post" action=<?php admin_url('admin-post.php?action=aisis-js-editor') ?>>
             <div class="contents">
-            	<textarea id="code" name="code"><?php echo $fileContents->get_contents('custom-js.js');?></textarea>
+            	<textarea id="code" name="code"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-js.js');?></textarea>
             </div> 
             <input type="submit" id="published" name="published" />
         </form>

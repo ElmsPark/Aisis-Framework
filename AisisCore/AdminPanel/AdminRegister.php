@@ -80,9 +80,9 @@
 		if(!function_exists('aisis_add_settings_page')){
 			function aisis_add_settings_page() {
 				add_menu_page(__('Aisis', 'aisis'), __('Aisis', 'aisis'), 'edit_themes', 'aisis_options', array('aisis_site_options', 'aisis_admin_panel'),  get_template_directory_uri() . '/images/block.png', 31);
-				add_submenu_page('aisis_options', __('Css Editor', 'aisis'), __('CSS Editor', 'aisis'), 'edit_themes', 'aisis-css-editor', array('aisis_site_options', 'css_editor')); #wp
-				add_submenu_page('aisis_options', __('PHP editor', 'aisis'), __('PHP Editor', 'aisis'), 'edit_themes', 'aisis-php-editor', array('aisis_site_options', 'php_editor')); #wp
-				add_submenu_page('aisis_options', __('JS Ediotr', 'aisis'), __('JS Ediotr', 'aisis'), 'edit_themes', 'aisis-js-editor', array('aisis_site_options', 'js_editor')); #wp
+				add_submenu_page('aisis_options', __('Css Editor', 'aisis'), __('CSS Editor', 'aisis'), 'edit_themes', 'aisis-css-editor', array('aisis_site_options', 'aisis_css_editor')); #wp
+				add_submenu_page('aisis_options', __('PHP editor', 'aisis'), __('PHP Editor', 'aisis'), 'edit_themes', 'aisis-php-editor', array('aisis_site_options', 'aisis_php_editor')); #wp
+				add_submenu_page('aisis_options', __('JS Ediotr', 'aisis'), __('JS Ediotr', 'aisis'), 'edit_themes', 'aisis-js-editor', array('aisis_site_options', 'aisis_js_editor')); #wp
 			}
 		}
 		

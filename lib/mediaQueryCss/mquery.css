@@ -126,6 +126,9 @@
 		margin : 10px auto 0 auto;
 		width : 75%;
 	}
+	.objectWrapper{
+		margin: 0 0 430px;
+	}
 }
 @media screen and (max-width:650px) {
 	.socialMediaLink {
@@ -232,6 +235,9 @@
 		margin-left : 10px;
 		margin-top : -30px;
 	}
+	.objectWrapper{
+		margin: 0 0 380px;
+	}
 }
 @media screen and (max-width:560px) {
 	#searchform {
@@ -269,6 +275,9 @@
 	.formLayout input[type="submit"] {
 		margin : 10px auto 0 auto;
 		width : 45%;
+	}
+	.objectWrapper{
+		margin: 0 0 320px;
 	}
 }
 @media screen and (max-width:480px) {
@@ -341,6 +350,9 @@
 	.block {
 		display : none;
 	}
+	.objectWrapper{
+		margin: 0 0 280px;
+	}
 }
 @media only screen and (max-width:320px) {
 	#site-description {
@@ -411,5 +423,8 @@
 	}
 	.block {
 		display : none;
+	}
+	.objectWrapper{
+		margin: 0 0 280px;
 	}
 }
