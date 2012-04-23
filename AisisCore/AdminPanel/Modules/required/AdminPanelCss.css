@@ -51,7 +51,7 @@ h1 {
 	color:#495F76;
 	text-shadow : #fff 0 1px 0;
 }
-.textSection {
+.whiteSection {
 	width: 70%;
 	margin: 10px auto 50px auto;
 	font-family:'Ubuntu', sans-serif;
@@ -61,6 +61,34 @@ h1 {
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
 	overflow:auto;
 	font-size:18px;
+}
+.optionsSection{
+	width: 70%;
+	height: 350px;
+	margin: 10px auto 50px auto;
+	font-family:'Ubuntu', sans-serif;
+	padding:20px;
+	background:#fff;
+	border-radius: 10px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.4);
+	font-size:18px;
+}
+.section{
+	width: 60%;
+	margin: 20px auto 0 auto;
+}
+.contents {
+	width: 80%;
+	margin: 0 auto 0 auto;
+}
+.images{
+	width: 60%;
+	margin: 20px auto 0 auto;
+}
+.individualImage{
+	height:110px;
+	margin: 0 auto 0 auto;
+	float:left;
 }
 .notice {
 	background : #fff9d7;
@@ -103,16 +131,7 @@ h1 {
 	margin: 10px auto 10px auto;
 	width:60%;
 }
-.contents {
-	width: 80%;
-	margin: 0 auto 0 auto;
-}
-.container {
-	width: 80%;
-	margin: 20px auto 20px auto;
-	padding: 30px;
-	height: 100% !important;
-}
+
 .CodeMirror {
 	border: 1px solid #eee;
 	width:92%;
@@ -128,11 +147,20 @@ h1 {
 	overflow-y: hidden;
 	overflow-x: auto;
 }
-input[type="submit"] {
+#adminPanelWrapper input[type="submit"] {
 	margin-left: 150px;
 	border-radius: 5px;
 	margin-top: 20px;
 	width: 100px;
+	height:30px;
+	cursor:pointer;
+	
+}
+#adminPanelWrapper input[type="button"] {
+	margin-left: -10px;
+	padding:5px;
+	border-radius: 5px;
+	margin-top: 20px;
 	height:30px;
 	cursor:pointer;
 	

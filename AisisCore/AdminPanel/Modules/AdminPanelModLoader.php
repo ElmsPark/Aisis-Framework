@@ -46,6 +46,13 @@
 		}
 	}
 	
+	if(!function_exists('aisis_site_options')){
+		function aisis_site_options(){
+			global $aisis_load_module;
+			$aisis_load_module->admin_mod_register('AisisOptions.php');
+		}
+	}
+	
 	/**
 	 * We want to register the css editor for the
 	 * css editor portion of the admin panel.

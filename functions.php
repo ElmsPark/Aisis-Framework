@@ -43,6 +43,8 @@
 	 
 	 //Define Basics
 	 define('IMAGES', TEMPLATEPATH . '/images/');
+	 define('IMAGE_THUMBS', TEMPLATEPATH . '/images/thumbs/');
+	 define('HEADER_IMAGES', TEMPLATEPATH . '/images/headerimages/');
 
 	 if(file_exists(TEMPLATEPATH . '/AisisCore/CoreLoader.php')){
 		require_once(TEMPLATEPATH . '/AisisCore/CoreLoader.php');

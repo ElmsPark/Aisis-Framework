@@ -79,30 +79,6 @@
 		}
 		
 		/**
-		 * Check for files in a directory. Get that list of files
-		 * and return them based on the directory passed in.
-		 *
-		 * @param dir of type Directory
-		 * @return list of files of type array
-		 */
-		public function aisis_get_dir($dir){
-			
-			if(!is_dir($dir)){
-				_e('Not a Directory');
-			}
-			
-			$handler = opendir($dir);
-			while($file = readdir($handler)){
-				if($file != "." && $file != ".."){
-					$this->directory_files[] = $file;
-				}
-			}
-			
-			return $this->directory_files;
-			
-		}
-		
-		/**
 		 * Check if a directorys contents contain .php
 		 * files and then if so - load each file into
 		 * a require once statement.
@@ -110,9 +86,10 @@
 		 * @param dir of type Directory
 		 */
 		public function load_if_extentsion_is_php($dir){
+			$aisis_file_handeling = new AisisFileHandeling();
 			$list = array();
 			
-			$list = $this->aisis_get_dir($dir);
+			$list = $aisis_file_handeling->aisis_get_dir($dir);
 			
 			$count = count($list);
 			for($i = 0; $i<$count; $i++){

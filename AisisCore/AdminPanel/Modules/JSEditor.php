@@ -30,17 +30,7 @@
 	 
 	 
 ?>
-    <div id="adminPanelWrapper">
-        <div class="adminPanelTitle">
-        	Aisis Core Theme Options
-        </div>
-        <div class="adminPanelSubTitle">
-        	Aisis Core Version 1.0
-        </div>
-        <div class="textSection">
-            Welcome to the CSS Editor. Here you can edit the custom-css.css in your custom folder. After words please hit save to save the changes you made. The same applies to the Media Query CSS editor.
-        </div>
-        <h1>PHP Editor</h1>
+        <h1>JS Editor</h1>
         <?php 
 		if($did_it_update_js == true){
 			?><div class="success">We have successfully edited your custom JS file. You will now see the resualts of that edit bellow.</div><?php
@@ -54,5 +44,4 @@
             </div> 
             <input type="submit" id="published" name="published" />
         </form>
-    </div>
     

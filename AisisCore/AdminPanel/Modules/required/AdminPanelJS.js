@@ -19,6 +19,13 @@ $(document).ready(function() {
 		lineWrapping: true
     });
 	
+	$('#upload_image_button').click(function() {
+		formfield = $('#button-image-upload').attr('name');
+		tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+		return false;
+	});
 });
+
+
 
 

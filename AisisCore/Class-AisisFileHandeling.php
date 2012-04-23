@@ -60,7 +60,7 @@ class AisisFileHandeling {
 	 *
 	 * @return filename.
 	 */
-	function get_file_to_write_to($path, $filename, $extension){
+	function get_directory_files($path, $filename, $extension){
 		if(!$this->check_dir($path)){
 			_e('the ' . $path . ' is not a directory');
 		}
@@ -146,6 +146,30 @@ class AisisFileHandeling {
 			return true;
 		}		
 		return false;
+	}
+	
+	/**
+	 * Check for files in a directory. Get that list of files
+	 * and return them based on the directory passed in.
+	 *
+	 * @param dir of type Directory
+	 * @return list of files of type array
+	 */
+	function aisis_get_dir($dir){
+		
+		if(!is_dir($dir)){
+			_e('Not a Directory');
+		}
+		
+		$handler = opendir($dir);
+		while($file = readdir($handler)){
+			if($file != "." && $file != ".."){
+				$this->directory_files[] = $file;
+			}
+		}
+		
+		return $this->directory_files;
+		
 	}
 }
 
