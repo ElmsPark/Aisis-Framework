@@ -31,9 +31,8 @@
 	 //Define Aisis Core Package
 	 define('AISISCORE', TEMPLATEPATH . '/AisisCore/');
 	 define('AISIS_EXCEPTIONS', TEMPLATEPATH . '/AisisCore/Exceptions/');
-	 define('AISIS_ADMINPANEL', TEMPLATEPATH . '/AisisCore/AdminPanel/');
-	 define('AISIS_ADMINPANEL_MODULES', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/');
-	 define('AISIS_ADMINPANEL_TEMPLATES', TEMPLATEPATH . '/AisisCore/AdminPanel/Template/');
+	 //define('AISIS_ADMINPANEL', TEMPLATEPATH . '/AisisCore/AdminPanel/');
+	 //define('AISIS_ADMINPANEL_MODULES', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/');
 	 define('AISIS_TEMPLATES',TEMPLATEPATH . '/AisisCore/Templates/');
 	 define('AISIS_SHORTCODES', TEMPLATEPATH . '/AisisCore/ShortCodes/');
 	 
@@ -45,12 +44,17 @@
 	 define('IMAGES', TEMPLATEPATH . '/images/');
 	 define('IMAGE_THUMBS', TEMPLATEPATH . '/images/thumbs/');
 	 define('HEADER_IMAGES', TEMPLATEPATH . '/images/headerimages/');
-
-	 if(file_exists(TEMPLATEPATH . '/AisisCore/CoreLoader.php')){
-		require_once(TEMPLATEPATH . '/AisisCore/CoreLoader.php');
+	 
+	 if(is_dir(AISISCORE)){
+		 if(file_exists(AISISCORE . 'CoreLoader.php')){
+			require_once(AISISCORE . 'CoreLoader.php');
+		 }else{
+			_e('You are missing the AisisCore/CoreLoader.php file. Please create it.');
+			return;
+		 }
 	 }else{
-		_e('Seems your missing the CoreLoader.php file from Aisis Core....');
-		return;
+		 _e('You are missing the directory AisisCore. Please create it.');
+		 return;
 	 }
 	 
 ?>
