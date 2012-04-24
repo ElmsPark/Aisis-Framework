@@ -27,7 +27,7 @@
 		<section class="widget">
 			<h4 class="widgettitle">Example Sidebar</h4>
 			<ul>
-				<li><a href="#">WordPress</a> (3)</li>
+				<li><a href="<?php echo WPINC ?>/media.php?type=image&amp;TB_iframe=true" title="add a caption to title attribute / or leave blank" class="thickbox">Example 1</a>   (3)</li>
 				<li><a href="#">Design</a> (23)</li>
 				<li><a href="#">Design </a>(18)</li>
 			</ul>

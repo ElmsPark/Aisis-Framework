@@ -49,7 +49,7 @@
 		 function aisis_jq_cdn(){
 			 wp_deregister_script('jquery');
 			 wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
-			 wp_enqueue_script('jquery');
+			 wp_enqueue_script('jquery', false, true);
 		 }
 	 }else{
 		 echo '<div class="ext">' . new OverRideException('<strong>Do not override the aisis_jq_cdn function. See Tracemessage -> </strong>') . '</div>';
@@ -69,13 +69,14 @@
 			wp_enqueue_style( 'tip-tip-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/tipTip.css'); //Load plugin css
 			wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css'); //Load plugin css
 			wp_enqueue_style( 'camera-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/camera.css'); //Load Camera css
+			wp_enqueue_style( 'thickbox');
 			wp_enqueue_script( 'main-site', get_template_directory_uri() . '/lib/Javascript/mainSite.js', array('jquery'), false, true ); //Load Core JS
-			wp_enqueue_script( 'modernizer', get_template_directory_uri() . '/lib/Javascript/Modernizer.js', false, true ); //Load Modernizer
 			wp_enqueue_script( 'tip-tip', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.tipTip.minified.js', array('jquery'), false, true ); //Loadtip tip js
 			wp_enqueue_script( 'toast', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.toastmessage.js', array('jquery'), false, true ); //Load toastmessage js
 			wp_enqueue_script( 'jquery-mobile-customized', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.mobile.customized.min.js', array('jquery'), false, true );//Lod jquery mobile (customized)
 			wp_enqueue_script( 'jquery-easing', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.easing.1.3.js', array('jquery'), false, true ); //Load Jquery Easing
 			wp_enqueue_script( 'camera', get_template_directory_uri() . '/lib/Javascript/plugins/camera.min.js', array('jquery'), false, true );//Load Camera
+			wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true);
 
 			if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );
 			
