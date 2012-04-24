@@ -29,9 +29,9 @@
 	 require_once(AISISCORE . 'Class-AisisCoreRegister.php');
 	 
 	 //Loaders - From all packages
-	 require_once(AISIS_ADMINPANEL . 'AdminRegister.php');
-	 require_once(AISIS_ADMINPANEL . 'AdminPanelLoader.php');
-	 require_once(AISIS_ADMINPANEL . 'Class-AisisSiteOptions.php');
+	//require_once(AISIS_ADMINPANEL . 'AdminRegister.php');
+	//require_once(AISIS_ADMINPANEL . 'AdminPanelLoader.php');
+	//require_once(AISIS_ADMINPANEL . 'Class-AisisSiteOptions.php');
 	 require_once(AISIS_EXCEPTIONS . 'ExceptionLoader.php');
 	 require_once(AISIS_TEMPLATES . 'AisisLoadTemplate.php');
 	 

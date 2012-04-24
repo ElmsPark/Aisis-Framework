@@ -28,6 +28,7 @@
 		add_theme_support('post-thumbnails');
 		add_theme_support( 'post-formats', array( 'aside', 'link', 'gallery', 'status', 'quote', 'image' ) );
 		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'custom-header', array( 'random-default' => true ) );
 	}
 	
 	//Sidebar jazz
