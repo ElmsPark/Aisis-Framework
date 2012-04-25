@@ -36,10 +36,10 @@
 	 * =================================================================
 	 */
 	  
-	  $aisis_template_loader = new AisisCoreRegister();
+	   $aisis_template_loader = new AisisCoreRegister();
 	  
 	  //Load Index
-	  if(!function_exists('aisis_core_index()')){
+	  if(!function_exists('aisis_core_index')){
 	  	function aisis_core_index(){
 		  global $aisis_template_loader;
 		  if(have_posts()){

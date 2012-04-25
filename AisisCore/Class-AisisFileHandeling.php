@@ -60,7 +60,7 @@
 		 *
 		 * @return filename.
 		 */
-		function get_directory_files($path, $filename, $extension){
+		function get_directory_of_files($path, $filename, $extension){
 			if(!$this->check_dir($path)){
 				_e('the ' . $path . ' is not a directory');
 			}

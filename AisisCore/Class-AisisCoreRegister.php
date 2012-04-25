@@ -35,47 +35,35 @@
 		 private $directory_list = array();
 		 
 		/**
-		 * Load the filename. If the custom is not set to true we
-		 * will use the default path which is the AisisCore/Templates
-		 * instead of custom/Templates. 
+		 * Meant for registering html based modules and templates for aisis.
+		 *
+		 * We load the file based on the parameters set. If the user puts in a
+		 * a path to the said file then we use that path and do our checks to make sure
+		 * the file exists at that path. If they do not we default the load  of the file to
+		 * check the Templates folder in AisisCore.
 		 *
 		 * @param filename of type file ncluding the .php extension
-		 * @param custom of type boolean (default false)
+		 * @param path of type path to file - default empty
 		 *
 		 */ 
-		public function aisis_register($filename, $custom=false){
+		public function aisis_register($filename, $path=''){
 			
-			if(!file_exists(TEMPLATEPATH . '/AisisCore/Templates/' . $filename)){
-				_e('<div class="ext">'.new LoadFileException('<strong>Could not find specified file name: ' . $filename . '. Stack Trace: </strong>').'</div>');
+			if($path != ''){
+				if(!file_exists($path . $filename)){
+					_e('<div class="excNotice">'.new LoadFileException('<strong>Could not find specified file name: ' . $filename . '. Stack Trace: </strong>').'</div>');
+				}
+				
+				require_once($path . $filename);
+				
+			}else{
+			
+				if(!file_exists(TEMPLATEPATH . '/AisisCore/Templates/' . $filename)){
+					_e('<div class="excNotice">'.new LoadFileException('<strong>Could not find specified file name: ' . $filename . '. Stack Trace: </strong>').'</div>');
+				}
+				
+				require_once(TEMPLATEPATH . '/AisisCore/Templates/' . $filename);
 			}
 			
-			if($custom == true){
-				require_once(TEMPLATEPATH . '/custom/Templates/' . $filename);
-			}
-			
-			require_once(TEMPLATEPATH . '/AisisCore/Templates/' . $filename);
-		}
-		
-		/**
-		 * Load the filename. If the custom is not set to true we
-		 * will use the default path which is the AdminPanel/Modules
-		 * instead of custom/Templates. 
-		 *
-		 * @param filename of type file ncluding the .php extension
-		 * @param custom of type boolean (default false)
-		 *
-		 */ 
-		public function admin_mod_register($filename, $custom=false){
-
-			if(!file_exists(TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/' . $filename)){
-				_e('<div class="excNotice">'.new LoadFileException('<strong>Could not find specified file name: ' . $filename . '. Stack Trace: </strong>').'</div>');
-			}
-			
-			if($custom == true){
-				require_once(TEMPLATEPATH . '/custom/Templates/' . $filename);
-			}
-			
-			require_once(TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/' . $filename);
 		}
 	}
 ?>

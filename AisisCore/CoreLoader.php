@@ -35,6 +35,9 @@
 	 //Load Shortcodes - something simple.
 	 require_once(AISIS_SHORTCODES . 'codes.php');
 	 
+	 $aisis_load_admin_section= new AisisFileHandeling();
+	 $aisis_load_admin_section->load_if_extension_is_php(AISIS_ADMINPANEL);
+	 
 	 
 	 //Set up Jquery
 	 if(!function_exists('aisis_jq_cdn')){
@@ -73,7 +76,7 @@
 			wp_enqueue_script( 'jquery-mobile-customized', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.mobile.customized.min.js', array('jquery'), false, true );//Lod jquery mobile (customized)
 			wp_enqueue_script( 'jquery-easing', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.easing.1.3.js', array('jquery'), false, true ); //Load Jquery Easing
 			wp_enqueue_script( 'camera', get_template_directory_uri() . '/lib/Javascript/plugins/camera.min.js', array('jquery'), false, true );//Load Camera
-			wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true);
+			
 
 			if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );
 			
