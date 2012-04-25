@@ -26,151 +26,188 @@
 	 * =================================================================
 	 */
 
-class AisisFileHandeling {
-	
-	//Store the contents of the file here.
-	private $file_contents;
-	//Store the contents of the directory here
-	private $package_files = array();
-	private $files_got_back; //File we got
-	
-	/**
-	 * Does said file exist?
-	 *
-	 * @param filename of type String
-	 * @return true or false of type Boolean
-	 */
-	function check_exists($dir, $filename){
-	   if(!file_exists($dir . $filename)){
-		   ?> Please create custom-css.css in your custom folder.<?php
-		   return false;
-	   }
-	   
-	   return true;
-	}
-	
-	/**
-	 * We want to pass in the path to the file
-	 * and the file name and then we can get said
-	 * file that we want to write to.
-	 *
-	 * @param $path of type directory.
-	 * @param $filename of type file name with extension.
-	 * @param $extension of type extension (eg: css, php, html)
-	 *
-	 * @return filename.
-	 */
-	function get_directory_files($path, $filename, $extension){
-		if(!$this->check_dir($path)){
-			_e('the ' . $path . ' is not a directory');
+	class AisisFileHandeling {
+		
+		//Store the contents of the file here.
+		private $file_contents;
+		//Store the contents of the directory here
+		private $package_files = array();
+		private $files_got_back; //File we got
+		
+		/**
+		 * Does said file exist?
+		 *
+		 * @param filename of type String
+		 * @return true or false of type Boolean
+		 */
+		function check_exists($dir, $filename){
+		   if(!file_exists($dir . $filename)){
+			   ?> Please create custom-css.css in your custom folder.<?php
+			   return false;
+		   }
+		   
+		   return true;
 		}
 		
-		if($this->check_exists($path, $filename)){
-		
-			$handler = opendir($path);
-			while($file = readdir($handler)){
-				if($file != "." && $file != ".."){
-					$this->package_files[] = $file;
-					$count = count($this->package_files);
-					for($i = 0; $i<$count; $i++){
-						if(substr(strrchr($this->package_files[$i],'.'),1)==$extension){
-							if($this->package_files[$i] == $filename){
-								$this->files_got_back = $this->package_files[$i];
+		/**
+		 * We want to pass in the path to the file
+		 * and the file name and then we can get said
+		 * file that we want to write to.
+		 *
+		 * @param $path of type directory.
+		 * @param $filename of type file name with extension.
+		 * @param $extension of type extension (eg: css, php, html)
+		 *
+		 * @return filename.
+		 */
+		function get_directory_files($path, $filename, $extension){
+			if(!$this->check_dir($path)){
+				_e('the ' . $path . ' is not a directory');
+			}
+			
+			if($this->check_exists($path, $filename)){
+			
+				$handler = opendir($path);
+				while($file = readdir($handler)){
+					if($file != "." && $file != ".."){
+						$this->package_files[] = $file;
+						$count = count($this->package_files);
+						for($i = 0; $i<$count; $i++){
+							if(substr(strrchr($this->package_files[$i],'.'),1)==$extension){
+								if($this->package_files[$i] == $filename){
+									$this->files_got_back = $this->package_files[$i];
+								}
 							}
 						}
 					}
 				}
 			}
+			
+			return $this->files_got_back;
 		}
 		
-		return $this->files_got_back;
-	}
-	
-	/**
-	 * Is the file that we want to write to currently writable?
-	 * The path to this file is also hard coded much like check_exists().
-	 *
-	 * @param filename of type String
-	 * @return true or false of type Boolean
-	 */
-	function check_writable($path, $filename){
-	   if ($this->check_exists($path, $filename)){
-		   if(!is_writable(CUSTOM . $filename)){
-				?> This file does not seem to be writable. Please check your server permissions.<?php
-				return false;
+		/**
+		 * Is the file that we want to write to currently writable?
+		 * The path to this file is also hard coded much like check_exists().
+		 *
+		 * @param filename of type String
+		 * @return true or false of type Boolean
+		 */
+		function check_writable($path, $filename){
+		   if ($this->check_exists($path, $filename)){
+			   if(!is_writable(CUSTOM . $filename)){
+					?> This file does not seem to be writable. Please check your server permissions.<?php
+					return false;
+			   }
+			   
+			   return true;
 		   }
-		   
-		   return true;
-	   }
-	}
-	
-	/**
-	 * return the contents of the file.
-	 *
-	 * @param filename of type String
-	 * @return contents of type string.
-	 */
-	function get_contents($path, $filename){
-	   if($this->check_exists($path, $filename) && $this->check_writable($path, $filename)){
-		   return $this->file_contents = file_get_contents(CUSTOM . $filename);
-	   }
-	}
-	
-	/**
-	 * write the contents to the specified file
-	 *
-	 * @param filename of type String
-	 * @return contents of type string.
-	 */
-	function write_to_file($filename, $contents, $dir){
-		if($this->check_exists($dir, $filename) && $this->check_writable($dir, $filename)){
-			if ($contents != ''){
-				$fp = fopen($dir.$filename, 'w');
-				fwrite($fp, $contents);
-				fclose($fp);
+		}
+		
+		/**
+		 * return the contents of the file.
+		 *
+		 * @param filename of type String
+		 * @return contents of type string.
+		 */
+		function get_contents($path, $filename){
+		   if($this->check_exists($path, $filename) && $this->check_writable($path, $filename)){
+			   return $this->file_contents = file_get_contents(CUSTOM . $filename);
+		   }
+		}
+		
+		/**
+		 * write the contents to the specified file
+		 *
+		 * @param filename of type String
+		 * @return contents of type string.
+		 */
+		function write_to_file($filename, $contents, $dir){
+			if($this->check_exists($dir, $filename) && $this->check_writable($dir, $filename)){
+				if ($contents != ''){
+					$fp = fopen($dir.$filename, 'w');
+					fwrite($fp, $contents);
+					fclose($fp);
+					return true;
+				}
+			}
+			
+			return false;
+		}
+		
+		/**
+		 * quick utility function for seeing if said directy exists.
+		 *
+		 * @param dir of type directory
+		 * @return true or false
+		 */
+		function check_dir($dir){
+			if(is_dir($dir)){
 				return true;
-			}
+			}		
+			return false;
 		}
 		
-		return false;
-	}
-	
-	/**
-	 * quick utility function for seeing if said directy exists.
-	 *
-	 * @param dir of type directory
-	 * @return true or false
-	 */
-	function check_dir($dir){
-		if(is_dir($dir)){
+		/**
+		 * Check if a directorys contents contain .php
+		 * files and then if so - load each file into
+		 * a require once statement.
+		 *
+		 * @param dir of type Directory
+		 */
+		public function load_if_extension_is_php($dir, $file_dont_load = ''){
+			$aisis_file_handeling = new AisisFileHandeling();
+			$list = array();
+			
+			$list = $aisis_file_handeling->aisis_get_dir($dir);
+			
+			$count = count($list);
+			for($i = 0; $i<$count; $i++){
+				if(substr(strrchr($list[$i],'.'),1)=="php"){
+					require_once($dir . $list[$i]);
+				}
+			}
+			
+		}
+		
+		/**
+		 * We only allow Dashes, Alphanumeric, Periods or underscores in the name.
+		 * Anything else and we thow and error.
+		 *
+		 * @param filename of type file name plus the extension.
+		 */
+		public function aisis_register_security($filename){
+			if(preg_match('/[^a-z0-9\\/\\\\_.:-]/i',$filename)){
+				_e('<div class="ext">'.new LoadFileSecutiryException('<strong>Security threat with file: ' . $filename . 
+						'. We only allow alphanumeric, dashes, underscores and periods in the name. Stack Trace: </strong>').'</div>');
+			}
+			
 			return true;
-		}		
-		return false;
-	}
-	
-	/**
-	 * Check for files in a directory. Get that list of files
-	 * and return them based on the directory passed in.
-	 *
-	 * @param dir of type Directory
-	 * @return list of files of type array
-	 */
-	function aisis_get_dir($dir){
-		
-		if(!is_dir($dir)){
-			_e('Not a Directory');
 		}
 		
-		$handler = opendir($dir);
-		while($file = readdir($handler)){
-			if($file != "." && $file != ".."){
-				$this->directory_files[] = $file;
+		/**
+		 * Check for files in a directory. Get that list of files
+		 * and return them based on the directory passed in.
+		 *
+		 * @param dir of type Directory
+		 * @return list of files of type array
+		 */
+		function aisis_get_dir($dir){
+			
+			if(!is_dir($dir)){
+				_e('Not a Directory');
 			}
+			
+			$handler = opendir($dir);
+			while($file = readdir($handler)){
+				if($file != "." && $file != ".."){
+					$this->directory_files[] = $file;
+				}
+			}
+			
+			return $this->directory_files;
+			
 		}
-		
-		return $this->directory_files;
-		
 	}
-}
 
 ?>

@@ -23,19 +23,16 @@
 	 * =================================================================
 	 */
 	 
-	 //Defaults - Core
+	 //Defaults - Core - Load it
 	 require_once(AISISCORE . 'AisisCore.php');
 	 require_once(AISISCORE . 'Class-AisisFilehandeling.php');
 	 require_once(AISISCORE . 'Class-AisisCoreRegister.php');
 	 
-	 //Loaders - From all packages
-	//require_once(AISIS_ADMINPANEL . 'AdminRegister.php');
-	//require_once(AISIS_ADMINPANEL . 'AdminPanelLoader.php');
-	//require_once(AISIS_ADMINPANEL . 'Class-AisisSiteOptions.php');
+	 //These are all the loaders
 	 require_once(AISIS_EXCEPTIONS . 'ExceptionLoader.php');
-	 require_once(AISIS_TEMPLATES . 'AisisLoadTemplate.php');
+	 require_once(AISIS_TEMPLATES . 'BuildAisisTheme.php');
 	 
-	 //Load Shortcodes
+	 //Load Shortcodes - something simple.
 	 require_once(AISIS_SHORTCODES . 'codes.php');
 	 
 	 

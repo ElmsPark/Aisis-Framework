@@ -77,42 +77,5 @@
 			
 			require_once(TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/' . $filename);
 		}
-		
-		/**
-		 * Check if a directorys contents contain .php
-		 * files and then if so - load each file into
-		 * a require once statement.
-		 *
-		 * @param dir of type Directory
-		 */
-		public function load_if_extentsion_is_php($dir){
-			$aisis_file_handeling = new AisisFileHandeling();
-			$list = array();
-			
-			$list = $aisis_file_handeling->aisis_get_dir($dir);
-			
-			$count = count($list);
-			for($i = 0; $i<$count; $i++){
-				if(substr(strrchr($list[$i],'.'),1)=="php"){
-					require_once($dir . $list[$i]);
-				}
-			}
-			
-		}
-		
-		/**
-		 * We only allow Dashes, Alphanumeric, Periods or underscores in the name.
-		 * Anything else and we thow and error.
-		 *
-		 * @param filename of type file name plus the extension.
-		 */
-		public function aisis_register_security($filename){
-			if(preg_match('/[^a-z0-9\\/\\\\_.:-]/i',$filename)){
-				_e('<div class="ext">'.new LoadFileSecutiryException('<strong>Security threat with file: ' . $filename . 
-						'. We only allow alphanumeric, dashes, underscores and periods in the name. Stack Trace: </strong>').'</div>');
-			}
-			
-			return true;
-		}
 	}
 ?>
