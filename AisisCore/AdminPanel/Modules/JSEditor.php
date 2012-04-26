@@ -30,18 +30,26 @@
 	 
 	 
 ?>
-        <h1>JS Editor</h1>
+        <div class="box">
+        	<h1>JavaScript Editor</h1>
+            <p>Looking to add your own custom JS? add it bellow and hit save and watch your java script functions come alive!</p>
+        </div>
         <?php 
 		if($did_it_update_js == true){
-			?><div class="success">We have successfully edited your custom JS file. You will now see the resualts of that edit bellow.</div><?php
+			?><div class="success">We have successfully edited your custom JS file. You will now see the resualts of that edit bellow.</div>
+			  <script>
+			  $().toastmessage('showSuccessToast', "We have saved your work to your custom-JS.js file in your /Aisis/custom/ folder");
+              </script>
+			<?php
 		}elseif($did_update_js_fail == true){?>
         	  <div class="err">Something went wrong and we could not update your custom JS file. Do you have write access to this file?</div>
+              <script>
+			  $().toastmessage('showSuccessToast', "We have failed to saves your work to your custom-JS.js file in your /Aisis/custom/ folder");
+              </script>
         <?php } ?>
     	<div class="notice">Please note that any changes you make here will over write your custom-js.js file in your custom/ folder.</div>
         <form method="post" action=<?php admin_url('admin-post.php?action=aisis-js-editor') ?>>
-            <div class="contents">
-            	<textarea id="code" name="code"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-js.js');?></textarea>
-            </div> 
+            <textarea id="code" name="code"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-js.js');?></textarea>
             <input type="submit" id="published" name="published" />
         </form>
     

@@ -14,19 +14,23 @@
 	 *
 	 * =================================================================
 	 */
+	 
+	 //check theme version
+	 $aisis_theme_version = get_theme_data(get_bloginfo('stylesheet_url'));
+	 $aisis_check_version = new AisisUpdate();
 
 ?>
 
     <div id="adminPanelWrapper">
         <div class="adminPanelTitle">
             Aisis Core Theme Options
+            <div class="adminPanelSubTitle">
+            	Aisis Core Version <?php echo $aisis_theme_version['Version']; ?>
+        	</div>
+            <div class="upgradeNotice"><?php $aisis_check_version->check_current_version();?></div>
         </div>
-        <div class="adminPanelSubTitle">
-            Aisis Core Version 1.0
-        </div>
-        <div class="whiteSection">
-            Make your changes bellow and then hit submit to save them.
-        </div>
+       
+
 		<?php
         if(isset($_GET['page']) && $_GET['page'] == 'aisis_options'){
 			aisis_admin_options_page();
@@ -44,4 +48,5 @@
 			aisis_admin_doc_page();
 		}
 		?>
+        <div class="adminFooter">(C) 2012 - GPL 3.0 - Adam Balan - </div>
     </div>

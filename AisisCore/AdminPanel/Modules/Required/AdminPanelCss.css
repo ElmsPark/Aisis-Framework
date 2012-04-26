@@ -16,46 +16,83 @@
  */
 
 h1 {
-	color : #252e34;
+	color:#4B718B;
 	margin-left:150px;
-	text-shadow : #fff 0 1px 0;
-	margin-bottom: 50px;
+	text-shadow : #6695B0 0 1px 0;
+	margin-bottom: 20px;
 	border-bottom: inset thin #666;
-	line-height: 35px;
-	width: 40%;
+	line-height: 40px;
+	width: 46%;
 	font-size: 45px;
 }
 #adminPanelWrapper {
-	width: 60%;
+	width: 75%;
 	margin: 25px auto 0 auto;
 	font-family:'Ubuntu', sans-serif;
 	padding:20px;
 	background:#EBEEF1;
 	border-radius: 10px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
-	overflow:auto;
+	overflow:hidden
 }
 .adminPanelTitle {
-	font-size: 44px;
-	margin-top:20px;
-	margin-left: 320px;
-	color:#8B477A;
-	text-shadow : #fff 0 1px 0;
-	line-height: 35px;
+	width: 70%;
+	margin: -40px auto 40px 180px;
+	border-radius: 8px;
+	border: thin solid #999;
+	background:#B5C4D2;
+	text-align:center;
+	padding: 40px;
+	font-size: 40px;
+	color:#955175;
+	text-shadow : #A35A8D 0 1px 0;
+	overflow:hidden;
 }
 .adminPanelSubTitle {
 	font-size: 20px;
 	margin-top:20px;
-	margin-left: 420px;
-	margin-bottom: 50px;
+	margin-bottom:10px;
 	color:#495F76;
-	text-shadow : #fff 0 1px 0;
+	text-shadow : #D7E1E3 0 1px 0;
+	width:100%;
+	text-align:center;
 }
-.whiteSection {
+.box{
+	width: 45%;
+	margin-left: 799px;
+	margin-bottom: 45px;
+	background:#D5B7CC;
+	padding:10px;
+	border-right: #846275 15px solid;
+	border-top-left-radius:8px;
+	border-bottom-left-radius: 8px;
+	clear:both;
+	-webkit-box-shadow: 0 6px 6px -6px black;
+	-moz-box-shadow: 0 6px 6px -6px black;
+	box-shadow: 0 6px 6px -6px black;
+}
+.box p{
+	width: 50%;
+	margin-left: 150px;
+	margin-top: -10px;
+	font-size:16px;
+}
+
+#tabs{
 	width: 70%;
+	margin: 20px auto 20px auto;
+}
+
+.ui-widget-header{
+	border: none !important;
+	background: none !important;
+}
+
+.whiteSection {
+	width: 60%;
 	margin: 10px auto 50px auto;
 	font-family:'Ubuntu', sans-serif;
-	padding:20px;
+	padding:40px;
 	background:#fff;
 	border-radius: 10px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
@@ -63,23 +100,16 @@ h1 {
 	font-size:18px;
 }
 .optionsSection{
-	width: 70%;
-	height: 350px;
-	margin: 10px auto 50px auto;
+	width: 83%;
+	margin-left: -25px;
+	margin-bottom: 50px;
 	font-family:'Ubuntu', sans-serif;
-	padding:20px;
+	padding:40px;
 	background:#fff;
-	border-radius: 10px;
+	border-top-right-radius:8px;
+	border-bottom-right-radius: 8px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
 	font-size:18px;
-}
-.section{
-	width: 60%;
-	margin: 20px auto 0 auto;
-}
-.contents {
-	width: 80%;
-	margin: 0 auto 0 auto;
 }
 .images{
 	width: 60%;
@@ -97,7 +127,20 @@ h1 {
 	padding : 10px;
 	font-size : 13px;
 	border-radius : 5px;
-	margin : 10px auto 20px auto;
+	margin : 10px auto -8px auto;
+	width:60%;
+}
+.upgradeNotice {
+	background : #fff9d7;
+	border : 1px solid #e2c822;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin : 10px auto -45px auto;
+	font-weight:normal;
+	color:#000000;
+	text-shadow:none;
 	width:60%;
 }
 .err {
@@ -132,10 +175,10 @@ h1 {
 	width:60%;
 }
 
+
 .CodeMirror {
-	border: 1px solid #eee;
-	width:92%;
-	margin: 0 auto 0 auto;
+	width:83%;
+	margin-left: -20px;
 	background:#FFFFFF;
 	border-radius: 8px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
@@ -147,14 +190,23 @@ h1 {
 	overflow-y: hidden;
 	overflow-x: auto;
 }
+.adminFooter{
+	width: 70%;
+	margin: 0 auto -40px auto;
+	padding:20px;
+	border-radius:8px;
+	background:#CCCCCC;
+	text-align:center;
+	border: thin solid #666;
+}
 #adminPanelWrapper input[type="submit"] {
-	margin-left: 150px;
+	margin-left: 20px;
 	border-radius: 5px;
 	margin-top: 20px;
-	width: 100px;
+	padding-left:10px;
+	padding-right:10px;
 	height:30px;
 	cursor:pointer;
-	
 }
 #adminPanelWrapper input[type="button"] {
 	margin-left: -10px;

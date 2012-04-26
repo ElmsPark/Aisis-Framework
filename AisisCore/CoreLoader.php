@@ -27,6 +27,8 @@
 	 require_once(AISISCORE . 'AisisCore.php');
 	 require_once(AISISCORE . 'Class-AisisFilehandeling.php');
 	 require_once(AISISCORE . 'Class-AisisCoreRegister.php');
+	 require_once(AISISCORE . 'Class-AisisUpdate.php');
+
 	 
 	 //These are all the loaders
 	 require_once(AISIS_EXCEPTIONS . 'ExceptionLoader.php');
@@ -76,6 +78,7 @@
 			wp_enqueue_script( 'jquery-mobile-customized', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.mobile.customized.min.js', array('jquery'), false, true );//Lod jquery mobile (customized)
 			wp_enqueue_script( 'jquery-easing', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.easing.1.3.js', array('jquery'), false, true ); //Load Jquery Easing
 			wp_enqueue_script( 'camera', get_template_directory_uri() . '/lib/Javascript/plugins/camera.min.js', array('jquery'), false, true );//Load Camera
+			wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true);
 			
 
 			if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );

@@ -2,16 +2,19 @@
 
 ?>
 
-<h1>Core Options</h1>
+<div class="box">
+	<h1>Header Image's</h1>
+    <p>Looking to chage the slider on the front of your blog? Uplaod your images here and watch the slider change!</p>
+</div>
 
 <div class="contents">
 	<div class="notice">
-    	It should be known that using the media upload option bellow 
-        uploads media to a diffrent path then that of the default WordPress Media Uplaoder.
-        If you are looking to upload images for posts and other uses please use the Media Uploader under Media Options.
+    	When you upload an image using this uploader your images will be stored in <strong>Aisis/images/imageheaders</strong> 
+        It is recomdended you also upload thumb nail size images of your main images for responsiveness.
+        Header Images ar <strong>1200x800</strong> and thumbs are <strong>100x75</strong>.
     </div>
     
-    <div class="whiteSection">
+    <div class="optionsSection">
     	<div class="contents">
         <h2>Image Upload</h2>
         <p>If you would like to upload images for use as your header image on the front of the blog you can do so here.</p>

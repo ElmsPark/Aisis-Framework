@@ -42,32 +42,48 @@
 	 
 	 
 ?>
-        <h1>Css Editor</h1>
+        <div class="box clearFix">
+        	<h1>Css Editor</h1>
+            <p>Looking to edit your custom-css.css file? Make your changes bellow and hit submit. Whats saved here will change the look of your theme.</p>
+        </div>
         <?php 
 		if($did_it_update_css == true){
-			?><div class="success">We have successfully edited your custom css file. You will now see the resualts of that edit bellow.</div><?php
+			?><div class="success">We have successfully edited your custom css file. You will now see the resualts of that edit bellow.</div>
+              <script>
+			  $().toastmessage('showSuccessToast', "We have saved your work to your custom-css.css file in your /Aisis/custom/ folder");
+              </script>
+			<?php
+			
 		}elseif($did_update_css_fail == true){?>
         	  <div class="err">Something went wrong and we could not update your css file. Do you have write access to this file?</div>
+              <script>
+			  $().toastmessage('showErrorToast', "We have failed to save your work to your custom-css.css file in your /Aisis/custom/ folder");
+              </script>
         <?php } ?>
     	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first.</div>
         <form method="post" action=<?php admin_url('admin-post.php?action=aisis-css-editor') ?>>
-            <div class="contents">
-            	<textarea id="code" name="code"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-css.css');?></textarea>
-            </div> 
-            <input type="submit" id="published" name="published" />
+            <textarea id="code" name="code"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-css.css');?></textarea>
+            <input type="submit" id="published" name="published" value="Save CSS"/>
         </form>
-        
-        <h1>Css Media Query Editor</h1>
+        <div class="box">
+        	<h1>Media Query Editor</h1>
+            <p>Looking to edit your custom-media-query.css file? Make your changes bellow and hit submit. Whats saved here will change the look of your theme.</p>
+        </div>
         <?php 
 		if($did_it_update_media_css == true){
-			?><div class="success">We have successfully edited your custom media query css file. You will now see the resualts of that edit bellow.</div><?php
+			?><div class="success">We have successfully edited your custom media query css file. You will now see the resualts of that edit bellow.</div>
+			  <script>
+			  $().toastmessage('showSuccessToast', "We have saved your work to your custom-media-query.css file in your /Aisis/custom/ folder");
+              </script><?php
 		}elseif($did_update_media_css_fail == true){?>
         	  <div class="err">Something went wrong and we could not update your custom media query css file. Do you have write access to this file?</div>
+              <script>
+			  $().toastmessage('showErrorToast', "We have failed to save your work to your custom-media-query.css file in your /Aisis/custom/ folder");
+              </script>
         <?php } ?>
     	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first.</div>
         <form method="post" action=<?php admin_url('admin-post.php?action=aisis-css-editor') ?>>
-            <div class="contents">
-            	<textarea id="code-media" name="code-media"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-media-query.css');?></textarea>
-            </div> 
-            <input type="submit" id="published-media" name="published-media" />
+            <textarea id="code-media" name="code-media"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-media-query.css');?></textarea>
+            <input type="submit" id="published-media" name="published-media" value="Save Media Query" />
         </form>
+  

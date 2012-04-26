@@ -5,8 +5,6 @@
 **/
 $(document).ready(function() {
 	
-	var formfield;
-	
 	var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
     	lineNumbers: true,
 		ineWrapping: true
@@ -21,7 +19,6 @@ $(document).ready(function() {
     	lineNumbers: true,
 		lineWrapping: true
     });
-	
 });
 
 

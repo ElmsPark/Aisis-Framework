@@ -30,20 +30,27 @@
 	 
 	 
 ?>
-        <h1>PHP Editor</h1>
+        <div class="box">
+        	<h1>PHP Editor</h1>
+            <p>Looking to edit your custom-functions.php file? Make your changes bellow and hit the save button to see the changes take affect.</p>
+        </div>
         <?php 
 		if($did_it_update_php == true){
-			?><div class="success">We have successfully edited your custom functions.php file. You will now see the resualts of that edit bellow.</div><?php
+			?><div class="success">We have successfully edited your custom functions.php file. You will now see the resualts of that edit bellow.</div>			  
+			  <script>
+			  $().toastmessage('showSuccessToast', "We have saved your work to your custom-functions.php file in your /Aisis/custom/ folder");
+              </script><?php
 		}elseif($did_update_php_fail == true){?>
         	  <div class="err">Something went wrong and we could not update your custom functions.php file. Do you have write access to this file?</div>
+              <script>
+			  $().toastmessage('showSuccessToast', "We have failed to save your work to your custom-functions.php file in your /Aisis/custom/ folder");
+              </script>
         <?php } ?>
     	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first. 
         If you in any way make any kind of syntax error or any other error you may result in a white screen of death. 
         We advise you back up your <strong>custom/custom-functions.php</strong></div>
         <form method="post" action=<?php admin_url('admin-post.php?action=aisis-php-editor') ?>>
-            <div class="contents">
-            	<textarea id="code" name="code"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-functions.php');?></textarea>
-            </div> 
+            <textarea id="code" name="code"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-functions.php');?></textarea> 
             <input type="submit" id="published" name="published" />
         </form>
     
