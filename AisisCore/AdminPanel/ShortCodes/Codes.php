@@ -87,7 +87,7 @@
 	//Create our button and add it to media buttons	 
     if(!function_exists('aisis_media_buttons_link')){
 	    function aisis_media_buttons_link(){
-		    echo "<a href='".get_template_directory_uri() . "/AisisCore/AdminPanel/ShortCodes/DisplayCodes.php" . "?&amp;codes=asisi-codes&amp;action=asisi_codes&amp;TB_iframe=true&amp;width=768' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
+		    echo "<a href='/admin-ajax.php?post_id=$iframe_post_id&amp;codes=aisis-codes&amp;action=aisis_codes&amp;TB_iframe=true&amp;width=768' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
 			   <img src='".get_template_directory_uri() . "/images/addition.png" . "' width='16' height='16'></a>";
 	    }
     }
