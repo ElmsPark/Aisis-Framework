@@ -24,7 +24,7 @@ p{
 	font-size:16px;
 }
 .headerTitle{
-	margin-left: 175px;
+	margin-left: 125px;
 	margin-top: 40px;
 	font-size:36px;
 	color:#B38FB6;
@@ -34,13 +34,12 @@ p{
 	margin : 30px 0 30px;
 	padding : 20px 35px;
 	width : 89%;
-	float : left;
 	border-radius : 8px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
 }
 .PanelSubTitle {
-	width: 50%;
-	margin-left: 285px;
+	width: 65%;
+	margin-left: 185px;
 	margin-bottom: 45px;
 	background:#D5B7CC;
 	padding:10px;
@@ -55,7 +54,7 @@ p{
 	margin-left:50px;
 }
 .box{
-	width: 50%;
+	width: 75%;
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
 	padding: 10px;
@@ -67,6 +66,7 @@ p{
 	text-align:justify;
 	font-size:16px;
 	color:#687E9F;
+	width: 80%;
 }
 .image-wrap {
 	position : relative;
@@ -98,14 +98,21 @@ p{
 	width: 350px;
 	height: 350px;
 }
+#tabs{
+	width:100%;
+	border: none;
+	background:#F1F4F8;
+	
+}
+
 
 </style>
 
-<script type="text/javascript" src="<?php  get_template_directory_uri()?>http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
-<script type="text/javascript" src="http://steamdev.com/snippet/js/jquery.snippet.min.js"></script>
-<link href="http://steamdev.com/snippet/css/jquery.snippet.min.css" rel="stylesheet" type="text/css">
-<link href="http://steamdev.com/snippet/css/jquery.snippet.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/lib/Javascript/plugins/jquery.snipit.js' ?>"></script>
+<link href="<?php echo get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/snipit.css' ?>" rel="stylesheet" type="text/css">
+<link href="<?php echo get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/jquery-ui-1.8.19.custom.css' ?>" rel="stylesheet" type="text/css">
 
 <script type="text/javascript">
 jQuery(document).ready(function($){
@@ -117,7 +124,7 @@ jQuery(document).ready(function($){
 	});
 	
 	//because JS syntax highlighting looks better
-	$("pre.js").snippet("javascript",{style:"acid"})
+	$("pre.js").snippet("javascript",{style:"acid", showNum:false})
 	
 	$( "#tabs" ).tabs();
 });
@@ -132,29 +139,27 @@ jQuery(document).ready(function($){
     <div id="AisisShortCodeInto">
         <div class="headerTitle">Aisis - Short Codes</div>
         <div class="wrapper">
-          <div class="PanelSubTitle">
-            <h1>Aisis Codes</h1>
-            <p>List of all Aisis codes and how to use them. Make sure you enter them through the HTML side.</p>
-          </div>
-          <div class="box">
-            <strong>Usising Aisis Codes</strong>
-            <p>Aisis Codes or Aisis Short Codes can be a perfect way to add functionality where there wasn't any before. 
-            For example glossy images or softimages could be used in extremly simple ways. Updating a post or adding an info box was never so easy.</p>
-          </div>
-          <p>Aisis short codes are a essential way of the writers life and we provide simple and clean ways to insert images, code and other small 
-          features that you would have to code with css. The following is an example of short codes and their power.</p>
-          <pre class="js">[softimg] img src here [/softimg]</pre>
-          <div class="imgPost">
-              <div class="soft-embossed center-image">
-                <img src="../../Exceptions/ShortCodes/images/bridge.jpg" width="350" height ="350" />
-              </div>
-          </div>
+            <p>Aisis Short codes are a dynamic and interesting addition to any post. They are super easy to make and super easy to implement.</p>
+            <div class="box">
+                <p> <strong>Usising Aisis Codes</strong><br  /><br />
+                Using aisis short codes helps you write better articles, get more done with out having to 
+                worry about how to implement images ina specific way. The work is done for you.</p>
+            </div>
+            <p>Aisis short codes are a essential way of the writers life and we provide simple and clean ways to insert images, code and other small 
+            features that you would have to code with css. The following is an example of short codes and their power.</p>
+            <pre class="js">[softimg] img src here [/softimg]</pre>
+            <div class="imgPost">
+            <div class="soft-embossed center-image">
+                <img src="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/images/bridge.jpg' ?>" width="350" height ="350" />
+            </div>
+            </div>
         </div>
     </div>
     <div id="ImageCodes">
     	Hello
     </div>
 </div>
+
 
 
         
