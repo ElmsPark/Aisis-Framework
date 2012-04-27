@@ -34,8 +34,8 @@
 	 require_once(AISIS_EXCEPTIONS . 'ExceptionLoader.php');
 	 require_once(AISIS_TEMPLATES . 'BuildAisisTheme.php');
 	 
-	 //Load Shortcodes - something simple.
-	 require_once(AISIS_SHORTCODES . 'codes.php');
+	 //Load short codes
+	 require_once(AISIS_SHORTCODES . 'Codes.php');
 	 
 	 $aisis_load_admin_section= new AisisFileHandeling();
 	 $aisis_load_admin_section->load_if_extension_is_php(AISIS_ADMINPANEL);
@@ -71,6 +71,7 @@
 			wp_enqueue_style( 'tip-tip-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/tipTip.css'); //Load plugin css
 			wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css'); //Load plugin css
 			wp_enqueue_style( 'camera-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/camera.css'); //Load Camera css
+			wp_enqueue_style( 'snipit-code-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/snipit.css'); //Load Snipit Css
 			wp_enqueue_style( 'thickbox');
 			wp_enqueue_script( 'main-site', get_template_directory_uri() . '/lib/Javascript/mainSite.js', array('jquery'), false, true ); //Load Core JS
 			wp_enqueue_script( 'tip-tip', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.tipTip.minified.js', array('jquery'), false, true ); //Loadtip tip js
@@ -78,7 +79,8 @@
 			wp_enqueue_script( 'jquery-mobile-customized', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.mobile.customized.min.js', array('jquery'), false, true );//Lod jquery mobile (customized)
 			wp_enqueue_script( 'jquery-easing', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.easing.1.3.js', array('jquery'), false, true ); //Load Jquery Easing
 			wp_enqueue_script( 'camera', get_template_directory_uri() . '/lib/Javascript/plugins/camera.min.js', array('jquery'), false, true );//Load Camera
-			wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true);
+			wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true); //Load ThickBox
+			wp_enqueue_script( 'snipit-code', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.snipit.js', array('jquery'), false, true ); //Load jquery snipit
 			
 
 			if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );
@@ -108,6 +110,5 @@
 		 }
 	 }
 	 
-	 add_action( 'wp_head', 'aisis_viewport_tag' );
-
+	 add_action( 'wp_head', 'aisis_viewport_tag', 999 );
 ?>

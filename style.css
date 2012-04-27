@@ -29,6 +29,8 @@
  *
  *======================================================================
  */
+ 
+
 
 html, body, address, blockquote, div, dl, form, h1, h2, h3, h4, h5, h6, 
 ol, p, pre, table, ul, dd, dt, li, tbody, td, tfoot, th, thead, tr, 
@@ -314,6 +316,9 @@ input[type="search"] {
 .video {
 	margin : 0 auto 0 auto;
 	box-shadow: 0 8px 6px -6px black;
+}
+.js{
+	margin: 15px auto 15px auto;
 }
 .nextPost {
 	float : right;

@@ -26,7 +26,7 @@
 		}
 		
 		if(is_file(TEMPLATEPATH . "/custom/custom-js.js")){
-			wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/lib/custom/custom-js.js');
+			wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/lib/custom/custom-js.js', array('jquery'), false, true);
 		}
 	 }
 	 
