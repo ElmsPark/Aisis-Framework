@@ -68,10 +68,11 @@
 				register_setting( 'theme_settings', 'theme_settings' );
 				
 				//Load Admin Panel CSS
-				wp_enqueue_style( 'admin-panel-css', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/AdminPanelCss.css'); 
+				wp_enqueue_style( 'admin-panel-css', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/AdminPanelCss.css');
+				wp_enqueue_style( 'admin-panel-media-css', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/AdminPanelMediaQuery.css'); 
 				wp_enqueue_style( 'code-mirror-css', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/codemirror.css'); 
 				wp_enqueue_style( 'jquery-ui-css', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/jquery-ui-1.8.19.custom.css'); 
-				wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css');
+				wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plSSugins/pluginCss/jquery.toastmessage.css');
 				wp_enqueue_style('thickbox');
 			}
 		}
@@ -116,13 +117,11 @@
 		//Only register if on these pages.
 		if(isset($_GET['page']) && $_GET['page'] == 'aisis_options' || isset($_GET['page']) && $_GET['page'] == 'aisis-css-editor' || isset($_GET['page']) && $_GET['page'] == 'aisis-php-editor' 
 			|| isset($_GET['page']) && $_GET['page'] == 'aisis-js-editor' || isset($_GET['page']) && $_GET['page'] == 'aisis-doc' ){
-				
+			add_action('admin_head', 'aisis_lt_ie_nine');
 			add_action('admin_enqueue_scripts', 'aisis_register_admin_jquery');
 			add_action('admin_enqueue_scripts', 'aisis_register_admin_jquery_ui');
 			add_action('admin_enqueue_scripts', 'aisis_load_admin_js' );
-			add_filter('upload_dir', 'aisis_change_image_upload_path');
-			
-			
+			add_filter('upload_dir', 'aisis_change_image_upload_path');			
 		}	 
 	}
 	

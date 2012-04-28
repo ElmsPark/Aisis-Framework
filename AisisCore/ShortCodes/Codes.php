@@ -87,9 +87,9 @@
 	//Create our button and add it to media buttons	 
     if(!function_exists('aisis_media_buttons_link')){
 	    function aisis_media_buttons_link(){
-			global $post_ID, $temp_ID;
+			global $post_ID, $temp_ID, $iframe_post_id;
 			$iframe_post_id = (int) (0 == $post_ID ? $temp_ID : $post_ID);
-		    echo "<a href='/admin-ajax.php?post_id=$iframe_post_id&amp;codes=aisis-codes&amp;action=aisis_codes&amp;TB_iframe=true&amp;width=768' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
+		    echo "<a href='".admin_url("/admin-ajax.php?post_id=$iframe_post_id&amp;codes=aisis-codes&amp;action=aisis_codes&amp;TB_iframe=true&amp;width=768"). "' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
 			   <img src='".get_template_directory_uri() . "/images/addition.png" . "' width='16' height='16'></a>";
 	    }
     }
@@ -101,6 +101,10 @@
 		    echo '
 		    <style>
 		   		.move{float:right; margin-right: 1390px;}
+				
+				@media screen and (max-width:1280px){
+					.move{float:right; margin-right: 683px;}
+				}
 		    </style>
 		    ';
 	    }
