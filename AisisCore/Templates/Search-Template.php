@@ -11,6 +11,8 @@
 	 *		@package: AisisCore->Templates
 	 * =================================================================
 	 */
+	 
+	 global $post_id;
  ?>
  <?php if(have_posts()){?>
  <div id="content">

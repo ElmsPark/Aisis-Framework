@@ -19,7 +19,7 @@
                <?php endif; ?>	
            </div>
            <div class="afterBlock">
-               Powered by WordPress | Aisis | Adam Balan -  2012
+               <?php aisis_default_footer_text(); ?>
            </div>
         </footer>
 

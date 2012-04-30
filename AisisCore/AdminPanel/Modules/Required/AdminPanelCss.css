@@ -143,6 +143,16 @@ h1 {
 	text-shadow:none;
 	width:60%;
 }
+.noticeSave {
+	background : #fff9d7;
+	border : 1px solid #e2c822;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin : 10px auto 20px auto;
+	width:60%;
+}
 .err {
 	background : #ebc2ce;
 	border : 1px solid #772038;
@@ -216,6 +226,10 @@ h1 {
 	height:30px;
 	cursor:pointer;
 	
+}
+.moveButton{
+	margin-left: 10px !important;
+	margin-top: 10px !important;
 }
 
 

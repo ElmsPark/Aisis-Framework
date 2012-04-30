@@ -12,8 +12,7 @@
 	 *		@package: AisisCore->Templates 
 	 * =================================================================
 	 */
+	 
+	 aisis_default_nav_template();
    
    ?>
-            <ul id="main-nav" class="main-nav clearfix">
-                <li><a href="<?php bloginfo('url') ?>">Home</a>
-            </ul>

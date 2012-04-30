@@ -38,10 +38,23 @@
 			
 			if(isset($aisis_version) && $aisis_version != ''){
 				if($aisis_version > $this->get_current_theme_version()){
+					
+					if(isset($_POST['upgrade'])){
+						if($this->get_latest_version_zip()){
+							echo "done";
+						}else{
+							echo "fails";
+						}
+						
+					}
+					
 					echo "<strong>You have an update!</strong> You are currently version <strong>" . $this->get_current_theme_version() . 
 						"</strong> and the version we have on the server is <strong>" . $aisis_version . "</strong>. We encourgage you to upgrade to the latest version. 
-							For further information please see <a href='http://google.ca?keepThis=true&TB_iframe=true&height=250&width=400' 
-							class='thickbox'>Aisis Upgrade Notes</a> to see whats changed. <a href='#'>Updgrade Now!</a>";
+							For further information please see <a href='http://google.ca?&TB_iframe=true&height=250&width=400' class='thickbox'>Aisis Upgrade Notes</a>
+							 to see whats changed. 
+							<form method='post' action='".admin_url('admin.php?page=aisis_options')."'>
+								<input type='submit' value='updagrade now!' class='moveButton' name='upgrade'/>
+							</form>";
 				}
 			}
 		}
@@ -73,11 +86,11 @@
 		 * @return boolean of type True/False
 		 */
 		 function get_latest_version_zip(){
-			 $path_to_file_to_unpack = 'http://adambalan.com/aisis/aisis_update/aisis_zip';
+			 $path_to_file_to_unpack = 'http://adambalan.com/aisis/aisis_update/Aisis.zip';
 			 $path_to_theme_dir_to_upgrade = AISIS;
 			 if(current_user_can('update_themes')){
 				 if(function_exists('unzip_file')){
-					 unzip($path_to_file_to_unpack, $path_to_theme_dir_to_upgrade);
+					 unzip_file($path_to_file_to_unpack, $path_to_theme_dir_to_upgrade);
 					 return true;
 				 }else{
 					_e('<div class="err">Seems that this function (unzip_file) no longer exists</div>');

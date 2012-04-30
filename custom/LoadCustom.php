@@ -22,11 +22,11 @@
 	  */
 	 function aisis_enqueue_custom(){
 		if(is_file(CUSTOM . "custom-css.css")){
-			wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/lib/custom/custom-css.css');
+			wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/custom/custom-css.css');
 		}
 		
 		if(is_file(CUSTOM . "custom-js.js")){
-			wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/lib/custom/custom-js.js', array('jquery'), false, true);
+			wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/custom/custom-js.js', array('jquery'), false, true);
 		}
 	 }
 	 

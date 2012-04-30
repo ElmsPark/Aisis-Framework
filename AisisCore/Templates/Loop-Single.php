@@ -38,8 +38,7 @@
             <div class="post-author">
             <h1><?php the_author()?></h1>
                 <p><?php if ( get_the_author_meta( 'description' ) ){the_author_meta( 'description' );}else{?>
-                This author is a writer and a contributor to the blog. They enjoy writing various content and articles 
-                for the blog its self and we are proud to have them here and apart of our team :D<?php }?></p>
+                <?php aisis_loop_single_author_blurb_default(); }?></p>
                 <p>This author has written: <?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</p>
             </div>
         </div>

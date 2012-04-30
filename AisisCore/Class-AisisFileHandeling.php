@@ -50,9 +50,9 @@
 		}
 		
 		/**
-		 * We want to pass in the path to the file
-		 * and the file name and then we can get said
-		 * file that we want to write to.
+		 * This looks for a specific file in a directory that contains
+		 * files with multiple extensions. WThis will narrow in on
+		 * one file that you want.
 		 *
 		 * @param $path of type directory.
 		 * @param $filename of type file name with extension.
@@ -87,6 +87,38 @@
 		}
 		
 		/**
+		 * This will get back an array of files
+		 * base don the extension of the file and the
+		 * path to the files.
+		 *
+		 * This does not do folders inside of folders,
+		 * just the root of that folder.
+		 *
+		 * @param $path - the path to the files.
+		 * @param $extension - the extension of the files
+		 */
+		function get_directory_of_all_files($path, $extension){
+			if(!$this->check_dir($path)){
+				_e('the ' . $path . ' is not a directory');
+			}
+	
+			$handler = opendir($path);
+			while($file = readdir($handler)){
+				if($file != "." && $file != ".."){
+					$this->package_files[] = $file;
+					$count = count($this->package_files);
+					for($i = 0; $i<$count; $i++){
+						if(substr(strrchr($this->package_files[$i],'.'),1)==$extension){
+							$this->files_got_back = $this->package_files[$i];
+						}
+					}
+				}
+			}
+			
+			return $this->files_got_back;
+		}
+		
+		/**
 		 * Is the file that we want to write to currently writable?
 		 * The path to this file is also hard coded much like check_exists().
 		 *
@@ -106,13 +138,16 @@
 		
 		/**
 		 * return the contents of the file.
+		 * used for the custom folder.
 		 *
 		 * @param filename of type String
 		 * @return contents of type string.
 		 */
-		function get_contents($path, $filename){
-		   if($this->check_exists($path, $filename) && $this->check_writable($path, $filename)){
-			   return $this->file_contents = file_get_contents(CUSTOM . $filename);
+		function get_contents($path, $filename=''){
+		   if($filename != ''){
+			   if($this->check_exists($path, $filename) && $this->check_writable($path, $filename)){
+				   return $this->file_contents = file_get_contents(CUSTOM . $filename);
+			   }
 		   }
 		}
 		

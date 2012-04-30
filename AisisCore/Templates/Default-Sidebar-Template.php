@@ -52,7 +52,7 @@
 		</section>
         
         <section class="widget">
-			<h4 class="widgettitle">Example Email Subscript</h4>
+			<h4 class="widgettitle">Example Email Subscription</h4>
             <div class="formLayout">
             	<p>Subscribe now!!</p>
                 <form>

@@ -93,6 +93,23 @@ p{
 	-moz-box-shadow: inset 0 0 3px rgba(0,0,0,1), inset 0 1px 1px rgba(255,255,255,.5), inset 0 -6px 2px rgba(0,0,0,.6), inset 0 -8px 2px rgba(255,255,255,.3);
 	box-shadow: inset 0 0 3px rgba(0,0,0,1), inset 0 1px 1px rgba(255,255,255,.5), inset 0 -6px 2px rgba(0,0,0,.6), inset 0 -8px 2px rgba(255,255,255,.3);
 }
+.glossy .image-wrap:before {
+	position: absolute;
+	content: ' ';
+	width: 100%;
+	height: 50%;
+	top: 0;
+	left: 0;
+	-webkit-border-top-left-radius: 7px;
+	-webkit-border-top-right-radius: 7px;
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.6) 0%, rgba(255,255,255,.15) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.6)), color-stop(100%, rgba(255,255,255,.15)));
+	background: linear-gradient(top, rgba(255,255,255,0.6) 0%, rgba(255,255,255,.15) 100%);
+}
 .center-image{
 	margin: 20px auto 20px auto;
 	width: 350px;
@@ -103,6 +120,24 @@ p{
 	border: none;
 	background:#F1F4F8;
 	
+}
+.infoPost{
+	width : 75%;
+	margin-left : -35px;
+	margin-bottom : 10px;
+	border-left : 5px solid #796d2d;
+	background : #e0dcbe;
+	padding : 10px 10px 10px 35px;
+	font-size : 14px;
+}
+.updatePost{
+	width : 75%;
+	margin-left : -35px;
+	margin-bottom : 10px;
+	border-left : 5px solid #293947;
+	background : #c1cadb;
+	padding : 10px 10px 10px 35px;
+	font-size : 14px;
 }
 
 
@@ -135,9 +170,11 @@ jQuery(document).ready(function($){
 	<ul>
     	<li><a href="#AisisShortCodeInto">Aisis - Short Codes</a></li>
         <li><a href="#ImageCodes">Image Codes</a></li>
+        <li><a href="#PostSpecific">Post Specific</a></li>
+        <li><a href="#Code">Code</a></li>
     </ul>
     <div id="AisisShortCodeInto">
-        <div class="headerTitle">Aisis - Short Codes</div>
+        <div class="headerTitle">Aisis - Short Codes - </div>
         <div class="wrapper">
             <p>Aisis Short codes are a dynamic and interesting addition to any post. They are super easy to make and super easy to implement.</p>
             <div class="box">
@@ -156,7 +193,71 @@ jQuery(document).ready(function($){
         </div>
     </div>
     <div id="ImageCodes">
-    	Hello
+    	<div class="headerTitle">Aisis - Images</div>
+        <div class="wrapper">
+        	<p>When you insert an image into a post in wordpress you really want it to stick out and Aisis has two CSS3 based methods that really helpt that happen.
+            Using jquery and CSS3 Aisis helps your images pop!</p>
+            <div class="box">
+            	<p><strong>Soft Images</strong><br />
+                When you want to give images that soft look with a little bit of sine at the bottom you just have to use the following short code and pass in the image
+                source code and let Aisis handel the rest. We will then center you image and give you your effect.<br />
+                <em>Supported in: IE9, FF3.6+m Chrome and Safari</em></p>
+            </div>
+            <pre class="js">[softimg] img src here [/softimg]</pre>
+            <div class="imgPost">
+            <div class="soft-embossed center-image">
+                <img src="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/images/bridge.jpg' ?>" width="350" height ="350" />
+            </div>
+            </div>
+            <div class="box">
+            	<p><strong>Glossy Image</strong><br  />
+                When you wan't your images to have a glossy look or effect you can use the following hort code to give it that glossy shiny look that really helps it
+                POP out on your screen. Again all you have to do is insert the  image source between the two tags and Aisis will handel the rest for you.
+                <em>Supported in: IE9, FF3.6+m Chrome and Safari</em>
+                </p>
+            </div>
+            <pre class="js">[glossimg] img src here [/glossimg]</pre>
+            <div class="imgPost">
+            <div class="glossy center-image">
+                <img src="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/images/bridge.jpg' ?>" width="350" height ="350" />
+            </div>
+            </div>
+            <p>It should be notes that if your browser does not support CSS3 you will just get a default fall back image to that of regular image. So no need to be alarmed :D.</p>
+        </div>
+    </div>
+    <div id="PostSpecific">
+    	<div class="headerTitle">
+        Aisis - Posts Specific - 
+        </div>
+        <div class="wrapper">
+            <p>Ever updated a post but needed to draw the users attention to it? Or maybe you have a long post and it gets simplified into something in a couple sentances. 
+            Well these post specific short codes help make your posting and adding that extra tid bit much more easier and effective then ever before.  </p>
+            <div class="box">
+            	<p><strong>Info Post</strong><br />
+                Ever wanted to summerize a post in a few sentances, maybe you have a complex explanation that you summarize up in a couplesentances. The following is an example of how to do that.</p>
+            </div>
+            <pre class="js">[infopost]content here[/infopost]</pre>
+            <div class="infoPost">
+            	This is the summary of the post - use the short code above to create me.
+            </div>
+            <p>info post is best used for when you want to really get the point across or summarize a point that your paragraph or exaplanation makes that the user might miss.</p>
+        	<div class="box">
+            	<p><strong>Update Post</strong><br />
+                Ever updated a post and the user read the post but then saw your update and it looked like the rest of the post? Well with this short code it will stick out 
+                and let people know that "Oh! This post was updated!" The following will show you how to do that.</p>
+            </div>
+            <pre class="js">[updatepost]content here[/updatepost]</pre>
+            <div class="updatePost">
+            	I am a post that has been updated. Updated I am!
+            </div>
+            <p>I always found that users miss the update section on a post. With this short code it really makes it stick out. Its best at the top or the bottom of the post.</p>
+        </div>
+    </div>
+    <div id="Code">
+    	<div class="headerTitle">Aisis - Code - </div>
+        <div class="wrapper">
+        <p>Ever wanted to insert CSS or JS into your posts to get that coding point across? Now you can. Its so simple. check out some of the examples bellow.</p>
+        </div>
     </div>
 </div>
 

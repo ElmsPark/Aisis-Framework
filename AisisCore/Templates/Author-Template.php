@@ -33,8 +33,7 @@
                 </figure>
             </div>
             <p><?php if ( $curauth->user_description != '' ){echo $curauth->user_description;}else{?>
-            This author is a writer and a contributor to the blog. They enjoy writing various content and articles for the blog its self and we are proud to have them
-            here and apart of our team :D<?php } ?></p>
+            <?php aisis_author_default_text(); } ?></p>
         </div>
     </div>
     <?php get_sidebar(); ?>

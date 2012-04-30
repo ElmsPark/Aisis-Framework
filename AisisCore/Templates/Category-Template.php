@@ -28,11 +28,10 @@
                 <p>
                 <?php if(category_description() != ''){
 					echo category_description();?></p><?php
-				}?>
-                Welcome to this category <?php single_cat_title(); ?> where we hope that we present you
-                with the latest and greates in content from this section. Please enjoy your stay :D</p>
+				}else{ aisis_category_default_text(); ?>
+                </p>
                 <p><strong>Tags: </strong>
-				<?php 
+				<?php }
 				query_posts('cat=1');
 				if(have_posts()): while (have_posts()) : the_post();
 					$all_tag_objects = get_the_tags();

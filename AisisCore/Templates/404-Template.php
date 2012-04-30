@@ -21,15 +21,14 @@
 	 ?>	
     <div class="err"> 
     <?php
-		aisis_404_err_message(); 
+		aisis_404_err_message_banner();
 	?> 
     </div>
     <div id="contentWrapper">
         <div id="content">
             <div class="clearfix">
                 <div class="GlobalError">
-                    <h1>404</h1>
-                    <p class="ErrorMessage">Seems this Page does not exist</p>
+                    <?php aisis_404_err_message(); ?>
                 </div>
             </div>
         </div>
