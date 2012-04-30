@@ -25,19 +25,20 @@ These loaders are then called into the CoreLoader.php in Aisis/AisisCore in whic
 
 Aside from the Loaders we have in Aisis we also have specified files that will sit outside of directories containing large amounts of PHP files, for example:
 
-`$load_aisis_exceptions = new AisisFileHandeling();
-	 $load_aisis_exceptions->load_if_extension_is_php(AISIS_EXCEPTIONS);`
+`$load_aisis_exceptions = new AisisFileHandeling();`
+
+`$load_aisis_exceptions->load_if_extension_is_php(AISIS_EXCEPTIONS);`
 
 This lies within the Exceptions package in a file called ExceptionLoader and it essentially loads all the files in this package with .php extensions. The argument we pass is the path to the folder.
 Note: We cannot load sub packages of that directory you point to. And this cannot be used to load whole template or module directories. We use Register for module and template directories.
 
 You cannot also do:
 
-`$load_aisis_exceptions = new AisisFileHandeling();
-$load_aisis_exceptions->load_if_extension_is_php(AISIS_EXCEPTIONS);
+`$load_aisis_exceptions = new AisisFileHandeling();`
+`$load_aisis_exceptions->load_if_extension_is_php(AISIS_EXCEPTIONS);`
 
-$load_aisis_exceptions = new AisisFileHandeling();
-$load_aisis_exceptions->load_if_extension_is_php(AISISCORE);`
+`$load_aisis_exceptions = new AisisFileHandeling();`
+`$load_aisis_exceptions->load_if_extension_is_php(AISISCORE);`
 
 As this will throw an error stating it could not load some file. What you want to do with this method is to use it once to load a directory of large files either in that directory or just outside it. For example in CoreLoader.php we use this to load the Admin Panel.
 
@@ -85,12 +86,7 @@ Aisis is a canvas for developers and designers while providing power and simplic
 
 **if(!function_exists('name')){}**
 
-This is considered to be a pluggable method because of the ability to override the method inside by predefining it elsewhere. This is done through: 
-	 `if(!function_exists('name')){
-		 function name(){}
-	 }
-	 
-	 function name(){}`
+This is considered to be a pluggable method because of the ability to override the method inside by predefining it elsewhere.
 
 What happens here are essentially you are saying – if this function does not already exist then do this, create it with these defaults. However with this we can define this method elsewhere and tell it to do something else altogether.
 
