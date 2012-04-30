@@ -34,9 +34,10 @@ Note: We cannot load sub packages of that directory you point to. And this canno
 You cannot also do:
 
 `$load_aisis_exceptions = new AisisFileHandeling();
-	 $load_aisis_exceptions->load_if_extension_is_php(AISIS_EXCEPTIONS);
+$load_aisis_exceptions->load_if_extension_is_php(AISIS_EXCEPTIONS);
+
 $load_aisis_exceptions = new AisisFileHandeling();
-	 $load_aisis_exceptions->load_if_extension_is_php(AISISCORE);`
+$load_aisis_exceptions->load_if_extension_is_php(AISISCORE);`
 
 As this will throw an error stating it could not load some file. What you want to do with this method is to use it once to load a directory of large files either in that directory or just outside it. For example in CoreLoader.php we use this to load the Admin Panel.
 
@@ -85,7 +86,7 @@ Aisis is a canvas for developers and designers while providing power and simplic
 **if(!function_exists('name')){}**
 
 This is considered to be a pluggable method because of the ability to override the method inside by predefining it elsewhere. This is done through: 
-`	 if(!function_exists('name')){
+	 `if(!function_exists('name')){
 		 function name(){}
 	 }
 	 
