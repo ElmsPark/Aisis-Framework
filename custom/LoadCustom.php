@@ -21,11 +21,11 @@
 	  *
 	  */
 	 function aisis_enqueue_custom(){
-		if(is_file(TEMPLATEPATH . "/custom/custom-css.css")){
+		if(is_file(CUSTOM . "custom-css.css")){
 			wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/lib/custom/custom-css.css');
 		}
 		
-		if(is_file(TEMPLATEPATH . "/custom/custom-js.js")){
+		if(is_file(CUSTOM . "custom-js.js")){
 			wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/lib/custom/custom-js.js', array('jquery'), false, true);
 		}
 	 }
@@ -33,9 +33,9 @@
 	 add_action('wp_enqueue_scripts', 'aisis_enqueue_custom');
 	 
 	 //Load LoadTemplates
-	 require_once(AISIS_CUSTOM_TEMPLATES . 'Custom-LoadTemplate.php');
+	 require_once(CUSTOM_TEMPLATES . 'Custom-LoadTemplate.php');
 	 
 	 //Load the custom-function.php
-	 if(file_exists(TEMPLATEPATH . '/custom/custom-function.php')){
-	 	require_once(TEMPLATEPATH . '/custom/custom-function.php');
+	 if(file_exists(CUSTOM . 'custom-functions.php')){
+	 	require_once(CUSTOM . 'custom-functions.php');
 	 }

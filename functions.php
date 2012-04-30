@@ -30,6 +30,7 @@
 	 
 	 //Define Aisis Core Package
 	 define('AISIS_DIR', get_template_directory_uri() . '/');
+	 define('AISIS', TEMPLATEPATH . '/');
 	 define('AISISCORE', TEMPLATEPATH . '/AisisCore/');
 	 define('AISIS_EXCEPTIONS', TEMPLATEPATH . '/AisisCore/Exceptions/');
 	 define('AISIS_ADMINPANEL', TEMPLATEPATH . '/AisisCore/AdminPanel/');

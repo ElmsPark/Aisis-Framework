@@ -25,6 +25,7 @@
 	 
 	 //Defaults - Core - Load it
 	 require_once(AISISCORE . 'AisisCore.php');
+	 require_once(AISISCORE . 'AisisHooks.php');
 	 require_once(AISISCORE . 'Class-AisisFilehandeling.php');
 	 require_once(AISISCORE . 'Class-AisisCoreRegister.php');
 	 require_once(AISISCORE . 'Class-AisisUpdate.php');
@@ -36,6 +37,9 @@
 	 
 	 //Load short codes
 	 require_once(AISIS_SHORTCODES . 'Codes.php');
+	 
+	 //Load Custom
+	 require_once(CUSTOM . 'LoadCustom.php');
 	 
 	 $aisis_load_admin_section= new AisisFileHandeling();
 	 $aisis_load_admin_section->load_if_extension_is_php(AISIS_ADMINPANEL);

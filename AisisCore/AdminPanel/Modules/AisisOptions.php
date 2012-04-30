@@ -1,5 +1,20 @@
 <?php
 
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This is the Aisis Options page which allows you to set options
+	 *		for the theme that are more basic then the editors where you can
+	 *		edit various files.
+	 *		
+	 *		@author: Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->Modules
+	 *
+	 * =================================================================
+	 */
+
 ?>
 
 <div class="box">

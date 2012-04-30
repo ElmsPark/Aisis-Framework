@@ -1,5 +1,20 @@
 <?php
 
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This is documentation page for Aisis. It displays all the docs
+	 *		and appropriate links to any documentation out side the
+	 *		theme admin section it's self.
+	 *		
+	 *		@author: Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->Modules
+	 *
+	 * =================================================================
+	 */
+
 ?>
 
 <div id="tabs">

@@ -55,6 +55,41 @@
 			$this->aisis_current_theme_version = get_theme_data(get_bloginfo('stylesheet_url'));
 			return $this->aisis_current_theme_version['Version'];
 		}
+		
+		/**
+		 * We want to use the most basic of update structures.
+		 * The file we download will only contain the files
+		 * that have been changed in the update.
+		 *
+		 * This is diffrent from whats on Github or wordpress
+		 * as both of these will update the whole system.
+		 * if you use them to update your theme, make sure you back up
+		 * your edited files in your custom folder.
+		 *
+		 * This functio gets the zip file from the location
+		 * and unzips it to the themes directory, over writing
+		 * any files currently in there.
+		 *
+		 * @return boolean of type True/False
+		 */
+		 function get_latest_version_zip(){
+			 $path_to_file_to_unpack = 'http://adambalan.com/aisis/aisis_update/aisis_zip';
+			 $path_to_theme_dir_to_upgrade = AISIS;
+			 if(current_user_can('update_themes')){
+				 if(function_exists('unzip_file')){
+					 unzip($path_to_file_to_unpack, $path_to_theme_dir_to_upgrade);
+					 return true;
+				 }else{
+					_e('<div class="err">Seems that this function (unzip_file) no longer exists</div>');
+					return false;
+				 }
+			 }else{
+				 _e('<div class="err">You do not have the right to update themes. Please see the administrator.</div>');
+				 return false;
+			 }
+			 
+			 return false;
+		 }
 	}
 
 ?>

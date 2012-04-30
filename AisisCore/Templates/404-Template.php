@@ -19,7 +19,11 @@
 	 * =================================================================
 	 */
 	 ?>	
-    <div class="err"> Were sorry we could not find what you were looking for - please try searching for it </div>
+    <div class="err"> 
+    <?php
+		aisis_404_err_message(); 
+	?> 
+    </div>
     <div id="contentWrapper">
         <div id="content">
             <div class="clearfix">

@@ -83,17 +83,23 @@
 	 * essentially stating to load the DisplayCodes.php
 	 * file in a thickbox UI
 	 */
-	
+		
 	//Create our button and add it to media buttons	 
     if(!function_exists('aisis_media_buttons_link')){
 	    function aisis_media_buttons_link(){
 			global $post_ID, $temp_ID, $iframe_post_id;
 			$iframe_post_id = (int) (0 == $post_ID ? $temp_ID : $post_ID);
-		    echo "<a href='".admin_url("/admin-ajax.php?post_id=$iframe_post_id&amp;codes=aisis-codes&amp;action=aisis_codes&amp;TB_iframe=true&amp;width=768"). "' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
+			$url = admin_url("/admin-ajax.php?post_id=$iframe_post_id&amp;codes=aisis-codes&amp;action=aisis_codes&amp;TB_iframe=true&amp;width=768");
+		    echo "<a href='".$url."' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
 			   <img src='".get_template_directory_uri() . "/images/addition.png" . "' width='16' height='16'></a>";
 	    }
     }
-    add_action('media_buttons', 'aisis_media_buttons_link');
+	
+	//We only want this added to specific pages
+	//TODO: better way to do this?
+	if($_SERVER['PHP_SELF'] == '/wp-admin/post-new.php' || $_SERVER['PHP_SELF'] == '/wp-admin/post.php'){
+    	add_action('media_buttons', 'aisis_media_buttons_link', 999);
+	}
    
    //position the button
    if(!function_exists('aisis_alter_admin_head_css')){
@@ -114,6 +120,12 @@
 	
 	if(!empty($_GET['codes']) && $_GET['codes'] == 'aisis-codes'){
 		add_action( 'parse_request', 'parse_wp_request' );
+		/**
+		 * TODO:why do Ineedthis toshowthecontents of the 
+		 * required fileinthe parse_wp_request() function?
+		 * with out this,when thickbox all I get is a "0".
+		 */
+		echo parse_wp_request($wp);
 		add_action( 'wp_ajax_asisi_codes', 'parse_wp_request' );
 	}
 	
@@ -122,9 +134,7 @@
 		exit;
 	}
 	
-	if(!function_exists('aisis_require_code_display_page')){
-		function aisis_require_code_display_page(){
-			require_once(AISIS_SHORTCODES . 'DisplayCodes.php');
-		}
+	function aisis_require_code_display_page(){
+		require_once(AISIS_SHORTCODES . 'DisplayCodes.php');
 	}
 ?>
