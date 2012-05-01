@@ -160,7 +160,7 @@ jQuery(document).ready(function($){
 	
 	//because JS syntax highlighting looks better
 	$("pre.js").snippet("javascript",{style:"acid", showNum:false})
-	
+	$("pre.styles").snippet("css",{style:"acid"})
 	$( "#tabs" ).tabs();
 });
 
@@ -180,7 +180,8 @@ jQuery(document).ready(function($){
             <div class="box">
                 <p> <strong>Usising Aisis Codes</strong><br  /><br />
                 Using aisis short codes helps you write better articles, get more done with out having to 
-                worry about how to implement images ina specific way. The work is done for you.</p>
+                worry about how to implement images ina specific way. The work is done for you.</p><br />
+                <p>To use any of the short codes here, each "code box" has a "popup" or "Turn off HTML" option to easily copy and paste the code.</p>
             </div>
             <p>Aisis short codes are a essential way of the writers life and we provide simple and clean ways to insert images, code and other small 
             features that you would have to code with css. The following is an example of short codes and their power.</p>
@@ -198,7 +199,7 @@ jQuery(document).ready(function($){
         	<p>When you insert an image into a post in wordpress you really want it to stick out and Aisis has two CSS3 based methods that really helpt that happen.
             Using jquery and CSS3 Aisis helps your images pop!</p>
             <div class="box">
-            	<p><strong>Soft Images</strong><br />
+            	<p><strong>Soft Images</strong><br  /><br />
                 When you want to give images that soft look with a little bit of sine at the bottom you just have to use the following short code and pass in the image
                 source code and let Aisis handel the rest. We will then center you image and give you your effect.<br />
                 <em>Supported in: IE9, FF3.6+m Chrome and Safari</em></p>
@@ -210,7 +211,7 @@ jQuery(document).ready(function($){
             </div>
             </div>
             <div class="box">
-            	<p><strong>Glossy Image</strong><br  />
+            	<p><strong>Glossy Image</strong><br  /><br />
                 When you wan't your images to have a glossy look or effect you can use the following hort code to give it that glossy shiny look that really helps it
                 POP out on your screen. Again all you have to do is insert the  image source between the two tags and Aisis will handel the rest for you.
                 <em>Supported in: IE9, FF3.6+m Chrome and Safari</em>
@@ -233,16 +234,16 @@ jQuery(document).ready(function($){
             <p>Ever updated a post but needed to draw the users attention to it? Or maybe you have a long post and it gets simplified into something in a couple sentances. 
             Well these post specific short codes help make your posting and adding that extra tid bit much more easier and effective then ever before.  </p>
             <div class="box">
-            	<p><strong>Info Post</strong><br />
+            	<p><strong>Info Post</strong><br  /><br />
                 Ever wanted to summerize a post in a few sentances, maybe you have a complex explanation that you summarize up in a couplesentances. The following is an example of how to do that.</p>
             </div>
             <pre class="js">[infopost]content here[/infopost]</pre>
             <div class="infoPost">
             	This is the summary of the post - use the short code above to create me.
             </div>
-            <p>info post is best used for when you want to really get the point across or summarize a point that your paragraph or exaplanation makes that the user might miss.</p>
+            <br  />
         	<div class="box">
-            	<p><strong>Update Post</strong><br />
+            	<p><strong>Update Post</strong><br  /><br />
                 Ever updated a post and the user read the post but then saw your update and it looked like the rest of the post? Well with this short code it will stick out 
                 and let people know that "Oh! This post was updated!" The following will show you how to do that.</p>
             </div>
@@ -250,13 +251,41 @@ jQuery(document).ready(function($){
             <div class="updatePost">
             	I am a post that has been updated. Updated I am!
             </div>
-            <p>I always found that users miss the update section on a post. With this short code it really makes it stick out. Its best at the top or the bottom of the post.</p>
+            <br  />
         </div>
     </div>
     <div id="Code">
     	<div class="headerTitle">Aisis - Code - </div>
         <div class="wrapper">
         <p>Ever wanted to insert CSS or JS into your posts to get that coding point across? Now you can. Its so simple. check out some of the examples bellow.</p>
+        <div class="box">
+        	<p><strong>Display CSS</strong><br  /><br />
+            Its important to some people to show code examples in there blog posts and Aisis provides that 
+            opertunity by providing you with CSS syntax highlighting for you uses. Our code boxes also come 
+            with a text mode and a "pop up" mode for easy copy and paste of your code.</p>
+        </div>
+        <pre class="js">
+        [cssCode] .class{} [/cssCode]
+        </pre>
+        <pre class="styles">.class{}</pre>
+        <div class="box">
+        	<p><strong>Display JS</strong><br  /><br />
+            Javascript is often posted a lot on blogs to display how to do Jquery based functions and other library calls.
+            Through out this Aisis - ShortCodes - popup we have been using it to show you various short codes.</p>
+        </div>
+        <pre class="js">
+        [jsCode] function(){} [/jsCode]
+        </pre>
+        <pre class="js">
+        /**
+         * note we have line numbers
+         * turned off for this 
+         * demonstration how ever 
+         * you won't when using the
+         * short code.
+         */
+        function(){}
+        </pre>
         </div>
     </div>
 </div>

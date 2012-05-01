@@ -28,7 +28,21 @@
 		add_theme_support('post-thumbnails');
 		add_theme_support( 'post-formats', array( 'aside', 'link', 'gallery', 'status', 'quote', 'image' ) );
 		add_theme_support( 'automatic-feed-links' );
-		add_theme_support( 'custom-header', array( 'random-default' => true ) );
+		$defaults = array(
+			'default-image'          => '',
+			'random-default'         => false,
+			'width'                  => 0,
+			'height'                 => 0,
+			'flex-height'            => false,
+			'flex-width'             => false,
+			'default-text-color'     => '',
+			'header-text'            => true,
+			'uploads'                => true,
+			'wp-head-callback'       => '',
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => '',
+		);
+		add_theme_support( 'custom-header', $defaults );
 	}
 	
 	//Sidebar jazz

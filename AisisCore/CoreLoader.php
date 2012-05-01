@@ -35,8 +35,9 @@
 	 require_once(AISIS_EXCEPTIONS . 'ExceptionLoader.php');
 	 require_once(AISIS_TEMPLATES . 'BuildAisisTheme.php');
 	 
-	 //Load short codes
+	 //Load short codes and set them up.
 	 require_once(AISIS_SHORTCODES . 'Codes.php');
+	 require_once(AISIS_SHORTCODES . 'AdminSetUpCodes.php');
 	 
 	 //Load Custom
 	 require_once(CUSTOM . 'LoadCustom.php');

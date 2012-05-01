@@ -50,7 +50,7 @@
 					
 					echo "<strong>You have an update!</strong> You are currently version <strong>" . $this->get_current_theme_version() . 
 						"</strong> and the version we have on the server is <strong>" . $aisis_version . "</strong>. We encourgage you to upgrade to the latest version. 
-							For further information please see <a href='http://google.ca?&TB_iframe=true&height=250&width=400' class='thickbox'>Aisis Upgrade Notes</a>
+							For further information please see <a href='#'>Aisis Upgrade Notes</a>
 							 to see whats changed. 
 							<form method='post' action='".admin_url('admin.php?page=aisis_options')."'>
 								<input type='submit' value='updagrade now!' class='moveButton' name='upgrade'/>
@@ -90,18 +90,13 @@
 			 $path_to_theme_dir_to_upgrade = AISIS;
 			 if(current_user_can('update_themes')){
 				 if(function_exists('unzip_file')){
-					 unzip_file($path_to_file_to_unpack, $path_to_theme_dir_to_upgrade);
-					 return true;
+					 return unzip_file($path_to_file_to_unpack, $path_to_theme_dir_to_upgrade);
 				 }else{
 					_e('<div class="err">Seems that this function (unzip_file) no longer exists</div>');
-					return false;
 				 }
 			 }else{
 				 _e('<div class="err">You do not have the right to update themes. Please see the administrator.</div>');
-				 return false;
 			 }
-			 
-			 return false;
 		 }
 	}
 
