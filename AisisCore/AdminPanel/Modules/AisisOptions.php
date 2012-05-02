@@ -54,44 +54,18 @@
 	 
 	 if(isset($_POST['defaults'])){
 		 if($_POST['default404Err'] != '' && $_POST['default404Message'] != '' && $_POST['defaultAuthorText'] != '' && $_POST['defaultCategoryText'] != '' && $_POST['defaultFooterText'] != ''){
+			 
 			 function new_default_404_banner_message(){
 				 _e($_POST['default404Err']);
 			 }
 			 
-			 function new_default_404_message(){
-				 echo $_POST['default404Message'];
+			 add_action('init', 'aisis_filter_hooks');
+			 function aisis_filter_hooks() {
+				 $aisis_is_needed = (true === true);
+				 if ($aisis_is_needed) {
+					 add_filter('aisis_404_err_message_banner', 'new_default_404_banner_message');
+				 }
 			 }
-			 
-			 //affects two hooks at once.
-			 function new_deafult_author_text(){
-				 echo $_POST['defaultAuthorText'];
-			 }
-			 
-			 function new_default_category_text(){
-				 echo $_POST['defaultCategoryText'];
-			 }
-			 
-			 function new_default_footer_text(){
-				 echo $_POST['defaultFooterText'];
-			 }
-			 
-			 //Now we add these too the hooks after 
-			 //we deregister the other hooks.
-			 
-			 add_action('aisis_404_err_message_banner','new_default_404_banner_message');
-	  		 add_action('aisis_404_err_message','new_default_404_message');
-	  		 add_action('aisis_author_default_text','new_deafult_author_text');
-	  		 add_action('aisis_category_default_text','new_default_category_text');
-	  		 add_action('aisis_default_footer_text','new_default_footer_text');
-	  		 add_action('aisis_loop_single_author_blurb_default','new_deafult_author_text');
-			 
-			 remove_action('aisis_404_err_message_banner','default_aisis_404_err_message_banner');
-			 remove_action('aisis_404_err_message','default_aisis_404_err_message');
-			 remove_action('aisis_author_default_text','deafualt_aisis_author_default_text');
-			 remove_action('aisis_category_default_text','default_aisis_category_default_text');
-			 remove_action('aisis_default_nav_template','default_aisis_default_nav_template');
-			 remove_action('aisis_default_footer_text','default_aisis_default_footer_text');
-			 remove_action('aisis_loop_single_author_blurb_default','default_aisis_loop_single_author_blurb_default');
 			 
 			 $did_we_complete_text = true;
 			 
