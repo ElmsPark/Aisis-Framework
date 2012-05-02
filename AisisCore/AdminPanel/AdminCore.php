@@ -56,7 +56,7 @@
 			   wp_enqueue_script( 'code-highlight-css', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/php.js', false, true ); 	
 			   wp_enqueue_script( 'code-highlight-css', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/javascript.js', false, true );	
 			   wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true);	
-			   wp_enqueue_script( 'toast', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.toastmessage.js', array('jquery')); 
+			   wp_enqueue_script( 'toast', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/jquery.toastmessage.js', array('jquery')); 
 			   wp_enqueue_script( 'admin-js', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/AdminPanelJS.js', array('jquery'), false, true );
 			   		   
 		   }

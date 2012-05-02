@@ -26,7 +26,7 @@ h1 {
 	font-size: 45px;
 }
 #adminPanelWrapper {
-	width: 75%;
+	width: 50%;
 	margin: 25px auto 0 auto;
 	font-family:'Ubuntu', sans-serif;
 	padding:20px;
@@ -37,7 +37,7 @@ h1 {
 }
 .adminPanelTitle {
 	width: 70%;
-	margin: -40px auto 40px 180px;
+	margin: -40px auto 40px 130px;
 	border-radius: 8px;
 	border: thin solid #999;
 	background:#B5C4D2;
@@ -57,9 +57,35 @@ h1 {
 	width:100%;
 	text-align:center;
 }
+.greyBox{
+	margin-left: -39px;
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	background:#CCC;
+	color:#7694A9;
+	font-size:16px;
+	padding: 10px;
+	margin-bottom:20px;
+	margin-top: 20px;
+	width:58%;
+	
+}
+
+.greyBox .title{
+	margin-left: 20px;
+	font-size:18px;
+	font-weight:bold;
+	border-bottom: 2px solid #333;
+	width: 50%;
+	line-height: 1.1em;
+}
+
+.greyBox p{
+	margin-left: 5px;
+}
 .box{
 	width: 45%;
-	margin-left: 799px;
+	margin-left: 525px;
 	margin-bottom: 45px;
 	background:#D5B7CC;
 	padding:10px;
@@ -127,8 +153,8 @@ h1 {
 	padding : 10px;
 	font-size : 13px;
 	border-radius : 5px;
-	margin : 10px auto -8px auto;
-	width:60%;
+	margin : 10px 0px -8px 80px;
+	width:60%
 }
 .upgradeNotice {
 	background : #fff9d7;
@@ -150,7 +176,7 @@ h1 {
 	padding : 10px;
 	font-size : 13px;
 	border-radius : 5px;
-	margin : 10px auto 20px auto;
+	margin : 10px 0px 20px 80px;
 	width:60%;
 }
 .err {
@@ -160,7 +186,7 @@ h1 {
 	padding : 10px;
 	font-size : 13px;
 	border-radius : 5px;
-	margin: 10px auto 20px auto;
+	margin: 10px 0px -20px 80px;
 	width:60%;
 }
 .excNotice {
@@ -181,7 +207,7 @@ h1 {
 	padding : 10px;
 	font-size : 13px;
 	border-radius : 5px;
-	margin: 10px auto 10px auto;
+	margin: 10px 0px 20px 80px;
 	width:60%;
 }
 
@@ -202,7 +228,7 @@ h1 {
 }
 .adminFooter{
 	width: 70%;
-	margin: 0 auto -40px auto;
+	margin: 10px auto -40px auto;
 	padding:20px;
 	border-radius:8px;
 	background:#CCCCCC;
@@ -226,6 +252,16 @@ h1 {
 	height:30px;
 	cursor:pointer;
 	
+}
+
+.optionsSection textarea{
+	margin-left: 20px;
+	margin-top:10px;
+	margin-bottom: 10px;
+	padding:10px;
+	border-radius: 4px;
+	height:100px;
+	width: 80%;
 }
 .moveButton{
 	margin-left: 10px !important;

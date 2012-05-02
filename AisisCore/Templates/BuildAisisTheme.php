@@ -4,30 +4,6 @@
 	 *
 	 * ==================== [YOU MAY EDIT!] ========================
 	 *
-	 *		This file essentially builds the Aisis theme that you
-	 *		use on the front end. The entire Aisis theme is built using
-	 *		templates. Each template is then loaded into this 
-	 *		file and registered. Registering a file helps build only
-	 *		what the user needs to see with out requsting that all the files
-	 *		be handed over.
-	 *
-	 *		============= [EDITING] =============
-	 *
-	 *		We don't recomend it but if you want, each aisis_register
-	 *		can take in a second param called true or false ($custom).
-	 *		currently each of these files are registered or loaded from
-	 *		the Aisis/AisisCore/Templates package which if you pass in
-	 *		true to each of the statements bellow then we are saying
-	 *		load from Aisis/custom/Templates instead.
-	 *
-	 *		Optionally you can over write these functions and pass in
-	 *		the name of your file wih the custom set to true.
-	 *
-	 *		TODO: it seems if I dont do global $aisis_template_loader
-	 *			in each function that it spazzes out....
-	 *
-	 *		@see Aisis->AisisCore->AisisCoreRegister
-	 *		@see Aisis->AisisCore->Templates (package)
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0

@@ -41,7 +41,7 @@
 					
 					if(isset($_POST['upgrade'])){
 						if($this->get_latest_version_zip()){
-							echo "done";
+							print '<pre>' .print_r($this->get_latest_version_zip()). '</pre>';
 						}else{
 							echo "fails";
 						}

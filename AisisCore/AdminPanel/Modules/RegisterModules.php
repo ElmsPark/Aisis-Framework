@@ -3,13 +3,6 @@
 	 *
 	 * ==================== [YOU MAY EDIT!] ====================
 	 *
-	 *		This file is used to register all the Admin Panel
-	 *		module peices including the AdminPanel-Core-Look module
-	 *		which states the general look across all pages.
-	 *		
-	 *		Each function here registers a module that can be used with
-	 *		in the admin section to generate the look and feel of the 
-	 *		Admin Page.
 	 *		
 	 *		@author: Adam Balan
 	 *		@version: 1.0
