@@ -26,9 +26,9 @@
 	 //Defaults - Core - Load it
 	 require_once(AISISCORE . 'AisisCore.php');
 	 require_once(AISISCORE . 'AisisHooks.php');
-	 require_once(AISISCORE . 'Class-AisisFilehandeling.php');
-	 require_once(AISISCORE . 'Class-AisisCoreRegister.php');
-	 require_once(AISISCORE . 'Class-AisisUpdate.php');
+	 require_once(AISISCORE . 'Class-Aisis-File-Handeling.php');
+	 require_once(AISISCORE . 'Class-Aisis-Core-Register.php');
+	 require_once(AISISCORE . 'Class-Aisis-Update.php');
 
 	 
 	 //These are all the loaders

@@ -27,10 +27,52 @@
     test text 1
     </div>
     <div id="aisisGit">
-    test text
     </div>
     <div id="aisisAPI">
-    test test
+	<?php 
+	  function aisis_test(){
+			register_setting(
+				'aisis-doc',
+				'aisis_test_options',
+				'aisis_validate_options'
+			);
+			add_settings_field(
+				'test_notify',
+				'email',
+				'input_call_back',
+				'aisis-doc',
+				'default'
+			);
+		}
+		
+		add_action('admin_init', 'aisis_test' );
+		
+		function input_call_back(){
+			$options = get_options('aisis_test_options');
+			$value = $options['email'];
+			?>
+				<input id='boss_email' name='aisis_test_options[email]' type='text' value='<?php echo esc_attr( $value ); ?>' /> Boss wants to get a mail when a post is published
+			<?php
+		}
+		
+		function aisis_validate_options($input){
+			$valid = array();
+			$valid['email'] = sanitize_email($input['email']);
+			if($valid['email'] != $input['email']){
+				add_setting_error(
+					'email_error',
+					'email_text_error',
+					'You fail at life',
+					'error'
+				);
+			}
+			
+			return $valid;
+		}
+		
+		echo do_settings_sections('aisis-doc');
+	
+	?>
     </div>
 </div>
 
