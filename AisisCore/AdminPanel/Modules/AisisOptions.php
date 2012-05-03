@@ -53,7 +53,8 @@
 	 }
 	 
 	 if(isset($_POST['defaults'])){
-		 if($_POST['default404Err'] != '' && $_POST['default404Message'] != '' && $_POST['defaultAuthorText'] != '' && $_POST['defaultCategoryText'] != '' && $_POST['defaultFooterText'] != ''){
+		 if($_POST['default404Err'] != '' && $_POST['default404Message'] != '' && $_POST['defaultAuthorText'] != '' 
+		 			&& $_POST['defaultCategoryText'] != '' && $_POST['defaultFooterText'] != ''){
 			 
 			 function new_default_404_banner_message(){
 				 _e($_POST['default404Err']);
@@ -66,7 +67,6 @@
 					 add_filter('aisis_404_err_message_banner', 'new_default_404_banner_message');
 				 }
 			 }
-			 
 			 $did_we_complete_text = true;
 			 
 			}else{
