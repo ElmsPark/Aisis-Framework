@@ -35,6 +35,7 @@
 	 define('AISIS_EXCEPTIONS', TEMPLATEPATH . '/AisisCore/Exceptions/');
 	 define('AISIS_ADMINPANEL', TEMPLATEPATH . '/AisisCore/AdminPanel/');
 	 define('AISIS_ADMINPANEL_MODULES', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/');
+	 define('AISIS_ADMINPANEL_MODULES_OPTIONS', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/Options/');
 	 define('AISIS_TEMPLATES',TEMPLATEPATH . '/AisisCore/Templates/');
 	 define('AISIS_SHORTCODES', TEMPLATEPATH . '/AisisCore/ShortCodes/');
 	 

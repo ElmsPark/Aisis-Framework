@@ -14,6 +14,9 @@
 	 *
 	 * =================================================================
 	 */
+	 
+	 $is_text_area_empty = false;
+	 $did_we_complete_text = false;
 
 ?>
 
@@ -39,7 +42,7 @@
     	<form method="post" action="<?php admin_url('admin.php?page=aisis-core-options') ?>">
             <input type="file" formenctype="multipart/form-data" name="image_uploaded" />
             <input type="submit" value="Upload Image" name="upload" />
-            <input type="hidden" value"<?php MAX_SIZE ?>" name="MAX_SIZE"/>
+            <input type="hidden" value"MAXSIZE" name="MAX_SIZE"/>
         </form>
         </div>
     </div>
@@ -74,33 +77,33 @@
                 <p>The following hook(s) will be changed: <strong>aisis_404_err_message_banner</strong>. 
                 Which in turn changes the default text in the 404 error banner text.</p>
             </div>
-            <textarea name="default404Err" rows="4" cols="60"><?php aisis_404_err_message_banner(); ?></textarea><br />
+           <?php do_settings_fields('aisis-core-options', 'aisis_default_404_banner_section');?><br />
             <div class="greyBox">
                 <div class="title">Default 404 err banner message</div>
                 <p>The following hook(s) will be changed: <strong>aisis_404_err_message</strong>. 
                 Which in turn will change the default 404 error message that is displayed. 
                 Yes you can use HTML here to style the header and the message.</p>
             </div>
-            <textarea name="default404Message" rows="4" cols="60"><?php aisis_404_err_message(); ?></textarea><br />
+            <?php do_settings_fields('aisis-core-options', 'aisis_default_404_banner_section');?><br />
             <div class="greyBox">
                 <div class="title">Default 404 err banner message</div>
                 <p>The following hook(s) will be changed: <strong>aisis_author_default_text and aisis_loop_single_author_blurb_default</strong>. 
                 Which in turn changes the authors default text for the author page and the default author blurb at the bottom of the post.
                 To change them individually please edit your custom-functions.php file. </p>
             </div>
-            <textarea name="defaultAuthorText" rows="4" cols="60"><?php aisis_author_default_text(); ?></textarea><br />
+            <?php do_settings_fields('aisis-core-options', 'aisis_default_author_text_section');?><br />
             <div class="greyBox">
                 <div class="title">Default 404 err banner message</div>
                 <p>The following hook(s) will be changed: <strong>aisis_category_default_text</strong>. 
                 Which in turn changes the default category text for when vieing posts under a category.</p>
             </div>
-            <textarea name="defaultCategoryText" rows="4" cols="60"><?php aisis_category_default_text(); ?></textarea><br />
+            <?php do_settings_fields('aisis-core-options', 'aisis_default_category_text_section');?> <br />
             <div class="greyBox">
                 <div class="title">Default 404 err banner message</div>
                 <p>The following hook(s) will be changed: <strong>aisis_default_footer_text</strong>. 
                 Which in turn changes the default footer text.</p>
             </div>
-            <textarea name="defaultFooterText" rows="4" cols="60"><?php aisis_default_footer_text(); ?></textarea><br />
+            <?php do_settings_fields('aisis-core-options', 'aisis_default_footer_text_section');?><br />
             <input type="submit" value="Save Your Work!" name="defaults" />
         </form>
     </div>
