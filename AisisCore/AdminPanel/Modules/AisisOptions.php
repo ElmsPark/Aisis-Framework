@@ -79,27 +79,27 @@
             </div>
            <?php do_settings_fields('aisis-core-options', 'aisis_default_404_banner_section');?><br />
             <div class="greyBox">
-                <div class="title">Default 404 err banner message</div>
+                <div class="title">Default 404 err message</div>
                 <p>The following hook(s) will be changed: <strong>aisis_404_err_message</strong>. 
                 Which in turn will change the default 404 error message that is displayed. 
                 Yes you can use HTML here to style the header and the message.</p>
             </div>
             <?php do_settings_fields('aisis-core-options', 'aisis_default_404_banner_section');?><br />
             <div class="greyBox">
-                <div class="title">Default 404 err banner message</div>
+                <div class="title">Default Author Text & Blurb</div>
                 <p>The following hook(s) will be changed: <strong>aisis_author_default_text and aisis_loop_single_author_blurb_default</strong>. 
                 Which in turn changes the authors default text for the author page and the default author blurb at the bottom of the post.
                 To change them individually please edit your custom-functions.php file. </p>
             </div>
             <?php do_settings_fields('aisis-core-options', 'aisis_default_author_text_section');?><br />
             <div class="greyBox">
-                <div class="title">Default 404 err banner message</div>
+                <div class="title">Default Category Text</div>
                 <p>The following hook(s) will be changed: <strong>aisis_category_default_text</strong>. 
                 Which in turn changes the default category text for when vieing posts under a category.</p>
             </div>
             <?php do_settings_fields('aisis-core-options', 'aisis_default_category_text_section');?> <br />
             <div class="greyBox">
-                <div class="title">Default 404 err banner message</div>
+                <div class="title">Default Footer Text</div>
                 <p>The following hook(s) will be changed: <strong>aisis_default_footer_text</strong>. 
                 Which in turn changes the default footer text.</p>
             </div>
