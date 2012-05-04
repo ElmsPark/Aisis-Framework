@@ -80,11 +80,11 @@
 		//Set up out navigation
 		if(!function_exists('aisis_add_settings_page')){
 			function aisis_add_settings_page() {
-				add_menu_page(__('Aisis', 'aisis'), __('Aisis', 'aisis'), 'edit_themes', 'aisis_options', array('AdminPanel', 'aisis_core_options'),  get_template_directory_uri() . '/images/block.png', 31);
-				add_submenu_page('aisis_options', __('Css Editor', 'aisis'), __('CSS Editor', 'aisis'), 'edit_themes', 'aisis-css-editor', array('AdminPanel', 'aisis_css_editor'));
-				add_submenu_page('aisis_options', __('PHP editor', 'aisis'), __('PHP Editor', 'aisis'), 'edit_themes', 'aisis-php-editor', array('AdminPanel', 'aisis_php_editor')); 
-				add_submenu_page('aisis_options', __('JS Ediotr', 'aisis'), __('JS Ediotr', 'aisis'), 'edit_themes', 'aisis-js-editor', array('AdminPanel', 'aisis_js_editor'));
-				add_submenu_page('aisis_options', __('Documentation', 'aisis'), __('Documentation', 'aisis'), 'edit_themes', 'aisis-doc', array('AdminPanel', 'aisis_doc')); 
+				add_menu_page(__('Aisis', 'aisis'), __('Aisis', 'aisis'), 'edit_themes', 'aisis-core-options', array('AdminPanel', 'build_admin_panel'),  get_template_directory_uri() . '/images/block.png', 31);
+				add_submenu_page('aisis-core-options', __('Css Editor', 'aisis'), __('CSS Editor', 'aisis'), 'edit_themes', 'aisis-css-editor', array('AdminPanel', 'build_admin_panel'));
+				add_submenu_page('aisis-core-options', __('PHP editor', 'aisis'), __('PHP Editor', 'aisis'), 'edit_themes', 'aisis-php-editor', array('AdminPanel', 'build_admin_panel')); 
+				add_submenu_page('aisis-core-options', __('JS Ediotr', 'aisis'), __('JS Ediotr', 'aisis'), 'edit_themes', 'aisis-js-editor', array('AdminPanel', 'build_admin_panel'));
+				add_submenu_page('aisis-core-options', __('Documentation', 'aisis'), __('Documentation', 'aisis'), 'edit_themes', 'aisis-doc', array('AdminPanel', 'build_admin_panel')); 
 			}
 		}
 		
