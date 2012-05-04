@@ -71,7 +71,8 @@
 	}?>
     <div class="notice">The following is a set of hooks that deisplay default content fopr things like authors and categories when the text for those have not been set. That is to say if an author does not set their bio then the <strong>aisis_author_default_text and aisis_loop_single_author_blurb_default</strong> will be used to display default text.</div>
 	<div class="optionsSection">
-        <form method="post" action="<?php admin_url('admin.php?page=aisis-core-options') ?>">
+    	<?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>
+        <form method="post" action="<?php echo $aisis_forum_url ?>">
             <div class="greyBox">
                 <div class="title">Default 404 err banner message</div>
                 <p>The following hook(s) will be changed: <strong>aisis_404_err_message_banner</strong>. 
@@ -104,6 +105,7 @@
                 Which in turn changes the default footer text.</p>
             </div>
             <?php do_settings_fields('aisis-core-options', 'aisis_default_footer_text_section');?><br />
+            <?php settings_fields( 'aisis-core-options' ); ?>
             <input type="submit" value="Save Your Work!" name="defaults" />
         </form>
     </div>

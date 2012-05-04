@@ -91,7 +91,7 @@
 	function aisis_default_404_banner_message(){
 		$options = get_option('aisis_default_404_banner_setting');
 		$value = $options['404_banner_content'];
-         ?><textarea id="404_banner_content" name="aisis_default_404_banner_setting['404_banner_content']" rows="4" cols="60">
+         ?><textarea id="aisis_404_banner_content" name="aisis_default_404_banner_setting['404_banner_content']" rows="4" cols="60">
 		 <?php 
 		 if($value == ''){
 			 aisis_404_err_message_banner();
