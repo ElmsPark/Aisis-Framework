@@ -85,7 +85,7 @@
                 Which in turn will change the default 404 error message that is displayed. 
                 Yes you can use HTML here to style the header and the message.</p>
             </div>
-            <?php do_settings_fields('aisis-core-options', 'aisis_default_404_banner_section');?><br />
+            <?php do_settings_fields('aisis-core-options', 'aisis_default_404_message_section');?><br />
             <div class="greyBox">
                 <div class="title">Default Author Text & Blurb</div>
                 <p>The following hook(s) will be changed: <strong>aisis_author_default_text and aisis_loop_single_author_blurb_default</strong>. 
