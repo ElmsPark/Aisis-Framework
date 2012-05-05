@@ -22,7 +22,7 @@
 /*																		   */
 /*						Supported Media Sizes:							   */
 /*																		   */						
-/*						980, 780, 650, 560, 480, 320					   */
+/*						1280					   						   */
 /*																		   */
 /*																		   */
 /*																		   */
@@ -33,9 +33,19 @@
 .adminPanelTitle {
 	margin: -40px auto 40px 100px;
 }
+h1 {
+	color:#4B718B;
+	margin-left:40px;
+	text-shadow : #6695B0 0 1px 0;
+	margin-bottom: 20px;
+	border-bottom: inset thin #666;
+	line-height: 40px;
+	width: 46%;
+	font-size: 45px;
+}
 .box{
 	width: 45%;
-	margin-left: 500px;
+	margin-left: 330px;
 	margin-bottom: 45px;
 	background:#D5B7CC;
 	padding:10px;
@@ -46,6 +56,16 @@
 	-webkit-box-shadow: 0 6px 6px -6px black;
 	-moz-box-shadow: 0 6px 6px -6px black;
 	box-shadow: 0 6px 6px -6px black;
+}
+.box p{
+	width: 70%;
+	margin-left: 40px;
+	margin-top: -10px;
+	font-size:16px;
+}
+.greyBox{
+	width:68%;
+	
 }
 .notice {
 	background : #fff9d7;
