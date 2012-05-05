@@ -12,6 +12,11 @@
 	 *		parts of what they want with out having to build new templates.
 	 *		They can just use the hook system in Aisis.
 	 *
+	 *		If you do not over ride these default hooks then they will change
+	 *		with the options set in the options table. That is if you
+	 *		change the default text in the aisis admin panel options section
+	 *		these will also change.
+	 *
 	 *		
 	 *		@author: Adam Balan
 	 *		@version: 1.0
@@ -93,27 +98,48 @@
 	  
 	  //default 404 err banner message
 	  function default_aisis_404_err_message_banner(){
-		  _e('It seems we could not find what you were looking for.');
+		  $options = get_option('aisis_default_404_banner_setting');
+		  if(!isset($options['404_banner_content']) ){
+			  _e('It seems we could not find what you were looking for.');
+		  }else{
+			  _e($options['404_banner_content']);
+		  }
 	  }
 	  
 	  //default 404 err message and title
 	  function default_aisis_404_err_message(){
-		  ?>
-          <h1>404</h1>
-          <p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>
-          <?php
+		  $options = get_option('aisis_default_404_message_setting');
+		  if(!isset($options['404_theme_message'])){
+			  ?>
+			  <h1>404</h1>
+			  <p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>
+			  <?php
+		  }else{
+			  echo $options['404_theme_message'];
+		  }
 	  }
 	  
 	  //default author message
 	  function deafualt_aisis_author_default_text(){
-		  echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles for the blog its self and we are proud to have them
+		  $options = get_option('aisis_default_author_text_setting');
+		  if(!isset($options['default_author_text'])){
+		  	echo "This author is a writer and a contributor to the blog. They enjoy writing various 
+			content and articles for the blog its self and we are proud to have them
             here and apart of our team :D";
+		  }else{
+			  echo $options['default_author_text'];
+		  }
 	  }
 	  
 	  //default category text
 	  function default_aisis_category_default_text(){
-		  echo "Welcome to this category " . single_cat_title() . " where we hope that we present you
+		  $options = get_option('aisis_default_category_text_setting');
+		  if(!isset($options['default_author_text'])){
+		  	echo "Welcome to this category " . single_cat_title() . " where we hope that we present you
                 with the latest and greates in content from this section. Please enjoy your stay :D";
+		  }else{
+			  $options['default_author_text'];
+		  }
 	  }
 	  
 	  //default nav template
@@ -127,13 +153,23 @@
 	  
 	  //default footer text
 	  function default_aisis_default_footer_text(){
-		  echo "Powered by WordPress | Aisis | Adam Balan -  2012";
+		  $options = get_option('aisis_default_footer_text_setting');
+		  if(!isset($options['default_footer_text'])){
+		  	echo "Powered by WordPress | Aisis | Adam Balan -  2012";
+		  }else{
+			  echo $options['default_footer_text'];
+		  }
 	  }
 	  
 	  //default loop_single author blurb
 	  function default_aisis_loop_single_author_blurb_default(){
-		  echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles 
+		  $options = get_option('aisis_default_author_text_setting');
+		  if(!isset($options['default_author_text'])){
+		  	  echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles 
                 for the blog its self and we are proud to have them here and apart of our team :D";
+		  }else{
+			  echo $options['default_author_text'];
+		  }
 	  }
 	  
 	  /**

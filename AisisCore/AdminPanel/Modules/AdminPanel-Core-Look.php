@@ -25,10 +25,10 @@
         <div class="adminPanelTitle">
             Aisis Core Theme Options
             <div class="adminPanelSubTitle">
-            	Aisis Core Version <?php echo $aisis_theme_version['Version']; ?>
-        	</div>
+                Aisis Core Version <?php echo $aisis_theme_version['Version']; ?>
+            </div>
             <div class="upgradeNotice"><?php $aisis_check_version->check_current_version();?></div>
-        </div>
+    	</div>
        
 
 		<?php

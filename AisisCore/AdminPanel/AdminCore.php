@@ -120,7 +120,7 @@
 		add_action( 'admin_menu', 'aisis_add_settings_page' );
 		
 		//Only register if on these pages.
-		if(isset($_GET['page']) && $_GET['page'] == 'aisis_options' || isset($_GET['page']) && $_GET['page'] == 'aisis-css-editor' || isset($_GET['page']) && $_GET['page'] == 'aisis-php-editor' 
+		if(isset($_GET['page']) && $_GET['page'] == 'aisis-core-options' || isset($_GET['page']) && $_GET['page'] == 'aisis-css-editor' || isset($_GET['page']) && $_GET['page'] == 'aisis-php-editor' 
 			|| isset($_GET['page']) && $_GET['page'] == 'aisis-js-editor' || isset($_GET['page']) && $_GET['page'] == 'aisis-doc' ){
 			add_action('admin_head', 'aisis_lt_ie_nine');
 			add_action('admin_enqueue_scripts', 'aisis_register_admin_jquery');

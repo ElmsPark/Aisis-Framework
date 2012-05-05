@@ -14,9 +14,6 @@
 	 *
 	 * =================================================================
 	 */
-	 
-	 $is_text_area_empty = false;
-	 $did_we_complete_text = false;
 
 ?>
 
@@ -55,15 +52,8 @@
 </div>
 
 <div class="contents">
-	<?php if($is_text_area_empty == true){
-		?><div class="err">Seems that one your text feilds bellow is empty. We can't have that! Please make sure nothing is empty. 
-        If you won't want to edit it, then don't change the default.</div>
-		<script>
-			  $().toastmessage('showErrorToast', "Seems you left one of the feilds bellow blank. We don't allow that. If you don't want to change the default text then please just leave it as is. If you don't want the text displayed at all please use the custom-functions.php to change the the appropriate hook.");
-              </script><?php
-	}
-	
-	if($did_we_complete_text == true){
+	<?php
+	if(isset($_GET['settings-updated'])){
 	?><div class="success">Check out your site to see the changes to the default text!</div>
 	  <script>
 		$().toastmessage('showSuccessToast', "We have changed the default text for the various sections as shown bellow. Check out your site to see your changes.");
@@ -73,6 +63,7 @@
 	<div class="optionsSection">
     	<?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>
         <form method="post" action="<?php echo $aisis_forum_url ?>">
+        <?php settings_fields( 'aisis-core-options' ); ?>
             <div class="greyBox">
                 <div class="title">Default 404 err banner message</div>
                 <p>The following hook(s) will be changed: <strong>aisis_404_err_message_banner</strong>. 
@@ -105,7 +96,6 @@
                 Which in turn changes the default footer text.</p>
             </div>
             <?php do_settings_fields('aisis-core-options', 'aisis_default_footer_text_section');?><br />
-            <?php settings_fields( 'aisis-core-options' ); ?>
             <input type="submit" value="Save Your Work!" name="defaults" />
         </form>
     </div>

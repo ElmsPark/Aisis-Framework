@@ -27,7 +27,6 @@
     test text 1
     </div>
     <div id="aisisGit">
-    test text
     </div>
     <div id="aisisAPI">
     API
