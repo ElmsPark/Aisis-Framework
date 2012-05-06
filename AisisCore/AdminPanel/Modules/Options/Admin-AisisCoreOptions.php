@@ -205,6 +205,7 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 		$options = get_option('aisis_default_404_banner_setting');
 		if($input['banner_content'] != ''){
 			$options['banner_content'] = $input['banner_content'];
+			update_option('admin_404_banner_err_bool', 'false', '', 'yes');
 			return $options;
 		}else{
 			add_settings_error(
@@ -213,6 +214,8 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 				'Error Thrown.',
 				'error'
 			);
+			
+			update_option('admin_404_banner_err_bool', 'true', '', 'yes');
 		}
 
 	}
@@ -221,6 +224,7 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 		$options = get_option('aisis_default_404_banner_setting');
 		if($input['404_theme_message'] != ''){
 			$options['404_theme_message'] = $input['404_theme_message'];
+			update_option('admin_404_message_err_bool','false','','yes');
 			return $options;
 		}else{
 			add_settings_error(
@@ -229,8 +233,9 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 				'Error Thrown 2.',
 				'error'
 			);
+			
+			update_option('admin_404_message_err_bool', 'true', '', 'yes');
 		}
-
 	}
 
 	function aisis_404_banner_validation_errors(){
@@ -247,4 +252,5 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 	add_action('admin_notices', 'aisis_404_message_validation_errors');
 	//Add an error handeling option
 	add_option('admin_404_banner_err_bool', '', '', 'yes');
+	add_option('admin_404_message_err_bool', '', '', 'yes');
 ?>
