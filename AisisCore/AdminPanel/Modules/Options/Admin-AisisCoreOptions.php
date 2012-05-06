@@ -115,11 +115,11 @@
 			'aisis_default_footer_text_section'
 		);
 		
-		register_setting('aisis-core-options', 'aisis_default_404_banner_setting', 'aisis_404_banner_message_validation');
+		register_setting('aisis-core-options', 'aisis_default_404_banner_setting', 'aisis_404_banner_validation');
 		register_setting('aisis-core-options', 'aisis_default_404_message_setting', 'aisis_404_message_validation');
-		register_setting('aisis-core-options', 'aisis_default_author_text_setting', 'aisis_author_content_validation');
-		register_setting('aisis-core-options', 'aisis_default_category_text_setting', 'aisis_category_content_validation');
-		register_setting('aisis-core-options', 'aisis_default_footer_text_setting', 'aisis_footer_content_validation');
+		register_setting('aisis-core-options', 'aisis_default_author_text_setting', '');
+		register_setting('aisis-core-options', 'aisis_default_category_text_setting', '');
+		register_setting('aisis-core-options', 'aisis_default_footer_text_setting', '');
 	}
 	
 	/**
@@ -140,7 +140,7 @@
 	 */
 	function aisis_default_404_banner_message(){
 		$options = get_option('aisis_default_404_banner_setting');
-         ?><textarea id="404_banner_content" name="aisis_default_404_banner_setting[404_banner_content]" rows="4" cols="60"><?php if(!isset($options['404_banner_content'])){aisis_404_err_message_banner();}else{echo $options['404_banner_content'];}?></textarea><?php
+         ?><textarea id="banner_content" name="aisis_default_404_banner_setting[banner_content]" rows="4" cols="60"><?php if(!isset($options['banner_content'])){aisis_404_err_message_banner();}else{echo $options['banner_content'];}?></textarea><?php
 	}
 	
 	/**
@@ -202,133 +202,50 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 		?><textarea name="defaultFooterText" name="aisis_default_footer_text_setting[default_footer_text]" rows="4" cols="60"><?php if(!isset($options['default_footer_text'])){aisis_default_footer_text();}else{echo $options['default_footer_text'];}?></textarea><?php
 	}
 	
-	
-	/**
-	 * Validate the input from the defualt 404 banner message text area
-	 */
-	function aisis_404_banner_message_validation($input){
+	function aisis_404_banner_validation($input){
 		$options = get_option('aisis_default_404_banner_setting');
-		$options['404_banner_content'] = trim($input['404_banner_content']);
-		if(empty($options['404_banner_content'])){
-			add_settings_error( 
-				'aisis_404_banner_validation_error', 
-				'aisis_text_error', 
-				'The 404 banner message cannot be empty. We replaced it with default content.', 
-				'error' 
-			);
-			
-			update_option('admin_404_banner_err_bool', 'true', '', 'yes');
-			
-		}else{
-			update_option('admin_404_banner_err_bool', 'false', '', 'yes');
+		if($input['banner_content'] != ''){
+			$options['banner_content'] = $input['banner_content'];
 			return $options;
+		}else{
+			add_settings_error(
+				'aisis_default_404_banner_setting',
+				'404_banner_content',
+				'Error Thrown.',
+				'error'
+			);
 		}
+		
 	}
 	
-	/**
-	 * Validate the input from the defualt 404 message text area
-	 */
 	function aisis_404_message_validation($input){
-		$options = get_option('aisis_default_404_message_setting');
-		$options['404_theme_message'] = trim($input['404_theme_message']);
-		if(empty($options['404_theme_message'])){
-			add_settings_error( 
-				'aisis_404_validation_error', 
-				'aisis_text_error', 
-				'The 404 error message cannot be empty. We replaced it with default content.', 
-				'error' 
-			);
-			update_option('admin_404_message_err_bool', 'true', '', 'yes');
-		}else{
-			update_option('admin_404_message_err_bool', 'false', '', 'yes');
+		$options = get_option('aisis_default_404_message_section');
+		if($input['404_theme_message'] != ''){
+			$options['404_theme_message'] = $input['404_theme_message'];
 			return $options;
+		}else{
+			add_settings_error(
+				'aisis_default_404_message_setting',
+				'404_theme_message',
+				'Error Thrown 2.',
+				'error'
+			);
 		}
+		
 	}
 	
-	/**
-	 * Validate the input from the defualt author text area
-	 */
-	function aisis_author_content_validation($input){
-		$options = get_option('aisis_default_author_text_setting');
-		$options['default_author_text'] = trim($input['default_author_text']);
-		if(empty($options['default_author_text'])){
-			add_settings_error( 
-				'aisis_default_author_text_validation_error', 
-				'aisis_text_error', 
-				'The author content cannot be empty. We replaced it with default content.', 
-				'error' 
-			);
-			update_option('admin_author_content_err_bool', 'true', '', 'yes');
-		}else{
-			update_option('admin_author_content_err_bool', 'false', '', 'yes');
-			return $options;
-		}
-	}
-	
-	/**
-	 * Validate the input from the defualt category text area
-	 */
-	function aisis_category_content_validation($input){
-		$options = get_option('aisis_default_category_text_setting');
-		$options['default_cat_text'] = trim($input['default_cat_text']);
-		if(empty($options['default_cat_text'])){
-			add_settings_error( 
-				'aisis_default_cat_text_validation_error', 
-				'aisis_text_error', 
-				'The category content cannot be empty. We replaced it with default content.', 
-				'error' 
-			);
-			update_option('admin_cat_content_err_bool', 'true', '', 'yes');
-		}else{
-			update_option('admin_cat_content_err_bool', 'false', '', 'yes');
-			return $options;
-		}
-	}
-	
-	/**
-	 * Validate the input from the defualt footer text area
-	 */
-	function aisis_footer_content_validation($input){
-		$options = get_option('aisis_default_footer_text_setting');
-		$options['default_footer_text'] = trim($input['default_footer_text']);
-		if(empty($options['default_footer_text'])){
-			add_settings_error( 
-				'aisis_default_footer_text_validation_error', 
-				'aisis_text_error', 
-				'The footer content cannot be empty. We replaced it with default content.', 
-				'error' 
-			);
-			update_option('admin_footer_content_err_bool', 'true', '', 'yes');
-		}else{
-			update_option('admin_footer_content_err_bool', 'false', '', 'yes');
-			return $options;
-		}
-	}
-	
-	/**
-	 * Display the error for an empty 404 banner message text area
-	 */
 	function aisis_404_banner_validation_errors(){
-		settings_errors('aisis_404_banner_validation_error');
+		settings_errors('aisis_default_404_banner_setting');
 	}
 	
-	/**
-	 * Display the error for an empty 404 message error
-	 */
 	function aisis_404_message_validation_errors(){
-		settings_errors('aisis_404_validation_error');
+		settings_errors('aisis_default_404_message_setting');
 	}
 	
 	//This action allows for the displaying and functionality of this file.
 	add_action('admin_init', 'set_up_default_content_display_section');
+	add_action('admin_notices', 'aisis_404_banner_validation_errors');
+	add_action('admin_notices', 'aisis_404_message_validation_errors');
 	//Add an error handeling option
 	add_option('admin_404_banner_err_bool', '', '', 'yes');
-	add_option('admin_404_message_err_bool', '', '', 'yes');
-	add_option('admin_author_content_err_bool','','','yes');
-	add_option('admin_cat_content_err_bool','','','yes');
-	add_option('admin_footer_content_err_bool', '', '', 'yes');
-	
-	//add all the errors to the admin_notices
-	add_action('admin_notices','aisis_404_banner_validation_errors');
-	add_action('admin_notices','aisis_404_message_validation_errors');
 ?> 

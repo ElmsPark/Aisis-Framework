@@ -99,16 +99,16 @@
 	  //default 404 err banner message
 	  function default_aisis_404_err_message_banner(){
 		  $options = get_option('aisis_default_404_banner_setting');
-		  if(!isset($options['404_banner_content']) ){
+		  if(!isset($options['banner_content']) ){
 			  _e('It seems we could not find what you were looking for.');
 		  }else{
-			  _e($options['404_banner_content']);
+			  _e($options['banner_content']);
 		  }
 	  }
 	  
 	  //default 404 err message and title
 	  function default_aisis_404_err_message(){
-		  $options = get_option('aisis_default_404_message_setting');
+		  $options = get_option('aisis_default_404_message_section');
 		  if(!isset($options['404_theme_message'])){
 			  ?>
 			  <h1>404</h1>
