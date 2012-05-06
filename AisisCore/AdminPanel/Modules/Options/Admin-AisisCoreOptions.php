@@ -152,7 +152,7 @@
 	 */
 	function aisis_default_404_message(){
 		$options = get_option('aisis_default_404_message_setting');
-		?><textarea id="404_theme_message" name="aisis_default_404_message_setting[404_theme_message]" rows="4" cols="60"><?php if(!isset($options['404_theme_message'])){aisis_404_err_message(); }else{echo $options['404_theme_message'];}?></textarea><?php
+		?><textarea id="404_theme_message" name="aisis_default_404_message_setting[err_theme_message]" rows="4" cols="60"><?php if(!isset($options['err_theme_message'])){aisis_404_err_message(); }else{echo $options['err_theme_message'];}?></textarea><?php
 	}
 
 	/**
@@ -221,15 +221,15 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 	}
 
 	function aisis_404_message_validation($input){
-		$options = get_option('aisis_default_404_banner_setting');
-		if($input['404_theme_message'] != ''){
-			$options['404_theme_message'] = $input['404_theme_message'];
+		$options = get_option('aisis_default_404_message_setting');
+		if(trim($input['err_theme_message']) != ''){
+			$options['err_theme_message'] = $input['err_theme_message'];
 			update_option('admin_404_message_err_bool','false','','yes');
 			return $options;
 		}else{
 			add_settings_error(
 				'aisis_default_404_message_setting',
-				'404_theme_message',
+				'err_theme_message',
 				'Error Thrown 2.',
 				'error'
 			);

@@ -52,24 +52,6 @@
 </div>
 
 <div class="contents">
-	<?php
-	if(get_option('admin_404_banner_err_bool') == 'true'){
-	?><div class="err">We cannot allow you to save empty fields. So we set the default text.</div>
-	  <script>
-		$().toastmessage('showErrorToast', "We cannot allow you to set empty fields. Instead we set the default text so the user sees something.");
-      </script>
-	  <?php
-	  update_option('admin_404_banner_err_bool', '', '', 'yes');
-	}elseif(get_option('admin_404_banner_err_bool') == 'false'){
-	?>
-      <div class="success">Check out your site to see the changes to the default text!</div>
-	  <script>
-		$().toastmessage('showSuccessToast', "We have changed the default text for the various sections as shown bellow. Check out your site to see your changes.");
-      </script>
-	  <?php
-	  update_option('admin_404_banner_err_bool', '', '', 'yes');
-	}
-	echo get_settings_errors('aisis_default_404_banner_setting');?>
     <div class="notice">The following is a set of hooks that deisplay default content fopr things like authors and categories when the text for those have not been set. That is to say if an author does not set their bio then the <strong>aisis_author_default_text and aisis_loop_single_author_blurb_default</strong> will be used to display default text.</div>
 	<div class="optionsSection">
     	<?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>

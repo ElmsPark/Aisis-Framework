@@ -110,12 +110,10 @@
 	  function default_aisis_404_err_message(){
 		  $options = get_option('aisis_default_404_message_section');
 		  if(!isset($options['404_theme_message'])){
-			  ?>
-			  <h1>404</h1>
-			  <p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>
-			  <?php
+			 ?><h1>404</h1><p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>
+			 <?php
 		  }else{
-			  echo $options['404_theme_message'];
+			 echo $options['404_theme_message'];
 		  }
 	  }
 	  
@@ -123,11 +121,9 @@
 	  function deafualt_aisis_author_default_text(){
 		  $options = get_option('aisis_default_author_text_setting');
 		  if(!isset($options['default_author_text'])){
-		  	echo "This author is a writer and a contributor to the blog. They enjoy writing various 
-			content and articles for the blog its self and we are proud to have them
-            here and apart of our team :D";
+		  	echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles for the blog its self and we are proud to have them here and apart of our team :D";
 		  }else{
-			  echo $options['default_author_text'];
+			 echo $options['default_author_text'];
 		  }
 	  }
 	  
@@ -135,10 +131,9 @@
 	  function default_aisis_category_default_text(){
 		  $options = get_option('aisis_default_category_text_setting');
 		  if(!isset($options['default_author_text'])){
-		  	echo "Welcome to this category " . single_cat_title() . " where we hope that we present you
-                with the latest and greates in content from this section. Please enjoy your stay :D";
+		  	echo "Welcome to this category " . single_cat_title() . " where we hope that we present you with the latest and greates in content from this section. Please enjoy your stay :D";
 		  }else{
-			  $options['default_author_text'];
+			 $options['default_author_text'];
 		  }
 	  }
 	  
@@ -157,7 +152,7 @@
 		  if(!isset($options['default_footer_text'])){
 		  	echo "Powered by WordPress | Aisis | Adam Balan -  2012";
 		  }else{
-			  echo $options['default_footer_text'];
+			 echo $options['default_footer_text'];
 		  }
 	  }
 	  
