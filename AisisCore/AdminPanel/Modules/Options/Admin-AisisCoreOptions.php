@@ -1,5 +1,4 @@
 <?php 
-
 	/**
 	 *
 	 * ==================== [DONT TOUCH THIS FILE!] ====================
@@ -46,35 +45,35 @@
 			'aisis_content_descrption',
 			'aisis-core-options'
 		);
-		
+
 		add_settings_section(
 			'aisis_default_404_message_section',
 			'',
 			'aisis_content_description',
 			'aisis-core-options'
 		);
-		
+
 		add_settings_section(
 			'aisis_default_author_text_section',
 			'',
 			'aisis_content_description',
 			'aisis-core-options'
 		);
-		
+
 		add_settings_section(
 			'aisis_default_category_text_section',
 			'',
 			'aisis_content_description',
 			'aisis-core-options'
 		);
-		
+
 		add_settings_section(
 			'aisis_default_footer_text_section',
 			'',
 			'aisis_content_description',
 			'aisis-core-options'
 		);
-		
+
 		add_settings_field(
 			'aisis_default_404_banner_setting',
 			'',
@@ -82,7 +81,7 @@
 			'aisis-core-options',
 			'aisis_default_404_banner_section'
 		);
-		
+
 		add_settings_field(
 			'aisis_default_404_message_setting',
 			'',
@@ -90,7 +89,7 @@
 			'aisis-core-options',
 			'aisis_default_404_message_section'
 		);
-		
+
 		add_settings_field(
 			'aisis_default_author_text_setting',
 			'',
@@ -98,7 +97,7 @@
 			'aisis-core-options',
 			'aisis_default_author_text_section'
 		);
-		
+
 		add_settings_field(
 			'aisis_defautl_category_text_setting',
 			'',
@@ -106,7 +105,7 @@
 			'aisis-core-options',
 			'aisis_default_category_text_section'
 		);
-		
+
 		add_settings_field(
 			'aisis_default_footer_text_setting',
 			'',
@@ -114,14 +113,14 @@
 			'aisis-core-options',
 			'aisis_default_footer_text_section'
 		);
-		
+
 		register_setting('aisis-core-options', 'aisis_default_404_banner_setting', 'aisis_404_banner_validation');
 		register_setting('aisis-core-options', 'aisis_default_404_message_setting', 'aisis_404_message_validation');
 		register_setting('aisis-core-options', 'aisis_default_author_text_setting', '');
 		register_setting('aisis-core-options', 'aisis_default_category_text_setting', '');
 		register_setting('aisis-core-options', 'aisis_default_footer_text_setting', '');
 	}
-	
+
 	/**
 	 * Empty method. 
 	 */
@@ -129,7 +128,7 @@
 		//display nothing here. 
 		//it's retarded that we have to have this.
 	}
-	
+
 	/**
 	 * We set the contents of the text area.
 	 * if the option is set then we save display it,
@@ -142,7 +141,7 @@
 		$options = get_option('aisis_default_404_banner_setting');
          ?><textarea id="banner_content" name="aisis_default_404_banner_setting[banner_content]" rows="4" cols="60"><?php if(!isset($options['banner_content'])){aisis_404_err_message_banner();}else{echo $options['banner_content'];}?></textarea><?php
 	}
-	
+
 	/**
 	 * We set the contents of the text area.
 	 * if the option is set then we save display it,
@@ -155,7 +154,7 @@
 		$options = get_option('aisis_default_404_message_setting');
 		?><textarea id="404_theme_message" name="aisis_default_404_message_setting[404_theme_message]" rows="4" cols="60"><?php if(!isset($options['404_theme_message'])){aisis_404_err_message(); }else{echo $options['404_theme_message'];}?></textarea><?php
 	}
-	
+
 	/**
 	 * We set the contents of the text area.
 	 * if the option is set then we save display it,
@@ -173,7 +172,7 @@
 		?><textarea name="defaultAuthorText" name="aisis_default_author_text_setting[default_author_text]" rows="4" cols="60"><?php 
 if(!isset($options['default_author_text'])){aisis_author_default_text();}else{echo $options['default_author_text'];}?></textarea><?php
 	}
-	
+
 	/**
 	 * We set the contents of the text area.
 	 * if the option is set then we save display it,
@@ -187,7 +186,7 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 		$options = get_option('aisis_default_category_text_setting');
 		?><textarea name="defaultCategoryText" name="aisis_default_category_text_setting[default_cat_text]" rows="4" cols="60"><?php if(!isset($options['default_cat_text'])){default_aisis_category_default_text();}else{echo $options['default_cat_text'];}?></textarea><?php
 	}
-	
+
 	/**
 	 * We set the contents of the text area.
 	 * if the option is set then we save display it,
@@ -201,7 +200,7 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 		$options = get_option('aisis_default_footer_text_setting');
 		?><textarea name="defaultFooterText" name="aisis_default_footer_text_setting[default_footer_text]" rows="4" cols="60"><?php if(!isset($options['default_footer_text'])){aisis_default_footer_text();}else{echo $options['default_footer_text'];}?></textarea><?php
 	}
-	
+
 	function aisis_404_banner_validation($input){
 		$options = get_option('aisis_default_404_banner_setting');
 		if($input['banner_content'] != ''){
@@ -215,11 +214,11 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 				'error'
 			);
 		}
-		
+
 	}
-	
+
 	function aisis_404_message_validation($input){
-		$options = get_option('aisis_default_404_message_section');
+		$options = get_option('aisis_default_404_banner_setting');
 		if($input['404_theme_message'] != ''){
 			$options['404_theme_message'] = $input['404_theme_message'];
 			return $options;
@@ -231,21 +230,21 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 				'error'
 			);
 		}
-		
+
 	}
-	
+
 	function aisis_404_banner_validation_errors(){
 		settings_errors('aisis_default_404_banner_setting');
 	}
-	
+
 	function aisis_404_message_validation_errors(){
 		settings_errors('aisis_default_404_message_setting');
 	}
-	
+
 	//This action allows for the displaying and functionality of this file.
 	add_action('admin_init', 'set_up_default_content_display_section');
 	add_action('admin_notices', 'aisis_404_banner_validation_errors');
 	add_action('admin_notices', 'aisis_404_message_validation_errors');
 	//Add an error handeling option
 	add_option('admin_404_banner_err_bool', '', '', 'yes');
-?> 
+?>
