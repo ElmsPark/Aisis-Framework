@@ -189,6 +189,10 @@ h1 {
 	margin: 10px 0px -20px 80px;
 	width:60%;
 }
+div.error{
+	width:50%;
+	margin: 10px auto 5px auto;
+}
 .excNotice {
 	background : #ebc2ce;
 	border : 1px solid #772038;
