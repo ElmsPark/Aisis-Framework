@@ -29,6 +29,7 @@
 	 require_once(AISISCORE . 'Class-Aisis-File-Handeling.php');
 	 require_once(AISISCORE . 'Class-Aisis-Core-Register.php');
 	 require_once(AISISCORE . 'Class-Aisis-Update.php');
+	 require_once(AISISCORE . 'AisisDebugger.php');
 
 	 
 	 //These are all the loaders

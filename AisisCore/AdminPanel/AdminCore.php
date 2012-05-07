@@ -4,6 +4,13 @@
 	 *
 	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
+	 *		This file deals with the loading of all the Aisis Admin
+	 *		panel files including modules, css, js, and other associated php
+	 *		files that make the admin panel function on the back end.
+	 *
+	 *		There are some functions bellow that cannot be over ridden how
+	 *		ever they are pluggable functions still. This may be removed in
+	 *		later versions.
 	 *
 	 *		@author: Adam Balan
 	 *		@since: 1.0
@@ -12,7 +19,6 @@
 	 *
 	 * =================================================================
 	 */
-	const Aisis = 'Aisis';
 	
 	//load the registered modules
 	require_once(AISIS_ADMINPANEL_MODULES . 'RegisterModules.php');

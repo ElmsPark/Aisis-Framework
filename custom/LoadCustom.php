@@ -32,9 +32,6 @@
 	 
 	 add_action('wp_enqueue_scripts', 'aisis_enqueue_custom');
 	 
-	 //Load LoadTemplates
-	 require_once(CUSTOM_TEMPLATES . 'Custom-LoadTemplate.php');
-	 
 	 //Load the custom-function.php
 	 if(file_exists(CUSTOM . 'custom-functions.php')){
 	 	require_once(CUSTOM . 'custom-functions.php');

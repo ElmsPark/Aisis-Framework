@@ -14,8 +14,8 @@
 	 * =================================================================
 	 */
 	 
-
-	 $aisis_file_contents = new AisisFileHandeling();
+	$aisis_file_contents = new AisisFileHandeling();
+	
 	 $did_it_update_css = false;
 	 $did_update_css_fail = false;
 	 $did_it_update_media_css = false;
@@ -104,7 +104,7 @@
 		}?>
     	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first.</div>
         <form method="post" action=<?php admin_url('admin-post.php?action=aisis-css-editor') ?>>
-            <textarea id="code" name="code"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-css.css');?></textarea>
+        	<?php do_settings_fields('aisis-css-editor', 'aisis_css_editor_section'); ?>
             <input type="submit" id="published" name="published" value="Save CSS"/>
         </form>
         <div class="box">
@@ -138,7 +138,7 @@
 		}?>
     	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first.</div>
         <form method="post" action=<?php admin_url('admin-post.php?action=aisis-css-editor') ?>>
-            <textarea id="code-media" name="code-media"><?php echo $aisis_file_contents->get_contents(CUSTOM, 'custom-media-query.css');?></textarea>
+        	<?php do_settings_fields('aisis-css-editor', 'aisis_css_media_queary_editor_section'); ?>
             <input type="submit" id="published-media" name="published-media" value="Save Media Query" />
         </form>
   
