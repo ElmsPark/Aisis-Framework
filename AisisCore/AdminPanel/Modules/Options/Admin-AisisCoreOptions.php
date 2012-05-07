@@ -209,7 +209,7 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 			return $options;
 		}else{
 			add_settings_error(
-				'aisis_default_404_banner_setting',
+				'aisis_settings_messages',
 				'404_banner_content',
 				'Error Thrown.',
 				'error'
@@ -222,13 +222,13 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 
 	function aisis_404_message_validation($input){
 		$options = get_option('aisis_default_404_message_setting');
-		if(trim($input['err_theme_message']) != ''){
+		if($input['err_theme_message'] != ''){
 			$options['err_theme_message'] = $input['err_theme_message'];
 			update_option('admin_404_message_err_bool','false','','yes');
 			return $options;
 		}else{
 			add_settings_error(
-				'aisis_default_404_message_setting',
+				'aisis_settings_messages',
 				'err_theme_message',
 				'Error Thrown 2.',
 				'error'
@@ -238,19 +238,15 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 		}
 	}
 
-	function aisis_404_banner_validation_errors(){
-		settings_errors('aisis_default_404_banner_setting');
-	}
-
-	function aisis_404_message_validation_errors(){
-		settings_errors('aisis_default_404_message_setting');
+	function aisis_settings_messages(){
+		settings_errors('aisis_settings_messages');
 	}
 
 	//This action allows for the displaying and functionality of this file.
 	add_action('admin_init', 'set_up_default_content_display_section');
-	add_action('admin_notices', 'aisis_404_banner_validation_errors');
-	add_action('admin_notices', 'aisis_404_message_validation_errors');
-	//Add an error handeling option
+	// Admin Notices (settings messages).
+	add_action('admin_notices', 'aisis_settings_messages');
+	//Add an error handling option
 	add_option('admin_404_banner_err_bool', '', '', 'yes');
 	add_option('admin_404_message_err_bool', '', '', 'yes');
 ?>
