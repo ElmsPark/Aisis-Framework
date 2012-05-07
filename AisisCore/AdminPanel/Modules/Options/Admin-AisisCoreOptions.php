@@ -116,9 +116,9 @@
 
 		register_setting('aisis-core-options', 'aisis_default_404_banner_setting', 'aisis_404_banner_validation');
 		register_setting('aisis-core-options', 'aisis_default_404_message_setting', 'aisis_404_message_validation');
-		register_setting('aisis-core-options', 'aisis_default_author_text_setting', '');
-		register_setting('aisis-core-options', 'aisis_default_category_text_setting', '');
-		register_setting('aisis-core-options', 'aisis_default_footer_text_setting', '');
+		register_setting('aisis-core-options', 'aisis_default_author_text_setting', 'aisis_default_author_validation');
+		register_setting('aisis-core-options', 'aisis_default_category_text_setting', 'aisis_default_category_validation');
+		register_setting('aisis-core-options', 'aisis_default_footer_text_setting', 'aisis_default_footer_validation');
 	}
 
 	/**
@@ -169,7 +169,7 @@
 	 */
 	function aisis_default_author_text(){
 		$options = get_option('aisis_default_author_text_setting');
-		?><textarea name="defaultAuthorText" name="aisis_default_author_text_setting[default_author_text]" rows="4" cols="60"><?php 
+		?><textarea id="default_author_text" name="aisis_default_author_text_setting[default_author_text]" rows="4" cols="60"><?php 
 if(!isset($options['default_author_text'])){aisis_author_default_text();}else{echo $options['default_author_text'];}?></textarea><?php
 	}
 
@@ -184,7 +184,7 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 	 */
 	function aisis_default_category_text(){
 		$options = get_option('aisis_default_category_text_setting');
-		?><textarea name="defaultCategoryText" name="aisis_default_category_text_setting[default_cat_text]" rows="4" cols="60"><?php if(!isset($options['default_cat_text'])){default_aisis_category_default_text();}else{echo $options['default_cat_text'];}?></textarea><?php
+		?><textarea id="default_cat_text" name="aisis_default_category_text_setting[default_cat_text]" rows="4" cols="60"><?php if(!isset($options['default_cat_text'])){default_aisis_category_default_text();}else{echo $options['default_cat_text'];}?></textarea><?php
 	}
 
 	/**
@@ -198,20 +198,20 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 	 */
 	function aisis_default_footer_text_(){
 		$options = get_option('aisis_default_footer_text_setting');
-		?><textarea name="defaultFooterText" name="aisis_default_footer_text_setting[default_footer_text]" rows="4" cols="60"><?php if(!isset($options['default_footer_text'])){aisis_default_footer_text();}else{echo $options['default_footer_text'];}?></textarea><?php
+		?><textarea id="default_footer_text" name="aisis_default_footer_text_setting[default_footer_text]" rows="4" cols="60"><?php if(!isset($options['default_footer_text'])){aisis_default_footer_text();}else{echo $options['default_footer_text'];}?></textarea><?php
 	}
 
 	function aisis_404_banner_validation($input){
 		$options = get_option('aisis_default_404_banner_setting');
 		if($input['banner_content'] != ''){
-			$options['banner_content'] = $input['banner_content'];
+			$options['banner_content'] = trim($input['banner_content']);
 			update_option('admin_404_banner_err_bool', 'false', '', 'yes');
 			return $options;
 		}else{
 			add_settings_error(
 				'aisis_settings_messages',
 				'404_banner_content',
-				'Error Thrown.',
+				'The 404 banner text cannot be empty. We have populated the area with default content.',
 				'error'
 			);
 			
@@ -230,11 +230,65 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 			add_settings_error(
 				'aisis_settings_messages',
 				'err_theme_message',
-				'Error Thrown 2.',
+				'The 404 message text cannot be empty. We have populated the area with default content.',
 				'error'
 			);
 			
 			update_option('admin_404_message_err_bool', 'true', '', 'yes');
+		}
+	}
+	
+	function aisis_default_author_validation($input){
+		$options = get_option('aisis_default_author_text_setting');
+		if($input['default_author_text'] != ''){
+			$options['default_author_text'] = trim($input['default_author_text']);
+			update_option('admin_default_author_err_bool','false','','yes');
+			return $options;
+		}else{
+			add_settings_error(
+				'aisis_settings_messages',
+				'err_theme_message',
+				'The author text cannot be empty. We have populated the area with default content.',
+				'error'
+			);
+			
+			update_option('admin_default_author_err_bool', 'true', '', 'yes');
+		}
+	}
+	
+	function aisis_default_category_validation($input){
+		$options = get_option('aisis_default_category_text_setting');
+		if($input['default_cat_text'] != ''){
+			$options['default_cat_text'] = trim($input['default_cat_text']);
+			update_option('admin_default_cat_text_err_bool','false','','yes');
+			return $options;
+		}else{
+			add_settings_error(
+				'aisis_settings_messages',
+				'err_theme_message',
+				'The category text cannot be empty. We have populated the area with default content.',
+				'error'
+			);
+			
+			update_option('admin_default_cat_text_err_bool', 'true', '', 'yes');
+		}
+	}
+	
+	function aisis_default_footer_validation($input){
+		$options = get_option('aisis_default_footer_text_setting');
+		if($input['default_footer_text'] != ''){
+			$options['default_footer_text'] = trim($input['default_footer_text']);
+			update_option('admin_default_footer_text_err_bool','false','','yes');
+			return $options;
+		}else{
+			add_settings_error(
+				'aisis_settings_messages',
+				'err_theme_message',
+				'The footer text cannot be empty. We have populated the area with default content.',
+				'error'
+			);
+			
+			update_option('admin_default_footer_text_err_bool', 'true', '', 'yes');
 		}
 	}
 
@@ -249,4 +303,7 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 	//Add an error handling option
 	add_option('admin_404_banner_err_bool', '', '', 'yes');
 	add_option('admin_404_message_err_bool', '', '', 'yes');
+	add_option('admin_default_author_err_bool', '', '', 'yes');
+	add_option('admin_default_cat_text_err_bool', '','', 'yes');
+	add_option('admin_default_footer_text_err_bool', '', '', 'yes');
 ?>

@@ -52,6 +52,37 @@
 </div>
 
 <div class="contents">
+	<?php
+	if(get_option('admin_404_banner_err_bool') == 'true' || get_option('admin_404_message_err_bool') == 'true' || 
+		get_option('admin_default_author_err_bool') == 'true' || get_option('admin_default_cat_text_err_bool') == 'true'
+		|| get_option('admin_default_footer_text_err_bool') == 'true'){
+			?>
+        	<div class="err">We cannot allow you to save empty fields. So we set the default text. Due to this we did not also save any other fields you may have set.</div>
+            <script>
+            	$().toastmessage('showErrorToast', "We do not allow empty fields as this would set empty content for the various sections on the front end. As a reseault we have set the default text to stop users from seeing empty 404 messages for example or other empty fields.");
+            </script>
+            <?php
+			update_option('admin_404_banner_err_bool', '', '', 'yes');
+			update_option('admin_404_message_err_bool', '', '', 'yes');
+			update_option('admin_default_author_err_bool', '', '', 'yes');
+			update_option('admin_default_cat_text_err_bool', '', '', 'yes');
+			update_option('admin_default_cat_text_err_bool', '', '', 'yes');
+	}elseif(get_option('admin_404_banner_err_bool') == 'false' || get_option('admin_404_message_err_bool') == 'false' || 
+		get_option('admin_default_author_err_bool') == 'false' || get_option('admin_default_cat_text_err_bool') == 'false'
+		|| get_option('admin_default_footer_text_err_bool') == 'false'){
+			?>
+            <div class="success">We have successfully updated the site with new content that you have set bellow.</div>
+            <script>
+            	$().toastmessage('showSuccessToast', "We have successfully updated the content on the site with the new content that you have set bellow.");
+            </script>
+            <?php
+			update_option('admin_404_banner_err_bool', '', '', 'yes');
+			update_option('admin_404_message_err_bool', '', '', 'yes');
+			update_option('admin_default_author_err_bool', '', '', 'yes');
+			update_option('admin_default_cat_text_err_bool', '', '', 'yes');
+			update_option('admin_default_cat_text_err_bool', '', '', 'yes');
+	}
+	?>
     <div class="notice">The following is a set of hooks that deisplay default content fopr things like authors and categories when the text for those have not been set. That is to say if an author does not set their bio then the <strong>aisis_author_default_text and aisis_loop_single_author_blurb_default</strong> will be used to display default text.</div>
 	<div class="optionsSection">
     	<?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>
