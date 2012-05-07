@@ -223,7 +223,7 @@ if(!isset($options['default_author_text'])){aisis_author_default_text();}else{ec
 	function aisis_404_message_validation($input){
 		$options = get_option('aisis_default_404_message_setting');
 		if($input['err_theme_message'] != ''){
-			$options['err_theme_message'] = $input['err_theme_message'];
+			$options['err_theme_message'] = trim($input['err_theme_message']);
 			update_option('admin_404_message_err_bool','false','','yes');
 			return $options;
 		}else{
