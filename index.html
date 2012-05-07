@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Aisis-framework by AdamKyle</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Aisis-framework</h1>
+        <p>Aisis is a free open source WordPress framework that gives developers a ton of api to use that will help change the entire theme from the ground up. While giving designers and average users all the options they could want in making a beautiful theme. This is also a responsive framework.</p>
+        <p class="view"><a href="https://github.com/AdamKyle/Aisis-Framework">View the Project on GitHub <small>AdamKyle/Aisis-Framework</small></a></p>
+        <ul>
+          <li><a href="https://github.com/AdamKyle/Aisis-Framework/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/AdamKyle/Aisis-Framework/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/AdamKyle/Aisis-Framework">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Aisis</h1>
+
+<p>Aisis is a WordPress theme framework aimed at developers who want to develop rich, interactive, responsive child themes using a stable, well tested API.</p>
+
+<p>Aisis provides developers and designers with various methods to override, implement and use to change either Aisis it’s self from the ground up or to build a child theme that is as unique as they are.</p>
+
+<p>Aisis Strives to be as helpful as possible without getting in your way and hindering your creative process. </p>
+
+<blockquote>
+<p>Aisis is not just another theme framework – its software that can be molded, shaped and designed to your liking!</p>
+</blockquote>
+
+<h1>Made for Developers</h1>
+
+<p>While Aisis provides people new to WordPress or WordPress themes the ability to  change some core aspects of the core theme its self it is more made for developers who are looking to use a rich and stable API to extend Aisis or create rich and dynamic child themes.</p>
+
+<p>Largely inspired by Zend Framework and OOP concepts Aisis does its best to adhere to the practices of OOP. It is also a well-documented and fast platform to develop on or against.</p>
+
+<h2>Loaders, Registers, Modules, Templates and hooks.</h2>
+
+<p>Aisis builds its self in such a way that you not constantly writing require_once or include or any of that. You are simply just calling the class or calling the class, function or piece of API that you want without having to worry about anything – Let Aisis do all the lifting for you. You also do not notice a slowdown in speed either because of the way we load things in the backend.</p>
+
+<p>Modules and templates are how we build core pieces of Aisis, This means the whole front end is built in templates that are called only when you need them .The whole back end is a series of modules that are only registered when you are on a specific page.</p>
+
+<p>Hooks are a way in which we display default content in Aisis and allow the new comer to change some default content to their liking.</p>
+
+<h3>How to load a folder of exceptions:</h3>
+
+<p><em>The following is a simple demonstration of how Aisis loads the exceptions folder:</em></p>
+
+<div class="highlight">
+<pre><span class="x">$load_aisis_exceptions = new AisisFileHandeling();</span>
+<span class="x">$load_aisis_exceptions-&gt;load_if_extension_is_php(AISIS_ADMINPANEL_MODULES_OPTIONS);</span>
+</pre>
+</div>
+
+
+<p><strong>Please Note:</strong> <em>This will not load sub folders, and this call can only be done once per file, that is you cannot turn around and say now load this path.</em></p>
+
+<h1>Aisis – The Developers wet dream</h1>
+
+<p>Aisis is designed to be fast, easy to use and full of useful and well documented functions, classes and files that help you without hindering you be creative in creating child themes or extending Aisis itself!</p>
+
+<p><strong>Check out Aisis Now!</strong></p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/AdamKyle">AdamKyle</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
