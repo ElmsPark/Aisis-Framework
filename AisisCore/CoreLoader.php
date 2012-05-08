@@ -40,11 +40,95 @@
 	 require_once(AISIS_SHORTCODES . 'Codes.php');
 	 require_once(AISIS_SHORTCODES . 'AdminSetUpCodes.php');
 	 
-	 //Load Custom
-	 require_once(CUSTOM . 'LoadCustom.php');
-	 
 	 $aisis_load_admin_section= new AisisFileHandeling();
 	 $aisis_load_admin_section->load_if_extension_is_php(AISIS_ADMINPANEL);
+	 
+	 
+	 aisis_register_theme_activation_hook('Aisis', 'aisis_do_on_load');
+	 
+	 /**
+	  * We need to set up the theme after activation
+	  * essentially make sure files exists and what have you.
+	  * we also check the options table and populate these files
+	  * with any data from there, assuming data exists in theem.<br />
+	  * this is done incase you upgrade the theme and your files are over written.
+	  */
+	  function aisis_do_on_load(){
+		  if(get_option('theme_name_activation_check') != 'set'){
+			  $errors = array();
+			  $aisis_file_handeling = new AisisFileHandeling();
+			  
+			  if($aisis_file_handeling->check_dir(CUSTOM, true)){
+				  if($aisis_file_handeling->check_exists('custom-css.css', true)){
+					  $options = get_option('aisis_css_editor_setting');
+					  if(isset($options['code']) && !empty($options['code'])){
+						  //We need it to write to the proper place
+						  $aisis_file_handeling->write_to_file($aisis_file_handeling->get_directory_of_files(CUSTOM, 'custom-css.css', "css"), $options['code'], CUSTOM);
+					  }
+				  }
+				  else{
+					  $errors[] = "Seems that we cannot create your custom-css.css file. Please check your permissions.";
+				  }
+				  
+				  if($aisis_file_handeling->check_exists('custom-media-query.css', true)){
+					  $options = get_option('aisis_css_media_queary_css_editor_setting');
+					  if(isset($options['media-code']) && !empty($options['code'])){
+						  //We need it to write to the proper place
+						  $aisis_file_handeling->write_to_file($aisis_file_handeling->get_directory_of_files(CUSTOM, 'custom-media-query.css', "css"), $options['media-code'], CUSTOM);
+					  }
+				  }else{
+					  $errors[] = "Seems that we cannot create your custom-media-queary.css file. Please check your permissions.";
+				  }
+				  
+				  if($aisis_file_handeling->check_exists('custom-functions.php', true)){
+					  $options = get_option('aisis_php_editor_setting');
+					  if(isset($options['aisis-php']) && !empty($options['aisis-php'])){
+						  //We need it to write to the proper place
+						  $aisis_file_handeling->write_to_file($aisis_file_handeling->get_directory_of_files(CUSTOM, 'custom-functions.php', "php"), $options['aisis-php'], CUSTOM);
+					  }
+				  }else{
+					  $errors[] = "Seems that we cannot create your custom-functions.php file. Please check your permissions.";
+				  }
+				  
+				  if($aisis_file_handeling->check_exists('custom-js.js', true)){
+					  $options = get_option('aisis_js_editor_setting');
+					  if(isset($options['aisis-js']) && !empty($options['aisis-js'])){
+						  //We need it to write to the proper place
+						  $aisis_file_handeling->write_to_file($aisis_file_handeling->get_directory_of_files(CUSTOM, 'custom-js.js', "js"), $options['aisis-js'], CUSTOM);
+					  }
+				  }else{
+					  $errors[] = "Seems we cannot create your custom-js.js file. Please check your permissions";
+				  }
+				  
+				  if(!empty($errors)){
+					  foreach($errors as $error){
+						  echo $error . "<br />";
+					  }
+					  echo "We could not load your LoadCustom.php because of the errors at hand.";
+				  }else{
+					  require_once('LoadCustom.php');
+				  }
+				  
+			  }else{
+				  $errors[] = "We cannot create your custom folder....Do you have appropriate permissions?";
+				  foreach($errors as $error){
+					  echo $error . "<br />";
+				  }
+				   update_option('theme_name_activation_check', 'set');
+				  return false;
+			  }
+			  
+			  update_option('theme_name_activation_check', 'set');
+			  return true;
+			  
+				
+		  }else{
+			  require_once('LoadCustom.php');
+		  }
+	  }
+	  
+	  
+	 
 	 
 	 
 	 //Set up Jquery

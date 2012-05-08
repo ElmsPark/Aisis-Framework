@@ -35,14 +35,31 @@
 		private $files_got_back; //File we got
 		
 		/**
-		 * Does said file exist?
+		 * We are chking to see if a file name exists.
+		 * for this instance we dont care about the directory<br />
+		 * because this method is to be called when you are insaid
+		 * directory.
+		 *
+		 * if said file exists, return true, if not return false,<br />
+		 * if it is false, but we said create_file is true then we
+		 * create the file by opening it, closing it and setting the chmod.
+		 *
+		 * TODO: is there not a better way to create the file?
 		 *
 		 * @param filename of type String
 		 * @return true or false of type Boolean
 		 */
-		function check_exists($dir, $filename){
-		   if(!file_exists($dir . $filename)){
-			   ?> Please create custom-css.css in your custom folder.<?php
+		function check_exists($filename, $create_file=false){
+		   if(!file_exists($filename)){
+			   if($create_file){
+				   //not a better way to do this?
+				   $fp = fopen($filename, 'x+');
+				   fclose($fp);
+				   chmod($filename, '0666');
+				   return true;
+				   
+			   }
+			   ?> File does not exist at said location<?php
 			   return false;
 		   }
 		   
@@ -61,11 +78,11 @@
 		 * @return filename.
 		 */
 		function get_directory_of_files($path, $filename, $extension){
-			if(!$this->check_dir($path)){
-				_e('the ' . $path . ' is not a directory');
+			if(!$this->check_dir($path, true)){
+				_e('the ' . $path . ' is not a directory. We have created it for you.');
 			}
 			
-			if($this->check_exists($path, $filename)){
+			if($this->check_exists($filename, true)){
 			
 				$handler = opendir($path);
 				while($file = readdir($handler)){
@@ -145,20 +162,20 @@
 		 */
 		function get_contents($path, $filename=''){
 		   if($filename != ''){
-			   if($this->check_exists($path, $filename) && $this->check_writable($path, $filename)){
+			   if($this->check_dir($path, true) && $this->check_exists($filename, true) && $this->check_writable($path, $filename)){
 				   return $this->file_contents = file_get_contents(CUSTOM . $filename);
 			   }
 		   }
 		}
 		
 		/**
-		 * write the contents to the specified file
+		 * Write the contents to the specified file
 		 *
 		 * @param filename of type String
 		 * @return contents of type string.
 		 */
 		function write_to_file($filename, $contents, $dir){
-			if($this->check_exists($dir, $filename) && $this->check_writable($dir, $filename)){
+			if($this->check_dir($dir, true) && $this->check_exists($filename, true) && $this->check_writable($dir, $filename)){
 				if ($contents != ''){
 					$fp = fopen($dir.$filename, 'w');
 					fwrite($fp, $contents);
@@ -171,16 +188,28 @@
 		}
 		
 		/**
-		 * quick utility function for seeing if said directy exists.
+		 * We are essentially saying that if said directory
+		 * exists then return true, if not, return false, but
+		 * if it doesnt eists and we set create_dir to true
+		 * then we attempt to create said directory at said
+		 * location.
 		 *
 		 * @param dir of type directory
+		 * @param create_dir of type boolean
 		 * @return true or false
 		 */
-		function check_dir($dir){
+		function check_dir($dir, $create_dir =false){
 			if(is_dir($dir)){
 				return true;
-			}		
-			return false;
+			}else{
+				if($create_dir){
+					if(mkdir($dir, '0755')){
+						return true;
+					}
+				}
+				
+				return false;
+			}
 		}
 		
 		/**

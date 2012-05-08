@@ -13,4 +13,13 @@
 	 *
 	 * =================================================================
 	 */
+	 
+	 function jass(){
+		 echo "jazz";
+	 }
+	 
+	 add_action('aisis_404_err_message_banner','jass');
+	 remove_action('aisis_404_err_message_banner', 'default_aisis_404_err_message_banner')
+	 
+	 
 ?>

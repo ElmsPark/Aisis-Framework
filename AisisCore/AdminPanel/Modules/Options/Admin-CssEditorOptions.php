@@ -87,30 +87,9 @@
 	
 	if(!function_exists('aisis_css_editor_validaton')){
 		function aisis_css_editor_validaton($input){
+			
 			$aisis_file_contents = new AisisFileHandeling();
 			$options = get_option('aisis_css_editor_setting');
-			if(trim($input['code']) == ''){
-				$options['code'] = $input['code'];
-				if($aisis_file_contents->write_to_file($aisis_file_contents->get_directory_of_files(CUSTOM, 'custom-css.css', "css"), $options['code'], CUSTOM)){
-					update_option('is_css_editor_empty', 'true');
-					add_settings_error(
-						'aisis_css_messages',
-						'editor_message',
-						'Seems that your content section was empty. We have gone ahead and written this to the file like you requested. 
-						 This message is to inform you that you saved a blank css file.',
-						'notice'
-					);
-				}else{
-					update_option('did_it_fail_to_update', 'true');
-					add_settings_error(
-						'aisis_css_messages',
-						'editor_message',
-						'I am sorry but we seemed to have done something wrong....Do you have write access to your css file? Does your custom folder exist?',
-						'error'
-					);
-				}
-				return $options;
-			}
 			
 			if(trim($input['code']) == $options['code']){
 				update_option('is_contents_same_as_options', 'true');
@@ -120,24 +99,21 @@
 					'We did not bother to save your file because you made no changes to the file its self. Why save whats already there?',
 					'notice'
 				);
-				return $options;
-			}
-			
-			if(trim($input['code']) != $options['code'] && trim($input['code']) != ''){
-				$options['code'] = $input['code'];
+			}elseif(trim($input['code']) != $options['code']){
+				$options['code'] = trim($input['code']);
 				if($aisis_file_contents->write_to_file($aisis_file_contents->get_directory_of_files(CUSTOM, 'custom-css.css', "css"), $options['code'], CUSTOM)){
 					update_option('did_we_write_to_the_file', 'true');
+					return $options;
 				}else{
 					update_option('did_it_fail_to_update', 'true');
 					add_settings_error(
 						'aisis_css_messages',
 						'editor_message',
-						'I am sorry but we seemed to have done something wrong....Do you have write access to your css file? Does your custom folder exist?',
+						"I'm sorry, weither you tried to save an empty css file or we cannot write to your custom-css file for some reason. Please try again.",
 						'error'
 					);
 				}
-				
-				return $options;
+
 			}
 			
 		}
@@ -149,10 +125,19 @@
 		}
 	}
 	
+	if(!function_exists('aisis_out_put_messages_css_editor')){
+		function aisis_out_put_messages_css_editor(){	
+			settings_errors('aisis_css_messages');
+		}
+	}
+	
+	add_action('admin_init', 'set_up_css_editor_display_section');
+	add_action('admin_notices', 'aisis_out_put_messages_css_editor');
+	
 	add_option('is_css_editor_empty', '', '', 'yes');
 	add_option('is_contents_same_as_options', '', '', 'yes');
 	add_option('did_it_fail_to_update', '', '', 'yes');
 	add_option('did_we_write_to_the_file','', '', 'yes');
-	add_action('admin_init', 'set_up_css_editor_display_section');
+	
 
 ?>
