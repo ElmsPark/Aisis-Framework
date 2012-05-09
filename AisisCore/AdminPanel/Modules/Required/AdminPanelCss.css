@@ -189,6 +189,47 @@ h1 {
 	margin: 10px 0px 20px 80px;
 	width:60%;
 }
+.adminThemeError{
+	background : #ebc2ce;
+	border : 1px solid #772038;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin-top : -10px;
+	width:94.7%
+}
+.adminThemeNotice{
+	background : #fff9d7;
+	border : 1px solid #e2c822;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin-top : -10px;
+	width:94.7%
+}
+.adminThemeSuccess{
+	background : #c0e4c7;
+	border : 1px solid #3d5b37;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin-top : -10px;
+	width:94.7%
+}
+.adminThemeErrors{
+	background : #ebc2ce;
+	border : 1px solid #772038;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin-top : -10px;
+	margin-bottom: 20px;
+	width:94.7%
+}
 div.error{
 	width:50%;
 	margin: 10px auto 5px auto;

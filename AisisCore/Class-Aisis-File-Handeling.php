@@ -32,7 +32,7 @@
 		private $file_contents;
 		//Store the contents of the directory here
 		private $package_files = array();
-		private $files_got_back; //File we got
+		private $files_got_back = array();
 		
 		/**
 		 * We are chking to see if a file name exists.
@@ -83,7 +83,6 @@
 			}
 			
 			if($this->check_exists($filename, true)){
-			
 				$handler = opendir($path);
 				while($file = readdir($handler)){
 					if($file != "." && $file != ".."){
@@ -127,6 +126,7 @@
 					for($i = 0; $i<$count; $i++){
 						if(substr(strrchr($this->package_files[$i],'.'),1)==$extension){
 							$this->files_got_back = $this->package_files[$i];
+							return $this->files_got_back;
 						}
 					}
 				}

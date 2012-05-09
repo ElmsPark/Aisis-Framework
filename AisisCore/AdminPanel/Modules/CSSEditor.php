@@ -19,7 +19,7 @@
         	<h1>Css Editor</h1>
             <p>Looking to edit your custom-css.css file? Make your changes bellow and hit submit. Whats saved here will change the look of your theme.</p>
         </div>
-		<?php
+        <?php
 		if(get_option('did_we_write_to_the_file') == 'true'){
 			?>
 			<div class="success">We have successfully updated your custom-css.css file in your custom folder.</div>
@@ -61,8 +61,14 @@
         	<h1>Media Query Editor</h1>
             <p>Looking to edit your custom-media-query.css file? Make your changes bellow and hit submit. Whats saved here will change the look of your theme.</p>
         </div>
+		<?php
+		$aisis_file_handeling = new AisisFileHandeling();
+		echo $aisis_file_handeling->get_directory_of_all_files(CUSTOM, ".css");
+        ?>
     	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first.</div>
-        <form method="post" action=<?php admin_url('admin-post.php?action=aisis-css-editor') ?>>
+        <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-css-editor' ?>
+        <form method="post" action="<?php echo $aisis_forum_url ?>">
+        	<?php settings_fields( 'aisis-css-editor' ); ?>
         	<?php do_settings_fields('aisis-css-editor', 'aisis_css_media_queary_editor_section'); ?>
             <input type="submit" id="published-media" name="published-media" value="Save Media Query" />
         </form>

@@ -55,15 +55,15 @@
 	if(!empty($_GET['codes']) && $_GET['codes'] == 'aisis-codes'){
 		add_action( 'parse_request', 'parse_wp_request' );
 		/**
-		 * TODO:why do Ineedthis toshowthecontents of the 
-		 * required fileinthe parse_wp_request() function?
-		 * with out this,when thickbox all I get is a "0".
+		 * TODO:why do I need this tos how the contents of the 
+		 * required file in the parse_aisis_request() function?
+		 * with out this, when thickbox opens, all I get is a "0".
 		 */
-		echo parse_wp_request($wp);
-		add_action( 'wp_ajax_asisi_codes', 'parse_wp_request' );
+		echo parse_aisis_request($wp);
+		add_action( 'wp_ajax_asisi_codes', 'parse_aisis_request' );
 	}
 	
-	function parse_wp_request($wp){
+	function parse_aisis_request($wp){
 		aisis_require_code_display_page();
 		exit;
 	}
