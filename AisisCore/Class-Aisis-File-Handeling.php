@@ -68,7 +68,7 @@
 		
 		/**
 		 * This looks for a specific file in a directory that contains
-		 * files with multiple extensions. WThis will narrow in on
+		 * files with multiple extensions. This will narrow in on
 		 * one file that you want.
 		 *
 		 * @param $path of type directory.
@@ -94,39 +94,6 @@
 									$this->files_got_back = $this->package_files[$i];
 								}
 							}
-						}
-					}
-				}
-			}
-			
-			return $this->files_got_back;
-		}
-		
-		/**
-		 * This will get back an array of files
-		 * base don the extension of the file and the
-		 * path to the files.
-		 *
-		 * This does not do folders inside of folders,
-		 * just the root of that folder.
-		 *
-		 * @param $path - the path to the files.
-		 * @param $extension - the extension of the files
-		 */
-		function get_directory_of_all_files($path, $extension){
-			if(!$this->check_dir($path)){
-				_e('the ' . $path . ' is not a directory');
-			}
-	
-			$handler = opendir($path);
-			while($file = readdir($handler)){
-				if($file != "." && $file != ".."){
-					$this->package_files[] = $file;
-					$count = count($this->package_files);
-					for($i = 0; $i<$count; $i++){
-						if(substr(strrchr($this->package_files[$i],'.'),1)==$extension){
-							$this->files_got_back = $this->package_files[$i];
-							return $this->files_got_back;
 						}
 					}
 				}

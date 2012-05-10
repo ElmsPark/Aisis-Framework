@@ -3,16 +3,6 @@
 	 *
 	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		This file deals with the css editor and its associated files.
-	 *		we are essentially storing your modifications in the options
-	 *		table and stating that if a file does not exist then create
-	 *		it and repopulate it with information. or if the contents of
-	 *		said file do not match that of the options panel then  over
-	 *		write that file.
-	 *
-	 *		This happens on saving the data after making changes.
-	 *		the creating or writing to the file happens on theme
-	 *		activation as well as here.
 	 *
 	 *		@see AisisCore->AdminPanel->Modules->CSSEditor
 	 *		
@@ -31,29 +21,19 @@
 			'aisis-css-editor'
 		);
 		
+		add_settings_section(
+			'aisis_css_media_queary_editor_section',
+			'',
+			'aisis_css_content_descrption',
+			'aisis-css-editor'
+		);
 
-		
 		add_settings_field(
 			'aisis_css_editor_setting',
 			'',
 			'aisis_css_editor',
 			'aisis-css-editor',
 			'aisis_css_editor_section'
-		);
-		
-
-		
-		register_setting('aisis-css-editor', 'aisis_css_editor_setting', 'aisis_css_editor_validaton');
-		
-	}
-	
-	function set_up_media_css_editor(){
-		
-		add_settings_section(
-			'aisis_css_media_queary_editor_section',
-			'',
-			'aisis_css_content_descrption',
-			'aisis-css-editor'
 		);
 		
 		add_settings_field(
@@ -64,7 +44,11 @@
 			'aisis_css_media_queary_editor_section'
 		);
 		
+
+		
+		register_setting('aisis-css-editor', 'aisis_css_editor_setting', 'aisis_css_editor_validaton');
 		register_setting('aisis-css-editor', 'aisis_css_media_queary_css_editor', 'aisis_css_media_queary_editor_validaton');
+		
 	}
 	
 	if(!function_exists('aisis_css_content_descrption')){
@@ -89,7 +73,7 @@
 			$aisis_file_contents = new AisisFileHandeling();
 			$options = get_option('aisis_css_media_queary_css_editor_setting');
 			?>
-			<textarea id="code-media" name="aisis_css_media_queary_css_editor_setting[code-media]"><?php if(isset($options['code-media']) && !empty($options['code-media'])){echo $options['code-media'];}else{echo $aisis_file_contents->get_contents(CUSTOM, 'custom-media-query.css');}?></textarea>
+			<textarea id="code-media" name="aisis_css_media_queary_css_editor_setting[code-media]"><?php if(isset($options['code-media']) && !empty($options['code-media'])){echo $options['code-media'];}else{echo $aisis_file_contents->get_contents(CUSTOM, 'media-queary.css');}?></textarea>
 			<?php
 		}
 	}
@@ -173,7 +157,6 @@
 	add_option('did_we_write_to_the_file','', '', 'yes');
 	add_option('did_we_write_to_media_file', '', '', 'yes');
 	add_action('admin_init', 'set_up_css_editor_display_section');
-	add_action('admin_init', 'set_up_media_css_editor');
 	add_action('admin_notices', 'aisis_out_put_messages_css_editor');
 	
 
