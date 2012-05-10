@@ -1,0 +1,131 @@
+/* ======================================================================= */
+/*							[[Core Media Styles]]						   */
+/* ======================================================================= */
+/*						The following are a series of fixes                */
+/*						to various media styles for a responsive           */
+/*						design across multiple sites.				       */
+/*																		   */
+/*																		   */
+/* ======================================================================= */
+/*																		   */
+/*						DO NOT MANIPULATE OR TOUCH THIS FILE               */
+/*						Make a media query file with your custom.css	   */
+/*						file and over ride the associated styles in the    */
+/*						proper screen:                                     */
+/*																		   */
+/*						@media screen and (max-width: 980px{}			   */
+/*																		   */
+/*						then over ride the associated styles (already in   */
+/*						them or add more) 								   */
+/*																		   */
+/* ======================================================================= */
+/*																		   */
+/*						Supported Media Sizes:							   */
+/*																		   */						
+/*						1280					   						   */
+/*																		   */
+/*																		   */
+/*																		   */
+/* ======================================================================= */
+/*							[[Media Max-Width 980]]						   */
+/* ======================================================================= */
+@media screen and (max-width:1280px){
+.adminPanelTitle {
+	margin: -40px auto 40px 60px;
+}
+h1 {
+	color:#4B718B;
+	margin-left:40px;
+	text-shadow : #6695B0 0 1px 0;
+	margin-bottom: 20px;
+	border-bottom: inset thin #666;
+	line-height: 40px;
+	width: 46%;
+	font-size: 45px;
+}
+.box{
+	width: 45%;
+	margin-left: 330px;
+	margin-bottom: 45px;
+	background:#D5B7CC;
+	padding:10px;
+	border-right: #846275 15px solid;
+	border-top-left-radius:8px;
+	border-bottom-left-radius: 8px;
+	clear:both;
+	-webkit-box-shadow: 0 6px 6px -6px black;
+	-moz-box-shadow: 0 6px 6px -6px black;
+	box-shadow: 0 6px 6px -6px black;
+}
+.box p{
+	width: 70%;
+	margin-left: 40px;
+	margin-top: -10px;
+	font-size:16px;
+}
+.greyBox{
+	width:68%;
+	
+}
+.notice {
+	background : #fff9d7;
+	border : 1px solid #e2c822;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin : 10px auto -8px 90px;
+	width:60%;
+}
+.noticeSave {
+	background : #fff9d7;
+	border : 1px solid #e2c822;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin : 10px auto 20px 90px;
+	width:60%;
+}
+.err {
+	background : #ebc2ce;
+	border : 1px solid #772038;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin: 10px auto 20px 90px;
+	width:60%;
+}
+.success {
+	background : #c0e4c7;
+	border : 1px solid #3d5b37;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin: 10px auto 10px 90px;
+	width:60%;
+}
+.adminFooter{
+	width: 70%;
+	margin: 20px auto -40px auto;
+	padding:20px;
+	border-radius:8px;
+	background:#CCCCCC;
+	text-align:center;
+	border: thin solid #666;
+}
+}
+@media screen and (max-width:980px) {
+}
+@media screen and (max-width:768px) {
+}
+@media screen and (max-width:650px) {
+}
+@media screen and (max-width:560px) {
+}
+@media screen and (max-width:480px) {
+}
+@media only screen and (max-width:320px) {
+}
