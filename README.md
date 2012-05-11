@@ -23,7 +23,7 @@ You can head over to the [issues](https://github.com/AdamKyle/Aisis-Framework/is
 Is as easy as including the Aisis functions.php in to your child themes function.php, this gives you access to every Aisis function, class and API that’s out there. You won’t have to worry about doing:
 
 ```ruby
-require_once(‘aisisfile’);
+require_once('aisisfile');
 ```
 
 Instead if that file is not a class you just call its function, if that file is a class you can just instantiate the class and call its functions from there.
