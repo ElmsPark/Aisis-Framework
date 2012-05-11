@@ -39,8 +39,15 @@
 	 	'value' => 'say what?'
 	 );
 	 
+	 $form_input = array(
+	 	'value' => 'input'
+	 );
+	 
 	 $contents = array(
 	 	aisis_form_button($form_button),
+		aisis_form_text_area($form_text_area),
+		aisis_form_input($form_input),
+		'text in the form'
 	 );
 	 
 	 aisis_build_form($form, $contents)

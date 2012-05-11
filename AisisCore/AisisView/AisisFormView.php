@@ -161,4 +161,42 @@
 		$build_text_area = "<textarea disabled='".$is_disabled."' name='".$name."' id='".$id."' class='".$class."'>".$value."</textarea>";
 		echo $build_text_area;
 	}
+	
+	/**
+	 * We echo out a input that is built based on
+	 * the array of attributes you pass in. Currently we accept
+	 * $name, $id, $class, $value.
+	 *
+	 * This input is meant for text. If you want to create buttons use
+	 * the aisis_form_button.
+	 *
+	 * @param $attributes of type array of attributes to build input
+	 *
+	 */
+	function aisis_form_input($attributes){
+		global $name, $id, $class, $value;
+		
+		if(!empty($attributes['name'])){
+			$name = $attributes['name'];
+		}
+		
+		if(!empty($attributes['id'])){
+			$id = $attributes['id'];
+		}
+		
+		if(!empty($attributes['class'])){
+			$id = $attributes['class'];
+		}
+		
+		if(!empty($attributes['class'])){
+			$class = $attributes['class'];
+		}
+		
+		if(!empty($attributes['value'])){
+			$value = $attributes['value'];
+		}
+		
+		$build_input = "<input name='".$name."' id='".$id."' class='".$class."' value='".$value."' />";
+		echo $build_input;
+	}
 ?>
