@@ -36,7 +36,7 @@
 
 		  if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 			  $errors = array();
-			  $aisis_file_handeling = new AisisFileHandeling();
+			  $aisis_file_handeling = new AisisFileHandling();
 			  
 			  if($aisis_file_handeling->check_dir(CUSTOM, true)){
 				   

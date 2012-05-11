@@ -18,7 +18,7 @@
 	 * =================================================================
 	 */
 	 
-	 $load_aisis_exceptions = new AisisFileHandeling();
+	 $load_aisis_exceptions = new AisisFileHandling();
 	 $load_aisis_exceptions->load_if_extension_is_php(AISIS_EXCEPTIONS);
 
 ?>

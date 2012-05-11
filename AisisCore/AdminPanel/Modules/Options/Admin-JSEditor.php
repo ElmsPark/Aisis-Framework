@@ -41,7 +41,7 @@
 	
 	if(!function_exists('aisis_js_editor')){
 		function aisis_js_editor(){
-			$aisis_file_contents = new AisisFileHandeling();
+			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_php_editor_setting');
 			?>
 			<textarea id="code" name="aisis_js_editor_setting[js]"><?php if(isset($options['js']) && !empty($options['js'])){echo $options['js'];}else{ echo $aisis_file_contents->get_contents(CUSTOM, 'custom-js.js');}?></textarea>
@@ -52,7 +52,7 @@
 	if(!function_exists('aisis_js_editor_validaton')){
 		function aisis_js_editor_validaton($input){
 			
-			$aisis_file_contents = new AisisFileHandeling();
+			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_js_editor_setting');
 			
 			if(trim($input['js']) == $options['js']){

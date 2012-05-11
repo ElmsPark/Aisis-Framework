@@ -24,7 +24,7 @@
 	require_once(AISIS_ADMINPANEL_MODULES . 'RegisterModules.php');
 	
 	//load all the options
-	$load_aisis_exceptions = new AisisFileHandeling();
+	$load_aisis_exceptions = new AisisFileHandling();
 	$load_aisis_exceptions->load_if_extension_is_php(AISIS_ADMINPANEL_MODULES_OPTIONS);
 		
 	/**

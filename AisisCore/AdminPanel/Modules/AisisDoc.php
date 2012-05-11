@@ -24,7 +24,28 @@
         <li><a href="#aisisAPI">Aisis API</a></li>
     </ul>
     <div id="aisis">
-    test text 1
+    <?php
+	 $form = array(
+	 	'id' => 'testId',
+		'name' => 'testName',
+		'method' => 'post'
+	 );
+	 
+	 $form_button = array(
+		'value' => 'Sample Button',
+	 );
+	 
+	 $form_text_area = array(
+	 	'value' => 'say what?'
+	 );
+	 
+	 $contents = array(
+	 	aisis_form_button($form_button),
+	 );
+	 
+	 aisis_build_form($form, $contents)
+	
+	?>
     </div>
     <div id="aisisGit">
     </div>

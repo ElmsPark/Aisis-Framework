@@ -188,6 +188,7 @@ h1 {
 	border-radius : 5px;
 	margin: 10px 0px 20px 80px;
 	width:60%;
+	word-wrap:break-word;
 }
 .adminThemeError{
 	background : #ebc2ce;

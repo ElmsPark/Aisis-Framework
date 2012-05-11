@@ -41,7 +41,7 @@
 	
 	if(!function_exists('aisis_php_editor')){
 		function aisis_php_editor(){
-			$aisis_file_contents = new AisisFileHandeling();
+			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_php_editor_setting');
 			?>
 			<textarea id="code" name="aisis_php_editor_setting[php]"><?php if(isset($options['php']) && !empty($options['php'])){echo $options['php'];}else{ echo $aisis_file_contents->get_contents(CUSTOM, 'custom-functions.php');}?></textarea>
@@ -52,7 +52,7 @@
 	if(!function_exists('aisis_php_editor_validaton')){
 		function aisis_php_editor_validaton($input){
 			
-			$aisis_file_contents = new AisisFileHandeling();
+			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_php_editor_setting');
 			
 			if(trim($input['php']) == $options['php']){

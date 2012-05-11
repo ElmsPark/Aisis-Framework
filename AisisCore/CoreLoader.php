@@ -26,11 +26,14 @@
 	 //Defaults - Core - Load it
 	 require_once(AISISCORE . 'AisisCore.php');
 	 require_once(AISISCORE . 'AisisHooks.php');
-	 require_once(AISISCORE . 'Class-Aisis-File-Handeling.php');
+	 require_once(AISISCORE . 'Class-Aisis-File-Handling.php');
 	 require_once(AISISCORE . 'Class-Aisis-Core-Register.php');
 	 require_once(AISISCORE . 'Class-Aisis-Update.php');
 	 require_once(AISISCORE . 'AisisDebugger.php');
 	 require_once(AISISCORE . 'AisisActivation.php');
+	 
+	 //for testing purposes of the new package Aisis View
+	 require_once(AISISCORE . 'AisisView/AisisFormView.php');
 
 	 
 	 //These are all the loaders
@@ -41,7 +44,7 @@
 	 require_once(AISIS_SHORTCODES . 'Codes.php');
 	 require_once(AISIS_SHORTCODES . 'AdminSetUpCodes.php');
 	 
-	 $aisis_load_admin_section= new AisisFileHandeling();
+	 $aisis_load_admin_section= new AisisFileHandling();
 	 $aisis_load_admin_section->load_if_extension_is_php(AISIS_ADMINPANEL);
 	 
 	 /**
@@ -67,7 +70,7 @@
 			 wp_enqueue_script('jquery', false, true);
 		 }
 	 }else{
-		 echo '<div class="ext">' . new OvideException('<strong>Do not ovide the aisis_jq_cdn function. See Tracemessage -> </strong>') . '</div>';
+		 echo '<div class="ext">' . new OverideException('<strong>Do not ovide the aisis_jq_cdn function. See Tracemessage -> </strong>') . '</div>';
 	 }
 	 add_action('wp_enqueue_scripts', 'aisis_jq_cdn');
 	 
@@ -99,7 +102,7 @@
 			if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );
 			
 		 }
-	 }else{  echo '<div class="ext">' . new OvideException('<strong>Do not ovide the aisis_load_scripts_styles function. See Tracemessage -> </strong>') . '</div>'; }
+	 }else{  echo '<div class="ext">' . new OverideException('<strong>Do not ovide the aisis_load_scripts_styles function. See Tracemessage -> </strong>') . '</div>'; }
 	 
 	 add_action('wp_enqueue_scripts', 'aisis_load_scripts_styles');
 	 

@@ -60,7 +60,7 @@
 	
 	if(!function_exists('aisis_css_editor')){
 		function aisis_css_editor(){
-			$aisis_file_contents = new AisisFileHandeling();
+			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_css_media_queary_css_editor_setting');
 			?>
 			<textarea id="code" name="aisis_css_editor_setting[code]"><?php if(isset($options['code']) && !empty($options['code'])){echo $options['code'];}else{ echo $aisis_file_contents->get_contents(CUSTOM, 'custom-css.css');}?></textarea>
@@ -70,7 +70,7 @@
 	
 	if(!function_exists('aisis_css_media_queary_css_editor')){
 		function aisis_css_media_queary_css_editor(){
-			$aisis_file_contents = new AisisFileHandeling();
+			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_css_media_queary_css_editor_setting');
 			?>
 			<textarea id="code-media" name="aisis_css_media_queary_css_editor_setting[code-media]"><?php if(isset($options['code-media']) && !empty($options['code-media'])){echo $options['code-media'];}else{echo $aisis_file_contents->get_contents(CUSTOM, 'media-queary.css');}?></textarea>
@@ -81,7 +81,7 @@
 	if(!function_exists('aisis_css_editor_validaton')){
 		function aisis_css_editor_validaton($input){
 			
-			$aisis_file_contents = new AisisFileHandeling();
+			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_css_editor_setting');
 			
 			if(trim($input['code']) == $options['code']){
@@ -114,7 +114,7 @@
 	
 	if(!function_exists('aisis_css_media_queary_editor_validaton')){
 		function aisis_css_media_queary_editor_validaton($input){
-			$aisis_file_handeling = new AisisFileHandeling();
+			$aisis_file_handeling = new AisisFileHandling();
 			$options = get_option('aisis_css_media_queary_css_editor_setting');
 			
 			if(trim($input['code-media']) == $options['code-media']){
