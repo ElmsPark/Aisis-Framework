@@ -10,11 +10,6 @@ $(document).ready(function() {
 		ineWrapping: true
     });
 	
-	var editor = CodeMirror.fromTextArea(document.getElementById("code-media"), {
-    	lineNumbers: true,
-		lineWrapping: true
-    });
-	
 	var editor = CodeMirror.fromTextArea(document.getElementById("php"), {
     	lineNumbers: true,
 		lineWrapping: true

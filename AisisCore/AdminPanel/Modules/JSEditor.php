@@ -39,16 +39,6 @@
 			<?php
 			update_option('did_it_fail_to_update_js', '');
 		}
-		if(get_option('is_js_contents_same_as_options') == 'true'){
-			?>
-			<div class="noticeSave">We noticed that what you are trying to save and what we have saved previously is the exact same. 
-            We did not bother to save this to the file because its the exact same.</div>
-            <script>
-            	$().toastmessage('showNoticeToast', "We did not save the contents of your input to the custom-js.js because what we have and what you have are the exact same thing.");
-            </script>
-			<?php
-			update_option('is_js_contents_same_as_options', '');
-		}
         ?>
     	<div class="notice">Please note that any changes you make here will over write your custom-js.js file in your custom/ folder.</div>
 		<?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-js-editor' ?>

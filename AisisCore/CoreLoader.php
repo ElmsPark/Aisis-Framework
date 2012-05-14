@@ -47,6 +47,7 @@
 	 $aisis_load_admin_section= new AisisFileHandling();
 	 $aisis_load_admin_section->load_if_extension_is_php(AISIS_ADMINPANEL);
 	 
+	 
 	 /**
 	  * We need to set up the theme after activation
 	  * essentially make sure files exists and what have you.

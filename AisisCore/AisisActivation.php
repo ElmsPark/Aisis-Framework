@@ -51,16 +51,6 @@
 					  $errors[] = "Seems that we cannot create your custom-css.css file. Please check your permissions.";
 				  }
 				  
-				  if($aisis_file_handeling->check_exists(CUSTOM .'custom-media-query.css', true)){
-					  $options = get_option('aisis_css_media_queary_css_editor_setting');
-					  if(isset($options['media-code']) && !empty($options['code'])){
-						  //We need it to write to the proper place
-						  $aisis_file_handeling->write_to_file($aisis_file_handeling->get_directory_of_files(CUSTOM, 'custom-media-query.css', "css"), $options['media-code'], CUSTOM);
-					  }
-				  }else{
-					  $errors[] = "Seems that we cannot create your custom-media-queary.css file. Please check your permissions.";
-				  }
-				  
 				  if($aisis_file_handeling->check_exists(CUSTOM . 'custom-functions.php', true)){
 					  $options = get_option('aisis_php_editor_setting');
 					  if(isset($options['aisis-php']) && !empty($options['aisis-php'])){

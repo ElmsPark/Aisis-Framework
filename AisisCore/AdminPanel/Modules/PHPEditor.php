@@ -39,16 +39,6 @@
 			<?php
 			update_option('did_it_fail_to_update_php', '');
 		}
-		if(get_option('is_php_contents_same_as_options') == 'true'){
-			?>
-			<div class="noticeSave">We noticed that what you are trying to save and what we have saved previously is the exact same. 
-            We did not bother to save this to the file because its the exact same.</div>
-            <script>
-            	$().toastmessage('showNoticeToast', "We did not save the contents of your input to the custom-functions.php because what we have and what you have are the exact same thing.");
-            </script>
-			<?php
-			update_option('is_php_contents_same_as_options', '');
-		}
         ?>
     	<div class="notice">Please note that editing this file will over write <strong>ANY</strong> changes you have made to this file. Always make a back up of this file first. 
         If you in any way make any kind of syntax error or any other error you may result in a white screen of death. 

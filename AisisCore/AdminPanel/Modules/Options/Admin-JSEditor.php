@@ -56,13 +56,8 @@
 			$options = get_option('aisis_js_editor_setting');
 			
 			if(trim($input['js']) == $options['js']){
-				update_option('is_js_contents_same_as_options', 'true');
-				add_settings_error(
-					'aisis_js_messages',
-					'editor_message',
-					'We did not bother to save your file because you made no changes to the file its self. Why save whats already there?',
-					'notice'
-				);
+				//We essentially don't care
+				continue;
 			}elseif(trim($input['js']) != $options['js']){
 				$options['js'] = trim($input['js']);
 				if($aisis_file_contents->write_to_file($aisis_file_contents->get_directory_of_files(CUSTOM, 'custom-js.js', "js"), $options['js'], CUSTOM)){
@@ -89,7 +84,6 @@
 		}
 	}
 	
-	add_option('is_js_contents_same_as_options', '', '', 'yes');
 	add_option('did_it_fail_to_update_js', '', '', 'yes');
 	add_option('did_we_write_to_the_file_js','', '', 'yes');
 	add_action('admin_init', 'set_up_js_editor');
