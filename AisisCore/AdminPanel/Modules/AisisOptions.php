@@ -46,7 +46,7 @@
                     The images in the <strong>images/headerimages</strong> will be used. as well as the thumbs there. 
                     Its is adbvised you upload thumbs as well to allow for responsiveness in the slider.</p>
                 </div>
-                Something should go here
+                <input type="submit" value="Save Your Work!" name="defaults" />
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
                         Which in turn changes the default footer text.</p>
                     </div>
                     <?php do_settings_fields('aisis-core-options', 'aisis_default_footer_text_section');?><br />
-                    
+                    <input type="submit" value="Save Your Work!" name="defaults" />
                 
             </div>
         </div>
