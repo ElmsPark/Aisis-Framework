@@ -22,7 +22,7 @@ h1 {
 	margin-bottom: 20px;
 	border-bottom: inset thin #666;
 	line-height: 40px;
-	width: 46%;
+	width: 66%;
 	font-size: 45px;
 }
 #adminPanelWrapper {
@@ -98,8 +98,8 @@ h1 {
 	box-shadow: 0 6px 6px -6px black;
 }
 .box p{
-	width: 50%;
-	margin-left: 150px;
+	width: 70%;
+	margin-left: 100px;
 	margin-top: -10px;
 	font-size:16px;
 }
@@ -107,6 +107,23 @@ h1 {
 #tabs{
 	width: 70%;
 	margin: 20px auto 20px auto;
+}
+
+#coreTabs{
+	width: 103%;
+	border: none;
+	background: none;
+	margin-left: -21px;
+}
+
+#coreTabs ul{
+	margin-left:145px;	
+}
+
+#coreTabs .bottom{
+	border-bottom: 2px solid #A6BABF;
+	width:100%;
+	margin: 0 auto 40px 147px;
 }
 
 .ui-widget-header{

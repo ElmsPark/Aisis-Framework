@@ -55,10 +55,7 @@
 			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_php_editor_setting');
 			
-			if(trim($input['php']) == $options['php']){
-				//We essentially don't care
-				continue;
-			}elseif(trim($input['php']) != $options['php'] && trim($input['js']) != ''){
+			if(trim($input['php']) != $options['php'] && trim($input['js']) != ''){
 				$options['php'] = trim($input['php']);
 				if($aisis_file_contents->write_to_file($aisis_file_contents->get_directory_of_files(CUSTOM, 'custom-functions.php', "php"), $options['php'], CUSTOM)){
 					update_option('did_we_write_to_the_file_php', 'true');
@@ -73,6 +70,14 @@
 					);
 				}
 
+			}else{
+				update_option('did_it_fail_to_update_php', 'true');
+				add_settings_error(
+					'aisis_php_messages',
+					'editor_message',
+					"I'm sorry, weither you tried to save an empty css file or we cannot write to your custom-functions file for some reason. Please try again.",
+					'error'
+				);
 			}
 			
 		}

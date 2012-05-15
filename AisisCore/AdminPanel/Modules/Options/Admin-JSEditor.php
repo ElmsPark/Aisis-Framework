@@ -55,10 +55,7 @@
 			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_js_editor_setting');
 			
-			if(trim($input['js']) == $options['js']){
-				//We essentially don't care
-				continue;
-			}elseif(trim($input['js']) != $options['js']){
+			if(trim($input['js']) != ''){
 				$options['js'] = trim($input['js']);
 				if($aisis_file_contents->write_to_file($aisis_file_contents->get_directory_of_files(CUSTOM, 'custom-js.js', "js"), $options['js'], CUSTOM)){
 					update_option('did_we_write_to_the_file_js', 'true');
@@ -72,9 +69,16 @@
 						'error'
 					);
 				}
-
+	
+			}else{
+				update_option('did_it_fail_to_update_js', 'true');
+				add_settings_error(
+					'aisis_php_messages',
+					'editor_message',
+					"I'm sorry, weither you tried to save an empty css file or we cannot write to your custom-js file for some reason. Please try again.",
+					'error'
+				);
 			}
-			
 		}
 	}
 	
