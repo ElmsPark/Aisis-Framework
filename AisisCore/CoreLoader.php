@@ -47,6 +47,10 @@
 	 $aisis_load_admin_section= new AisisFileHandling();
 	 $aisis_load_admin_section->load_if_extension_is_php(AISIS_ADMINPANEL);
 	 
+	 //$aisis_load_admin_section->scanDirectories(AISIS_EXCEPTIONS);
+	 //$aisis_load_admin_section->scanDirectories(AISIS_SHORTCODES, '', $array_of_files);
+	 
+	// new LoadFileException('troll');
 	 
 	 /**
 	  * We need to set up the theme after activation

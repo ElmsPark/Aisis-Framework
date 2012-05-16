@@ -225,7 +225,6 @@
 			if(!$this->check_dir($dir)){
 				_e('Not a Directory');
 			}
-			
 			$handler = opendir($dir);
 			while($file = readdir($handler)){
 				if($file != "." && $file != ".."){
@@ -235,6 +234,50 @@
 			
 			return $this->directory_files;
 			
+		}
+		
+		/**
+		 * This file is responsible for loading any file in the directory you
+		 * specify including sub directories. Essentially you pass in the 
+		 * root directory, this is the directory containing sub folders that you
+		 * want loaded. You would pass nothing in for the $allData, how ever if
+		 * you have files you want ignored then you would also pass those in as
+		 * and array of files. The default extenision it will look for it php,
+		 * how ever you can change that to any thing you want.
+		 *
+		 * @param root_dir is the directory you want loaded.
+		 * @param $allData - dont touch - of type array
+		 * @param files_to_ignore of type array is a list of files (eg: "file.php") that 
+		 * you want ignored in the loading of the files.
+		 * @param extension is the type of extension you want to load. Currently we only support
+		 * php files.
+		 *
+		 */
+		function load_directory_of_files($root_dir, $allData=array(), $files_to_ignore=array(), $extension="php") {
+			$invisibleFileNames = array(".", "..", ".htaccess", ".htpasswd");
+			$dirContent = scandir($rootDir);
+			foreach($dirContent as $key => $content) {
+				$path = $rootDir.'/'.$content;
+				if(!in_array($content, $invisibleFileNames)) {
+					if(!in_array($content, $files_to_ignore)){
+						if(is_file($path) && is_readable($path)) {
+							$allData[] = $path;
+						}elseif(is_dir($path) && is_readable($path)) {
+							$allData = $this->scanDirectories($path, $allData, $files_to_ignore);
+						}
+					}
+				}
+			}
+			
+			$list = $allData;
+			$count = count($list);
+			for($i = 0; $i<$count; $i++){
+				if(substr(strrchr($list[$i],'.'),1)==$extension){
+					if($extension == "php"){
+						require_once($list[$i]);
+					}
+				}
+			}
 		}
 	}
 

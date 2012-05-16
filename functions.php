@@ -32,6 +32,7 @@
 	 define('AISIS_DIR', get_template_directory_uri() . '/');
 	 define('AISIS', TEMPLATEPATH . '/');
 	 define('AISISCORE', TEMPLATEPATH . '/AisisCore/');
+	 define('AISIS_CORE', get_template_directory_uri(). '/AisisCore/');
 	 define('AISIS_EXCEPTIONS', TEMPLATEPATH . '/AisisCore/Exceptions/');
 	 define('AISIS_ADMINPANEL', TEMPLATEPATH . '/AisisCore/AdminPanel/');
 	 define('AISIS_ADMINPANEL_MODULES', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/');
