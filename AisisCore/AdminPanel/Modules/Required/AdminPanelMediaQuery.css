@@ -45,7 +45,7 @@ h1 {
 }
 .box{
 	width: 45%;
-	margin-left: 330px;
+	margin-left: 335px;
 	margin-bottom: 45px;
 	background:#D5B7CC;
 	padding:10px;
@@ -66,6 +66,14 @@ h1 {
 .greyBox{
 	width:68%;
 	
+}
+#coreTabs ul{
+	margin-left:75px;	
+}
+#coreTabs .bottom{
+	border-bottom: 2px solid #A6BABF;
+	width:100%;
+	margin: 0 auto 40px 77px;
 }
 .notice {
 	background : #fff9d7;
