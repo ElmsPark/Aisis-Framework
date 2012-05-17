@@ -48,11 +48,7 @@
 		}
 		
 		if(!empty($contents)){
-			?><form method="<?php echo $method ?>" action="<?php echo $action ?>" id="<?php echo $id ?>" name="<?php echo $name ?>"><?php
-
-			?></form><?php
-			
-			
+			//do something
 		}else{
 			_e('<div class="err">' . new FormException('<strong>You cannot have a form with empty contents.</strong>') . '</div>');
 		}

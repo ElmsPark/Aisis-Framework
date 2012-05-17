@@ -58,17 +58,6 @@
 	 }
 	 
 	 /**
-	  * This allows you yo change the entire nav
-	  * menu that is shown when the use does not use
-	  * WP3.0's new menu system to build a menu.
-	  *
-	  * @see Default-Nav-Template
-	  */
-	 function aisis_default_nav_template(){
-		 do_action('aisis_default_nav_template');
-	 }
-	 
-	 /**
 	  * Allows the user to change the 
 	  * footer text.
 	  */
@@ -97,73 +86,76 @@
 	  */
 	  
 	  //default 404 err banner message
-	  function default_aisis_404_err_message_banner(){
-		  $options = get_option('aisis_default_404_banner_setting');
-		  if(!isset($options['banner_content']) ){
-			  _e('It seems we could not find what you were looking for.');
-		  }else{
-			  _e($options['banner_content']);
+	  if(!function_exists('default_aisis_404_err_message_banner')){
+		  function default_aisis_404_err_message_banner(){
+			  $options = get_option('aisis_default_404_banner_setting');
+			  if(!isset($options['banner_content']) ){
+				  _e('It seems we could not find what you were looking for.');
+			  }else{
+				  _e($options['banner_content']);
+			  }
 		  }
 	  }
 	  
 	  //default 404 err message and title
-	  function default_aisis_404_err_message(){
-		  $options = get_option('aisis_default_404_message_section');
-		  if(!isset($options['err_theme_message'])){
-			 ?><h1>404</h1><p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>
-			 <?php
-		  }else{
-			 echo $options['err_theme_message'];
+	  if(!function_exists('default_aisis_404_err_message')){
+		  function default_aisis_404_err_message(){
+			  $options = get_option('aisis_default_404_message_section');
+			  if(!isset($options['err_theme_message'])){
+				 ?><h1>404</h1><p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>
+				 <?php
+			  }else{
+				 echo $options['err_theme_message'];
+			  }
 		  }
 	  }
 	  
 	  //default author message
-	  function deafualt_aisis_author_default_text(){
-		  $options = get_option('aisis_default_author_text_setting');
-		  if(!isset($options['default_author_text'])){
-		  	echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles for the blog its self and we are proud to have them here and apart of our team :D";
-		  }else{
-			 echo $options['default_author_text'];
+	  if(!function_exists('deafualt_aisis_author_default_text')){
+		  function deafualt_aisis_author_default_text(){
+			  $options = get_option('aisis_default_author_text_setting');
+			  if(!isset($options['default_author_text'])){
+				echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles for the blog its self and we are proud to have them here and apart of our team :D";
+			  }else{
+				 echo $options['default_author_text'];
+			  }
 		  }
 	  }
 	  
 	  //default category text
-	  function default_aisis_category_default_text(){
-		  $options = get_option('aisis_default_category_text_setting');
-		  if(!isset($options['default_author_text'])){
-		  	echo "Welcome to this category " . single_cat_title() . " where we hope that we present you with the latest and greates in content from this section. Please enjoy your stay :D";
-		  }else{
-			 $options['default_author_text'];
+	  if(!function_exists('default_aisis_category_default_text')){
+		  function default_aisis_category_default_text(){
+			  $options = get_option('aisis_default_category_text_setting');
+			  if(!isset($options['default_author_text'])){
+				echo "Welcome to this category " . single_cat_title() . " where we hope that we present you with the latest and greates in content from this section. Please enjoy your stay :D";
+			  }else{
+				 $options['default_author_text'];
+			  }
 		  }
 	  }
 	  
-	  //default nav template
-	  function default_aisis_default_nav_template(){
-		  ?>
-            <ul id="main-nav" class="main-nav clearfix">
-                <li><a href="<?php bloginfo('url') ?>">Home</a>
-            </ul>
-          <?php
-	  }
-	  
 	  //default footer text
-	  function default_aisis_default_footer_text(){
-		  $options = get_option('aisis_default_footer_text_setting');
-		  if(!isset($options['default_footer_text'])){
-		  	echo "Powered by WordPress | Aisis | Adam Balan -  2012";
-		  }else{
-			 echo $options['default_footer_text'];
+	  if(!function_exists('default_aisis_default_footer_text')){
+		  function default_aisis_default_footer_text(){
+			  $options = get_option('aisis_default_footer_text_setting');
+			  if(!isset($options['default_footer_text'])){
+				echo "Powered by WordPress | Aisis | Adam Balan -  2012";
+			  }else{
+				 echo $options['default_footer_text'];
+			  }
 		  }
 	  }
 	  
 	  //default loop_single author blurb
-	  function default_aisis_loop_single_author_blurb_default(){
-		  $options = get_option('aisis_default_author_text_setting');
-		  if(!isset($options['default_author_text'])){
-		  	  echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles 
-                for the blog its self and we are proud to have them here and apart of our team :D";
-		  }else{
-			  echo $options['default_author_text'];
+	  if(!function_exists('default_aisis_loop_single_author_blurb_default')){
+		  function default_aisis_loop_single_author_blurb_default(){
+			  $options = get_option('aisis_default_author_text_setting');
+			  if(!isset($options['default_author_text'])){
+				  echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles 
+					for the blog its self and we are proud to have them here and apart of our team :D";
+			  }else{
+				  echo $options['default_author_text'];
+			  }
 		  }
 	  }
 	  
@@ -174,7 +166,6 @@
 	  add_action('aisis_404_err_message','default_aisis_404_err_message');
 	  add_action('aisis_author_default_text','deafualt_aisis_author_default_text');
 	  add_action('aisis_category_default_text','default_aisis_category_default_text');
-	  add_action('aisis_default_nav_template','default_aisis_default_nav_template');
 	  add_action('aisis_default_footer_text','default_aisis_default_footer_text');
 	  add_action('aisis_loop_single_author_blurb_default','default_aisis_loop_single_author_blurb_default');
 	  

@@ -30,36 +30,15 @@
 	 require_once(AISISCORE . 'Class-Aisis-Core-Register.php');
 	 require_once(AISISCORE . 'Class-Aisis-Update.php');
 	 require_once(AISISCORE . 'AisisDebugger.php');
-	 require_once(AISISCORE . 'AisisActivation.php');
-	 
-	 //for testing purposes of the new package Aisis View
-	 require_once(AISISCORE . 'AisisView/AisisFormView.php');
+	 require_once(AISISCORE . 'Class-AisisActivation.php');
+	 require_once(AISISCORE . 'Class-AisisPackageLoader.php');
 
-	 
-	 //These are all the loaders
-	 require_once(AISIS_EXCEPTIONS . 'ExceptionLoader.php');
+	 //Build the  front end
 	 require_once(AISIS_TEMPLATES . 'BuildAisisTheme.php');
 	 
-	 //Load short codes and set them up.
-	 require_once(AISIS_SHORTCODES . 'Codes.php');
-	 require_once(AISIS_SHORTCODES . 'AdminSetUpCodes.php');
-	 
-	 $aisis_load_admin_section= new AisisFileHandling();
-	 $aisis_load_admin_section->load_if_extension_is_php(AISIS_ADMINPANEL);
-	 
-	 //$aisis_load_admin_section->scanDirectories(AISIS_EXCEPTIONS);
-	 //$aisis_load_admin_section->scanDirectories(AISIS_SHORTCODES, '', $array_of_files);
-	 
-	// new LoadFileException('troll');
-	 
-	 /**
-	  * We need to set up the theme after activation
-	  * essentially make sure files exists and what have you.
-	  * we also check the options table and populate these files
-	  * with any data from there, assuming data exists in theem.<br />
-	  * this is done incase you upgrade the theme and your files are over written.
-	  */
-
+	 //When the theme if first activated.
+	 $aisis_activation = new AisisActivation();
+	 $aisis_activation->aisis_do_on_load(); 
 	  
 	 
 	 //Set up Jquery
@@ -132,7 +111,5 @@
 	 }
 	 
 	 add_action( 'wp_head', 'aisis_viewport_tag', 999 );
-	 
-	 aisis_do_on_load(); 
 	 
 ?>

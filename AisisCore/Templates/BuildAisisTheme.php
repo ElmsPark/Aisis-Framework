@@ -20,17 +20,17 @@
 		  global $aisis_template_loader;
 		  if(have_posts()){
 			if (is_author()){
-				$aisis_template_loader->aisis_register('Author-Template.php');
+				$aisis_template_loader->aisis_register('Author-Template.phtml');
 			}
 			if (is_category()){
-				$aisis_template_loader->aisis_register('Category-Template.php');
+				$aisis_template_loader->aisis_register('Category-Template.phtml');
 			}
 			if(is_single()){
-				$aisis_template_loader->aisis_register('Loop-Single.php');
+				$aisis_template_loader->aisis_register('Loop-Single.phtml');
 			}
-		  	$aisis_template_loader->aisis_register('Loop-Index.php');
+		  	$aisis_template_loader->aisis_register('Loop-Index.phtml');
 		  }else{
-			$aisis_template_loader->aisis_register('404-Template.php');
+			$aisis_template_loader->aisis_register('404-Template.phtml');
 		  }
 		}
 	  }
@@ -39,7 +39,7 @@
 	  if(!function_exists('aisis_loop_single')){
 		  function aisis_loop_single(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Loop-Single.php');
+			  $aisis_template_loader->aisis_register('Loop-Single.phtml');
 		  }
 	  }
 	  
@@ -47,7 +47,7 @@
 	  if(!function_exists('aisis_page')){
 		  function aisis_page(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Page-Template.php');
+			  $aisis_template_loader->aisis_register('Page-Template.phtml');
 		  }
 	  }
 	  
@@ -55,7 +55,7 @@
 	  if(!function_exists('aisis_comments')){
 		  function aisis_Comments(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Comments-Template.php');
+			  $aisis_template_loader->aisis_register('Comments-Template.phtml');
 		  }
 	  }
 	  
@@ -63,7 +63,7 @@
 	  if(!function_exists('aisis_404()')){
 		  function aisis_404(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('404-Template.php');
+			  $aisis_template_loader->aisis_register('404-Template.phtml');
 		  }
 	  }
 	  
@@ -71,7 +71,7 @@
 	  if(!function_exists('aisis_search')){
 		  function aisis_search(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Search-Template.php');
+			  $aisis_template_loader->aisis_register('Search-Template.phtml');
 		  }
 	  }
 	  
@@ -79,7 +79,7 @@
 	  if(!function_exists('aisis_nav_fallback')){
 		  function aisis_nav_fallback(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Default-Nav-Template.php');
+			  $aisis_template_loader->aisis_register('Default-Nav-Template.phtml');
 		  }
 	  }
 	  
@@ -87,7 +87,7 @@
 	  if(!function_exists('aisis_sidebar_default')){
 		  function aisis_sidebar_default(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Default-Sidebar-Template.php');
+			  $aisis_template_loader->aisis_register('Default-Sidebar-Template.phtml');
 		  }
 	  }
 	  
@@ -95,7 +95,7 @@
 	  if(!function_exists('aisis_footer')){
 		  function aisis_footer(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Footer-Template.php');
+			  $aisis_template_loader->aisis_register('Footer-Template.phtml');
 		  }
 	  }
 ?>

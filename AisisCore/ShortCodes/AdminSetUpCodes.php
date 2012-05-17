@@ -69,6 +69,6 @@
 	}
 	
 	function aisis_require_code_display_page(){
-		require_once(AISIS_SHORTCODES . 'DisplayCodes.php');
+		require_once(AISIS_SHORTCODES . 'DisplayCodes.phtml');
 	}
 ?>

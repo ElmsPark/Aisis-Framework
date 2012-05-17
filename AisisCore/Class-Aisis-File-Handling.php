@@ -255,15 +255,15 @@
 		 */
 		function load_directory_of_files($root_dir, $allData=array(), $files_to_ignore=array(), $extension="php") {
 			$invisibleFileNames = array(".", "..", ".htaccess", ".htpasswd");
-			$dirContent = scandir($rootDir);
+			$dirContent = scandir($root_dir);
 			foreach($dirContent as $key => $content) {
-				$path = $rootDir.'/'.$content;
+				$path = $root_dir.'/'.$content;
 				if(!in_array($content, $invisibleFileNames)) {
 					if(!in_array($content, $files_to_ignore)){
 						if(is_file($path) && is_readable($path)) {
 							$allData[] = $path;
 						}elseif(is_dir($path) && is_readable($path)) {
-							$allData = $this->scanDirectories($path, $allData, $files_to_ignore);
+							$allData = $this->load_directory_of_files($path, $allData, $files_to_ignore);
 						}
 					}
 				}

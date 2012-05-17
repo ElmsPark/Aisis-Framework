@@ -12,8 +12,6 @@
 	 *		The loading structure of this framework is to load all the loaders
 	 *		that remain in each package. into one core loader that loads the theme.
 	 *
-	 *		TODO: Fix the loading structure of this theme. Its a mess.
-	 *
 	 *		@author: Adam Balan
 	 *		@since: 1.0
 	 *		@package: AisisCore
@@ -62,7 +60,6 @@
 	
 	// Default Main Nav Function
 	function aisis_default_main_nav() {
-		//wp_list_pages('title_li=');
 		aisis_nav_fallback();
 	}
 
@@ -72,6 +69,7 @@
 		$items = $homelink . $items;
 		return $items;
 	}
+	
 	add_filter( 'wp_nav_menu_items', 'aisis_nav_items' );
 	add_filter( 'wp_list_pages', 'aisis_nav_items' );
 ?>

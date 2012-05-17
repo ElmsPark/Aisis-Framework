@@ -22,7 +22,7 @@
 	  if(!function_exists('aisis_admin_panel_load_core_look')){
 		  function aisis_admin_panel_load_core_look(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('AdminPanel-Core-Look.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel-Core-Look-Module.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  
@@ -30,7 +30,7 @@
 	  if(!function_exists('aisis_admin_options_page')){
 		  function aisis_admin_options_page(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('AisisOptions.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AisisOptions-Module.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  
@@ -38,7 +38,7 @@
 	  if(!function_exists('aisis_css_editor_page')){
 		  function aisis_css_editor_page(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('CSSEditor.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('CSSEditor-Module.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  
@@ -46,7 +46,7 @@
 	  if(!function_exists('aisis_php_editor_page')){
 		  function aisis_php_editor_page(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('PHPEditor.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('PHPEditor-Module.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  
@@ -54,7 +54,7 @@
 	  if(!function_exists('aisis_js_editor_page')){
 		  function aisis_js_editor_page(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('JSEditor.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('JSEditor-Module.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  
@@ -62,7 +62,7 @@
 	  if(!function_exists('aisis_admin_doc_page')){
 		  function aisis_admin_doc_page(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('AisisDoc.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AisisDoc-Module.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 ?>
