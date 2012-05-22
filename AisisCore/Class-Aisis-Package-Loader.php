@@ -15,16 +15,12 @@
 	 * =================================================================
 	 */
 	 
-	 /**
-	  * This class is used to load all the core
-	  * packages of Aisis.
-	  */
 	 class AisisPackageLoader{
 	 
 		 private $aisis_file_handling;
 		 
 		 /**
-		  * Load the exceptions package. Soazz out if it's not
+		  * Load the exceptions package. Spazz out if it's not
 		  * there or we try to override this function.
 		  */
 		 function load_aisis_exceptions_package(){
@@ -38,7 +34,7 @@
 		 }
 		 
 		 /**
-		  * Load the admin panel package. Soazz out if it's not
+		  * Load the admin panel package. Spazz out if it's not
 		  * there or we try to override this function.
 		  */
 		 function load_aisis_admin_panel_package(){
@@ -52,7 +48,7 @@
 		 }
 		 
 		 /**
-		  * Load the aisis view package. Soazz out if it's not
+		  * Load the aisis view package. Spazz out if it's not
 		  * there or we try to override this function.
 		  */
 		 function load_aisis_view_package(){
@@ -66,7 +62,7 @@
 		 }
 		 
 		 /**
-		  * Load the aisis admin codes package. Soazz out if it's not
+		  * Load the aisis admin codes package. Spazz out if it's not
 		  * there. We can over ride this function.
 		  */
 		 function load_aisis_codes_package(){

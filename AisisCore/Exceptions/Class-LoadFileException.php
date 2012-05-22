@@ -13,6 +13,6 @@
 	 *
 	 * =================================================================
 	 */
-	require_once('Class-AisisCoreException.php');
+	//require_once('Class-AisisCoreException.php');
 	class LoadFileException extends AisisCoreException{}
 ?>

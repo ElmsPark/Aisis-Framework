@@ -31,8 +31,8 @@
 	 //Define Aisis Core Package
 	 define('AISIS_DIR', get_template_directory_uri() . '/');
 	 define('AISIS', TEMPLATEPATH . '/');
+	 
 	 define('AISISCORE', TEMPLATEPATH . '/AisisCore/');
-	 define('AISIS_CORE', get_template_directory_uri(). '/AisisCore/');
 	 define('AISIS_EXCEPTIONS', TEMPLATEPATH . '/AisisCore/Exceptions/');
 	 define('AISIS_ADMINPANEL', TEMPLATEPATH . '/AisisCore/AdminPanel/');
 	 define('AISIS_ADMINPANEL_MODULES', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/');
@@ -43,22 +43,16 @@
 	 
 	 // Define Aisis Custom
 	 define('CUSTOM', TEMPLATEPATH . '/custom/');
-	 define('CUSTOM_TEMPLATES', TEMPLATEPATH . '/custom/Templates/');
-	 
-	 //Define Basics
-	 define('IMAGES', TEMPLATEPATH . '/images/');
-	 define('IMAGE_THUMBS', TEMPLATEPATH . '/images/thumbs/');
-	 define('HEADER_IMAGES', TEMPLATEPATH . '/images/headerimages/');
 	 
 	 if(is_dir(AISISCORE)){
 		 if(file_exists(AISISCORE . 'CoreLoader.php')){
 			require_once(AISISCORE . 'CoreLoader.php');
 		 }else{
-			_e('You are missing the AisisCore/CoreLoader.php file. Please create it.');
+			_e('You are missing a vital peice of the puzzel. Please try re-downloading and installing the theme.');
 			return;
 		 }
 	 }else{
-		 _e('You are missing the directory AisisCore. Please create it.');
+		 _e('You are missing the directory AisisCore I cannot load any further. Please try re-downlading and installing the theme.');
 		 return;
 	 }
 	 

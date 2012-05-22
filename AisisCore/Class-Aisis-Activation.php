@@ -24,11 +24,6 @@
 	 * =================================================================
 	 */
 	 
-	 /**
-	  * This class essentially states that upon
-	  * activation of this theme do this. We
-	  * throw apparoriate errors for things we cannot do.
-	  */
 	class AisisActivation{
 		
 		function aisis_enqueue_custom(){
