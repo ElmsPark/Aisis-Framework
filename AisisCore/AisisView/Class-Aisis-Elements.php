@@ -35,44 +35,49 @@
 		  */
 		 function input($type, array $attributes){
 			 
-			 global $id, $class, $name, $checked, $onClick, $value;
+			 global $id, $class, $name, $checked, $onClick, $value, $inpute_type;
+			 
+			 $inpute_type = 'type="'.$type.'"';
 			 
 			 if(!is_string($type)){
 				 _e("<div class='err'" . new ForException('<strong>Element type must be of type String.</strong>') . "</div>");
 			 }
 			 			 
 			 if($type == 'checkbox'){
-				if(isset($attributes['checked']) && !empty($attrbutes['checked'])){
+				if(isset($attributes['checked'])){
 					  $checked = 'checked="'.$attributes['checked'].'"';
+					  $inpute_type = 'type="checkbox"';
 				}
 			 }elseif($type == 'button' || 'submit'){
-				 if(isset($attributes['onclick']) && !empty($attrbutes['onclick'])){
+				 if(isset($attributes['onclick'])){
 					  $onClick = 'onClick="'.$attributes['onclick'].'"';
+					  $inpute_type = 'type="'.$type.'"';
 				}
 			 }elseif($type = 'radio'){
-				 if(isset($attributes['checked']) && !empty($attributes['checked'])){
+				 if(isset($attributes['checked'])){
 					 $checked = 'checked="'.$attributes['checked'].'"';
+					 $inpute_type = 'type="radio"';
 				 }
 			 }
 			 
-			 if(isset($attributes['name']) && !empty($attrbutes['name'])){
+			 if(isset($attributes['name'])){
 				 $name = 'name="'.$attributes['name'].'"';
 			 }
 			 
-			 if(isset($attributes['id']) && !empty($attrbutes['id'])){
+			 if(isset($attributes['id'])){
 				 $id = 'id="'.$attributes['id'].'"';
 			 }
 			 
-			 if(isset($attributes['class']) && !empty($attrbutes['class'])){
+			 if(isset($attributes['class'])){
 				 $class = 'class="'.$attributes['class'].'"';
 			 }
 			 
-			 if(isset($attributes['value']) && !empty($attrbutes['value'])){
+			 if(isset($attributes['value'])){
 				 $value = 'value="'.$attributes['value'].'"';
 			 }
 			 
 			 $build_aisis_element = '<input '
-			 						.$type 
+			 						.$inpute_type 
 									.$checked 
 									.$id 
 									.$class 
@@ -140,25 +145,25 @@
 		  * @return the element
 		  */
 		 function select(array $attributes){
-			 global $id, $class, $name, $options, $value;
+			 global $id, $class, $name, $options;
 			 
-			 if(isset($attributes['multiple']) && !empty($attrbutes['multiple'])){
+			 if(isset($attributes['multiple'])){
 				 $multiple = 'multiple="'.$attributes['multiple'].'"';
 			 }
 			 
-			 if(isset($attributes['name']) && !empty($attrbutes['name'])){
+			 if(isset($attributes['name'])){
 				 $name = 'name="'.$attributes['name'].'"';
 			 }
 			 
-			 if(isset($attributes['id']) && !empty($attrbutes['id'])){
+			 if(isset($attributes['id'])){
 				 $id = 'id="'.$attributes['id'].'"';
 			 }
 			 
-			 if(isset($attributes['class']) && !empty($attrbutes['class'])){
+			 if(isset($attributes['class'])){
 				 $class = 'class="'.$attributes['class'].'"';
 			 }
 			 
-			 if(isset($attaributes['options']) && !empty($attributes['options'])){
+			 if(isset($attaributes['options'])){
 				 $options = $attributes['options'];
 			 }
 			 

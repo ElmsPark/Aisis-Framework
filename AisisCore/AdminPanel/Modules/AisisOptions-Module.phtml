@@ -14,6 +14,14 @@
 	 *
 	 * =================================================================
 	 */
+	 
+	 $aisis_form_element = new AisisForm();
+	 
+	 $basic_array_submit = array('value'=>'Save Your Work!', 'name'=>'defaults');
+	 $facebook_save = array('value'=>'Link to Facebook!', 'name'=>'defaults');
+	 $twitter_save = array('value'=>'Link to Twitter!', 'name'=>'defaults');
+	 $tumblr_save = array('value'=>'Link to Tumblr!', 'name'=>'defaults');
+	 $google_save = array('value'=>'Link to Google+!', 'name'=>'defaults');
 
 ?>
 <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>
@@ -29,7 +37,7 @@
 		<div class="box">
             <h1>Header Image's</h1>
             <p>Looking to chage the slider on the front of your blog? Uplaod your images here and watch the slider change!</p>
-            <p><input type="submit" value="Save Your Work!" name="defaults" /></p>
+            <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?></p>
         </div>
         
         <div class="contents">
@@ -46,7 +54,7 @@
                     The images in the <strong>images/headerimages</strong> will be used. as well as the thumbs there. 
                     Its is adbvised you upload thumbs as well to allow for responsiveness in the slider.</p>
                 </div>
-                <input type="submit" value="Save Your Work!" name="defaults" />
+                <?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?>
                 </div>
             </div>
         </div>
@@ -55,7 +63,7 @@
             <h1>Change Default Text</h1>
             <p>Looking to change some of the default text and options through out the theme?
             Edit the information bellow to change the default text through out the site.</p>
-            <p><input type="submit" value="Save Your Work!" name="defaults" /></p>
+            <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?></p>
         </div>
         
         <div class="contents">
@@ -110,12 +118,49 @@
                         Which in turn changes the default footer text.</p>
                     </div>
                     <?php do_settings_fields('aisis-core-options', 'aisis_default_footer_text_section');?><br />
-                    <input type="submit" value="Save Your Work!" name="defaults" />
+                    <?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?>
                 
             </div>
         </div>
    </div>
    <div id="aisisGit">
+       <div class="box">
+          <h1>Social Networks</h1>
+          <p>Enter in your details bellow for the links that appear at the top of the navigation menu in the header.
+          For each one of these that is filled out, you will see an icon.</p>
+          <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?></p>
+       </div>
+       <div class="contents">
+            <div class="notice">For each section filled out here, you will see a coresponding icon above search on the front page
+            displaying a link to that social network. You can also set up the hover deatils for that link as well, so that when users hover it,
+            they see a custom message.</div>
+            <div class="optionsSection">
+                <div class="greyBox">
+                    <div class="title">Facebook</div>
+                    <p>Do you use FaceBook? Perhaps you have a page for your product or service! place your link to your page bellow and we will link to it!<br /><br />
+                    Also take the time to fill out, if you wish, the hover over text so that when users hover over the icon they see your custom message.</p>
+                </div>
+                <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $facebook_save);?></p>
+                <div class="greyBox">
+                    <div class="title">Twitter</div>
+                    <p>Obsessed with Twitter? Are you in love with everything Twitter is? Link to your profile here so that people can stalk you no matter where you are!<br /><br />
+                    Also take the time to fill out, if you wish, the hover over text so that when users hover over the icon they see your custom message.</p>
+                </div>
+                <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $twitter_save);?></p>
+                <div class="greyBox">
+                    <div class="title">Tumblr</div>
+                    <p>Do you have a Tumblr account? Want to show it off? Link to it bellow and let people follow you on Tumblr<br /><br />
+                    Also take the time to fill out, if you wish, the hover over text so that when users hover over the icon they see your custom message.</p>
+                </div>
+                <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $tumblr_save);?></p>
+                <div class="greyBox">
+                    <div class="title">Goole+</div>
+                    <p>Do you have a Google+ account? Do you want to share it with the world? Fill out the deatils bellow<br /><br />
+                    Also take the time to fill out, if you wish, the hover over text so that when users hover over the icon they see your custom message.</p>
+                </div>
+                <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $google_save);?></p>
+        	</div>
+       </div>
    </div>
    <div id="aisisAPI">
    </div>
