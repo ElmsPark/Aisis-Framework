@@ -42,10 +42,23 @@
 	if(!function_exists('aisis_js_editor')){
 		function aisis_js_editor(){
 			$aisis_file_contents = new AisisFileHandling();
+			$aisis_create_form_element = new AisisForm();
+			$aisis_contents = $aisis_file_contents->get_contents(CUSTOM, 'custom-js.js');
 			$options = get_option('aisis_php_editor_setting');
-			?>
-			<textarea id="code" name="aisis_js_editor_setting[js]"><?php if(isset($options['js']) && !empty($options['js'])){echo $options['js'];}else{ echo $aisis_file_contents->get_contents(CUSTOM, 'custom-js.js');}?></textarea>
-			<?php
+			if(!isset($options['code']) && empty($options['code'])){
+				$aisis_js_attributes = array(
+					'id'=>'code',
+					'name'=>'aisis_js_editor_setting[js]',
+					'value'=>$aisis_contents
+				);
+			}else{
+				$aisis_js_attributes = array(
+					'id'=>'code',
+					'name'=>'aisis_js_editor_setting[js]',
+					'value'=>$options['js']
+				);
+			}
+			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_js_attributes);
 		}
 	}
 	

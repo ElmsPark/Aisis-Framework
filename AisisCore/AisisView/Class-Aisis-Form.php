@@ -17,7 +17,7 @@
 	 * =================================================================
 	 */
 
-	 class AisisView{
+	 class AisisForm{
 		 /**
 		  * This function takes in an element, a type and an array of attributes
 		  * and based on that we return you an element which is populated

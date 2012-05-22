@@ -42,10 +42,23 @@
 	if(!function_exists('aisis_php_editor')){
 		function aisis_php_editor(){
 			$aisis_file_contents = new AisisFileHandling();
+			$aisis_create_form_element = new AisisForm();
+			$aisis_contents = $aisis_file_contents->get_contents(CUSTOM, 'custom-functions.php');
 			$options = get_option('aisis_php_editor_setting');
-			?>
-			<textarea id="code" name="aisis_php_editor_setting[php]"><?php if(isset($options['php']) && !empty($options['php'])){echo $options['php'];}else{ echo $aisis_file_contents->get_contents(CUSTOM, 'custom-functions.php');}?></textarea>
-			<?php
+			if(!isset($options['php']) && empty($options['php'])){
+				$aisis_php_attributes = array(
+					'id'=>'code',
+					'name'=>'aisis_php_editor_setting[php]',
+					'value'=>$aisis_contents
+				);
+			}else{
+				$aisis_php_attributes = array(
+					'id'=>'code',
+					'name'=>'aisis_php_editor_setting[php]',
+					'value'=>$options['php']
+				);
+			}
+			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_php_attributes);
 		}
 	}
 	
@@ -55,7 +68,7 @@
 			$aisis_file_contents = new AisisFileHandling();
 			$options = get_option('aisis_php_editor_setting');
 			
-			if(trim($input['php']) != $options['php'] && trim($input['js']) != ''){
+			if(trim($input['php']) != ''){
 				$options['php'] = trim($input['php']);
 				if($aisis_file_contents->write_to_file($aisis_file_contents->get_directory_of_files(CUSTOM, 'custom-functions.php', "php"), $options['php'], CUSTOM)){
 					update_option('did_we_write_to_the_file_php', 'true');

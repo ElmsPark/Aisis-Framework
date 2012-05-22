@@ -61,10 +61,24 @@
 	if(!function_exists('aisis_css_editor')){
 		function aisis_css_editor(){
 			$aisis_file_contents = new AisisFileHandling();
+			$aisis_create_form_element = new AisisForm();
+			$aisis_contents = $aisis_file_contents->get_contents(CUSTOM, 'custom-css.css');
 			$options = get_option('aisis_css_media_queary_css_editor_setting');
-			?>
-			<textarea id="code" name="aisis_css_editor_setting[code]"><?php if(isset($options['code']) && !empty($options['code'])){echo $options['code'];}else{ echo $aisis_file_contents->get_contents(CUSTOM, 'custom-css.css');}?></textarea>
-			<?php
+			
+			if(!isset($options['code']) && empty($options['code'])){
+				$aisis_css_attributes = array(
+					'id'=>'code',
+					'name'=>'aisis_css_editor_setting[code]',
+					'value'=>$aisis_contents
+				);
+			}else{
+				$aisis_css_attributes = array(
+					'id'=>'code',
+					'name'=>'aisis_css_editor_setting[code]',
+					'value'=>$options['code']
+				);
+			}
+			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_css_attributes);
 		}
 	}
 	
