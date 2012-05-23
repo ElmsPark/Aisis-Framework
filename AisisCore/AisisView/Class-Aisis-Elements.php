@@ -35,7 +35,15 @@
 		  */
 		 function input($type, array $attributes){
 			 
-			 global $id, $class, $name, $checked, $onClick, $value, $inpute_type;
+			 $id = '';
+			 $class ='';
+			 $name =''; 
+			 $checked =''; 
+			 $onClick ='';
+			 $value ='';
+			 $inpute_type ='';
+			 
+			 
 			 
 			 $inpute_type = 'type="'.$type.'"';
 			 
@@ -48,16 +56,15 @@
 					  $checked = 'checked="'.$attributes['checked'].'"';
 					  $inpute_type = 'type="checkbox"';
 				}
-			 }elseif($type == 'button' || 'submit'){
-				 if(isset($attributes['onclick'])){
-					  $onClick = 'onClick="'.$attributes['onclick'].'"';
-					  $inpute_type = 'type="'.$type.'"';
-				}
 			 }elseif($type = 'radio'){
 				 if(isset($attributes['checked'])){
 					 $checked = 'checked="'.$attributes['checked'].'"';
 					 $inpute_type = 'type="radio"';
 				 }
+			 }
+			 
+			 if(isset($attributes['onClick'])){
+				 $onClick = 'onClick="'.$attributes['onClick'].'"';
 			 }
 			 
 			 if(isset($attributes['name'])){
@@ -82,6 +89,7 @@
 									.$id 
 									.$class 
 									.$name 
+									.$onClick
 									.$value
 									.' />';
 									
@@ -97,7 +105,10 @@
 		  */
 		 function textarea(array $attributes){
 			 
-			 global $id, $class, $name, $rows, $cols, $value;
+			 $id = '';
+			 $class ='';
+			 $name =''; 
+			 $value ='';
 			 
 			 $rows = 20;
 			 $cols = 20;

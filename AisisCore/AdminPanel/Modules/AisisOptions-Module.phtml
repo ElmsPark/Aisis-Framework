@@ -22,6 +22,7 @@
 	 $twitter_save = array('value'=>'Link to Twitter!', 'name'=>'defaults');
 	 $tumblr_save = array('value'=>'Link to Tumblr!', 'name'=>'defaults');
 	 $google_save = array('value'=>'Link to Google+!', 'name'=>'defaults');
+	 $rss_save = array('value'=>'Link to RSS!', 'name'=>'defaults');
 
 ?>
 <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>
@@ -140,25 +141,51 @@
                     <p>Do you use FaceBook? Perhaps you have a page for your product or service! place your link to your page bellow and we will link to it!<br /><br />
                     Also take the time to fill out, if you wish, the hover over text so that when users hover over the icon they see your custom message.</p>
                 </div>
+                <label><img src="<?php bloginfo('template_directory'); ?>/images/facebook.png" width="16" height="16"> Facebook Link:</label> <br />
+				<?php do_settings_fields('aisis-core-options', 'aisis_facebook_link_section');?><br />
+                <label><img src="<?php bloginfo('template_directory'); ?>/images/facebook.png" width="16" height="16"> Facebook Hover:</label><br />
+                 <?php do_settings_fields('aisis-core-options', 'aisis_facebook_hover_section'); ?><br />
                 <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $facebook_save);?></p>
                 <div class="greyBox">
                     <div class="title">Twitter</div>
                     <p>Obsessed with Twitter? Are you in love with everything Twitter is? Link to your profile here so that people can stalk you no matter where you are!<br /><br />
                     Also take the time to fill out, if you wish, the hover over text so that when users hover over the icon they see your custom message.</p>
                 </div>
+                <label><img src="<?php bloginfo('template_directory');?>/images/twitter.png" width="16" height="16"> Twitter Link:</label> <br />
+				<?php do_settings_fields('aisis-core-options', 'aisis_twitter_link_section');?><br />
+                <label><img src="<?php bloginfo('template_directory');?>/images/twitter.png" width="16" height="16"> Twitter Hover:</label><br />
+                 <?php do_settings_fields('aisis-core-options', 'aisis_twitter_hover_section'); ?><br />
                 <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $twitter_save);?></p>
                 <div class="greyBox">
                     <div class="title">Tumblr</div>
                     <p>Do you have a Tumblr account? Want to show it off? Link to it bellow and let people follow you on Tumblr<br /><br />
                     Also take the time to fill out, if you wish, the hover over text so that when users hover over the icon they see your custom message.</p>
                 </div>
+                <label><img src="<?php bloginfo('template_directory');?>/images/tumblr.png" width="16" height="16"> Tumblr Link:</label> <br />
+				<?php do_settings_fields('aisis-core-options', 'aisis_tumblr_link_section');?><br />
+                <label><img src="<?php bloginfo('template_directory');?>/images/tumblr.png" width="16" height="16"> Tumblr Hover:</label><br />
+                 <?php do_settings_fields('aisis-core-options', 'aisis_tumblr_hover_section'); ?><br />
                 <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $tumblr_save);?></p>
                 <div class="greyBox">
                     <div class="title">Goole+</div>
                     <p>Do you have a Google+ account? Do you want to share it with the world? Fill out the deatils bellow<br /><br />
                     Also take the time to fill out, if you wish, the hover over text so that when users hover over the icon they see your custom message.</p>
                 </div>
+                <label><img src="<?php bloginfo('template_directory');?>/images/google.png" width="16" height="16"> Google+:</label> <br />
+				<?php do_settings_fields('aisis-core-options', 'aisis_google_link_section');?><br />
+                <label><img src="<?php bloginfo('template_directory');?>/images/google.png" width="16" height="16"> Google+ Hover:</label><br />
+                 <?php do_settings_fields('aisis-core-options', 'aisis_google_hover_section'); ?><br />
                 <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $google_save);?></p>
+                <div class="greyBox">
+                    <div class="title">RSS</div>
+                    <p>Do you have Feedburner? Do you have some other RSS Service? If so - Enter it in here.<br /><br />
+                    Also take the time to fill out, if you wish, the hover over text so that when users hover over the icon they see your custom message.</p>
+                </div>
+                <label><img src="<?php bloginfo('template_directory');?>/images/feed.png" width="16" height="16"> Rss Link:</label> <br />
+				<?php do_settings_fields('aisis-core-options', 'aisis_rss_link_section');?><br />
+                <label><img src="<?php bloginfo('template_directory');?>/images/feed.png" width="16" height="16"> RSS Hover:</label><br />
+                 <?php do_settings_fields('aisis-core-options', 'aisis_rss_hover_section'); ?><br />
+                <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $rss_save);?></p>
         	</div>
        </div>
    </div>
@@ -170,4 +197,5 @@
 	$(function() {
 		$( "#coreTabs" ).tabs();
 	});
+	
 </script>
