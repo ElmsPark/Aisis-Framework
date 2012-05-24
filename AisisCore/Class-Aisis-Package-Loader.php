@@ -62,7 +62,7 @@
 		 }
 		 
 		 /**
-		  * Load the aisis admin codes package. Spazz out if it's not
+		  * Load the aisis short codes package. Spazz out if it's not
 		  * there. We can over ride this function.
 		  */
 		 function load_aisis_codes_package(){
@@ -71,6 +71,20 @@
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_SHORTCODES);
 			 }else{
 				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Short Codes package: ShortCodes</strong>") . "</div>");
+				 exit;
+			 }
+		 }
+		 
+		 /**
+		  * Load the aisis social media package. Spazz out if it's not
+		  * there. We can over ride this function.
+		  */
+		 function load_aisis_social_media_package(){
+			 $this->aisis_file_handling = new AisisFileHandling();
+			 if($this->aisis_file_handling->check_dir(AISIS_SOCIAL)){
+				 $this->aisis_file_handling->load_directory_of_files(AISIS_SOCIAL);
+			 }else{
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Social Media package: AisisSocialMedia</strong>") . "</div>");
 				 exit;
 			 }
 		 }
@@ -98,4 +112,5 @@
 	 $aisis_package_loader->load_aisis_admin_panel_package();
 	 $aisis_package_loader->load_aisis_codes_package();
 	 $aisis_package_loader->load_aisis_view_package();
+	 $aisis_package_loader->load_aisis_social_media_package();
 ?>

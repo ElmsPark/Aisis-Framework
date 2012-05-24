@@ -337,10 +337,10 @@
 		function aisis_default_404_message(){
 			$options = get_option('aisis_default_404_message_setting');
 			$aisis_create_form_element = new AisisForm();
-			if(!isset($options['err_theme_message']) && empty($options['err_theme_message'])){
+			if(!isset($options['err_404_theme_message']) && empty($options['err_404_theme_message'])){
 				$aisis_404_attributes = array(
 					'id'=>'404_theme_message',
-					'name'=>'aisis_default_404_message_setting[err_theme_message]',
+					'name'=>'aisis_default_404_message_setting[err_404_theme_message]',
 					'value'=>aisis_404_err_message(),
 					'rows'=>4,
 					'cols'=>60
@@ -349,8 +349,8 @@
 			}else{
 				$aisis_404_attributes = array(
 					'id'=>'404_theme_message',
-					'name'=>'aisis_default_404_message_setting[err_theme_message]',
-					'value'=>$options['err_theme_message'],
+					'name'=>'aisis_default_404_message_setting[err_404_theme_message]',
+					'value'=>$options['err_404_theme_message'],
 					'rows'=>4,
 					'cols'=>60
 				);
@@ -737,8 +737,8 @@
 	if(!function_exists('aisis_404_message_validation')){
 		function aisis_404_message_validation($input){
 			$options = get_option('aisis_default_404_message_setting');
-			if($input['err_theme_message'] != ''){
-				$options['err_theme_message'] = trim($input['err_theme_message']);
+			if($input['err_404_theme_message'] != ''){
+				$options['err_404_theme_message'] = trim($input['err_404_theme_message']);
 				update_option('admin_404_message_err_bool', 'true');
 				return $options;
 			}else{

@@ -35,6 +35,14 @@
 		}
 	  }
 	  
+	  //Load Author
+	  if(!function_exists('aisis_author_template')){
+		  function aisis_author_template(){
+			  global $aisis_template_loader;
+			  $aisis_template_loader->aisis_register('Author-Template.phtml');
+		  }
+	  }
+	  
 	  //Load Single
 	  if(!function_exists('aisis_loop_single')){
 		  function aisis_loop_single(){

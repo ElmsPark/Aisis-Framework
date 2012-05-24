@@ -21,12 +21,6 @@
 			'aisis-css-editor'
 		);
 		
-		add_settings_section(
-			'aisis_css_media_queary_editor_section',
-			'',
-			'aisis_css_content_descrption',
-			'aisis-css-editor'
-		);
 
 		add_settings_field(
 			'aisis_css_editor_setting',
@@ -36,18 +30,10 @@
 			'aisis_css_editor_section'
 		);
 		
-		add_settings_field(
-			'aisis_css_media_queary_css_editor_setting',
-			'',
-			'aisis_css_media_queary_css_editor',
-			'aisis-css-editor',
-			'aisis_css_media_queary_editor_section'
-		);
 		
 
 		
 		register_setting('aisis-css-editor', 'aisis_css_editor_setting', 'aisis_css_editor_validaton');
-		register_setting('aisis-css-editor', 'aisis_css_media_queary_css_editor_setting', 'aisis_css_media_queary_editor_validaton');
 		
 	}
 	

@@ -111,12 +111,12 @@
 	  //default 404 err message and title
 	  if(!function_exists('default_aisis_404_err_message')){
 		  function default_aisis_404_err_message(){
-			  $options = get_option('aisis_default_404_message_section');
-			  if(!isset($options['err_theme_message'])){
-				 ?><h1>404</h1><p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>
-				 <?php
+			  $options = get_option('aisis_default_404_message_setting');
+			  if(!isset($options['err_404_theme_message'])){
+				 _e('<h1>404</h1><p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>');
+				 
 			  }else{
-				 echo $options['err_theme_message'];
+				 echo $options['err_404_theme_message'];
 			  }
 		  }
 	  }
