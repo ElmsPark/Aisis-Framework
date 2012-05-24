@@ -713,7 +713,7 @@
 	if(!function_exists('aisis_404_banner_validation')){
 		function aisis_404_banner_validation($input){
 			$options = get_option('aisis_default_404_banner_setting');
-			if($input['banner_content'] != ''){
+			if(trim($input['banner_content']) != ''){
 				$options['banner_content'] = trim($input['banner_content']);
 				update_option('admin_404_banner_err_bool', 'true');
 				return $options;
@@ -737,7 +737,7 @@
 	if(!function_exists('aisis_404_message_validation')){
 		function aisis_404_message_validation($input){
 			$options = get_option('aisis_default_404_message_setting');
-			if($input['err_404_theme_message'] != ''){
+			if(trim($input['err_404_theme_message']) != ''){
 				$options['err_404_theme_message'] = trim($input['err_404_theme_message']);
 				update_option('admin_404_message_err_bool', 'true');
 				return $options;
@@ -760,7 +760,7 @@
 	if(!function_exists('aisis_default_author_validation')){
 		function aisis_default_author_validation($input){
 			$options = get_option('aisis_default_author_text_setting');
-			if($input['default_author_text'] != ''){
+			if(trim($input['default_author_text']) != ''){
 				$options['default_author_text'] = trim($input['default_author_text']);
 				update_option('admin_default_author_err_bool', 'true');
 				return $options;
@@ -783,7 +783,7 @@
 	if(!function_exists('aisis_default_category_validation')){
 		function aisis_default_category_validation($input){
 			$options = get_option('aisis_default_category_text_setting');
-			if($input['default_cat_text'] != ''){
+			if(trim($input['default_cat_text']) != ''){
 				$options['default_cat_text'] = trim($input['default_cat_text']);
 				update_option('admin_default_cat_text_err_bool', 'true');
 				return $options;
@@ -806,7 +806,7 @@
 	if(!function_exists('aisis_default_footer_validation')){
 		function aisis_default_footer_validation($input){
 			$options = get_option('aisis_default_footer_text_setting');
-			if($input['default_footer_text'] != ''){
+			if(trim($input['default_footer_text']) != ''){
 				$options['default_footer_text'] = trim($input['default_footer_text']);
 				update_option('admin_default_footer_text_err_bool', 'true');
 				return $options;
@@ -822,6 +822,10 @@
 		}
 	}
 	
+	/**
+	 * Store the facebook link content if entered
+	 * in the options table
+	 */		
 	if(!function_exists('social_media_facebook_validation')){
 		function social_media_facebook_validation($input){
 			$options = get_option('aisis_facebook_link_setting');
@@ -830,6 +834,10 @@
 		}
 	}
 	
+	/**
+	 * Store the twitter link content if entered
+	 * in the options table
+	 */		
 	if(!function_exists('social_media_twitter_validation')){
 		function social_media_twitter_validation($input){
 			$options = get_option('aisis_twitter_link_setting');
@@ -838,6 +846,10 @@
 		}
 	}
 	
+	/**
+	 * Store the tumblr link content if entered
+	 * in the options table
+	 */		
 	if(!function_exists('social_media_tumblr_validation')){
 		function social_media_tumblr_validation($input){
 			$options = get_option('aisis_tumblr_link_setting');
@@ -846,6 +858,10 @@
 		}
 	}
 	
+	/**
+	 * Store the google link content if entered
+	 * in the options table
+	 */		
 	if(!function_exists('social_media_google_validation')){
 		function social_media_google_validation($input){
 			$options = get_option('aisis_google_link_setting');
@@ -854,6 +870,10 @@
 		}
 	}
 	
+	/**
+	 * Store the Rss link content if entered
+	 * in the options table
+	 */	
 	if(!function_exists('rss_validation')){
 		function rss_validation($input){
 			$options = get_option('aisis_rss_link_setting');
@@ -862,6 +882,10 @@
 		}
 	}
 	
+	/**
+	 * Store the facebook hover content if entered
+	 * in the options table
+	 */	
 	if(!function_exists('facebook_hover_validation')){
 		function facebook_hover_validation($input){
 			$options = get_option('aisis_facebook_hover_setting');
@@ -870,6 +894,10 @@
 		}
 	}
 	
+	/**
+	 * Store the twitter hover content if entered
+	 * in the options table
+	 */	
 	if(!function_exists('twitter_hover_validation')){
 		function twitter_hover_validation($input){
 			$options = get_option('aisis_twitter_hover_setting');
@@ -878,6 +906,10 @@
 		}
 	}
 	
+	/**
+	 * Store the tumblr hover content if entered
+	 * in the options table
+	 */	
 	if(!function_exists('tumblr_hover_validation')){
 		function tumblr_hover_validation($input){
 			$options = get_option('aisis_tumblr_hover_setting');
@@ -886,6 +918,10 @@
 		}
 	}
 	
+	/**
+	 * Store the google hover content if entered
+	 * in the options table
+	 */	
 	if(!function_exists('google_hover_validation')){
 		function google_hover_validation($input){
 			$options = get_option('aisis_google_hover_setting');
@@ -894,6 +930,10 @@
 		}
 	}
 	
+	/**
+	 * Store the Rss hover content if entered
+	 * in the options table
+	 */
 	if(!function_exists('rss_hover_validation')){
 		function rss_hover_validation($input){
 			$options = get_option('aisis_rss_hover_setting');

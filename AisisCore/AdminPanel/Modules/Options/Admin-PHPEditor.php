@@ -78,7 +78,7 @@
 					add_settings_error(
 						'aisis_php_messages',
 						'editor_message',
-						"I'm sorry, weither you tried to save an empty css file or we cannot write to your custom-functions file for some reason. Please try again.",
+						"I'm sorry, weither you tried to save an empty php file or we cannot write to your custom-functions file for some reason. Please try again.",
 						'error'
 					);
 				}
@@ -88,7 +88,7 @@
 				add_settings_error(
 					'aisis_php_messages',
 					'editor_message',
-					"I'm sorry, weither you tried to save an empty css file or we cannot write to your custom-functions file for some reason. Please try again.",
+					"I'm sorry, weither you tried to save an empty php file or we cannot write to your custom-functions file for some reason. Please try again.",
 					'error'
 				);
 			}

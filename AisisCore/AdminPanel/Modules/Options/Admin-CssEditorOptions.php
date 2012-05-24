@@ -85,17 +85,17 @@
 					add_settings_error(
 						'aisis_css_messages',
 						'editor_message',
-						"I'm sorry, weither you tried to save an empty css file or we cannot write to your custom-css file for some reason. Please try again.",
+						"I'm sorry, weither you tried to save an empty js file or we cannot write to your custom-js file for some reason. Please try again.",
 						'error'
 					);
 				}
-
+	
 			}else{
-				update_option('did_it_fail_to_update', 'true');
+				update_option('did_it_fail_to_update_js', 'true');
 				add_settings_error(
 					'aisis_css_messages',
 					'editor_message',
-					"I'm sorry, weither you tried to save an empty css file or we cannot write to your custom-css file for some reason. Please try again.",
+					"I'm sorry, weither you tried to save an empty js file or we cannot write to your custom-js file for some reason. Please try again.",
 					'error'
 				);
 			}
