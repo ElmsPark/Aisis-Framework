@@ -307,7 +307,7 @@
 				$aisis_404_banner_attributes = array(
 					'id'=>'banner_content',
 					'name'=>'aisis_default_404_banner_setting[banner_content]',
-					'value'=>aisis_404_err_message_banner(),
+					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
 					
@@ -341,7 +341,7 @@
 				$aisis_404_attributes = array(
 					'id'=>'404_theme_message',
 					'name'=>'aisis_default_404_message_setting[err_404_theme_message]',
-					'value'=>aisis_404_err_message(),
+					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
 					
@@ -379,7 +379,7 @@
 				$aisis_author_attributes = array(
 					'id'=>'default_author_text',
 					'name'=>'aisis_default_author_text_setting[default_author_text]',
-					'value'=>aisis_author_default_text(),
+					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
 					
@@ -414,7 +414,7 @@
 				$aisis_cat_attributes = array(
 					'id'=>'default_cat_text',
 					'name'=>'aisis_default_category_text_setting[default_cat_text]',
-					'value'=>default_aisis_category_default_text(),
+					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
 					
@@ -449,7 +449,7 @@
 				$aisis_cat_attributes = array(
 					'id'=>'default_footer_text',
 					'name'=>'aisis_default_footer_text_setting[default_footer_text]',
-					'value'=>aisis_default_footer_text(),
+					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
 					
@@ -549,7 +549,7 @@
 	
 	/**
 	 * We are using these contents here to create a 
-	 * icon and a link to the google page
+	 * icon and a link to the google+ page
 	 */
 	if(!function_exists('aisis_google_link')){
 		function aisis_google_link(){
@@ -573,6 +573,10 @@
 		}
 	}
 	
+	/**
+	 * We are using these contents here to create a 
+	 * icon and a link to the rss page
+	 */
 	if(!function_exists('aisis_rss_link')){
 		function aisis_rss_link(){
 			$options = get_option('aisis_rss_link_setting');
@@ -595,6 +599,9 @@
 		}
 	}
 	
+	/**
+	 * hover text for the facebook icon and link
+	 */	
 	if(!function_exists('aisis_facebook_hover')){
 		function aisis_facebook_hover(){
 			$options = get_option('aisis_facebook_hover_setting');
@@ -617,6 +624,9 @@
 		}
 	}
 	
+	/**
+	 * hover text for the twitter icon and link
+	 */
 	if(!function_exists('aisis_twitter_hover')){
 		function aisis_twitter_hover(){
 			$options = get_option('aisis_twitter_hover_setting');
@@ -639,6 +649,9 @@
 		}
 	}
 	
+	/**
+	 * hover text for the tumblr icon and link
+	 */	
 	if(!function_exists('aisis_tumblr_hover')){
 		function aisis_tumblr_hover(){
 			$options = get_option('aisis_tumblr_hover_setting');
@@ -661,6 +674,9 @@
 		}
 	}
 	
+	/**
+	 * hover text for the google+ icon and link
+	 */	
 	if(!function_exists('aisis_google_hover')){
 		function aisis_google_hover(){
 			$options = get_option('aisis_google_hover_setting');
@@ -683,6 +699,9 @@
 		}
 	}
 	
+	/**
+	 * hover text for the rss icon and link
+	 */	
 	if(!function_exists('aisis_rss_hover')){
 		function aisis_rss_hover(){
 			$options = get_option('aisis_rss_hover_setting');
@@ -713,18 +732,9 @@
 	if(!function_exists('aisis_404_banner_validation')){
 		function aisis_404_banner_validation($input){
 			$options = get_option('aisis_default_404_banner_setting');
-			if(trim($input['banner_content']) != ''){
-				$options['banner_content'] = trim($input['banner_content']);
-				update_option('admin_404_banner_err_bool', 'true');
-				return $options;
-			}else{
-				add_settings_error(
-					'aisis_settings_messages',
-					'404_banner_content',
-					'The 404 banner text cannot be empty. We have populated the area with default content.',
-					'error'
-				);
-			}
+			$options['banner_content'] = trim($input['banner_content']);
+			update_option('admin_success_message', 'true');
+			return $options;
 	
 		}
 	}
@@ -737,18 +747,9 @@
 	if(!function_exists('aisis_404_message_validation')){
 		function aisis_404_message_validation($input){
 			$options = get_option('aisis_default_404_message_setting');
-			if(trim($input['err_404_theme_message']) != ''){
-				$options['err_404_theme_message'] = trim($input['err_404_theme_message']);
-				update_option('admin_404_message_err_bool', 'true');
-				return $options;
-			}else{
-				add_settings_error(
-					'aisis_settings_messages',
-					'err_theme_message',
-					'The 404 message text cannot be empty. We have populated the area with default content.',
-					'error'
-				);
-			}
+			$options['err_404_theme_message'] = trim($input['err_404_theme_message']);
+			update_option('admin_success_message', 'true');
+			return $options;
 		}
 	}
 
@@ -760,18 +761,9 @@
 	if(!function_exists('aisis_default_author_validation')){
 		function aisis_default_author_validation($input){
 			$options = get_option('aisis_default_author_text_setting');
-			if(trim($input['default_author_text']) != ''){
-				$options['default_author_text'] = trim($input['default_author_text']);
-				update_option('admin_default_author_err_bool', 'true');
-				return $options;
-			}else{
-				add_settings_error(
-					'aisis_settings_messages',
-					'err_theme_message',
-					'The author text cannot be empty. We have populated the area with default content.',
-					'error'
-				);
-			}
+			$options['default_author_text'] = trim($input['default_author_text']);
+			update_option('admin_success_message', 'true');
+			return $options;
 		}
 	}
 
@@ -783,18 +775,9 @@
 	if(!function_exists('aisis_default_category_validation')){
 		function aisis_default_category_validation($input){
 			$options = get_option('aisis_default_category_text_setting');
-			if(trim($input['default_cat_text']) != ''){
-				$options['default_cat_text'] = trim($input['default_cat_text']);
-				update_option('admin_default_cat_text_err_bool', 'true');
-				return $options;
-			}else{
-				add_settings_error(
-					'aisis_settings_messages',
-					'err_theme_message',
-					'The category text cannot be empty. We have populated the area with default content.',
-					'error'
-				);
-			}
+			$options['default_cat_text'] = trim($input['default_cat_text']);
+			update_option('admin_success_message', 'true');
+			return $options;
 		}
 	}
 
@@ -806,19 +789,9 @@
 	if(!function_exists('aisis_default_footer_validation')){
 		function aisis_default_footer_validation($input){
 			$options = get_option('aisis_default_footer_text_setting');
-			if(trim($input['default_footer_text']) != ''){
-				$options['default_footer_text'] = trim($input['default_footer_text']);
-				update_option('admin_default_footer_text_err_bool', 'true');
-				return $options;
-			}else{
-				add_settings_error(
-					'aisis_settings_messages',
-					'err_theme_message',
-					'The footer text cannot be empty. We have populated the area with default content.',
-					'error'
-				);
-	
-			}
+			$options['default_footer_text'] = trim($input['default_footer_text']);
+			update_option('admin_success_message', 'true');
+			return $options;
 		}
 	}
 	
@@ -830,6 +803,7 @@
 		function social_media_facebook_validation($input){
 			$options = get_option('aisis_facebook_link_setting');
 			$options['facebook_link'] = strip_tags($input['facebook_link']);
+			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
@@ -842,6 +816,7 @@
 		function social_media_twitter_validation($input){
 			$options = get_option('aisis_twitter_link_setting');
 			$options['twitter_link'] = strip_tags($input['twitter_link']);
+			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
@@ -854,6 +829,7 @@
 		function social_media_tumblr_validation($input){
 			$options = get_option('aisis_tumblr_link_setting');
 			$options['tumblr_link'] = strip_tags($input['tumblr_link']);
+			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
@@ -866,6 +842,7 @@
 		function social_media_google_validation($input){
 			$options = get_option('aisis_google_link_setting');
 			$options['google_link'] = strip_tags($input['google_link']);
+			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
@@ -878,6 +855,7 @@
 		function rss_validation($input){
 			$options = get_option('aisis_rss_link_setting');
 			$options['rss_link'] = strip_tags($input['rss_link']);
+			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
@@ -890,6 +868,7 @@
 		function facebook_hover_validation($input){
 			$options = get_option('aisis_facebook_hover_setting');
 			$options['facebook_hover'] = strip_tags($input['facebook_hover']);
+			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
@@ -902,6 +881,7 @@
 		function twitter_hover_validation($input){
 			$options = get_option('aisis_twitter_hover_setting');
 			$options['twitter_hover'] = strip_tags($input['twitter_hover']);
+			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
@@ -914,6 +894,7 @@
 		function tumblr_hover_validation($input){
 			$options = get_option('aisis_tumblr_hover_setting');
 			$options['tumblr_hover'] = strip_tags($input['tumblr_hover']);
+			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
@@ -926,6 +907,7 @@
 		function google_hover_validation($input){
 			$options = get_option('aisis_google_hover_setting');
 			$options['google_hover'] = strip_tags($input['google_hover']);
+			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
@@ -938,27 +920,13 @@
 		function rss_hover_validation($input){
 			$options = get_option('aisis_rss_hover_setting');
 			$options['rss_hover'] = strip_tags($input['rss_hover']);
+			update_option('admin_success_message', 'true');
 			return $options;
-		}
-	}
-	
-	/**
-	 * We store all the settings errors.
-	 */
-	if(!function_exists('aisis_settings_messages')){
-		function aisis_settings_messages(){
-			settings_errors('aisis_settings_messages');
 		}
 	}
 
 	//This action allows for the displaying and functionality of this file.
 	add_action('admin_init', 'set_up_default_content_display_section');
-	// Admin Notices (settings messages).
-	add_action('admin_notices', 'aisis_settings_messages');
 	//Add an error handling option
-	add_option('admin_404_banner_err_bool', '', '', 'yes');
-	add_option('admin_404_message_err_bool', '', '', 'yes');
-	add_option('admin_default_author_err_bool', '', '', 'yes');
-	add_option('admin_default_cat_text_err_bool', '','', 'yes');
-	add_option('admin_default_footer_text_err_bool', '', '', 'yes');
+	add_option('admin_success_message', '', '', 'yes');
 ?>

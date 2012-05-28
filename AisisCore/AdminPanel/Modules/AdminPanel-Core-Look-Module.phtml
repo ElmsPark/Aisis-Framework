@@ -18,9 +18,10 @@
 	 //check theme version
 	 $aisis_theme_version = get_theme_data(get_bloginfo('stylesheet_url'));
 	 $aisis_check_version = new AisisUpdate();
-
+	
+	 //Check for messages
+	 check_for_aisis_messages();
 ?>
-
     <div id="adminPanelWrapper">
         <div class="adminPanelTitle">
             Aisis Core Theme Options

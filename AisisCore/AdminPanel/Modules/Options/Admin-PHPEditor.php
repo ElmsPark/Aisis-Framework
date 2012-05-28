@@ -43,13 +43,12 @@
 		function aisis_php_editor(){
 			$aisis_file_contents = new AisisFileHandling();
 			$aisis_create_form_element = new AisisForm();
-			$aisis_contents = $aisis_file_contents->get_contents(CUSTOM, 'custom-functions.php');
 			$options = get_option('aisis_php_editor_setting');
 			if(!isset($options['php']) && empty($options['php'])){
 				$aisis_php_attributes = array(
 					'id'=>'code',
 					'name'=>'aisis_php_editor_setting[php]',
-					'value'=>$aisis_contents
+					'value'=>$aisis_file_contents->get_contents(CUSTOM, 'custom-functions.php')
 				);
 			}else{
 				$aisis_php_attributes = array(
@@ -75,35 +74,16 @@
 					return $options;
 				}else{
 					update_option('did_it_fail_to_update_php', 'true');
-					add_settings_error(
-						'aisis_php_messages',
-						'editor_message',
-						"I'm sorry, weither you tried to save an empty php file or we cannot write to your custom-functions file for some reason. Please try again.",
-						'error'
-					);
 				}
 
 			}else{
 				update_option('did_it_fail_to_update_php', 'true');
-				add_settings_error(
-					'aisis_php_messages',
-					'editor_message',
-					"I'm sorry, weither you tried to save an empty php file or we cannot write to your custom-functions file for some reason. Please try again.",
-					'error'
-				);
 			}
 			
 		}
 	}
-	
-	if(!function_exists('aisis_out_put_messages_php_editor')){
-		function aisis_out_put_messages_php_editor(){	
-			settings_errors('aisis_php_messages');
-		}
-	}
-	
+
 	add_option('did_it_fail_to_update_php', '', '', 'yes');
 	add_option('did_we_write_to_the_file_php','', '', 'yes');
 	add_action('admin_init', 'set_up_php_editor');
-	add_action('admin_notices', 'aisis_out_put_messages_php_editor');
 ?>

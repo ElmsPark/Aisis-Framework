@@ -69,22 +69,19 @@
         
         <div class="contents">
             <?php
-            if(get_option('admin_404_banner_err_bool') == 'true' && get_option('admin_404_message_err_bool') == 'true' && get_option('admin_default_author_err_bool') == 'true' 
-                && get_option('admin_default_cat_text_err_bool') == 'true' && get_option('admin_default_footer_text_err_bool') == 'true'){
-                    ?>
-                    <div class="success">We have successfully updated the site with new content that you have set bellow.</div>
-                    <script>
-                        $().toastmessage('showSuccessToast', "We have successfully updated the content on the site with the new content that you have set bellow.");
-                    </script>
-                    <?php
-                    update_option('admin_404_banner_err_bool', '');
-                    update_option('admin_404_message_err_bool', '');
-                    update_option('admin_default_author_err_bool', '');
-                    update_option('admin_default_cat_text_err_bool', '');
-                    update_option('admin_default_footer_text_err_bool', '');
+            if(get_option('admin_success_message') == 'true'){
+			  ?>
+			  <div class="success">We have taken the changes you put bellow and updated the front end default text. Check it out now!</div>
+			  <script>
+				  $().toastmessage('showSuccessToast', "We have successfully updated the content on the site with the new content that you have set bellow.");
+			  </script>
+			  <?php
+			  update_option('admin_success_message', '');
             }
             ?>
-            <div class="notice">The following is a set of hooks that deisplay default content fopr things like authors and categories when the text for those have not been set. That is to say if an author does not set their bio then the <strong>aisis_author_default_text and aisis_loop_single_author_blurb_default</strong> will be used to display default text.</div>
+            <div class="notice">The following options allow you to change the core options of the theme. These will change the default text, 
+            this is the text thats displayed when you first install the theme framework and view the front end. We also tell you what 
+            "hooks" are used to change this text or display the default text.</div>
             <div class="optionsSection">
                 <?php settings_fields( 'aisis-core-options' ); ?>
                     <div class="greyBox">

@@ -196,6 +196,28 @@ h1 {
 	margin : 10px 0px 20px 80px;
 	width:60%;
 }
+.topSuccess{
+	background : #c0e4c7;
+	border : 1px solid #3d5b37;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin: 10px auto 0 auto;
+	width:50%;
+	word-wrap:break-word;
+}
+.topErr{
+	background : #ebc2ce;
+	border : 1px solid #772038;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin: 10px auto 0 auto;
+	width:50%;
+	word-wrap:break-word;
+}
 .err {
 	background : #ebc2ce;
 	border : 1px solid #772038;
@@ -248,10 +270,6 @@ h1 {
 	margin-bottom: 20px;
 	width:94.7%
 }
-div.error{
-	width:50%;
-	margin: 10px auto 5px auto;
-}
 .excNotice {
 	background : #ebc2ce;
 	border : 1px solid #772038;
@@ -273,10 +291,8 @@ div.error{
 	margin: 10px 0px 20px 80px;
 	width:60%;
 }
-
-
 .CodeMirror {
-	width:83%;
+	width:95%;
 	margin-left: -20px;
 	background:#FFFFFF;
 	border-radius: 8px;
