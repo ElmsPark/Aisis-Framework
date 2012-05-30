@@ -41,6 +41,7 @@
 	 define('AISIS_TEMPLATES',TEMPLATEPATH . '/AisisCore/Templates/');
 	 define('AISIS_SHORTCODES', TEMPLATEPATH . '/AisisCore/ShortCodes/');
 	 define('AISIS_VIEW', TEMPLATEPATH . '/AisisCore/AisisView/');
+	 define('AISIS_CUSTOM_POST_TYPES', TEMPLATEPATH . '/AisisCore/AdminPanel/AisiCustomPostTypes/');
 	 
 	 
 	 // Define Aisis Custom

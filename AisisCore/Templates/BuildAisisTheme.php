@@ -14,6 +14,14 @@
 	  
 	   $aisis_template_loader = new AisisCoreRegister();
 	  
+	  //load header slider
+	  if(!function_exists('aisis_header_slider')){
+		  function aisis_header_slider(){
+			  global $aisis_template_loader;
+			  $aisis_template_loader->aisis_register('Header-Slider-Template.phtml');
+		  }
+	  }
+	  
 	  //Load Index
 	  if(!function_exists('aisis_core_index')){
 	  	function aisis_core_index(){

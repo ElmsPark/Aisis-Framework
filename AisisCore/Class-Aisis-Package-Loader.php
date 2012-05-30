@@ -89,6 +89,16 @@
 			 }
 		 }
 		 
+		 function load_aisis_custom_post_types_package(){
+			 $this->aisis_file_handling = new AisisFileHandling();
+			 if($this->aisis_file_handling->check_dir(AISIS_CUSTOM_POST_TYPES)){
+				 $this->aisis_file_handling->load_directory_of_files(AISIS_CUSTOM_POST_TYPES);
+			 }else{
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Post Types package: AisisCustomPostTypes</strong>") . "</div>");
+				 exit;
+			 }
+		 }		 
+		 
 		 /**
 		  * This is our helper function to allow you
 		  * to load what ever package you want.
