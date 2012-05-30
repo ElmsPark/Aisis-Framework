@@ -59,10 +59,18 @@
 	 
 	 /**
 	  * Allows the user to change the 
-	  * footer text.
+	  * left footer text.
 	  */
-	 function aisis_default_footer_text(){
-		 do_action('aisis_default_footer_text');
+	 function aisis_default_left_footer_text(){
+		 do_action('aisis_default_left_footer_text');
+	 }
+	 
+	 /**
+	  * Allows the user to change the 
+	  * right footer text.
+	  */
+	 function aisis_default_right_footer_text(){
+		 do_action('aisis_default_right_footer_text');
 	 }
 	 
 	 /**
@@ -145,17 +153,31 @@
 		  }
 	  }
 	  
-	  //default footer text
-	  if(!function_exists('default_aisis_default_footer_text')){
-		  function default_aisis_default_footer_text(){
-			  $options = get_option('aisis_default_footer_text_setting');
-			  if(!isset($options['default_footer_text'])){
+	  //default right footer text
+	  if(!function_exists('default_aisis_default_right_footer_text')){
+		  function default_aisis_default_right_footer_text(){
+			  $options = get_option('aisis_default_right_footer_text_setting');
+			  if(!isset($options['default_right_footer_text'])){
 				echo "Powered by WordPress | Aisis | Adam Balan -  2012";
 			  }else{
-				 echo $options['default_footer_text'];
+				 echo $options['default_right_footer_text'];
 			  }
 		  }
 	  }
+	  
+	  //default left footer text
+	  if(!function_exists('default_aisis_default_left_footer_text')){
+		  function default_aisis_default_left_footer_text(){
+			  $options = get_option('aisis_default_left_footer_text_setting');
+			  
+			  if(!isset($options['default_left_footer_text'])){
+				echo "(C) 2012";
+				
+			  }else{
+				 echo $options['default_left_footer_text'];
+			  }
+		  }
+	  }	  
 	  
 	  //default loop_single author blurb
 	  if(!function_exists('default_aisis_loop_single_author_blurb_default')){
@@ -186,7 +208,8 @@
 	  add_action('aisis_404_err_message','default_aisis_404_err_message');
 	  add_action('aisis_author_default_text','deafualt_aisis_author_default_text');
 	  add_action('aisis_category_default_text','default_aisis_category_default_text');
-	  add_action('aisis_default_footer_text','default_aisis_default_footer_text');
+	  add_action('aisis_default_right_footer_text','default_aisis_default_right_footer_text');
+	  add_action('aisis_default_left_footer_text','default_aisis_default_left_footer_text');
 	  add_action('aisis_loop_single_author_blurb_default','default_aisis_loop_single_author_blurb_default');
 	  add_action('aisis_default_nav_template','default_aisis_default_nav_template');
 	  

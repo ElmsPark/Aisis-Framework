@@ -115,7 +115,10 @@
                         <p>The following hook(s) will be changed: <strong>aisis_default_footer_text</strong>. 
                         Which in turn changes the default footer text.</p>
                     </div>
-                    <?php do_settings_fields('aisis-core-options', 'aisis_default_footer_text_section');?><br />
+                    <label>Right Side of Footer - Text:</label><br />
+                    <?php do_settings_fields('aisis-core-options', 'aisis_default_right_footer_text_section');?><br />
+                    <label>Left Side of Footer - Text:</label><br />
+                    <?php do_settings_fields('aisis-core-options', 'aisis_default_left_footer_text_section');?><br />
                     <?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?>
                 
             </div>

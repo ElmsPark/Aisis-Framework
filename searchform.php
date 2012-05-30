@@ -13,5 +13,5 @@
 ?>
 
     <form method="get" id="searchform" action="<?php echo home_url(); ?>/" >
-        <input type="search" id="s" name="s" placeholder="Search" />
+        <input type="search" id="search" name="s" placeholder="Search" />
     </form>

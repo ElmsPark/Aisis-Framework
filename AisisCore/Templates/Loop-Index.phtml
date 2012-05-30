@@ -38,8 +38,8 @@
       </article>
       <?php endwhile; ?>
       <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
-      <div class="prevPost"><?php previous_posts_link(__( 'Older posts', 'aisis' )) ?></div>
-      <div class="nextPost"><?php next_posts_link(__( 'Next posts', 'aisis' )) ?></div>
+      <div class="prevPost"><?php previous_posts_link(__( '<-- Newer Posts', 'aisis' )) ?></div>
+      <div class="nextPost"><?php next_posts_link(__( 'Previous Posts -->', 'aisis' )) ?></div>
       <?php } ?>
 	</div>
     <?php 

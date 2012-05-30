@@ -32,7 +32,7 @@
                 </p>
                 <p><strong>Tags: </strong>
 				<?php }
-				query_posts('cat=1');
+				query_posts(get_all_category_ids());
 				if(have_posts()): while (have_posts()) : the_post();
 					$all_tag_objects = get_the_tags();
 					if($all_tag_objects){
@@ -54,7 +54,6 @@
 				}else{
 					echo 'This category seems to have no tags.';
 				}
-				
 					
 				?>
 			   </p>

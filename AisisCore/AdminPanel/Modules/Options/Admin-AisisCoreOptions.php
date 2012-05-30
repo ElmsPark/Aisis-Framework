@@ -68,11 +68,18 @@
 		);
 
 		add_settings_section(
-			'aisis_default_footer_text_section',
+			'aisis_default_right_footer_text_section',
 			'',
 			'aisis_content_description',
 			'aisis-core-options'
 		);
+		
+		add_settings_section(
+			'aisis_default_left_footer_text_section',
+			'',
+			'aisis_content_description',
+			'aisis-core-options'
+		);		
 		
 		add_settings_section(
 			'aisis_facebook_link_section',
@@ -177,11 +184,19 @@
 		);
 
 		add_settings_field(
-			'aisis_default_footer_text_setting',
+			'aisis_default_right_footer_text_setting',
 			'',
-			'aisis_default_footer_text_',
+			'aisis_default_right_footer_text_',
 			'aisis-core-options',
-			'aisis_default_footer_text_section'
+			'aisis_default_right_footer_text_section'
+		);
+		
+		add_settings_field(
+			'aisis_default_left_footer_text_setting',
+			'',
+			'aisis_default_left_footer_text_',
+			'aisis-core-options',
+			'aisis_default_left_footer_text_section'
 		);
 		
 		add_settings_field(
@@ -268,7 +283,8 @@
 		register_setting('aisis-core-options', 'aisis_default_404_message_setting', 'aisis_404_message_validation');
 		register_setting('aisis-core-options', 'aisis_default_author_text_setting', 'aisis_default_author_validation');
 		register_setting('aisis-core-options', 'aisis_default_category_text_setting', 'aisis_default_category_validation');
-		register_setting('aisis-core-options', 'aisis_default_footer_text_setting', 'aisis_default_footer_validation');
+		register_setting('aisis-core-options', 'aisis_default_right_footer_text_setting', 'aisis_default_right_footer_validation');
+		register_setting('aisis-core-options', 'aisis_default_left_footer_text_setting', 'aisis_default_left_footer_validation');
 		register_setting('aisis-core-options', 'aisis_facebook_link_setting', 'social_media_facebook_validation');
 		register_setting('aisis-core-options', 'aisis_twitter_link_setting', 'social_media_twitter_validation');
 		register_setting('aisis-core-options', 'aisis_tumblr_link_setting', 'social_media_tumblr_validation');
@@ -441,31 +457,66 @@
 	 * save you are updating the default hook.
 	 *
 	 */
-	if(!function_exists('aisis_default_footer_text_')){
-		function aisis_default_footer_text_(){
-			$options = get_option('aisis_default_footer_text_setting');
+	if(!function_exists('aisis_default_right_footer_text_')){
+		function aisis_default_right_footer_text_(){
+			$options = get_option('aisis_default_right_footer_text_setting');
 			$aisis_create_form_element = new AisisForm();
-			if(!isset($options['default_footer_text']) && empty($options['default_footer_text'])){
-				$aisis_cat_attributes = array(
-					'id'=>'default_footer_text',
-					'name'=>'aisis_default_footer_text_setting[default_footer_text]',
+			if(!isset($options['default_right_footer_text']) && empty($options['default_right_footer_text'])){
+				$aisis_right_footer_attributes = array(
+					'id'=>'default_right_footer_text',
+					'name'=>'aisis_default_right_footer_text_setting[default_right_footer_text]',
 					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
 					
 				);
 			}else{
-				$aisis_cat_attributes = array(
-					'id'=>'default_footer_text',
-					'name'=>'aisis_default_footer_text_setting[default_footer_text]',
-					'value'=>$options['default_footer_text'],
+				$aisis_right_footer_attributes = array(
+					'id'=>'default_right_footer_text',
+					'name'=>'aisis_default_right_footer_text_setting[default_right_footer_text]',
+					'value'=>$options['default_right_footer_text'],
 					'rows'=>4,
 					'cols'=>60
 				);
 			}
-			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_cat_attributes);
+			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_right_footer_attributes);
 		}
 	}
+	
+	/**
+	 * We set the contents of the text area.
+	 * if the option is set then we save display it,
+	 * else we display the default hook.
+	 *
+	 * it should be noted that when you click 
+	 * save you are updating the default hook.
+	 *
+	 */	
+	if(!function_exists('aisis_default_left_footer_text_')){
+		function aisis_default_left_footer_text_(){
+			$options = get_option('aisis_default_left_footer_text_setting');
+			$aisis_create_form_element = new AisisForm();
+			if(!isset($options['default_left_footer_text']) && empty($options['default_left_footer_text'])){
+				$aisis_left_footer_attributes = array(
+					'id'=>'default_left_footer_text',
+					'name'=>'aisis_default_left_footer_text_setting[default_left_footer_text]',
+					'value'=>'',
+					'rows'=>4,
+					'cols'=>60
+					
+				);
+			}else{
+				$aisis_left_footer_attributes = array(
+					'id'=>'default_left_footer_text',
+					'name'=>'aisis_default_left_footer_text_setting[default_left_footer_text]',
+					'value'=>$options['default_left_footer_text'],
+					'rows'=>4,
+					'cols'=>60
+				);
+			}
+			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_left_footer_attributes);
+		}
+	}	
 	
 	/**
 	 * We are using these contents here to create a 
@@ -782,18 +833,32 @@
 	}
 
 	/**
-	 * We validate the footer and from there
+	 * We validate the right footer and from there
 	 * we store the information in a options table
 	 * to be dsiplayed on the front end.
 	 */
-	if(!function_exists('aisis_default_footer_validation')){
-		function aisis_default_footer_validation($input){
-			$options = get_option('aisis_default_footer_text_setting');
-			$options['default_footer_text'] = trim($input['default_footer_text']);
+	if(!function_exists('aisis_default_right_footer_validation')){
+		function aisis_default_right_footer_validation($input){
+			$options = get_option('aisis_default_right_footer_text_setting');
+			$options['default_right_footer_text'] = trim($input['default_right_footer_text']);
 			update_option('admin_success_message', 'true');
 			return $options;
 		}
 	}
+	
+	/**
+	 * We validate the left footer and from there
+	 * we store the information in a options table
+	 * to be dsiplayed on the front end.
+	 */	
+	if(!function_exists('aisis_default_left_footer_validation')){
+		function aisis_default_left_footer_validation($input){
+			$options = get_option('aisis_default_left_footer_text_setting');
+			$options['default_left_footer_text'] = trim($input['default_left_footer_text']);
+			update_option('admin_success_message', 'true');
+			return $options;
+		}
+	}	
 	
 	/**
 	 * Store the facebook link content if entered

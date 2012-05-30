@@ -76,7 +76,6 @@ p {
 ul, ol {
 	margin : 1em 0 1.4em 24px;
 	padding : 0;
-	line-height : 140%;
 }
 li {
 	margin : 0 0 0.5em 0;
@@ -131,14 +130,20 @@ input[type="search"] {
 	position : absolute;
 	top : 55px;
 }
-#searchform {
+#searchform{
 	position : absolute;
 	right : 10px;
 	bottom : 10px;
 	z-index : 100;
 	width : 160px;
 }
-#searchform #s {
+
+.widget #searchform {
+	position:static !important;
+	z-index : 100;
+	width : 160px;
+}
+.widget #searchform #s {
 	width : 140px;
 	float : right;
 	background : #fff;
@@ -776,7 +781,7 @@ ol.commentlist li ul.children li.depth-5 {
 	color : #000;
 	font-size : 18px;
 	border-top : 1px inset #000;
-	opacity : 0.5;
+	opacity : 0.8;
 	width : 75%;
 	margin : 40px auto 10px auto;
 }
@@ -815,11 +820,7 @@ ol.commentlist li ul.children li.depth-5 {
 	clear : both;
 	border-top : 1px solid #eee;
 }
-.afterBlock {
-	float : left;
-	margin-left : 15px;
-	font-size : 15px;
-}
+
 .clearfix:after {
 	visibility : hidden;
 	display : block;
@@ -827,6 +828,27 @@ ol.commentlist li ul.children li.depth-5 {
 	content : " ";
 	clear : both;
 	height : 0;
+}
+.afterBlock{
+	clear:both;
+	background: #fff;
+	border:  2px solid #999;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	padding:10px;
+	text-align:center;
+	
+}
+.afterBlock .rightText{
+	text-align:right;
+	width:50%;
+	float:right !important;
+	margin-right: 80px;
+}
+.afterBlock .leftText{
+	text-align:left;
+	width:50%;
+	margin-left: 80px;
 }
 .clearfix {
 	display : inline-block;
