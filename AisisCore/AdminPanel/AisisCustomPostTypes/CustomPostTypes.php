@@ -1,4 +1,3 @@
-
 <?php
 	/**
 	 *
@@ -47,7 +46,7 @@
 		'menu_position' => null,
 		'supports' => array('title','editor')
 	  ); 
-	  register_post_type('aisis',$args);
+	  register_post_type('ae',$args);
 	}
 	
 	/**
@@ -123,6 +122,7 @@
 	  register_post_type('slides',$args);
 	}		
 	
+	//Add these actions to the init
 	add_action('init', 'aisis_add_articles_essay');
 	add_action('init', 'aisis_add_bios');
 	add_action('init', 'aisis_add_slides');

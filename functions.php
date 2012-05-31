@@ -37,11 +37,13 @@
 	 define('AISIS_ADMINPANEL', TEMPLATEPATH . '/AisisCore/AdminPanel/');
 	 define('AISIS_ADMINPANEL_MODULES', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/');
 	 define('AISIS_ADMINPANEL_MODULES_OPTIONS', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/Options/');
+	 define('AISIS_CUSTOM_POST_TYPES', TEMPLATEPATH . '/AisisCore/AdminPanel/AisisCustomPostTypes/');
+	 define('AISIS_CUSTOM_POST_TYPES_META', TEMPLATEPATH . '/AisisCore/AdminPanel/AisisCustomPostTypes/MetaTemplates/');
 	 define('AISIS_SOCIAL', TEMPLATEPATH . '/AisisCore/AisisSocialMedia/');
 	 define('AISIS_TEMPLATES',TEMPLATEPATH . '/AisisCore/Templates/');
 	 define('AISIS_SHORTCODES', TEMPLATEPATH . '/AisisCore/ShortCodes/');
 	 define('AISIS_VIEW', TEMPLATEPATH . '/AisisCore/AisisView/');
-	 define('AISIS_CUSTOM_POST_TYPES', TEMPLATEPATH . '/AisisCore/AdminPanel/AisiCustomPostTypes/');
+	 
 	 
 	 
 	 // Define Aisis Custom

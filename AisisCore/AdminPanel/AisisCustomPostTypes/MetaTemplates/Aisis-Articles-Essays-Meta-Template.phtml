@@ -1,0 +1,47 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		We use this new kind of template a -Meta-Template to style
+	 *		and create the articles and essays meta box for the ae 
+	 *		post type.
+	 *
+	 *		The Css used here is located in the admin panel css
+	 *		under the AdminPanel->Options->Required->AdminPanelCSS.css
+	 *		
+	 *		@author: Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->AisisCustomPostTypes->MetaTemplates
+	 *
+	 * =================================================================
+	 */
+	 
+	global $post;
+	$values = get_post_custom( $post->ID );
+?>
+
+    <div class="aisis_meta_control">
+        
+          <div class="notice"><strong>Note:</strong>This is an optional setting that allows you to set the refrences, up to six, of your essay or article. 
+          Refrences to where you obtained your data and so on.</div>
+          <br  />
+          
+          <p>
+              <label for="my_meta_box_text">Text Label</label>
+              <input type="text" name="my_meta_box_text" id="my_meta_box_text" value="<?php echo $values['my_meta_box_text'][0]; ?>" />
+          </p>
+          
+          <p>
+              <label for="my_meta_box_select">Color</label>
+              <select name="my_meta_box_select" id="my_meta_box_select">
+                  <option value="red" <?php selected( $values['my_meta_box_select'][0], 'red' ); ?>>Red</option>
+                  <option value="blue" <?php selected( $values['my_meta_box_select'][0], 'blue' ); ?>>Blue</option>
+              </select>
+          </p>
+          <p>
+              <input type="checkbox" name="my_meta_box_check" id="my_meta_box_check" <?php checked( $values['my_meta_box_check'][0], 'on' ); ?> />
+              <label for="my_meta_box_check">Don't Check This.</label>
+          </p>      
+     
+    </div>
