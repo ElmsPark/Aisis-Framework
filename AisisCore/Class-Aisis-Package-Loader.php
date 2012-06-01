@@ -89,6 +89,10 @@
 			 }
 		 }
 		 
+		 /**
+		  * Load the aisis custom post types package. Spazz out if it's not
+		  * there. We can over ride this function.
+		  */		 
 		 function load_aisis_custom_post_types_package(){
 			 $this->aisis_file_handling = new AisisFileHandling();
 			 if($this->aisis_file_handling->check_dir(AISIS_CUSTOM_POST_TYPES)){
@@ -97,7 +101,21 @@
 				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Post Types package: AisisCustomPostTypes</strong>") . "</div>");
 				 exit;
 			 }
-		 }		 
+		 }	
+		 
+		 /**
+		  * Load the aisis custom packages. Spazz out if it's not
+		  * there. We can over ride this function.
+		  */		 
+		 function load_aisis_custom_packages(){
+			 $this->aisis_file_handling = new AisisFileHandling();
+			 if($this->aisis_file_handling->check_dir(CUSTOM_PACKAGES)){
+				 $this->aisis_file_handling->load_directory_of_files(CUSTOM_PACKAGES);
+			 }else{
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Packages: Aisis/custom/packages</strong>") . "</div>");
+				 exit;
+			 }
+		 }		 	 
 		 
 		 /**
 		  * This is our helper function to allow you
@@ -123,4 +141,5 @@
 	 $aisis_package_loader->load_aisis_codes_package();
 	 $aisis_package_loader->load_aisis_view_package();
 	 $aisis_package_loader->load_aisis_social_media_package();
+	 $aisis_package_loader->load_aisis_custom_packages();
 ?>

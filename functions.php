@@ -45,9 +45,9 @@
 	 define('AISIS_VIEW', TEMPLATEPATH . '/AisisCore/AisisView/');
 	 
 	 
-	 
 	 // Define Aisis Custom
 	 define('CUSTOM', TEMPLATEPATH . '/custom/');
+	 define('CUSTOM_PACKAGES', TEMPLATEPATH . '/custom/packages/');
 	 
 	 if(is_dir(AISISCORE)){
 		 if(file_exists(AISISCORE . 'CoreLoader.php')){

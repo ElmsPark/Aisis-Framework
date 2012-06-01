@@ -31,7 +31,7 @@
 		'search_items' => __('Search Articles and Essays', 'aisis'),
 		'not_found' =>  __('No Articles or Essays found', 'aisis'),
 		'not_found_in_trash' => __('No Articles or Essays found in Trash', 'aisis'), 
-		'parent_item_colon' => ''
+		'parent_item_colon' => '',
 	  );
 	  $args = array(
 		'labels' => $labels,
@@ -120,11 +120,17 @@
 		'supports' => array('title','editor')
 	  ); 
 	  register_post_type('slides',$args);
-	}		
+	}	
+	
+	function aisis_flush_re_write() {
+    	flush_rewrite_rules();
+	}	
 	
 	//Add these actions to the init
 	add_action('init', 'aisis_add_articles_essay');
 	add_action('init', 'aisis_add_bios');
 	add_action('init', 'aisis_add_slides');
+	
+	add_action('after_switch_theme', 'aisis_flush_re_write');
 	
 ?>

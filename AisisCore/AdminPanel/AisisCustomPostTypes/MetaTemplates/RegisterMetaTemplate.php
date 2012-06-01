@@ -23,5 +23,13 @@
 			$aisis_template_loader->aisis_register('Aisis-Articles-Essays-Meta-Template.phtml', AISIS_CUSTOM_POST_TYPES_META); 
 		 }
 	 }
+	 
+	 //Register the bio summary Meta Template
+	 if(!function_exists('aisis_bio_sums_meta_box')){
+		 function aisis_bio_sums_meta_box(){
+			global $aisis_template_loader;
+			$aisis_template_loader->aisis_register('Aisis-Bio-Summary-Meta-Template.phtml', AISIS_CUSTOM_POST_TYPES_META); 
+		 }
+	 }	 
 
 ?>

@@ -18,20 +18,21 @@
 	$args = array( 'post_type' => 'slides');
 	$loop = new WP_Query( $args );
 	?>
-    <div class="objectWrapper">
-        <div class="flex-container">
-          <div class="flexslider">
-            <ul class="slides">
-              <?php
-                while($loop->have_posts()) : $loop->the_post();
-              ?>
-              <li>
-                <?php the_content(); ?>
-              </li>
-              
-              <?php endwhile;?>
-              <li>test</li>
-            </ul>
-          </div>
+    <?php if($loop->have_posts()){?>
+        <div class="objectWrapper">
+            <div class="flex-container">
+              <div class="flexslider">
+                <ul class="slides">
+                  <?php
+                    while($loop->have_posts()) : $loop->the_post();
+                  ?>
+                  <li>
+                    <?php the_content(); ?>
+                  </li>
+                  
+                  <?php endwhile;?>
+                </ul>
+              </div>
+            </div>
         </div>
-    </div>
+    <?php }?>

@@ -152,7 +152,7 @@ input[type="search"] {
 	border-radius : 5px;
 }
 .objectWrapper{
-	margin: 0 0 10px;
+	margin: 0 0 30px;
 }
 .camera_wrap{
 	margin-top: 25px;
@@ -789,8 +789,8 @@ ol.commentlist li ul.children li.depth-5 {
 	text-decoration : underline;
 }
 .footerWrapper {
-	width : 100%;
-	margin-bottom : 10px;
+	width : 87%;
+	margin: 10px auto 10px auto;
 }
 .block {
 	margin : 20px 10px 0 0;

@@ -19,13 +19,6 @@
 	 *
 	 * =================================================================
 	 */
-	
-	//load the registered modules
-	require_once(AISIS_ADMINPANEL_MODULES . 'RegisterModules.php');
-	
-	//load all the options
-	$load_aisis_exceptions = new AisisFileHandling();
-	$load_aisis_exceptions->load_if_extension_is_php(AISIS_ADMINPANEL_MODULES_OPTIONS);
 		
 	/**
 	 * We essentially do all of the following functions if
@@ -36,26 +29,20 @@
 	 */
 	if (is_admin()){
 		//Register Admin Jquery 1.7.1
-		if(!function_exists('aisis_register_admin_jquery')){
 			function aisis_register_admin_jquery() {
 				wp_deregister_script( 'jquery' );
 				wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
 				wp_enqueue_script( 'jquery', false, true );
 			}   
-		}else{
-			echo '<div class="excNotice">' . new OverRideException('<strong>Do not override the aisis_register_admin_jquery function. See Tracemessage -> </strong>') . '</div>';
-		}
+		
 		
 		//Register Jquery-Ui-core
-		if(!function_exists('aisis_register_admin_jquery_ui')){
 			function aisis_register_admin_jquery_ui(){
 				wp_deregister_script('jquery-ui-core');
 				wp_register_script('jquery-ui-core', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/jquery-ui-1.8.19.custom.min.js');
 				wp_enqueue_script('jquery-ui-core', false, true);
 			}
-		}else{
-			echo '<div class="excNotice">' . new OverRideException('<strong>Do not override the aisis_register_admin_jquery_ui function. See Tracemessage -> </strong>') . '</div>';
-		}
+
 		
 		
 		

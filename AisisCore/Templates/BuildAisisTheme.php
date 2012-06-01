@@ -114,4 +114,20 @@
 			  $aisis_template_loader->aisis_register('Footer-Template.phtml');
 		  }
 	  }
+	  
+	  //loads custom post type single.phtml template
+	  if(!function_exists('aisis_ae_single_loop_custom_post_type')){
+		  function aisis_ae_single_loop_custom_post_type(){
+			  global $aisis_template_loader;
+			  $aisis_template_loader->aisis_register('Loop-Single-Ae.phtml');
+		  }
+	  }	 
+	  
+	  //loads custom post type single.phtml template
+	  if(!function_exists('aisis_bio_single_loop_custom_post_type')){
+		  function aisis_bio_single_loop_custom_post_type(){
+			  global $aisis_template_loader;
+			  $aisis_template_loader->aisis_register('Loop-Single-Bio.phtml');
+		  }
+	  }	 	   
 ?>

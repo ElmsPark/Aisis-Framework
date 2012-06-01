@@ -9,6 +9,8 @@
 	 *
 	 *		The Css used here is located in the admin panel css
 	 *		under the AdminPanel->Options->Required->AdminPanelCSS.css
+	 *
+	 *		@see AisisCore->AisisView-> Class-Aisis-Form
 	 *		
 	 *		@author: Adam Balan
 	 *		@version: 1.0
@@ -19,29 +21,203 @@
 	 
 	global $post;
 	$values = get_post_custom( $post->ID );
+	
+	$aisis_create_form_elements = new AisisForm();
 ?>
 
     <div class="aisis_meta_control">
         
-          <div class="notice"><strong>Note:</strong>This is an optional setting that allows you to set the refrences, up to six, of your essay or article. 
+          <div class="notice"><strong>Note:</strong> This is an optional setting that allows you to set the refrences, up to six, of your essay or article. 
           Refrences to where you obtained your data and so on.</div>
           <br  />
-          
           <p>
-              <label for="my_meta_box_text">Text Label</label>
-              <input type="text" name="my_meta_box_text" id="my_meta_box_text" value="<?php echo $values['my_meta_box_text'][0]; ?>" />
-          </p>
-          
+              <label for="aisis_meta_box_link_one">Enter a url for a refrence</label>                        
+			  <?php
+              if(isset($values['aisis_meta_box_link_one']) && !empty($values['aisis_meta_box_link_one'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_one',
+						'id' => 'aisis_meta_box_link_one',
+						'value' => $values['aisis_meta_box_link_one'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_one',
+						'id' => 'aisis_meta_box_link_one',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('input', 'url', $array_of_attributes);
+              ?>
+          </p>  
           <p>
-              <label for="my_meta_box_select">Color</label>
-              <select name="my_meta_box_select" id="my_meta_box_select">
-                  <option value="red" <?php selected( $values['my_meta_box_select'][0], 'red' ); ?>>Red</option>
-                  <option value="blue" <?php selected( $values['my_meta_box_select'][0], 'blue' ); ?>>Blue</option>
-              </select>
-          </p>
+              <label for="aisis_meta_box_link_one_desc">Enter a description</label>
+			  <?php
+              if(isset($values['aisis_meta_box_link_one_desc']) && !empty($values['aisis_meta_box_link_one_desc'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_one_desc',
+						'id' => 'aisis_meta_box_link_one_desc',
+						'value' => $values['aisis_meta_box_link_one_desc'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_one_desc',
+						'id' => 'aisis_meta_box_link_one_desc',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
+              ?>
+          </p>  
           <p>
-              <input type="checkbox" name="my_meta_box_check" id="my_meta_box_check" <?php checked( $values['my_meta_box_check'][0], 'on' ); ?> />
-              <label for="my_meta_box_check">Don't Check This.</label>
-          </p>      
-     
+              <label for="aisis_meta_box_link_two">Enter a url for a refrence</label>
+			  <?php
+              if(isset($values['aisis_meta_box_link_two']) && !empty($values['aisis_meta_box_link_two'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_two',
+						'id' => 'aisis_meta_box_link_two',
+						'value' => $values['aisis_meta_box_link_two'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_two',
+						'id' => 'aisis_meta_box_link_two',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('input', 'url', $array_of_attributes);
+              ?>              
+          </p>  
+          <p>
+              <label for="aisis_meta_box_link_two_desc">Enter a description</label>
+			  <?php
+              if(isset($values['aisis_meta_box_link_two_desc']) && !empty($values['aisis_meta_box_link_two_desc'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_two_desc',
+						'id' => 'aisis_meta_box_link_two_desc',
+						'value' => $values['aisis_meta_box_link_two_desc'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_two_desc',
+						'id' => 'aisis_meta_box_link_two_desc',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
+              ?>               
+          </p>                                        
+          <p>
+              <label for="aisis_meta_box_link_three">Enter a url for a refrence</label>
+			  <?php
+              if(isset($values['aisis_meta_box_link_three']) && !empty($values['aisis_meta_box_link_three'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_three',
+						'id' => 'aisis_meta_box_link_three',
+						'value' => $values['aisis_meta_box_link_three'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_three',
+						'id' => 'aisis_meta_box_link_three',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('input', 'url', $array_of_attributes);
+              ?>               
+          </p>  
+          <p>
+              <label for="aisis_meta_box_link_three_desc">Enter a description</label>
+			  <?php
+              if(isset($values['aisis_meta_box_link_three_desc']) && !empty($values['aisis_meta_box_link_three_desc'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_three_desc',
+						'id' => 'aisis_meta_box_link_three_desc',
+						'value' => $values['aisis_meta_box_link_three_desc'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_three_desc',
+						'id' => 'aisis_meta_box_link_three_desc',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
+              ?>               
+          </p>   
+          <p>
+              <label for="aisis_meta_box_link_four">Enter a url for a refrence</label>
+			  <?php
+              if(isset($values['aisis_meta_box_link_four']) && !empty($values['aisis_meta_box_link_four'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_four',
+						'id' => 'aisis_meta_box_link_four',
+						'value' => $values['aisis_meta_box_link_four'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_four',
+						'id' => 'aisis_meta_box_link_four',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('input', 'url', $array_of_attributes);
+              ?>               
+          </p>  
+          <p>
+              <label for="aisis_meta_box_link_four_desc">Enter a description</label>
+			  <?php
+              if(isset($values['aisis_meta_box_link_four_desc']) && !empty($values['aisis_meta_box_link_four_desc'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_four_desc',
+						'id' => 'aisis_meta_box_link_four_desc',
+						'value' => $values['aisis_meta_box_link_four_desc'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_four_desc',
+						'id' => 'aisis_meta_box_link_four_desc',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
+              ?>               
+          </p>   
+          <p>
+              <label for="aisis_meta_box_link_five">Enter a url for a refrence</label>
+			  <?php
+              if(isset($values['aisis_meta_box_link_five']) && !empty($values['aisis_meta_box_link_five'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_five',
+						'id' => 'aisis_meta_box_link_five',
+						'value' => $values['aisis_meta_box_link_five'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_five',
+						'id' => 'aisis_meta_box_link_five',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('input', 'url', $array_of_attributes);
+              ?>              
+          </p>  
+          <p>
+              <label for="aisis_meta_box_link_five_desc">Enter a description</label>
+			  <?php
+              if(isset($values['aisis_meta_box_link_five_desc']) && !empty($values['aisis_meta_box_link_five_desc'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_five_desc',
+						'id' => 'aisis_meta_box_link_five_desc',
+						'value' => $values['aisis_meta_box_link_five_desc'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_meta_box_link_five_desc',
+						'id' => 'aisis_meta_box_link_five_desc',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
+              ?>                
+          </p>                            
     </div>

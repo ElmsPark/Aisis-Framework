@@ -1,0 +1,51 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		We use this new kind of template a -Meta-Template to style
+	 *		and create the bio summary meta box for the bio
+	 *		post type.
+	 *
+	 *		The Css used here is located in the admin panel css
+	 *		under the AdminPanel->Options->Required->AdminPanelCSS.css
+	 *
+	 *		@see AisisCore->AisisView->Class-Aisis-Form
+	 *		
+	 *		@author: Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->AisisCustomPostTypes->MetaTemplates
+	 *
+	 * =================================================================
+	 */
+	 
+	global $post;
+	$values = get_post_custom( $post->ID );
+	
+	$aisis_create_form_elements = new AisisForm();
+?>
+
+	<div class="aisis_meta_control">
+        
+          <div class="notice"><strong>Note:</strong> This is an optional section for adding a summary for a bio here. This summary would be a few lines that quickly sum up the biography and is displayed at the end. So the reader can quickly sum up what they read</div>
+          <br  /> 
+          <p>
+              <label for="bio_summary_box">Enter a quick summary of the bio.</label>
+			  <?php
+              if(isset($values['bio_summary_box']) && !empty($values['bio_summary_box'])){
+				  $array_of_attributes = array(
+						'name' => 'bio_summary_box',
+						'id' => 'bio_summary_box',
+						'value' => $values['bio_summary_box'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'bio_summary_box',
+						'id' => 'bio_summary_box',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
+              ?>
+          </p>                    
+    </div>
