@@ -35,8 +35,8 @@
 	  );
 	  $args = array(
 		'labels' => $labels,
-		'public' => false,
-		'publicly_queryable' => false,
+		'public' => true,
+		'publicly_queryable' => true,
 		'show_ui' => true, 
 		'query_var' => true,
 		'rewrite' => true,
@@ -71,8 +71,8 @@
 	  );
 	  $args = array(
 		'labels' => $labels,
-		'public' => false,
-		'publicly_queryable' => false,
+		'public' => true,
+		'publicly_queryable' => true,
 		'show_ui' => true, 
 		'query_var' => true,
 		'rewrite' => true,
