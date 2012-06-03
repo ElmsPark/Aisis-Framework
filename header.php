@@ -56,7 +56,7 @@
           <h2 id="site-description"><?php bloginfo('description'); ?></h2>
       </hgroup>
       <div class="socialMediaLink">
-		<?php test(); ?>
+		<?php aisis_social_media(); ?>
       </div>
       <nav id="nav-bar">
 		<?php if (function_exists('wp_nav_menu')) {

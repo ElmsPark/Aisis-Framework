@@ -1,8 +1,24 @@
 <?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		Deals with setting up the icons and there respected links along with
+	 *		any custom text that the user may have entered inon the admin
+	 *		options side.
+	 *
+	 *		@author: Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AisisSocialMedia
+	 *
+	 * =================================================================
+	 */
 
-
-	 
-	 function test(){
+	 /**
+	  * Sets up the social media icods and there links
+	  * along with descriptions
+	  */
+	 function aisis_social_media(){
 		 //Define some option variabls to get data out of.
 		 $options_facebook = get_option('aisis_facebook_link_setting');
 		 $options_twitter = get_option('aisis_twitter_link_setting');

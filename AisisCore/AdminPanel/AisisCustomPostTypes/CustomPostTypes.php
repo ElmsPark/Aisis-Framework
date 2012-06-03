@@ -22,6 +22,7 @@
 	{
 	  $labels = array(
 		'name' => _x('Articles and Essays', 'post type general name', 'aisis', 'aisis'),
+	  	'rewrite' => array('slug'=>'ae'),
 		'singular_name' => _x('Articles and Essay', 'post type singular name', 'aisis'),
 		'add_new' => _x('Add New', 'ae', 'aisis'),
 		'add_new_item' => __('Add new Article or Essay', 'aisis'),
@@ -76,6 +77,7 @@
 		'show_ui' => true, 
 		'query_var' => true,
 		'rewrite' => true,
+	  	'map_meta_cap' => true,
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_icon' => get_template_directory_uri() .'/images/bio.png',
@@ -113,6 +115,7 @@
 		'show_ui' => true, 
 		'query_var' => true,
 		'rewrite' => true,
+	  	'map_meta_cap' => true,	
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_icon' => get_template_directory_uri() .'/images/slides.png',

@@ -97,6 +97,7 @@ h3 {
 }
 input[type="search"] {
 	outline : none;
+	width:100%;
 }
 #pagewrap {
 	width : 980px;
@@ -279,6 +280,15 @@ input[type="search"] {
 	border-radius : 8px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
 }
+#fullWidthContent{
+	background : #fff;
+	margin : 30px 0 30px;
+	padding : 20px 35px;
+	width : 910px;
+	float : left;
+	border-radius : 8px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
 #category {
 	background : #d6d6d6;
 	margin : 30px 0 30px;
@@ -342,13 +352,22 @@ input[type="search"] {
 	padding : 10px 25px 10px 0;
 	box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 2px 5px rgba(0,0,0,.6), inset 0 1px 1px rgba(0,0,0,.6);
 }
-.post-author h1 {
+.post-author-full {
+	width : 955px;
+	background : #a0b4c2;
+	border-top : 1px solid #404a5e;
+	border-bottom : 1px solid #404a5e;
+	margin-left : -35px;
+	padding : 10px 25px 10px 0;
+	box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 2px 5px rgba(0,0,0,.6), inset 0 1px 1px rgba(0,0,0,.6);
+}
+.post-author, .post-author-full   h1 {
 	border-left : 5px solid #704962;
 	color : #252e34;
 	padding-left : 35px;
 	text-shadow : #fff 0 1px 0;
 }
-.post-author p {
+.post-author, .post-author-full  p {
 	text-align : justify;
 	margin-left : 45px;
 	margin-top : 10px;
@@ -478,6 +497,7 @@ input[type="search"] {
 	margin-bottom : 30px;
 	width : 95%;
 }
+
 .err {
 	background : #ebc2ce;
 	border : 1px solid #772038;
@@ -486,6 +506,7 @@ input[type="search"] {
 	font-size : 13px;
 	border-radius : 5px;
 	margin-top : 10px;
+	margin-bottom: 10px;
 }
 .success {
 	background : #c0e4c7;
@@ -782,7 +803,7 @@ ol.commentlist li ul.children li.depth-5 {
 	font-size : 18px;
 	border-top : 1px inset #000;
 	opacity : 0.8;
-	width : 75%;
+	width : 78%;
 	margin : 40px auto 10px auto;
 }
 #footer a:hover {

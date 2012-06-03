@@ -10,13 +10,18 @@
 	 *		@package: AisisCore->Templates
 	 * =================================================================
 	 */
+	global $wp_query;
 	 
-	$args = array( 'post_type' => 'ae');
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+	$args = array(
+		'post_type' => 'my-post-type',
+		'paged' => $paged
+		); query_posts($args);
 	$loop = new WP_Query( $args );	 
 	 ?>	
 	<?php global $more; $more = 0; //declare and set $more before The Loop ?>
     <div id="contentWrapper">
-        <div id="content">
+        <div id="fullWidthContent">
             <?php while($loop->have_posts()) : $loop->the_post() ?>
             <article class="post clearfix">
                 <header>
@@ -32,11 +37,11 @@
                 </p>
           </article>
           <?php endwhile; ?>
-          <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
+          <?php $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
           <div class="prevPost"><?php previous_post_link('%link','%title' ) ?></div>
           <div class="nextPost"><?php next_post_link( '%link', '%title' ) ?></div>
           <?php } ?>
-            <div class="post-author">
+            <div class="post-author-full">
             <h1><?php the_author()?></h1>
                 <p><?php if ( get_the_author_meta( 'description' ) ){the_author_meta( 'description' );}else{?>
                 <?php aisis_loop_single_author_blurb_default(); }?></p>
