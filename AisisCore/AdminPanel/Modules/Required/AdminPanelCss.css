@@ -16,8 +16,8 @@
  */
 
 h1 {
-	color:#4B718B;
-	margin-left:150px;
+	color: #4B718B;
+	margin-left: 150px;
 	text-shadow : #6695B0 0 1px 0;
 	margin-bottom: 20px;
 	border-bottom: inset thin #666;
@@ -28,140 +28,131 @@ h1 {
 #adminPanelWrapper {
 	width: 50%;
 	margin: 25px auto 0 auto;
-	font-family:'Ubuntu', sans-serif;
-	padding:20px;
-	background:#EBEEF1;
+	font-family: 'Ubuntu', sans-serif;
+	padding: 20px;
+	background: #EBEEF1;
 	border-radius: 10px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
-	overflow:hidden
+	overflow: hidden
 }
 .adminPanelTitle {
 	width: 70%;
 	margin: -40px auto 40px 130px;
 	border-radius: 8px;
 	border: thin solid #999;
-	background:#B5C4D2;
-	text-align:center;
+	background: #B5C4D2;
+	text-align: center;
 	padding: 40px;
 	font-size: 40px;
-	color:#955175;
+	color: #955175;
 	text-shadow : #A35A8D 0 1px 0;
-	overflow:hidden;
+	overflow: hidden;
 }
 .adminPanelSubTitle {
 	font-size: 20px;
-	margin-top:20px;
-	margin-bottom:10px;
-	color:#495F76;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	color: #495F76;
 	text-shadow : #D7E1E3 0 1px 0;
-	width:100%;
-	text-align:center;
+	width: 100%;
+	text-align: center;
 }
-.greyBox{
+.greyBox {
 	margin-left: -39px;
 	border-bottom-right-radius: 20px;
 	border-top-right-radius: 20px;
-	background:#CCC;
-	color:#7694A9;
-	font-size:16px;
+	background: #CCC;
+	color: #7694A9;
+	font-size: 16px;
 	padding: 10px;
-	margin-bottom:20px;
+	margin-bottom: 20px;
 	margin-top: 20px;
-	width:58%;
-	
+	width: 58%;
 }
-
-.greyBox .title{
+.greyBox .title {
 	margin-left: 20px;
-	font-size:18px;
-	font-weight:bold;
+	font-size: 18px;
+	font-weight: bold;
 	border-bottom: 2px solid #333;
 	width: 50%;
 	line-height: 1.1em;
 }
-
-.greyBox p{
+.greyBox p {
 	margin-left: 5px;
 }
-.box{
+.box {
 	width: 45%;
 	margin-left: 525px;
 	margin-bottom: 45px;
-	background:#D5B7CC;
-	padding:10px;
+	background: #D5B7CC;
+	padding: 10px;
 	border-right: #846275 15px solid;
-	border-top-left-radius:8px;
+	border-top-left-radius: 8px;
 	border-bottom-left-radius: 8px;
-	clear:both;
+	clear: both;
 	-webkit-box-shadow: 0 6px 6px -6px black;
 	-moz-box-shadow: 0 6px 6px -6px black;
 	box-shadow: 0 6px 6px -6px black;
 }
-.box p{
+.box p {
 	width: 70%;
 	margin-left: 100px;
 	margin-top: -10px;
-	font-size:16px;
+	font-size: 16px;
 }
-
-#tabs{
+#tabs {
 	width: 70%;
 	margin: 20px auto 20px auto;
 }
-
-#coreTabs{
+#coreTabs {
 	width: 103%;
 	border: none;
 	background: none;
 	margin-left: -21px;
 }
-
-#coreTabs ul{
-	margin-left:145px;	
+#coreTabs ul {
+	margin-left: 145px;
 }
-
-#coreTabs .bottom{
+#coreTabs .bottom {
 	border-bottom: 2px solid #A6BABF;
-	width:100%;
+	width: 100%;
 	margin: 0 auto 40px 147px;
 }
-
-.ui-widget-header{
+.ui-widget-header {
 	border: none !important;
 	background: none !important;
 }
-
 .whiteSection {
 	width: 60%;
 	margin: 10px auto 50px auto;
-	font-family:'Ubuntu', sans-serif;
-	padding:40px;
-	background:#fff;
+	font-family: 'Ubuntu', sans-serif;
+	padding: 40px;
+	background: #fff;
 	border-radius: 10px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
-	overflow:auto;
-	font-size:18px;
+	overflow: auto;
+	font-size: 18px;
 }
-.optionsSection{
+.optionsSection {
 	width: 83%;
 	margin-left: -25px;
 	margin-bottom: 50px;
-	font-family:'Ubuntu', sans-serif;
-	padding:40px;
-	background:#fff;
-	border-top-right-radius:8px;
+	font-family: 'Ubuntu', sans-serif;
+	padding: 40px;
+	background: #fff;
+	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
-	font-size:18px;
+	font-size: 18px;
 }
-.images{
+.images {
 	width: 60%;
 	margin: 20px auto 0 auto;
 }
-.individualImage{
-	height:110px;
+.individualImage {
+	height: 110px;
 	margin: 0 auto 0 auto;
-	float:left;
+	float: left;
 }
 .notice {
 	background : #fff9d7;
@@ -171,7 +162,7 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin : 10px 0px -8px 80px;
-	width:60%
+	width: 60%
 }
 .upgradeNotice {
 	background : #fff9d7;
@@ -181,10 +172,10 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin : 10px auto -45px auto;
-	font-weight:normal;
-	color:#000000;
-	text-shadow:none;
-	width:60%;
+	font-weight: normal;
+	color: #000000;
+	text-shadow: none;
+	width: 60%;
 }
 .noticeSave {
 	background : #fff9d7;
@@ -194,9 +185,9 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin : 10px 0px 20px 80px;
-	width:60%;
+	width: 60%;
 }
-.topSuccess{
+.topSuccess {
 	background : #c0e4c7;
 	border : 1px solid #3d5b37;
 	color : #333;
@@ -204,10 +195,10 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin: 10px auto 0 auto;
-	width:50%;
-	word-wrap:break-word;
+	width: 50%;
+	word-wrap: break-word;
 }
-.topErr{
+.topErr {
 	background : #ebc2ce;
 	border : 1px solid #772038;
 	color : #333;
@@ -215,8 +206,8 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin: 10px auto 0 auto;
-	width:50%;
-	word-wrap:break-word;
+	width: 50%;
+	word-wrap: break-word;
 }
 .err {
 	background : #ebc2ce;
@@ -226,10 +217,10 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin: 10px 0px 20px 80px;
-	width:60%;
-	word-wrap:break-word;
+	width: 60%;
+	word-wrap: break-word;
 }
-.adminThemeError{
+.adminThemeError {
 	background : #ebc2ce;
 	border : 1px solid #772038;
 	color : #333;
@@ -237,9 +228,9 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin-top : -10px;
-	width:94.7%
+	width: 94.7%
 }
-.adminThemeNotice{
+.adminThemeNotice {
 	background : #fff9d7;
 	border : 1px solid #e2c822;
 	color : #333;
@@ -247,9 +238,9 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin-top : -10px;
-	width:94.7%
+	width: 94.7%
 }
-.adminThemeSuccess{
+.adminThemeSuccess {
 	background : #c0e4c7;
 	border : 1px solid #3d5b37;
 	color : #333;
@@ -257,9 +248,9 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin-top : -10px;
-	width:94.7%
+	width: 94.7%
 }
-.adminThemeErrors{
+.adminThemeErrors {
 	background : #ebc2ce;
 	border : 1px solid #772038;
 	color : #333;
@@ -268,7 +259,7 @@ h1 {
 	border-radius : 5px;
 	margin-top : -10px;
 	margin-bottom: 20px;
-	width:94.7%
+	width: 94.7%
 }
 .excNotice {
 	background : #ebc2ce;
@@ -279,7 +270,7 @@ h1 {
 	border-radius : 5px;
 	margin: 40px auto 20px auto;
 	width: 90%;
-	height:300px !important;
+	height: 300px !important;
 }
 .success {
 	background : #c0e4c7;
@@ -289,12 +280,12 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin: 10px 0px 20px 80px;
-	width:60%;
+	width: 60%;
 }
 .CodeMirror {
-	width:95%;
+	width: 95%;
 	margin-left: -20px;
-	background:#FFFFFF;
+	background: #FFFFFF;
 	border-radius: 8px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
 	font: 'Ubuntu', sans-serif;
@@ -305,63 +296,58 @@ h1 {
 	overflow-y: hidden;
 	overflow-x: auto;
 }
-.adminFooter{
+.adminFooter {
 	width: 70%;
 	margin: 10px auto -40px auto;
-	padding:20px;
-	border-radius:8px;
-	background:#CCCCCC;
-	text-align:center;
+	padding: 20px;
+	border-radius: 8px;
+	background: #CCCCCC;
+	text-align: center;
 	border: thin solid #666;
 }
 #adminPanelWrapper input[type="submit"] {
 	margin-left: 20px;
 	border-radius: 5px;
 	margin-top: 20px;
-	padding-left:10px;
-	padding-right:10px;
-	height:30px;
-	cursor:pointer;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 30px;
+	cursor: pointer;
 }
 #adminPanelWrapper input[type="button"] {
 	margin-left: -10px;
-	padding:5px;
+	padding: 5px;
 	border-radius: 5px;
 	margin-top: 20px;
-	height:30px;
-	cursor:pointer;
-	
+	height: 30px;
+	cursor: pointer;
 }
 #adminPanelWrapper input[type="text"] {
 	margin-left: 20px;
-	padding:5px;
+	padding: 5px;
 	border-radius: 5px;
 	margin-top: 5px;
 	margin-bottom: 10px;
 	width: 350px;
-	height:30px;
-	
+	height: 30px;
 }
-
-label{
+label {
 	margin-left: 20px;
-	font-weight:bold;
+	font-weight: bold;
 }
-
-.optionsSection textarea{
+.optionsSection textarea {
 	margin-left: 20px;
-	margin-top:10px;
+	margin-top: 10px;
 	margin-bottom: 10px;
-	padding:10px;
+	padding: 10px;
 	border-radius: 4px;
-	height:100px;
+	height: 100px;
 	width: 80%;
 }
-.moveButton{
+.moveButton {
 	margin-left: 10px !important;
 	margin-top: 10px !important;
 }
-
 /**
 ===========================================================
 
@@ -371,22 +357,40 @@ label{
 **/
 
 
-.aisis_meta_control .description
-{ display:none;}
- 
-.aisis_meta_control label
-{ display:block; font-weight:bold; margin:6px; margin-bottom:0; margin-top:12px; }
- 
-.aisis_meta_control label span
-{ display:inline; font-weight:normal; }
- 
-.aisis_meta_control span
-{ color:#999; display:block; }
- 
-.aisis_meta_control textarea, .aisis_meta_control input[type='url']
-{ margin-bottom:3px; width:50%; }
- 
-.aisis_meta_control h4
-{ color:#999; font-size:1em; margin:15px 6px; text-transform:uppercase; }
+.aisis_meta_control{
+	margin: 0 auto;
+	width: 75%;
+}
+.aisis_meta_control label {
+	display: block;
+	font-weight: normal !important;
+	font-size: 16px;
+	margin-left: 80px;
+	margin-bottom: 10px;
+	margin-top: 12px;
+}
+.aisis_meta_control label span {
+	display: inline;
+	font-weight: normal;
+}
+.aisis_meta_control span {
+	color: #999;
+	display: block;
+}
+.aisis_meta_control textarea, .aisis_meta_control input[type='url'] {
+	margin-bottom: 3px;
+	width: 61%;
+	margin-left:80px;
+	font-size: 14px;
+}
 
-
+.aisis_meta_control textarea{
+	width: 61.5% !important; 
+	height: 250px;
+}
+.aisis_meta_control h4 {
+	color: #999;
+	font-size: 1em;
+	margin: 15px 6px;
+	text-transform: uppercase;
+}

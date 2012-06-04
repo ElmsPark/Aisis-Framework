@@ -38,6 +38,15 @@
 			'normal', 
 			'high' 		
 		);
+		
+		add_meta_box(
+			'aisis-meta-id', 
+			'Slider Black Banner', 
+			'aisis_slider_meta', 
+			'slides', 
+			'normal', 
+			'high' 		
+		);
 	}
 	
 	 /**
@@ -57,6 +66,15 @@
 		wp_nonce_field( 'aisis_mini_meta_box_nonce', 'mini_meta_box_nonce' );
 		aisis_mini_feed_meta_box();
 	}	
+	
+	 /**
+	  * We create the mini feed section
+	  */	
+	function aisis_slider_meta($post)
+	{
+		wp_nonce_field( 'aisis_slider_meta_box_nonce', 'slider_meta_box_nonce' );
+		aisis_slider_meta_box();
+	}
 	
 	 /**
 	  * Function for saving the article information
@@ -169,8 +187,45 @@
 		}
 	}
 	
+	if(!function_exists('aisis_slider_meta_save')){
+		function aisis_slider_meta_save($post_id){
+			global $post;
+			
+			if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
+				 return;
+			}
+			
+			if(!isset($_POST['slider_meta_box_nonce']) || !wp_verify_nonce($_POST['slider_meta_box_nonce'], 'aisis_slider_meta_box_nonce')){
+				 return;
+			}
+			
+			if ( 'slides' == $_POST['post_type'] ) 
+			{
+				if ( !current_user_can( 'edit_page', $post_id ) )
+					return;
+			}
+			else
+			{
+				if ( !current_user_can( 'edit_post', $post_id ) )
+					return;
+			}
+			
+			$aisis_save = array( 
+				'a' => array( 
+					'href' => array()
+				)
+			);
+			
+			if(isset($_POST['aisis_slider_meta_box_desc']) && !empty($_POST['aisis_slider_meta_box_desc'])){
+				update_post_meta( $post_id, 'aisis_slider_meta_box_desc', $_POST['aisis_slider_meta_box_desc'], $aisis_save );
+			}elseif(isset($_POST['aisis_slider_meta_box_desc']) && empty($_POST['aisis_slider_meta_box_desc'])){
+				delete_post_meta( $post_id, 'aisis_slider_meta_box_desc', $_POST['aisis_slider_meta_box_desc'], $aisis_save );
+			}
+		}
+	}	
 	
 	add_action( 'add_meta_boxes', 'aisis_add_meta_boxes' );
 	add_action( 'save_post', 'aisis_articles_essays_save' );
 	add_action( 'save_post', 'aisis_mini_feeds_save' );
+	add_action( 'save_post', 'aisis_slider_meta_save');
 ?>

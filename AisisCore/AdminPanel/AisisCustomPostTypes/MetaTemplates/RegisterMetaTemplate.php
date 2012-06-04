@@ -32,5 +32,13 @@
 		 }
 	 }	 
 	 
+	 //Register the Slider Meta Template
+	 if(!function_exists('aisis_slider_meta_box')){
+		 function aisis_slider_meta_box(){
+			global $aisis_template_loader;
+			$aisis_template_loader->aisis_register('Aisis-Slider-Meta-Template.phtml', AISIS_CUSTOM_POST_TYPES_META); 
+		 }
+	 }	
+	 
 
 ?>

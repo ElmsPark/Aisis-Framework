@@ -1,0 +1,53 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		We use this new kind of template a -Meta-Template to style
+	 *		and create the articles and essays meta box for the ae 
+	 *		post type.
+	 *
+	 *		The Css used here is located in the admin panel css
+	 *		under the AdminPanel->Options->Required->AdminPanelCSS.css
+	 *
+	 *		@see AisisCore->AisisView-> Class-Aisis-Form
+	 *		
+	 *		@author: Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->AisisCustomPostTypes->MetaTemplates
+	 *
+	 * =================================================================
+	 */
+	 
+	global $post;
+	$values = get_post_custom( $post->ID );
+	
+	$aisis_create_form_elements = new AisisForm();
+?>
+
+    <div class="aisis_meta_control">
+        
+          <div class="notice"><strong>Note:</strong> This section allows for HTML Elements like links to be passed in. We will show this optional content in a black box at the bottom
+          of the slider for this content.</div>
+          <br  /> 
+          <p>
+              <label for="aisis_slider_meta_box_desc">Enter a Short Description</label>
+			  <?php
+              if(isset($values['aisis_slider_meta_box_desc']) && !empty($values['aisis_slider_meta_box_desc'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_slider_meta_box_desc',
+						'id' => 'aisis_slider_meta_box_desc',
+						'value' => $values['aisis_slider_meta_box_desc'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_slider_meta_box_desc',
+						'id' => 'aisis_slider_meta_box_desc',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
+              ?>
+          </p>  
+          
+    </div>
