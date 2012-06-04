@@ -783,7 +783,7 @@
 	if(!function_exists('aisis_404_banner_validation')){
 		function aisis_404_banner_validation($input){
 			$options = get_option('aisis_default_404_banner_setting');
-			$options['banner_content'] = trim($input['banner_content']);
+			$options['banner_content'] = wp_kses(trim($input['banner_content']));
 			update_option('admin_success_message', 'true');
 			return $options;
 	
@@ -812,7 +812,7 @@
 	if(!function_exists('aisis_default_author_validation')){
 		function aisis_default_author_validation($input){
 			$options = get_option('aisis_default_author_text_setting');
-			$options['default_author_text'] = trim($input['default_author_text']);
+			$options['default_author_text'] = wp_kses(trim($input['default_author_text']));
 			update_option('admin_success_message', 'true');
 			return $options;
 		}
@@ -826,7 +826,7 @@
 	if(!function_exists('aisis_default_category_validation')){
 		function aisis_default_category_validation($input){
 			$options = get_option('aisis_default_category_text_setting');
-			$options['default_cat_text'] = trim($input['default_cat_text']);
+			$options['default_cat_text'] = wp_kses(trim($input['default_cat_text']));
 			update_option('admin_success_message', 'true');
 			return $options;
 		}
@@ -840,7 +840,7 @@
 	if(!function_exists('aisis_default_right_footer_validation')){
 		function aisis_default_right_footer_validation($input){
 			$options = get_option('aisis_default_right_footer_text_setting');
-			$options['default_right_footer_text'] = trim($input['default_right_footer_text']);
+			$options['default_right_footer_text'] = wp_kses(trim($input['default_right_footer_text']));
 			update_option('admin_success_message', 'true');
 			return $options;
 		}
@@ -854,7 +854,7 @@
 	if(!function_exists('aisis_default_left_footer_validation')){
 		function aisis_default_left_footer_validation($input){
 			$options = get_option('aisis_default_left_footer_text_setting');
-			$options['default_left_footer_text'] = trim($input['default_left_footer_text']);
+			$options['default_left_footer_text'] = wp_kses(trim($input['default_left_footer_text']));
 			update_option('admin_success_message', 'true');
 			return $options;
 		}

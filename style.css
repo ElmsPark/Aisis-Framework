@@ -267,6 +267,65 @@ input[type="search"] {
 #main-nav li:hover > ul {
 	display : block;
 }
+#miniFeedWrapper{
+	width: 1000px;
+	padding:20px;
+	margin-top: 20px;
+	float:left;
+	margin-left: -10px;
+}
+.miniFeed{
+	float:left;
+	margin: 0px 10px 15px 10px;
+	width: 200px;
+	padding: 3px 10px 5px 10px;
+	background : #fff;
+	border-radius : 8px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+.miniFeed .title{
+	font-size:18px;
+	font-weight:bold;
+}
+.miniFeed p{
+	margin-top:10px;
+	word-spacing: normal;
+	text-align:justify;
+}
+
+.miniFeed .readMore{
+	background-color:rgb(204,204,204);
+	width:120px;
+	height:27px;
+	border-color:rgb(136,136,136);
+	border-width:1px;
+	/* Firefox v1.0+ */
+	-moz-border-radius:11px;
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-border-radius:11px;
+	/* Firefox v4.0+ , Safari v5.0+ , Chrome v4.0+ , Opera v10.5+  and by IE v9.0+ */
+	border-radius:11px;
+	border-style:solid;
+	/* Firefox v3.5+ */
+	-moz-box-shadow:0px 3px 4px rgba(0,0,0,0.35);
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-box-shadow:0px 3px 4px rgba(0,0,0,0.35);
+	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
+	box-shadow:0px 3px 4px rgba(0,0,0,0.35);
+	-ms-filter:"progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=3,Color=#59000000,Positive=true)";
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=3,Color=#59000000,Positive=true);
+	text-align:center;
+	margin-bottom: 5px;
+}
+
+.miniFeed .readMore a{
+	color:#7C9FAD;
+}
+
+.miniFeed .readMore a:hover{
+	text-decoration:underline;
+}
+
 #contentWrapper {
 	width : 600px;
 	float : left;
@@ -394,10 +453,31 @@ input[type="search"] {
 	padding : 10px 10px 10px 35px;
 	font-size : 14px;
 }
+.refrenceAe {
+	width : 102.3%;
+	margin-left : -35px;
+	margin-bottom : 10px;
+	border-left : 5px solid #293947;
+	background : #D3DBE2;
+	padding : 10px 10px 10px 35px;
+	font-size : 14px;
+}
+.refrenceAe a{
+	color: #6D8A98;
+	font-style:italic;
+	text-decoration:underline;
+}
 .headlineLine {
 	border-bottom : 2px solid #375860;
 	margin-left : -35px;
 	width : 670px;
+	opacity : 0.4000000059604644775390625;
+	margin-bottom : 25px;
+}
+.headlineLineFull {
+	border-bottom : 2px solid #375860;
+	margin-left : -35px;
+	width : 980px;
 	opacity : 0.4000000059604644775390625;
 	margin-bottom : 25px;
 }

@@ -12,6 +12,7 @@
 	 *		@package: AisisCore->Templates
 	 * =================================================================
 	 */
+	 global $post;
 	?>
 	
 	<?php
@@ -36,3 +37,23 @@
             </div>
         </div>
     <?php }?>
+	
+    <?php 
+	$post_type = array('post_type' => 'mini');
+	$loop_mini = new WP_Query($post_type);
+	?>
+    <?php if($loop_mini->have_posts()){?>
+    <div id="miniFeedWrapper">
+    	<?php while ($loop_mini->have_posts()) : $loop_mini->the_post();?>
+    	<div class="miniFeed">
+        	<div class="title">
+            <?php echo get_the_title();?>
+            </div>
+            <p><?php echo get_post_meta($post->ID, 'aisis_content_desc', true);?></p>
+            <div class="readMore">
+            	<a href="<?php echo get_post_meta($post->ID, 'aisis_content_link', true);?>">Read More</a>
+            </div>
+        </div>
+        <?php endwhile; ?>                   
+    </div>
+   	<?php } ?>

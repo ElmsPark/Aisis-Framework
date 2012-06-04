@@ -50,25 +50,21 @@
 	  register_post_type('ae',$args);
 	}
 	
-	/**
-	 * This adds Biographies to the 
-	 * custom post types. If you are looking
-	 * to query through these use bio.
-	 */
-	function aisis_add_bios() 
+	function aisis_add_mini_feeds() 
 	{
 	  $labels = array(
-		'name' => _x('Biographies', 'post type general name', 'aisis', 'aisis'),
-		'singular_name' => _x('Biography', 'post type singular name', 'aisis'),
-		'add_new' => _x('Add New', 'bio', 'aisis'),
-		'add_new_item' => __('Add new Biography', 'aisis'),
-		'edit_item' => __('Edit Biography', 'aisis'),
-		'new_item' => __('New Biography', 'aisis'),
-		'view_item' => __('View Biography', 'aisis'),
-		'search_items' => __('Search Biographies', 'aisis'),
-		'not_found' =>  __('No Biographies found', 'aisis'),
-		'not_found_in_trash' => __('No Biographies found in Trash', 'aisis'), 
-		'parent_item_colon' => ''
+		'name' => _x('Mini Feeds', 'post type general name', 'aisis', 'aisis'),
+	  	'rewrite' => array('slug'=>'mini'),
+		'singular_name' => _x('Mini Feed', 'post type singular name', 'aisis'),
+		'add_new' => _x('Add New', 'mini', 'aisis'),
+		'add_new_item' => __('Add new Mini Feed', 'aisis'),
+		'edit_item' => __('Edit Mini Feed', 'aisis'),
+		'new_item' => __('New Mini Feed', 'aisis'),
+		'view_item' => __('View Mini Feed', 'aisis'),
+		'search_items' => __('Search Mini Feeds', 'aisis'),
+		'not_found' =>  __('No Mini Feeds found', 'aisis'),
+		'not_found_in_trash' => __('No Mini Feeds found in Trash', 'aisis'), 
+		'parent_item_colon' => '',
 	  );
 	  $args = array(
 		'labels' => $labels,
@@ -77,17 +73,15 @@
 		'show_ui' => true, 
 		'query_var' => true,
 		'rewrite' => true,
-	  	'map_meta_cap' => true,
 		'capability_type' => 'post',
 		'hierarchical' => false,
-		'menu_icon' => get_template_directory_uri() .'/images/bio.png',
+		'menu_icon' => get_template_directory_uri() .'/images/mini.png',
 		'menu_position' => null,
 		'supports' => array('title','editor')
 	  ); 
-	  register_post_type('bio',$args);
-	}
-	
-	
+	  register_post_type('mini',$args);
+	}	
+		
 	/**
 	 * This adds Slides to the 
 	 * custom post types. If you are looking
@@ -131,7 +125,7 @@
 	
 	//Add these actions to the init
 	add_action('init', 'aisis_add_articles_essay');
-	add_action('init', 'aisis_add_bios');
+	add_action('init', 'aisis_add_mini_feeds');
 	add_action('init', 'aisis_add_slides');
 	
 	add_action('after_switch_theme', 'aisis_flush_re_write');

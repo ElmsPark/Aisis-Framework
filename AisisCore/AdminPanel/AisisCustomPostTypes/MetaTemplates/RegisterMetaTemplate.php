@@ -24,12 +24,13 @@
 		 }
 	 }
 	 
-	 //Register the bio summary Meta Template
-	 if(!function_exists('aisis_bio_sums_meta_box')){
-		 function aisis_bio_sums_meta_box(){
+	 //Register the Mini Feeds Meta Template
+	 if(!function_exists('aisis_mini_feed_meta_box')){
+		 function aisis_mini_feed_meta_box(){
 			global $aisis_template_loader;
-			$aisis_template_loader->aisis_register('Aisis-Bio-Summary-Meta-Template.phtml', AISIS_CUSTOM_POST_TYPES_META); 
+			$aisis_template_loader->aisis_register('Aisis-Mini-Feeds-Meta-Template.phtml', AISIS_CUSTOM_POST_TYPES_META); 
 		 }
 	 }	 
+	 
 
 ?>

@@ -1,0 +1,69 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This one is used to show the mini feed meta tag info.
+	 *
+	 *		The Css used here is located in the admin panel css
+	 *		under the AdminPanel->Options->Required->AdminPanelCSS.css
+	 *
+	 *		@see AisisCore->AisisView-> Class-Aisis-Form
+	 *		
+	 *		@author: Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->AisisCustomPostTypes->MetaTemplates
+	 *
+	 * =================================================================
+	 */
+	 
+	global $post;
+	$values = get_post_custom( $post->ID );
+	
+	$aisis_create_form_elements = new AisisForm();
+?>
+
+    <div class="aisis_meta_control">
+        
+          <div class="notice"><strong>Note:</strong> Mini feeds can be used to display summaries about Articles and Essays or about special posts or about almost anything you want
+          </div>
+          <br  />
+          <p>
+              <label for="aisis_content_link">Enter a link the content.</label>                        
+			  <?php
+              if(isset($values['aisis_content_link']) && !empty($values['aisis_content_link'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_content_link',
+						'id' => 'aisis_content_link',
+						'value' => $values['aisis_content_link'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_content_link',
+						'id' => 'aisis_content_link',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('input', 'url', $array_of_attributes);
+              ?>
+          </p>  
+          <p>
+              <label for="aisis_content_desc">Enter a small summary about said content fo the feed.</label>
+			  <?php
+              if(isset($values['aisis_content_desc']) && !empty($values['aisis_content_desc'])){
+				  $array_of_attributes = array(
+						'name' => 'aisis_content_desc',
+						'id' => 'aisis_content_desc',
+						'value' => $values['aisis_content_desc'][0]
+				  );
+			  }else{
+				  $array_of_attributes = array(
+						'name' => 'aisis_content_desc',
+						'id' => 'aisis_content_desc',
+						'value' => ''
+				  );				  
+			  }
+			  $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
+              ?>
+          </p>         
+    </div>
