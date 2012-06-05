@@ -17,7 +17,6 @@
 	 
 	 //check theme version
 	 $aisis_theme_version = get_theme_data(get_bloginfo('stylesheet_url'));
-	 $aisis_check_version = new AisisUpdate();
 	
 	 //Check for messages
 	 check_for_aisis_messages();
@@ -28,7 +27,6 @@
             <div class="adminPanelSubTitle">
                 Aisis Core Version <?php echo $aisis_theme_version['Version']; ?>
             </div>
-            <div class="upgradeNotice"><?php $aisis_check_version->check_current_version();?></div>
     	</div>
        
 

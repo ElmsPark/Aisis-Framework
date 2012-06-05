@@ -53,12 +53,12 @@
 			 			 
 			 if($type == 'checkbox'){
 				if(isset($attributes['checked'])){
-					  $checked = 'checked="'.$attributes['checked'].'"';
+					  $checked = $attributes['checked'];
 					  $inpute_type = 'type="checkbox"';
 				}
 			 }elseif($type = 'radio'){
 				 if(isset($attributes['checked'])){
-					 $checked = 'checked="'.$attributes['checked'].'"';
+					 $checked = $attributes['checked'];
 					 $inpute_type = 'type="radio"';
 				 }
 			 }

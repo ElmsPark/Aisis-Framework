@@ -28,7 +28,6 @@
 	 require_once(AISISCORE . 'AisisHooks.php');
 	 require_once(AISISCORE . 'Class-Aisis-File-Handling.php');
 	 require_once(AISISCORE . 'Class-Aisis-Core-Register.php');
-	 require_once(AISISCORE . 'Class-Aisis-Update.php');
 	 require_once(AISISCORE . 'AisisDebugger.php');
 	 require_once(AISISCORE . 'Class-Aisis-Activation.php');
 	 require_once(AISISCORE . 'Class-Aisis-Package-Loader.php');

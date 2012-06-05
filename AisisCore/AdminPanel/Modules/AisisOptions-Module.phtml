@@ -17,26 +17,57 @@
 	 
 	 $aisis_form_element = new AisisForm();
 	 
-	 $basic_array_submit = array('value'=>'Save Your Work!', 'name'=>'defaults');
+	 $basic_array_submit = array('value'=>'Save Your Work!', 'name'=>'defaults', 'class'=>'defaultText');
 	 $facebook_save = array('value'=>'Link to Facebook!', 'name'=>'defaults');
 	 $twitter_save = array('value'=>'Link to Twitter!', 'name'=>'defaults');
 	 $tumblr_save = array('value'=>'Link to Tumblr!', 'name'=>'defaults');
 	 $google_save = array('value'=>'Link to Google+!', 'name'=>'defaults');
 	 $rss_save = array('value'=>'Link to RSS!', 'name'=>'defaults');
+	 $core_options_save = array('value'=>'Save your Settings!', 'name'=>'defaults');
 
 ?>
 <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>
 <form method="post" action="<?php echo $aisis_forum_url ?>">
 <div id="coreTabs">
 	<ul>
-    	<li><a href="#aisis">Aisis Core Options</a></li>
-        <li><a href="#aisisGit">Aisis General Options</a></li>
-        <li><a href="#aisisAPI">Aisis Aditional</a></li>
+    	<li><a href="#aisisOptions">Aisis Options</a></li>
+    	<li><a href="#aisisDefault">Aisis Default Text</a></li>
+        <li><a href="#aisisSocial">Aisis Social Options</a></li>
     </ul>
     <div class="bottom"></div>
-    <div id="aisis">
+    <div id="aisisOptions">
+    	<?php 
+			  $options = get_option('aisis_core_theme_setting_sidebar_global');
+			  if($options['no_side_bar_global'] == 1){
+				  echo "what";
+			  }else{
+				  echo "yo";
+			  }
+		?>
         <div class="box">
-            <h1>Change Default Text</h1>
+        	<div class="title">Set up Core Options</div>
+            <p>Looking to change the default core options of Aisis? This is pthe place to do it.
+            We allow you to change the core options of the theme to suite the way you want it to look.
+            This is good for people who do not want to code out there changes.</p>
+            <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $core_options_save);?></p>
+        </div>
+        <div class="contents">
+        	<div class="notice">
+            	The following will change some of the core features of Aisis. This includes: look, feel and functionality.
+            </div>
+            <div class="optionsSection">
+            	<div class="greyBox">
+                	<div class="title">Sidebar? (Global)</div>
+                    <p>Checking this box will remove the side bar from the front end.</p>
+                </div>
+                <label>click to remove Sidebar (Global)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_global'); ?><br />       
+            </div>
+        </div>
+    </div>
+    <div id="aisisDefault">
+        <div class="box">
+            <div class="title">Change Default Text</div>
             <p>Looking to change some of the default text and options through out the theme?
             Edit the information bellow to change the default text through out the site.</p>
             <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?></p>
@@ -99,9 +130,9 @@
             </div>
         </div>
    </div>
-   <div id="aisisGit">
+   <div id="aisisSocial">
        <div class="box">
-          <h1>Social Networks</h1>
+          <div class="title">Social Networks</div>
           <p>Enter in your details bellow for the links that appear at the top of the navigation menu in the header.
           For each one of these that is filled out, you will see an icon.</p>
           <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?></p>
