@@ -63,11 +63,51 @@
 
 /* Interaction states
 ----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #C6CED7; border-radius:3px; background:#EDEFF3; font-weight: normal; color: #555555; }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {background-color:rgb(211,230,231);
+border-color:rgb(166,123,139);
+border-width:1px;
+/* Firefox v1.0+ */
+-moz-border-top-right-radius:6px;
+-moz-border-top-left-radius:6px;
+/* Safari v3.0+ and by Chrome v0.2+ */
+-webkit-border-top-right-radius:6px;
+-webkit-border-top-left-radius: 6px;
+/* Firefox v4.0+ , Safari v5.0+ , Chrome v4.0+ , Opera v10.5+  and by IE v9.0+ */
+border-top-right-radius:6px;
+border-top-left-radius:6px;
+border-style:solid;
+}
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #555555; text-decoration: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #C6CED7; border-radius:3px; background: #BBCDD7; font-weight: normal; color: #212121; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border-color:rgb(166,123,139);
+border-width:1px;
+/* Firefox v1.0+ */
+-moz-border-top-right-radius:6px;
+-moz-border-top-left-radius:6px;
+/* Safari v3.0+ and by Chrome v0.2+ */
+-webkit-border-top-right-radius:6px;
+-webkit-border-top-left-radius: 6px;
+/* Firefox v4.0+ , Safari v5.0+ , Chrome v4.0+ , Opera v10.5+  and by IE v9.0+ */
+border-top-right-radius:6px;
+border-top-left-radius:6px;
+border-style:solid;
+color:#91401E;
+ }
 .ui-state-hover a, .ui-state-hover a:hover { color: #212121; text-decoration: none; }
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {  border-radius:3px; background: #B7C9DB; font-weight: normal; color: #212121; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {  background-color:rgb(238,228,239);
+border-color:rgb(166,123,139);
+border-width:1px;
+/* Firefox v1.0+ */
+-moz-border-top-right-radius:6px;
+-moz-border-top-left-radius:6px;
+/* Safari v3.0+ and by Chrome v0.2+ */
+-webkit-border-top-right-radius:6px;
+-webkit-border-top-left-radius: 6px;
+/* Firefox v4.0+ , Safari v5.0+ , Chrome v4.0+ , Opera v10.5+  and by IE v9.0+ */
+border-top-right-radius:6px;
+border-top-left-radius:6px;
+border-style:solid;
+height:27px;
+ }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #212121; text-decoration: none; }
 .ui-widget :active { outline: none; }
 

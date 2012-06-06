@@ -329,6 +329,91 @@
 		}
 	}
 	
+/**
+	 * We validate the 404 banner message and from there
+	 * we store the information in a options table
+	 * to be dsiplayed on the front end.
+	 */
+	if(!function_exists('aisis_404_banner_validation')){
+		function aisis_404_banner_validation($input){
+			$options = get_option('aisis_default_404_banner_setting');
+			$options['banner_content'] = trim($input['banner_content']);
+			update_option('admin_success_message', 'true');
+			return $options;
+
+		}
+	}
+
+	/**
+	 * We validate the 404 message and from there
+	 * we store the information in a options table
+	 * to be dsiplayed on the front end.
+	 */
+	if(!function_exists('aisis_404_message_validation')){
+		function aisis_404_message_validation($input){
+			$options = get_option('aisis_default_404_message_setting');
+			$options['err_404_theme_message'] = trim($input['err_404_theme_message']);
+			update_option('admin_success_message', 'true');
+			return $options;
+		}
+	}
+
+	/**
+	 * We validate the defualt author validation and from there
+	 * we store the information in a options table
+	 * to be dsiplayed on the front end.
+	 */
+	if(!function_exists('aisis_default_author_validation')){
+		function aisis_default_author_validation($input){
+			$options = get_option('aisis_default_author_text_setting');
+			$options['default_author_text'] = trim($input['default_author_text']);
+			update_option('admin_success_message', 'true');
+			return $options;
+		}
+	}
+
+	/**
+	 * We validate the category and from there
+	 * we store the information in a options table
+	 * to be dsiplayed on the front end.
+	 */
+	if(!function_exists('aisis_default_category_validation')){
+		function aisis_default_category_validation($input){
+			$options = get_option('aisis_default_category_text_setting');
+			$options['default_cat_text'] = trim($input['default_cat_text']);
+			update_option('admin_success_message', 'true');
+			return $options;
+		}
+	}
+
+	/**
+	 * We validate the right footer and from there
+	 * we store the information in a options table
+	 * to be dsiplayed on the front end.
+	 */
+	if(!function_exists('aisis_default_right_footer_validation')){
+		function aisis_default_right_footer_validation($input){
+			$options = get_option('aisis_default_right_footer_text_setting');
+			$options['default_right_footer_text'] = trim($input['default_right_footer_text']);
+			update_option('admin_success_message', 'true');
+			return $options;
+		}
+	}
+
+	/**
+	 * We validate the left footer and from there
+	 * we store the information in a options table
+	 * to be dsiplayed on the front end.
+	 */	
+	if(!function_exists('aisis_default_left_footer_validation')){
+		function aisis_default_left_footer_validation($input){
+			$options = get_option('aisis_default_left_footer_text_setting');
+			$options['default_left_footer_text'] = trim($input['default_left_footer_text']);
+			update_option('admin_success_message', 'true');
+			return $options;
+		}
+	}		
+	
 	//This action allows for the displaying and functionality of this file.
 	add_action('admin_init', 'setup_default_text');
 	//Add an error handling option

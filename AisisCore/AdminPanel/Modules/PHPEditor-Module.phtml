@@ -14,17 +14,21 @@
 	 * =================================================================
 	 */
 	 
+	 $aisis_form_element = new AisisForm();
+	 $basic_array_submit = array('value'=>'Save Your Work!', 'name'=>'defaults', 'class'=>'phpEditorButton');
+	 
 ?>
         <div class="box">
-        	<h1>PHP Editor</h1>
+        	<div class="title">PHP Editor</div>
             <p>Looking to edit your custom-functions.php file? Make your changes bellow and hit the save button to see the changes take affect.</p>
         </div>
-        
-    	<div class="notice">This allows you to edit your <strong>custom-php.php</strong> file and add functionality to the site via new functions. 
-        <strong>Please Note:</strong> that any changes you make here CAN break your site. Procede with caution.</div>
-		<?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-php-editor' ?>
-        <form method="post" action="<?php echo $aisis_forum_url ?>">
-          	<?php settings_fields( 'aisis-php-editor' ); ?>
-        	<?php do_settings_fields('aisis-php-editor', 'aisis_php_editor_section'); ?>
-            <input type="submit" id="published" name="published" value="Save PHP"/>
-        </form>
+        <div class="contents">
+            <div class="notice">This allows you to edit your <strong>custom-php.php</strong> file and add functionality to the site via new functions. 
+            <strong>Please Note:</strong> that any changes you make here CAN break your site. Procede with caution.</div>
+            <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-php-editor' ?>
+            <form method="post" action="<?php echo $aisis_forum_url ?>">
+                <?php settings_fields( 'aisis-php-editor' ); ?>
+                <?php do_settings_fields('aisis-php-editor', 'aisis_php_editor_section'); ?>
+                <?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?>
+            </form>
+        </div>

@@ -14,17 +14,21 @@
 	 * =================================================================
 	 */
 	 
+	 $aisis_form_element = new AisisForm();
+	 $basic_array_submit = array('value'=>'Save Your Work!', 'name'=>'defaults', 'class'=>'jsEditorButton');
+	 
 ?>
         <div class="box">
-        	<h1>JavaScript Editor</h1>
+        	<div class="title">JavaScript Editor</div>
             <p>Looking to add your own custom JS? add it bellow and hit save and watch your java script functions come alive!</p>
         </div>
-        
-    	<div class="notice">This allows you to edit your <strong>custom-js.js</strong> file and add functionality to the site via JavaScript.</div>
-		<?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-js-editor' ?>
-        <form method="post" action="<?php echo $aisis_forum_url ?>">
-        	<?php settings_fields( 'aisis-js-editor' ); ?>
-            <?php do_settings_fields('aisis-js-editor', 'aisis_js_editor_section'); ?>
-            <input type="submit" id="published" name="published" />
-        </form>
+        <div class="contents">
+            <div class="notice">This allows you to edit your <strong>custom-js.js</strong> file and add functionality to the site via JavaScript.</div>
+            <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-js-editor' ?>
+            <form method="post" action="<?php echo $aisis_forum_url ?>">
+                <?php settings_fields( 'aisis-js-editor' ); ?>
+                <?php do_settings_fields('aisis-js-editor', 'aisis_js_editor_section'); ?>
+                <?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?>
+            </form>
+        </div>
     

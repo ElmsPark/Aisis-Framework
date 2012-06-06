@@ -36,14 +36,6 @@
     </ul>
     <div class="bottom"></div>
     <div id="aisisOptions">
-    	<?php 
-			  $options = get_option('aisis_core_theme_setting_sidebar_global');
-			  if($options['no_side_bar_global'] == 1){
-				  echo "what";
-			  }else{
-				  echo "yo";
-			  }
-		?>
         <div class="box">
         	<div class="title">Set up Core Options</div>
             <p>Looking to change the default core options of Aisis? This is pthe place to do it.
@@ -61,7 +53,25 @@
                     <p>Checking this box will remove the side bar from the front end.</p>
                 </div>
                 <label>click to remove Sidebar (Global)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_global'); ?><br />       
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_global'); ?><br />
+            	<div class="greyBox">
+                	<div class="title">Sidebar? (Index)</div>
+                    <p>Checking this box removes the side bar from the index page where all your posts are listed</p>
+                </div>
+                <label>click to remove Sidebar (Index)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_index'); ?><br />
+            	<div class="greyBox">
+                	<div class="title">Sidebar? (Single)</div>
+                    <p>Checking this box will remove the sidebar from the single post page. This is the page where you view a single post.</p>
+                </div>
+                <label>click to remove Sidebar (Single)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_single'); ?><br /> 
+            	<div class="greyBox">
+                	<div class="title">Sidebar? (Custom Index)</div>
+                    <p>Checking this will remove the side bar from both Biographies and Articles and Essays index page which displays all there posts.</p>
+                </div>
+                <label>click to remove Sidebar (Custom Index)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_custom'); ?><br />                                                           
             </div>
         </div>
     </div>

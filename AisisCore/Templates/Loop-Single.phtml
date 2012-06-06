@@ -12,8 +12,9 @@
 	 *		@package: AisisCore->Templates
 	 * =================================================================
 	 */
+	 	global $more; $more = 0; //declare and set $more before The Loop
+	 	$options = get_option('aisis_core_theme_setting_sidebar_single');
 	 ?>	
-	<?php global $more; $more = 0; //declare and set $more before The Loop ?>
     <div id="contentWrapper">
         <div id="content">
             <?php while(have_posts()) : the_post() ?>
@@ -43,6 +44,9 @@
             </div>
         </div>
         <?php comments_template(); ?> 
-     </div>
-        <?php get_sidebar(); ?>
+     </div>  	
+        <?php
+		if(isset($options['no_sidebar_single']) && $options['no_sidebar_single'] != 1){ 
+			get_sidebar();
+		}?>
            

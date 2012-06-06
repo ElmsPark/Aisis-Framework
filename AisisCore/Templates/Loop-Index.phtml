@@ -12,6 +12,7 @@
 	 * =================================================================
 	 */
 	 
+	 $options = get_option('aisis_core_theme_setting_sidebar_index');
 	 ?>	
 
      <div id="content">
@@ -43,6 +44,9 @@
       <?php } ?>
 	</div>
     <?php 
-	get_sidebar(); ?>
+	if(isset($options['no_sidebar_index']) && $options['no_sidebar_index'] != 1){
+		get_sidebar();
+	}
+	?>
 	 
      

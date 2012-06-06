@@ -152,7 +152,6 @@ h1 {
 	background-color:rgb(162,115,124);
 	width:60%;
 	float:right;
-	height:294px;
 	border-color:rgb(84,37,50);
 	border-width:1px;
 	margin-right: -27px;
@@ -197,6 +196,8 @@ h1 {
 
 .box input[type="submit"]{
 	margin-left: 0px !important;
+	padding: -2px;
+	width: 180px !important;
 }
 
 .contents{float:left;}
@@ -204,6 +205,14 @@ h1 {
 #tabs {
 	width: 70%;
 	margin: 20px auto 20px auto;
+	border: none;
+	background: none;
+	margin-left: 125px;
+}
+#tabs .bottom {
+	border-bottom: 2px solid #A6BABF;
+	width: 100%;
+	margin: 0 auto 40px 147px;
 }
 #coreTabs {
 	width: 103%;
@@ -445,6 +454,21 @@ h1 {
 
 .defaultText{
 	margin-left: 525px !important;
+}
+
+.cssEditorButton{
+	margin-left: 385px !important;
+	margin-bottom: 20px !important;
+}
+
+.jsEditorButton{
+	margin-left: 425px !important;
+	margin-bottom: 20px !important;
+}
+
+.phpEditorButton{
+	margin-left: 800px !important;
+	margin-bottom: 20px !important;
 }
 #adminPanelWrapper input[type="button"] {
 	margin-left: -10px;

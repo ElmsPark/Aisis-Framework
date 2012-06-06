@@ -26,12 +26,15 @@
 			?>
       </article>
  </div>
- <?php get_sidebar(); ?>
- <?php
- if('open' == $post->comment_status){
-	 comments_template('', true);
- }
+ <?php 
+		   get_sidebar(); 
+		   
+		   if('open' == $post->comment_status){
+			   comments_template('', true);
+		   }
+	   
+	   else
+		  aisis_404();
+	   endif;
+
  ?>
- <?php else :?>
- <?php aisis_404(); ?>
- <?php endif; ?>
