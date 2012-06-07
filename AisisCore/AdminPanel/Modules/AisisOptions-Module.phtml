@@ -24,18 +24,19 @@
 	 $google_save = array('value'=>'Link to Google+!', 'name'=>'defaults');
 	 $rss_save = array('value'=>'Link to RSS!', 'name'=>'defaults');
 	 $core_options_save = array('value'=>'Save your Settings!', 'name'=>'defaults');
-
+	 
+	 $options = get_option('aisis_core_theme_setting_sidebar_global');
 ?>
 <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>
 <form method="post" action="<?php echo $aisis_forum_url ?>">
 <div id="coreTabs">
 	<ul>
-    	<li><a href="#aisisOptions">Aisis Options</a></li>
+    	<li><a href="#aisisSidebarOptions">Aisis Sidebar Options</a></li>
     	<li><a href="#aisisDefault">Aisis Default Text</a></li>
         <li><a href="#aisisSocial">Aisis Social Options</a></li>
     </ul>
     <div class="bottom"></div>
-    <div id="aisisOptions">
+    <div id="aisisSidebarOptions">
         <div class="box">
         	<div class="title">Set up Core Options</div>
             <p>Looking to change the default core options of Aisis? This is pthe place to do it.
@@ -51,6 +52,7 @@
             	<div class="greyBox">
                 	<div class="title">Sidebar? (Global)</div>
                     <p>Checking this box will remove the side bar from the front end.</p>
+                    <div class="greyBoxNotice">Selecting this will deactivate the other choices.</div>
                 </div>
                 <label>click to remove Sidebar (Global)</label>
                 <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_global'); ?><br />
@@ -65,13 +67,20 @@
                     <p>Checking this box will remove the sidebar from the single post page. This is the page where you view a single post.</p>
                 </div>
                 <label>click to remove Sidebar (Single)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_single'); ?><br /> 
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_single'); ?><br />
+            	<div class="greyBox">
+                	<div class="title">Sidebar? (Page)</div>
+                    <p>Checking this will remove the sidebar from all pages</p>
+                </div>
+                <label>click to remove Sidebar (Page)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_page'); ?><br />                 
             	<div class="greyBox">
                 	<div class="title">Sidebar? (Custom Index)</div>
-                    <p>Checking this will remove the side bar from both Biographies and Articles and Essays index page which displays all there posts.</p>
+                    <p>Checking this will remove the side bar from Articles and Essays index page which displays all there posts.</p>
                 </div>
                 <label>click to remove Sidebar (Custom Index)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_custom'); ?><br />                                                           
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_custom'); ?><br /> 
+                                                                              
             </div>
         </div>
     </div>
@@ -212,6 +221,23 @@
 <script>
 	$(function() {
 		$( "#coreTabs" ).tabs();
+		enable();
+		$('#sidebar_global').click(enable)
 	});
+	
+	function enable(){
+		if(this.checked){
+			$('input.sidebar').attr("disabled", true);
+		}else{
+			<?php
+			if($options['no_sidebar_global'] != 1){
+			?>
+			$('input.sidebar').removeAttr('disabled');
+			<?php
+			}
+			?>
+			
+		}
+	}
 	
 </script>

@@ -42,6 +42,7 @@
 			 $onClick ='';
 			 $value ='';
 			 $inpute_type ='';
+			 $disabled = '';
 			 
 			 
 			 
@@ -83,8 +84,14 @@
 				 $value = 'value="'.$attributes['value'].'"';
 			 }
 			 
+			 if(isset($attributes['disabled'])){
+				 
+				 $disabled = 'disabled="'.$attributes['disabled'].'"';
+			 }
+			 
 			 $build_aisis_element = '<input '
-			 						.$inpute_type 
+			 						.$inpute_type
+									.$disabled 
 									.$checked 
 									.$id 
 									.$class 
@@ -92,8 +99,8 @@
 									.$onClick
 									.$value
 									.' />';
-									
 			echo $build_aisis_element;
+			
 		 }
 		 
 		 /**

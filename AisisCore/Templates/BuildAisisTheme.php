@@ -22,35 +22,39 @@
 		  }
 	  }
 	  
-	  //Load Index
-	  if(!function_exists('aisis_core_index')){
-	  	function aisis_core_index(){
-		  global $aisis_template_loader;
-		  if(have_posts()){
-			if (is_author()){
-				$aisis_template_loader->aisis_register('Author-Template.phtml');
-			}
-			if (is_category()){
-				$aisis_template_loader->aisis_register('Category-Template.phtml');
-			}
-			if(is_single()){
-				$aisis_template_loader->aisis_register('Loop-Single.phtml');
-			}
-		  	$aisis_template_loader->aisis_register('Loop-Index.phtml');
-		  }else{
-			$aisis_template_loader->aisis_register('404-Template.phtml');
-		  }
-		}
-	  }
-	  
 	  //Load Author
 	  if(!function_exists('aisis_author_template')){
 		  function aisis_author_template(){
 			  global $aisis_template_loader;
 			  $aisis_template_loader->aisis_register('Author-Template.phtml');
 		  }
+	  }	  
+	  
+	  //Load Index
+	  if(!function_exists('aisis_core_index')){
+	  	function aisis_core_index(){
+		  global $aisis_template_loader;
+		  if(have_posts()){
+			if (is_author()){
+				aisis_author_template();
+			}
+			if (is_category()){
+				$aisis_template_loader->aisis_register('Category-Template.phtml');
+			}
+			if(is_single()){
+				aisis_loop_single();
+			}
+			if(is_post_type_archive('ae')){
+				aisis_ae_index_loop_custom_post_type();
+			}
+			$aisis_template_loader->aisis_register('Loop-Index.phtml');
+		  }else{
+			aisis_404();
+		  }
+		}
 	  }
 	  
+
 	  //Load Single
 	  if(!function_exists('aisis_loop_single')){
 		  function aisis_loop_single(){
@@ -123,11 +127,12 @@
 		  }
 	  }	 
 	  
-	  //loads custom post type single.phtml template
-	  if(!function_exists('aisis_bio_single_loop_custom_post_type')){
-		  function aisis_bio_single_loop_custom_post_type(){
+	  //Loads the aisis ae index template
+	  if(!function_exists('aisis_ae_index_loop_custom_post_type')){
+		  function aisis_ae_index_loop_custom_post_type(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Loop-Single-Bio.phtml');
+			  $aisis_template_loader->aisis_register('Loop-Index-Ae.phtml');
 		  }
-	  }	 	   
+	  }
+	  
 ?>

@@ -101,5 +101,8 @@
                 <p>This author has written: <?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</p>
             </div>
         </div>
-        <?php comments_template(); ?> 
+        <?php  if('open' == $post->comment_status){
+				   comments_template('', true);
+			   } 
+		?> 
      </div>

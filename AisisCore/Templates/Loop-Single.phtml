@@ -12,11 +12,12 @@
 	 *		@package: AisisCore->Templates
 	 * =================================================================
 	 */
-	 	global $more; $more = 0; //declare and set $more before The Loop
+	 	global $more, $post; $more = 0; //declare and set $more before The Loop
 	 	$options = get_option('aisis_core_theme_setting_sidebar_single');
+		$option_global = get_option('aisis_core_theme_setting_sidebar_global');
 	 ?>	
     <div id="contentWrapper">
-        <div id="content">
+        <div id="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'content'; }else{ echo 'fullWidthContent'; } ?>">
             <?php while(have_posts()) : the_post() ?>
             <article class="post clearfix">
                 <header>
@@ -24,7 +25,7 @@
                     <div class="post-comments"><?php comments_number('0', '1', '%'); ?> comments</div>
                     <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
                     <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
-                    <div class="headlineLine"></div>
+                    <div class="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'headline'; }else{ echo 'headlineLineFull'; }?>"></div>
                     <div class="infoOnPost"></div>
                 </header>
                 <p>
@@ -36,17 +37,22 @@
           <div class="prevPost"><?php previous_post_link('%link','%title' ) ?></div>
           <div class="nextPost"><?php next_post_link( '%link', '%title' ) ?></div>
           <?php } ?>
-            <div class="post-author">
+            <div class="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'post-author'; }else{ echo 'post-author-full'; }?>">
             <h1><?php the_author()?></h1>
                 <p><?php if ( get_the_author_meta( 'description' ) ){the_author_meta( 'description' );}else{?>
                 <?php aisis_loop_single_author_blurb_default(); }?></p>
                 <p>This author has written: <?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</p>
             </div>
         </div>
-        <?php comments_template(); ?> 
-     </div>  	
         <?php
-		if(isset($options['no_sidebar_single']) && $options['no_sidebar_single'] != 1){ 
-			get_sidebar();
-		}?>
+			   if('open' == $post->comment_status){
+				   comments_template('', true);
+			   }
+		?> 
+     </div>  	
+    <?php 
+	if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){
+		get_sidebar();
+	}
+	?>
            

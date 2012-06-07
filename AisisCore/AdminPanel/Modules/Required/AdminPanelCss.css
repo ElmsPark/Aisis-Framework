@@ -133,6 +133,7 @@ h1 {
 	margin-bottom: 20px;
 	margin-top: 20px;
 	width: 58%;
+	overflow: hidden;
 }
 .greyBox .title {
 	font-size:25px;
@@ -280,6 +281,16 @@ h1 {
 	font-size : 13px;
 	border-radius : 5px;
 	margin : 10px 0px -8px 80px;
+	width: 60%
+}
+.greyBoxNotice {
+	background : #fff9d7;
+	border : 1px solid #e2c822;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin : 20px auto -15px auto;
 	width: 60%
 }
 .upgradeNotice {

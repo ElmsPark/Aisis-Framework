@@ -22,10 +22,14 @@
 	 
 	 //Set the variables to shut up the notices.
 	 global $user_identity, $post, $req, $comment_author_email, $comment_author_url, $comment_author;
-
+	 $options_single = get_option('aisis_core_theme_setting_sidebar_single');
+	 $options_page = get_option('aisis_core_theme_setting_sidebar_page');
+	 $options_global = get_option('aisis_core_theme_setting_sidebar_global');
 ?>
 
-        <div id="commentsbox">
+        <div id="<?php if($options_single['no_sidebar_single'] != 1 && $options_page['no_sidebar_page'] != 1 && $options_global['no_sidebar_global'] != 1)
+		{echo 'commentsbox';}
+		else{echo 'commentsboxFull';}?>">
                 <?php if ( have_comments() ) : ?>
                 <hr class="remove-bottom">
                     <h3 id="comments">

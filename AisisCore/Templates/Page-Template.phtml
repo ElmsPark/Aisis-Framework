@@ -11,30 +11,35 @@
 	 *		@package: AisisCore->Templates
 	 * =================================================================
 	 */
+	 global $page_title, $post;
+	 $options = get_option('aisis_core_theme_setting_sidebar_page');
+	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
  ?>
- <?php if (have_posts()) : ?>
- <div id="content">
-        <article class="post clearfix">
-            <header>
-                <h1 class="post-title"><?php if($page_title != 'yes'){the_title();} ?></h1>
-                <div class="headlineLine"></div>
-            </header>
-            <?php
-             while (have_posts()) : the_post();
-				the_content();
-			endwhile; 
-			?>
-      </article>
- </div>
- <?php 
-		   get_sidebar(); 
+	 <?php if (have_posts()) : ?>
+     <div id="<?php if($options['no_sidebar_page'] != 1 && $options['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'fullWidthContent'; }?>">
+            <article class="post clearfix">
+                <header>
+                    <h1 class="post-title"><?php if($page_title != 'yes'){the_title();} ?></h1>
+                    <div class="<?php if($options['no_sidebar_page'] != 1 && $options['no_sidebar_global'] != 1){ echo 'headLine'; }else{ echo 'headlineLineFull'; }?>"></div>
+                </header>
+                <?php
+                 while (have_posts()) : the_post();
+                    the_content();
+                endwhile; 
+                ?>
+          </article>
+     </div>
+     <?php 
+				if($options['no_sidebar_page'] != 1 && $options['no_sidebar_page'] != 1){
+					get_sidebar();
+				}
+			   
+			   if('open' == $post->comment_status){
+				   comments_template('', true);
+			   }
 		   
-		   if('open' == $post->comment_status){
-			   comments_template('', true);
-		   }
-	   
-	   else
-		  aisis_404();
-	   endif;
-
- ?>
+		   else
+			  aisis_404();
+		   endif;
+    
+     ?>

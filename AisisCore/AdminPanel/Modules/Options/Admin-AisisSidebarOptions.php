@@ -50,7 +50,14 @@
 			'',
 			'aisis_content_description',
 			'aisis-core-options'
-		);		
+		);	
+		
+		add_settings_section(
+			'aisis_core_theme_section_sidebar_page',
+			'',
+			'aisis_content_description',
+			'aisis-core-options'
+		);				
 		
 		add_settings_field(
 			'aisis_core_theme_setting_sidebar_global',
@@ -82,22 +89,21 @@
 			'aisis_core_theme_sidebar_custom',
 			'aisis-core-options',
 			'aisis_core_theme_section_sidebar_custom'
-		);		
+		);	
+		
+		add_settings_field(
+			'aisis_core_theme_setting_sidebar_page',
+			'',
+			'aisis_core_theme_sidebar_page',
+			'aisis-core-options',
+			'aisis_core_theme_section_sidebar_page'
+		);	
 		
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_global', 'aisis_core_theme_sidebar_global_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_index',  'aisis_core_theme_sidebar_index_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_single', 'aisis_core_theme_sidebar_single_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_custom', 'aisis_core_theme_sidebar_custom_validation');
-	}
-
-	/**
-	 * Empty method. 
-	 */
-	if(!function_exists('aisis_content_descrption')){
-		function aisis_content_descrption(){
-			//display nothing here. 
-			//it's retarded that we have to have this.
-		}
+		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_page', 'aisis_core_theme_sidebar_page_validation');
 	}
 	
 	/**
@@ -109,7 +115,7 @@
 			$options = get_option('aisis_core_theme_setting_sidebar_global');
 			$aisis_create_form_element = new AisisForm();
 			$aisis_sidebar_check = array(
-			  'id'=>'side_bar_global',
+			  'id'=>'sidebar_global',
 			  'name'=>'aisis_core_theme_setting_sidebar_global[no_sidebar_global]',
 			  'value'=>'1',
 			  'checked' => checked(1, $options['no_sidebar_global'], false)
@@ -127,12 +133,27 @@
 		function aisis_core_theme_sidebar_index(){
 			$options = get_option('aisis_core_theme_setting_sidebar_index');
 			$aisis_create_form_element = new AisisForm();
-			$aisis_sidebar_check = array(
-			  'id'=>'side_bar_index',
-			  'name'=>'aisis_core_theme_setting_sidebar_index[no_sidebar_index]',
-			  'value'=>'1',
-			  'checked' => checked(1, $options['no_sidebar_index'], false)
-			);
+			$option_global = get_option('aisis_core_theme_setting_sidebar_global');
+			if($option_global['no_sidebar_global'] != 1){
+				$aisis_sidebar_check = array(
+				  'id'=>'sidebar_index',
+				  'name'=>'aisis_core_theme_setting_sidebar_index[no_sidebar_index]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_index'], false),
+				  'class' => 'sidebar'
+				  
+				);
+			}else{
+				$aisis_sidebar_check = array(
+				  'id'=>'sidebar_index',
+				  'disabled' => 'disabled',
+				  'name'=>'aisis_core_theme_setting_sidebar_index[no_sidebar_index]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_index'], false),
+				  'class' => 'sidebar'
+				  
+				);				
+			}
 			
 			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_sidebar_check);
 		}
@@ -146,12 +167,25 @@
 		function aisis_core_theme_sidebar_single(){
 			$options = get_option('aisis_core_theme_setting_sidebar_single');
 			$aisis_create_form_element = new AisisForm();
-			$aisis_sidebar_check = array(
-			  'id'=>'side_bar_single',
-			  'name'=>'aisis_core_theme_setting_sidebar_single[no_sidebar_single]',
-			  'value'=>'1',
-			  'checked' => checked(1, $options['no_sidebar_single'], false)
-			);
+			$option_global = get_option('aisis_core_theme_setting_sidebar_global');
+			if($option_global['no_sidebar_global'] != 1){
+				$aisis_sidebar_check = array(
+				  'id'=>'sidebar_single',
+				  'name'=>'aisis_core_theme_setting_sidebar_single[no_sidebar_single]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_single'], false),
+				  'class' => 'sidebar'
+				);
+			}else{
+				$aisis_sidebar_check = array(
+				  'id'=>'sidebar_single',
+				  'name'=>'aisis_core_theme_setting_sidebar_single[no_sidebar_single]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_single'], false),
+				  'class' => 'sidebar',
+				  'disabled' => 'disabled'
+				);
+			}
 			
 			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_sidebar_check);
 		}
@@ -165,23 +199,68 @@
 		function aisis_core_theme_sidebar_custom(){
 			$options = get_option('aisis_core_theme_setting_sidebar_custom');
 			$aisis_create_form_element = new AisisForm();
-			$aisis_sidebar_check = array(
-			  'id'=>'side_bar_custom',
-			  'name'=>'aisis_core_theme_setting_sidebar_custom[no_sidebar_custom]',
-			  'value'=>'1',
-			  'checked' => checked(1, $options['no_sidebar_custom'], false)
-			);
+			$option_global = get_option('aisis_core_theme_setting_sidebar_global');
+			if($option_global['no_sidebar_global'] != 1){
+				$aisis_sidebar_check = array(
+				  'id'=>'sidebar_custom',
+				  'name'=>'aisis_core_theme_setting_sidebar_custom[no_sidebar_custom]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_custom'], false),
+				  'class' => 'sidebar'
+				);
+			}else{
+				$aisis_sidebar_check = array(
+				  'id'=>'sidebar_custom',
+				  'name'=>'aisis_core_theme_setting_sidebar_custom[no_sidebar_custom]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_custom'], false),
+				  'class' => 'sidebar',
+				  'disabled' => 'disabled'
+				);				
+			}
 			
 			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_sidebar_check);
 		}
-	}			
+	}
+	
+	/**
+	 * Create a check box and set its value based on the 
+	 * option table.
+	 */
+	if(!function_exists('aisis_core_theme_sidebar_page')){
+		function aisis_core_theme_sidebar_page(){
+			$options = get_option('aisis_core_theme_setting_sidebar_page');
+			$aisis_create_form_element = new AisisForm();
+			$option_global = get_option('aisis_core_theme_setting_sidebar_global');
+			if($option_global['no_sidebar_global'] != 1){			
+				$aisis_sidebar_check = array(
+				  'id'=>'sidebar_page',
+				  'name'=>'aisis_core_theme_setting_sidebar_page[no_sidebar_page]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_page'], false),
+				  'class' => 'sidebar'
+				);
+			}else{
+				$aisis_sidebar_check = array(
+				  'id'=>'sidebar_page',
+				  'name'=>'aisis_core_theme_setting_sidebar_page[no_sidebar_page]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_page'], false),
+				  'class' => 'sidebar',
+				  'disabled' => 'disabeled'
+				);				
+			}
+			
+			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_sidebar_check);
+		}
+	}				
 
 	/**
 	 * Check if the box is checked or not
 	 * and store its value.
 	 */
 	if(!function_exists('aisis_core_theme_sidebar_global_validation')){
-		function aisis_core_theme_sidebar_global_validation($input){
+		function aisis_core_theme_sidebar_global_validation($input){			
 			$options = get_option('aisis_core_theme_setting_sidebar_global');
 			if($input['no_sidebar_global'] == 1){
 				$options['no_sidebar_global'] = 1;
@@ -242,7 +321,24 @@
 			update_option('admin_success_message', 'true'); 
 			return $options; 
 		}
-	}			
+	}
+	
+	/**
+	 * Check if the box is checked or not
+	 * and store its value.
+	 */
+	if(!function_exists('aisis_core_theme_sidebar_page_validation')){
+		function aisis_core_theme_sidebar_page_validation($input){
+			$options = get_option('aisis_core_theme_setting_sidebar_page');
+			if($input['no_sidebar_page'] == 1){
+				$options['no_sidebar_page'] = 1;
+			}else{
+				$options['no_sidebar_page'] = 0;
+			}
+			update_option('admin_success_message', 'true'); 
+			return $options; 
+		}
+	}					
 	
 
 	//This action allows for the displaying and functionality of this file.
