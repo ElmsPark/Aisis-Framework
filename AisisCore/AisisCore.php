@@ -65,8 +65,6 @@
 
 	// Add home link to menus
 	function aisis_nav_items($items) {
-		$homelink = '<li><a href="'.bloginfo('url').'">Home</a></li>';
-		$items = $homelink . $items;
 		return $items;
 	}
 	

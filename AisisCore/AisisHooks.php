@@ -49,13 +49,22 @@
 		 do_action('aisis_author_default_text');
 	 }
 	 
+	 
 	 /**
 	  * Allows you to change the default category text if
 	  * no text has been entered for the category desc.
 	  */
 	 function aisis_category_default_text(){
-		 do_action('aisis_author_default_text');
+		 do_action('aisis_category_default_text');
 	 }
+	 
+	 /**
+	  * Allows you to change the default tag text if
+	  * no text has been entered for the tag desc.
+	  */	 
+	 function aisis_tag_default_text(){
+		 do_action('aisis_tag_default_text');
+	 }	 
 	 
 	 /**
 	  * Allows the user to change the 
@@ -145,13 +154,25 @@
 	  if(!function_exists('default_aisis_category_default_text')){
 		  function default_aisis_category_default_text(){
 			  $options = get_option('aisis_default_category_text_setting');
-			  if(!isset($options['default_author_text'])){
-				echo "Welcome to this category " . single_cat_title() . " where we hope that we present you with the latest and greates in content from this section. Please enjoy your stay :D";
+			  if(!isset($options['default_cat_text'])){
+				echo "Welcome to this category " . single_cat_title() . " where we hope that we present you with the latest and greatest in content from this section. Please enjoy your stay :D";
 			  }else{
-				 $options['default_author_text'];
+				 $options['default_cat_text'];
 			  }
 		  }
 	  }
+	  
+	  //default category text
+	  if(!function_exists('default_aisis_tag_default_text')){
+		  function default_aisis_tag_default_text(){
+			  $options = get_option('aisis_default_tag_text_setting');
+			  if(!isset($options['default_tag_text'])){
+				echo "Welcome to this tag " . single_tag_title() . " where we hope that we present you with the latest and greatest in content from this section. Please enjoy your stay :D";
+			  }else{
+				 $options['default_tag_text'];
+			  }
+		  }
+	  }	  
 	  
 	  //default right footer text
 	  if(!function_exists('default_aisis_default_right_footer_text')){

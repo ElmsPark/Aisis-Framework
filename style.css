@@ -110,11 +110,11 @@ input[type="search"] {
 .socialMediaLink {
 	margin-right : 5px;
 	float : right;
-	margin-top : 90px;
+	margin-top : 85px;
 }
 .socialMediaLink img {
-	width : 22px;
-	height : 22px;
+	width : 26px;
+	height : 26px;
 }
 #site-logo {
 	position : absolute;
@@ -357,6 +357,15 @@ input[type="search"] {
 	border-radius : 8px;
 	border : 1px solid #666666;
 }
+#categoryFull {
+	background : #d6d6d6;
+	margin : 30px 0 30px;
+	padding : 10px 25px;
+	width : 910px;
+	float : left;
+	border-radius : 8px;
+	border : 1px solid #666666;
+}
 .post {
 	margin-bottom : 40px;
 }
@@ -377,6 +386,10 @@ input[type="search"] {
 	opacity : 0.5;
 }
 .post-title a {
+	text-decoration : none;
+	color : #000;
+}
+.post-title-index a {
 	text-decoration : none;
 	color : #000;
 }
@@ -409,13 +422,18 @@ input[type="search"] {
 	margin-left : 10px;
 }
 .post-author {
-	width : 606px;
-	background : #a0b4c2;
+	width : 605px;
+	background-color:rgb(183,214,223);
 	border-top : 1px solid #404a5e;
 	border-bottom : 1px solid #404a5e;
 	margin-left : -35px;
 	padding : 10px 25px 10px 0;
-	box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 2px 5px rgba(0,0,0,.6), inset 0 1px 1px rgba(0,0,0,.6);
+	/* Firefox v3.5+ */
+	-moz-box-shadow:inset 2px 0px 5px rgba(51,51,51,0.78);
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-box-shadow:inset 2px 0px 5px rgba(51,51,51,0.78);
+	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
+	box-shadow:inset 2px 0px 5px rgba(51,51,51,0.78);
 }
 .post-author-full {
 	width : 955px;
@@ -911,7 +929,7 @@ ol.commentlist li ul.children li.depth-5 {
 	text-decoration : underline;
 }
 .footerWrapper {
-	width : 87%;
+	width : 95%;
 	margin: 10px auto 10px auto;
 }
 .block {

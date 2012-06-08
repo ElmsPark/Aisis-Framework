@@ -20,7 +20,7 @@
             <article class="post clearfix">
                 <header>
                     <h1 class="post-title"><?php if($page_title != 'yes'){the_title();} ?></h1>
-                    <div class="<?php if($options['no_sidebar_page'] != 1 && $options['no_sidebar_global'] != 1){ echo 'headLine'; }else{ echo 'headlineLineFull'; }?>"></div>
+                    <div class="<?php if($options['no_sidebar_page'] != 1 && $options['no_sidebar_global'] != 1){ echo 'headlineLine'; }else{ echo 'headlineLineFull'; }?>"></div>
                 </header>
                 <?php
                  while (have_posts()) : the_post();

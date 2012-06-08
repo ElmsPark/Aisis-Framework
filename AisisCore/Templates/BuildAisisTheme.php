@@ -41,6 +41,9 @@
 			if (is_category()){
 				$aisis_template_loader->aisis_register('Category-Template.phtml');
 			}
+			if(is_tag()){
+				$aisis_template_loader->aisis_register('Tag-Template.phtml');
+			}
 			if(is_single()){
 				aisis_loop_single();
 			}

@@ -30,6 +30,10 @@
 /*							[[Media Max-Width 980]]						   */
 /* ======================================================================= */
 @media screen and (max-width:1280px){
+#adminPanelWrapper{
+	width:70%;
+	
+}
 .adminPanelTitle {
 	margin: -40px auto 40px 60px;
 }
@@ -44,18 +48,8 @@ h1 {
 	font-size: 45px;
 }
 .box{
-	width: 45%;
-	margin-left: 300px;
-	margin-bottom: 45px;
-	background:#D5B7CC;
-	padding:10px;
-	border-right: #846275 15px solid;
-	border-top-left-radius:8px;
-	border-bottom-left-radius: 8px;
-	clear:both;
-	-webkit-box-shadow: 0 6px 6px -6px black;
-	-moz-box-shadow: 0 6px 6px -6px black;
-	box-shadow: 0 6px 6px -6px black;
+	float:right;
+	margin-right: -70px;
 }
 .box p{
 	width: 70%;

@@ -3,8 +3,8 @@
 	 *
 	 * ==================== [-DO NOT TOUCH!!!-] =======================
 	 *
-	 *		This file is the PHP editor for Aisis in which it will
-	 *		load in the custom/custom-functions.php file and allow you
+	 *		This file is the Js editor for Aisis in which it will
+	 *		load in the custom/custom-js.js file and allow you
 	 *		to edit the file. If it is not there you will get an
 	 *		error message telling you to create one.
 	 *		
@@ -15,16 +15,15 @@
 	 */
 	 
 	 $aisis_form_element = new AisisForm();
-	 $basic_array_submit = array('value'=>'Save Your Work!', 'name'=>'defaults', 'class'=>'phpEditorButton');
+	 $basic_array_submit = array('value'=>'Save Your Work!', 'name'=>'defaults', 'class'=>'jsEditorButton');
 	 
 ?>
         <div class="box">
-        	<div class="title">PHP Editor</div>
-            <p>Looking to edit your custom-functions.php file? Make your changes bellow and hit the save button to see the changes take affect.</p>
+        	<div class="title">JavaScript Editor</div>
+            <p>Looking to add your own custom JS? add it bellow and hit save and watch your java script functions come alive!</p>
         </div>
         <div class="contents">
-            <div class="notice">This allows you to edit your <strong>custom-php.php</strong> file and add functionality to the site via new functions. 
-            <strong>Please Note:</strong> that any changes you make here CAN break your site. Procede with caution.</div>
+            <div class="notice">This allows you to edit your <strong>custom-js.js</strong> file and add functionality to the site via JavaScript.</div>
             <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-php-editor' ?>
             <form method="post" action="<?php echo $aisis_forum_url ?>">
                 <?php settings_fields( 'aisis-php-editor' ); ?>
@@ -32,3 +31,4 @@
                 <?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?>
             </form>
         </div>
+    

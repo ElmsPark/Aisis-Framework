@@ -18,31 +18,37 @@
 	 *
 	 * =================================================================
 	 */
+	 
+	 $option_index = get_option('aisis_core_theme_setting_sidebar_index');
+	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 
 	 ?>	
 
-    <div id="category">
+    <div id="<?php if($option_index['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'category'; }else{ echo 'categoryFull'; } ?>">
         <div class="clearfix">
         	<header>
             	<h1><?php single_cat_title(); ?></h1>
             </header>
                 <p>
-                <?php if(category_description() != ''){
-					echo category_description();?></p><?php
-				}else{ aisis_category_default_text(); ?>
-                </p>
-                <p><strong>Tags: </strong>
-				<?php }
-				query_posts(get_all_category_ids());
-				if(have_posts()): while (have_posts()) : the_post();
-					$all_tag_objects = get_the_tags();
-					if($all_tag_objects){
-						foreach($all_tag_objects as $tag) {
-							if($tag->count > 0) {$all_tag_ids[] = $tag -> term_id;}
+             <?php
+			 	$category_id = get_query_var('cat');
+				$category_name = get_category($category_id);
+			 	if(category_description() != ''){
+					echo category_description();
+				}else{ aisis_category_default_text();}
+				$custom_query = new WP_Query('posts_per_page=-1&category_name='.$category_name->name);
+				if ($custom_query->have_posts()) :
+					while ($custom_query->have_posts()) : $custom_query->the_post();
+						$posttags = get_the_tags();
+						if ($posttags) {
+							foreach($posttags as $tag) {
+								$all_tags[] = $tag->term_id;
+							}
 						}
-					}
-				endwhile;endif;
-				if(!empty($all_tag_ids)){
-					$tag_ids_unique = array_unique($all_tag_ids);
+					endwhile;
+				endif;
+				if(!empty($all_tags)){
+					$tag_ids_unique = array_unique($all_tags);
 					foreach($tag_ids_unique as $tag_id) {
 						$post_tag = get_term( $tag_id, 'post_tag' );
 						if($tag_id != '' || $post_tag != ''){
