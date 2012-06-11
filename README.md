@@ -29,13 +29,28 @@ You can head over to the [issues](https://github.com/AdamKyle/Aisis-Framework/is
 #Building a child theme with Aisis
 ----------------------------------
 
-Is as easy as including the Aisis functions.php in to your child themes function.php, this gives you access to every Aisis function, class and API that’s out there. You won’t have to worry about doing:
+Since the way a wordpress child theme and parent theme works, the parent theme function.php file is loaded first and since most of the functions
+are pluggables and calling a class is as easy as going
 
 ```javascript
-require_once('aisisfile');
+$some_variable = new className();
 ```
 
-Instead if that file is not a class you just call its function, if that file is a class you can just instantiate the class and call its functions from there.
+Creating child themes are easy and simplistic as all you would need in your child theme is functions.php and the style.css
+to create your changes.
+
+#Building Packages
+------------------
+
+Packages are used for making quick, simple changes to the core theme its self. The idea is here is to make a quick change in a php file
+or in a whole package (which is a folder containing php, phtml and other associated file) drop it into the packages folder in
+custom and watch it come to live when you go to the front end of the theme (assuming that was where the changes took place).
+
+The idea of packages is to make quick, easy, simple changes to the core software its self with out actually creating a child theme
+or having to touch the core files. Plus these changes dont require activation - They auto load.
+
+You can read more [here](https://github.com/AdamKyle/Aisis-Framework/wiki/Packages-in-Aisis) on packages.
+
 
 ##Contributing
 --------------
