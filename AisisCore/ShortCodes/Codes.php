@@ -25,8 +25,6 @@
 						</figure>
 				   </div>';
 		}
-		
-		add_shortcode( 'softimg', 'aisis_soft_img' );
 	}
 	
 	//Add the ability to show glossy images
@@ -38,8 +36,6 @@
 						</figure>
 				   </div>';
 		}
-		
-		add_shortcode( 'glossimg', 'aisis_gloss_img' );
 	}
 	
 	//Show basic info in a post (summary)
@@ -47,8 +43,6 @@
 		function aisis_info_post( $atts, $content = null ) {
 		   return '<div class="infoPost">' . $content . '</div>';
 		}
-		
-		add_shortcode( 'info', 'aisis_info_post' );
 	}
 	
 	//Show an update to a post
@@ -56,8 +50,6 @@
 		function aisis_update_post( $atts, $content = null ) {
 		   return '<div class="updatePost">' . $content . '</div>';
 		}
-		
-		add_shortcode( 'update', 'aisis_update_post' );
 	}
 	
 	//Syntax highlighting for css code
@@ -65,8 +57,6 @@
 		function aisis_css_code( $atts, $content = null ) {
 		   return '<pre class="styles">' . $content . '</pre>';
 		}
-		
-		add_shortcode( 'cssCode', 'aisis_css_code' );
 	}
 	
 	//syntax highlighting for JS code
@@ -74,7 +64,13 @@
 		function aisis_js_code( $atts, $content = null ) {
 		   return '<pre class="js">' . $content . '</pre>';
 		}
+	}	
+	
+	add_shortcode( 'softimg', 'aisis_soft_img' );
+	add_shortcode( 'glossimg', 'aisis_gloss_img' );
+	add_shortcode( 'info', 'aisis_info_post' );
+	add_shortcode( 'update', 'aisis_update_post' );
+	add_shortcode( 'cssCode', 'aisis_css_code' );
+	add_shortcode( 'jsCode', 'aisis_js_code' );
 		
-		add_shortcode( 'jsCode', 'aisis_js_code' );
-	}
 ?>

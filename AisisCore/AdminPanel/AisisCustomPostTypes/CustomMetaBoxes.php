@@ -117,39 +117,70 @@
 				)
 			);
 			
-			if(isset($_POST['aisis_meta_box_link_one']) && !empty($_POST['aisis_meta_box_link_one'])){
-				update_post_meta( $post_id, 'aisis_meta_box_link_one', wp_kses( $_POST['aisis_meta_box_link_one'], $aisis_save ) );
-			}elseif(isset($_POST['aisis_meta_box_link_one']) && empty($_POST['aisis_meta_box_link_one'])){
-				delete_post_meta( $post_id, 'aisis_meta_box_link_one', wp_kses( $_POST['aisis_meta_box_link_one'], $aisis_save ) );
+			$aisis_ref_link_one = 'aisis_meta_box_link_one';
+			$aisis_ref_link_one_new = (isset($_POST['aisis_meta_box_link_one']) ? $_POST['aisis_meta_box_link_one'] : '');
+			
+			if($aisis_ref_link_one_new && '' == $aisis_ref_link_one){
+				add_post_meta($post_id, $aisis_ref_link_one, $aisis_ref_link_one_new, true);
+			}elseif($aisis_ref_link_one_new && $aisis_ref_link_one_new != $aisis_ref_link_one){
+				update_post_meta($post_id, $aisis_ref_link_one, $aisis_ref_link_one_new);
+			}elseif('' == $aisis_ref_link_one && $aisis_ref_link_one_new){
+				delete_post_meta($post_id, $aisis_ref_link_one, $aisis_ref_link_one_new);
 			}
 			
-			if(isset($_POST['aisis_meta_box_link_one_desc']) && !empty($_POST['aisis_meta_box_link_one_desc'])){
-				update_post_meta( $post_id, 'aisis_meta_box_link_one_desc', wp_kses( $_POST['aisis_meta_box_link_one_desc'], $aisis_save ) );
-			}elseif(isset($_POST['aisis_meta_box_link_one_desc']) && empty($_POST['aisis_meta_box_link_one_desc'])){
-				delete_post_meta( $post_id, 'aisis_meta_box_link_one_desc', wp_kses( $_POST['aisis_meta_box_link_one_desc'], $aisis_save ) );
-			}
-			if(isset($_POST['aisis_meta_box_link_two']) && !empty($_POST['aisis_meta_box_link_two'])){
-				update_post_meta( $post_id, 'aisis_meta_box_link_two', wp_kses( $_POST['aisis_meta_box_link_two'], $aisis_save ) );
-			}elseif(isset($_POST['aisis_meta_box_link_two']) && empty($_POST['aisis_meta_box_link_two'])){
-				delete_post_meta( $post_id, 'aisis_meta_box_link_two', wp_kses( $_POST['aisis_meta_box_link_two'], $aisis_save ) );
+			$aisis_ref_link_one_desc = 'aisis_meta_box_link_one_desc';
+			$aisis_ref_link_one_desc_new = (isset($_POST['aisis_meta_box_link_one_desc']) ? $_POST['aisis_meta_box_link_one_desc'] : '');			
+			
+			if($aisis_ref_link_one_desc_new && '' == $aisis_ref_link_one_desc){
+				add_post_meta($post_id, $aisis_ref_link_one_desc, $aisis_ref_link_one_desc_new, true);
+			}elseif($aisis_ref_link_one_new && $aisis_ref_link_one_desc_new != $aisis_ref_link_one_desc){
+				update_post_meta($post_id, $aisis_ref_link_one_desc, $aisis_ref_link_one_desc_new);
+			}elseif('' == $aisis_ref_link_one_desc && $aisis_ref_link_one_desc_new){
+				delete_post_meta($post_id, $aisis_ref_link_one_desc, $aisis_ref_link_one_desc_new);
 			}
 			
-			if(isset($_POST['aisis_meta_box_link_two_desc']) && !empty($_POST['aisis_meta_box_link_two_desc'])){
-				update_post_meta( $post_id, 'aisis_meta_box_link_two_desc', wp_kses( $_POST['aisis_meta_box_link_two_desc'], $aisis_save ) );
-			}elseif(isset($_POST['aisis_meta_box_link_two_desc']) && empty($_POST['aisis_meta_box_link_two_desc'])){
-				delete_post_meta( $post_id, 'aisis_meta_box_link_two_desc', wp_kses( $_POST['aisis_meta_box_link_two_desc'], $aisis_save ) );
+			$aisis_ref_link_two = 'aisis_meta_box_link_two';
+			$aisis_ref_link_two_new = (isset($_POST['aisis_meta_box_link_two']) ? $_POST['aisis_meta_box_link_two'] : '');
+						
+			if($aisis_ref_link_two_new && '' == $aisis_ref_link_two){
+				add_post_meta($post_id, $aisis_ref_link_two, $aisis_ref_link_two_new, true);
+			}elseif($aisis_ref_link_two_new && $aisis_ref_link_two_new != $aisis_ref_link_two){
+				update_post_meta($post_id, $aisis_ref_link_two, $aisis_ref_link_two_new);
+			}elseif('' == $aisis_ref_link_two && $aisis_ref_link_two_new){
+				delete_post_meta($post_id, $aisis_ref_link_two, $aisis_ref_link_two_new);
 			}
 			
-			if(isset($_POST['aisis_meta_box_link_three']) && !empty($_POST['aisis_meta_box_link_three'])){
-				update_post_meta( $post_id, 'aisis_meta_box_link_three', wp_kses( $_POST['aisis_meta_box_link_three'], $aisis_save ) );
-			}elseif(isset($_POST['aisis_meta_box_link_three']) && empty($_POST['aisis_meta_box_link_three'])){
-				delete_post_meta( $post_id, 'aisis_meta_box_link_three', wp_kses( $_POST['aisis_meta_box_link_three'], $aisis_save ) );
+			$aisis_ref_link_two_desc = 'aisis_meta_box_link_two_desc';
+			$aisis_ref_link_two_desc_new = (isset($_POST['aisis_meta_box_link_two_desc']) ? $_POST['aisis_meta_box_link_two_desc'] : '');	
+						
+			if($aisis_ref_link_two_desc_new && '' == $aisis_ref_link_two_desc){
+				add_post_meta($post_id, $aisis_ref_link_two_desc, $aisis_ref_link_two_desc_new, true);
+			}elseif($aisis_ref_link_two_desc_new && $aisis_ref_link_two_desc_new != $aisis_ref_link_two_desc){
+				update_post_meta($post_id, $aisis_ref_link_two_desc, $aisis_ref_link_two_desc_new);
+			}elseif('' == $aisis_ref_link_two_desc && $aisis_ref_link_two_desc_new){
+				delete_post_meta($post_id, $aisis_ref_link_two_desc, $aisis_ref_link_two_desc_new);
+			}			
+			
+			$aisis_ref_link_three = 'aisis_meta_box_link_three';
+			$aisis_ref_link_three_new = (isset($_POST['aisis_meta_box_link_three']) ? $_POST['aisis_meta_box_link_three'] : '');
+						
+			if($aisis_ref_link_three_new && '' == $aisis_ref_link_three){
+				add_post_meta($post_id, $aisis_ref_link_three, $aisis_ref_link_three_new, true);
+			}elseif($aisis_ref_link_three_new && $aisis_ref_link_three_new != $aisis_ref_link_three){
+				update_post_meta($post_id, $aisis_ref_link_three, $aisis_ref_link_three_new);
+			}elseif('' == $aisis_ref_link_three && $aisis_ref_link_three_new){
+				delete_post_meta($post_id, $aisis_ref_link_three, $aisis_ref_link_three_new);
 			}
 			
-			if(isset($_POST['aisis_meta_box_link_three_desc']) && !empty($_POST['aisis_meta_box_link_three_desc'])){
-				update_post_meta( $post_id, 'aisis_meta_box_link_three_desc', wp_kses( $_POST['aisis_meta_box_link_three_desc'], $aisis_save ) );
-			}elseif(isset($_POST['aisis_meta_box_link_three_desc']) && empty($_POST['aisis_meta_box_link_three_desc'])){
-				delete_post_meta( $post_id, 'aisis_meta_box_link_three_desc', wp_kses( $_POST['aisis_meta_box_link_three_desc'], $aisis_save ) );
+			$aisis_ref_link_three_desc = 'aisis_meta_box_link_three_desc';
+			$aisis_ref_link_three_desc_new = (isset($_POST['aisis_meta_box_link_three_desc']) ? $_POST['aisis_meta_box_link_three_desc'] : '');			
+			
+			if($aisis_ref_link_three_desc_new && '' == $aisis_ref_link_three_desc){
+				add_post_meta($post_id, $aisis_ref_link_three_desc, $aisis_ref_link_three_desc_new, true);
+			}elseif($aisis_ref_link_three_new && $aisis_ref_link_three_desc_new != $aisis_ref_link_three_desc){
+				update_post_meta($post_id, $aisis_ref_link_three_desc, $aisis_ref_link_three_desc_new);
+			}elseif('' == $aisis_ref_link_three_desc && $aisis_ref_link_three_desc_new){
+				delete_post_meta($post_id, $aisis_ref_link_three_desc, $aisis_ref_link_three_desc_new);
 			}					
 		}
 	}
@@ -180,23 +211,27 @@
 					return;
 			}
 			
-			$aisis_save = array( 
-				'a' => array( 
-					'href' => array()
-				)
-			);
+			$aisis_content_link = 'aisis_content_link';
+			$aisis_content_link_new = (isset($_POST['aisis_content_link']) ? $_POST['aisis_content_link'] : '');
 			
-			if(isset($_POST['aisis_content_link']) && !empty($_POST['aisis_content_link'])){	
-				update_post_meta( $post_id, 'aisis_content_link', wp_kses( $_POST['aisis_content_link'], $aisis_save ) );
-			}elseif(isset($_POST['aisis_content_link']) && empty($_POST['aisis_content_link'])){
-				delete_post_meta( $post_id, 'aisis_content_link', wp_kses( $_POST['aisis_content_link'], $aisis_save ) );
+			if($aisis_content_link_new && '' == $aisis_content_link){
+				add_post_meta($post_id, $aisis_content_link, $aisis_content_link_new, true);
+			}elseif($aisis_content_link_new && $aisis_content_link_new != $aisis_content_link){
+				update_post_meta($post_id, $aisis_content_link, $aisis_content_link_new);
+			}elseif('' == $aisis_content_link && $aisis_content_link_new){
+				delete_post_meta($post_id, $aisis_content_link, $aisis_content_link_new);
 			}
 			
-			if(isset($_POST['aisis_content_desc']) && !empty($_POST['aisis_content_desc'])){
-				update_post_meta( $post_id, 'aisis_content_desc', wp_kses( $_POST['aisis_content_desc'], $aisis_save ) );
-			}elseif(isset($_POST['aisis_content_desc']) && empty($_POST['aisis_content_desc'])){
-				delete_post_meta( $post_id, 'aisis_content_desc', wp_kses( $_POST['aisis_content_desc'], $aisis_save ) );
-			}
+			$aisis_content_desc = 'aisis_content_desc';
+			$aisis_content_desc_new = (isset($_POST['aisis_content_desc']) ? $_POST['aisis_content_desc'] : '');
+			
+			if($aisis_content_desc_new && '' == $aisis_content_desc){
+				add_post_meta($post_id, $aisis_content_desc, $aisis_content_desc_new, true);
+			}elseif($aisis_content_link_new && $aisis_content_desc_new != $aisis_content_desc){
+				update_post_meta($post_id, $aisis_content_desc, $aisis_content_desc_new);
+			}elseif('' == $aisis_content_desc && $aisis_content_desc_new){
+				delete_post_meta($post_id, $aisis_content_desc, $aisis_content_desc_new);
+			}			
 		}
 	}
 	
@@ -226,16 +261,16 @@
 					return;
 			}
 			
-			$aisis_save = array( 
-				'a' => array( 
-					'href' => array()
-				)
-			);
+			$aisis_meta_slider_box_desc = 'aisis_slider_meta_box_desc';
 			
-			if(isset($_POST['aisis_slider_meta_box_desc']) && !empty($_POST['aisis_slider_meta_box_desc'])){
-				update_post_meta( $post_id, 'aisis_slider_meta_box_desc', $_POST['aisis_slider_meta_box_desc'], $aisis_save );
-			}elseif(isset($_POST['aisis_slider_meta_box_desc']) && empty($_POST['aisis_slider_meta_box_desc'])){
-				delete_post_meta( $post_id, 'aisis_slider_meta_box_desc', $_POST['aisis_slider_meta_box_desc'], $aisis_save );
+			$aisis_meta_slider_box_desc_new = (isset($_POST['aisis_slider_meta_box_desc']) ? $_POST['aisis_slider_meta_box_desc'] : '');
+			
+			if($aisis_meta_slider_box_desc_new && '' == $aisis_meta_slider_box_desc){
+				add_post_meta($post_id, $aisis_meta_slider_box_desc, $aisis_meta_slider_box_desc_new, true);
+			}elseif($aisis_meta_slider_box_desc_new && $aisis_meta_slider_box_desc_new != $aisis_meta_slider_box_desc){
+				update_post_meta($post_id, $aisis_meta_slider_box_desc, $aisis_meta_slider_box_desc_new);
+			}elseif('' == $aisis_meta_slider_box_desc && $aisis_meta_slider_box_desc_new){
+				delete_post_meta($post_id, $aisis_meta_slider_box_desc, $aisis_meta_slider_box_desc_new);
 			}
 		}
 	}	

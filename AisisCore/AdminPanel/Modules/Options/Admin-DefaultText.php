@@ -388,9 +388,11 @@
 	if(!function_exists('aisis_404_banner_validation')){
 		function aisis_404_banner_validation($input){
 			$options = get_option('aisis_default_404_banner_setting');
-			$options['banner_content'] = trim($input['banner_content']);
-			update_option('admin_success_message', 'true');
-			return $options;
+			if(isset($input['banner_content'])){
+				$options['banner_content'] = trim($input['banner_content']);
+				update_option('admin_success_message', 'true');
+				return $options;
+			}else{}
 
 		}
 	}
@@ -403,9 +405,11 @@
 	if(!function_exists('aisis_404_message_validation')){
 		function aisis_404_message_validation($input){
 			$options = get_option('aisis_default_404_message_setting');
-			$options['err_404_theme_message'] = trim($input['err_404_theme_message']);
-			update_option('admin_success_message', 'true');
-			return $options;
+			if(isset($input['err_404_theme_message'])){
+				$options['err_404_theme_message'] = trim($input['err_404_theme_message']);
+				update_option('admin_success_message', 'true');
+				return $options;
+			}else{}
 		}
 	}
 
@@ -417,9 +421,11 @@
 	if(!function_exists('aisis_default_author_validation')){
 		function aisis_default_author_validation($input){
 			$options = get_option('aisis_default_author_text_setting');
-			$options['default_author_text'] = trim($input['default_author_text']);
-			update_option('admin_success_message', 'true');
-			return $options;
+			if(isset($input['default_author_text'])){
+				$options['default_author_text'] = trim($input['default_author_text']);
+				update_option('admin_success_message', 'true');
+				return $options;
+			}else{}
 		}
 	}
 
@@ -445,9 +451,11 @@
 	if(!function_exists('aisis_default_tag_validation')){
 		function aisis_default_tag_validation($input){
 			$options = get_option('aisis_default_tag_text_setting');
-			$options['default_tag_text'] = trim($input['default_tag_text']);
-			update_option('admin_success_message', 'true');
-			return $options;
+			if(isset($input['default_tag_text'])){
+				$options['default_tag_text'] = trim($input['default_tag_text']);
+				update_option('admin_success_message', 'true');
+				return $options;
+			}else{}
 		}
 	}	
 
@@ -459,9 +467,11 @@
 	if(!function_exists('aisis_default_right_footer_validation')){
 		function aisis_default_right_footer_validation($input){
 			$options = get_option('aisis_default_right_footer_text_setting');
-			$options['default_right_footer_text'] = trim($input['default_right_footer_text']);
-			update_option('admin_success_message', 'true');
-			return $options;
+			if(isset($input['default_right_footer_text'])){
+				$options['default_right_footer_text'] = trim($input['default_right_footer_text']);
+				update_option('admin_success_message', 'true');
+				return $options;
+			}else{}
 		}
 	}
 
@@ -473,9 +483,11 @@
 	if(!function_exists('aisis_default_left_footer_validation')){
 		function aisis_default_left_footer_validation($input){
 			$options = get_option('aisis_default_left_footer_text_setting');
-			$options['default_left_footer_text'] = trim($input['default_left_footer_text']);
-			update_option('admin_success_message', 'true');
-			return $options;
+			if($input['default_left_footer_text']){
+				$options['default_left_footer_text'] = trim($input['default_left_footer_text']);
+				update_option('admin_success_message', 'true');
+				return $options;
+			}else{}
 		}
 	}		
 	

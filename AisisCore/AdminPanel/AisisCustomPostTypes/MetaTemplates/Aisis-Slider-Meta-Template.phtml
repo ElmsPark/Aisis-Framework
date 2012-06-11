@@ -28,10 +28,11 @@
       <div class="aisis_meta_control">
           
             <div class="notice"><strong>Note:</strong> This section allows for HTML Elements like links to be passed in. We will show this optional content in a black box at the bottom
-            of the slider for this content.</div>
+            of the slider for this content. 
+            <p>You can use things like: div id of <strong>sliderText</strong>, <strong>sliderImage</strong> and a class of <strong>sliderReadMore</strong> to align images to the left, float text to the right and give the read more button some class.</p></div>
             <br  /> 
             <p>
-                <label for="aisis_slider_meta_box_desc">Enter a Short Description</label>
+                <label for="aisis_slider_meta_box_desc">Enter your content here for the slider</label>
                 <?php
                 if(isset($values['aisis_slider_meta_box_desc']) && !empty($values['aisis_slider_meta_box_desc'])){
                     $array_of_attributes = array(
@@ -47,7 +48,26 @@
                     );				  
                 }
                 $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
-                ?>
+                ?>                
             </p>  
+            <p>
+                <label for="aisis_slider_meta_box_short_desc">Enter a short description for the "black title bar" at the bottom of the slider.</label>
+                <?php
+                if(isset($values['aisis_slider_meta_box_desc']) && !empty($values['aisis_slider_meta_box_desc'])){
+                    $array_of_attributes = array(
+                          'name' => 'aisis_slider_meta_box_short_desc',
+                          'id' => 'aisis_slider_meta_box_short_desc',
+                          'value' => $values['aisis_slider_meta_box_short_desc'][0]
+                    );
+                }else{
+                    $array_of_attributes = array(
+                          'name' => 'aisis_slider_meta_box_short_desc',
+                          'id' => 'aisis_slider_meta_box_short_desc',
+                          'value' => ''
+                    );				  
+                }
+                $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
+                ?>
+            </p>
             
       </div>

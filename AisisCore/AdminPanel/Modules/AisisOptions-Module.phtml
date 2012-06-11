@@ -224,26 +224,3 @@
    </div>
 </div>
 </form>
-<script>
-	$(function() {
-		$( "#coreTabs" ).tabs();
-		enable();
-		$('#sidebar_global').click(enable)
-	});
-	
-	function enable(){
-		if(this.checked){
-			$('input.sidebar').attr("disabled", true);
-		}else{
-			<?php
-			if($options['no_sidebar_global'] != 1){
-			?>
-			$('input.sidebar').removeAttr('disabled');
-			<?php
-			}
-			?>
-			
-		}
-	}
-	
-</script>

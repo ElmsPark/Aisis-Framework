@@ -29,10 +29,10 @@
                   ?>
                   <li>
                     <?php 
-						the_content(); 
-						if(get_post_meta($post->ID, 'aisis_slider_meta_box_desc', true)){
+						echo get_post_meta($post->ID, 'aisis_slider_meta_box_desc', true);
+						if(get_post_meta($post->ID, 'aisis_slider_meta_box_short_desc', true)){
 							echo "<p class='flex-caption'>";
-								echo get_post_meta($post->ID, 'aisis_slider_meta_box_desc', true);
+							echo get_post_meta($post->ID, 'aisis_slider_meta_box_short_desc', true);	
 							echo "</p>";
 						}
 					?>
