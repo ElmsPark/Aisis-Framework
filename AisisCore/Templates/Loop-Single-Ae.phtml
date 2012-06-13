@@ -10,7 +10,7 @@
 	 *		@package: AisisCore->Templates
 	 * =================================================================
 	 */
-	global $wp_query, $post;
+	global $wp_query, $post, $more; $more = 0;
 	
 	//Any values we may gold for this post type from the meta box.
 	$values = get_post_custom( $post->ID );
@@ -22,7 +22,6 @@
 		); query_posts($args);
 	$loop = new WP_Query( $args );	 
 	 ?>	
-	<?php global $more; $more = 0; //declare and set $more before The Loop ?>
     <div id="contentWrapper">
         <div id="fullWidthContent">
             <?php while($loop->have_posts()) : $loop->the_post() ?>

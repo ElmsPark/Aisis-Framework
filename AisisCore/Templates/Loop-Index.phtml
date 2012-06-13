@@ -14,6 +14,12 @@
 	 
 	 $options = get_option('aisis_core_theme_setting_sidebar_index');
 	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_index');
+	 
+	 if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini_index['no_slider_mini_index'] != 1 && !is_category()){
+		aisis_slider_mini();
+	 }
 	 ?>	
      <div id="contentWrapper">
          <div id="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'fullWidthContent'; }?>">

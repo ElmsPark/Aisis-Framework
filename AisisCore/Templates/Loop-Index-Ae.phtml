@@ -14,13 +14,18 @@
 	 
 	 $options = get_option('aisis_core_theme_setting_sidebar_index');
 	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_custom');
 	 
 	 $aisis_ae_posts = array(
 		 'post_type' => 'ae',
-		 ); query_posts($aisis_ae_posts); 	 
+		 ); query_posts($aisis_ae_posts); 	
+	
+	 if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini_index['no_slider_mini_custom'] != 1){
+		aisis_slider_mini();
+	 }	  
 	 ?>	
 
-	
      <div id="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'fullWidthContent'; }?>">
     	<?php while($aisis_loop_index->have_posts()) : $aisis_loop_index->the_post() ?>
         <article class="post clearfix">

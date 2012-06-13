@@ -26,7 +26,7 @@
 				?>
 				<div class="topSuccess">We have successfully updated your site! Check it out now to see your new changes!</div>
 				<script>
-					$().toastmessage('showSuccessToast', "We have successfully updated your custom-css.css file in your custom folder. Check out your site to see the new changes.");
+					$().toastmessage('showSuccessToast', "We have made some killer changes to your site! Check it out now!");
 				</script>                
 				<?php
 				update_option('admin_success_message', '');

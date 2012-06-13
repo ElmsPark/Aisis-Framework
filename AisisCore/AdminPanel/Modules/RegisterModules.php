@@ -59,10 +59,10 @@
 	  }
 	  
 	  //Load Documentation Page
-	  if(!function_exists('aisis_admin_doc_page')){
-		  function aisis_admin_doc_page(){
+	  if(!function_exists('aisis_core_update_page')){
+		  function aisis_core_update_page(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('AisisDoc-Module.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AisisCoreUpdate-Module.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 ?>

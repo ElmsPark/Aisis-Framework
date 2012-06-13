@@ -17,6 +17,7 @@
 	 
 	 //check theme version
 	 $aisis_theme_version = get_theme_data(get_bloginfo('stylesheet_url'));
+	 $aisis_check_version = new AisisUpdate();
 	 $options = get_option('aisis_core_theme_setting_sidebar_global');
 	
 	 //Check for messages
@@ -28,6 +29,7 @@
             <div class="adminPanelSubTitle">
                 Aisis Core Version <?php echo $aisis_theme_version['Version']; ?>
             </div>
+            <div class="upgradeNotice"><?php $aisis_check_version->check_for_update_with_message();?></div>
     	</div>
        
 
@@ -44,25 +46,35 @@
 		else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-php-editor'){
 			aisis_php_editor_page();
 		}
-		else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-doc'){
-			aisis_admin_doc_page();
+		else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-core-update'){
+			aisis_core_update_page();
 		}
 		?>
         <div class="adminFooter">(C) 2012 - GPL 3.0 - Adam Balan - </div>
     </div>
 	<script>
+		/**
+		 * Core functionality upon page load.
+		 */
         $(function() {
             $( "#coreTabs" ).tabs();
-            enable();
-            $('#sidebar_global').click(enable)
+            enableSideBar();
+            $('#sidebar_global').click(enableSideBar)
+            enableSliderMini();
+            $('#slider_mini_global').click(enableSliderMini)			
         });
         
-        function enable(){
+		/**
+		 * If the user has chosen to not show the
+		 * the sidebar across the site keep the
+		 * rest disabled.
+		 */
+        function enableSideBar(){
             if(this.checked){
                 $('input.sidebar').attr("disabled", true);
             }else{
                 <?php
-                if($options['no_sidebar_global'] != 1){
+                if(isset($options['no_sidebar_global']) && $options['no_sidebar_global'] != 1){
                 ?>
                 $('input.sidebar').removeAttr('disabled');
                 <?php
@@ -72,4 +84,23 @@
             }
         }
         
+		/**
+		 * If the user has chosen to not show the
+		 * the slider and mini feed across the site keep the
+		 * rest disabled.
+		 */		
+        function enableSliderMini(){
+            if(this.checked){
+                $('input.slider_mini').attr("disabled", true);
+            }else{
+                <?php
+                if(isset($options['no_slider_mini_global']) && $options['no_slider_mini_global'] != 1){
+                ?>
+                $('input.slider_mini').removeAttr('disabled');
+                <?php
+                }
+                ?>
+                
+            }
+        }		
     </script>

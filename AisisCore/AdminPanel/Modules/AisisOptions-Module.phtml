@@ -32,16 +32,17 @@
 <div id="coreTabs">
 	<ul>
     	<li><a href="#aisisSidebarOptions">Aisis Sidebar Options</a></li>
+        <li><a href="#aisisSliderMiniOptions">Aisis Slider and Mini Feed Options</a></li>
     	<li><a href="#aisisDefault">Aisis Default Text</a></li>
         <li><a href="#aisisSocial">Aisis Social Options</a></li>
     </ul>
     <div class="bottom"></div>
     <div id="aisisSidebarOptions">
         <div class="box">
-        	<div class="title">Set up Core Options</div>
-            <p>Looking to change the default core options of Aisis? This is pthe place to do it.
-            We allow you to change the core options of the theme to suite the way you want it to look.
-            This is good for people who do not want to code out there changes.</p>
+        	<div class="title">Sidebar?</div>
+            <p>We allow you to change where the side bar is displayed or even if the side bar is displayed at all. We
+            give you granual controll over which pages (if any at all) that your sidebar shows up on. The page will then
+            reszise to fit that new width.</p>
             <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $core_options_save);?></p>
         </div>
         <div class="contents">
@@ -54,35 +55,87 @@
                     <p>Checking this box will remove the side bar from the front end.</p>
                     <div class="greyBoxNotice">Selecting this will deactivate the other choices.</div>
                 </div>
-                <label>click to remove Sidebar (Global)</label>
+                <label>click to remove the  Sidebar (Global)</label>
                 <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_global'); ?><br />
             	<div class="greyBox">
                 	<div class="title">Sidebar? (Index)</div>
                     <p>Checking this box removes the side bar from the index page where all your posts are listed</p>
                 </div>
-                <label>click to remove Sidebar (Index)</label>
+                <label>click to remove the Sidebar (Index)</label>
                 <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_index'); ?><br />
             	<div class="greyBox">
                 	<div class="title">Sidebar? (Single)</div>
                     <p>Checking this box will remove the sidebar from the single post page. This is the page where you view a single post.</p>
                 </div>
-                <label>click to remove Sidebar (Single)</label>
+                <label>click to remove the Sidebar (Single)</label>
                 <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_single'); ?><br />
             	<div class="greyBox">
                 	<div class="title">Sidebar? (Page)</div>
                     <p>Checking this will remove the sidebar from all pages</p>
                 </div>
-                <label>click to remove Sidebar (Page)</label>
+                <label>click to remove the Sidebar (Page)</label>
                 <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_page'); ?><br />                 
             	<div class="greyBox">
                 	<div class="title">Sidebar? (Custom Index)</div>
                     <p>Checking this will remove the side bar from Articles and Essays index page which displays all there posts.</p>
+                    <div class="greyBoxNotice">By default we do not show the sidebar on a single Articles and Essays post.</div>
                 </div>
-                <label>click to remove Sidebar (Custom Index)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_custom'); ?><br /> 
-                                                                              
+                <label>click to remove the Sidebar (Custom Index)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_custom'); ?><br />                                                             
             </div>
         </div>
+    </div>
+    <div id="aisisSliderMiniOptions">
+        <div class="box">
+            <div class="title">Slider and Mini Feed?</div>
+            <p>We allow you to choose with pages, if any, the slider and the mini feed are displayed on. Much like the Sidebar Options we
+            give you fine controll over where you want to displaye the slider and mini feeds.</p>
+            <p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?></p>
+        </div>
+		<div class="contents">
+        	<div class="notice">
+            	Please note that the following will change the display for <strong>both</strong> the slider <strong>and</strong> the
+                mini feeds.
+            </div>
+            <div class="optionsSection">
+            	<div class="greyBox">
+                	<div class="title">Slider and Mini Feed? (Global)</div>
+                    <p>This will remove the slider and the mini feed from all the pages. You will not see it across the site.</p>
+                    <div class="greyBoxNotice">Selecting this will deactivate the other choices.</div>
+                </div>
+                <label>click to remove the Slider and Mini Feed (Global)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_global'); ?><br />
+            	<div class="greyBox">
+                	<div class="title">Slider and Mini Feed? (Index)</div>
+                    <p>This will allow the slider and the mini feed to be disabeled from the index page. This is the page where all your posts
+                    are listed.</p>
+                </div>
+                <label>click to remove the Slider and Mini Feed (Index)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_index'); ?><br />
+            	<div class="greyBox">
+                	<div class="title">Slider and Mini Feed? (Single)</div>
+                    <p>This will remove the slider and the mini feed from all single posts, that is when you are reading a post you will not see the 
+                    slider or the mini feed.</p>
+                </div>
+                <label>click to remove the Slider and Mini Feed (Single)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_single'); ?><br />
+            	<div class="greyBox">
+                	<div class="title">Slider and Mini Feed? (Page)</div>
+                    <p>This will remove the slider and the mini feed from any and all pages in your theme.</p>
+                </div>
+                <label>click to remove the Slider and Mini Feed (Page)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_page'); ?><br />                 
+            	<div class="greyBox">
+                	<div class="title">Slider and Mini Feed?(Custom Index)</div>
+                    <p>This will remove the slider and the mini feed from the Articles and Essays list of posts.
+                    </p>
+                    <div class="greyBoxNotice">By default we do not show the slider and mini feed on a single Articles and Essays post.</div>
+                </div>
+                <label>click to remove the Slider and Mini Feed (Custom Index)</label>
+                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_custom'); ?><br /> 
+                                                                              
+            </div>
+        </div>        
     </div>
     <div id="aisisDefault">
         <div class="box">

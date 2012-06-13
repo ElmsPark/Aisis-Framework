@@ -47,13 +47,7 @@
 			'aisis_content_description',
 			'aisis-core-options'
 		);
-		
-		add_settings_section(
-			'aisis_default_tag_text_section',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);		
+				
 		
 		add_settings_section(
 			'aisis_default_right_footer_text_section',
@@ -100,14 +94,7 @@
 			'aisis-core-options',
 			'aisis_default_category_text_section'
 		);
-		
-		add_settings_field(
-			'aisis_defautl_tag_text_setting',
-			'',
-			'aisis_default_tag_text',
-			'aisis-core-options',
-			'aisis_default_category_tag_section'
-		);		
+			
 		
 		add_settings_field(
 			'aisis_default_right_footer_text_setting',
@@ -128,8 +115,7 @@
 		register_setting('aisis-core-options', 'aisis_default_404_banner_setting', 'aisis_404_banner_validation');
 		register_setting('aisis-core-options', 'aisis_default_404_message_setting', 'aisis_404_message_validation');
 		register_setting('aisis-core-options', 'aisis_default_author_text_setting', 'aisis_default_author_validation');
-		register_setting('aisis-core-options', 'aisis_default_category_text_setting', 'aisis_default_category_validation');
-	    register_setting('aisis-core-options', 'aisis_default_tag_text_setting', 'aisis_default_tag_validation');		
+		register_setting('aisis-core-options', 'aisis_default_category_text_setting', 'aisis_default_category_validation');	
 		register_setting('aisis-core-options', 'aisis_default_right_footer_text_setting', 'aisis_default_right_footer_validation');
 		register_setting('aisis-core-options', 'aisis_default_left_footer_text_setting', 'aisis_default_left_footer_validation');	
 	}
@@ -274,41 +260,7 @@
 			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_cat_attributes);
 		}
 	}
-	
-	/**
-	 * We set the contents of the text area.
-	 * if the option is set then we save display it,
-	 * else we display the default hook.
-	 *
-	 * it should be noted that when you click 
-	 * save you are updating the default hook.
-	 *
-	 */
-	if(!function_exists('aisis_default_tag_text')){
-		function aisis_default_tag_text(){
-			$options = get_option('aisis_default_tag_text_setting');
-			$aisis_create_form_element = new AisisForm();
-			if(!isset($options['default_tag_text']) && empty($options['default_tag_text'])){
-				$aisis_cat_attributes = array(
-					'id'=>'default_tag_text',
-					'name'=>'aisis_default_tag_text_setting[default_tag_text]',
-					'value'=>'',
-					'rows'=>4,
-					'cols'=>60
-					
-				);
-			}else{
-				$aisis_cat_attributes = array(
-					'id'=>'default_tag_text',
-					'name'=>'aisis_default_tag_text_setting[default_tag_text]',
-					'value'=>$options['default_tag_text'],
-					'rows'=>4,
-					'cols'=>60
-				);
-			}
-			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_cat_attributes);
-		}
-	}	
+		
 
 	/**
 	 * We set the contents of the text area.
@@ -440,22 +392,6 @@
 			$options['default_cat_text'] = trim($input['default_cat_text']);
 			update_option('admin_success_message', 'true');
 			return $options;
-		}
-	}
-	
-	/**
-	 * We validate the tag and from there
-	 * we store the information in a options table
-	 * to be dsiplayed on the front end.
-	 */
-	if(!function_exists('aisis_default_tag_validation')){
-		function aisis_default_tag_validation($input){
-			$options = get_option('aisis_default_tag_text_setting');
-			if(isset($input['default_tag_text'])){
-				$options['default_tag_text'] = trim($input['default_tag_text']);
-				update_option('admin_success_message', 'true');
-				return $options;
-			}else{}
 		}
 	}	
 

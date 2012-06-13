@@ -40,10 +40,10 @@
 	    function aisis_alter_admin_head_css(){
 		    echo '
 		    <style>
-		   		.move{float:right; margin-right: 1390px;}
+		   		.move{margin-right: 1390px;}
 				
 				@media screen and (max-width:1280px){
-					.move{float:right; margin-right: 683px;}
+					.move{margin-right: 683px;}
 				}
 		    </style>
 		    ';

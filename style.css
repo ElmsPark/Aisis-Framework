@@ -153,7 +153,7 @@ input[type="search"] {
 	border-radius : 5px;
 }
 .objectWrapper{
-	margin: 0 0 30px;
+	margin: 0 0 30px 0;
 }
 .camera_wrap{
 	margin-top: 25px;
@@ -284,21 +284,14 @@ input[type="search"] {
 	height: 15px;
 	padding-bottom: 15px;
 	text-align:center;
-
 	border-color:rgb(51,51,51);
 	border-width:1px;
-	/* Firefox v1.0+ */
 	-moz-border-radius:11px;
-	/* Safari v3.0+ and by Chrome v0.2+ */
 	-webkit-border-radius:11px;
-	/* Firefox v4.0+ , Safari v5.0+ , Chrome v4.0+ , Opera v10.5+  and by IE v9.0+ */
 	border-radius:11px;
 	border-style:solid;
-	/* Firefox v3.5+ */
 	-moz-box-shadow:inset 0px 0px 2px rgba(0,0,0,0.45);
-	/* Safari v3.0+ and by Chrome v0.2+ */
 	-webkit-box-shadow:inset 0px 0px 2px rgba(0,0,0,0.45);
-	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
 	box-shadow:inset 0px 0px 2px rgba(0,0,0,0.45);
 		
 }
@@ -346,21 +339,13 @@ input[type="search"] {
 	height:27px;
 	border-color:rgb(136,136,136);
 	border-width:1px;
-	/* Firefox v1.0+ */
 	-moz-border-radius:11px;
-	/* Safari v3.0+ and by Chrome v0.2+ */
 	-webkit-border-radius:11px;
-	/* Firefox v4.0+ , Safari v5.0+ , Chrome v4.0+ , Opera v10.5+  and by IE v9.0+ */
 	border-radius:11px;
 	border-style:solid;
-	/* Firefox v3.5+ */
 	-moz-box-shadow:0px 3px 4px rgba(0,0,0,0.35);
-	/* Safari v3.0+ and by Chrome v0.2+ */
 	-webkit-box-shadow:0px 3px 4px rgba(0,0,0,0.35);
-	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
 	box-shadow:0px 3px 4px rgba(0,0,0,0.35);
-	-ms-filter:"progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=3,Color=#59000000,Positive=true)";
-	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=3,Color=#59000000,Positive=true);
 	text-align:center;
 	margin-bottom: 5px;
 }
@@ -742,8 +727,9 @@ input[type="search"] {
 	background: linear-gradient(top, rgba(255,255,255,0.6) 0%, rgba(255,255,255,.15) 100%);
 }
 #commentsbox {
-	margin : 0 0 0 0;
-	width : 670px;
+	margin: 0 0 0 0;
+	width: 670px;
+	float: left; 
 }
 #commentsboxFull {
 	margin : 0 0 0 0;

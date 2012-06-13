@@ -15,6 +15,14 @@
 	 	global $more, $post; $more = 0; //declare and set $more before The Loop
 	 	$options = get_option('aisis_core_theme_setting_sidebar_single');
 		$option_global = get_option('aisis_core_theme_setting_sidebar_global');
+		
+		$options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+		$options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_single');
+		
+		if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_single'] != 1){
+			aisis_slider_mini();
+		}
+			
 	 ?>	
     <div id="contentWrapper">
         <div id="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'content'; }else{ echo 'fullWidthContent'; } ?>">
@@ -54,5 +62,6 @@
 	if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){
 		get_sidebar();
 	}
+	 	
 	?>
            

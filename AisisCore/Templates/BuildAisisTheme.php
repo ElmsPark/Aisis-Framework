@@ -15,10 +15,10 @@
 	   $aisis_template_loader = new AisisCoreRegister();
 	  
 	  //load header slider
-	  if(!function_exists('aisis_header_slider')){
-		  function aisis_header_slider(){
+	  if(!function_exists('aisis_slider_mini')){
+		  function aisis_slider_mini(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Header-Slider-Template.phtml');
+			  $aisis_template_loader->aisis_register('SliderMini-Template.phtml');
 		  }
 	  }
 	  
@@ -38,19 +38,26 @@
 			if (is_author()){
 				aisis_author_template();
 			}
-			if (is_category()){
-				$aisis_template_loader->aisis_register('Category-Template.phtml');
+			elseif (is_category()){
+				$options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+			    $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_index');
+			   
+			    if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini_index['no_slider_mini_index'] != 1){
+				   aisis_slider_mini();
+			    }
+				
+				$aisis_template_loader->aisis_register('Category-Template.phtml');								
+				$aisis_template_loader->aisis_register('Loop-Index.phtml');
 			}
-			if(is_tag()){
-				$aisis_template_loader->aisis_register('Tag-Template.phtml');
-			}
-			if(is_single()){
+			elseif(is_single()){
 				aisis_loop_single();
 			}
-			if(is_post_type_archive('ae')){
-				aisis_ae_index_loop_custom_post_type();
+			elseif(is_post_type_archive('ae')){
+				aisis_ae_index_loop_custom_post_type();	
 			}
-			$aisis_template_loader->aisis_register('Loop-Index.phtml');
+			else{
+				$aisis_template_loader->aisis_register('Loop-Index.phtml');
+			}
 		  }else{
 			aisis_404();
 		  }

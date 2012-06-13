@@ -67,9 +67,5 @@
 		} ?>
       </nav>    
 	  <?php get_search_form();?>
-	</header>
-    
-    <?php aisis_header_slider(); ?>
-	
-   
+	</header>  
 	<!-- /#header -->
