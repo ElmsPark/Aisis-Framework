@@ -1,0 +1,62 @@
+<?php
+
+	/**
+	 *
+	 * ==================== [-DO NOT TOUCH!!!-] =======================
+	 *
+	 *		This file is used to display the update page and all the 
+	 *		associated functions that go with it.
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->Modules
+	 * =================================================================
+	 */
+	 
+	$aisis_update = new AisisUpdate();
+	$aisis_element_builder = new AisisForm();
+	
+?>
+    <div class="box">
+        <div class="title">Core Updator</div>
+        <p>You are on this page because you are looking to update the theme to the latest and greatest! Well Look no further we make this whole process very easy for you!</p>
+    </div>
+	<div class="contents">
+        	<div class="notice">
+            	The following will change some of the core features of Aisis. This includes: look, feel and functionality.
+            </div>
+            <div class="optionsSection">
+            	<div class="greyBox">
+                	<?php if($aisis_update->check_for_udate_bool()){ ?>
+                	<div class="title">New Aisis-ness!</div>
+                    <p>You are in for a real treat! There seems to be an update for Aisis! Lets update together
+                    and find out what kinds of epic sauce lies in wait!</p>
+                    <div class="greyBoxNotice">Did you remember to back up your custom folder? Please do so before hitting the magic button bellow!</div>
+                    <?php }else{?>
+					<div class="title">Your Details</div>
+                    <p>Bellow we have your current version and any other details you might want to know.</p>                   
+                    <?php }?>
+                </div>
+        	<?php 
+			if(isset($_POST['upgrade'])){
+				$aisis_update->get_latest_version_zip();
+			}
+			if($aisis_update->check_for_udate_bool()){?>
+                
+                <form method='post' action=<?php admin_url('admin.php?page=aisis-core-update'); ?>>
+                <?php
+					if(!$aisis_update->credential_check){
+						$aisis_update_button = array(
+							'value' => 'Upgrade Now!',
+							'name' => 'upgrade',
+							'class' => 'bigUpgrade'
+						);
+						$aisis_element_builder->creat_aisis_form_element('input', 'submit', $aisis_update_button);
+					}
+                ?>
+                </form>
+            <?php }else{
+				echo "You are currently running: " . $aisis_update->get_current_theme_version() . "Version of the software!";
+			}?>                                                          
+            </div>
+        </div>

@@ -1,0 +1,666 @@
+/* ======================================================================= */
+/*							[[Core Media Styles]]						   */
+/* ======================================================================= */
+/*						The following are a series of fixes                */
+/*						to various media styles for a responsive           */
+/*						design across multiple sites.				       */
+/*																		   */
+/*																		   */
+/* ======================================================================= */
+/*																		   */
+/*						DO NOT MANIPULATE OR TOUCH THIS FILE               */
+/*						Make a media query file with your custom.css	   */
+/*						file and over ride the associated styles in the    */
+/*						proper screen:                                     */
+/*																		   */
+/*						@media screen and (max-width: 980px{}			   */
+/*																		   */
+/*						then over ride the associated styles (already in   */
+/*						them or add more) 								   */
+/*																		   */
+/* ======================================================================= */
+/*																		   */
+/*						Supported Media Sizes:							   */
+/*																		   */						
+/*						980, 780, 650, 560, 480, 320					   */
+/*																		   */
+/*																		   */
+/*																		   */
+/* ======================================================================= */
+/*							[[Media Max-Width 980]]						   */
+/* ======================================================================= */
+@media screen and (max-width:980px) {
+	.socialMediaLink {
+		margin-right : 5px;
+		float : right;
+		margin-top : 100px;
+	}
+	.flex-direction-nav li a{
+		margin: 10px 15px 0 !important;
+		top: 107% !important;
+	}
+	#pagewrap {
+		width : 95%;
+	}
+	#category {
+		width : 60%;
+		padding : 3% 4%;
+	}
+	#categoryFull {
+		width: 159%;
+		padding: 3% 4%;
+	}	
+	#contentWrapper {
+		width : 60%;
+	}
+	#content {
+		width : 93%;
+		padding : 3% 4%;
+	}
+	#fullWidthContent {
+		width : 159%;
+		padding : 3% 4%;
+	}
+	#sidebar {
+		width : 30%;
+	}
+	.block {
+		width : 100%;
+		padding : 0;
+	}
+	.block .footerWidget {
+		padding : 15px;
+	}
+	#sidebar .widget {
+		padding : 8% 7%;
+		margin-bottom : 10px;
+	}
+	.video embed, .video object, .video iframe {
+		width : 100%;
+		height : auto;
+		min-height : 300px;
+	}
+	.headlineLine {
+		margin-left : -30px;
+		width : 112.7%;
+	}
+	.headlineLineFull {
+		margin-left : -30px;
+		width : 105%;
+	}
+	.bottomLine {
+		margin-left : -30px;
+		width : 112.7%;
+	}
+	.bottomLineFull {
+		margin-left : -30px;
+		width : 105%;
+	}	
+	.post-title {
+		margin-left : -30px;
+	}
+	.post-author {
+		width : 97.5%;
+		background : #d2e0e8;
+		margin-left : -24px;
+	}
+	.post-author-full {
+		width : 102.5%;
+		background : #d2e0e8;
+		margin-left : -24px;
+	}	
+	.post .infoPost {
+		margin-left : -25px;
+	}
+	.post .updatePost {
+		margin-left : -25px;
+	}
+	#commentsboxFull{
+		width: 165%;
+	}
+
+}
+@media screen and (max-width:960px){
+	.socialMediaLink {
+		margin-right : 5px;
+		float : right;
+		margin-top : 85px;
+	}	
+	.post-title {
+		margin-left : -24px;
+	}	
+	.headlineLine {
+		margin-left : -24px;
+		width : 108.7%;
+	}
+	.headlineLineFull {
+		margin-left : -24px;
+		width : 105%;
+	}
+	.bottomLine {
+		margin-left : -24px;
+		width : 108.7%;
+	}
+	.bottomLineFull {
+		margin-left : -24px;
+		width : 105%;
+	}	
+	.post-author {
+		width : 97%;
+		background : #d2e0e8;
+		margin-left : -24px;
+	}
+	.post-author-full {
+		width : 102.5%;
+		background : #d2e0e8;
+		margin-left : -24px;
+	}		
+}
+@media screen and (max-width:768px) {
+	.socialMediaLink {
+		margin-right : 5px;
+		float : right;
+		margin-top : 80px;
+	}
+	
+	.socialMediaLink img{
+		width: 32px;
+		height: 32px;
+	}
+	.objectWrapper{
+		margin: 0 0 80px;
+	}	
+	.post-title {
+		margin-left : -18px;
+	}
+	.headlineLine {
+		width: 107.7%;
+		margin-left: -18px
+	}
+	.headlineLineFull {
+		width : 105%;
+		margin-left: -18px
+	}
+	.bottomLine {
+		width : 108%;
+		margin-left: -18px;
+	}
+	.bottomLineFull {
+		width : 105%;
+		margin-left: -18px;
+	}
+	.post .infoPost {
+		margin-left : -18px;
+	}
+	.post .updatePost {
+		margin-left : -18px;
+	}
+	.post-author {
+		width : 93.8%;
+		background : #d2e0e8;
+		margin-left : -18px;
+	}	
+	.post-author-full {
+		width : 101.8%;
+		background : #d2e0e8;
+		margin-left : -18px;
+	}	
+	.formLayout input {
+		margin : 0 auto 0 auto;
+		width : 90%;
+	}
+	.formLayout input[type="submit"] {
+		margin : 10px auto 0 auto;
+		width : 75%;
+	}
+	.flex-control-nav li a{
+		margin-top: 20px;
+	}
+
+}
+@media screen and (max-width:650px) {
+	.socialMediaLink {
+		margin-right : 5px;
+		float : right;
+		margin-top : -35px;
+	}
+	.socialMediaLink img {
+		width : 32px;
+		height : 32px;
+	}
+	#header {
+		height : auto;
+	}
+	.headlineLine {
+		width: 108.4%;
+		margin-left: -26px
+	}
+	.headlineLineFull {
+		width: 108.4%;
+		margin-left: -26px
+	}
+	.bottomLine {
+		width: 108.4%;
+		margin-left: -27px
+	}
+	.bottomLineFull {
+		width: 108.4%;
+		margin-left: -27px
+	}	
+	#searchform {
+		position : absolute;
+		top : 100px;
+		right : 10px;
+		z-index : 100;
+		height : 40px;
+	}
+	#searchform #s {
+		width : 70px;
+	}
+	#searchform #s:focus {
+		width : 150px;
+	}
+	#nav-bar {
+		position : static;
+	}
+	#site-logo {
+		margin : 15px 100px 5px 0;
+		position : static;
+	}
+	#site-description {
+		margin : 0 0 15px;
+		position : static;
+	}
+	.objectWrapper{
+		margin: 0 0 80px;
+	}	
+	#miniFeedWrapper{
+		width: 650px;
+		float: none !important;
+		
+	}
+	#category {
+		width : auto;
+		float : none;
+		margin : 20px 0;
+	}
+	#contentWrapper {
+		width : auto;
+	}
+	#content {
+		width : auto;
+		margin : 20px 0;
+	}
+	#categoryFull{
+		width : auto;
+		margin: 20px 0;		
+	}
+	#fullWidthContent {
+		width : auto;
+		float: none;
+		margin: 20px 0;
+	}
+	#commentsboxFull{
+		width : auto;
+		float: none;
+		margin: 20px 0;		
+	}
+	#sidebar {
+		width: 40%;
+		margin: 0 0 0 175px;
+		float: left;
+	}
+	#miniFeedWrapper{
+		width: 650px;
+		padding:20px;
+		margin-top: 20px;
+		margin-bottom: 60% !important;
+		margin-left: -10px;
+	}	
+	#sidebar .widget {
+		padding : 3% 12%;
+		margin : 0 0 10px;
+	}
+	.formLayout input {
+		margin : 0 auto 0 auto;
+		width : 80%;
+	}
+	.formLayout input[type="submit"] {
+		margin : 10px auto 0 auto;
+		width : 45%;
+	}
+	.video embed, .video object, .video iframe {
+		min-height : 250px;
+	}
+	.post-title {
+		margin-left : -26px;
+	}
+	.post-author {
+		width : 98%;
+		background : #d2e0e8;
+		margin-left : -26px;
+	}
+	.post-author-full {
+		width : 97.5%;
+		background : #d2e0e8;
+		margin-left : -25px;
+	}	
+	.post .infoPost {
+		margin-left : -26px;
+	}
+	.post .updatePost {
+		margin-left : -26px;
+	}
+	.nextPost {
+		float : right;
+		margin-right : 10px;
+		margin-top : -30px;
+	}
+	.prevPost {
+		float : left;
+		margin-left : 10px;
+		margin-top : -30px;
+	}
+	
+
+}
+@media screen and (max-width:560px) {
+	#searchform {
+		position : absolute;
+		top : 10px;
+		right : 10px;
+		z-index : 100;
+		height : 40px;
+	}
+	#miniFeedWrapper{
+		width: 560px;
+		padding:20px;
+		margin-top: 20px;
+		margin-bottom: 83% !important;
+		margin-left: -10px;
+	}	
+	.objectWrapper{
+		margin: 0 0 80px;
+	}
+	#nav-bar {
+		height : auto;
+		position : static;
+	}
+	#main-nav li {
+		height : auto;
+	}
+	#main-nav a {
+		font-size : 80%;
+		padding : 8px;
+	}
+	.post-title {
+		margin-left : -23px;
+	}
+	.headlineLine {
+		width: 108.4%;
+		margin-left: -22px
+	}
+	.headlineLineFull {
+		width: 108.4%;
+		margin-left: -22px
+	}
+	.bottomLine {
+		width: 108.4%;
+		margin-left: -23px
+	}
+	.bottomLineFull {
+		width: 108.4%;
+		margin-left: -23px
+	}	
+	.formLayout {
+		clear : both;
+		height : 150px;
+	}
+	.formLayout label {
+		float : left;
+		margin-top : 25px;
+		margin-left : 20px;
+	}
+	.formLayout input {
+		float : right;
+		margin : -40px auto 0 auto;
+		width : 60%;
+	}
+	.formLayout input[type="submit"] {
+		margin : 10px auto 0 auto;
+		width : 45%;
+	}
+	
+	.post .infoPost {
+		margin-left : -23px;
+	}
+	.post .updatePost {
+		margin-left : -23px;
+	}
+	.post-author {
+		width : 96.5%;
+		background : #d2e0e8;
+		margin-left : -23px;
+	}	
+	.post-author-full {
+		width: 104%;
+		background: #D2E0E8;
+		margin-left: -23px;
+	}	
+	#commentsboxFull{
+		width: 100%;
+	}
+}
+@media screen and (max-width:480px) {
+	#sidebar{
+		display:none;
+	}
+	#site-logo {
+		margin : -10px 100px 5px 0;
+		position : static;
+	}
+	#searchform {
+		top : 10px;
+		right : 0;
+		z-index : 100;
+		height : 40px;
+	}
+	#nav-bar {
+		position : static;
+	}
+	.socialMediaLink {
+		margin-right : 5px;
+		float : right;
+		margin-top : -40px;
+	}
+	.socialMediaLink img{
+		width: 38px;
+		height: 38px;
+	}
+	#main-nav a {
+		font-size : 90%;
+		padding : 10px 8px;
+	}
+	.flex-direction-nav li a{
+		display:none !important; 
+	}		
+	#miniFeedWrapper{
+		width: 480px;
+		padding:20px;
+		margin-top: 20px;
+		margin-bottom: 83% !important;
+		margin-left: -10px;
+	}	
+	.headlineLine {
+		margin-left : -18px;
+		width : 108%;
+	}
+	.headlineLineFull {
+		margin-left : -16px;
+		width : 108%;
+	}
+	.bottomLine {
+		margin-left : -16px;
+		width : 108%;
+	}
+	.bottomLineFull {
+		margin-left : -16px;
+		width : 108%;
+	}	
+	.post-title {
+		margin-left : -19px;
+	}
+	.post .infoPost {
+		margin-left : -19px;
+	}
+	.post .updatePost {
+		margin-left : -19px;
+	}
+	.post-author {
+		width : 95%;
+		background : #d2e0e8;
+		margin-left : -20px;
+	}	
+	.post-author-full {
+		width : 103.5%;
+		background : #d2e0e8;
+		margin-left : -20px;
+	}		
+	.formLayout {
+		float : none;
+	}
+	.formLayout input {
+		float : none;
+		margin : 0 auto 0 auto;
+		width : 70%;
+	}
+	.formLayout label {
+		margin : 10px auto 0 auto;
+	}
+	.formLayout input[type="submit"] {
+		margin : 10px auto 0 auto;
+		width : 50%;
+	}
+	.formLayout p {
+		margin : 20px 0 0 10px;
+		font-size : 25px;
+	}
+	.block {
+		display : none;
+	}
+	.objectWrapper{
+		margin: 0 0 80px;
+	}
+	.afterBlock .rightText{
+		margin-right: 0px;
+	}
+	.afterBlock .leftText{
+		margin-left: 0px;
+	}	
+}
+@media only screen and (max-width:320px) {
+	#content {
+		width: 94%;
+	}
+	#fullWidthContent {
+		width: 298px;
+	}
+	.post-title{
+		word-break:break-all;
+	}
+	#sidebar{
+		display:none;
+	}	
+	#site-description {
+		display : none;
+	}
+	#searchform {
+		position : absolute;
+		right : 0;
+		z-index : 100;
+		height : 40px;
+	}
+	.socialMediaLink {
+		margin-right : 5px;
+		float : right;
+		margin-top : -10px;
+	}
+	.socialMediaLink img {
+		width : 40px;
+		height : 40px;
+	}
+	#nav-bar {
+		margin-top : 40px;
+		position : static;
+	}
+	.flex-direction-nav li a{
+		display:none !important; 
+	}	
+	#miniFeedWrapper{
+		display: none;
+	}	
+	.headlineLine {
+		margin-left : -13px;
+		width : 108.7%;
+	}
+	.headlineLineFull {
+		margin-left : -13px;
+		width : 108.7%;
+	}	
+	.bottomLine {
+		margin-left : -13px;
+		width : 108.7%;
+	}
+	.bottomLineFull {
+		margin-left : -13px;
+		width : 108%;
+	}	
+	.post-title {
+		margin-left : -27px;
+	}
+	.formLayout {
+		clear : both;
+		height : 170px;
+	}
+	.formLayout input {
+		float : none;
+		margin : 0 auto 0 auto;
+		width : 70%;
+	}
+	.formLayout label {
+		margin : 10px auto 0 auto;
+	}
+	.formLayout input[type="submit"] {
+		margin : 10px auto 0 auto;
+		width : 50%;
+	}
+	.formLayout p {
+		margin : 20px 0 0 10px;
+		font-size : 25px;
+	}
+	.post .infoPost {
+		margin-left : -13px;
+	}
+	.post .updatePost {
+		margin-left : -13px;
+	}
+	.post-author {
+		width : 87%;
+		background : #d2e0e8;
+		margin-left : -13px;
+	}	
+	.post-author-full {
+		width : 100%;
+		background : #d2e0e8;
+		margin-left : -13px;
+	}
+	.block {
+		display : none;
+	}
+	.objectWrapper{
+		margin: 0 0 80px;
+	}
+	#commentsbox{
+		width:97%;
+	}
+}
