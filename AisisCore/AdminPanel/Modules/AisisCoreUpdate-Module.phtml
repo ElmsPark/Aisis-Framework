@@ -31,7 +31,8 @@
                 	<div class="title">New Aisis-ness!</div>
                     <p>You are in for a real treat! There seems to be an update for Aisis! Lets update together
                     and find out what kinds of epic sauce lies in wait!</p>
-                    <div class="greyBoxNotice">Did you remember to back up your custom folder? Please do so before hitting the magic button bellow!</div>
+                    <div class="greyBoxNotice">Did you remember to back up your custom folder? Please do so before hitting the magic button bellow!
+                    Also please note: <strong>You may have to hit the update button again if your page refreshes and nothing happens</strong></div>
                     <?php }else{?>
 					<div class="title">Your Details</div>
                     <p>Bellow we have your current version and any other details you might want to know.</p>                   
@@ -56,7 +57,8 @@
                 ?>
                 </form>
             <?php }else{
-				echo "You are currently running: " . $aisis_update->get_current_theme_version() . "Version of the software!";
+				echo "<div class='updateSuccess'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 
+						the software! Check your site to see the latest changes! or check out <a href='#'>The Latest Changes</a>!</div>";
 			}?>                                                          
             </div>
         </div>

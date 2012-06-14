@@ -17,7 +17,7 @@
 	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
 	 $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_index');
 	 
-	 if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini_index['no_slider_mini_index'] != 1 && !is_category()){
+	 if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_index'] != 1 && !is_category()){
 		aisis_slider_mini();
 	 }
 	 ?>	
