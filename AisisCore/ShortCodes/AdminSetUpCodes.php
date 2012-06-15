@@ -34,23 +34,6 @@
 	if($_SERVER['PHP_SELF'] == '/wp-admin/post-new.php' || $_SERVER['PHP_SELF'] == '/wp-admin/post.php'){
     	add_action('media_buttons', 'aisis_media_buttons_link', 999);
 	}
-   
-   //position the button
-   if(!function_exists('aisis_alter_admin_head_css')){
-	    function aisis_alter_admin_head_css(){
-		    echo '
-		    <style>
-		   		.move{margin-right: 1390px;}
-				
-				@media screen and (max-width:1280px){
-					.move{margin-right: 683px;}
-				}
-		    </style>
-		    ';
-	    }
-    }
-   
-    add_action('admin_head', 'aisis_alter_admin_head_css');
 	
 	if(!empty($_GET['codes']) && $_GET['codes'] == 'aisis-codes'){
 		add_action( 'parse_request', 'parse_wp_request' );

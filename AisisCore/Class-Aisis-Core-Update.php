@@ -60,7 +60,7 @@
 
 					echo "<div class='upgradeNotice'><strong>You have an update!</strong> You are currently version <strong>" . $this->get_current_theme_version() . 
 						"</strong> and the version we have on the server is <strong>" . $aisis_version . "</strong>. We encourgage you to upgrade to the latest version. 
-							For further information please see <a href='#'>Aisis Upgrade Notes</a>
+							For further information please see <a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650' class='thickbox' title='Aisis Version Info'>Aisis Upgrade Notes</a>
 							 to see whats changed. <a href='".admin_url('admin.php?page=aisis-core-update')."'>Update!</a></div>";
 				}
 			}

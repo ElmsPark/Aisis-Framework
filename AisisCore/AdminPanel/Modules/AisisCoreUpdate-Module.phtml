@@ -43,7 +43,6 @@
 				$aisis_update->get_latest_version_zip();
 			}
 			if($aisis_update->check_for_udate_bool()){?>
-                
                 <form method='post' action=<?php admin_url('admin.php?page=aisis-core-update'); ?>>
                 <?php
 					if(!$aisis_update->credential_check){
@@ -58,7 +57,8 @@
                 </form>
             <?php }else{
 				echo "<div class='updateSuccess'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 
-						the software! Check your site to see the latest changes! or check out <a href='#'>The Latest Changes</a>!</div>";
+						the software! Check your site to see the latest changes! or check out 
+				<a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650' class='thickbox' title='Aisis Version Info'>Aisis Version Notes</a>!</div>";
 			}?>                                                          
             </div>
         </div>
