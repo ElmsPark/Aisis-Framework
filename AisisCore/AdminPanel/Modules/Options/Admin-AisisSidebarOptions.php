@@ -23,42 +23,7 @@
 	 *
 	 * @see AisisCore->AdminPanel->Modules->AisisOptions
 	 */
-	function set_up_default_content_display_section(){
-		add_settings_section(
-			'aisis_core_theme_section_sidebar_global',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);
-		
-		add_settings_section(
-			'aisis_core_theme_section_sidebar_index',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);		
-		
-		add_settings_section(
-			'aisis_core_theme_section_sidebar_single',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);
-		
-		add_settings_section(
-			'aisis_core_theme_section_sidebar_custom',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);	
-		
-		add_settings_section(
-			'aisis_core_theme_section_sidebar_page',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);				
-		
+	function set_up_default_content_display_section(){		
 		add_settings_field(
 			'aisis_core_theme_setting_sidebar_global',
 			'',

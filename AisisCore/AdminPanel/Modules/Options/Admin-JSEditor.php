@@ -13,14 +13,7 @@
 	 * =================================================================
 	 */
 	 
-	 function set_up_js_editor(){
-		add_settings_section(
-			'aisis_js_editor_section',
-			'',
-			'aisis_js_content_descrption',
-			'aisis-js-editor'
-		);
-		
+	 function set_up_js_editor(){		
 		add_settings_field(
 			'aisis_js_editor_setting',
 			'',

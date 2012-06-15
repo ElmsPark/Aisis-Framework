@@ -14,13 +14,6 @@
 	 */
 	 
 	 function set_up_css_editor(){
-		add_settings_section(
-			'aisis_css_editor_section',
-			'',
-			'aisis_css_content_descrption',
-			'aisis-css-editor'
-		);
-		
 		add_settings_field(
 			'aisis_css_editor_setting',
 			'',

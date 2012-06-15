@@ -18,8 +18,14 @@
 	 //check theme version
 	 $aisis_check_version = new AisisUpdate();
 	 $options = get_option('aisis_core_theme_setting_sidebar_global');
+	 $option_update = get_option('aisis_core_theme_setting_silent_update'); 
 	 //Check for messages
 	 check_for_aisis_messages();
+	 
+	 //check if auto update is enabled and do the appropriate checks.
+	 if($option_update['turn_on_silent_update'] == 1){
+		 $aisis_check_version->auto_silent_update();
+	 }
 ?>
     <div id="adminPanelWrapper">
         <div class="adminPanelTitle">
@@ -27,7 +33,7 @@
             <div class="adminPanelSubTitle">
                 Aisis Core Version <?php echo $aisis_check_version->get_current_theme_version();?>
             </div>
-            <?php $aisis_check_version->check_for_update_with_message();?>
+            <?php if($option_update['turn_on_silent_update'] != 1){$aisis_check_version->check_for_update_with_message();}?>
     	</div>
        
 

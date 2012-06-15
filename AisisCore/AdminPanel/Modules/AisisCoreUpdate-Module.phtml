@@ -13,8 +13,15 @@
 	 * =================================================================
 	 */
 	 
+	$option = get_option('aisis_core_theme_setting_silent_update'); 
+	if($option['turn_on_silent_update'] != 1){ 
+		$silent_update = array('value'=>'Turn on silent update!', 'name'=>'defaults'); 
+	}else{
+		$silent_update = array('value'=>'Turn off silent update!', 'name'=>'defaults');
+	}
 	$aisis_update = new AisisUpdate();
 	$aisis_element_builder = new AisisForm();
+	
 	
 ?>
     <div class="box">
@@ -27,38 +34,69 @@
             </div>
             <div class="optionsSection">
             	<div class="greyBox">
-                	<?php if($aisis_update->check_for_udate_bool()){ ?>
-                	<div class="title">New Aisis-ness!</div>
-                    <p>You are in for a real treat! There seems to be an update for Aisis! Lets update together
-                    and find out what kinds of epic sauce lies in wait!</p>
-                    <div class="greyBoxNotice">Did you remember to back up your custom folder? Please do so before hitting the magic button bellow!
-                    Also please note: <strong>You may have to hit the update button again if your page refreshes and nothing happens</strong></div>
-                    <?php }else{?>
-					<div class="title">Your Details</div>
-                    <p>Bellow we have your current version and any other details you might want to know.</p>                   
-                    <?php }?>
+                	<div class="title">Silent Update?</div>
+                    <p>Checking this will turn on silent update meaning that your software will update on its own and you never have to worry.</p>
+                </div>
+                <div id="silentUpdateForm">
+				<?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>
+                <form method="post" action="<?php echo $aisis_forum_url ?>">
+                    <label>Turn on Silent Update</label>
+                    <?php do_settings_fields('aisis-core-update', 'aisis_core_silent_update_section'); ?>
+                    <?php $aisis_element_builder->creat_aisis_form_element('input', 'submit', $silent_update);?>
+                     <?php settings_fields( 'aisis-core-update' ); ?>
+                </form>
+                </div>
+            	<div class="greyBox">
+                	<?php
+					if($option['turn_on_silent_update'] != 1){
+						if($aisis_update->check_for_udate_bool()){ ?>
+						<div class="title">New Aisis-ness!</div>
+						<p>You are in for a real treat! There seems to be an update for Aisis! Lets update together
+						and find out what kinds of epic sauce lies in wait!</p>
+						<div class="greyBoxNotice">Did you remember to back up your custom folder? Please do so before hitting the magic button bellow!
+						Also please note: <strong>You may have to hit the update button again if your page refreshes and nothing happens</strong></div>
+						<?php }else{?>
+						<div class="title">Your Details</div>
+						<p>Bellow we have your current version and any other details you might want to know.</p>                   
+						<?php
+						}
+					}else{
+						?>
+                        <div class="title">You Have Auto Update Turned on!</div>
+						<p>Bellow you will see what version you are running. This version may automatically change if there is a new update. Thats the whole point
+                        of a silent update :D</p> 
+						<?php
+					}?>
                 </div>
         	<?php 
-			if(isset($_POST['upgrade'])){
-				$aisis_update->get_latest_version_zip();
-			}
-			if($aisis_update->check_for_udate_bool()){?>
-                <form method='post' action=<?php admin_url('admin.php?page=aisis-core-update'); ?>>
-                <?php
-					if(!$aisis_update->credential_check){
-						$aisis_update_button = array(
-							'value' => 'Upgrade Now!',
-							'name' => 'upgrade',
-							'class' => 'bigUpgrade'
-						);
-						$aisis_element_builder->creat_aisis_form_element('input', 'submit', $aisis_update_button);
-					}
-                ?>
-                </form>
-            <?php }else{
-				echo "<div class='updateSuccess'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 
-						the software! Check your site to see the latest changes! or check out 
-				<a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650' class='thickbox' title='Aisis Version Info'>Aisis Version Notes</a>!</div>";
+			if($option['turn_on_silent_update'] != 1){
+				if(isset($_POST['upgrade'])){
+					$aisis_update->get_latest_version_zip();
+				}
+				if($aisis_update->check_for_udate_bool()){?>
+					<form method='post' action=<?php admin_url('admin.php?page=aisis-core-update'); ?>>
+					<?php
+						if(!$aisis_update->credential_check){
+							$aisis_update_button = array(
+								'value' => 'Upgrade Now!',
+								'name' => 'upgrade',
+								'class' => 'bigUpgrade'
+							);
+							$aisis_element_builder->creat_aisis_form_element('input', 'submit', $aisis_update_button);
+						}
+					?>
+					</form>
+				<?php }else{
+					echo "<div class='updateSuccess'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 
+							the software! Check your site to see the latest changes! or check out 
+					<a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650' class='thickbox' 
+					title='Aisis Version Info'>Aisis Version Notes</a>!</div>";
+				}
+			}else{
+					echo "<div class='updateSuccess'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 
+												the software! Check your site to see the latest changes! or check out 
+										<a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650' 
+										class='thickbox' title='Aisis Version Info'>Aisis Version Notes</a>!</div>";				
 			}?>                                                          
             </div>
         </div>

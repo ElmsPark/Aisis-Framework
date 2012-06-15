@@ -19,50 +19,7 @@
 	/**
 	 * Set up for default text.
 	 */
-	function setup_default_text(){
-		add_settings_section(
-			'aisis_default_404_banner_section',
-			'',
-			'aisis_content_descrption',
-			'aisis-core-options'
-		);
-		
-		add_settings_section(
-			'aisis_default_404_message_section',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);
-		
-		add_settings_section(
-			'aisis_default_author_text_section',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);
-		
-		add_settings_section(
-			'aisis_default_category_text_section',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);
-				
-		
-		add_settings_section(
-			'aisis_default_right_footer_text_section',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);
-		
-		add_settings_section(
-			'aisis_default_left_footer_text_section',
-			'',
-			'aisis_content_description',
-			'aisis-core-options'
-		);		
-		
+	function setup_default_text(){		
 		add_settings_field(
 			'aisis_default_404_banner_setting',
 			'',

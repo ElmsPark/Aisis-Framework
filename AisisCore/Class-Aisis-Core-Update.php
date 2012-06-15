@@ -20,8 +20,10 @@
 	 *
 	 * =================================================================
 	 */
+	 
+	require_once('IAisis-Core-Update.php'); 
 
-	class AisisUpdate{
+	class AisisUpdate implements IAisisCoreUpdate{
 
 		private $aisis_current_theme_version;
 		public $credential_check;
@@ -66,6 +68,11 @@
 			}
 		}
 		
+		/**
+		 * We check if there is an update or not.
+		 * we simply return true. This is good for 
+		 * displaying forums and so on.
+		 */
 		function check_for_udate_bool(){
 			$aisis_version = $this->check_theme_version();
 			if(isset($aisis_version) && $aisis_version != ''){
@@ -79,6 +86,10 @@
 			}
 		}
 		
+		/**
+		 * We check the theme version that is
+		 * on the server
+		 */
 		function check_theme_version(){
 			$version_url = 'http://adambalan.com/aisis/version.xml';
 			$aisis_update_xml_object = simplexml_load_file($version_url);
@@ -202,7 +213,20 @@
 					return;
 				}
 			 }
-		 } 
+		 }
+		 
+		 /**
+		  * This function is used for 
+		  * the silent auto update feature in 
+		  * Aisis which when activated essentially
+		  * checks for you if there is a new version and
+		  * just updates the code for you.
+		  */
+		 function auto_silent_update(){
+			 if($this->check_for_udate_bool()){
+				 $this->get_latest_version_zip();
+			 }
+		 }
 	}
 
 ?>

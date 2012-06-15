@@ -161,7 +161,6 @@
             this is the text thats displayed when you first install the theme framework and view the front end. We also tell you what 
             "hooks" are used to change this text or display the default text.</div>
             <div class="optionsSection">
-                <?php settings_fields( 'aisis-core-options' ); ?>
                     <div class="greyBox">
                         <div class="title">Default 404 err banner message</div>
                         <p>The following hook(s) will be changed: <strong>aisis_404_err_message_banner</strong>. 
@@ -276,4 +275,5 @@
    <div id="aisisAPI">
    </div>
 </div>
+ <?php settings_fields( 'aisis-core-options' ); ?>
 </form>

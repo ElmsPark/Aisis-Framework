@@ -43,6 +43,7 @@
 			 $value ='';
 			 $inpute_type ='';
 			 $disabled = '';
+			 $style='';
 			 
 			 
 			 
@@ -89,6 +90,10 @@
 				 $disabled = 'disabled="'.$attributes['disabled'].'"';
 			 }
 			 
+			 if(isset($attributes['style'])){
+				 $style = 'style="'.$attributes['style'].'"';
+			 }
+			 
 			 $build_aisis_element = '<input '
 			 						.$inpute_type
 									.$disabled 
@@ -98,6 +103,7 @@
 									.$name 
 									.$onClick
 									.$value
+									.$style
 									.' />';
 			echo $build_aisis_element;
 			
@@ -119,6 +125,7 @@
 			 
 			 $rows = 20;
 			 $cols = 20;
+			 $style='';
 			 
 			 if(isset($attributes['name'])){
 				 $name = 'name="'.$attributes['name'].'"';
@@ -144,12 +151,17 @@
 				 $value = $attributes['value'];
 			 }
 			 
+			 if(isset($attributes['style'])){
+				 $style = 'style="'.$attributes['style'].'"';
+			 }
+			 
 			 $build_aisis_element = '<textarea ' 
 									.$id 
 									.$class 
 									.$name 
 									.$rows  
 									.$cols 
+									.$style
 									.'>'. $value . '</textarea>';
 									
 			echo $build_aisis_element;
@@ -163,7 +175,14 @@
 		  * @return the element
 		  */
 		 function select(array $attributes){
-			 global $id, $class, $name, $options;
+			 $id = '';
+			 $class ='';
+			 $name =''; 
+			 $value ='';
+			 
+			 $multiple = '';
+			 $options = '';
+			 $style='';
 			 
 			 if(isset($attributes['multiple'])){
 				 $multiple = 'multiple="'.$attributes['multiple'].'"';
@@ -185,11 +204,16 @@
 				 $options = $attributes['options'];
 			 }
 			 
+			 if(isset($attributes['style'])){
+				  $style = 'style="'.$attributes['style'].'"';
+			 }
+			 
 			 $build_aisis_element = '<select '
 			 								.$multipe 
 											.$id 
 											.$class 
 											.$name 
+											.$style
 											.'> ';
 			foreach($options as $option){
 				$tbuild_aisis_element .= '<option>' . $option . '</option>';

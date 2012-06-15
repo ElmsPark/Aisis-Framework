@@ -53,9 +53,9 @@ article, aside, details, figcaption, figure, footer,
 }
 html, body {
 	background : #cbd5d8;
-	font : 17px 'Ubuntu', sans-serif;
+	font: 17px 'Ubuntu', sans-serif;
 	color : #666;
-	line-height : 1.8em;
+	line-height : 1.5em;
 	height : 100%;
 }
 html {
@@ -596,6 +596,7 @@ input[type="search"] {
 	background : #b9d0e1;
 	border-radius : 5px;
 	padding : 5px;
+	margin-bottom:10px;
 }
 .readMore a {
 	text-decoration : none;
@@ -926,7 +927,7 @@ ol.commentlist li ul.children li.depth-2, ol.commentlist li ul.children li.depth
 .widget {
 	background : #fff;
 	margin : 0 0 30px;
-	padding : 30px 60px;
+	padding : 30px 10px;
 	border-radius : 8px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
 }
@@ -945,15 +946,17 @@ ol.commentlist li ul.children li.depth-2, ol.commentlist li ul.children li.depth
 	clear : both;
 	border-top : 1px solid #eee;
 }
-.widget .flickr_badge_image {
-	margin-top : 10px;
+
+.widget p{
+	text-align:justify;
 }
-.widget .flickr_badge_image img {
-	width : 48px;
-	height : 48px;
-	margin-right : 12px;
-	margin-bottom : 12px;
-	float : left;
+
+.widget a{
+	color:#607C8A;
+	text-decoration:none;
+}
+.widget a:hover{
+	text-decoration:underline;
 }
 #footer {
 	clear : both;
@@ -1032,4 +1035,45 @@ ol.commentlist li ul.children li.depth-2, ol.commentlist li ul.children li.depth
 }
 .clearfix {
 	display : block;
+}
+
+/**
+=============[Widgets]===========
+**/
+
+.downloadButton{
+	background-image:-moz-linear-gradient(50% 0% -90deg,rgb(31,62,71) 0%,rgb(197,208,216) 100%); 
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(31,62,71)),color-stop(1, rgb(197,208,216)));
+	background-image:-webkit-linear-gradient(-90deg,rgb(31,62,71) 0%,rgb(197,208,216) 100%);
+	background-image:linear-gradient(-90deg,rgb(31,62,71) 0%,rgb(197,208,216) 100%);
+	width: 90%;
+	margin-left: -13px;
+	margin-bottom:20px;
+	padding: 20px;
+	text-align:center;
+	font-size:18px;
+	color:#FFF;
+	font-weight:bold;
+	border-color:rgb(31,62,71);
+	border-width:1px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border-style:solid;
+	-moz-box-shadow:5px 5px 4px rgba(102,102,102,0.65);
+	-webkit-box-shadow:5px 5px 4px rgba(102,102,102,0.65);
+	box-shadow:5px 5px 4px rgba(102,102,102,0.65);
+}
+
+.downloadButton a{
+	color:#D6E5E7 !important;
+}
+
+
+/**
+==========[Changes to the Twitter Widget]==============
+**/
+
+.twtr-widget{
+	
 }

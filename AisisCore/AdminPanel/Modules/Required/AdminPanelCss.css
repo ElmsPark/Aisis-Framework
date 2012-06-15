@@ -189,7 +189,6 @@ h1 {
 	border: none !important;
 	background: none !important;
 }
-
 .optionsSection {
 	background-color:rgb(255,255,255);
 	border-color:rgb(238,238,238);
@@ -394,6 +393,29 @@ h1 {
 	border: thin solid #666;
 	clear:both;
 }
+.defaultText{
+	margin-left: 525px !important;
+}
+
+.cssEditorButton{
+	margin-left: 385px !important;
+	margin-bottom: 20px !important;
+}
+
+.jsEditorButton{
+	margin-left: 425px !important;
+	margin-bottom: 20px !important;
+}
+
+.phpEditorButton{
+	margin-left: 800px !important;
+	margin-bottom: 20px !important;
+}
+#adminPanelWrapper label{
+	margin-left: -10px;
+	padding-right: 10px;
+	font-weight:bold;
+}
 #adminPanelWrapper input[type="submit"] {
 	background-color:rgb(255,255,255);
 	border-color:rgb(58,24,37);
@@ -412,25 +434,6 @@ h1 {
 	padding-left: 10px auto;
 	height: 30px;
 	cursor: pointer;
-}
-
-.defaultText{
-	margin-left: 525px !important;
-}
-
-.cssEditorButton{
-	margin-left: 385px !important;
-	margin-bottom: 20px !important;
-}
-
-.jsEditorButton{
-	margin-left: 425px !important;
-	margin-bottom: 20px !important;
-}
-
-.phpEditorButton{
-	margin-left: 800px !important;
-	margin-bottom: 20px !important;
 }
 #adminPanelWrapper input[type="button"] {
 	margin-left: -10px;
@@ -458,10 +461,8 @@ h1 {
 	width: 350px;
 	height: 30px;
 }
-label {
-	margin-left: 30px;
-	margin-top: 10px;
-	font-weight: bold;
+#adminPanelWrapper input[type="checkbox"]{
+	margin-top:8px;
 }
 .optionsSection textarea {
 	background-color:rgb(255,255,255);
@@ -485,6 +486,9 @@ label {
 .moveButton {
 	margin-left: 10px !important;
 	margin-top: 10px !important;
+}
+#silentUpdateForm input[type="submit"]{
+	margin-left: 15px
 }
 /**
 ===========================================================

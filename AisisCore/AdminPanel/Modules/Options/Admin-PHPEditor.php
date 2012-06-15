@@ -14,13 +14,6 @@
 	 */
 	 
 	 function set_up_php_editor(){
-		add_settings_section(
-			'aisis_php_editor_section',
-			'',
-			'aisis_php_content_descrption',
-			'aisis-php-editor'
-		);
-		
 		add_settings_field(
 			'aisis_php_editor_setting',
 			'',

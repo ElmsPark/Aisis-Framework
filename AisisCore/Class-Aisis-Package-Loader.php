@@ -101,7 +101,7 @@
 				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Post Types package: AisisCustomPostTypes</strong>") . "</div>");
 				 exit;
 			 }
-		 }	
+		 }			 
 		 
 		 /**
 		  * Load the aisis custom packages. Spazz out if it's not
@@ -112,10 +112,10 @@
 			 if($this->aisis_file_handling->check_dir(CUSTOM_PACKAGES)){
 				 $this->aisis_file_handling->load_directory_of_files(CUSTOM_PACKAGES);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Packages: Aisis/custom/packages</strong>") . "</div>");
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Package: Aisis/custom/packages</strong>") . "</div>");
 				 exit;
 			 }
-		 }		 	 
+		 }			 		 	 
 		 
 		 /**
 		  * This is our helper function to allow you
