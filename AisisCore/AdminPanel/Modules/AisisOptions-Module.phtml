@@ -35,6 +35,7 @@
         <li><a href="#aisisSliderMiniOptions">Aisis Slider and Mini Feed Options</a></li>
     	<li><a href="#aisisDefault">Aisis Default Text</a></li>
         <li><a href="#aisisSocial">Aisis Social Options</a></li>
+        <li><a href="#aisisMisc">Misc. Options</a></li>
     </ul>
     <div class="bottom"></div>
     <div id="aisisSidebarOptions">
@@ -272,7 +273,23 @@
         	</div>
        </div>
    </div>
-   <div id="aisisAPI">
+   <div id="aisisMisc">
+       	<div class="box">
+       		<div class="title">Misc. Options</div>
+       			<p>These options are all the options that didn't fit in else where
+       			for the user to use. So we placed them here.</p>
+       			<p><?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $core_options_save);?></p>
+       		</div>
+       		<div class="Contents">
+       		<div class="optionsSection">
+       			<div class="greyBox">
+       			<div class="title">Show Related Posts?</div>
+       			<p>If this is checked we will show the related posts of that post based on the first tag used.</p>
+       		</div>
+       		<label>Show Related Posts?</label><br />
+       		 <?php do_settings_fields('aisis-core-options', 'aisis_display_related_posts_section'); ?><br />
+       	</div>
+      </div>
    </div>
 </div>
  <?php settings_fields( 'aisis-core-options' ); ?>

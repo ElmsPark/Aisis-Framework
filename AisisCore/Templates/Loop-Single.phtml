@@ -19,6 +19,7 @@
 		
 		$options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
 		$options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_single');
+		$options_recent_posts = get_option('aisis_display_related_posts_setting');
 		
 		if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_single'] != 1){
 			aisis_slider_mini();
@@ -113,7 +114,22 @@
           <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
           <div class="prevPost"><?php previous_post_link('%link','%title' ) ?></div>
           <div class="nextPost"><?php next_post_link( '%link', '%title' ) ?></div>
-          <?php } ?>
+          <?php }if($options_recent_posts['related_posts']){ ?>
+          	<div class="relatedPosts">
+          		<h2>Related Posts</h2>
+				<?php
+				$related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 5, 'post__not_in' => array($post->ID) ) );
+				if( $related ) foreach( $related as $post ) {
+				setup_postdata($post); ?>
+				 <ul> 
+				   <li>
+				     <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+				   </li>
+				 </ul>   
+				<?php }
+				wp_reset_postdata(); ?>
+          	</div>
+          	<?php }?>
             <div class="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'post-author'; }else{ echo 'post-author-full'; }?>">
             <h1><?php the_author()?></h1>
                 <p><?php if ( get_the_author_meta( 'description' ) ){the_author_meta( 'description' );}else{?>

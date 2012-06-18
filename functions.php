@@ -60,5 +60,6 @@
 		 _e('You are missing the directory AisisCore I cannot load any further. Please try re-downlading and installing the theme.');
 		 return;
 	 }
+
 	 
 ?>

@@ -24,13 +24,6 @@
 		
 		register_setting('aisis-php-editor', 'aisis_php_editor_setting', 'aisis_php_editor_validaton');
 	 }
-	 
-	if(!function_exists('aisis_php_content_descrption')){
-		function aisis_php_content_descrption(){
-			//display nothing here. 
-			//it's retarded that we have to have this.
-		}
-	}
 	
 	if(!function_exists('aisis_php_editor')){
 		function aisis_php_editor(){

@@ -58,26 +58,29 @@
 	  * styles loaded.
 	  */
 	 function aisis_load_scripts_styles(){
-		wp_enqueue_style( 'core-styles', get_bloginfo('stylesheet_url')); //Load core styles
-		wp_enqueue_style( 'mediaquery-css', get_template_directory_uri() . '/mquery.css'); //Load core Media Query
-		wp_enqueue_style( 'googlefont-ubuntu', 'http://fonts.googleapis.com/css?family=Ubuntu:300'); //Load Ubuntu Font
-		wp_enqueue_style( 'tip-tip-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/tipTip.css'); //Load plugin css
-		wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css'); //Load plugin css
-		wp_enqueue_style( 'camera-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/flexslider.css'); //Load Camera css
-		wp_enqueue_style( 'snipit-code-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/snipit.css'); //Load Snipit Css
-		wp_enqueue_style( 'snipit-code-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/colorpicker.css'); //Load Snipit Css
-		wp_enqueue_style( 'thickbox');
-		wp_enqueue_script( 'main-site', get_template_directory_uri() . '/lib/Javascript/mainSite.js', array('jquery'), false, true ); //Load Core JS
-		wp_enqueue_script( 'tip-tip', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.tipTip.minified.js', array('jquery'), false, true ); //Loadtip tip js
-		wp_enqueue_script( 'flex', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.flexslider-min.js', array('jquery'), false, true ); //Load flex slider
-		wp_enqueue_script( 'toast', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.toastmessage.js', array('jquery'), false, true ); //Load toastmessage js
-		wp_enqueue_script( 'jquery-mobile-customized', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.mobile.customized.min.js', array('jquery'), false, true );//Lod jquery mobile (customized)
-		wp_enqueue_script( 'jquery-easing', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.easing.1.3.js', array('jquery'), false, true ); //Load Jquery Easing
-		wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true); //Load ThickBox
-		wp_enqueue_script( 'snipit-code', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.snipit.js', array('jquery'), false, true ); //Load jquery snipit
-		wp_enqueue_script( 'snipit-code', get_template_directory_uri() . '/lib/Javascript/plugins/ColorPicker/colorpicker.js', array('jquery'), false, true ); //Load jquery color picker
-		wp_enqueue_script( 'tinytwitter', 'http://widgets.twimg.com/j/2/widget.js', false, true ); //Load twitter
-		if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );
+	 	wp_enqueue_style( 'core-styles', get_bloginfo('stylesheet_url')); //Load core styles
+	 	wp_enqueue_style( 'mediaquery-css', get_template_directory_uri() . '/mquery.css'); //Load core Media Query
+	 	wp_enqueue_style( 'googlefont-ubuntu', 'http://fonts.googleapis.com/css?family=Ubuntu:300'); //Load Ubuntu Font
+	 	wp_enqueue_style( 'tip-tip-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/tipTip.css'); //Load plugin css
+	 	wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css'); //Load plugin css
+	 	wp_enqueue_style( 'camera-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/flexslider.css'); //Load Camera css
+	 	wp_enqueue_style( 'snipit-code-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/snipit.css'); //Load Snipit Css
+	 	//wp_enqueue_style( 'colors', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/colorpicker.css'); //Load Snipit Css
+	 	wp_enqueue_style( 'tweet-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.jtweetsanywhere-1.3.1.css'); //Load twitter css
+	 	wp_enqueue_style( 'thickbox');
+	 	wp_enqueue_script( 'main-site', get_template_directory_uri() . '/lib/Javascript/mainSite.js', array('jquery'), false, true ); //Load Core JS
+	 	wp_enqueue_script( 'tip-tip', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.tipTip.minified.js', array('jquery'), false, true ); //Loadtip tip js
+	 	wp_enqueue_script( 'flex', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.flexslider-min.js', array('jquery'), false, true ); //Load flex slider
+	 	wp_enqueue_script( 'toast', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.toastmessage.js', array('jquery'), false, true ); //Load toastmessage js
+	 	wp_enqueue_script( 'jquery-mobile-customized', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.mobile.customized.min.js', array('jquery'), false, true );//Lod jquery mobile (customized)
+	 	wp_enqueue_script( 'jquery-easing', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.easing.1.3.js', array('jquery'), false, true ); //Load Jquery Easing
+	 	wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true); //Load ThickBox
+	 	wp_enqueue_script( 'snipit-code', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.snipit.js', array('jquery'), false, true ); //Load jquery snipit
+	 	//wp_enqueue_script( 'colors', get_template_directory_uri() . '/lib/Javascript/plugins/ColorPicker/colorpicker.js', array('jquery'), false, true ); //Load jquery color picker
+	 	wp_enqueue_script( 'tweet', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.jtweetsanywhere-1.3.1.js', array('jquery'), false, true ); //Load jquery tweet
+	 	wp_enqueue_script( 'jstweet', get_template_directory_uri() . '/lib/Javascript/plugins/jtweetsanywhere-de-1.3.1.js', false, true ); //Load jquery tweet
+	 	wp_enqueue_script( 'apitwitter', 'http://platform.twitter.com/anywhere.js?id=APIKey&v=1'); //Load jquery tweet
+	 	if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );
 		
 	 }
 	 

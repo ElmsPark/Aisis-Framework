@@ -24,13 +24,6 @@
 		
 		register_setting('aisis-css-editor', 'aisis_css_editor_setting', 'aisis_css_editor_validaton');
 	 }
-	 
-	if(!function_exists('aisis_css_content_descrption')){
-		function aisis_css_content_descrption(){
-			//display nothing here. 
-			//it's retarded that we have to have this.
-		}
-	}
 	
 	if(!function_exists('aisis_css_editor')){
 		function aisis_css_editor(){

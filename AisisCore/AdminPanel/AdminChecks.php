@@ -148,7 +148,10 @@
 			check_css_editor_messages();
 			check_js_editor_messages();
 			check_php_editor_messages();
-			check_for_update_message();
+			
+			if(isset($_GET['page']) && $_GET['page']=='aisis-core-update'){
+				check_for_update_message();
+			}
 		}
 	}	
 

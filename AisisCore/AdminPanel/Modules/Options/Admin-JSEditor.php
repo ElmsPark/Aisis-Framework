@@ -24,13 +24,6 @@
 		
 		register_setting('aisis-js-editor', 'aisis_js_editor_setting', 'aisis_js_editor_validaton');
 	 }
-	 
-	if(!function_exists('aisis_js_content_descrption')){
-		function aisis_js_content_descrption(){
-			//display nothing here. 
-			//it's retarded that we have to have this.
-		}
-	}
 	
 	if(!function_exists('aisis_js_editor')){
 		function aisis_js_editor(){
