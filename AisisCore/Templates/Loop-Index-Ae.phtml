@@ -26,12 +26,10 @@
 	 }	  
 	 ?>	
 
-     <div id="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'fullWidthContent'; }?>">
-    	<?php while($aisis_loop_index->have_posts()) : $aisis_loop_index->the_post(); ?>
-       	
-        <article class="post clearfix">
+    	<?php while($aisis_loop_index->have_posts()) : $aisis_loop_index->the_post(); ?>       	
+        <article class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'post clearfix'; }else{ echo 'postFull clearfix'; }?>">
             <header>
-                <h1 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                <h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                 <div class="post-comments"><?php comments_number('0', '1', '%'); ?> comments</div>
                 <div class="whoWrote">Author of this post:  <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
                 <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
@@ -54,7 +52,6 @@
       <div class="prevPost"><?php previous_posts_link(__( '<-- Newer Posts', 'aisis' )) ?></div>
       <div class="nextPost"><?php next_posts_link(__( 'Previous Posts -->', 'aisis' )) ?></div>
       <?php } ?>
-	</div>
     <?php 
 	if($options['no_sidebar_custom'] != 1 || $option_global['no_sidebar_global'] != 1){
 		get_sidebar();

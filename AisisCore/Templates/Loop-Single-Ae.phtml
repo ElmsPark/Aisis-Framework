@@ -14,20 +14,18 @@
 	
 	//Any values we may gold for this post type from the meta box.
 	$values = get_post_custom( $post->ID );
-	 
-	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 	$args = array(
 		'post_type' => 'ae',
-		'paged' => $paged
-		); query_posts($args);
-	$loop = new WP_Query( $args );	 
+	); 
+	query_posts($args);
+	$loop = new WP_Query( $args );	
 	 ?>	
     <div id="contentWrapper">
-        <div id="fullWidthContent">
             <?php while($loop->have_posts()) : $loop->the_post() ?>
-            <article class="post clearfix">
+            <article class="postFull clearfix">
                 <header>
-                    <h1 class="post-title"><?php the_title(); ?></h1>
+                    <h1 class="postTitle"><?php the_title(); ?></h1>
                     <div class="post-comments"><?php comments_number('0', '1', '%'); ?> comments</div>
                     <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
                     <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
@@ -37,14 +35,7 @@
                 <p>
                     <?php the_content(); ?>
                 </p>
-          </article>
-          <?php endwhile; ?>
-          <?php $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
-          <div class="prevPost"><?php previous_post_link('%link','%title' ) ?></div>
-          <div class="nextPost"><?php next_post_link( '%link', '%title' ) ?></div>
-          <?php } ?>
-
-		<?php 
+<?php 
 		  if(count($values) > 2){
 		?>
           <div class="refrenceAe">
@@ -62,44 +53,49 @@
                 <?php
 					echo "</li>"; 
 				} ?>
-                <?php
-                if(isset($values['aisis_meta_box_link_two']) && !empty($values['aisis_meta_box_link_two'])){
-					echo "<li>";
-                    if(isset($values['aisis_meta_box_link_two_desc']) && !empty($values['aisis_meta_box_link_two_desc'])){
-                        echo $values['aisis_meta_box_link_two_desc'][0];
-                    }
-                    ?>
-                    
-                    <a href="<?php echo $values['aisis_meta_box_link_two'][0] ?>">Some Content</a>
-                <?php
-					echo "</li>"; 
-				} ?>
-                <?php
-                if(isset($values['aisis_meta_box_link_three']) && !empty($values['aisis_meta_box_link_three'])){
-					echo "<li>";
-                    if(isset($values['aisis_meta_box_link_three_desc']) && !empty($values['aisis_meta_box_link_three_desc'])){
-                        echo $values['aisis_meta_box_link_three_desc'][0];
-                    }
-                    ?>
-                    
-                    <a href="<?php echo $values['aisis_meta_box_link_three'][0] ?>">Some Content</a>
-                <?php
-					echo "</li>"; 
-				} ?>
-                </li>
-            </ul>
-          </div>
-          <?php 
-		  }
-		  ?>
-          
+					<?php
+                    if(isset($values['aisis_meta_box_link_two']) && !empty($values['aisis_meta_box_link_two'])){
+                        echo "<li>";
+                        if(isset($values['aisis_meta_box_link_two_desc']) && !empty($values['aisis_meta_box_link_two_desc'])){
+                            echo $values['aisis_meta_box_link_two_desc'][0];
+                        }
+                        ?>
+                        
+                        <a href="<?php echo $values['aisis_meta_box_link_two'][0] ?>">Some Content</a>
+                    <?php
+                        echo "</li>"; 
+                    } ?>
+                    <?php
+                    if(isset($values['aisis_meta_box_link_three']) && !empty($values['aisis_meta_box_link_three'])){
+                        echo "<li>";
+                        if(isset($values['aisis_meta_box_link_three_desc']) && !empty($values['aisis_meta_box_link_three_desc'])){
+                            echo $values['aisis_meta_box_link_three_desc'][0];
+                        }
+                        ?>
+                        
+                        <a href="<?php echo $values['aisis_meta_box_link_three'][0] ?>">Some Content</a>
+                    <?php
+                        echo "</li>"; 
+                    } ?>
+                    </li>
+                </ul>
+              </div>
+              <?php 
+              }
+              ?>                
             <div class="post-author-full">
             <h1><?php the_author()?></h1>
                 <p><?php if ( get_the_author_meta( 'description' ) ){the_author_meta( 'description' );}else{?>
                 <?php aisis_loop_single_author_blurb_default(); }?></p>
                 <p>This author has written: <?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</p>
             </div>
-        </div>
+          </article>
+          <?php endwhile; ?>
+          <?php $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
+          <div class="prevPost"><?php previous_post_link('%link','%title' ) ?></div>
+          <div class="nextPost"><?php next_post_link( '%link', '%title' ) ?></div>
+          <?php } ?>
+
         <?php  if('open' == $post->comment_status){
 				   comments_template('', true);
 			   } 

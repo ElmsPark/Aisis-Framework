@@ -52,12 +52,9 @@
 <div id="pagewrap">
 	<header id="header">
       <hgroup>
-          <h1 id="site-logo"><a href="<?php bloginfo('url');?>"><?php bloginfo('name'); ?></a></h1>
-          <h2 id="site-description"><?php bloginfo('description'); ?></h2>
+          <h1 id="siteLogo"><a href="<?php bloginfo('url');?>"><?php bloginfo('name'); ?></a></h1>
+          <h2 id="siteDescription"><?php bloginfo('description'); ?></h2>
       </hgroup>
-      <div class="socialMediaLink">
-		<?php aisis_social_media(); ?>
-      </div>
       <nav id="nav-bar">
 		<?php if (function_exists('wp_nav_menu')) {
 			wp_nav_menu(array('theme_location' => 'main-nav' , 'fallback_cb' => 'aisis_default_main_nav' , 'container'  => '' , 'menu_id' => 'main-nav' , 'menu_class' => 'main-nav', 'items_wrap' => 
@@ -67,5 +64,6 @@
 		} ?>
       </nav>    
 	  <?php get_search_form();?>
+      <?php default_aisis_default_left_footer_text(); ?>
 	</header>  
 	<!-- /#header -->

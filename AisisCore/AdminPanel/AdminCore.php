@@ -60,28 +60,6 @@
 		   }
 		}
 		
-		/**
-		 * This is a special method, we are registering this one in the 
-		 * admin head across the whole site. The reason for this is to use these scripts
-		 * on the admin Widget.php page for the color picker.
-		 *
-		 * TODO: find a better way to do this.
-		 */
-		if(!function_exists('aisis_load_js_for_widgets')){
-			function aisis_load_js_for_widgets(){
-				wp_deregister_script( 'jquery' );
-				wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
-				wp_enqueue_script( 'jquery', false, true );
-				
-				wp_enqueue_script( 'ColorPickerJs', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/ColorPicker/colorpicker.js', 
-																																array('jquery'), false, true );
-				wp_enqueue_script( 'WordPressAdminPanelJS', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/WordPressAdminPanel.js', 
-																																array('jquery'), false, true );																												
-				wp_enqueue_style( 'ColorPickerCSS', get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/colorpicker.css');
-				
-			}
-		}
-		
 		//load our theme settings - theme css
 		if(!function_exists('aisis_theme_settings_init')){
 			function aisis_theme_settings_init(){
@@ -108,7 +86,6 @@
 			}
 		}
 		
-		add_action('admin_init', 'aisis_load_js_for_widgets');
 		add_action('admin_menu', 'aisis_add_settings_page');
 		
 		//Only register if on these pages.

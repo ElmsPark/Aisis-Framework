@@ -21,13 +21,12 @@
 		aisis_slider_mini();
 	 }
 	 ?>	
-    <div class="content_tweets"></div>
      <div id="contentWrapper">
-         <div id="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'fullWidthContent'; }?>">
+         
             <?php while(have_posts()) : the_post() ?>
-            <article class="post clearfix">
+            <article class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'post clearfix'; }else{ echo 'postFull clearfix'; }?>">
                 <header>
-                    <h1 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                    <h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                     <div class="post-comments"><?php comments_number('0', '1', '%'); ?> comments</div>
                     <div class="whoWrote">Author of this post:  <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
                     <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
@@ -42,15 +41,18 @@
                     </figure>
                     <?php } ?>
                 </div>
-                <?php the_content( __('<div class="readMore">Read More...</div>', true)); ?>
-                <div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'bottomLine'; }else{ echo 'bottomLineFull'; }?>"></div>
+                <?php the_content( __('<div class="readMore">More</div>', true)); ?>
           </article>
           <?php endwhile; ?>
           <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
-          <div class="prevPost"><?php previous_posts_link(__( '<-- Newer Posts', 'aisis' )) ?></div>
-          <div class="nextPost"><?php next_posts_link(__( 'Previous Posts -->', 'aisis' )) ?></div>
-          <?php } ?>
-        </div>
+          <div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
+       	 	<div class="prevPost"><?php previous_posts_link(__( 'Next', 'aisis' )) ?></div>
+        	<div class="nextPost"><?php next_posts_link(__( 'Previous', 'aisis' )) ?></div>
+    	  </div>
+          <?php }else{
+			  echo "There seems to be no more posts.";
+		  }?>
+
     </div>
     <?php 
 	if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){

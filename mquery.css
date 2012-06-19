@@ -29,6 +29,23 @@
 /* ======================================================================= */
 /*							[[Media Max-Width 980]]						   */
 /* ======================================================================= */
+@media screen and (max-width:1280px){
+	#contentWrapper {
+		width: 66%;
+		float: left;
+	}	
+	.post {
+		width : 90%;
+		padding : 3% 4%;
+	}
+	.postFull {
+		width : 90%;
+		padding : 3% 4%;
+	}
+	#sidebar {
+		width : 30%;
+	}
+}
 @media screen and (max-width:980px) {
 	.socialMediaLink {
 		margin-right : 5px;
@@ -53,12 +70,12 @@
 	#contentWrapper {
 		width : 60%;
 	}
-	#content {
+	.post {
 		width : 93%;
 		padding : 3% 4%;
 	}
-	#fullWidthContent {
-		width : 159%;
+	.postFull {
+		width : 93%;
 		padding : 3% 4%;
 	}
 	#sidebar {
@@ -96,7 +113,7 @@
 		margin-left : -30px;
 		width : 105%;
 	}	
-	.post-title {
+	.postTitle {
 		margin-left : -30px;
 	}
 	.post-author {
@@ -126,7 +143,7 @@
 		float : right;
 		margin-top : 85px;
 	}	
-	.post-title {
+	.postTitle {
 		margin-left : -24px;
 	}	
 	.headlineLine {
@@ -170,7 +187,7 @@
 	.objectWrapper{
 		margin: 0 0 80px;
 	}	
-	.post-title {
+	.postTitle {
 		margin-left : -18px;
 	}
 	.headlineLine {
@@ -332,7 +349,7 @@
 	.video embed, .video object, .video iframe {
 		min-height : 250px;
 	}
-	.post-title {
+	.postTitle {
 		margin-left : -26px;
 	}
 	.post-author {
@@ -393,7 +410,7 @@
 		font-size : 80%;
 		padding : 8px;
 	}
-	.post-title {
+	.postTitle {
 		margin-left : -23px;
 	}
 	.headlineLine {
@@ -507,7 +524,7 @@
 		margin-left : -16px;
 		width : 108%;
 	}	
-	.post-title {
+	.postTitle {
 		margin-left : -19px;
 	}
 	.post .infoPost {
@@ -565,7 +582,7 @@
 	#fullWidthContent {
 		width: 298px;
 	}
-	.post-title{
+	.postTitle{
 		word-break:break-all;
 	}
 	#sidebar{
@@ -615,7 +632,7 @@
 		margin-left : -13px;
 		width : 108%;
 	}	
-	.post-title {
+	.postTitle {
 		margin-left : -27px;
 	}
 	.formLayout {

@@ -14,7 +14,9 @@
 	 */
 	 global $post;
 	?>
-	
+    <div class="socialMediaLink">
+      <?php aisis_social_media(); ?>
+    </div>
 	<?php
 	$args = array( 'post_type' => 'slides');
 	$loop = new WP_Query( $args );
@@ -56,9 +58,9 @@
             <?php echo get_the_title();?>
             </div>
             <p><?php echo get_post_meta($post->ID, 'aisis_content_desc', true);?></p>
-            <div class="readMore">
-            	<a href="<?php echo get_post_meta($post->ID, 'aisis_content_link', true);?>">Read More</a>
-            </div>
+            <p><div class="readMore">
+            	<a href="<?php echo get_post_meta($post->ID, 'aisis_content_link', true);?>">More</a>
+            </div></p>
         </div>
         <?php endwhile; ?>                   
     </div>

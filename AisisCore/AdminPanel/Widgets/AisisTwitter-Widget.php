@@ -65,7 +65,6 @@
 				        }
 				        else {
 				            stopAutorefresh(options);
-				            alert("To avoid struggling with Twitter's rate limit, we stop loading data after 10 API calls.");
 				        }
 				    }
 				});
