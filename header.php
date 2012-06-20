@@ -64,6 +64,8 @@
 		} ?>
       </nav>    
 	  <?php get_search_form();?>
-      <?php default_aisis_default_left_footer_text(); ?>
+    <div class="socialMediaLink">
+      <?php aisis_social_media(); ?>
+    </div>
 	</header>  
 	<!-- /#header -->

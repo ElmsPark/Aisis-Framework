@@ -68,6 +68,15 @@
 		return $items;
 	}
 	
-	add_filter( 'wp_nav_menu_items', 'aisis_nav_items' );
-	add_filter( 'wp_list_pages', 'aisis_nav_items' );
+	//remove the [...] from exerpt.
+	if(!function_exists('aisis_excerpt')){
+		function aisis_excerpt(){
+			global $post;
+			return "<div class='readMore'><a href='".get_permalink($post->ID)."'>More</a></div>";
+		}
+	}
+	
+	add_filter('excerpt_more', 'aisis_excerpt');
+	add_filter('wp_nav_menu_items', 'aisis_nav_items');
+	add_filter('wp_list_pages', 'aisis_nav_items');
 ?>

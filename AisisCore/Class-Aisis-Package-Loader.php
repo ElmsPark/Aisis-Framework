@@ -18,21 +18,7 @@
 	 
 	 class AisisPackageLoader{
 	 
-		 private $aisis_file_handling;
-		 
-		 /**
-		  * Load the aisis custom packages. Spazz out if it's not
-		  * there. We can over ride this function.
-		  */
-		 function load_aisis_custom_packages(){
-		 	$this->aisis_file_handling = new AisisFileHandling();
-		 	if($this->aisis_file_handling->check_dir(CUSTOM_PACKAGES)){
-		 		$this->aisis_file_handling->aisis_register_security($this->aisis_file_handling->load_directory_of_files(CUSTOM_PACKAGES));
-		 	}else{
-		 		_e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Package: Aisis/custom/packages</strong>") . "</div>");
-		 		exit;
-		 	}
-		 }		 
+		 private $aisis_file_handling;		 
 		 
 		 /**
 		  * Load the exceptions package. Spazz out if it's not
@@ -142,5 +128,5 @@
 	 $aisis_package_loader->load_aisis_codes_package();
 	 $aisis_package_loader->load_aisis_view_package();
 	 $aisis_package_loader->load_aisis_social_media_package();
-	 $aisis_package_loader->load_aisis_custom_packages();
+	
 ?>

@@ -52,9 +52,6 @@
 			elseif(is_single()){
 				aisis_loop_single();
 			}
-			elseif(is_post_type_archive('ae')){
-				aisis_ae_index_loop_custom_post_type();	
-			}
 			else{
 				$aisis_template_loader->aisis_register('Loop-Index.phtml');
 			}
@@ -137,12 +134,12 @@
 		  }
 	  }	 
 	  
-	  //Loads the aisis ae index template
+	  //loads custom post type single.phtml template
 	  if(!function_exists('aisis_ae_index_loop_custom_post_type')){
-		  function aisis_ae_index_loop_custom_post_type(){
+		  function aisis_ae_index_custom_post_type(){
 			  global $aisis_template_loader;
 			  $aisis_template_loader->aisis_register('Loop-Index-Ae.phtml');
 		  }
-	  }
+	  }		  
 	  
 ?>

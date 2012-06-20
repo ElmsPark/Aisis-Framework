@@ -47,7 +47,6 @@
 	 
 	 // Define Aisis Custom
 	 define('CUSTOM', TEMPLATEPATH . '/custom/');
-	 define('CUSTOM_PACKAGES', TEMPLATEPATH . '/custom/packages/');
 	 
 	 /**
 	  * Because aisis uses package to change the way the theme works
@@ -58,15 +57,17 @@
 	  * to then manipulate or change it to do what you want.
 	  */
 	 require_once(AISISCORE . '/Class-Aisis-File-Handling.php');
- 	 function load_aisis_custom_post_types_package(){
-		 $this->aisis_file_handling = new AisisFileHandling();
-		 if($this->aisis_file_handling->check_dir(CUSTOM_PACKAGES)){
-			 $this->aisis_file_handling->aisis_register_security($this->aisis_file_handling->load_directory_of_files(AISIS_CUSTOM_POST_TYPES));
+ 	 function load_aisis_custom_folder(){
+		 $aisis_file_handling = new AisisFileHandling();
+		 if($aisis_file_handling->check_dir(CUSTOM)){
+			 $aisis_file_handling->aisis_register_security($aisis_file_handling->load_directory_of_files(CUSTOM));
 		 }else{
 			 _e('Could not load the required files of your custom package directory (Aisis/Custom/Package). Please make sure it exists.');
 			 exit;
 		 }
-	 }	
+	 }
+	 
+	 load_aisis_custom_folder();
 	 
 	 /**
 	  * We load Aisis Core.

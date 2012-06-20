@@ -30,20 +30,107 @@
 /*							[[Media Max-Width 980]]						   */
 /* ======================================================================= */
 @media screen and (max-width:1280px){
+	#siteLogo{
+		margin-left: 1em;
+	}
+	#siteDescription{
+		margin-left: 4em;
+	}
+	#main-nav{
+		margin: 2em 0 0 12em;
+	}
+	#miniFeedWrapper{
+		margin-left:65px;
+	}
 	#contentWrapper {
-		width: 66%;
+		width: 71%;
 		float: left;
-	}	
+	}
+	.stickyPost{
+		width: 88%;
+		margin: 0px 0 30px;		
+	}
+	.stickyPostFull{
+		margin-left: 36px;
+		width: 113%;
+	}
+	#category{
+		width: 63.5%;
+	}
+	#categoryFull{
+		margin: 30px 0 30px 55px;
+		width: 86.5%;		
+	}
 	.post {
-		width : 90%;
-		padding : 3% 4%;
+		width: 90%;
+		padding: 3% 4%;
 	}
 	.postFull {
-		width : 90%;
-		padding : 3% 4%;
+		width: 123%;
+		padding: 3% 4%;
+		margin-left:36px;
+	}
+	.postTitle{
+		margin: 0 0 15px -24px;
+	}
+	.post .infoPost{
+		margin-left : -24px;
+	}
+	.post .updatePost{
+		margin-left : -24px;
+	}
+	.postFull .infoPost{
+		margin-left : -24px;
+	}
+	.postFull .updatePost{
+		margin-left : -24px;
+	}
+	.stickyPost .infoPost{
+		margin-left : -35px;
+	}
+	.stickyPost .updatePost{
+		margin-left : -35px;
+	}
+	.stickyPostFull .infoPost{
+		margin-left : -35px;
+	}
+	.stickyPostFull .updatePost{
+		margin-left : -35px;
+	}
+	.stickyPost .post-author{
+		width: 107.1%;
+		margin-left: -35px;
+	}
+	.stickyPostFull .post-author-full{
+		width: 106.5%;
+		margin-left: -35px;
+	}
+	.post-author{
+		width:97%;
+		margin-left: -24px;
+	}
+	.post-author-full{
+		width: 103.2%;
+		margin-left: -24px;
+	}
+	#commentsbox{
+		width: 97%;
+	}
+	#commentsboxFull{
+		width: 131%;
+		margin-left: 36px;
+		padding-left: 20px;
 	}
 	#sidebar {
-		width : 30%;
+		width: 29%;
+		float: right;
+		margin-right: -22px;
+	}
+	.pagnation{
+		width: 98%;
+	}
+	.footerWrapper{
+		width: 108%;
 	}
 }
 @media screen and (max-width:980px) {
@@ -64,19 +151,20 @@
 		padding : 3% 4%;
 	}
 	#categoryFull {
-		width: 159%;
+		width: 84%;
 		padding: 3% 4%;
 	}	
 	#contentWrapper {
 		width : 60%;
 	}
 	.post {
-		width : 93%;
-		padding : 3% 4%;
+		width: 109%;
+		padding: 3% 4%;
 	}
 	.postFull {
-		width : 93%;
+		width : 146%;
 		padding : 3% 4%;
+		margin-left: 55px;
 	}
 	#sidebar {
 		width : 30%;
@@ -102,7 +190,7 @@
 		width : 112.7%;
 	}
 	.headlineLineFull {
-		margin-left : -30px;
+		margin-left : -20px;
 		width : 105%;
 	}
 	.bottomLine {
@@ -121,6 +209,10 @@
 		background : #d2e0e8;
 		margin-left : -24px;
 	}
+	.stickyPostFull .post-author-full {
+		width: 105.9%;
+		margin-left: -35px;
+	}
 	.post-author-full {
 		width : 102.5%;
 		background : #d2e0e8;
@@ -132,8 +224,13 @@
 	.post .updatePost {
 		margin-left : -25px;
 	}
-	#commentsboxFull{
-		width: 165%;
+	.stickyPostFull{
+		margin-left: 47px;
+		width: 143%;
+	}
+	#commentsboxFull {
+		width: 153%;
+		clear: both;
 	}
 
 }
@@ -141,17 +238,20 @@
 	.socialMediaLink {
 		margin-right : 5px;
 		float : right;
-		margin-top : 85px;
-	}	
+		margin-top: -29px;
+	}
+	.stickyPost {
+		width: 106%;
+	}
 	.postTitle {
-		margin-left : -24px;
+		margin-left: -21px;
 	}	
 	.headlineLine {
-		margin-left : -24px;
-		width : 108.7%;
+		margin-left: -20px;
+		width: 106.7%;
 	}
 	.headlineLineFull {
-		margin-left : -24px;
+		margin-left : -20px;
 		width : 105%;
 	}
 	.bottomLine {
@@ -167,11 +267,18 @@
 		background : #d2e0e8;
 		margin-left : -24px;
 	}
+	.stickyPost .post-author {
+		width: 103.6%;	
+		padding-left:20px;
+	}	
 	.post-author-full {
-		width : 102.5%;
-		background : #d2e0e8;
-		margin-left : -24px;
-	}		
+	width: 102.5%;
+	background: #D2E0E8;
+	margin-left: -22px;
+	}
+	#commentsbox{
+		width: 119%;
+	}			
 }
 @media screen and (max-width:768px) {
 	.socialMediaLink {
