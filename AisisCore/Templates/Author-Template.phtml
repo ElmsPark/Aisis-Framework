@@ -19,21 +19,59 @@
 	 *
 	 * =================================================================
 	 */
-	 ?>	
-  <?php global $wp_query;
-		$curauth = $wp_query->get_queried_object(); ?>
-    <div id="content">
+	 global $author, $wp_query;
+	 
+	 //Posts and author data
+	 $curauth = $wp_query->get_queried_object();
+	 $aisis_author_arguments = array('author' => $curauth->ID); 
+	 $posts = query_posts($aisis_author_arguments);
+	 
+	 //Options
+	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	
+	//Do we display the slider mini?
+	if($options_slider_mini_global['no_slider_mini_global'] != 1){
+		aisis_slider_mini();
+	}
+	?>
+    <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
     	<div class="clearfix">
-        	<header>
-            	<h1><?php echo $curauth->user_login; ?></h1>
-            </header>
-            <div class="imgPost">
+            <div class="authorImgPost">
                 <figure class="glossy post-image">
-                   <?php echo get_avatar($curauth->user_email, 100 );?>
+                   <?php echo get_avatar($curauth->user_email, 250);?>
+                   <div class="authorName">
+                 	<?php echo $curauth->user_login; ?>
+                   </div>
                 </figure>
+                
             </div>
-            <p><?php if ( $curauth->user_description != '' ){echo $curauth->user_description;}else{?>
-            <?php aisis_author_default_text(); } ?></p>
+            <div class="text"><p><?php if ( $curauth->user_description != '' ){echo $curauth->user_description;}else{?>
+            <?php deafualt_aisis_author_default_text(); } ?></p></div>
         </div>
     </div>
-    <?php get_sidebar(); ?>
+	<div id="contentWrapper">
+		<?php while(have_posts()) : the_post(); ?>
+        <article class="<?php if($option_global['no_sidebar_global'] != 1){echo 'post clearfix'; }else{ echo 'postFull clearfix'; } ?>">
+            <header>
+                <h1 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                <div class="post-comments"><?php comments_number('0', '1', '%'); ?> comments</div>
+                <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
+					<?php the_author_meta('display_name'); ?></a></div>
+                <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
+                <div class="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'headlineLine'; }else{ echo 'headlineLineFull'; }?>"></div>
+                <div class="infoOnPost"></div>
+            </header>
+            <p>
+               <?php the_excerpt(); ?>
+            </p>
+      </article>
+      <?php endwhile; ?>
+      <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
+          <div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
+       	 	<div class="prevPost"><?php previous_posts_link(__( 'Next', 'aisis' )) ?></div>
+        	<div class="nextPost"><?php next_posts_link(__( 'Previous', 'aisis' )) ?></div>
+    	  </div>
+      <?php } ?>
+  </div>  
+  <?php if($option_global['no_sidebar_global'] != 1){ get_sidebar(); }?>    

@@ -187,13 +187,7 @@
                         <p>The following hook(s) will be changed: <strong>aisis_category_default_text</strong>. 
                         Which in turn changes the default category text for when viewing posts under a category.</p>
                     </div>
-                    <?php do_settings_fields('aisis-core-options', 'aisis_default_category_text_section');?> <br />
-                    <div class="greyBox">
-                        <div class="title">Default Tag Text</div>
-                        <p>The following hook(s) will be changed: <strong>aisis_tag_default_text</strong>. 
-                        Which in turn changes the default tag text for when viewing posts under a category.</p>
-                    </div>
-                    <?php do_settings_fields('aisis-core-options', 'aisis_default_tag_text_section');?> <br />                    
+                    <?php do_settings_fields('aisis-core-options', 'aisis_default_category_text_section');?> <br />                   
                     <div class="greyBox">
                         <div class="title">Default Footer Text</div>
                         <p>The following hook(s) will be changed: <strong>aisis_default_footer_text</strong>. 
@@ -283,11 +277,18 @@
        		<div class="Contents">
        		<div class="optionsSection">
        			<div class="greyBox">
-       			<div class="title">Show Related Posts?</div>
-       			<p>If this is checked we will show the related posts of that post based on the first tag used.</p>
-       		</div>
-       		<label>Show Related Posts?</label><br />
-       		 <?php do_settings_fields('aisis-core-options', 'aisis_display_related_posts_section'); ?><br />
+                    <div class="title">Show Related Posts?</div>
+                    <p>If this is checked we will show the related posts of that post based on the first tag used.</p>
+       			</div>
+       			<label>Show Related Posts?</label><br />
+       			<?php do_settings_fields('aisis-core-options', 'aisis_display_related_posts_section'); ?><br />
+       			<div class="greyBox">
+                    <div class="title">Hide the Categories and Tags?</div>
+                    <p>If we check this all single posts (except for custom post types, as they don't show them) will hide all
+                    the categories and tags from displaying beneath the author description.</p>
+       			</div>
+       			<label>Show Related Posts?</label>
+       		 	<?php do_settings_fields('aisis-core-options', 'aisis_display_categories_tags_section'); ?><br />
        	</div>
       </div>
    </div>

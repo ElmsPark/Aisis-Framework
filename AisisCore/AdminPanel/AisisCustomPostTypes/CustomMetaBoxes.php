@@ -225,7 +225,18 @@
 				update_post_meta($post_id, $aisis_content_desc, $aisis_content_desc_new);
 			}elseif($aisis_content_desc && $aisis_content_desc_new == ''){
 				delete_post_meta($post_id, $aisis_content_desc, $aisis_content_desc_new);
-			}			
+			}
+			
+			$aisis_content_img = 'aisis_content_img';
+			$aisis_content_img_new = (isset($_POST['aisis_content_img']) ? $_POST['aisis_content_img'] : '');
+			
+			if($aisis_content_img_new && '' == $aisis_content_img){
+				add_post_meta($post_id, $aisis_content_img, $aisis_content_img_new, true);
+			}elseif($aisis_content_img_new && $aisis_content_img_new != $aisis_content_img){
+				update_post_meta($post_id, $aisis_content_img, $aisis_content_img_new);
+			}elseif($aisis_content_img && $aisis_content_img_new == ''){
+				delete_post_meta($post_id, $aisis_content_img, $aisis_content_img_new);
+			}		
 		}
 	}
 	

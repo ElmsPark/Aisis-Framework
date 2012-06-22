@@ -99,12 +99,18 @@
 
 		/**
 		 * We return the current version of the theme.
+		 * Because of the deprecation of get_theme_data we now use
+		 * wp_get_theme.
 		 *
 		 * @return Version -> the version in the css file
 		 */
 		function get_current_theme_version(){
-			$this->aisis_current_theme_version = get_theme_data(get_theme_root() . '/Aisis/style.css');
-			return $this->aisis_current_theme_version['Version'];
+			if(function_exists('wp_get_theme')){
+				$this->aisis_current_theme_version = wp_get_theme('aisis');
+			}else{
+				$this->aisis_current_theme_version = wp_get_theme(get_theme_root() . '/Aisis/style.css');
+			}
+			return $this->aisis_current_theme_version->Version;
 		}
 		
 		/**

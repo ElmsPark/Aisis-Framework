@@ -46,19 +46,23 @@
 		width: 71%;
 		float: left;
 	}
+	#content{
+		width: 90%;
+	}
 	.stickyPost{
 		width: 88%;
 		margin: 0px 0 30px;		
 	}
 	.stickyPostFull{
+		width: 123%;
+		padding: 3% 4%;
 		margin-left: 36px;
-		width: 113%;
 	}
 	#category{
 		width: 63.5%;
 	}
 	#categoryFull{
-		margin: 30px 0 30px 55px;
+		margin: 30px 0 30px 40px;
 		width: 86.5%;		
 	}
 	.post {
@@ -69,6 +73,19 @@
 		width: 123%;
 		padding: 3% 4%;
 		margin-left:36px;
+	}
+	#author{
+		width: 63.4%;
+	}
+	#authorFull{
+		width: 87.8%;
+		margin-left: 37px;		
+	}
+	#authorFull .authorName{
+		margin-right: 175px;
+	}
+	#author .authorName{
+		margin-right: 50px;
 	}
 	.postTitle{
 		margin: 0 0 15px -24px;
@@ -92,18 +109,18 @@
 		margin-left : -35px;
 	}
 	.stickyPostFull .infoPost{
-		margin-left : -35px;
+		margin-left : -24px;
 	}
 	.stickyPostFull .updatePost{
-		margin-left : -35px;
+		margin-left : -24px;
 	}
 	.stickyPost .post-author{
-		width: 107.1%;
+		width: 103.8%;
 		margin-left: -35px;
 	}
 	.stickyPostFull .post-author-full{
-		width: 106.5%;
-		margin-left: -35px;
+		width: 103.1%;
+		margin-left: -24px;
 	}
 	.post-author{
 		width:97%;
@@ -118,7 +135,7 @@
 	}
 	#commentsboxFull{
 		width: 131%;
-		margin-left: 36px;
+		margin-left: 14px;
 		padding-left: 20px;
 	}
 	#sidebar {
@@ -147,24 +164,38 @@
 		width : 95%;
 	}
 	#category {
-		width : 60%;
+		width : 62%;
 		padding : 3% 4%;
 	}
 	#categoryFull {
 		width: 84%;
 		padding: 3% 4%;
+		margin-left: 50px;
 	}	
 	#contentWrapper {
 		width : 60%;
 	}
+	#author{
+		width: 66.4%;
+	}
+	#authorFull{
+		width: 87.3%;
+		margin-left: 52px;
+	}
 	.post {
-		width: 109%;
+		width: 111%;
 		padding: 3% 4%;
 	}
 	.postFull {
 		width : 146%;
 		padding : 3% 4%;
-		margin-left: 55px;
+		margin-left: 50px;
+	}
+	.stickyPostFull .updatePost {
+		margin-left: -22px;
+	}
+	.stickyPostFull .infoPost {
+		margin-left: -22px;
 	}
 	#sidebar {
 		width : 30%;
@@ -209,9 +240,13 @@
 		background : #d2e0e8;
 		margin-left : -24px;
 	}
+	.stickyPost .post-author{
+		width: 103.8%;
+		padding-left: 19px;
+	}
 	.stickyPostFull .post-author-full {
-		width: 105.9%;
-		margin-left: -35px;
+		width: 102.5%;
+		margin-left: -23px;
 	}
 	.post-author-full {
 		width : 102.5%;
@@ -225,13 +260,16 @@
 		margin-left : -25px;
 	}
 	.stickyPostFull{
-		margin-left: 47px;
-		width: 143%;
+		width: 146%;
+		padding: 3% 4%;
+		margin-left: 50px;
 	}
 	#commentsboxFull {
 		width: 153%;
 		clear: both;
+		margin-left: 30px;
 	}
+	
 
 }
 @media screen and (max-width:960px){
@@ -240,6 +278,9 @@
 		float : right;
 		margin-top: -29px;
 	}
+	#content {
+		width: 105%;
+	}	
 	.stickyPost {
 		width: 106%;
 	}
@@ -261,15 +302,14 @@
 	.bottomLineFull {
 		margin-left : -24px;
 		width : 105%;
-	}	
+	}
+	#authorFull{
+		width: 87.3%;
+	}
 	.post-author {
 		width : 97%;
 		background : #d2e0e8;
 		margin-left : -24px;
-	}
-	.stickyPost .post-author {
-		width: 103.6%;	
-		padding-left:20px;
 	}	
 	.post-author-full {
 	width: 102.5%;

@@ -48,7 +48,7 @@
                 <p><?php if ( get_the_author_meta( 'description' ) ){the_author_meta( 'description' );}else{?>
                 <?php aisis_loop_single_author_blurb_default(); }?></p>
                 <p>This author has written: <?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</p>
-            </div>                
+            </div>               
           </article>
           <?php endwhile; ?>
           <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>

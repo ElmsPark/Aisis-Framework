@@ -42,7 +42,7 @@
 	
 			echo $before_widget;
 			
-			echo "<h3>" . $title . "</h3>";
+			echo "<h4 class='widgettitle'>" . $title . "</h3>";
 			
 			echo "<p>" . $description . "</p>";
 			

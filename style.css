@@ -1,7 +1,7 @@
 /*
 	Theme Name: Aisis
 	Theme URI: http://aisis.adambalan.com
-	Description: A theme framework for developing rich, interactive child themes.
+	Description: Aisis is a clean, simple and easy to us WordPress Framework aimed at developer and designers who are looking to build new and interesting products that are responsive, clean and organized on top of a platform that gives them the tools while getting out of there way. <a href="http://aisis.adambalan.com">Aisis</a> gives you all the API, Documentation and help you would want, need in building yuor next big product!
 	Author: Adam Balan
 	Author URI: http://adambalan.com
 	Version: 1.0
@@ -95,10 +95,37 @@ h2 {
 h3 {
 	font-size : 22px;
 }
+blockquote {
+	display:block;
+	clear:both;
+	background: transparent url(images/quoteClose.png) right bottom no-repeat;
+	background-color: rgb(238,238,238);
+	border-color:rgb(102,102,102);
+	border-width:1px;
+	border-radius:6px;
+	border-style:solid;
+	box-shadow:1px 1px 3px rgba(0,0,0,0.2) ,inset 0px 0px 4px rgba(51,51,51,0.2);
+	padding:5px;
+}
+
+blockquote p {
+	padding-left:40px;
+	padding-right:20px;
+}
+
+blockquote p:first-child {
+	background: url(images/quoteOpen.png) left top no-repeat!important;
+	padding-top:10px;
+}
+cite{
+	float:right;
+	padding-right: 20px;
+}
 #searchform input[type="search"] {
 	outline: none;
 	width: 100%;
 	border-radius: 3px;
+	margin-left: 15px;
 }
 #pagewrap {
 	width : 70%;
@@ -147,13 +174,44 @@ h3 {
 	z-index : 100;
 	width : 160px;
 }
-.widget #searchform #s {
-	width : 140px;
-	float : right;
-	background : #fff;
-	border : none;
-	padding : 6px 10px;
-	border-radius : 5px;
+.widget #searchform #search {
+	width:171px;
+	height:30px;
+	border-color:rgb(153,153,153);
+	border-width:1px;
+	border-radius:4px;
+	border-style:solid;
+	box-shadow:0px 1px 2px rgba(0,0,0,0.35);
+	margin-left: 45px;
+}
+.widget .email {
+	width:171px;
+	height:30px;
+	border-color:rgb(153,153,153);
+	border-width:1px;
+	border-radius:4px;
+	border-style:solid;
+	box-shadow:0px 1px 2px rgba(0,0,0,0.35);
+	margin-left: 45px;
+	padding: 5px;
+}
+.button {
+	width: 100px;
+	height: 50px;
+	border-color: #888;
+	border-width: 1px;
+	border-style: solid;
+	text-align: center;
+	margin-left: 125px;
+	margin-top: 18px;
+	background-color: #CCDBC4;
+	border-radius: 3px;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	cursor:pointer;
+	color:#026ACB;
+}
+.button:hover {
+	text-decoration: underline;
 }
 .objectWrapper {
 	margin: -20px 0 30px 0;
@@ -332,6 +390,10 @@ h3 {
 	font-weight: bold;
 	text-align: center;
 }
+.miniFeed .title img{
+	float:left;
+	margin: 0 -20px 0 17px;
+}
 .miniFeed p {
 	margin-top: 20px;
 	word-spacing: normal;
@@ -382,19 +444,19 @@ h3 {
 	background : #d6d6d6;
 	margin : 30px 0 30px;
 	padding : 10px 25px;
-	width: 71.5%;
+	width: 68.5%;
 	float : left;
 	border-radius : 8px;
 	border : 1px solid #666666;
 }
 #categoryFull {
-	background : #d6d6d6;
-	margin : 30px 0 30px;
-	padding : 10px 25px;
-	width : 910px;
-	float : left;
-	border-radius : 8px;
-	border : 1px solid #666666;
+	background: #D6D6D6;
+	margin: 30px 0 30px 60px;
+	padding: 10px 25px;
+	width: 84%;
+	float: left;
+	border-radius: 8px;
+	border: 1px solid #666;
 }
 .stickyPost {
 	background-color: rgb(247,244,230);
@@ -422,20 +484,29 @@ h3 {
 	box-shadow: inset 2px 0px 5px rgba(51, 51, 51, 0.78);
 }
 .stickyPostFull {
-	background-color: rgb(247,244,230);
-	margin : 30px 0 30px;
-	padding : 20px 35px;
-	width : 910px;
-	float : left;
-	border-color: rgb(102,51,0);
+	background-color: #F7F4E6;
+	margin: 30px 0 40px 60px;
+	padding: 20px;
+	width: 125%;
+	float: left;
+	border-color: #630;
 	border-width: 1px;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	border-radius: 6px;
 	border-style: solid;
 	-moz-box-shadow: 0px 3px 2px rgba(0,0,0,0.25);
-	-webkit-box-shadow: 0px 3px 2px rgba(0,0,0,0.25);
-	box-shadow: 0px 3px 2px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);	
+}
+.stickyPostFull .post-author-full{
+	width: 101.4%;
+	background-color: #DCE3E7;
+	border-top: 1px solid #404A5E;
+	border-bottom: 1px solid #404A5E;
+	margin-left: -20px;
+	padding: 10px 25px 10px 0;
+	box-shadow: inset 2px 0px 5px rgba(51, 51, 51, 0.78);
 }
 .post {
 	background-color: #fff;
@@ -458,7 +529,7 @@ h3 {
 	margin-bottom: 40px;
 	padding: 20px;
 	width: 125%;
-	margin-left: 150px;
+	margin-left: 60px;
 }
 .postTitle {
 	margin: 0 0 15px -20px;
@@ -574,6 +645,65 @@ h3 {
 .post-author-full p {
 	margin-left: 45px;
 }
+#author{
+	background-color: #fff;
+	border-color: #DDD;
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: solid;
+	box-shadow: 0px 5px 9px rgba(204, 204, 204, 0.3);
+	margin-bottom: 40px;
+	padding:20px;
+	width: 69.4%;
+	float: left;
+}
+#authorFull{
+	background-color: #fff;
+	border-color: #DDD;
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: solid;
+	box-shadow: 0px 5px 9px rgba(204, 204, 204, 0.3);
+	margin-bottom: 40px;
+	padding:20px;
+	width: 84.3%;
+	margin-left: 60px;
+	float: left;
+}
+.authorImgPost{
+	margin: 20px 0 20px 50px;
+}
+#author .text{
+	margin-left: 50px;
+	width: 80%;
+	text-align:justify;
+}
+#authorFull .text{
+	margin-left: 50px;
+	width: 80%;
+	text-align:justify;
+}
+#author h1{
+	color:#7494AB;
+}
+authorFull h1{
+	color:#7494AB;
+}
+#author .authorName{
+	float: right;
+	margin-right: 300px;
+	margin-top: 100px;
+	font-size: 60px;
+	color: #93A280;
+	text-align: center;
+}
+#authorFull .authorName{
+	float:right;
+	margin-right:300px;
+	margin-top: 100px;
+	font-size:60px;
+	color:#93A280;
+}
 .post .infoPost {
 	width : 75%;
 	margin-left : -20px;
@@ -640,7 +770,7 @@ h3 {
 
 .stickyPostFull .updatePost {
 	width : 75%;
-	margin-left : -35px;
+	margin-left : -20px;
 	margin-bottom : 10px;
 	border-left : 5px solid #293947;
 	background : #c1cadb;
@@ -726,6 +856,21 @@ h3 {
 }
 .readMore a:hover {
 	text-decoration : underline;
+}
+.listCategories{
+	width: 50%;
+	float:left;
+	margin:10px 0 10px 10px;
+}
+.listTags{
+	width: 50%;
+	float:right;
+	margin:10px 0px 10px 0;	
+	margin: 10px -10px 10px 0;
+	text-align: right;
+}
+.listCategories br{
+	display:none;
 }
 .GlobalError {
 	width : 98%;
@@ -869,8 +1014,9 @@ h3 {
 	
 }
 #commentsboxFull {
-	margin: 0 0 0 150px;
+	margin: 0 0 0 60px;
 	width: 130%;
+	float:left;
 }
 h3#comments {
 	padding : 10px 10px;
@@ -976,7 +1122,6 @@ ol.commentlist li ul.children {
 	margin : 5px 0;
 }
 #respond label {
-	display : block;
 	color : #888;
 	padding : 5px 0;
 }
@@ -1063,8 +1208,10 @@ ol.commentlist li ul.children li.depth-2, ol.commentlist li ul.children li.depth
 	padding : 30px 10px !important;
 }
 .widgettitle {
-	margin : 20px;
-	padding : 0;
+	margin: 0 0 10px 40px !important;
+	padding: 0;
+	font-size: 26px;
+	color: #719FAA;
 }
 .widget ul {
 	margin : 20px;
@@ -1080,6 +1227,8 @@ ol.commentlist li ul.children li.depth-2, ol.commentlist li ul.children li.depth
 
 .widget p{
 	text-align:justify;
+	margin: 0 10px 10px 10px;
+	font-size: 16px;
 }
 
 .widget a{
@@ -1109,7 +1258,7 @@ ol.commentlist li ul.children li.depth-2, ol.commentlist li ul.children li.depth
 	margin : 20px 10px 0 -15px;
 	width : 320px;
 	float : left;
-	padding-left : 10px;
+	padding-left: 30px;
 }
 .block .footerWidget {
 	background-color: #fff;

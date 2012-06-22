@@ -65,5 +65,49 @@
 			  }
 			  $aisis_create_form_elements->creat_aisis_form_element('textarea', '', $array_of_attributes);
               ?>
-          </p>         
+          </p>  
+          <p>
+              <label for="aisis_content_img">Upload an image and use it as your icon beisde the title of your mini feed.
+              All images should be <strong>32x32</strong></label>
+			  <?php
+			  if(isset($values['aisis_content_img']) && !empty($values['aisis_content_img'])){
+				  $file_chosen = array(
+						'name' => 'aisis_content_img',
+						'id' => 'aisis_content_img',
+						'value' => $values['aisis_content_img'][0]
+				  );
+			  }else{
+				  $file_chosen = array(
+						'name' => 'aisis_content_img',
+						'id' => 'aisis_content_img',
+						'value' => ''
+				  );				  
+			  }
+			  $button = array(
+				  'name' => 'upload_image',
+				  'id' => 'upload_image_button',
+				  'value' => 'Choose a file to upload.'
+			  );
+			  $aisis_create_form_elements->creat_aisis_form_element('input', 'text', $file_chosen);
+			  $aisis_create_form_elements->creat_aisis_form_element('input', 'button', $button);
+              ?>
+          </p>                  
     </div>
+    
+    <script language="JavaScript">
+	//Upload the image and populate the text box
+	jQuery(document).ready(function() {
+		jQuery('#upload_image_button').click(function() {
+			formfield = jQuery('#aisis_content_img').attr('name');
+			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+			return false;
+		});
+	
+		window.send_to_editor = function(html) {
+			imgurl = jQuery('img',html).attr('src');
+			jQuery('#aisis_content_img').val(imgurl);
+			tb_remove();
+		}
+	
+	});
+    </script>
