@@ -106,10 +106,14 @@
 		 */
 		function get_current_theme_version(){
 			if(function_exists('wp_get_theme')){
-				$this->aisis_current_theme_version = wp_get_theme('aisis');
+				if(wp_get_theme()->exists()){
+					$this->aisis_current_theme_version = wp_get_theme();
+					//aisis_var_dump($this->aisis_current_theme_version, true);
+				}
 			}else{
 				$this->aisis_current_theme_version = wp_get_theme(get_theme_root() . '/Aisis/style.css');
 			}
+			//aisis_var_dump($this->aisis_current_theme_version->Version, true);
 			return $this->aisis_current_theme_version->Version;
 		}
 		

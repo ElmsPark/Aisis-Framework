@@ -11,5 +11,5 @@
 	 *
 	 * =================================================================
 	 */
-	 class PackageNotFoundException extends AisisCoreexception{}
+	 class PackageNotFoundException extends AisisCoreException{}
 ?>

@@ -44,9 +44,19 @@
 	 define('AISIS_SHORTCODES', TEMPLATEPATH . '/AisisCore/ShortCodes/');
 	 define('AISIS_VIEW', TEMPLATEPATH . '/AisisCore/AisisView/');
 	 
+	 // Define Aisis Custom - for loading the whole folder.
+	 if(is_multisite()){
+	 	define('CUSTOM', TEMPLATEPATH . '/custom-'.$blog_id.'/');
+	 }else{
+		define('CUSTOM', TEMPLATEPATH . '/custom/');
+	 }
 	 
-	 // Define Aisis Custom
-	 define('CUSTOM', TEMPLATEPATH . '/custom/');
+	 //for loading js, css based files.
+	 if(is_multisite()){
+	 	define('CUSTOM_NONPHP', get_template_directory_uri() . '/custom-'.$blog_id.'/');
+	 }else{
+		define('CUSTOM_NONPHP', get_template_directory_uri() . '/custom/');
+	 }
 	 
 	 /**
 	  * Because aisis uses package to change the way the theme works
@@ -59,10 +69,10 @@
 	 require_once(AISISCORE . '/Class-Aisis-File-Handling.php');
  	 function load_aisis_custom_folder(){
 		 $aisis_file_handling = new AisisFileHandling();
-		 if($aisis_file_handling->check_dir(CUSTOM)){
+		 if($aisis_file_handling->check_dir(CUSTOM, true)){
 			 $aisis_file_handling->aisis_register_security($aisis_file_handling->load_directory_of_files(CUSTOM));
 		 }else{
-			 _e('Could not load the required files of your custom package directory (Aisis/Custom/Package). Please make sure it exists.');
+			 _e('Failed to load the custom folder: ' . CUSTOM);
 			 exit;
 		 }
 	 }
@@ -83,8 +93,4 @@
 		 _e('You are missing the directory AisisCore I cannot load any further. Please try re-downlading and installing the theme.');
 		 return;
 	 }
-	 
-
-
-	 
 ?>

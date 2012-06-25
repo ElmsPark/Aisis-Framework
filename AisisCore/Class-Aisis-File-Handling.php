@@ -55,7 +55,7 @@
 				   //not a better way to do this?
 				   $fp = fopen($filename, 'x+');
 				   fclose($fp);
-				   chmod($filename, '0666');
+				   chmod($filename, '0755');
 				   return true;
 				   
 			   }
@@ -128,8 +128,9 @@
 		 * @return contents of type string.
 		 */
 		function get_contents($path, $filename){
+		   chmod($path . $filename, 0755);
 		   if($this->check_dir($path, true) && $this->check_exists($filename, true) && $this->check_writable($path, $filename)){
-			   return $this->file_contents = file_get_contents(CUSTOM . $filename);
+			   return $this->file_contents = file_get_contents($path . $filename);
 		   }
 		}
 		
@@ -142,9 +143,7 @@
 		function write_to_file($filename, $contents, $dir){
 			if($this->check_dir($dir, true) && $this->check_exists($filename, true) && $this->check_writable($dir, $filename)){
 				if ($contents != ''){
-					$fp = fopen($dir.$filename, 'w');
-					fwrite($fp, $contents);
-					fclose($fp);
+					file_put_contents($dir . $filename, trim($contents));
 					return true;
 				}
 			}
@@ -159,22 +158,34 @@
 		 * then we attempt to create said directory at said
 		 * location.
 		 *
+		 * We also now check if the directory is writable
+		 * if this is set to true then  we will also check if this
+		 * directory is  writable.
+		 *
 		 * @param dir of type directory
 		 * @param create_dir of type boolean
+		 * @param check_writable
 		 * @return true or false
 		 */
-		function check_dir($dir, $create_dir =false){
+		function check_dir($dir, $create_dir=false, $check_writable=false){
+			$bool;
 			if(is_dir($dir)){
-				return true;
+				if($check_writable){
+					$bool = true;
+				}else{
+					$bool = true;
+				}
 			}else{
 				if($create_dir){
 					if(mkdir($dir, '0755')){
-						return true;
+						$bool = true;
 					}
 				}
 				
-				return false;
+				$bool = false;
 			}
+			
+			return $bool;
 		}
 		
 		/**
@@ -255,6 +266,7 @@
 		 */
 		function load_directory_of_files($root_dir, $allData=array(), $files_to_ignore=array(), $extension="php") {
 			$invisibleFileNames = array(".", "..", ".htaccess", ".htpasswd");
+			chmod($root_dir, 0755);
 			$dirContent = scandir($root_dir);
 			foreach($dirContent as $key => $content) {
 				$path = $root_dir.'/'.$content;

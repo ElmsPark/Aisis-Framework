@@ -29,6 +29,7 @@
 	 require_once(AISISCORE . 'Class-Aisis-File-Handling.php');
 	 require_once(AISISCORE . 'Class-Aisis-Core-Register.php');
 	 require_once(AISISCORE . 'AisisDebugger.php');
+	 require_once(AISISCORE . 'Class-Aisis-MultiSite.php');
 	 require_once(AISISCORE . 'Class-Aisis-Activation.php');
 	 require_once(AISISCORE . 'Class-Aisis-Core-Update.php');
 	 require_once(AISISCORE . 'Class-Aisis-Package-Loader.php');
@@ -66,6 +67,7 @@
 	 	wp_enqueue_style( 'camera-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/flexslider.css'); //Load Camera css
 	 	wp_enqueue_style( 'snipit-code-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/snipit.css'); //Load Snipit Css
 	 	wp_enqueue_style( 'tweet-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.jtweetsanywhere-1.3.1.css'); //Load twitter css
+		wp_enqueue_style( 'custom-style', CUSTOM_NONPHP.'custom-css.css'); //custom css
 	 	wp_enqueue_style( 'thickbox');
 	 	wp_enqueue_script( 'main-site', get_template_directory_uri() . '/lib/Javascript/mainSite.js', array('jquery'), false, true ); //Load Core JS
 	 	wp_enqueue_script( 'tip-tip', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.tipTip.minified.js', array('jquery'), false, true ); //Loadtip tip js
@@ -76,6 +78,7 @@
 	 	wp_enqueue_script( 'tweet', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.jtweetsanywhere-1.3.1.js', array('jquery'), false, true ); //Load jquery tweet
 	 	wp_enqueue_script( 'jstweet', get_template_directory_uri() . '/lib/Javascript/plugins/jtweetsanywhere-de-1.3.1.js', false, true ); //Load jquery tweet
 	 	wp_enqueue_script( 'apitwitter', 'http://platform.twitter.com/anywhere.js?id=APIKey&v=1'); //Load jquery tweet
+		wp_enqueue_script( 'custom-js', CUSTOM_NONPHP.'custom-js.js', array('jquery'), false, true); //load custom js
 	 	if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );
 		
 	 }

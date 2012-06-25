@@ -66,7 +66,10 @@
                <?php the_excerpt(); ?>
             </p>
       </article>
-      <?php endwhile; ?>
+      <?php 
+	  endwhile;
+	  wp_reset_query(); 
+	  ?>
       <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
           <div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
        	 	<div class="prevPost"><?php previous_posts_link(__( 'Next', 'aisis' )) ?></div>

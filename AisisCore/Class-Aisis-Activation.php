@@ -20,21 +20,11 @@
 	 *		
 	 *		@author: Adam Balan
 	 *		@version: 1.0
-	 *		@package: Aisis->custom	 
+	 *		@package: Aisis->AisisCore
 	 * =================================================================
 	 */
 	 
 	class AisisActivation{
-		
-		function aisis_enqueue_custom(){
-			if(is_file(CUSTOM . "custom-css.css")){
-				wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/custom/custom-css.css');
-			}
-			
-			if(is_file(CUSTOM . "custom-js.js")){
-				wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/custom/custom-js.js', array('jquery'), false, true);
-			}
-	    }
 	 
 	 	/**
 		 * We essentially make sure that the proper files and
@@ -45,7 +35,8 @@
 		 */
 		function aisis_do_on_load(){
 			global $pagenow;
-	
+			$aisis_class_multisite = new AisisMultiSite();
+			
 			  if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				  $errors = array();
 				  $aisis_file_handeling = new AisisFileHandling();
@@ -83,13 +74,16 @@
 						  $errors[] = "Seems we cannot create your custom-js.js file. Please check your permissions";
 					  }
 					  
+					  //now we check for multisite
+					  $aisis_class_multisite->create_components();
+					  
 					  if(!empty($errors)){
 						  aisis_theme_actiovation_check_errors($errors);
 						  echo "<div class='adminThemeErrors'>We could not load your LoadCustom.php because of the ors at hand.</div>";
 						  $this->aisis_theme_activation_notice();
 					  }else{
-						  add_action('wp_enqueue_scripts', 'aisis_enqueue_custom');
-						  require_once(CUSTOM . 'custom-functions.php');
+						  chmod(CUSTOM . 'custom-functions.php', 0755);
+				  		  require_once(CUSTOM . 'custom-functions.php');
 						  $this->aisis_theme_activation_success();
 					  }
 					  
@@ -98,9 +92,6 @@
 					  $this->aisis_theme_actiovation_check_errors($errors);
 					  $this->aisis_theme_activation_notice();
 				  }
-				  add_action('wp_enqueue_scripts', 'aisis_enqueue_custom');
-				  require_once(CUSTOM . 'custom-functions.php');
-				  $this->aisis_theme_activation_success();
 			  }
 		  }
 		

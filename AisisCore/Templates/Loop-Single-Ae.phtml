@@ -50,7 +50,10 @@
                 <p>This author has written: <?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</p>
             </div>               
           </article>
-          <?php endwhile; ?>
+          <?php 
+		  endwhile;
+		  wp_reset_query(); 
+		   ?>
           <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
           <div class="prevPost"><?php previous_post_link('%link','%title' ) ?></div>
           <div class="nextPost"><?php next_post_link( '%link', '%title' ) ?></div>

@@ -21,8 +21,8 @@
 	 }
  ?>
 	 <?php if (have_posts()) : ?>
-     <div id="<?php if($options['no_sidebar_page'] != 1 &&  $option_global['no_sidebar_global']  != 1){ echo 'content'; }else{ echo 'fullWidthContent'; }?>">
-            <article class="post clearfix">
+     <div id="contentWrapper">
+            <article class="<?php if($options['no_sidebar_page'] != 1 &&  $option_global['no_sidebar_global']  != 1){ echo 'post clearfix'; }else{ echo 'postFull clearfix'; }?>">
                 <header>
                     <h1 class="postTitle"><?php if($page_title != 'yes'){the_title();} ?></h1>
                     <div class="<?php if($options['no_sidebar_page'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'headlineLine'; }else{ echo 'headlineLineFull'; }?>"></div>
@@ -43,8 +43,6 @@
 				   comments_template('', true);
 			   }
 		   
-		   else
-			  aisis_404();
 		   endif;
     
      ?>

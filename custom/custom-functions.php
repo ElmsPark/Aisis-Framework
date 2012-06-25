@@ -4,7 +4,4 @@
  * place in the function.php file here.
  */
  
- 		  function default_aisis_default_left_footer_text(){
-			  echo "sauce";
-		  }
 ?>

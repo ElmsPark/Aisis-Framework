@@ -530,6 +530,7 @@ cite{
 	padding: 20px;
 	width: 125%;
 	margin-left: 60px;
+	float:left;
 }
 .postTitle {
 	margin: 0 0 15px -20px;
