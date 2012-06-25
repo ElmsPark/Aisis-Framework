@@ -29,6 +29,134 @@
 /* ======================================================================= */
 /*							[[Media Max-Width 980]]						   */
 /* ======================================================================= */
+@media screen and (max-width: 1366px){
+	#siteLogo{
+		margin-left: 1em;
+	}
+	#siteDescription{
+		margin-left: 4em;
+	}
+	#main-nav{
+		margin: 2em 0 0 22em;
+	}
+	#miniFeedWrapper{
+		margin-left:65px;
+	}
+	#contentWrapper {
+		width: 71%;
+		float: left;
+	}
+	#content{
+		width: 90%;
+	}
+	.stickyPost{
+		width: 88%;
+		margin: 0px 0 30px;		
+	}
+	.stickyPostFull{
+		width: 123%;
+		padding: 3% 4%;
+		margin-left: 36px;
+	}
+	#category{
+		width: 63.5%;
+	}
+	#categoryFull{
+		margin: 30px 0 30px 40px;
+		width: 86.5%;		
+	}
+	.post {
+		width: 90%;
+		padding: 3% 4%;
+	}
+	.postFull {
+		width: 123%;
+		padding: 3% 4%;
+		margin-left:36px;
+	}
+	.headlineLineFull{
+		border-bottom: 2px solid #375860;
+		margin-left: -26px;
+		width: 106.5%;
+		opacity: 0.4000000059604644775390625;
+		margin-bottom: 25px;
+	}
+	#author{
+		width: 63.4%;
+	}
+	#authorFull{
+		width: 87.8%;
+		margin-left: 37px;		
+	}
+	#authorFull .authorName{
+		margin-right: 175px;
+	}
+	#author .authorName{
+		margin-right: 50px;
+	}
+	.postTitle{
+		margin: 0 0 15px -26px;
+	}
+	.post .infoPost{
+		margin-left : -24px;
+	}
+	.post .updatePost{
+		margin-left : -24px;
+	}
+	.postFull .infoPost{
+		margin-left : -24px;
+	}
+	.postFull .updatePost{
+		margin-left : -24px;
+	}
+	.stickyPost .infoPost{
+		margin-left : -35px;
+	}
+	.stickyPost .updatePost{
+		margin-left : -35px;
+	}
+	.stickyPostFull .infoPost{
+		margin-left : -24px;
+	}
+	.stickyPostFull .updatePost{
+		margin-left : -24px;
+	}
+	.stickyPost .post-author{
+		width: 103.8%;
+		margin-left: -35px;
+	}
+	.stickyPostFull .post-author-full{
+		width: 103.1%;
+		margin-left: -24px;
+	}
+	.post-author{
+		width:97%;
+		margin-left: -24px;
+	}
+	.post-author-full{
+		width: 103.2%;
+		margin-left: -24px;
+	}
+	#commentsbox{
+		width: 97%;
+	}
+	#commentsboxFull{
+		width: 131%;
+		margin-left: 14px;
+		padding-left: 20px;
+	}
+	#sidebar {
+		width: 29%;
+		float: right;
+		margin-right: -22px;
+	}
+	.pagnation{
+		width: 98%;
+	}
+	.footerWrapper{
+		width: 108%;
+	}
+}
 @media screen and (max-width:1280px){
 	#siteLogo{
 		margin-left: 1em;
@@ -151,6 +279,9 @@
 	}
 }
 @media screen and (max-width:980px) {
+	#main-nav {
+		margin: 2em 0 0 21em;
+	}	
 	.socialMediaLink {
 		margin-right : 5px;
 		float : right;
@@ -383,10 +514,18 @@
 
 }
 @media screen and (max-width:650px) {
+	#siteLogo {
+		margin-left: 1em;
+		margin-top: 30px;
+	}
+	#siteDescription {
+		margin-left: 4em;
+		margin-top: 30px;
+	}
 	.socialMediaLink {
-		margin-right : 5px;
-		float : right;
-		margin-top : -35px;
+		margin-right: 166px;
+		float: right;
+		margin-top: -107px;
 	}
 	.socialMediaLink img {
 		width : 32px;
@@ -400,8 +539,8 @@
 		margin-left: -26px
 	}
 	.headlineLineFull {
-		width: 108.4%;
-		margin-left: -26px
+		width: 111%;
+		margin-left: -24px;
 	}
 	.bottomLine {
 		width: 108.4%;
@@ -412,11 +551,11 @@
 		margin-left: -27px
 	}	
 	#searchform {
-		position : absolute;
-		top : 100px;
-		right : 10px;
-		z-index : 100;
-		height : 40px;
+		position: absolute;
+		top: 7px;
+		right: 10px;
+		z-index: 100;
+		height: 40px;
 	}
 	#searchform #s {
 		width : 70px;
@@ -439,8 +578,7 @@
 		margin: 0 0 80px;
 	}	
 	#miniFeedWrapper{
-		width: 650px;
-		float: none !important;
+		display: none;
 		
 	}
 	#category {
@@ -496,8 +634,13 @@
 	.video embed, .video object, .video iframe {
 		min-height : 250px;
 	}
+	.postFull {
+		width: 75%;
+		padding: 3% 4%;
+		margin-left: 50px;
+	}	
 	.postTitle {
-		margin-left : -26px;
+		margin-left : -24px;
 	}
 	.post-author {
 		width : 98%;
@@ -525,16 +668,36 @@
 		margin-left : 10px;
 		margin-top : -30px;
 	}
+	#sliderImage {
+		float: left;
+		margin-top: 80px;
+		margin-left: -10px;
+		width: 50%;
+	}
 	
 
 }
 @media screen and (max-width:560px) {
+	#siteLogo {
+		margin-left: 10px;;
+		margin-top: 30px;
+	}
+	#siteDescription {
+		margin-left: 20px;
+		margin-top: 30px;
+	}	
 	#searchform {
 		position : absolute;
 		top : 10px;
 		right : 10px;
 		z-index : 100;
 		height : 40px;
+	}
+	.socialMediaLink{
+		margin-top: -173px;
+	}
+	#main-nav{
+		margin: 6em -1em 0 0em;
 	}
 	#miniFeedWrapper{
 		width: 560px;
@@ -558,15 +721,15 @@
 		padding : 8px;
 	}
 	.postTitle {
-		margin-left : -23px;
+		margin-left : -20px;
 	}
 	.headlineLine {
 		width: 108.4%;
 		margin-left: -22px
 	}
 	.headlineLineFull {
-		width: 108.4%;
-		margin-left: -22px
+		width: 111%;
+		margin-left: -21px;
 	}
 	.bottomLine {
 		width: 108.4%;
@@ -616,6 +779,10 @@
 	}
 }
 @media screen and (max-width:480px) {
+	#header {
+		height: auto;
+		width: 95%;
+	}	
 	#sidebar{
 		display:none;
 	}
@@ -633,9 +800,9 @@
 		position : static;
 	}
 	.socialMediaLink {
-		margin-right : 5px;
-		float : right;
-		margin-top : -40px;
+		margin-right: 148px;
+		float: right;
+		margin-top: -182px;
 	}
 	.socialMediaLink img{
 		width: 38px;
@@ -660,8 +827,8 @@
 		width : 108%;
 	}
 	.headlineLineFull {
-		margin-left : -16px;
-		width : 108%;
+		margin-left: -17px;
+		width: 110.5%;
 	}
 	.bottomLine {
 		margin-left : -16px;
@@ -670,9 +837,12 @@
 	.bottomLineFull {
 		margin-left : -16px;
 		width : 108%;
+	}
+	.postFull {
+		margin-left: 36px;
 	}	
 	.postTitle {
-		margin-left : -19px;
+		margin-left : -17px;
 	}
 	.post .infoPost {
 		margin-left : -19px;
@@ -715,6 +885,9 @@
 	.objectWrapper{
 		margin: 0 0 80px;
 	}
+	.afterBlock{
+		float:left;
+	}
 	.afterBlock .rightText{
 		margin-right: 0px;
 	}
@@ -723,6 +896,14 @@
 	}	
 }
 @media only screen and (max-width:320px) {
+	#siteLogo {
+		margin-left: 10px;
+		margin-top: -36px;
+		font-size: 27px;
+	}
+	#siteDescription{
+		display:none;
+	}
 	#content {
 		width: 94%;
 	}
@@ -731,6 +912,9 @@
 	}
 	.postTitle{
 		word-break:break-all;
+	}
+	#main-nav {
+		margin: 3em -1em 0 0em;
 	}
 	#sidebar{
 		display:none;
@@ -757,6 +941,9 @@
 		margin-top : 40px;
 		position : static;
 	}
+	.postFull {
+		margin-left: 5px;
+	}
 	.flex-direction-nav li a{
 		display:none !important; 
 	}	
@@ -780,7 +967,7 @@
 		width : 108%;
 	}	
 	.postTitle {
-		margin-left : -27px;
+		margin-left : -14px;
 	}
 	.formLayout {
 		clear : both;
@@ -826,5 +1013,12 @@
 	}
 	#commentsbox{
 		width:97%;
+	}
+	.contact-form input[type="text"] {
+		width: 75%;
+		margin-bottom: 13px;
+	}
+	#sliderText{
+		word-wrap:break-word;
 	}
 }

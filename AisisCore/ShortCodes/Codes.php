@@ -64,7 +64,28 @@
 		function aisis_js_code( $atts, $content = null ) {
 		   return '<pre class="js">' . $content . '</pre>';
 		}
-	}	
+	}
+	
+	//Print out the title.
+	if(!function_exists('aisis_page_title')){
+		function aisis_page_title($atts, $content = null){
+			$options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 		$options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_page');
+			
+			if($options['no_sidebar_page'] != 1 && $option_global["no_sidebar_global"] != 1){ 
+				$class =  "headlineLine"; 
+			}else{ 
+				$class =  "headlineLineFull"; 
+			}
+			
+			return'
+				<header>
+                    <h1 class="postTitle">'.$content.'</h1>
+                    <div class='.$class.'></div>
+                </header>
+				';
+		}
+	}
 	
 	add_shortcode( 'softimg', 'aisis_soft_img' );
 	add_shortcode( 'glossimg', 'aisis_gloss_img' );
@@ -72,5 +93,6 @@
 	add_shortcode( 'update', 'aisis_update_post' );
 	add_shortcode( 'cssCode', 'aisis_css_code' );
 	add_shortcode( 'jsCode', 'aisis_js_code' );
+	add_shortcode( 'aisisPageTitle', 'aisis_page_title' );
 		
 ?>

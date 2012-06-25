@@ -140,6 +140,10 @@ p{
 	font-size : 14px;
 }
 
+.ui-state-active, .ui-widget-content 
+.ui-state-active, .ui-widget-header .ui-state-active {
+	height: 38px !important;
+}
 
 </style>
 
@@ -172,6 +176,7 @@ jQuery(document).ready(function($){
         <li><a href="#ImageCodes">Image Codes</a></li>
         <li><a href="#PostSpecific">Post Specific</a></li>
         <li><a href="#Code">Code</a></li>
+        <li><a href="#Pages">Page</a></li>
     </ul>
     <div id="AisisShortCodeInto">
         <div class="headerTitle">Aisis - Short Codes - </div>
@@ -288,6 +293,32 @@ jQuery(document).ready(function($){
         </pre>
         </div>
     </div>
+    <div id="AisisShortCodeInto">
+        <div class="headerTitle">Aisis - Page Specific - </div>
+        <div class="wrapper">
+            <p>Aisis does not display the post title by default, we also don't do a few other things and thus we give you the developer and designer a few codes to make your life easier.</p>
+            <div class="box">
+                <p> <strong>Using Aisis Page Codes</strong><br  /><br />
+                These are designed to make laying out and designing pages easier and more effiecent by taking out some of the more tedius tasks. Especially for those
+                who do not know html or css.</p><br />
+                <p>To use any of the short codes here, each "code box" has a "popup" or "Turn off HTML" option to easily copy and paste the code.</p>
+            </div>
+            <p>Aisis short codes are a essential way of the writers life and we provide simple and clean ways to insert images, code and other small 
+            features that you would have to code with css. The following is an example of short codes and their power.</p>
+            <div class="box">
+                <p> <strong>Title</strong><br  /><br />
+                Since we do not display the title by default we give you the tools to do so. This short code will expand and position the title based on weather you have
+                side bars or not.</p><br />
+                <p>To use any of the short codes here, each "code box" has a "popup" or "Turn off HTML" option to easily copy and paste the code.</p>
+            </div>
+            <pre class="js">[aisisPageTitle] This is a page title [/aisisPageTitle]</pre>
+            <div class="imgPost">
+            <div class="soft-embossed center-image">
+                <img src="<?php bloginfo('template_directory')?>/images/bridge.jpg" width="350" height ="350" />
+            </div>
+            </div>
+        </div>
+    </div>    
 </div>
 
 
