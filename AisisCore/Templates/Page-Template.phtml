@@ -14,6 +14,7 @@
 	 global $page_title, $post;
 	 $options = get_option('aisis_core_theme_setting_sidebar_page');
 	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 
 	 if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_page'] != 1){
 		 aisis_slider_mini();
 	 }

@@ -35,8 +35,17 @@
 			'aisis_display_categories_tags_section'
 		);
 		
+		add_settings_field(
+			'aisis_upload_header_image_setting',
+			'',
+			'aisis_upload_header_image',
+			'aisis-core-options',
+			'aisis_upload_header_image_section'
+		);		
+		
 		register_setting('aisis-core-options', 'aisis_display_categories_tags_setting', 'aisis_display_categories_tags_Validation');
 		register_setting('aisis-core-options', 'aisis_display_related_posts_setting', 'aisis_display_related_posts_validation');
+		register_setting('aisis-core-options', 'aisis_upload_header_image_setting', 'aisis_upload_header_image_validation');
 	 }
 	
 	 /**
@@ -73,6 +82,36 @@
 			
 			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_show_cat_tags);
 		}
+	}
+	/**
+	 * set up the image jazz
+	 */
+	if(!function_exists('aisis_upload_header_image')){
+		function aisis_upload_header_image(){
+			$aisis_create_form_element = new AisisForm();
+			$options = get_option('aisis_upload_header_image_setting');
+			if(isset($options['aisis_header_img']) && !empty($options['aisis_header_img'])){
+				$file_chosen = array(
+					  'name' => 'aisis_upload_header_image_setting[aisis_header_img]',
+					  'id' => 'aisis_header_img',
+					  'value' => $options['aisis_header_img']
+				);
+			}else{
+				$file_chosen = array(
+					  'name' => 'aisis_upload_header_image_setting[aisis_header_img]',
+					  'id' => 'aisis_header_img',
+					  'value' => ''
+				);				  
+			}
+			$button = array(
+				'name' => 'upload_image',
+				'id' => 'upload_image_button',
+				'value' => 'Choose a file to upload.'
+			);
+			
+			$aisis_create_form_element->creat_aisis_form_element('input', 'text', $file_chosen);
+			$aisis_create_form_element->creat_aisis_form_element('input', 'button', $button);
+		}
 	}		
 	/**
 	 * We validate and store the value
@@ -104,7 +143,19 @@
 			update_option('admin_success_message', 'true'); 
 			return $options; 
 		}
-	}	
+	}
+	
+	/**
+	 * Save the image src for use on the front end.
+	 */
+	if(!function_exists('aisis_upload_header_image_validation')){
+		function aisis_upload_header_image_validation($input){
+			$options = get_option('aisis_upload_header_image_setting');
+			$options['aisis_header_img'] = $input['aisis_header_img'];
+			update_option('admin_success_message', 'true'); 
+			return $options; 
+		}
+	}		
 	
 	add_option('admin_success_message', '', '', 'yes');
 	add_action('admin_init', 'set_up_related_posts');

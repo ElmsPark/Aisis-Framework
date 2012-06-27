@@ -73,9 +73,9 @@
 	 		$options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_page');
 			
 			if($options['no_sidebar_page'] != 1 && $option_global["no_sidebar_global"] != 1){ 
-				$class =  "headlineLine"; 
-			}else{ 
 				$class =  "headlineLineFull"; 
+			}else{ 
+				$class =  "headlineLine"; 
 			}
 			
 			return'
@@ -87,6 +87,16 @@
 		}
 	}
 	
+	//embed search
+	if(!function_exists('aisis_search_embed')){
+		function aisis_search_embed($atts){
+			return '
+			    <form method="get" id="embedSearch" action="'.home_url().'" >
+        			<input type="search" id="embedSearch" name="s" placeholder="Looking for?" />
+    			</form>';
+		}
+	}
+	
 	add_shortcode( 'softimg', 'aisis_soft_img' );
 	add_shortcode( 'glossimg', 'aisis_gloss_img' );
 	add_shortcode( 'info', 'aisis_info_post' );
@@ -94,5 +104,6 @@
 	add_shortcode( 'cssCode', 'aisis_css_code' );
 	add_shortcode( 'jsCode', 'aisis_js_code' );
 	add_shortcode( 'aisisPageTitle', 'aisis_page_title' );
+	add_shortcode( 'embedSearch', 'aisis_search_embed' );
 		
 ?>

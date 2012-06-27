@@ -17,13 +17,14 @@
 	 *
 	 * =================================================
 	 */
+	global $wp;
 		
 	//Create our button and add it to media buttons	 
     if(!function_exists('aisis_media_buttons_link')){
 	    function aisis_media_buttons_link(){
 			global $post_ID, $temp_ID, $iframe_post_id;
 			$iframe_post_id = (int) (0 == $post_ID ? $temp_ID : $post_ID);
-			$url = admin_url("/admin-ajax.php?post_id=$iframe_post_id&amp;codes=aisis-codes&amp;action=aisis_codes&amp;TB_iframe=true&amp;width=950");
+			$url = admin_url("/admin-ajax.php?post_id=$iframe_post_id&codes=aisis-codes&action=aisis_codes&TB_iframe=true");
 		    echo "<a href='".$url."' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
 			   <img src='".get_template_directory_uri() . "/images/addition.png" . "' width='16' height='16'></a>";
 	    }

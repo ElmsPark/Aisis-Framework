@@ -23,8 +23,14 @@
             <p>Looking to add some functions? Add them here and we will write them to your custom-function.php file. </p>
         </div>
         <div class="contents">
+        	<?php if(is_multisite()){ ?>
+            <div class="notcie"><strong>ATTN!</strong> Please make sure to back up this file: <?php echo CUSTOM . 'custom-functions.php'; ?>.
+            also note you <strong>MUST</strong> start this file off with opening and closing php tags.
+            <?php }else{ ?>
             <div class="notice"><strong>Note!</strong> Back this file up and be careful as you may cause your self a white screen of death.</div>
-            <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-php-editor' ?>
+            <?php }
+			
+			$aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-php-editor' ?>
             <form method="post" action="<?php echo $aisis_forum_url ?>">
                 <?php settings_fields( 'aisis-php-editor' ); ?>
                 <?php do_settings_fields('aisis-php-editor', 'aisis_php_editor_section'); ?>

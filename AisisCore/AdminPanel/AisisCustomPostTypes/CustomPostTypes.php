@@ -80,7 +80,8 @@
 			'hierarchical' => false,
 			'menu_icon' => get_template_directory_uri() .'/images/mini.png',
 			'menu_position' => null,
-			'supports' => array('title','editor')
+			'supports' => array('title','editor'),
+			'exclude_from_search' => true
 		  ); 
 		  register_post_type('mini',$args);
 		}	
@@ -119,7 +120,8 @@
 			'hierarchical' => false,
 			'menu_icon' => get_template_directory_uri() .'/images/slides.png',
 			'menu_position' => null,
-			'supports' => array('title','editor')
+			'supports' => array('title','editor'),
+			'exclude_from_search' => true
 		  ); 
 		  register_post_type('slides',$args);
 		}

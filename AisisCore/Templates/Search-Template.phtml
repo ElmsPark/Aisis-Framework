@@ -13,17 +13,19 @@
 	 */
 	 
 	 global $post_id;
+	 
+	 $options = get_option('aisis_core_theme_setting_sidebar_index');
+	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
  ?>
  <?php if(have_posts()){?>
- <div id="content">
  	<?php while (have_posts()) : the_post();?>
-	<article class="post clearfix">
+	<article class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'post clearfix'; }else{ echo 'postFull clearfix'; }?>">
             <header>
                 <h1 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                 <div class="post-comments"><?php comments_number('0', '1', '%'); ?> comments</div>
                 <div class="whoWrote">Author of this post: <?php the_author_link(); ?></div>
                 <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
-                <div class="headlineLine"></div>
+                <div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'headlineLine'; }else{ echo 'headlineLineFull'; }?>"></div>
                 <div class="infoOnPost"></div>
             </header>
             <div class="imgPost">
@@ -34,13 +36,11 @@
                 </figure>
                 <?php } ?>
             </div>
-            <p><?php the_content( __('<div class="readMore">Read More...</div>', true)); ?></p>
+            <p><?php the_excerpt(); ?></p>
             <div class="bottomLine"></div>
    </article>
     <?php endwhile; ?>
- </div>
 	<?php
  	}else{
 		aisis_404();
 	}?>
-	<?php get_sidebar(); ?>

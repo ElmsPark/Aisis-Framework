@@ -14,13 +14,14 @@
 	 */
 	 	global $more, $post;
 		$more = 0; //declare and set $more before The Loop
+		
 	 	$options = get_option('aisis_core_theme_setting_sidebar_single');
 		$option_global = get_option('aisis_core_theme_setting_sidebar_global');
-		
 		$options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
 		$options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_single');
 		$options_recent_posts = get_option('aisis_display_related_posts_setting');
 		$options_cat_tags = get_option('aisis_display_categories_tags_setting');
+		
 		$aisis_category_list_options = array(
 				'orderby' => 'name',
 				'style' => 'none',
@@ -53,7 +54,7 @@
             <h1><?php the_author()?></h1>
                 <p><?php if ( get_the_author_meta( 'description' ) ){the_author_meta( 'description' );}else{?>
                 <?php aisis_loop_single_author_blurb_default(); }?></p>
-                <p>This author has written: <?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</p>
+                <p>This author has written: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</a></p>
             </div> 
             <?php if($options_cat_tags['cat_tags'] != 1){?>
             <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list_options);?></div> 
@@ -142,7 +143,7 @@
             <h1><?php the_author()?></h1>
                 <p><?php if ( get_the_author_meta( 'description' ) ){the_author_meta( 'description' );}else{?>
                 <?php aisis_loop_single_author_blurb_default(); }?></p>
-                <p>This author has written: <?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</p>
+                <p>This author has written: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php echo number_format_i18n( get_the_author_posts() ); ?> posts.</a></p>
             </div>   
             <?php if($options_cat_tags['cat_tags'] != 1){?>
             <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list_options);?></div> 

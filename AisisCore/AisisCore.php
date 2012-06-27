@@ -76,6 +76,17 @@
 		}
 	}
 	
+	//Get only posts back for the search
+	function aisis_search_filter($query) {
+		if ($query->is_search) {
+			$query->set('post_type', array('post', 'ae'));
+		}
+		
+		return $query;
+	}
+	
+	add_filter('pre_get_posts','aisis_search_filter');
+	
 	add_filter('excerpt_more', 'aisis_excerpt');
 	add_filter('wp_nav_menu_items', 'aisis_nav_items');
 	add_filter('wp_list_pages', 'aisis_nav_items');

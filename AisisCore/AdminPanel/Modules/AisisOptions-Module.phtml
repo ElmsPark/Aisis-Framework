@@ -286,9 +286,17 @@
                     <div class="title">Hide the Categories and Tags?</div>
                     <p>If we check this all single posts (except for custom post types, as they don't show them) will hide all
                     the categories and tags from displaying beneath the author description.</p>
+                    <div class="notice">These are on by default</div>
        			</div>
-       			<label>Show Related Posts?</label>
+       			<label>Should we Hide Categories and Tags?</label>
        		 	<?php do_settings_fields('aisis-core-options', 'aisis_display_categories_tags_section'); ?><br />
+       			<div class="greyBox">
+                    <div class="title">Upload an Image for the header</div>
+                    <p>Upload an image for use in the header. All images should be <strong>320x56</strong></p>
+                    <div class="notice">When you select your image or upload it, click: insert into post.</div>
+       			</div>
+       			<label>Upload your image!</label>
+       		 	<?php do_settings_fields('aisis-core-options', 'aisis_upload_header_image_section'); ?><br />                
        	</div>
       </div>
    </div>

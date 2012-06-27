@@ -1,73 +1,6 @@
-<?php
-?>
-
 <style type="text/css">
-body{
-	background:#F1F4F8;
-	color:#000000;
-	font-size:16px;
-	font-family:Arial, Helvetica, sans-serif;
-}
-h1 {
-	color:#4B718B;
-	margin-left:50px;
-	text-shadow : #6695B0 0 1px 0;
-	margin-bottom: 20px;
-	border-bottom: inset thin #666;
-	line-height: 40px;
-	width: 46%;
-	font-size: 45px;
-}
-p{
-	margin: 0 auto 0 auto;
-	width: 60%;
-	font-size:16px;
-}
-.headerTitle{
-	margin-left: 125px;
-	margin-top: 40px;
-	font-size:36px;
-	color:#B38FB6;
-}
-.wrapper{
-	background : #fff;
-	margin : 30px 0 30px;
-	padding : 20px 35px;
-	width : 89%;
-	border-radius : 8px;
-	box-shadow: 0 1px 3px rgba(0,0,0,.4);
-}
-.PanelSubTitle {
-	width: 65%;
-	margin-left: 185px;
-	margin-bottom: 45px;
-	background:#D5B7CC;
-	padding:10px;
-	border-right: #846275 15px solid;
-	border-top-left-radius:8px;
-	border-bottom-left-radius: 8px;
-	-webkit-box-shadow: 0 6px 6px -6px black;
-	-moz-box-shadow: 0 6px 6px -6px black;
-	box-shadow: 0 6px 6px -6px black;
-}
-.PanelSubTitle p{
-	margin-left:50px;
-}
-.box{
-	width: 75%;
-	border-top-right-radius: 8px;
-	border-bottom-right-radius: 8px;
-	padding: 10px;
-	margin: 40px auto 40px -35px;
-	background:#CCC;
-}
 
-.box p{
-	text-align:justify;
-	font-size:16px;
-	color:#687E9F;
-	width: 80%;
-}
+/** Image Based Jazz **/
 .image-wrap {
 	position : relative;
 	display : inline-block;
@@ -115,15 +48,24 @@ p{
 	width: 350px;
 	height: 350px;
 }
-#tabs{
-	width:100%;
-	border: none;
-	background:#F1F4F8;
-	
+
+input[type="button"]{
+	background-color:rgb(233,239,222);
+	width:112px;
+	height:39px;
+	border-color:rgb(204,204,204);
+	border-width:1px;
+	border-radius:4px;
+	border-style:solid;
+	text-align:center;
+	color:#15568A;
+	cursor:pointer;
 }
+
+/** Post Specific **/
 .infoPost{
 	width : 75%;
-	margin-left : -35px;
+	margin-left : -20px;
 	margin-bottom : 10px;
 	border-left : 5px solid #796d2d;
 	background : #e0dcbe;
@@ -132,7 +74,7 @@ p{
 }
 .updatePost{
 	width : 75%;
-	margin-left : -35px;
+	margin-left : -20px;
 	margin-bottom : 10px;
 	border-left : 5px solid #293947;
 	background : #c1cadb;
@@ -140,9 +82,66 @@ p{
 	font-size : 14px;
 }
 
-.ui-state-active, .ui-widget-content 
-.ui-state-active, .ui-widget-header .ui-state-active {
-	height: 38px !important;
+/** Over All Layout **/
+.contentSection{
+	background-color:rgb(255,255,255);
+	width:98%;
+	margin-left: -15px;
+	padding: 20px;
+	border-color:rgb(204,204,204);
+	border-width:1px;
+	border-radius:6px;
+	border-style:solid;
+	box-shadow:2px 4px 4px rgba(221,221,221,0.65);
+}
+.section{
+	background-color:rgb(213,221,227);
+	width:90%;
+	margin: 10px auto 10px auto;
+	padding: 20px;
+	border-color:rgb(204,204,204);
+	border-width:1px;
+	border-radius:4px;
+	border-style:solid;
+}
+.title{
+	text-align:center;
+	font-size:24px;
+}
+.middleText{
+	text-align:center;
+	font-size:18px;	
+}
+.centerImage{
+	margin-left: 116px;
+}
+/** Jquery UI Changes **/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background-color: #F5FAFA !important;
+	border-color: #E7EEF0 !important;
+	-moz-border-top-right-radius: 4px !important;
+	-moz-border-top-left-radius: 4px !important;
+	-webkit-border-top-right-radius: 4px !important;
+	-webkit-border-top-left-radius: 4px !important;
+	border-top-right-radius: 4px !important;
+	border-top-left-radius: 4px !important;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	background-color: #D7E5E9 !important;
+	border-color: #C7DBDF !important;
+	-moz-border-top-right-radius: 4px !important;
+	-moz-border-top-left-radius: 4px !important;
+	-webkit-border-top-right-radius: 4px !important;
+	-webkit-border-top-left-radius: 4px !important;
+	border-top-right-radius: 4px !important;
+	border-top-left-radius: 4px !important;
+	height: 37px !important;
+}
+
+.ui-widget-content {
+	border: none !important;
+	background: #fff !important;
 }
 
 </style>
@@ -150,6 +149,7 @@ p{
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/lib/Javascript/plugins/jquery.snipit.js' ?>"></script>
+
 <link href="<?php echo get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/snipit.css' ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo get_template_directory_uri() . '/AisisCore/AdminPanel/Modules/Required/jquery-ui-1.8.19.custom.css' ?>" rel="stylesheet" type="text/css">
 
@@ -168,159 +168,125 @@ jQuery(document).ready(function($){
 	$( "#tabs" ).tabs();
 });
 
+function softImage () {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[softimg]Place Img SRC here[/softimg]')
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+}
+
+function glossImage () {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[glossimg]Place Img SRC here[/glossimg]')
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+}
 </script>
 
 <div id="tabs">
 	<ul>
-    	<li><a href="#AisisShortCodeInto">Aisis - Short Codes</a></li>
-        <li><a href="#ImageCodes">Image Codes</a></li>
-        <li><a href="#PostSpecific">Post Specific</a></li>
-        <li><a href="#Code">Code</a></li>
-        <li><a href="#Pages">Page</a></li>
-    </ul>
-    <div id="AisisShortCodeInto">
-        <div class="headerTitle">Aisis - Short Codes - </div>
-        <div class="wrapper">
-            <p>Aisis Short codes are a dynamic and interesting addition to any post. They are super easy to make and super easy to implement.</p>
-            <div class="box">
-                <p> <strong>Usising Aisis Codes</strong><br  /><br />
-                Using aisis short codes helps you write better articles, get more done with out having to 
-                worry about how to implement images ina specific way. The work is done for you.</p><br />
-                <p>To use any of the short codes here, each "code box" has a "popup" or "Turn off HTML" option to easily copy and paste the code.</p>
+		<li><a href="#aisis">Aisis Short Codes</a></li>
+		<li><a href="#page">Page</a></li>
+		<li><a href="#postImages">Post (General)</a></li>
+        <li><a href="#postCode">Post (Code)</a></li>
+	</ul>
+	<div id="aisis">
+        <div class="contentSection">
+             <div class="title">
+                Aisis Short Codes
+             </div>
+        	<div class="section">
+            <p>Aisis short codes are Aisis Specific short codes that help you, the user, get things done faster, easier and more efficient than ever before. 
+            We give you examples of what the short code will do, an easy insert into post button and of course what the short code will look like once in your editor.</p>
+            
+			<p>Aisis Short codes are simply the best thing ever when writing a WordPress post, custom or not, pages and 
+            anything else where you might want to integrate short codes.</p>
             </div>
-            <p>Aisis short codes are a essential way of the writers life and we provide simple and clean ways to insert images, code and other small 
-            features that you would have to code with css. The following is an example of short codes and their power.</p>
-            <pre class="js">[softimg] img src here [/softimg]</pre>
-            <div class="imgPost">
-            <div class="soft-embossed center-image">
-                <img src="<?php bloginfo('template_directory')?>/images/bridge.jpg" width="350" height ="350" />
+            <div class="middleText">
+            	Example:
             </div>
-            </div>
+            <pre class="js">
+            	[glossyimg] img src [/glossyimg]
+            </pre>
+            <div class="imgPost centerImage">
+                <figure class="post-image glossy">
+                    <img src="<?php bloginfo('template_directory');?>/images/bridge.jpg" width="300" height="300"/>
+                </figure>
+			</div>
         </div>
-    </div>
-    <div id="ImageCodes">
-    	<div class="headerTitle">Aisis - Images</div>
-        <div class="wrapper">
-        	<p>When you insert an image into a post in wordpress you really want it to stick out and Aisis has two CSS3 based methods that really helpt that happen.
-            Using jquery and CSS3 Aisis helps your images pop!</p>
-            <div class="box">
-            	<p><strong>Soft Images</strong><br  /><br />
-                When you want to give images that soft look with a little bit of sine at the bottom you just have to use the following short code and pass in the image
-                source code and let Aisis handel the rest. We will then center you image and give you your effect.<br />
-                <em>Supported in: IE9, FF3.6+m Chrome and Safari</em></p>
+	</div>
+	<div id="page">
+        <div class="contentSection">
+            <div class="title">
+                Page Specific
             </div>
-            <pre class="js">[softimg] img src here [/softimg]</pre>
-            <div class="imgPost">
-            <div class="soft-embossed center-image">
-                <img src="<?php bloginfo('template_directory')?>/images/bridge.jpg"  width="350" height ="350" />
-            </div>
-            </div>
-            <div class="box">
-            	<p><strong>Glossy Image</strong><br  /><br />
-                When you wan't your images to have a glossy look or effect you can use the following hort code to give it that glossy shiny look that really helps it
-                POP out on your screen. Again all you have to do is insert the  image source between the two tags and Aisis will handel the rest for you.
-                <em>Supported in: IE9, FF3.6+m Chrome and Safari</em>
+        	<div class="section">
+                <p>
+                Aisis has an interesting and unique way of displaying images using Css3, html and java script. 
+                You don’t have to worry about these things as we deal with 
+                them for you. Bellow we show you two of the ways Aisis can 
+                deal with images, Soft Images and Glossy Images. To use either just click the "insert into post!"
                 </p>
             </div>
-            <pre class="js">[glossimg] img src here [/glossimg]</pre>
-            <div class="imgPost">
-            <div class="glossy center-image">
-                <img src="<?php bloginfo('template_directory')?>/images/bridge.jpg"  width="350" height ="350" />
-            </div>
-            </div>
-            <p>It should be notes that if your browser does not support CSS3 you will just get a default fall back image to that of regular image. So no need to be alarmed :D.</p>
-        </div>
-    </div>
-    <div id="PostSpecific">
-    	<div class="headerTitle">
-        Aisis - Posts Specific - 
-        </div>
-        <div class="wrapper">
-            <p>Ever updated a post but needed to draw the users attention to it? Or maybe you have a long post and it gets simplified into something in a couple sentances. 
-            Well these post specific short codes help make your posting and adding that extra tid bit much more easier and effective then ever before.  </p>
-            <div class="box">
-            	<p><strong>Info Post</strong><br  /><br />
-                Ever wanted to summerize a post in a few sentances, maybe you have a complex explanation that you summarize up in a couplesentances. The following is an example of how to do that.</p>
-            </div>
-            <pre class="js">[infopost]content here[/infopost]</pre>
+            <pre class="js">
+            	[glossyimg] img src [/glossyimg]
+            </pre>
+            <div class="imgPost centerImage">
+                <figure class="post-image glossy">
+                    <img src="<?php bloginfo('template_directory');?>/images/bridge.jpg" width="300" height="300"/>
+                </figure>
+			</div>
+            <input type="button" value="Insert Into Post!" onclick="softImage()" />
+            <br />
+            <pre class="js">
+            	[glossyimg] img src [/glossyimg]
+            </pre>
+            <div class="imgPost centerImage">
+                <figure class="post-image soft-embossed">
+                    <img src="<?php bloginfo('template_directory');?>/images/bridge.jpg" width="300" height="300"/>
+                </figure>
+			</div>
+            <input type="button" value="Insert Into Post!" onclick="glossImage()" />
+            <br />
+            <pre class="js">
+            	[info]This is some info or a summary about said article or paragraph[/info]
+            </pre>
             <div class="infoPost">
-            	This is the summary of the post - use the short code above to create me.
+            	This is some info or a summary about said article or paragraph
             </div>
-            <br  />
-        	<div class="box">
-            	<p><strong>Update Post</strong><br  /><br />
-                Ever updated a post and the user read the post but then saw your update and it looked like the rest of the post? Well with this short code it will stick out 
-                and let people know that "Oh! This post was updated!" The following will show you how to do that.</p>
-            </div>
-            <pre class="js">[updatepost]content here[/updatepost]</pre>
+            <input type="button" value="Insert Into Post!" onclick="glossImage()" />
+            <pre class="js">
+            	[update]Update Post - Usually at the bottom of the post.[/update]
+            </pre>
             <div class="updatePost">
-            	I am a post that has been updated. Updated I am!
+            	This is some info or a summary about said article or paragraph
             </div>
-            <br  />
+            <input type="button" value="Insert Into Post!" onclick="glossImage()" />            
+            <br />
         </div>
-    </div>
-    <div id="Code">
-    	<div class="headerTitle">Aisis - Code - </div>
-        <div class="wrapper">
-        <p>Ever wanted to insert CSS or JS into your posts to get that coding point across? Now you can. Its so simple. check out some of the examples bellow.</p>
-        <div class="box">
-        	<p><strong>Display CSS</strong><br  /><br />
-            Its important to some people to show code examples in there blog posts and Aisis provides that 
-            opertunity by providing you with CSS syntax highlighting for you uses. Our code boxes also come 
-            with a text mode and a "pop up" mode for easy copy and paste of your code.</p>
-        </div>
-        <pre class="js">
-        [cssCode] .class{} [/cssCode]
-        </pre>
-        <pre class="styles">.class{}</pre>
-        <div class="box">
-        	<p><strong>Display JS</strong><br  /><br />
-            Javascript is often posted a lot on blogs to display how to do Jquery based functions and other library calls.
-            Through out this Aisis - ShortCodes - popup we have been using it to show you various short codes.</p>
-        </div>
-        <pre class="js">
-        [jsCode] function(){} [/jsCode]
-        </pre>
-        <pre class="js">
-        /**
-         * note we have line numbers
-         * turned off for this 
-         * demonstration how ever 
-         * you won't when using the
-         * short code.
-         */
-        function(){}
-        </pre>
-        </div>
-    </div>
-    <div id="AisisShortCodeInto">
-        <div class="headerTitle">Aisis - Page Specific - </div>
-        <div class="wrapper">
-            <p>Aisis does not display the post title by default, we also don't do a few other things and thus we give you the developer and designer a few codes to make your life easier.</p>
-            <div class="box">
-                <p> <strong>Using Aisis Page Codes</strong><br  /><br />
-                These are designed to make laying out and designing pages easier and more effiecent by taking out some of the more tedius tasks. Especially for those
-                who do not know html or css.</p><br />
-                <p>To use any of the short codes here, each "code box" has a "popup" or "Turn off HTML" option to easily copy and paste the code.</p>
+	</div>
+	<div id="postImages">
+         <div class="contentSection">
+            <div class="title">
+                Post - General Short Codes
             </div>
-            <p>Aisis short codes are a essential way of the writers life and we provide simple and clean ways to insert images, code and other small 
-            features that you would have to code with css. The following is an example of short codes and their power.</p>
-            <div class="box">
-                <p> <strong>Title</strong><br  /><br />
-                Since we do not display the title by default we give you the tools to do so. This short code will expand and position the title based on weather you have
-                side bars or not.</p><br />
-                <p>To use any of the short codes here, each "code box" has a "popup" or "Turn off HTML" option to easily copy and paste the code.</p>
-            </div>
-            <pre class="js">[aisisPageTitle] This is a page title [/aisisPageTitle]</pre>
-            <div class="imgPost">
-            <div class="soft-embossed center-image">
-                <img src="<?php bloginfo('template_directory')?>/images/bridge.jpg" width="350" height ="350" />
-            </div>
+        	<div class="section">
             </div>
         </div>
-    </div>    
+	</div>
+	<div id="postCode">
+         <div class="contentSection">
+        	<div class="section">
+            	<div class="title">
+                	Post - Code
+                </div>
+            </div>
+        </div>
+	</div>    
 </div>
-
-
-
-        

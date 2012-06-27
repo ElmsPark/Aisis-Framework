@@ -23,7 +23,7 @@
 		 * set up the widget for use.
 		 */
 		function AisisEmailSubscription() {
-			$aisi_widget_options = array( 'classname' => 'emailsub', 'description' => __('Allows you to set up an email subscription via mail chimp or feed burner', 'sub') );
+			$aisi_widget_options = array( 'classname' => 'emailsub', 'description' => __('Allows you to set up an email subscription via MailChimp or feed burner', 'sub') );
 			$aisis_control_options = array( 'width' => 300, 'height' => 350, 'id_base' => 'sub-widget' );
 			$this->WP_Widget( 'sub-widget', __('Aisis Email Subscription', 'sub'), $aisi_widget_options, $aisis_control_options );
 		}
