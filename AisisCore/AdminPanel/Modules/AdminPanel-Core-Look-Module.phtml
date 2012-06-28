@@ -27,14 +27,12 @@
 		 $aisis_check_version->auto_silent_update();
 	 }
 ?>
-    <div id="adminPanelWrapper">
-        <div class="adminPanelTitle">
-            Aisis Core Theme Options
-            <div class="adminPanelSubTitle">
-                Aisis Core Version <?php echo $aisis_check_version->get_current_theme_version();?>
-            </div>
-            <?php if($option_update['turn_on_silent_update'] != 1){$aisis_check_version->check_for_update_with_message();}?>
+    <div id="top">
+        <div class="title">
+            Aisis Core Theme Options <?php echo $aisis_check_version->get_current_theme_version();?>
     	</div>
+        <?php if($option_update['turn_on_silent_update'] != 1){$aisis_check_version->check_for_update_with_message();}?>
+	</div>
        
 
 		<?php
@@ -54,7 +52,6 @@
 			aisis_core_update_page();
 		}
 		?>
-        <div class="adminFooter">(C) 2012 - GPL 3.0 - Adam Balan - </div>
     </div>
 	<script>
 		/**
@@ -138,5 +135,6 @@
 				tb_remove();
 			}			
 		
-		});	
+		});
+		
     </script>

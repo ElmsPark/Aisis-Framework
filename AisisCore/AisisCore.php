@@ -85,8 +85,20 @@
 		return $query;
 	}
 	
-	add_filter('pre_get_posts','aisis_search_filter');
 	
+	function theme_youtube_handler($html, $url, $attr, $post_ID) {
+	   // look specifically for youtube urls
+	   if (strpos($url, 'youtube.com') !== false || strpos($url, 'youtu.be')!== false ) {
+			   // add a video div surrounding it
+			   return '<div class="video">'.$html.'</div>';
+	   }
+
+	   // for non youtube urls, return just the normal embeds
+	   return $html;
+	}
+	
+	add_filter('pre_get_posts','aisis_search_filter');
+	add_filter('embed_oembed_html', 'theme_youtube_handler', 10, 4);
 	add_filter('excerpt_more', 'aisis_excerpt');
 	add_filter('wp_nav_menu_items', 'aisis_nav_items');
 	add_filter('wp_list_pages', 'aisis_nav_items');

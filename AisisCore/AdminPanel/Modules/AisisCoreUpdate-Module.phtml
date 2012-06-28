@@ -24,20 +24,18 @@
 	
 	
 ?>
-    <div class="box">
-        <div class="title">Core Updator</div>
+    <div class="content">
+        <h1>Core Updator</h1>
         <p>You are on this page because you are looking to update the theme to the latest and greatest! Well Look no further we make this whole process very easy for you!</p>
     </div>
-	<div class="contents">
+	<div class="content">
         	<div class="notice">
-            	The following will change some of the core features of Aisis. This includes: look, feel and functionality.
+            	This is the update page. You have the option to turn on <strong>Silent Auto Update</strong> which, when there is an updatem will automattically 
+                update your system with out you ever knowing. <strong>Note:</strong> those who require to enter there ftp user and pass should not select Silent
+                Auto Update.
             </div>
-            <div class="optionsSection">
-            	<div class="greyBox">
-                	<div class="title">Silent Update?</div>
-                    <p>Checking this will turn on silent update meaning that your software will update on its own and you never have to worry.</p>
-                </div>
-                <div id="silentUpdateForm">
+                <div id="alignForm">
+                	
 				<?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options' ?>
                 <form method="post" action="<?php echo $aisis_forum_url ?>">
                     <label>Turn on Silent Update</label>
@@ -46,23 +44,23 @@
                      <?php settings_fields( 'aisis-core-update' ); ?>
                 </form>
                 </div>
-            	<div class="greyBox">
+            	<div class="sideText">
                 	<?php
 					if($option['turn_on_silent_update'] != 1){
 						if($aisis_update->check_for_udate_bool()){ ?>
-						<div class="title">New Aisis-ness!</div>
+						<h1>New Aisis-ness!</h1>
 						<p>You are in for a real treat! There seems to be an update for Aisis! Lets update together
 						and find out what kinds of epic sauce lies in wait!</p>
-						<div class="greyBoxNotice">Did you remember to back up your custom folder? Please do so before hitting the magic button bellow!
+						<div class="smallNotice">Did you remember to back up your custom folder? Please do so before hitting the magic button bellow!
 						Also please note: <strong>You may have to hit the update button again if your page refreshes and nothing happens</strong></div>
 						<?php }else{?>
-						<div class="title">Your Details</div>
+						<h1>Your Details</h1>
 						<p>Bellow we have your current version and any other details you might want to know.</p>                   
 						<?php
 						}
 					}else{
 						?>
-                        <div class="title">You Have Auto Update Turned on!</div>
+                        <h1>You Have Auto Update Turned on!</h1>
 						<p>Bellow you will see what version you are running. This version may automatically change if there is a new update. Thats the whole point
                         of a silent update :D</p> 
 						<?php
@@ -87,13 +85,13 @@
 					?>
 					</form>
 				<?php }else{
-					echo "<div class='updateSuccess'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 
+					echo "<div class='success'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 
 							the software! Check your site to see the latest changes! or check out 
 					<a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650' class='thickbox' 
 					title='Aisis Version Info'>Aisis Version Notes</a>!</div>";
 				}
 			}else{
-					echo "<div class='updateSuccess'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 
+					echo "<div class='success'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 
 												the software! Check your site to see the latest changes! or check out 
 										<a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650' 
 										class='thickbox' title='Aisis Version Info'>Aisis Version Notes</a>!</div>";				

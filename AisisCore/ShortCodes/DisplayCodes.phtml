@@ -49,19 +49,6 @@
 	height: 350px;
 }
 
-input[type="button"]{
-	background-color:rgb(233,239,222);
-	width:112px;
-	height:39px;
-	border-color:rgb(204,204,204);
-	border-width:1px;
-	border-radius:4px;
-	border-style:solid;
-	text-align:center;
-	color:#15568A;
-	cursor:pointer;
-}
-
 /** Post Specific **/
 .infoPost{
 	width : 75%;
@@ -115,6 +102,29 @@ input[type="button"]{
 .centerImage{
 	margin-left: 116px;
 }
+.js{
+	line-height: 15px !important;
+}
+.styles{
+	line-height:15px !important;
+}
+input[type="button"]{
+	background-color:rgb(233,239,222);
+	width:auto;
+	height:39px;
+	border-color:rgb(204,204,204);
+	border-width:1px;
+	border-radius:4px;
+	border-style:solid;
+	text-align:center;
+	color:#15568A;
+	cursor:pointer;
+}
+.video {
+	margin : 0 auto 0 auto;
+	box-shadow: 0 8px 6px -6px black;
+	width: 475px;
+}
 /** Jquery UI Changes **/
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
 	background-color: #F5FAFA !important;
@@ -163,26 +173,101 @@ jQuery(document).ready(function($){
 	});
 	
 	//because JS syntax highlighting looks better
-	$("pre.js").snippet("javascript",{style:"acid", showNum:false})
-	$("pre.styles").snippet("css",{style:"acid"})
+	$("pre.js").snippet("javascript",{style:"acid", showNum:false});
+	$("pre.styles").snippet("css",{style:"acid"});
 	$( "#tabs" ).tabs();
 });
 
-function softImage () {
+/**
+ * The following functions are related to to
+ * the short codes they will send to the editor.
+ */
+ 
+function aisisPageTitle() {
 	var debug = true;
 	try{
 		var win = window.dialogArguments || opener || parent || top;
-		win.send_to_editor('[softimg]Place Img SRC here[/softimg]')
+		win.send_to_editor('[aisisPageTitle]Place page Title here![/aisisPageTitle]');
 	}catch(e){
 		console.log("Could not send to window: " + e);
 	}
 }
 
-function glossImage () {
+function embedSearch() {
 	var debug = true;
 	try{
 		var win = window.dialogArguments || opener || parent || top;
-		win.send_to_editor('[glossimg]Place Img SRC here[/glossimg]')
+		win.send_to_editor('[embedSearch]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+}
+
+function softImage() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[softimg]Place Img SRC here[/softimg]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+}
+
+function glossyImage() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[glossimg]Place Img SRC here[/glossimg]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+}
+
+function info() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[info]This is a summary or some extra info about said post[/info]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+}
+
+function update() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[update]This would be an update to said post[/update]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+}
+
+function youtube() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[youtube video="This is the url (eg:http://www.youtube.com/embed/EuSNbih9mAc)"]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+}
+
+function jsCode() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[jsCode]function exampleFunction{}[/jsCode]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+}
+
+function cssCode() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[cssCode].exampleClass{}[/cssCode]');
 	}catch(e){
 		console.log("Could not send to window: " + e);
 	}
@@ -212,7 +297,7 @@ function glossImage () {
             	Example:
             </div>
             <pre class="js">
-            	[glossyimg] img src [/glossyimg]
+            [glossyimg] img src [/glossyimg]
             </pre>
             <div class="imgPost centerImage">
                 <figure class="post-image glossy">
@@ -223,10 +308,46 @@ function glossImage () {
 	</div>
 	<div id="page">
         <div class="contentSection">
-            <div class="title">
-                Page Specific
+        	<div class="title">
+            	Page Specific Code
             </div>
-        	<div class="section">
+            <div class="section">
+            	<p>Pages have some short codes as well that you probably would not use in posts. 
+                These short codes allow for your to integrate things such as the Aisis Custom Page 
+                Title and embed a search on the page.</p>
+            </div>
+            <div class="middletext">
+            	Aisis Page Title
+            </div>
+            <div class="section">
+            	<p>Aisis doe not display the page title that you type in when you create a new page.
+                So we gave you a short code. Thhis page title short code styles the page title the way we want.</p>
+            </div>
+            <pre class="js">
+            [aisisPageTitle]This is my title[/aisisPageTitle]
+            </pre>
+            <input type="button" value="Insert Into Post!" onclick="aisisPageTitle()" />
+            <br />
+            <div class="middletext">
+            	Aisis Embedded Search
+            </div>
+            <div class="section">
+            	<p>You may want to embed the search upon your page and we give you the tool to do that. 
+                All you need to do is embed this simple clean short code on your page and you will have a 
+                search function that allows your users to search the site right from that page!</p>
+            </div>
+            <pre class="js">
+            [embedSearch]
+            </pre>
+            <input type="button" value="Insert Into Post!" onclick="embedSearch()" />
+        </div>
+	</div>
+    <div id="postImages">
+    	<div class="contentSection">
+            <div class="title">
+                Post Specific
+            </div>
+            <div class="section">
                 <p>
                 Aisis has an interesting and unique way of displaying images using Css3, html and java script. 
                 You don’t have to worry about these things as we deal with 
@@ -234,59 +355,87 @@ function glossImage () {
                 deal with images, Soft Images and Glossy Images. To use either just click the "insert into post!"
                 </p>
             </div>
+            <div class="middleText">
+                Glossy Image
+            </div>
             <pre class="js">
-            	[glossyimg] img src [/glossyimg]
+            [glossyimg] img src [/glossyimg]
             </pre>
             <div class="imgPost centerImage">
                 <figure class="post-image glossy">
                     <img src="<?php bloginfo('template_directory');?>/images/bridge.jpg" width="300" height="300"/>
                 </figure>
-			</div>
-            <input type="button" value="Insert Into Post!" onclick="softImage()" />
+            </div>
+            <input type="button" value="Insert Into Post!" onclick="glossyImage()" />
             <br />
+            <div class="middleText">
+                Soft Image
+            </div>
             <pre class="js">
-            	[glossyimg] img src [/glossyimg]
+            [softimg] img src [/softimg]
             </pre>
             <div class="imgPost centerImage">
                 <figure class="post-image soft-embossed">
                     <img src="<?php bloginfo('template_directory');?>/images/bridge.jpg" width="300" height="300"/>
                 </figure>
-			</div>
-            <input type="button" value="Insert Into Post!" onclick="glossImage()" />
+            </div>
+            <input type="button" value="Insert Into Post!" onclick="softImage()" />
             <br />
+            <div class="middleText">
+                Info Post
+            </div>
             <pre class="js">
-            	[info]This is some info or a summary about said article or paragraph[/info]
+            [info]This is some info or a summary about said article or paragraph[/info]
             </pre>
             <div class="infoPost">
-            	This is some info or a summary about said article or paragraph
+                This is some info or a summary about said article or paragraph
             </div>
-            <input type="button" value="Insert Into Post!" onclick="glossImage()" />
+            <input type="button" value="Insert Into Post!" onclick="info()" />
             <pre class="js">
-            	[update]Update Post - Usually at the bottom of the post.[/update]
+            [update]Update Post - Usually at the bottom of the post.[/update]
             </pre>
+            <div class="middleText">
+                Update Post
+            </div>
             <div class="updatePost">
-            	This is some info or a summary about said article or paragraph
+                This is some info or a summary about said article or paragraph
             </div>
-            <input type="button" value="Insert Into Post!" onclick="glossImage()" />            
-            <br />
-        </div>
-	</div>
-	<div id="postImages">
-         <div class="contentSection">
-            <div class="title">
-                Post - General Short Codes
-            </div>
-        	<div class="section">
-            </div>
-        </div>
-	</div>
+            <input type="button" value="Insert Into Post!" onclick="update()" />            
+            <br />            
+      	</div>    
+    </div>
 	<div id="postCode">
          <div class="contentSection">
-        	<div class="section">
-            	<div class="title">
-                	Post - Code
-                </div>
+            <div class="title">
+                Post - Code
             </div>
+        	<div class="section">
+            	<p>When a user is posting, they might have some code to share, currently Aisis supports Java script and CSS code 
+                for you to demonstrate your ideas. We have some example bellow of what this will look like 
+                and if you have been going through the individual tabs of this popup you have seen them already.</p>
+            </div>
+            <div class="middleText">
+                JavaScript
+            </div>
+            <pre class="js">
+            [jsCode]function(){}[/jsCode]
+            </pre>
+            <pre class="js">
+            function(){}
+            </pre>
+            <input type="button" value="Insert Into Post!" onclick="jsCode()" /> 
+            <br />
+            <div class="middleText">
+                CSS
+            </div>
+            <pre class="js">
+            [cssCode].css{}[/cssCode]
+            </pre>
+            <pre class="styles">
+            .css{}
+            </pre>
+            <input type="button" value="Insert Into Post!" onclick="cssCode()" /> 
+            <br />            
         </div>
 	</div>    
 </div>

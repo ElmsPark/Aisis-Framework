@@ -519,7 +519,7 @@ nav li:last-child a {
 }
 .video {
 	margin : 0 auto 0 auto;
-	box-shadow: 0 8px 6px -6px black;
+	width:55%;
 }
 .js {
 	margin: 15px auto 15px auto;
