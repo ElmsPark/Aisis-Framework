@@ -24,8 +24,8 @@
         </div>
         <div class="content">
         	<?php if(is_multisite()){ ?>
-            <div class="notcie"><strong>ATTN!</strong> Please make sure to back up this file: <?php echo CUSTOM . 'custom-functions.php'; ?>.
-            also note you <strong>MUST</strong> start this file off with opening and closing php tags.
+            <div class="notice"><strong>ATTN!</strong> Please make sure to back up this file: <strong><?php echo CUSTOM . 'custom-functions.php'; ?></strong>.
+            also note you <strong>MUST</strong> start this file off with opening and closing php tags.</div>
             <?php }else{ ?>
             <div class="notice"><strong>Note!</strong> Back this file up and be careful as you may cause your self a white screen of death.</div>
             <?php }
@@ -36,5 +36,6 @@
                 <?php do_settings_fields('aisis-php-editor', 'aisis_php_editor_section'); ?>
                 <?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?>
             </form>
+            <br />
         </div>
     

@@ -23,11 +23,11 @@
             <p>Looking to edit your custom-functions.php file? Make your changes bellow and hit the save button to see the changes take affect.</p>
         </div>
         <div class="content">
-            <div class="notice">This allows you to edit your <strong>custom-css.css</strong> file and change the way the site looks.</div>
             <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-css-editor' ?>
             <form method="post" action="<?php echo $aisis_forum_url ?>">
                 <?php settings_fields( 'aisis-css-editor' ); ?>
                 <?php do_settings_fields('aisis-css-editor', 'aisis_css_editor_section'); ?>
                 <?php $aisis_form_element->creat_aisis_form_element('input', 'submit', $basic_array_submit);?>
             </form>
+            <br />
         </div>

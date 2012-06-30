@@ -121,6 +121,12 @@
 		}
 	}
 	
+	/**
+	 * We check for the update message and if so
+	 * we display a message on the update screen.
+	 * this only happens if we dont have silent auto update
+	 * turned on.
+	 */
 	if(!function_exists('check_for_update_message')){
 		function check_for_update_message(){
 			$aisis_update = new AisisUpdate();

@@ -31,6 +31,17 @@
 /* ======================================================================= */
 
 @media screen and (max-width:980px) {
+	#miniFeedWrapper {
+		margin: 20px auto 20px -10px;
+		width: 100%;
+	}	
+	.miniFeed .readMore{
+		margin-right: 10px;
+	}
+	nav{
+		width: 60%;
+		margin: 50px auto 0px 207px;
+	}
 	nav li a {
 		width: 25%;
 		border-bottom: 1px solid #fff;
@@ -43,28 +54,92 @@
 	
 	nav li:nth-child(5) a, nav li:nth-child(6) a, nav li:nth-child(7) a, nav li:nth-child(8) a {
 		border-bottom: none;
+		margin-left: 1px;
+	}
+	#siteLogoImage img{
+		max-height: 118px;
+		max-width: 138px;
+		margin-right: 0px;
 	}
 	.flex-direction-nav li a{
 		margin: 10px 15px 0 !important;
 		top: 107% !important;
 	}
 	#pagewrap {
-		width : 95%;
+		width : 70%;
 	}
 	#contentWrapper {
 		width : 60%;
 	}
+	#author{
+		width: 74.4%
+	}
+	#author .authorImgPost {
+		margin: 20px auto 20px 118px;
+	}
+	#author .authorName {
+		float: none !important;
+		margin-right: 100px;
+		margin-top: 42px;
+	}	
 	.post {
-		width: 111%;
+		width: 127%;
 		padding: 3% 4%;
 	}
+	.singlePost{
+		width: 125%;
+	}
+	.postFull{
+		margin-left: 50px;
+		width: 129%;
+	}
+	.postTitle {
+		margin: 0 0 15px -15px;	
+	}
+	.headLine{
+		margin-left: -15px;
+		width: 106%;		
+	}
+	.post-author{
+		width:95%
+	}
+	.post-author-full{
+		width: 103%;
+	}
+	.readMore{
+		margin-right: -45px;
+	}
+	#commentsbox{
+		width:135%; 
+	}
 	#sidebar {
-		width : 30%;
+		width: 37%;
+		margin-right: -130px;
+	}
+	.widget .email{
+		margin-left: 28px;
+	}
+	#aisisTwitterStream{
+		width: 126%;
+		margin-left: -29px;
+	}
+	.jta-tweet-list-controls {
+		margin-top: 20px;
+		margin-left: 24px;
+	}	
+	.button{
+		margin-left:110px;
 	}
 	.video embed, .video object, .video iframe {
 		width : 100%;
 		height : auto;
 		min-height : 300px;
+	}
+	.afterBlock .rightText{
+		margin-right: 10px;
+	}
+	.afterBlock .leftText{
+		margin-left: 10px;
 	}
 }
 @media screen and (max-width:960px){

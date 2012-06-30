@@ -54,12 +54,12 @@
 		<?php while(have_posts()) : the_post(); ?>
         <article class="<?php if($option_global['no_sidebar_global'] != 1){echo 'post clearfix'; }else{ echo 'postFull clearfix'; } ?>">
             <header>
-                <h1 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                <h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                 <div class="post-comments"><?php comments_number('0', '1', '%'); ?> comments</div>
                 <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
 					<?php the_author_meta('display_name'); ?></a></div>
                 <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
-                <div class="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'headlineLine'; }else{ echo 'headlineLineFull'; }?>"></div>
+                <div class="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'headLine'; }else{ echo 'headLineFull'; }?>"></div>
                 <div class="infoOnPost"></div>
             </header>
             <p>

@@ -28,14 +28,15 @@
     </div>
     <div id="contentWrapper">
  		<article class="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'post clearfix'; }else{ echo 'postFull clearfix'; } ?> clearfix">
-                <div class="GlobalError">
+                <div class="globalError">
                     <?php aisis_404_err_message(); ?>
                 </div>
-                <h1>You may search again: </h1>
-                <form method="get" id="404SearchForm" action="<?php echo home_url(); ?>/" >
-        			<input type="search" id="404Search" name="s" placeholder="Looking for?" />
-                    <input type="submit" id="submitSearch" />
-    			</form>
-            </div>
+                <div class="globalErrorSearch">
+                    <h1>You may search again: </h1>
+                    <form method="get" id="404SearchForm" action="<?php echo home_url(); ?>/" >
+                        <input type="search" id="404Search" name="s" placeholder="Looking for?" />
+                        <input type="submit" id="submitSearch" />
+                    </form>
+            	</div>
         </article>
     </div>

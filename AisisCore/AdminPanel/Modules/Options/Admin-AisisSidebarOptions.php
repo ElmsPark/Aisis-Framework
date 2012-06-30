@@ -57,6 +57,14 @@
 		);	
 		
 		add_settings_field(
+			'aisis_core_theme_setting_sidebar_search',
+			'',
+			'aisis_core_theme_sidebar_search',
+			'aisis-core-options',
+			'aisis_core_theme_section_sidebar_search'
+		);		
+		
+		add_settings_field(
 			'aisis_core_theme_setting_sidebar_page',
 			'',
 			'aisis_core_theme_sidebar_page',
@@ -68,6 +76,7 @@
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_index',  'aisis_core_theme_sidebar_index_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_single', 'aisis_core_theme_sidebar_single_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_custom', 'aisis_core_theme_sidebar_custom_validation');
+		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_search', 'aisis_core_theme_sidebar_search_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_sidebar_page', 'aisis_core_theme_sidebar_page_validation');
 	}
 	
@@ -192,6 +201,39 @@
 	 * Create a check box and set its value based on the 
 	 * option table.
 	 */
+	if(!function_exists('aisis_core_theme_sidebar_search')){
+		function aisis_core_theme_sidebar_search(){
+			$options = get_option('aisis_core_theme_setting_sidebar_search');
+			$aisis_create_form_element = new AisisForm();
+			$option_global = get_option('aisis_core_theme_setting_sidebar_search');
+			if($option_global['no_sidebar_search'] != 1){
+				$aisis_search_check = array(
+				  'id'=>'sidebar_search',
+				  'name'=>'aisis_core_theme_setting_sidebar_search[no_sidebar_search]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_search'], false),
+				  'class' => 'sidebar'
+				);
+			}else{
+				$aisis_search_check = array(
+				  'id'=>'sidebar_search',
+				  'name'=>'aisis_core_theme_setting_sidebar_search[no_sidebar_search]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_sidebar_search'], false),
+				  'class' => 'sidebar',
+				  'disabled' => 'disabled'
+				);				
+			}
+			
+			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_search_check);
+		}
+	}	
+	
+	
+	/**
+	 * Create a check box and set its value based on the 
+	 * option table.
+	 */
 	if(!function_exists('aisis_core_theme_sidebar_page')){
 		function aisis_core_theme_sidebar_page(){
 			$options = get_option('aisis_core_theme_setting_sidebar_page');
@@ -287,6 +329,23 @@
 			return $options; 
 		}
 	}
+	
+	/**
+	 * Check if the box is checked or not
+	 * and store its value.
+	 */
+	if(!function_exists('aisis_core_theme_sidebar_search_validation')){
+		function aisis_core_theme_sidebar_search_validation($input){
+			$options = get_option('aisis_core_theme_setting_search_custom');
+			if($input['no_sidebar_search'] == 1){
+				$options['no_sidebar_search'] = 1;
+			}else{
+				$options['no_sidebar_search'] = 0;
+			}
+			update_option('admin_success_message', 'true'); 
+			return $options; 
+		}
+	}	
 	
 	/**
 	 * Check if the box is checked or not

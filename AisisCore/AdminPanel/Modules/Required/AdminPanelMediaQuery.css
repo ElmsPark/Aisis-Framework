@@ -22,105 +22,43 @@
 /*																		   */
 /*						Supported Media Sizes:							   */
 /*																		   */						
-/*						1280					   						   */
+/*						1366, 1280					   					   */
 /*																		   */
 /*																		   */
 /*																		   */
 /* ======================================================================= */
-/*							[[Media Max-Width 980]]						   */
+/*							[[Media Max-Width 1366, 1280]]				   */
 /* ======================================================================= */
+@media screen and (max-width:1366px){
+	.content {
+		width: 58%;
+	}
+	.ui-tabs .ui-tabs-nav {
+		width: 66% !important;
+	}
+	
+	#coreTabs .bottom {
+		border-bottom: none;
+	}	
+	#upload_image_button {
+		margin-left: 13px;
+	}	
+}
 @media screen and (max-width:1280px){
-#adminPanelWrapper{
-	width:70%;
+	.content {
+		width: 70%;
+	}
+	.ui-tabs .ui-tabs-nav {
+		width: 66% !important;
+	}
 	
-}
-.adminPanelTitle {
-	margin: -40px auto 40px 60px;
-}
-h1 {
-	color:#4B718B;
-	margin-left:20px;
-	text-shadow : #6695B0 0 1px 0;
-	margin-bottom: 20px;
-	border-bottom: inset thin #666;
-	line-height: 40px;
-	width: 46%;
-	font-size: 45px;
-}
-.box{
-	float:right;
-	margin-right: -70px;
-}
-.box p{
-	width: 70%;
-	margin-left: 20px;
-	margin-top: -10px;
-	font-size:16px;
-}
-.box input[type="submit"]{
-	margin-left: 20px;
-}
-.greyBox{
-	width:68%;
-	
-}
-#coreTabs ul{
-	margin-left:75px;	
-}
-#coreTabs .bottom{
-	border-bottom: 2px solid #A6BABF;
-	width:100%;
-	margin: 0 auto 40px 77px;
-}
-.notice {
-	background : #fff9d7;
-	border : 1px solid #e2c822;
-	color : #333;
-	padding : 10px;
-	font-size : 13px;
-	border-radius : 5px;
-	margin : 10px auto -8px 90px;
-	width:60%;
-}
-.noticeSave {
-	background : #fff9d7;
-	border : 1px solid #e2c822;
-	color : #333;
-	padding : 10px;
-	font-size : 13px;
-	border-radius : 5px;
-	margin : 10px auto 20px 90px;
-	width:60%;
-}
-.err {
-	background : #ebc2ce;
-	border : 1px solid #772038;
-	color : #333;
-	padding : 10px;
-	font-size : 13px;
-	border-radius : 5px;
-	margin: 10px auto 20px 90px;
-	width:60%;
-}
-.success {
-	background : #c0e4c7;
-	border : 1px solid #3d5b37;
-	color : #333;
-	padding : 10px;
-	font-size : 13px;
-	border-radius : 5px;
-	margin: 10px auto 10px 90px;
-	width:60%;
-}
-.adminFooter{
-	width: 70%;
-	margin: 20px auto -40px auto;
-	padding:20px;
-	border-radius:8px;
-	background:#CCCCCC;
-	text-align:center;
-	border: thin solid #666;
-}
+	#coreTabs .bottom {
+		border-bottom: none;
+	}	
+	#upload_image_button {
+		margin-left: 13px;
+	}
+
 }
 @media screen and (max-width:980px) {
 }

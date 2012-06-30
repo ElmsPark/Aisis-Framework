@@ -72,7 +72,14 @@
 	if(!function_exists('aisis_excerpt')){
 		function aisis_excerpt(){
 			global $post;
-			return "<div class='readMore'><a href='".get_permalink($post->ID)."'>More</a></div>";
+			$options = get_option('aisis_core_theme_setting_sidebar_search');
+			if($options['no_sidebar_search'] != 1 && $option_global['no_sidebar_global'] != 1)
+			{ 
+				$css_class =  'readMore'; 
+			}else{ 
+				$css_class =  'readMoreFull'; 
+			}
+			return "<div class='".$css_class."'><a href='".get_permalink($post->ID)."'>More</a></div>";
 		}
 	}
 	
@@ -85,15 +92,12 @@
 		return $query;
 	}
 	
-	
+	//thanks to Otto
 	function theme_youtube_handler($html, $url, $attr, $post_ID) {
-	   // look specifically for youtube urls
 	   if (strpos($url, 'youtube.com') !== false || strpos($url, 'youtu.be')!== false ) {
-			   // add a video div surrounding it
 			   return '<div class="video">'.$html.'</div>';
 	   }
 
-	   // for non youtube urls, return just the normal embeds
 	   return $html;
 	}
 	
