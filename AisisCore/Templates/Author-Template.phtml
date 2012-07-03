@@ -1,4 +1,4 @@
-	<?php
+<?php
     /**
 	 *
 	 * ==================== [DONT TOUCH THIS FILE!] ====================
@@ -25,56 +25,44 @@
 	 $curauth = $wp_query->get_queried_object();
 	 $aisis_author_arguments = array('author' => $curauth->ID); 
 	 $posts = query_posts($aisis_author_arguments);
-	 
-	 //Options
-	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
-	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
-	
-	//Do we display the slider mini?
-	if($options_slider_mini_global['no_slider_mini_global'] != 1){
-		aisis_slider_mini();
-	}
-	?>
-    <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
-    	<div class="clearfix">
-            <div class="authorImgPost">
+?>    
+  
+    <div id="author">
+        <article class="post clearfix">
+            <header>
+                <h1 class="postTitle"><?php echo $curauth->user_login; ?></h1>
+            </header>
+            <?php if(has_post_thumbnail()){?>
                 <figure class="glossy post-image">
                    <?php echo get_avatar($curauth->user_email, 250);?>
-                   <div class="authorName">
-                 	<?php echo $curauth->user_login; ?>
-                   </div>
                 </figure>
-                
-            </div>
-            <div class="text"><p><?php if ( $curauth->user_description != '' ){echo $curauth->user_description;}else{?>
-            <?php deafualt_aisis_author_default_text(); } ?></p></div>
-        </div>
-    </div>
-	<div id="contentWrapper">
-		<?php while(have_posts()) : the_post(); ?>
-        <article class="<?php if($option_global['no_sidebar_global'] != 1){echo 'post clearfix'; }else{ echo 'postFull clearfix'; } ?>">
+            <?php } ?>
+            <p><?php if ( $curauth->user_description != '' ){echo $curauth->user_description;}else{?>
+            <?php deafualt_aisis_author_default_text(); } ?></p>
+        </article>
+    </div> 
+       
+    <div id="content">
+    	<?php while(have_posts()) : the_post();?>
+        <article class="post clearfix">
+    
             <header>
                 <h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-                <div class="post-comments"><?php comments_number('0', '1', '%'); ?> comments</div>
-                <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
-					<?php the_author_meta('display_name'); ?></a></div>
-                <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
-                <div class="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'headLine'; }else{ echo 'headLineFull'; }?>"></div>
-                <div class="infoOnPost"></div>
+                <p class="postMeta"><time class="postDate" datetime="2011-05-08" pubdate><?php the_time('F, jS, Y'); ?></time> <em>in</em> <a href="#">Category</a></p>
             </header>
-            <p>
-               <?php the_excerpt(); ?>
-            </p>
-      </article>
-      <?php 
-	  endwhile;
-	  wp_reset_query(); 
-	  ?>
-      <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
-          <div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
-       	 	<div class="prevPost"><?php previous_posts_link(__( 'Next', 'aisis' )) ?></div>
-        	<div class="nextPost"><?php next_posts_link(__( 'Previous', 'aisis' )) ?></div>
-    	  </div>
-      <?php } ?>
-  </div>  
-  <?php if($option_global['no_sidebar_global'] != 1){ get_sidebar(); }?>    
+            <?php if(has_post_thumbnail()){?>
+                <figure class="soft-embossed post-image">
+                    <?php the_post_thumbnail();?>
+                </figure>
+            <?php } ?>
+            <?php the_content( __('<div class="readMore">More</div>', true)); ?>
+        </article>
+        <?php
+			endwhile; 
+		  	wp_reset_query(); 
+		?>
+    </div>
+    <?php 
+	get_sidebar();
+    aisis_footer();
+	?>

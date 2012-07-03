@@ -16,6 +16,6 @@
 	 */
 
 	get_header();//Get the header.
-	aisis_ae_single_loop_custom_post_type(); //Get the Single Loop.
+	aisis_loop_ae_single(); //Get the Single Loop.
 	get_footer();//Get the Footer.
 ?>

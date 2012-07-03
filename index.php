@@ -28,6 +28,7 @@
 		
 	 //Load the index page	
 	 aisis_core_index();
+	 //require_once(AISISCORE . '/Templates/BuildAisisTheme.php');
 		
 	 get_footer(); 
 	

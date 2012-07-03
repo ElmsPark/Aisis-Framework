@@ -1,231 +1,115 @@
-/* ======================================================================= */
-/*							[[Core Media Styles]]						   */
-/* ======================================================================= */
-/*						The following are a series of fixes                */
-/*						to various media styles for a responsive           */
-/*						design across multiple sites.				       */
-/*																		   */
-/*																		   */
-/* ======================================================================= */
-/*																		   */
-/*						DO NOT MANIPULATE OR TOUCH THIS FILE               */
-/*						Make a media query file with your custom.css	   */
-/*						file and over ride the associated styles in the    */
-/*						proper screen:                                     */
-/*																		   */
-/*						@media screen and (max-width: 980px{}			   */
-/*																		   */
-/*						then over ride the associated styles (already in   */
-/*						them or add more) 								   */
-/*																		   */
-/* ======================================================================= */
-/*																		   */
-/*						Supported Media Sizes:							   */
-/*																		   */						
-/*						980, 780, 650, 560, 480, 320					   */
-/*																		   */
-/*																		   */
-/*																		   */
-/* ======================================================================= */
-/*							[[Media Max-Width 980]]						   */
-/* ======================================================================= */
-
-@media screen and (max-width:980px) {
-	#miniFeedWrapper {
-		margin: 20px auto 20px -10px;
-		width: 100%;
-	}	
-	.miniFeed .readMore{
-		margin-right: 10px;
+/************************************************************************************
+smaller than 980
+*************************************************************************************/
+@media screen and (max-width: 980px) {
+	/* pagewrap */
+	#pageWrap {
+		width: 95%;
 	}
-	nav{
+	/* content */
+	#content, #commentsbox, #author{
 		width: 60%;
-		margin: 50px auto 0px 207px;
-	}
-	nav li a {
-		width: 25%;
-		border-bottom: 1px solid #fff;
-		font: 400 11px/1.4 'Cutive', Helvetica, Verdana, Arial, sans-serif;
-	}
-	
-	nav li:last-child a, nav li:nth-child(4) a {
-		border-right: none;
-	}
-	
-	nav li:nth-child(5) a, nav li:nth-child(6) a, nav li:nth-child(7) a, nav li:nth-child(8) a {
-		border-bottom: none;
-		margin-left: 1px;
-	}
-	#siteLogoImage img{
-		max-height: 118px;
-		max-width: 138px;
-		margin-right: 0px;
-	}
-	.flex-direction-nav li a{
-		margin: 10px 15px 0 !important;
-		top: 107% !important;
-	}
-	#pagewrap {
-		width : 70%;
-	}
-	#contentWrapper {
-		width : 60%;
-	}
-	#author{
-		width: 74.4%
-	}
-	#author .authorImgPost {
-		margin: 20px auto 20px 118px;
-	}
-	#author .authorName {
-		float: none !important;
-		margin-right: 100px;
-		margin-top: 42px;
-	}	
-	.post {
-		width: 127%;
 		padding: 3% 4%;
 	}
-	.singlePost{
-		width: 125%;
-	}
-	.postFull{
-		margin-left: 50px;
-		width: 129%;
-	}
-	.postTitle {
-		margin: 0 0 15px -15px;	
-	}
-	.headLine{
-		margin-left: -15px;
-		width: 106%;		
-	}
-	.post-author{
-		width:95%
-	}
-	.post-author-full{
-		width: 103%;
-	}
-	.readMore{
-		margin-right: -45px;
-	}
 	#commentsbox{
-		width:135%; 
+		width:70%;
 	}
+	#contentFull, #commentsboxFull, #authorFull{
+		width: 93%;
+		padding: 3% 4%;
+	}
+	/* sidebar */
 	#sidebar {
-		width: 37%;
-		margin-right: -130px;
-	}
-	.widget .email{
-		margin-left: 28px;
-	}
-	#aisisTwitterStream{
-		width: 126%;
-		margin-left: -29px;
-	}
-	.jta-tweet-list-controls {
-		margin-top: 20px;
-		margin-left: 24px;
-	}	
-	.button{
-		margin-left:110px;
-	}
-	.video embed, .video object, .video iframe {
-		width : 100%;
-		height : auto;
-		min-height : 300px;
-	}
-	.afterBlock .rightText{
-		margin-right: 10px;
-	}
-	.afterBlock .leftText{
-		margin-left: 10px;
-	}
-}
-@media screen and (max-width:960px){
-	#content{
-		width: 105%;
-	}
-}
-@media screen and (max-width:768px) {
-	.formLayout input {
-		margin : 0 auto 0 auto;
-		width : 90%;
-	}
-	.formLayout input[type="submit"] {
-		margin : 10px auto 0 auto;
-		width : 75%;
-	}
-	.flex-control-nav li a{
-		margin-top: 20px;
-	}
-
-}
-@media screen and (max-width:650px) {
-	nav li a {
-		width: 50%;
-		font: 400 12px/1.4 'Cutive', Helvetica, Verdana, Arial, sans-serif;
-		padding-top: 12px;
-		padding-bottom: 12px;
-	}
-	
-	nav li:nth-child(even) a {
-		border-right: none;
-	}
-	
-	nav li:nth-child(5) a, nav li:nth-child(6) a {
-		border-bottom: 1px solid #fff;
-	}	
-	#contentWrapper {
-		width : auto;
-	}
-	#content {
-		width : auto;
-		margin : 20px 0;
-	}
-	#sidebar {
-		width: 40%;
-		margin: 0 0 0 175px;
-		float: left;
+		width: 30%;
 	}
 	#sidebar .widget {
-		padding : 3% 12%;
-		margin : 0 0 10px;
+		padding: 8% 7%;
+		margin-bottom: 10px;
 	}
-	.formLayout input {
-		margin : 0 auto 0 auto;
-		width : 80%;
-	}
-	.formLayout input[type="submit"] {
-		margin : 10px auto 0 auto;
-		width : 45%;
-	}
-	.video embed, .video object, .video iframe {
-		min-height : 250px;
+	/* embedded videos */
+	.video embed,  .video object,  .video iframe {
+		width: 100%;
+		height: auto;
+		min-height: 300px;
 	}
 }
-@media screen and (max-width:560px) {
-	#searchform {
-		position : absolute;
-		top : 10px;
-		right : 10px;
-		z-index : 100;
-		height : 40px;
+
+/************************************************************************************
+smaller than 650
+*************************************************************************************/
+@media screen and (max-width: 650px) {
+	/* header */
+	#header {
+		height: auto;
+	}
+	/* search form */
+	#searchForm {
+		position: absolute;
+		top: 5px;
+		right: 0;
+		z-index: 100;
+		height: 40px;
+	}
+	#searchForm #s {
+		width: 70px;
+	}
+	#searchForm #s:focus {
+		width: 150px;
+	}
+	/* main nav */
+	#nav, #miniFeedWrapper {
+		position: static;
+	}
+	/* site logo */
+	#siteLogo {
+		margin: 15px 100px 5px 0;
+		position: static;
+	}
+	/* site description */
+	#siteDescription {
+		margin: 0 0 15px;
+		position: static;
+	}
+	/* content */
+	#content, #contentFull, #commentsbox, 
+	#commentsBoxFull, #author, #authorFull, .miniFeed {
+		width: auto;
+		float: none;
+		margin: 20px 0;
+	}
+	/* sidebar */
+	#sidebar {
+		width: 100%;
+		margin: 0;
+		float: none;
+	}
+	#sidebar .widget {
+		padding: 3% 4%;
+		margin: 0 0 10px;
+	}
+	/* embedded videos */
+	.video embed,  .video object,  .video iframe {
+		min-height: 250px;
 	}
 }
-@media screen and (max-width:480px) {
-	#searchform {
-		top : 10px;
-		right : 0;
-		z-index : 100;
-		height : 40px;
+
+/************************************************************************************
+smaller than 560
+*************************************************************************************/
+@media screen and (max-width: 480px) {
+	/* disable webkit text size adjust (for iPhone) */
+	html {
+		-webkit-text-size-adjust: none;
 	}
-}
-@media only screen and (max-width:320px) {
-	#content {
-		width: 94%;
+	/* main nav */
+	#mainNav a {
+		font-size: 90%;
+		padding: 10px 8px;
 	}
-	#sidebar{
+	.objectWrapper{
+		margin-bottom: 50px;
+	}
+	#miniFeedWrapper, .miniFeed{
 		display:none;
-	}	
+	}
 }

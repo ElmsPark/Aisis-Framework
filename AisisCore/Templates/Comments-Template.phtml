@@ -119,9 +119,7 @@
 <?php
 	 }elseif(is_page()){	 
 ?>
-      <div id="<?php if($options_single['no_sidebar_page'] != 1 && $options_global['no_sidebar_global'] != 1)
-      {echo 'commentsbox';}
-      else{echo 'commentsboxFull';}?>">
+      <div id="commentsbox">
               <?php if ( have_comments() ) : ?>
               <hr class="remove-bottom">
                   <h3 id="comments">

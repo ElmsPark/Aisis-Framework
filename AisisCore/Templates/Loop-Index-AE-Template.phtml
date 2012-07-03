@@ -1,21 +1,30 @@
- <?php
+<?php
 	/**
 	 *
 	 * ==================== [-DO NOT TOUCH!!!-] =======================
 	 *
-	 *		This is what is displayed for a page. When a user creates
-	 *		a new page this template is used.
+	 *		This is the core index page that loads all the users posts
+	 *		and displays them on the home page.
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
 	 *		@package: AisisCore->Templates
 	 * =================================================================
 	 */
-	 global $page_title, $post;
-	 $options = get_option('aisis_core_theme_setting_sidebar_page');
+	 
+	 $options = get_option('aisis_core_theme_setting_sidebar_index');
 	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
- ?>  
-    <div id="content">
+	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_index');
+	 
+	 $aisis_query= array(
+		  'post_type' => 'ae',
+		  'paged' => $aisis_page_articles_essays
+	  );
+	 query_posts($aisis_query);		  
+?>
+
+    <div id="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'contentFull'; }?>">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
     
@@ -28,19 +37,18 @@
                     <?php the_post_thumbnail();?>
                 </figure>
             <?php } ?>
-             <?php the_content(); ?>
+            <?php the_content( __('<div class="readMore">More</div>', true)); ?>
         </article>
         <?php
 			endwhile; 
 		  	wp_reset_query(); 
 		?>
-        <!-- /.post -->  
-    </div>
+        <!-- /.post -->
     
-    <?php
-	get_sidebar();
-    if('open' == $post->comment_status){
-	    comments_template('', true);
-    }
+    </div>
+    <?php 
+	if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){
+		get_sidebar();
+	}
 	aisis_footer();
 	?>

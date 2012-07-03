@@ -16,31 +16,32 @@
 	 
 	 $options = get_option('aisis_core_theme_setting_sidebar_search');
 	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
- ?>
- <?php if(have_posts()){?>
- 	<?php while (have_posts()) : the_post();?>
-	<article class="<?php if($options['no_sidebar_search'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'searchResualts clearfix'; }else{ echo 'searchResualtsFull clearfix'; }?>">
-            <header>
-                <h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-                <div class="post-comments"><?php comments_number('0', '1', '%'); ?> comments</div>
-                <div class="whoWrote">Author of this post: <?php the_author_link(); ?></div>
-                <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
-                <div class="<?php if($options['no_sidebar_search'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'headLine'; }else{ echo 'headLineFull'; }?>"></div>
-                <div class="infoOnPost"></div>
-            </header>
-            <div class="imgPost">
-            	<?php if(get_the_post_thumbnail($post_id) != ''){
-				?>
+	 if(have_posts()){
+	?>
+	<div id="content">
+   	<?php while (have_posts()) : the_post();?>
+		<article class="post clearfix">
+			<header>
+				<h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+				<p class="postMeta"><time class="postDate" datetime="2011-05-08" pubdate><?php the_time('F, jS, Y'); ?></time> <em>in</em> <a href="#">Category</a></p>
+			</header>
+			<?php if(get_the_post_thumbnail($post_id) != ''){?>
                 <figure class="soft-embossed post-image">
-                	<?php the_post_thumbnail(); ?>
+                    <?php the_post_thumbnail(); ?>
                 </figure>
-                <?php } ?>
-            </div>
-            <p><?php the_excerpt(); ?></p>
-            <div class="bottomLine"></div>
-   </article>
-    <?php endwhile; ?>
-	<?php
- 	}else{
-		aisis_404();
-	}?>
+            <?php } ?>
+			<p><?php the_excerpt(); ?></p>
+		</article>
+        <?php
+		endwhile;
+		?>
+	</div>
+    <?php 
+	get_sidebar();
+	aisis_footer();
+	?>
+    <?php
+	 }else{
+		 aisis_404();
+	 }
+	?>

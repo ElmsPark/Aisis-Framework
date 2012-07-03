@@ -61,7 +61,7 @@
 	 function aisis_load_scripts_styles(){
 	 	wp_enqueue_style( 'core-styles', get_bloginfo('stylesheet_url')); //Load core styles
 	 	wp_enqueue_style( 'mediaquery-css', get_template_directory_uri() . '/mquery.css'); //Load core Media Query
-	 	wp_enqueue_style( 'googlefont-ubuntu', 'http://fonts.googleapis.com/css?family=Ubuntu:300'); //Load Ubuntu Font
+	 	wp_enqueue_style( 'googlefont-ubuntu', 'http://fonts.googleapis.com/css?family=Open+Sans'); //Load Ubuntu Font
 	 	wp_enqueue_style( 'tip-tip-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/tipTip.css'); //Load plugin css
 	 	wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css'); //Load plugin css
 	 	wp_enqueue_style( 'camera-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/flexslider.css'); //Load Camera css
@@ -75,6 +75,7 @@
 	 	wp_enqueue_script( 'toast', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.toastmessage.js', array('jquery'), false, true ); //Load toastmessage js
 	 	wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true); //Load ThickBox
 	 	wp_enqueue_script( 'snipit-code', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.snipit.js', array('jquery'), false, true ); //Load jquery snipit
+		wp_enqueue_script( 'menu', get_template_directory_uri() . '/lib/Javascript/plugins/menu.js', false, true ); //Load jquery tweet
 	 	wp_enqueue_script( 'tweet', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.jtweetsanywhere-1.3.1.js', array('jquery'), false, true ); //Load jquery tweet
 	 	wp_enqueue_script( 'jstweet', get_template_directory_uri() . '/lib/Javascript/plugins/jtweetsanywhere-de-1.3.1.js', false, true ); //Load jquery tweet
 	 	wp_enqueue_script( 'apitwitter', 'http://platform.twitter.com/anywhere.js?id=APIKey&v=1'); //Load jquery tweet
@@ -98,7 +99,7 @@
 	
 	//Add the follwoing:
 	 function aisis_viewport_tag(){
-		 echo '<meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;">';
+		 echo '<meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />';
 	 }
 	 
 	 add_action( 'wp_head', 'aisis_viewport_tag', 999 );

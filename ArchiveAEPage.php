@@ -19,6 +19,6 @@
 	 */
 	 
 	 get_header();
-	 aisis_ae_index_custom_post_type();
+	 aisis_loop_ae_index();
 	 get_footer();
 ?>

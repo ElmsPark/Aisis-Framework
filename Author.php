@@ -1,5 +1,5 @@
 <?php
 get_header(); 
-aisis_author_template();
+aisis_author();
 get_footer();
 ?>

@@ -1,21 +1,36 @@
- <?php
+	<?php
 	/**
 	 *
 	 * ==================== [-DO NOT TOUCH!!!-] =======================
 	 *
-	 *		This is what is displayed for a page. When a user creates
-	 *		a new page this template is used.
+	 *		This is what loads a single post and associated comments
+	 *		for a user when they click on the title to the post on
+	 *		the index page where all the posts are displayed.
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
 	 *		@package: AisisCore->Templates
 	 * =================================================================
 	 */
-	 global $page_title, $post;
-	 $options = get_option('aisis_core_theme_setting_sidebar_page');
-	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
- ?>  
-    <div id="content">
+	 	global $more, $post;
+		$more = 0; //declare and set $more before The Loop
+		
+	 	$options = get_option('aisis_core_theme_setting_sidebar_single');
+		$option_global = get_option('aisis_core_theme_setting_sidebar_global');
+		$options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+		$options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_single');
+		$options_recent_posts = get_option('aisis_display_related_posts_setting');
+		$options_cat_tags = get_option('aisis_display_categories_tags_setting');
+		
+		$aisis_category_list_options = array(
+				'orderby' => 'name',
+				'style' => 'none',
+				'title_li'=> '',
+		);
+		
+	 ?>
+	 
+    <div id="contentFull">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
     
@@ -34,11 +49,11 @@
 			endwhile; 
 		  	wp_reset_query(); 
 		?>
-        <!-- /.post -->  
+        <!-- /.post -->
+    
     </div>
     
     <?php
-	get_sidebar();
     if('open' == $post->comment_status){
 	    comments_template('', true);
     }

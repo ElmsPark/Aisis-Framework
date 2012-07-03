@@ -19,24 +19,19 @@
 	 * =================================================================
 	 */
 	 ?>	
-    <div class="err"> 
-    <?php
-		aisis_404_err_message_banner();
-		$options = get_option('aisis_core_theme_setting_sidebar_single');
-		$option_global = get_option('aisis_core_theme_setting_sidebar_global');
-	?> 
+     <div class="err"><?php echo aisis_404_err_message_banner(); ?></div>
+    <div id="contentFull">
+      <article class="post clearfix">
+          <header>
+              <h1 class="postTitle"><?php echo aisis_404_err_message(); ?></h1>
+          </header>
+          <h1>You may search again: </h1>
+          <form method="get" id="404SearchForm" action="<?php echo home_url(); ?>/" >
+              <input type="search" id="404Search" name="s" placeholder="Looking for?" />
+              <input type="submit" id="submitSearch" />
+          </form>
+      </article>
+      <!-- /.post -->
+    
     </div>
-    <div id="contentWrapper">
- 		<article class="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){echo 'post clearfix'; }else{ echo 'postFull clearfix'; } ?> clearfix">
-                <div class="globalError">
-                    <?php aisis_404_err_message(); ?>
-                </div>
-                <div class="globalErrorSearch">
-                    <h1>You may search again: </h1>
-                    <form method="get" id="404SearchForm" action="<?php echo home_url(); ?>/" >
-                        <input type="search" id="404Search" name="s" placeholder="Looking for?" />
-                        <input type="submit" id="submitSearch" />
-                    </form>
-            	</div>
-        </article>
-    </div>
+    <?php aisis_footer(); ?>
