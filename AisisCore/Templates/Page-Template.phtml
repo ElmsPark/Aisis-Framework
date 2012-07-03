@@ -24,10 +24,27 @@
 	 * =================================================================
 	 */
 	 global $page_title, $post;
-	 $options = get_option('aisis_core_theme_setting_sidebar_page');
+	 $options = get_option('aisis_core_theme_setting_sidebar_front_page');
+	 $options_page = get_option('aisis_core_theme_setting_sidebar_page');
 	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_page');
+	 
+	 if(is_front_page() && $options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_page'] != 1){
+		 aisis_header();
+	 }elseif(!is_front_page() && $options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_page'] != 1){
+		 aisis_header();
+	 }
+	 
+	 if(is_front_page() && $options['no_sidebar_front'] != 1 && $option_global['no_sidebar_global'] != 1){
+		 $content_class = 'content';
+	 }elseif(!is_front_page() && $options_page['no_sidebar_page'] != 1 && $option_global['no_sidebar_global'] != 1){
+		 $content_class = 'content';
+	 }else{
+		 $content_class = 'contentFull';
+	 }
  ?>  
-    <div id="<?php if($options['no_sidebar_page'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'contentFull'; }?>">
+    <div id="<?php echo $content_class;?>">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
     
@@ -50,9 +67,13 @@
     </div>
     
     <?php
-	get_sidebar();
-    if('open' == $post->comment_status){
-	    comments_template('', true);
-    }
-	aisis_footer();
+	 if(is_front_page() && $options['no_sidebar_front'] != 1 && $option_global['no_sidebar_global'] != 1){
+		 get_sidebar();
+	 }elseif(!is_front_page() && $options_page['no_sidebar_page'] != 1 && $option_global['no_sidebar_global'] != 1){
+		  get_sidebar();
+	 }
+     if('open' == $post->comment_status){
+	     comments_template('', true);
+	 }
+     aisis_footer();
 	?>

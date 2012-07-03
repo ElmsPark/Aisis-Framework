@@ -52,7 +52,7 @@
             <header id="header">
         		
                 <hgroup>
-                    <h1 id="siteLogo"><a href="<?php bloginfo('url');?>"><?php bloginfo('name');?></a></h1>
+                    <div id="siteLogo"><img src="<?php bloginfo('template_directory');?>/images/bridge.jpg" /></div>
                 </hgroup>
         		<?php //aisis_social_media(); ?>
                 <nav>

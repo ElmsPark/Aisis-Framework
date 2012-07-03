@@ -23,10 +23,6 @@
 				aisis_header();
 				aisis_category();
 			}
-			if (is_author()){
-				aisis_header();
-				aisis_author();
-			}
 			elseif(is_single()){
 				aisis_header();
 				aisis_loop_single();

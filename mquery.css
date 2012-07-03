@@ -14,7 +14,7 @@ smaller than 980
 	#commentsbox{
 		width:70%;
 	}
-	#contentFull, #commentsboxFull, #authorFull{
+	#contentFull, #commentsboxFull, #authorFull, #categoryFull{
 		width: 93%;
 		padding: 3% 4%;
 	}
@@ -32,6 +32,7 @@ smaller than 980
 		height: auto;
 		min-height: 300px;
 	}
+	
 }
 
 /************************************************************************************
@@ -62,7 +63,7 @@ smaller than 650
 	}
 	/* site logo */
 	#siteLogo {
-		margin: 15px 100px 5px 0;
+		margin: 0px 100px 5px 0;
 		position: static;
 	}
 	/* site description */
@@ -73,10 +74,17 @@ smaller than 650
 	/* content */
 	#content, #contentFull, #commentsbox, 
 	#commentsBoxFull, #author, #authorFull, .miniFeed,
-	#category {
+	#category, #categoryFull {
 		width: auto;
 		float: none;
 		margin: 20px 0;
+	}
+	
+	.listCategories, .listTags, .whoWrote, .dateWrote, .postComments{
+		float: none;
+		margin: 10px 0 10px 10px;
+		text-align: left;
+		margin: 10px 0 10px 10px;	
 	}
 	/* sidebar */
 	#sidebar {
@@ -112,5 +120,8 @@ smaller than 560
 	}
 	#miniFeedWrapper, .miniFeed{
 		display:none;
+	}
+	.post .infoPost, .post .updatePost{
+		width: 80%;
 	}
 }

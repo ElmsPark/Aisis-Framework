@@ -48,7 +48,9 @@
 		?>
 	</div>
     <?php 
-	get_sidebar();
+	if($options['no_sidebar_search'] != 1 && $option_global['no_sidebar_global'] != 1){
+		get_sidebar();
+	}
 	aisis_footer();
 	?>
     <?php

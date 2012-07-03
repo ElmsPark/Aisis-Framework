@@ -33,7 +33,11 @@
 		  'post_type' => 'ae',
 		  'paged' => $aisis_page_articles_essays
 	  );
-	 query_posts($aisis_query);		  
+	 query_posts($aisis_query);	
+	 
+	 if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_index'] != 1){
+		 aisis_header();
+	 }	 	  
 ?>
 
     <div id="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'contentFull'; }?>">

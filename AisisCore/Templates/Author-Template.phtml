@@ -37,10 +37,9 @@
 	
 	//Do we display the slider mini?
 	if($options_slider_mini_global['no_slider_mini_global'] != 1){
-		aisis_slider_mini();
+		aisis_header();
 	}
 ?>    
-  
     <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
         <article class="post clearfix">
             <header>
@@ -77,6 +76,8 @@
 		?>
     </div>
     <?php 
-	get_sidebar();
+	if($option_global['no_sidebar_global'] != 1){
+		get_sidebar();
+	}
     aisis_footer();
 	?>
