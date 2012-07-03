@@ -1,25 +1,28 @@
-<?php 
-
+<?php
 	/**
 	 *
 	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		This file is used for the comments that display at the bottom
-	 *		of each page and or post. (@package Aisis). Loaded via the 
-	 *		LoadTemplates.
-	 *	
-	 *		Function used to load this file: aisis_comments();
-	 *		Can over write this function?: yes
+	 *		This file loads the comments template for either a single
+	 *		(is_single()) post or a page (is_page()).
 	 *
-	 *		@see Aisis->AisisCore->Templates->LoadTemplates
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
-	 *		@package: AisisCore->Template
+	 *		@package: AisisCore->Templates
 	 *
 	 * =================================================================
 	 */
-	 
 	 //Set the variables to shut up the notices.
 	 global $user_identity, $post, $req, $comment_author_email, $comment_author_url, $comment_author;
 	 $options_single = get_option('aisis_core_theme_setting_sidebar_single');
@@ -119,7 +122,9 @@
 <?php
 	 }elseif(is_page()){	 
 ?>
-      <div id="commentsbox">
+      <div id="<?php if($options_single['no_sidebar_single'] != 1 && $options_global['no_sidebar_global'] != 1)
+		{echo 'commentsbox';}
+		else{echo 'commentsboxFull';}?>">
               <?php if ( have_comments() ) : ?>
               <hr class="remove-bottom">
                   <h3 id="comments">

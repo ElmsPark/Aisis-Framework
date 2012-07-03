@@ -1,21 +1,40 @@
-    
-    <?php
+<?php
 	/**
 	 *
-	 * ==================== [-DO NOT TOUCH!!!-] =======================
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		This is header slider which builds the slider for when you
-	 *		make slides in the custom post type of 'slides'
+	 *		This file deals with the slider and the mini feeds.
+	 *		This file, while loaded through BuildAisisTheme
+	 *		is used in other template files and checked for, if it should
+	 *		load above those, by options that are set in the Aisis Options
+	 *		Panel.
+	 *
+	 *		We deal with both the Slider and the Mini Feed here. Please
+	 *		make sure that if you are over rideing this file that you take
+	 *		both into consideration.
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
 	 *		@package: AisisCore->Templates
+	 *
 	 * =================================================================
 	 */
 	 global $post;
-	?>
+?>
 	
 	<?php
+	//Slider Code bellow.
 	$args = array( 'post_type' => 'slides');
 	$loop = new WP_Query( $args );
 	?>
@@ -45,7 +64,8 @@
     <?php }?>
 	
     <?php 
-	$post_type = array('post_type' => 'mini', '&order'=>'DESC');
+	//MiniFeed Code bellow.
+	$post_type = array('post_type' => 'mini');
 	$loop_mini = new WP_Query($post_type);
 	?>
     <?php if($loop_mini->have_posts()){?>
@@ -56,7 +76,7 @@
             <?php echo get_the_title();?>
             </div>
             <p><?php echo get_post_meta($post->ID, 'aisis_content_desc', true);?></p>
-            <div class="readMoreBox">
+            <div class="readMore">
             	<a href="<?php echo get_post_meta($post->ID, 'aisis_content_link', true);?>">Read More</a>
             </div>
         </div>

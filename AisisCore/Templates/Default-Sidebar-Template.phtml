@@ -1,27 +1,35 @@
 <?php
-
 	/**
 	 *
-	 * ==================== [-DO NOT TOUCH!!!-] =======================
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		This is the default Sidebar laoded when your not using
-	 *		any side bar widgets in WordPress. Note the notice
-	 *		at the top of the side bar.
+	 *		This file loads the default sidebar. This is the sidebar
+	 *		that contians example, non working sidebar "widgets."
 	 *
-	 *		This side bar is not a fully functioning side bar.
-	 *		It is meant more for example purposes then anything.
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
 	 *		@package: AisisCore->Templates
+	 *
 	 * =================================================================
-	 */
-   
-   ?>
+	 */   
+?>
   		<div class="notice">
-        	It seems you are using a fall back default side bar. Please
-            consider adding widgets to your sidebar or use the lib/custom/Templates
-            folder to create your own side bar. Please see the Aisis Doc.
+        	Please <strong>note</strong> this sidebar is purley and example.
+            It is advised you use the widgets provided by Aisis and WordPress
+            to populate this sidebar. This is a fall back sidebar. You can optionaly
+            use the Aisis Options to turn off the side bar gloably or for specific
+            parts of the blog.
         </div>
         <br />
 		<section class="widget">

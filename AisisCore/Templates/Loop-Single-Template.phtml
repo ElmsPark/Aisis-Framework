@@ -1,36 +1,46 @@
-	<?php
+<?php
 	/**
 	 *
-	 * ==================== [-DO NOT TOUCH!!!-] =======================
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		This is what loads a single post and associated comments
-	 *		for a user when they click on the title to the post on
-	 *		the index page where all the posts are displayed.
+	 *		This file is responsible for displaying a single post.
+	 *		This is essentially your single.php
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
 	 *		@package: AisisCore->Templates
+	 *
 	 * =================================================================
 	 */
-	 	global $more, $post;
-		$more = 0; //declare and set $more before The Loop
-		
-	 	$options = get_option('aisis_core_theme_setting_sidebar_single');
-		$option_global = get_option('aisis_core_theme_setting_sidebar_global');
-		$options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
-		$options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_single');
-		$options_recent_posts = get_option('aisis_display_related_posts_setting');
-		$options_cat_tags = get_option('aisis_display_categories_tags_setting');
-		
-		$aisis_category_list_options = array(
-				'orderby' => 'name',
-				'style' => 'none',
-				'title_li'=> '',
-		);
-		
-	 ?>
+	 global $more, $post;
+	 $more = 0; //declare and set $more before The Loop
+	  
+	 $options = get_option('aisis_core_theme_setting_sidebar_single');
+	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_single');
+	 $options_recent_posts = get_option('aisis_display_related_posts_setting');
+	 $options_cat_tags = get_option('aisis_display_categories_tags_setting');
+	  
+	 $aisis_category_list_options = array(
+			 'orderby' => 'name',
+			 'style' => 'none',
+			 'title_li'=> '',
+	 );	
+?>
 	 
-    <div id="content">
+    <div id="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'contentFull'; }?>">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
     

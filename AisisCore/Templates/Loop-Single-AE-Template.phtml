@@ -1,15 +1,31 @@
-	<?php
+<?php
 	/**
 	 *
-	 * ==================== [-DO NOT TOUCH!!!-] =======================
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		This is what loads a single post and associated comments
-	 *		for a user when they click on the title to the post on
-	 *		the index page where all the posts are displayed.
+	 *		This file is responsible for displaying a single
+	 *		article and essay post (AE) from the Custom Post Type
+	 *		Articles and Essay (AE).
+	 *
+	 *		By defeault we do not show the slider or the minifeed.
+	 *		we also do not show the side bar as the purpose of this
+	 *		custom post type is to show the content.
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
 	 *		@package: AisisCore->Templates
+	 *
 	 * =================================================================
 	 */
 	 	global $more, $post;
@@ -26,9 +42,8 @@
 				'orderby' => 'name',
 				'style' => 'none',
 				'title_li'=> '',
-		);
-		
-	 ?>
+		);		
+?>
 	 
     <div id="contentFull">
     	<?php while(have_posts()) : the_post();?>

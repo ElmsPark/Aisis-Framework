@@ -3,15 +3,20 @@
 	 *
 	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		This file is the default core look for the Author Template
-	 *		used in Aisis via the is_author() call in the index.php
-	 *		at the base of the theme (@package Aisis). This file
-	 *		is loaded via the LoadTemplates.
+	 *		This file is used to set up the default Author Template.
+	 *		That is, the template you see when viewing the Author's 
+	 *		profile via clicking there name.
 	 *
-	 *		Function used to load this file: aisis_author();
-	 *		Can over write this function?: yes
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
 	 *
-	 *		@see Aisis->AisisCore->Templates->LoadTemplates
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
@@ -25,9 +30,18 @@
 	 $curauth = $wp_query->get_queried_object();
 	 $aisis_author_arguments = array('author' => $curauth->ID); 
 	 $posts = query_posts($aisis_author_arguments);
+	 
+	 //Options
+	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	
+	//Do we display the slider mini?
+	if($options_slider_mini_global['no_slider_mini_global'] != 1){
+		aisis_slider_mini();
+	}
 ?>    
   
-    <div id="author">
+    <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
         <article class="post clearfix">
             <header>
                 <h1 class="postTitle"><?php echo $curauth->user_login; ?></h1>
@@ -42,7 +56,7 @@
         </article>
     </div> 
        
-    <div id="content">
+    <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'content'; }else{ echo 'contentFull'; } ?>">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
     

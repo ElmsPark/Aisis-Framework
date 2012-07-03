@@ -2,17 +2,28 @@
 
 	/**
 	 *
-	 * ==================== [-DO NOT TOUCH!!!-] =======================
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		This is the default navigation loaded when you choose not to
-	 *		use the WordPress 3.0 menu system to create your own menus.
+	 *		This file loads the deafualt nav. This is the nav that loads
+	 *		when the user has opted to not use the WordPress menu creation
+	 *		system.
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
-	 *		@package: AisisCore->Templates 
+	 *		@package: AisisCore->Templates
+	 *
 	 * =================================================================
 	 */
-	 
-	 aisis_default_nav_template();
-   
-   ?>
+	 aisis_default_nav_template(); 
+?>

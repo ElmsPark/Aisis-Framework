@@ -1,21 +1,33 @@
- <?php
+<?php
 	/**
 	 *
-	 * ==================== [-DO NOT TOUCH!!!-] =======================
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		This is what is displayed for a page. When a user creates
-	 *		a new page this template is used.
+	 *		This file is responsible for loading what a single page looks
+	 *		like. essentially this is your page.php.
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
 	 *		@package: AisisCore->Templates
+	 *
 	 * =================================================================
 	 */
 	 global $page_title, $post;
 	 $options = get_option('aisis_core_theme_setting_sidebar_page');
 	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
  ?>  
-    <div id="content">
+    <div id="<?php if($options['no_sidebar_page'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'contentFull'; }?>">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
     
