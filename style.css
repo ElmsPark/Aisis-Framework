@@ -235,6 +235,7 @@ HEADER
 	word-spacing: normal;
 	text-align: justify;
 	font-size:14px;
+	line-height: 2.3em;
 }
 .miniFeed .readMoreBox {
 	width:73px;
