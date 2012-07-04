@@ -61,13 +61,22 @@
 			'aisis_core_theme_slider_mini_page',
 			'aisis-core-options',
 			'aisis_core_theme_section_slider_mini_page'
-		);	
+		);
+		
+		add_settings_field(
+			'aisis_core_theme_setting_slider_mini_front_page',
+			'',
+			'aisis_core_theme_slider_mini_front_page',
+			'aisis-core-options',
+			'aisis_core_theme_section_slider_mini_front_page'
+		);		
 		
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_slider_mini_global', 'aisis_core_theme_slider_mini_global_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_slider_mini_index',  'aisis_core_theme_slider_mini_index_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_slider_mini_single', 'aisis_core_theme_slider_mini_single_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_slider_mini_custom', 'aisis_core_theme_slider_mini_custom_validation');
 		register_setting('aisis-core-options', 'aisis_core_theme_setting_slider_mini_page', 'aisis_core_theme_slider_mini_page_validation');
+		register_setting('aisis-core-options', 'aisis_core_theme_setting_slider_mini_front_page', 'aisis_core_theme_slider_mini_front_page_validation');
 	}
 	
 	/**
@@ -219,7 +228,39 @@
 			
 			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
-	}				
+	}
+	
+	/**
+	 * Create a check box and set its value based on the 
+	 * option table.
+	 */
+	if(!function_exists('aisis_core_theme_slider_mini_front_page')){
+		function aisis_core_theme_slider_mini_front_page(){
+			$options = get_option('aisis_core_theme_setting_slider_mini_front_page');
+			$aisis_create_form_element = new AisisForm();
+			$option_global = get_option('aisis_core_theme_setting_slider_mini_global');
+			if($option_global['no_slider_mini_global'] != 1){			
+				$aisis_slider_mini_check = array(
+				  'id'=>'slider_mini_page',
+				  'name'=>'aisis_core_theme_setting_slider_mini_front_page[no_slider_mini_front_page]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_slider_mini_front_page'], false),
+				  'class' => 'slider_mini'
+				);
+			}else{
+				$aisis_slider_mini_check = array(
+				  'id'=>'slider_mini_page',
+				  'name'=>'aisis_core_theme_setting_slider_mini_front_page[no_slider_mini_front_page]',
+				  'value'=>'1',
+				  'checked' => checked(1, $options['no_slider_mini_front_page'], false),
+				  'class' => 'slider_mini',
+				  'disabled' => 'disabeled'
+				);				
+			}
+			
+			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
+		}
+	}					
 
 	/**
 	 * Check if the box is checked or not
@@ -302,6 +343,23 @@
 				$options['no_slider_mini_page'] = 0;
 			}
 			update_option('admin_success_message', 'true'); 
+			return $options; 
+		}
+	}	
+	
+	/**
+	 * Check if the box is checked or not
+	 * and store its value.
+	 */
+	if(!function_exists('aisis_core_theme_slider_mini_front_page_validation')){
+		function aisis_core_theme_slider_mini_front_page_validation($input){
+			$options = get_option('aisis_core_theme_setting_slider_mini_front_page');
+			if($input['no_slider_mini_front_page'] == 1){
+				$options['no_slider_mini_front_page'] = 1;
+			}else{
+				$options['no_slider_mini_front_page'] = 0;
+			}
+			update_option('no_slider_mini_front_page', 'true'); 
 			return $options; 
 		}
 	}					

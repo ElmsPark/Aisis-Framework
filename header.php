@@ -40,7 +40,7 @@
         }else{
             bloginfo('name');
         }
-    
+    	$option = get_option('aisis_upload_header_image_setting');
     ?>
     </title>
     
@@ -52,9 +52,9 @@
             <header id="header">
         		
                 <hgroup>
-                    <div id="siteLogo"><img src="<?php bloginfo('template_directory');?>/images/bridge.jpg" /></div>
+                    <div id="siteLogo"><a href="<?php bloginfo('url')?>"><img src="<?php if($option['aisis_header_img'] != ''){echo $option['aisis_header_img'];}else{bloginfo('template_directory');?>/images/bridge.jpg<?php } ?>" /></a></div>
                 </hgroup>
-        		<?php //aisis_social_media(); ?>
+        		<div class="socialMediaLink"><?php aisis_social_media(); ?></div>
                 <nav>
                     <ul id="nav" class="clearfix">
                     <?php wp_nav_menu(array(

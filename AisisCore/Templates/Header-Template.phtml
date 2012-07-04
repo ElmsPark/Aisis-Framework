@@ -73,6 +73,7 @@
     	<?php while ($loop_mini->have_posts()) : $loop_mini->the_post();?>
     	<div class="miniFeed">
         	<div class="title">
+            <img src="<?php echo get_post_meta($post->ID, 'aisis_content_img', true);?>" width="32" height="32"/>
             <?php echo get_the_title();?>
             </div>
             <p><?php echo get_post_meta($post->ID, 'aisis_content_desc', true);?></p>

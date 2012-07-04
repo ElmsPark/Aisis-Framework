@@ -49,7 +49,7 @@
 			if($id != ''){
 			?>
 			<form class="" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=<?php echo $id; ?>', 'popupwindow', 'scrollbars=yes,width=550,height=520' );return true">
-				<input class="email" type="text" name="email" value="<?php esc_attr_e( 'E-mail', 'aisis' ); ?>" onfocus="if (this.value == '<?php _e( 'E-mail', 'aisis' ); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e( 'E-mail', 'aisis' ); ?>';}" />
+				<input class="emailInput" type="text" name="email" value="<?php esc_attr_e( 'E-mail', 'aisis' ); ?>" onfocus="if (this.value == '<?php _e( 'E-mail', 'aisis' ); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e( 'E-mail', 'aisis' ); ?>';}" />
 				<input type="hidden" value="<?php echo $id; ?>" name="uri"/>
 				<input type="hidden" value="<?php bloginfo( 'name' ); ?>" name="title"/>
 				<input type="hidden" name="loc" value="en_US"/>

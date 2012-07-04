@@ -4,7 +4,7 @@
 	Description: A theme framework for developing rich, interactive child themes.
 	Author: Adam Balan
 	Author URI: http://adambalan.com
-	Version: 1.1
+	Version: 1.0
 	Tags: framework, functionality, responsive, aisis, Aisis, Adam, Balan, Adam Balan
 	.
 	Aisis  Copyright (C) 2012  Adam Balan
@@ -46,7 +46,7 @@ img, fieldset {
 
 /* set image max width to 100% */
 img {
-	max-width: 90%;
+	max-width: 100%;
 	height: auto;
 	width: auto\9; /* ie8 */
 }
@@ -61,7 +61,7 @@ GENERAL STYLING
 *************************************************************************************/
 body {
 	background : #FAFAFA;
-	font: .81em/150% 'Open Sans', sans-serif;;
+	font: .81em/150% 'Open Sans', sans-serif;
 	line-height : 1.5em;
 	color: #666;
 }
@@ -113,6 +113,14 @@ h5 {
 h6 {
 	font-size: 1em;
 }
+blockquote{
+  font: 16px/22px 'Open Sans', sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;	
+}
 
 /* reset webkit search input styles */
 input[type=search] {
@@ -157,12 +165,14 @@ HEADER
 	text-decoration: none;
 }
 
-/* site description */
-#siteDescription {
-	font: italic 100%/130% 'Open Sans', sans-serif;;
-	color: #fff;
-	position: absolute;
-	top: 55px;
+.socialMediaLink {
+	margin: -46px 0 10px 0px;
+	z-index: 999999;
+	width: 50%;
+}
+.socialMediaLink img {
+	width : 32px;
+	height : 32px;
 }
 
 /* searchform */
@@ -186,10 +196,6 @@ HEADER
 	-webkit-transition: width .7s;
 	-moz-transition: width .7s;
 	transition: width .7s;
-}
-
-#objectWrapper{
-	width: 100%;
 }
 
 #miniFeedWrapper{
@@ -389,6 +395,43 @@ html[xmlns] #nav {
 /************************************************************************************
 CONTENT
 *************************************************************************************/
+#sliderImage {
+	float: left;
+	margin-top: 20px;
+	margin-left: 15px;
+	width: 50%;
+}
+#sliderText {
+	float: right;
+	width: 46%;
+	margin-right: 0;
+}
+.sliderReadMore {
+	background-color: rgb(65,105,120);
+	width: 200px;
+	height: auto;
+	padding-bottom: 4px;
+	text-align: center;
+	border-color: rgb(51,51,51);
+	border-width: 1px;
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	border-style: solid;
+	-moz-box-shadow: inset 0px 0px 2px rgba(0,0,0,0.45);
+	-webkit-box-shadow: inset 0px 0px 2px rgba(0,0,0,0.45);
+	box-shadow: inset 0px 0px 2px rgba(0,0,0,0.45);
+	
+}
+.sliderReadMore a {
+	color: #FFF;
+	font-weight: bold;
+}
+.sliderReadMore a:hover {
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: underline;
+}
 .success {
 	background: #c0e4c7;
 	border: 1px solid #3d5b37;
@@ -419,7 +462,7 @@ CONTENT
 	margin: 15px 0 -15px 0;
 	clear: both;
 }
-#content, #contentFull, #category, #categoryFull, #author, #authorFull {
+#content, #contentFull, #category, #categoryFull, #author, #authorFull, #sticky, #stickyFull {
 	background-color: white;
 	border-color: #DDD;
 	border-width: 1px;
@@ -432,11 +475,14 @@ CONTENT
 	float: left;
 }
 
+#sticky, #stickyFull{
+}
+
 #category{
 	margin-bottom: 20px;
 }
 
-#contentFull, #authorFull, #categoryFull{
+#contentFull, #authorFull, #categoryFull, #stickyFull{
 	width: 93%;
 }
 .post{
@@ -446,6 +492,12 @@ CONTENT
 	margin-top: 2.2em;
 	font-size: 16px;
 	line-height: 2em;
+}
+.postMeta, .postDate, .authorInfo{
+	text-align: left;
+	padding-left: 20px;
+	font-size:16px;
+	font-weight:bold;
 }
 .post .infoPost {
 	width : 90%;
@@ -468,11 +520,12 @@ CONTENT
 .postTitle {
 	margin: 0 0 5px;
 	padding: 0;
-	font: bold 40px/120% 'Open Sans', sans-serif;;
+	font: bold 50px/120% 'Open Sans', sans-serif;
+	text-align:left;
 }
 .postTitle a {
 	text-decoration: none;
-	color: #000;
+	color: #5A7A85;
 }
 .postComments {
 	margin-left : 75px;
@@ -491,6 +544,7 @@ CONTENT
 	color : #4f88a4;
 	font-style : italic;
 }
+
 .whoWrote a:hover {
 	text-decoration: underline;
 }
@@ -499,7 +553,12 @@ CONTENT
 	font-style: italic;
 }
 .postImage {
-	margin: 0 0 15px;
+	margin: 10px 0 15px;
+}
+#postImg{
+	width:100%;}
+#postImg img{
+	width: 700px;
 }
 .readMore, .readMoreFull {
 	width: 73px;
@@ -555,6 +614,9 @@ CONTENT
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.6)), color-stop(100%, rgba(255,255,255,.15)));
 	background: linear-gradient(top, rgba(255,255,255,0.6) 0%, rgba(255,255,255,.15) 100%);
 }
+.postImageFull{
+	width: 800px;
+}
 .listCategories{
 	width: 50%;
 	float:left;
@@ -569,6 +631,47 @@ CONTENT
 }
 .listCategories br{
 	display:none;
+}
+.pagnation{
+	width: 670px;
+	float:left;
+	height:18px;
+	border-color:rgb(153,153,153);
+	border-width:1px;
+	border-radius:4px;
+	border-style:solid;
+	box-shadow:inset 0px 0px 3px rgba(187,187,187,0.35);
+	text-align:center;	
+	background-color:rgb(174,190,202);
+	margin: 0 0 10px 0;
+	padding-bottom: 7px;
+	text-align:center;
+}
+.pagnationFull{
+	width: 100%;
+	float: left;
+	margin: 0 0 10px 150px;
+	padding-bottom: 7px;
+	height: 18px;
+	border-color: #999;
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: solid;
+	box-shadow: inset 0px 0px 3px rgba(187, 187, 187, 0.35);
+	text-align: center;
+	background-color: #D3DDE6;
+	text-align:center;
+}
+.nextPost {
+	float:right;
+	margin: 0 20px 20px 0;
+	padding-bottom:5px;
+
+}
+.prevPost {
+	float:left;
+	margin: 0 0 20px 10px;
+	padding-bottom:5px;
 }
 /************************************************************************************
 Comments
@@ -776,6 +879,32 @@ SIDEBAR
 	list-style: none;
 	clear: both;
 	border-top: solid 1px #eee;
+}
+.emailInput, #search{
+	background: #fff;
+	border: none;
+	padding: 9px 10px;
+	border-radius: 5px;
+	box-shadow: inset 3px 3px 4px rgba(187,187,187,0.65);
+	margin-bottom: 10px;	
+}
+
+.button{
+	width:100px;
+	height:50px;
+	border-color: rgb(136,136,136);
+	border-width: 1px;
+	border-style: solid;
+	text-align: center;
+	margin-left: 175px;
+	background-color:rgb(204,219,196);
+	border-radius:3px;
+	box-shadow:2px 2px 4px rgba(0,0,0,0.3);
+	margin-left: 70px;
+}
+
+#objectWrapper{
+	width: 100%;
 }
 
 /************************************************************************************

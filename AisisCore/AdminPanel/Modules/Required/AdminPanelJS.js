@@ -1,7 +1,7 @@
 /**
 	This is the core JS for the Admin Panel.
 	
-	@package AisisCore->AdminPanel->Template
+	@package AisisCore->AdminPanel->Modules->Required
 **/
 $(document).ready(function() {
 	
@@ -15,6 +15,7 @@ $(document).ready(function() {
 		lineWrapping: true
     });
 });
+
 
 
 

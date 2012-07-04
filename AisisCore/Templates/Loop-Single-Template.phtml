@@ -42,14 +42,47 @@
 	if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_single'] != 1){
 		aisis_header();
 	}	 
+	
+	if(is_sticky()){
 ?>
-	 
+	
+    <div id="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'sticky'; }else{ echo 'stickyFull'; }?>">
+    	<?php while(have_posts()) : the_post();?>
+        <article class="post clearfix">
+    
+            <header>
+                <h1 class="postTitle"><?php the_title(); ?></h1>
+                <div class="postComments"><?php comments_number('0', '1', '%'); ?> comments</div>
+                <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
+                <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
+            </header>
+            <?php if(has_post_thumbnail()){?>
+                <figure class="soft-embossed postImage">
+                    <?php the_post_thumbnail();?>
+                </figure>
+            <?php } ?>
+            <p> <?php the_content(); ?></p>
+        </article>
+        <?php
+			endwhile; 
+		  	wp_reset_query(); 
+		?>
+        <!-- /.post -->
+    <?php if($options_cat_tags['cat_tags'] != 1){?>
+        <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list_options);?></div> 
+        <div class="listTags"><?php the_tags();?></div> 
+    <?php } ?>  
+    </div>
+    
+    <?php
+	}else{
+	?>
     <div id="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'contentFull'; }?>">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
     
             <header>
-                <h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                <h1 class="postTitle"><?php the_title(); ?></h1>
                 <div class="postComments"><?php comments_number('0', '1', '%'); ?> comments</div>
                 <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
                 <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
@@ -73,9 +106,11 @@
     </div>
     
     <?php
+	}
 	if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){
 		get_sidebar();
 	}
+
     if('open' == $post->comment_status){
 	    comments_template('', true);
     }
