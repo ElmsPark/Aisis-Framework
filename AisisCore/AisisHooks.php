@@ -82,16 +82,6 @@
 		 do_action('aisis_default_right_footer_text');
 	 }
 	 
-	 /**
-	  * Allows you to change the blurb text of the default author
-	  * blurb that shows at the end of each post. This is shown
-	  * if the author of that post did not write something about them
-	  * seleves in their dashoard.
-	  */
-	 function aisis_loop_single_author_blurb_default(){
-		 do_action('aisis_loop_single_author_blurb_default');
-	 }
-	 
  	 /**
 	  * This allows you yo change the entire nav
 	  * menu that is shown when the use does not use
@@ -160,19 +150,7 @@
 				 $options['default_cat_text'];
 			  }
 		  }
-	  }
-	  
-	  //default category text
-	  if(!function_exists('default_aisis_tag_default_text')){
-		  function default_aisis_tag_default_text(){
-			  $options = get_option('aisis_default_tag_text_setting');
-			  if(!isset($options['default_tag_text'])){
-				echo "Welcome to this tag " . single_tag_title() . " where we hope that we present you with the latest and greatest in content from this section. Please enjoy your stay :D";
-			  }else{
-				 $options['default_tag_text'];
-			  }
-		  }
-	  }	  
+	  }  
 	  
 	  //default right footer text
 	  if(!function_exists('default_aisis_default_right_footer_text')){
@@ -200,19 +178,6 @@
 		  }
 	  }	  
 	  
-	  //default loop_single author blurb
-	  if(!function_exists('default_aisis_loop_single_author_blurb_default')){
-		  function default_aisis_loop_single_author_blurb_default(){
-			  $options = get_option('aisis_default_author_text_setting');
-			  if(!isset($options['default_author_text'])){
-				  echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles 
-					for the blog its self and we are proud to have them here and apart of our team :D";
-			  }else{
-				  echo $options['default_author_text'];
-			  }
-		  }
-	  }
-	  
 	  //default nav template
 	  function default_aisis_default_nav_template(){
 		  ?>
@@ -231,7 +196,6 @@
 	  add_action('aisis_category_default_text','default_aisis_category_default_text');
 	  add_action('aisis_default_right_footer_text','default_aisis_default_right_footer_text');
 	  add_action('aisis_default_left_footer_text','default_aisis_default_left_footer_text');
-	  add_action('aisis_loop_single_author_blurb_default','default_aisis_loop_single_author_blurb_default');
 	  add_action('aisis_default_nav_template','default_aisis_default_nav_template');
 	  
 	  

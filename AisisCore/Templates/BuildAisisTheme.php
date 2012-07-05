@@ -31,6 +31,9 @@
 	 	  $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_index');
 		  
 		  if(have_posts()){
+			if(is_author()){
+				aisis_author();
+			}
 			if(is_category()){
 				if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_index'] != 1){
 					aisis_header();
@@ -180,5 +183,15 @@
 		  }
 	  }	  	  	   
 	  
+	  /**
+	   * This does not load all the header information.
+	   * Instead this template loads the slider and mini feeds.
+	   */
+	  if(!function_exists('aisis_default_sidebar')){
+		  function aisis_default_sidebar(){
+			  global $aisis_template_loader;
+			  $aisis_template_loader->aisis_register('Default-Sidebar-Template.phtml');
+		  }
+	  }		  
 	  
 ?>

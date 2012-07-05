@@ -94,15 +94,15 @@
                                 <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
                             
                             <?php else : ?>
-                            <label for="author">Name <small><?php if ($req) echo "(required)"; ?></small></label>
-                            <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
+                            <label for="authorInput">Name <small><?php if ($req) echo "(required)"; ?></small></label>
+                            <input type="text" name="authorInput" id="authorInput" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
                             
-                            <label for="email">Mail <small><?php if ($req) echo "(required)"; ?></small></label>
-                            <input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+                            <label for="emailInput">Mail <small><?php if ($req) echo "(required)"; ?></small></label>
+                            <input type="text" name="emailInput" id="emailInput" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
                             
-                            <label for="url">Website</label>
-                            <input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
                             
+                            <input type="text" name="urlInput" id="urlInput" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
+                            <label for="urlInput">Website</label>
                             
                             <?php endif; ?>
                             
@@ -190,15 +190,15 @@
                               <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
                           
                           <?php else : ?>
-                          <label for="author">Name <small><?php if ($req) echo "(required)"; ?></small></label>
-                          <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
                           
-                          <label for="email">Mail <small><?php if ($req) echo "(required)"; ?></small></label>
-                          <input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+                          <input type="text" name="authorInput" id="authorInput" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
+                          <label for="authorInput">Name <small><?php if ($req) echo "(required)"; ?></small></label>
                           
-                          <label for="url">Website</label>
-                          <input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
+                          <input type="text" name="emailInput" id="emailInput" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+                          <label for="emailInput">Mail <small><?php if ($req) echo "(required)"; ?></small></label>
                           
+                          <input type="text" name="urlInput" id="urlInput" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
+                          <label for="urlInput">Website</label>
                           
                           <?php endif; ?>
                           

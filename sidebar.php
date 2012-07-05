@@ -24,9 +24,10 @@
 
 <aside id="sidebar">
 
-	<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar') ) : else : ?>
-    	<?php aisis_sidebar_default(); ?>
-    <?php endif; ?>
+	<?php 
+	if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar') ) : else :
+    	aisis_default_sidebar();
+    endif; ?>
 						
 </aside>
 <!-- /#sidebar -->

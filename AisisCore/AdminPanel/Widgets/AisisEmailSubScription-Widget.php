@@ -60,7 +60,7 @@
 			?>
 			<div id="mc_embed_signup">
 				<form class="" action="<?php echo $url; ?>" method="post" target="popupwindow" onsubmit="window.open('<?php echo $url; ?>', 'popupwindow', 'scrollbars=yes,width=650,height=520');return true">
-					<input type="text" name="EMAIL" class="required email" value="<?php _e('E-mail','woothemes'); ?>"  id="mce-EMAIL" onfocus="if (this.value == '<?php _e('E-mail','aisis'); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e('E-mail','aisis'); ?>';}">
+					<input type="text" name="EMAIL" class="required emailInput" value="<?php _e('E-mail','woothemes'); ?>"  id="mce-EMAIL" onfocus="if (this.value == '<?php _e('E-mail','aisis'); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e('E-mail','aisis'); ?>';}">
 					<input type="submit" value="<?php _e('Submit', 'aisis'); ?>" name="subscribe" id="mc-embedded-subscribe" class="btn submit button">
 				</form>
 			</div>

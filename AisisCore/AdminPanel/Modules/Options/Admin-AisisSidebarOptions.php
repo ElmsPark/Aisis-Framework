@@ -214,7 +214,7 @@
 		function aisis_core_theme_sidebar_search(){
 			$options = get_option('aisis_core_theme_setting_sidebar_search');
 			$aisis_create_form_element = new AisisForm();
-			$option_global = get_option('aisis_core_theme_setting_sidebar_search');
+			$option_global = get_option('aisis_core_theme_setting_sidebar_global');
 			if($option_global['no_sidebar_global'] != 1){
 				$aisis_search_check = array(
 				  'id'=>'sidebar_search',

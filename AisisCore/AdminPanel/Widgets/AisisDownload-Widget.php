@@ -40,7 +40,7 @@
 			$url = $instance['url'];
 			$title = $instance['title'];
 			$show_info = $instance['info'];
-	
+
 			echo $before_widget;
 			?>
 			<div class="downloadButton">
