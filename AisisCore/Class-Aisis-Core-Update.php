@@ -58,7 +58,7 @@
 		function check_for_update_with_message(){
 			$aisis_version = $this->check_theme_version();
 			if(isset($aisis_version) && $aisis_version != ''){
-				if(version_compare( $aisis_version, $this->get_current_theme_version(), '>=')){
+				if(version_compare( $aisis_version, $this->get_current_theme_version(), '>')){
 
 					echo "<div class='upgradeNotice'><strong>You have an update!</strong> You are currently version <strong>" . $this->get_current_theme_version() . 
 						"</strong> and the version we have on the server is <strong>" . $aisis_version . "</strong>. We encourgage you to upgrade to the latest version. 
@@ -76,7 +76,7 @@
 		function check_for_udate_bool(){
 			$aisis_version = $this->check_theme_version();
 			if(isset($aisis_version) && $aisis_version != ''){
-				if(version_compare($aisis_version, $this->get_current_theme_version(), '>=')){
+				if(version_compare($aisis_version, $this->get_current_theme_version(), '>')){
 					return true;
 				}else{
 					return false;

@@ -215,7 +215,7 @@
 			$options = get_option('aisis_core_theme_setting_sidebar_search');
 			$aisis_create_form_element = new AisisForm();
 			$option_global = get_option('aisis_core_theme_setting_sidebar_search');
-			if($option_global['no_sidebar_search'] != 1){
+			if($option_global['no_sidebar_global'] != 1){
 				$aisis_search_check = array(
 				  'id'=>'sidebar_search',
 				  'name'=>'aisis_core_theme_setting_sidebar_search[no_sidebar_search]',
