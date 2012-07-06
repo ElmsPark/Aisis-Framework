@@ -16,8 +16,41 @@
 	 *
 	 * =================================================================
 	 */
-
-	 class AisisForm{
+	 require_once('IAisis-Form.php');
+	 class AisisForm implements IAisisForm{
+		 
+		 protected $_action;
+		 protected $_method;
+		 protected $_id;
+		 protected $_class;
+		 
+		 /**
+		  * This is the opening of our form tag.
+		  * The user will enter in an array of attibutes
+		  * that will then create our opening form tag.
+		  */
+		 function start_form(array $attributes){
+		   if(isset($attributes['action'])){
+			   $this->_action = 'action="'.$attributes['action'].'"';
+		   }
+		   
+		   if(isset($attributes['method'])){
+			   $this->_method = 'method="'.$attributes['method'].'"';
+		   }
+		   
+		   if(isset($attributes['id'])){
+			   $this->_id = 'id="'.$attributes['id'].'"';
+		   }
+		   
+		   if(isset($attributes['class'])){
+			   $this->_class = 'class="'.$attributes['class'].'"';
+		   }
+		   
+		   $build_aisis_forum = '<form '.$this->_method.' '.$this->_action .' '.$this->_id.' '.$this->_class.' >\n';
+		   echo $build_aisis_forum;
+		   
+		   $this->_is_open = true;
+		 }		 
 		 /**
 		  * This function takes in an element, a type and an array of attributes
 		  * and based on that we return you an element which is populated
@@ -53,7 +86,18 @@
 			 if($element == 'select'){
 				 $aisis_form_element = $aisis_elements->select($attributes);
 			 }
+			 
+			 if($element == 'label'){
+				 $aisis_form_element = $aisis_elements->label($attributes);
+			 }
 			
+		 }
+		 
+		 /**
+		  * All we do is close the form.
+		  */
+		 function end_form(){
+			 echo '\n</form>';
 		 }
 		 
 	 }

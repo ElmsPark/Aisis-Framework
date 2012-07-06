@@ -23,7 +23,23 @@
 	 *
 	 * =================================================================
 	 */
-	 class AisisElements{
+	 require_once('IAisis-Form-Elements.php');
+	 class AisisElements implements IAisisElements{
+		 
+		 private $id;
+		 private $class;
+		 private $name; 
+		 private $checked; 
+		 private $onClick;
+		 private $value;
+		 private $inpute_type;
+		 private $disabled;
+		 private $style;
+		 private $rows = 20;
+		 private $cols = 20;	
+		 private $for;
+		 private $options = array();
+		 private $multiple;	 
 		 
 		 /**
 		  * We take in the type of input and
@@ -35,19 +51,7 @@
 		  */
 		 function input($type, array $attributes){
 			 
-			 $id = '';
-			 $class ='';
-			 $name =''; 
-			 $checked =''; 
-			 $onClick ='';
-			 $value ='';
-			 $inpute_type ='';
-			 $disabled = '';
-			 $style='';
-			 
-			 
-			 
-			 $inpute_type = 'type="'.$type.'"';
+			 $this->inpute_type = 'type="'.$type.'"';
 			 
 			 if(!is_string($type)){
 				 _e("<div class='err'" . new ForException('<strong>Element type must be of type String.</strong>') . "</div>");
@@ -55,55 +59,55 @@
 			 			 
 			 if($type == 'checkbox'){
 				if(isset($attributes['checked'])){
-					  $checked = $attributes['checked'];
-					  $inpute_type = 'type="checkbox"';
+					  $this->checked = $attributes['checked'];
+					  $this->inpute_type = 'type="checkbox"';
 				}
 			 }elseif($type = 'radio'){
 				 if(isset($attributes['checked'])){
-					 $checked = $attributes['checked'];
-					 $inpute_type = 'type="radio"';
+					 $this->checked = $attributes['checked'];
+					 $this->inpute_type = 'type="radio"';
 				 }
 			 }
 			 
 			 if(isset($attributes['onClick'])){
-				 $onClick = 'onClick="'.$attributes['onClick'].'"';
+				 $this->onClick = 'onClick="'.$attributes['onClick'].'"';
 			 }
 			 
 			 if(isset($attributes['name'])){
-				 $name = 'name="'.$attributes['name'].'"';
+				 $this->name = 'name="'.$attributes['name'].'"';
 			 }
 			 
 			 if(isset($attributes['id'])){
-				 $id = 'id="'.$attributes['id'].'"';
+				 $this->id = 'id="'.$attributes['id'].'"';
 			 }
 			 
 			 if(isset($attributes['class'])){
-				 $class = 'class="'.$attributes['class'].'"';
+				 $this->class = 'class="'.$attributes['class'].'"';
 			 }
 			 
 			 if(isset($attributes['value'])){
-				 $value = 'value="'.$attributes['value'].'"';
+				 $this->value = 'value="'.$attributes['value'].'"';
 			 }
 			 
 			 if(isset($attributes['disabled'])){
 				 
-				 $disabled = 'disabled="'.$attributes['disabled'].'"';
+				 $this->disabled = 'disabled="'.$attributes['disabled'].'"';
 			 }
 			 
 			 if(isset($attributes['style'])){
-				 $style = 'style="'.$attributes['style'].'"';
+				 $this->style = 'style="'.$attributes['style'].'"';
 			 }
 			 
 			 $build_aisis_element = '<input '
-			 						.$inpute_type
-									.$disabled 
-									.$checked 
-									.$id 
-									.$class 
-									.$name 
-									.$onClick
-									.$value
-									.$style
+			 						.$this->inpute_type
+									.$this->disabled 
+									.$this->checked 
+									.$this->id 
+									.$this->class 
+									.$this->name 
+									.$this->onClick
+									.$this->value
+									.$this->style
 									.' />';
 			echo $build_aisis_element;
 			
@@ -118,54 +122,76 @@
 		  */
 		 function textarea(array $attributes){
 			 
-			 $id = '';
-			 $class ='';
-			 $name =''; 
-			 $value ='';
-			 
-			 $rows = 20;
-			 $cols = 20;
-			 $style='';
-			 
 			 if(isset($attributes['name'])){
-				 $name = 'name="'.$attributes['name'].'"';
+				 $this->name = 'name="'.$attributes['name'].'"';
 			 }
 			 
 			 if(isset($attributes['id'])){
-				 $id = 'id="'.$attributes['id'].'"';
+				 $this->id = 'id="'.$attributes['id'].'"';
 			 }
 			 
 			 if(isset($attributes['class'])){
-				 $class = 'class="'.$attributes['class'].'"';
+				 $this->class = 'class="'.$attributes['class'].'"';
 			 }
 			 
 			 if(isset($attributes['rows'])){
-				 $rows = 'rows="'.$attributes['rows'].'"';
+				 $this->rows = 'rows="'.$attributes['rows'].'"';
 			 }
 			 
 			 if(isset($attributes['cols'])){
-				 $cols = 'cols="'.$attributes['cols'].'"';
+				 $this->cols = 'cols="'.$attributes['cols'].'"';
 			 }
 			 
 			 if(isset($attributes['value'])){
-				 $value = $attributes['value'];
+				 $this->value = $attributes['value'];
 			 }
 			 
 			 if(isset($attributes['style'])){
-				 $style = 'style="'.$attributes['style'].'"';
+				 $this->style = 'style="'.$attributes['style'].'"';
 			 }
 			 
 			 $build_aisis_element = '<textarea ' 
-									.$id 
-									.$class 
-									.$name 
-									.$rows  
-									.$cols 
-									.$style
-									.'>'. $value . '</textarea>';
+									.$this->id 
+									.$this->class 
+									.$this->name 
+									.$this->rows  
+									.$this->cols 
+									.$this->style
+									.'>'. $this->value . '</textarea>';
 									
 			echo $build_aisis_element;
 		 } 
+		 
+		 /**
+		  * We build up the aisis label element.
+		  * We take in an array of specific attributes
+		  * that we then use to create said object.
+		  */
+		 function label(array $attributes){
+			 if(isset($attributes['id'])){
+				 $this->id = 'id="'.$attributes['id'].'"';
+			 }
+			 
+			 if(isset($attributes['class'])){
+				 $this->class = 'class="'.$attributes['class'].'"';
+			 }
+			 
+			 if(isset($attributes['for'])){
+				 $this->for = 'for="'.$attributes['for'].'"';
+			 }
+			 			 
+			 if(isset($attributes['value'])){
+				 $this->value = $attributes['value'];
+			 }	
+			 
+			 $build_aisis_element = '<label '
+			 						.$this->id
+									.$this->class
+									.$this->for
+									.' >' .$this->value. '</label>';	
+									
+			 echo $build_aisis_element;	 
+		 }
 		 
 		 /**
 		  * This is the select element which takes in
@@ -175,47 +201,39 @@
 		  * @return the element
 		  */
 		 function select(array $attributes){
-			 $id = '';
-			 $class ='';
-			 $name =''; 
-			 $value ='';
-			 
-			 $multiple = '';
-			 $options = '';
-			 $style='';
 			 
 			 if(isset($attributes['multiple'])){
-				 $multiple = 'multiple="'.$attributes['multiple'].'"';
+				 $this->multiple = 'multiple="'.$attributes['multiple'].'"';
 			 }
 			 
 			 if(isset($attributes['name'])){
-				 $name = 'name="'.$attributes['name'].'"';
+				 $this->name = 'name="'.$attributes['name'].'"';
 			 }
 			 
 			 if(isset($attributes['id'])){
-				 $id = 'id="'.$attributes['id'].'"';
+				 $this->id = 'id="'.$attributes['id'].'"';
 			 }
 			 
 			 if(isset($attributes['class'])){
-				 $class = 'class="'.$attributes['class'].'"';
+				 $this->class = 'class="'.$attributes['class'].'"';
 			 }
 			 
 			 if(isset($attaributes['options'])){
-				 $options = $attributes['options'];
+				 $this->options = $attributes['options'];
 			 }
 			 
 			 if(isset($attributes['style'])){
-				  $style = 'style="'.$attributes['style'].'"';
+				  $this->style = 'style="'.$attributes['style'].'"';
 			 }
 			 
 			 $build_aisis_element = '<select '
-			 								.$multipe 
-											.$id 
-											.$class 
-											.$name 
-											.$style
+			 								.$this->multipe 
+											.$this->id 
+											.$this->class 
+											.$this->name 
+											.$this->style
 											.'> ';
-			foreach($options as $option){
+			foreach($this->options as $option){
 				$tbuild_aisis_element .= '<option>' . $option . '</option>';
 			}
 			

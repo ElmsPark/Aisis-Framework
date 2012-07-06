@@ -202,6 +202,11 @@ HEADER
 	-moz-transition: width .7s;
 	transition: width .7s;
 }
+.flex-caption {
+	width: 96.3% !important;
+	background: rgba(0, 0, 0, 0.7) !important;
+	margin-bottom: -13px !important;
+}
 
 #miniFeedWrapper{
 	width: 100%;
@@ -406,6 +411,14 @@ CONTENT
 	margin-top: 20px;
 	margin-left: 15px;
 	width: 50%;
+}
+#centerSliderImage{
+	width:80%;
+	margin: 0 auto 0 auto;
+}
+#centerSliderImage img{
+	max-width: 100%;
+	margin: 0 auto 0 auto;
 }
 #sliderText {
 	float: right;
@@ -932,7 +945,7 @@ FOOTER
 	font-size: 85%;
 }
 #footer a {
-	color: #fff;
+	color: #3D859C;
 }
 
 .footerWrapper {
