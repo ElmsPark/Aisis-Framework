@@ -91,7 +91,7 @@
 						'value' => $instance['url']
 					);
 				}
-				$aisis_form_build->creat_aisis_form_element('input', 'url', $array_of_input_link_elements);
+				$aisis_form_build->create_aisis_form_element('input', 'url', $array_of_input_link_elements);
 				?>
 			</p>
 	
@@ -112,7 +112,7 @@
 						'value' => $instance['title']
 					);
 				}
-				$aisis_form_build->creat_aisis_form_element('input', 'text', $array_of_input_title_elements);
+				$aisis_form_build->create_aisis_form_element('input', 'text', $array_of_input_title_elements);
 				?>            
 			</p>
 			<p>
@@ -134,7 +134,7 @@
 						'value' => $instance['info']
 					);				
 				}
-				$aisis_form_build->creat_aisis_form_element('textarea', '', $array_of_textarea_elements);
+				$aisis_form_build->create_aisis_form_element('textarea', '', $array_of_textarea_elements);
 				?>            
 			</p>        
 	

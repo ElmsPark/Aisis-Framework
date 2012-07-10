@@ -113,7 +113,7 @@
 						'value' => $instance['user_name']
 					);
 				}
-				$aisis_form_build->creat_aisis_form_element('input', 'text', $array_of_input_user_name_elements);
+				$aisis_form_build->create_aisis_form_element('input', 'text', $array_of_input_user_name_elements);
 				?>
              </p>
  			<p>
@@ -133,7 +133,7 @@
 						'value' => $instance['count']
 					);
 				}
-				$aisis_form_build->creat_aisis_form_element('input', 'text', $array_count_input);
+				$aisis_form_build->create_aisis_form_element('input', 'text', $array_count_input);
 				?>
              </p>            
 		<?php

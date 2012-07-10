@@ -113,7 +113,7 @@
 						'value' => $instance['title']
 					);
 				}
-				$aisis_form_build->creat_aisis_form_element('input', 'text', $array_of_subscription_feedburner_id);
+				$aisis_form_build->create_aisis_form_element('input', 'text', $array_of_subscription_feedburner_id);
 				?>
              </p>
 			
@@ -134,7 +134,7 @@
 						'value' => $instance['id']
 					);
 				}
-				$aisis_form_build->creat_aisis_form_element('input', 'text', $array_of_subscription_feedburner_id);
+				$aisis_form_build->create_aisis_form_element('input', 'text', $array_of_subscription_feedburner_id);
 				?>
              </p>
              <p>
@@ -154,7 +154,7 @@
 						'value' => $instance['url']
 					);
 				}
-				$aisis_form_build->creat_aisis_form_element('input', 'text', $array_mailchimp_subscribe_url);
+				$aisis_form_build->create_aisis_form_element('input', 'text', $array_mailchimp_subscribe_url);
 				?>
              </p>
              <p>
@@ -174,7 +174,7 @@
 						'value' => $instance['description']
 					);
 				}
-				$aisis_form_build->creat_aisis_form_element('input', 'text', $array_description);
+				$aisis_form_build->create_aisis_form_element('input', 'text', $array_description);
 				?> 
                 </p>
 	
