@@ -62,7 +62,7 @@
 			  	'checked' => checked(1, $options['related_posts'], false)
 			);
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_related_posts);
+			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_related_posts);
 		}
 	}
 	
@@ -80,7 +80,7 @@
 			  	'checked' => checked(1, $options['cat_tags'], false)
 			);
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_show_cat_tags);
+			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_show_cat_tags);
 		}
 	}
 	/**
@@ -109,8 +109,8 @@
 				'value' => 'Choose a file to upload.'
 			);
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'text', $file_chosen);
-			$aisis_create_form_element->creat_aisis_form_element('input', 'button', $button);
+			$aisis_create_form_element->create_aisis_form_element('input', 'text', $file_chosen);
+			$aisis_create_form_element->create_aisis_form_element('input', 'button', $button);
 		}
 	}		
 	/**

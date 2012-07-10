@@ -43,7 +43,7 @@
 					'value'=>$options['js']
 				);
 			}
-			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_js_attributes);
+			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_js_attributes);
 		}
 	}
 	

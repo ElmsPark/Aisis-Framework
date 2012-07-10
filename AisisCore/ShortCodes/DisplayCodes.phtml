@@ -257,7 +257,7 @@ function jsCode() {
 	var debug = true;
 	try{
 		var win = window.dialogArguments || opener || parent || top;
-		win.send_to_editor('[jsCode]function exampleFunction{}[/jsCode]');
+		win.send_to_editor('<pre class="js">code here</pre>');
 	}catch(e){
 		console.log("Could not send to window: " + e);
 	}
@@ -267,7 +267,7 @@ function cssCode() {
 	var debug = true;
 	try{
 		var win = window.dialogArguments || opener || parent || top;
-		win.send_to_editor('[cssCode].exampleClass{}[/cssCode]');
+		win.send_to_editor('<pre class="styles">code here</pre>');
 	}catch(e){
 		console.log("Could not send to window: " + e);
 	}
@@ -406,9 +406,6 @@ function cssCode() {
                 JavaScript
             </div>
             <pre class="js">
-            [jsCode]function(){}[/jsCode]
-            </pre>
-            <pre class="js">
             function(){}
             </pre>
             <input type="button" value="Insert Into Post!" onclick="jsCode()" /> 
@@ -416,12 +413,7 @@ function cssCode() {
             <div class="middleText">
                 CSS
             </div>
-            <pre class="js">
-            [cssCode].css{}[/cssCode]
-            </pre>
-            <pre class="styles">
-            .css{}
-            </pre>
+            <pre class="styles">.css{}</pre>
             <input type="button" value="Insert Into Post!" onclick="cssCode()" /> 
             <br />            
         </div>

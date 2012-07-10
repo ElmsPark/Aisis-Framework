@@ -46,7 +46,9 @@
 			   $this->_class = 'class="'.$attributes['class'].'"';
 		   }
 		   
-		   $build_aisis_forum = '<form '.$this->_method.' '.$this->_action .' '.$this->_id.' '.$this->_class.' >\n';
+		   $build_aisis_forum = '
+		   <form '.$this->_method.' '.$this->_action .' '.$this->_id.' '.$this->_class.' >
+		   ';
 		   echo $build_aisis_forum;
 		   
 		   $this->_is_open = true;
@@ -63,7 +65,7 @@
 		  * @param an array of attributes for that element
 		  *
 		  */
-		 function creat_aisis_form_element($element, $type, array $attributes){
+		 function create_aisis_form_element($element, $type, array $attributes){
 			 
 			 $aisis_elements = new AisisElements();
 			 
@@ -97,7 +99,9 @@
 		  * All we do is close the form.
 		  */
 		 function end_form(){
-			 echo '\n</form>';
+			 echo '
+			 </form>
+			 ';
 		 }
 		 
 	 }

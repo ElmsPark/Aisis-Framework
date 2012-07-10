@@ -48,7 +48,7 @@
 			  'checked' => checked(1, $options['turn_on_silent_update'], false)
 			);
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_silent_update);
+			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_silent_update);
 		}
 	}				
 	

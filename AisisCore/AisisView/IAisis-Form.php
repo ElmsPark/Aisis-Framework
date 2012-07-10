@@ -36,7 +36,7 @@
 		  * along with type (for input: button, submit) and then an
 		  * an array of attributes for that object.
 		  */
-		 function creat_aisis_form_element($element, $type, array $attributes);
+		 function create_aisis_form_element($element, $type, array $attributes);
 		 
 		 /**
 		  * just echos the form closing tag.

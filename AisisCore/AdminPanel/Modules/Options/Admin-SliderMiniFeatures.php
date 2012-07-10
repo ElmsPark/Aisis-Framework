@@ -94,7 +94,7 @@
 			  'checked' => checked(1, $options['no_slider_mini_global'], false)
 			);
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
+			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}
 	
@@ -130,7 +130,7 @@
 				);				
 			}
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
+			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}
 	
@@ -162,7 +162,7 @@
 				);
 			}
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
+			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}
 	
@@ -194,7 +194,7 @@
 				);				
 			}
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
+			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}
 	
@@ -226,7 +226,7 @@
 				);				
 			}
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
+			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}
 	
@@ -258,7 +258,7 @@
 				);				
 			}
 			
-			$aisis_create_form_element->creat_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
+			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}					
 

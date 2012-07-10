@@ -141,7 +141,7 @@
 					'class'=>'test',
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_facebook_attributes);
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_facebook_attributes);
 		}
 	}
 	
@@ -166,7 +166,7 @@
 					'value'=>$options['twitter_link'],
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_twitter_attributes);
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_twitter_attributes);
 			
 		}
 	}
@@ -192,7 +192,7 @@
 					'value'=>$options['tumblr_link'],
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_tumblr_attributes);
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_tumblr_attributes);
 		}
 	}
 	
@@ -217,7 +217,7 @@
 					'value'=>$options['google_link'],
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_google_attributes);			
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_google_attributes);			
 		}
 	}
 	
@@ -242,7 +242,7 @@
 					'value'=>$options['rss_link'],
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_rss_attributes);			
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_rss_attributes);			
 		}
 	}
 	
@@ -266,7 +266,7 @@
 					'value'=>$options['facebook_hover'],
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_fb_hover_attributes);	
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_fb_hover_attributes);	
 		}
 	}
 	
@@ -290,7 +290,7 @@
 					'value'=>$options['twitter_hover'],
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_twit_hover_attributes);	
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_twit_hover_attributes);	
 		}
 	}
 	
@@ -314,7 +314,7 @@
 					'value'=>$options['tumblr_hover'],
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_tum_hover_attributes);	
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_tum_hover_attributes);	
 		}
 	}
 	
@@ -339,7 +339,7 @@
 					'onClick'=>"this.value=''"
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_gog_hover_attributes);	
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_gog_hover_attributes);	
 		}
 	}
 	
@@ -363,7 +363,7 @@
 					'value'=>$options['rss_hover'],
 				);
 			}
-			$aisis_create_form_elements->creat_aisis_form_element('input', 'text', $aisis_rss_hover_attributes);	
+			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_rss_hover_attributes);	
 		}
 	}
 	

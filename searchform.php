@@ -10,8 +10,22 @@
 	 *		@package: Aisis 
 	 * =================================================================
 	 */
+	 
+	 $aisis_form = new AisisForm();
+	 
+	 $aisis_form->start_form(array(
+	 		'method'=>'get',
+	 		'action'=>home_url() . '/',
+			'id'=>'searchform'
+	 ));
+	 
+	 $aisis_form->create_aisis_form_element('input', 'search', array(
+	 		'id' => 'search',
+			'name' => 's',
+			'placeholder' => 'search'
+	 
+	 ));
+	 
+	 $aisis_form->end_form();
 ?>
-
-    <form method="get" id="searchform" action="<?php echo home_url(); ?>/" >
-        <input type="search" id="search" name="s" placeholder="Search" />
-    </form>
+	

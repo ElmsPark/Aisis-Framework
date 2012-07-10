@@ -62,17 +62,29 @@
 	//syntax highlighting for JS code
 	if(!function_exists('aisis_js_code')){
 		function aisis_js_code( $atts, $content = null ) {
-		   return '<pre class="js">' . $content . '</pre>';
+		   return '<pre class="js">'.$content.'</pre>';
 		}
 	}
 	
 	//embed search
 	if(!function_exists('aisis_search_embed')){
 		function aisis_search_embed($atts){
-			return '
-			    <form method="get" id="embedSearch" action="'.home_url().'" >
-        			<input type="search" id="embedSearch" name="s" placeholder="Looking for?" />
-    			</form>';
+			 $aisis_form = new AisisForm();
+			 
+			 $aisis_form->start_form(array(
+					'method'=>'get',
+					'action'=>home_url() . '/',
+					'id'=>'searchform'
+			 ));
+			 
+			 $aisis_form->create_aisis_form_element('input', 'search', array(
+					'id' => 'search',
+					'name' => 's',
+					'placeholder' => 'search'
+			 
+			 ));
+			 
+			 $aisis_form->end_form();
 		}
 	}
 	

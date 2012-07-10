@@ -107,7 +107,7 @@
 					'cols'=>60
 				);
 			}
-			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_404_banner_attributes);
+			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_404_banner_attributes);
 		}
 	}
 
@@ -141,7 +141,7 @@
 					'cols'=>60
 				);
 			}
-			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_404_attributes);
+			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_404_attributes);
 		}
 	}
 
@@ -179,7 +179,7 @@
 					'cols'=>60
 				);
 			}
-			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_author_attributes);
+			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_author_attributes);
 		}
 	}
 
@@ -214,7 +214,7 @@
 					'cols'=>60
 				);
 			}
-			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_cat_attributes);
+			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_cat_attributes);
 		}
 	}
 		
@@ -250,7 +250,7 @@
 					'cols'=>60
 				);
 			}
-			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_right_footer_attributes);
+			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_right_footer_attributes);
 		}
 	}
 	
@@ -285,7 +285,7 @@
 					'cols'=>60
 				);
 			}
-			$aisis_create_form_element->creat_aisis_form_element('textarea', '', $aisis_left_footer_attributes);
+			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_left_footer_attributes);
 		}
 	}
 	

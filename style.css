@@ -66,7 +66,7 @@ body {
 	color: #666;
 }
 a {
-	color: #026acb;
+	color: #9B6B78;
 	text-decoration: none;
 	outline: none;
 }
@@ -888,6 +888,9 @@ SIDEBAR
 	clear: both;
 	border-top: solid 1px #eee;
 }
+.widget a{
+	color: #648D9C;
+}
 .emailInput, #search{
 	background: #fff;
 	border: none;
@@ -934,7 +937,11 @@ SIDEBAR
 }
 
 .downloadButton a{
-	color:#D6E5E7 !important;
+	color:#D4DEE0 !important;
+}
+
+.listCategories a, .listTags a{
+	color: #477A92 !important;
 }
 /************************************************************************************
 FOOTER
