@@ -40,7 +40,7 @@
                 <form method="post" action="<?php echo $aisis_forum_url ?>">
                     <label>Turn on Silent Update</label>
                     <?php do_settings_fields('aisis-core-update', 'aisis_core_silent_update_section'); ?>
-                    <?php $aisis_element_builder->creat_aisis_form_element('input', 'submit', $silent_update);?>
+                    <?php $aisis_element_builder->create_aisis_form_element('input', 'submit', $silent_update);?>
                      <?php settings_fields( 'aisis-core-update' ); ?>
                 </form>
                 </div>
@@ -80,7 +80,7 @@
 								'name' => 'upgrade',
 								'class' => 'bigUpgrade'
 							);
-							$aisis_element_builder->creat_aisis_form_element('input', 'submit', $aisis_update_button);
+							$aisis_element_builder->create_aisis_form_element('input', 'submit', $aisis_update_button);
 						}
 					?>
 					</form>

@@ -260,7 +260,7 @@ HEADER
 	box-shadow:2px 2px 4px rgba(0,0,0,0.3)
 }
 .miniFeed .readMore a {
-	color:rgb(31,55,70);
+	color:#2989B6 !important;
 }
 .miniFeed .readMore a:hover {
 	text-decoration: underline;
@@ -591,6 +591,10 @@ CONTENT
 	border-radius: 3px;
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 	float: right;
+}
+
+.readMore a, .readMoreFull a{
+	color: #2989B6 !important;
 }
 .image-wrap {
 	position: relative;

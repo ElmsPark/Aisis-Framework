@@ -51,11 +51,11 @@
 		  */
 		 function input($type, array $attributes){
 			 
-			 $this->inpute_type = 'type="'.$type.'"';
-			 
 			 if(!is_string($type)){
-				 _e("<div class='err'" . new ForException('<strong>Element type must be of type String.</strong>') . "</div>");
+				 _e("<div class='err'" . new FormException('<strong>Element type must be of type String.</strong>') . "</div>");
 			 }
+			 
+			 $this->inpute_type = 'type="'.$type.'"';
 			 			 
 			 if($type == 'checkbox'){
 				if(isset($attributes['checked'])){
