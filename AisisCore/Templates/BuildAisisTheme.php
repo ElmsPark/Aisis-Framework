@@ -59,12 +59,12 @@
 	  /**
 	   * Load the index template.
 	   */
-	  if(!function_exists('aisis_loop_index')){
-		  function aisis_loop_index(){
-			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('Loop-Index-Template.phtml');
-		  }
-	  }	
+		if(!function_exists('aisis_loop_index')){
+			function aisis_loop_index(){
+				global $aisis_template_loader;
+				$aisis_template_loader->aisis_register('Loop-Index-Template.phtml');
+			}
+		}	
 	  
 	  /**
 	   * Load the articles and essays index.

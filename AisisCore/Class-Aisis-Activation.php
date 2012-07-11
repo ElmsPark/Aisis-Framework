@@ -103,7 +103,6 @@
 			global $pagenow;
 	
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
-				echo "hi";
 				add_action('admin_notices', array(&$this, 'aisis_activation_error_message'));
 			}
 		 }

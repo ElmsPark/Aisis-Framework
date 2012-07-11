@@ -332,6 +332,7 @@ MAIN NAVIGATION
 /* dropdown */
 #nav li:hover > ul {
 	display: block;
+	margin-top: 12px;
 }
 
 /* level 2 list */

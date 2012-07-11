@@ -45,38 +45,10 @@
             <header>
                 <h1 class="postTitle"><?php echo $curauth->user_login; ?></h1>
             </header>
-            <?php if(has_post_thumbnail()){?>
-                <figure class="glossy post-image">
-                   <?php echo get_avatar($curauth->user_email, 250);?>
+                <figure class="glossy postImage">
+                   <?php echo get_avatar($curauth->user_email, 300);?>
                 </figure>
-            <?php } ?>
             <p><?php if ( $curauth->user_description != '' ){echo $curauth->user_description;}else{?>
             <?php deafualt_aisis_author_default_text(); } ?></p>
         </article>
     </div> 
-       
-    <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'content'; }else{ echo 'contentFull'; } ?>">
-    	<?php while(have_posts()) : the_post();?>
-        <article class="post clearfix">
-    
-            <header>
-                <h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-            </header>
-            <?php if(has_post_thumbnail()){?>
-                <figure class="soft-embossed post-image">
-                    <?php the_post_thumbnail();?>
-                </figure>
-            <?php } ?>
-            <?php the_content( __('<div class="readMore">More</div>', true)); ?>
-        </article>
-        <?php
-			endwhile; 
-		  	wp_reset_query(); 
-		?>
-    </div>
-    <?php 
-	if($option_global['no_sidebar_global'] != 1){
-		get_sidebar();
-	}
-    aisis_footer();
-	?>
