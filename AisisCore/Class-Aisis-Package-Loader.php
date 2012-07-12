@@ -118,15 +118,4 @@
 		 }
 	 
 	 }
-	 
-	 //instantiate the class
-	 $aisis_package_loader = new AisisPackageLoader();
-	 //Load the packages, starting with 
-	 //exceptions then doing top down.
-	 $aisis_package_loader->load_aisis_exceptions_package();
-	 $aisis_package_loader->load_aisis_admin_panel_package();
-	 $aisis_package_loader->load_aisis_codes_package();
-	 $aisis_package_loader->load_aisis_view_package();
-	 $aisis_package_loader->load_aisis_social_media_package();
-	
 ?>

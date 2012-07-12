@@ -37,10 +37,19 @@
 	 //Build the  front end
 	 require_once(AISIS_TEMPLATES . 'BuildAisisTheme.php');
 	 
+	 //instantiate the class
+	 $aisis_package_loader = new AisisPackageLoader();
+	 //Load the packages, starting with 
+	 //exceptions then doing top down.
+	 $aisis_package_loader->load_aisis_exceptions_package();
+	 $aisis_package_loader->load_aisis_admin_panel_package();
+	 $aisis_package_loader->load_aisis_codes_package();
+	 $aisis_package_loader->load_aisis_view_package();
+	 $aisis_package_loader->load_aisis_social_media_package();
+	 
 	 //When the theme if first activated.
 	 $aisis_activation = new AisisActivation();
 	 $aisis_activation->aisis_do_on_load(); 
-	  
 	
 	 /**
 	  * Why are we doing this? so we (Aisis) can use
