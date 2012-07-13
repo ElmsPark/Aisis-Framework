@@ -111,7 +111,7 @@
 		 */
 		function check_writable($path, $filename){
 		   if ($this->check_exists($path, $filename)){
-			   if(!is_writable(CUSTOM . $filename)){
+			   if(!is_writable($path . $filename)){
 					?> This file does not seem to be writable. Please check your server permissions.<?php
 					return false;
 			   }
