@@ -541,7 +541,7 @@ CONTENT
 .postTitle {
 	margin: 0 0 5px;
 	padding: 0;
-	font: bold 50px/120% 'Open Sans', sans-serif;
+	font: bold 37px/110% 'Open Sans', sans-serif;
 	text-align:left;
 }
 .postTitle a {
@@ -924,6 +924,10 @@ SIDEBAR
 	box-shadow:2px 2px 4px rgba(0,0,0,0.3);
 }
 
+.button a:hover{
+	cursor:pointer;
+}
+
 .downloadButton{
 	background-image:-moz-linear-gradient(50% 0% -90deg,rgb(31,62,71) 0%,rgb(197,208,216) 100%); 
 	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(31,62,71)),color-stop(1, rgb(197,208,216)));
@@ -960,7 +964,7 @@ FOOTER
 *************************************************************************************/
 #footer {
 	clear:both;
-	color: #6D888D;
+	color: #2C2B2B;
 	font-size: 85%;
 }
 #footer a {
@@ -1007,9 +1011,6 @@ FOOTER
 .afterBlock {
 	clear: both;
 	background: #fff;
-	border: 2px solid #999;
-	border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
 	padding: 10px;
 	text-align: center;
 }
