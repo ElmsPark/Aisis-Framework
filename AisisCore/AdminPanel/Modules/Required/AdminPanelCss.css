@@ -91,7 +91,7 @@ h2{
 	border-left: none;
 }
 .success {
-	background : #c0e4c7;
+	background: #F3F7F4;
 	border : 1px solid #3d5b37;
 	color : #333;
 	padding : 10px;
@@ -100,14 +100,14 @@ h2{
 	margin-top : 10px;
 }
 .topSuccess{
-	background: #C0E4C7;
+	background: #F3F7F4;
 	border: 1px solid #3D5B37;
 	color: #333;
 	padding: 10px;
 	font-size: 13px;
 	border-radius: 5px;
 	margin: 10px auto 10px auto;
-	width: 43%;	
+	width: 59%;
 }
 .err {
 	background : #ebc2ce;

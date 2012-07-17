@@ -453,7 +453,7 @@ CONTENT
 	text-decoration: underline;
 }
 .success {
-	background: #c0e4c7;
+	background: #F3F7F4;
 	border: 1px solid #3d5b37;
 	color: #333;
 	padding: 10px;
@@ -521,13 +521,13 @@ CONTENT
 	font-weight:bold;
 }
 .post .infoPost {
-	width : 90%;
+	width: 90%;
 	margin: 10px auto;
-	background : #e0dcbe;
-	border: 1px solid #796d2d;
+	background: #FDF9D7;
+	border: 1px solid #B3A03F;
 	border-radius: 3px;
-	padding : 10px 10px 10px 35px;
-	font-size : 14px;
+	padding: 10px 10px 10px 35px;
+	font-size: 14px;
 }
 .post .updatePost {
 	width : 90%;
