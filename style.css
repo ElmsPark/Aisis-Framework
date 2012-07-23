@@ -506,6 +506,14 @@ CONTENT
 #contentFull, #authorFull, #categoryFull, #stickyFull{
 	width: 93%;
 }
+.center404Text{
+	width: 80%;
+	margin: 10px auto;
+	padding: 10px;
+}
+.center404Text p{
+	text-align:justify;
+}
 .post{
 	margin-bottom: 40px;
 }
@@ -549,8 +557,7 @@ CONTENT
 	color: #5A7A85;
 }
 .postComments {
-	margin-left : 75px;
-	margin-top : -10px;
+	margin-left : 15px;
 	margin-bottom : 10px;
 	font-size : 20px;
 	color : #962c5f;
@@ -659,18 +666,19 @@ CONTENT
 }
 .pagnation, .pagnationFull{
 	width: 670px;
-	float:left;
-	height:18px;
-	border-color:rgb(153,153,153);
-	border-width:1px;
-	border-radius:4px;
-	border-style:solid;
-	box-shadow:inset 0px 0px 3px rgba(187,187,187,0.35);
-	text-align:center;	
-	background-color:rgb(174,190,202);
+	float: left;
+	height: 18px;
+	border-color: #999;
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: solid;
+	box-shadow: inset 0px 0px 3px rgba(187, 187, 187, 0.35);
+	text-align: center;
+	background-color: #F0F2F3;
 	margin: 0 0 10px 0;
 	padding-bottom: 7px;
-	text-align:center;
+	padding-top: 7px;
+	text-align: center;
 }
 .pagnationFull{
 	width: 100%;
@@ -688,6 +696,8 @@ CONTENT
 }
 .relatedPosts{
 	margin-left: 10px;
+	float:left;
+	width: 40%;
 }
 
 .relatedPosts ul li{
@@ -913,7 +923,7 @@ SIDEBAR
 }
 
 .button{
-	width:165px;
+	width:228px;
 	height:50px;
 	border-color: rgb(136,136,136);
 	border-width: 1px;
@@ -929,35 +939,34 @@ SIDEBAR
 }
 
 .downloadButton{
-	background-image:-moz-linear-gradient(50% 0% -90deg,rgb(31,62,71) 0%,rgb(197,208,216) 100%); 
-	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(31,62,71)),color-stop(1, rgb(197,208,216)));
-	background-image:-webkit-linear-gradient(-90deg,rgb(31,62,71) 0%,rgb(197,208,216) 100%);
-	background-image:linear-gradient(-90deg,rgb(31,62,71) 0%,rgb(197,208,216) 100%);
-	width: 81%;
-	margin-left: 3px;
-	margin-bottom:20px;
+	background-color: #C1D1A3;
+	width: 79%;
 	padding: 20px;
-	text-align:center;
-	font-size:18px;
-	color:#FFF;
-	font-weight:bold;
-	border-color:rgb(31,62,71);
-	border-width:1px;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border-style:solid;
-	-moz-box-shadow:5px 5px 4px rgba(102,102,102,0.65);
-	-webkit-box-shadow:5px 5px 4px rgba(102,102,102,0.65);
-	box-shadow:5px 5px 4px rgba(102,102,102,0.65);
+	border-color: #92B366;
+	border-width: 1px;
+	border-radius: 3px;
+	border-style: solid;
+	box-shadow:2px 2px 3px rgba(170,170,170,0.65);
+	margin-bottom: 10px;
 }
 
 .downloadButton a{
-	color:#D4DEE0 !important;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
 }
 
 .listCategories a, .listTags a{
 	color: #477A92 !important;
+}
+
+.aboutAuthor{
+	float:right;
+	width:54%;
+}
+
+.authImage{
+	float: right;
 }
 /************************************************************************************
 FOOTER

@@ -33,7 +33,6 @@
 	 require_once(AISISCORE . 'Class-Aisis-Activation.php');
 	 require_once(AISISCORE . 'Class-Aisis-Core-Update.php');
 	 require_once(AISISCORE . 'Class-Aisis-Package-Loader.php');
-	 
 	 //Build the  front end
 	 require_once(AISIS_TEMPLATES . 'BuildAisisTheme.php');
 	 

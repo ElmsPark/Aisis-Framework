@@ -34,6 +34,7 @@
 			 require_once(AISIS_VIEW . 'Class-Aisis-Elements.php');
 			 require_once(AISIS_VIEW . 'Class-Aisis-Form.php');
 			 require_once(AISIS_VIEW . 'Class-Aisis-Package-Loader.php');
+			 require_once(AISISCORE . 'AisisUtility.php');
 		 }
 		 
 		 /**
