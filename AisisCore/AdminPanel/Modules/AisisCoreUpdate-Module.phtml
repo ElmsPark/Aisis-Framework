@@ -12,17 +12,17 @@
 	 *		@package: AisisCore->AdminPanel->Modules
 	 * =================================================================
 	 */
-	 
+
 	$option = get_option('aisis_core_theme_setting_silent_update'); 
 	if($option['turn_on_silent_update'] != 1){ 
-		$silent_update = array('value'=>'Turn on silent update!', 'name'=>'defaults'); 
+		$silent_update = array('type' => 'submit', 'value'=>'Turn on silent update!', 'name'=>'defaults'); 
 	}else{
-		$silent_update = array('value'=>'Turn off silent update!', 'name'=>'defaults');
+		$silent_update = array('type' => 'submit', 'value'=>'Turn off silent update!', 'name'=>'defaults');
 	}
 	$aisis_update = new AisisUpdate();
 	$aisis_element_builder = new AisisForm();
-	
-	
+
+
 ?>
     <div class="content">
         <h1>Core Updator</h1>
@@ -40,7 +40,7 @@
                 <form method="post" action="<?php echo $aisis_forum_url ?>">
                     <label>Turn on Silent Update</label>
                     <?php do_settings_fields('aisis-core-update', 'aisis_core_silent_update_section'); ?>
-                    <?php $aisis_element_builder->create_aisis_form_element('input', 'submit', $silent_update);?>
+                    <?php $aisis_element_builder->create_aisis_form_element('input',$silent_update);?>
                      <?php settings_fields( 'aisis-core-update' ); ?>
                 </form>
                 </div>
@@ -76,11 +76,12 @@
 					<?php
 						if(!$aisis_update->credential_check){
 							$aisis_update_button = array(
+								'type' => 'submit',
 								'value' => 'Upgrade Now!',
 								'name' => 'upgrade',
 								'class' => 'bigUpgrade'
 							);
-							$aisis_element_builder->create_aisis_form_element('input', 'submit', $aisis_update_button);
+							$aisis_element_builder->create_aisis_form_element('input', $aisis_update_button);
 						}
 					?>
 					</form>

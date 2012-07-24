@@ -22,15 +22,6 @@
 	if(!function_exists('aisis_add_meta_boxes')){
 		function aisis_add_meta_boxes()
 		{
-			add_meta_box( 
-				'aisis-meta-id', 
-				'Articles and Essays Refrences', 
-				'aisis_articles_essays_refrence', 
-				'ae', 
-				'normal', 
-				'high' 
-			);
-			
 			add_meta_box(
 				'aisis-meta-id', 
 				'Mini Feeds Information', 
@@ -48,17 +39,6 @@
 				'normal', 
 				'high' 		
 			);
-		}
-	}
-	
-   /**
-	* We create the refences section
-	*/	
-	if(!function_exists('aisis_articles_essays_refrence')){
-		function aisis_articles_essays_refrence($post)
-		{
-			wp_nonce_field( 'aisis_meta_box_nonce', 'meta_box_nonce' );
-			aisis_articles_essays_meta_box();
 		}
 	}
 	
@@ -81,101 +61,6 @@
 		{
 			wp_nonce_field( 'aisis_slider_meta_box_nonce', 'slider_meta_box_nonce' );
 			aisis_slider_meta_box();
-		}
-	}
-	
-   /**
-	* Function for saving the article information
-	*/
-	if(!function_exists('aisis_articles_essays_save')){	
-		function aisis_articles_essays_save($post_id)
-		{
-			global $post;
-			
-			if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
-				 return;
-			}
-			
-			if(!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'aisis_meta_box_nonce')){
-				 return;
-			}
-			
-			if ( 'ae' == $_POST['post_type'] ) 
-			{
-				if ( !current_user_can( 'edit_page', $post_id ) )
-					return;
-			}
-			else
-			{
-				if ( !current_user_can( 'edit_post', $post_id ) )
-					return;
-			}
-			
-			$aisis_ref_link_one = 'aisis_meta_box_link_one';
-			$aisis_ref_link_one_new = (isset($_POST['aisis_meta_box_link_one']) ? $_POST['aisis_meta_box_link_one'] : '');
-			
-			if($aisis_ref_link_one_new && '' == $aisis_ref_link_one){
-				add_post_meta($post_id, $aisis_ref_link_one, $aisis_ref_link_one_new, true);
-			}elseif($aisis_ref_link_one_new && $aisis_ref_link_one_new != $aisis_ref_link_one){
-				update_post_meta($post_id, $aisis_ref_link_one, $aisis_ref_link_one_new);
-			}elseif($aisis_ref_link_one && $aisis_ref_link_one_new == ''){
-				delete_post_meta($post_id, $aisis_ref_link_one, $aisis_ref_link_one_new);
-			}
-			
-			$aisis_ref_link_one_desc = 'aisis_meta_box_link_one_desc';
-			$aisis_ref_link_one_desc_new = (isset($_POST['aisis_meta_box_link_one_desc']) ? $_POST['aisis_meta_box_link_one_desc'] : '');			
-			
-			if($aisis_ref_link_one_desc_new && '' == $aisis_ref_link_one_desc){
-				add_post_meta($post_id, $aisis_ref_link_one_desc, $aisis_ref_link_one_desc_new, true);
-			}elseif($aisis_ref_link_one_new && $aisis_ref_link_one_desc_new != $aisis_ref_link_one_desc){
-				update_post_meta($post_id, $aisis_ref_link_one_desc, $aisis_ref_link_one_desc_new);
-			}elseif($aisis_ref_link_one_desc && $aisis_ref_link_one_desc_new == ''){
-				delete_post_meta($post_id, $aisis_ref_link_one_desc, $aisis_ref_link_one_desc_new);
-			}
-			
-			$aisis_ref_link_two = 'aisis_meta_box_link_two';
-			$aisis_ref_link_two_new = (isset($_POST['aisis_meta_box_link_two']) ? $_POST['aisis_meta_box_link_two'] : '');
-						
-			if($aisis_ref_link_two_new && '' == $aisis_ref_link_two){
-				add_post_meta($post_id, $aisis_ref_link_two, $aisis_ref_link_two_new, true);
-			}elseif($aisis_ref_link_two_new && $aisis_ref_link_two_new != $aisis_ref_link_two){
-				update_post_meta($post_id, $aisis_ref_link_two, $aisis_ref_link_two_new);
-			}elseif($aisis_ref_link_two && $aisis_ref_link_two_new = ''){
-				delete_post_meta($post_id, $aisis_ref_link_two, $aisis_ref_link_two_new);
-			}
-			
-			$aisis_ref_link_two_desc = 'aisis_meta_box_link_two_desc';
-			$aisis_ref_link_two_desc_new = (isset($_POST['aisis_meta_box_link_two_desc']) ? $_POST['aisis_meta_box_link_two_desc'] : '');	
-						
-			if($aisis_ref_link_two_desc_new && '' == $aisis_ref_link_two_desc){
-				add_post_meta($post_id, $aisis_ref_link_two_desc, $aisis_ref_link_two_desc_new, true);
-			}elseif($aisis_ref_link_two_desc_new && $aisis_ref_link_two_desc_new != $aisis_ref_link_two_desc){
-				update_post_meta($post_id, $aisis_ref_link_two_desc, $aisis_ref_link_two_desc_new);
-			}elseif($aisis_ref_link_two_desc && $aisis_ref_link_two_desc_new == ''){
-				delete_post_meta($post_id, $aisis_ref_link_two_desc, $aisis_ref_link_two_desc_new);
-			}			
-			
-			$aisis_ref_link_three = 'aisis_meta_box_link_three';
-			$aisis_ref_link_three_new = (isset($_POST['aisis_meta_box_link_three']) ? $_POST['aisis_meta_box_link_three'] : '');
-						
-			if($aisis_ref_link_three_new && '' == $aisis_ref_link_three){
-				add_post_meta($post_id, $aisis_ref_link_three, $aisis_ref_link_three_new, true);
-			}elseif($aisis_ref_link_three_new && $aisis_ref_link_three_new != $aisis_ref_link_three){
-				update_post_meta($post_id, $aisis_ref_link_three, $aisis_ref_link_three_new);
-			}elseif($aisis_ref_link_three && $aisis_ref_link_three_new = ''){
-				delete_post_meta($post_id, $aisis_ref_link_three, $aisis_ref_link_three_new);
-			}
-			
-			$aisis_ref_link_three_desc = 'aisis_meta_box_link_three_desc';
-			$aisis_ref_link_three_desc_new = (isset($_POST['aisis_meta_box_link_three_desc']) ? $_POST['aisis_meta_box_link_three_desc'] : '');			
-			
-			if($aisis_ref_link_three_desc_new && '' == $aisis_ref_link_three_desc){
-				add_post_meta($post_id, $aisis_ref_link_three_desc, $aisis_ref_link_three_desc_new, true);
-			}elseif($aisis_ref_link_three_new && $aisis_ref_link_three_desc_new != $aisis_ref_link_three_desc){
-				update_post_meta($post_id, $aisis_ref_link_three_desc, $aisis_ref_link_three_desc_new);
-			}elseif($aisis_ref_link_three_desc && $aisis_ref_link_three_desc_new = ''){
-				delete_post_meta($post_id, $aisis_ref_link_three_desc, $aisis_ref_link_three_desc_new);
-			}					
 		}
 	}
 	
@@ -292,7 +177,6 @@
 	}	
 	
 	add_action( 'add_meta_boxes', 'aisis_add_meta_boxes' );
-	add_action( 'save_post', 'aisis_articles_essays_save', 10, 2 );
 	add_action( 'save_post', 'aisis_mini_feeds_save', 10, 2);
 	add_action( 'save_post', 'aisis_slider_meta_save', 10 ,2);
 ?>

@@ -27,24 +27,22 @@
 	
 	if(!function_exists('aisis_css_editor')){
 		function aisis_css_editor(){
+			$options = get_option('aisis_css_editor_setting');
 			$aisis_file_contents = new AisisFileHandling();
 			$aisis_create_form_element = new AisisForm();
-			$options = get_option('aisis_css_editor_setting');
 			if(!isset($options['css']) && empty($options['css'])){
-				$aisis_js_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'code',
 					'name'=>'aisis_css_editor_setting[css]',
 					'value'=>$aisis_file_contents->get_contents(CUSTOM, 'custom-css.css')
-				);
+				));
 			}else{
-				$aisis_js_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'code',
 					'name'=>'aisis_css_editor_setting[css]',
 					'value'=>$options['css']
-				);
+				));
 			}
-			
-			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_js_attributes);
 		}
 	}
 	

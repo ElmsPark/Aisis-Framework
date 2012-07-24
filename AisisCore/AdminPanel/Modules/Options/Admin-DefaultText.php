@@ -90,24 +90,22 @@
 			$options = get_option('aisis_default_404_banner_setting');
 			$aisis_create_form_element = new AisisForm();
 			if(!isset($options['banner_content']) && empty($options['banner_content'])){
-				$aisis_404_banner_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'banner_content',
 					'name'=>'aisis_default_404_banner_setting[banner_content]',
 					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
-					
-				);
+				));	
 			}else{
-				$aisis_404_banner_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'banner_content',
 					'name'=>'aisis_default_404_banner_setting[banner_content]',
 					'value'=>$options['banner_content'],
 					'rows'=>4,
 					'cols'=>60
-				);
+				));				
 			}
-			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_404_banner_attributes);
 		}
 	}
 
@@ -124,24 +122,22 @@
 			$options = get_option('aisis_default_404_message_setting');
 			$aisis_create_form_element = new AisisForm();
 			if(!isset($options['err_404_theme_message']) && empty($options['err_404_theme_message'])){
-				$aisis_404_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'404_theme_message',
 					'name'=>'aisis_default_404_message_setting[err_404_theme_message]',
 					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
-					
-				);
+				));					
 			}else{
-				$aisis_404_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'404_theme_message',
 					'name'=>'aisis_default_404_message_setting[err_404_theme_message]',
 					'value'=>$options['err_404_theme_message'],
 					'rows'=>4,
 					'cols'=>60
-				);
+				));				
 			}
-			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_404_attributes);
 		}
 	}
 
@@ -162,24 +158,22 @@
 			$options = get_option('aisis_default_author_text_setting');
 			$aisis_create_form_element = new AisisForm();
 			if(!isset($options['default_author_text']) && empty($options['default_author_text'])){
-				$aisis_author_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'default_author_text',
 					'name'=>'aisis_default_author_text_setting[default_author_text]',
 					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
-					
-				);
+				));					
 			}else{
-				$aisis_author_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'default_author_text',
 					'name'=>'aisis_default_author_text_setting[default_author_text]',
 					'value'=>$options['default_author_text'],
 					'rows'=>4,
 					'cols'=>60
-				);
+				));					
 			}
-			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_author_attributes);
 		}
 	}
 
@@ -197,24 +191,26 @@
 			$options = get_option('aisis_default_category_text_setting');
 			$aisis_create_form_element = new AisisForm();
 			if(!isset($options['default_cat_text']) && empty($options['default_cat_text'])){
-				$aisis_cat_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'default_cat_text',
 					'name'=>'aisis_default_category_text_setting[default_cat_text]',
 					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
+				));						
+				$aisis_cat_attributes = array(
+
 					
 				);
 			}else{
-				$aisis_cat_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'default_cat_text',
 					'name'=>'aisis_default_category_text_setting[default_cat_text]',
 					'value'=>$options['default_cat_text'],
 					'rows'=>4,
 					'cols'=>60
-				);
+				));
 			}
-			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_cat_attributes);
 		}
 	}
 		
@@ -233,24 +229,22 @@
 			$options = get_option('aisis_default_right_footer_text_setting');
 			$aisis_create_form_element = new AisisForm();
 			if(!isset($options['default_right_footer_text']) && empty($options['default_right_footer_text'])){
-				$aisis_right_footer_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'default_right_footer_text',
 					'name'=>'aisis_default_right_footer_text_setting[default_right_footer_text]',
 					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
-					
-				);
+				));				
 			}else{
-				$aisis_right_footer_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'default_right_footer_text',
 					'name'=>'aisis_default_right_footer_text_setting[default_right_footer_text]',
 					'value'=>$options['default_right_footer_text'],
 					'rows'=>4,
 					'cols'=>60
-				);
+				));					
 			}
-			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_right_footer_attributes);
 		}
 	}
 	
@@ -268,24 +262,22 @@
 			$options = get_option('aisis_default_left_footer_text_setting');
 			$aisis_create_form_element = new AisisForm();
 			if(!isset($options['default_left_footer_text']) && empty($options['default_left_footer_text'])){
-				$aisis_left_footer_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'default_left_footer_text',
 					'name'=>'aisis_default_left_footer_text_setting[default_left_footer_text]',
 					'value'=>'',
 					'rows'=>4,
 					'cols'=>60
-					
-				);
+				));				
 			}else{
-				$aisis_left_footer_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'default_left_footer_text',
 					'name'=>'aisis_default_left_footer_text_setting[default_left_footer_text]',
 					'value'=>$options['default_left_footer_text'],
 					'rows'=>4,
 					'cols'=>60
-				);
+				));				
 			}
-			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_left_footer_attributes);
 		}
 	}
 	

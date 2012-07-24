@@ -49,24 +49,14 @@
 		  * @param array of attributes
 		  * @return the element
 		  */
-		 function input($type, array $attributes){
+		 function input(array $attributes){
 			 
-			 if(!is_string($type)){
-				 _e("<div class='err'" . new FormException('<strong>Element type must be of type String.</strong>') . "</div>");
+			 if(isset($attributes['type'])){
+				 $this->inpute_type = 'type="'.$attributes['type'].'"';
 			 }
 			 
-			 $this->inpute_type = 'type="'.$type.'"';
-			 			 
-			 if($type == 'checkbox'){
-				if(isset($attributes['checked'])){
-					  $this->checked = $attributes['checked'];
-					  $this->inpute_type = 'type="checkbox"';
-				}
-			 }elseif($type = 'radio'){
-				 if(isset($attributes['checked'])){
-					 $this->checked = $attributes['checked'];
-					 $this->inpute_type = 'type="radio"';
-				 }
+			 if(isset($attributes['checked'])){
+				 $this->checked = $attributes['checked'];
 			 }
 			 
 			 if(isset($attributes['onClick'])){

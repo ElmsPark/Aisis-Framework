@@ -31,19 +31,18 @@
 			$aisis_create_form_element = new AisisForm();
 			$options = get_option('aisis_php_editor_setting');
 			if(!isset($options['php']) && empty($options['php'])){
-				$aisis_php_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'code',
 					'name'=>'aisis_php_editor_setting[php]',
 					'value'=>$aisis_file_contents->get_contents(CUSTOM, 'custom-functions.php')
-				);
+				));					
 			}else{
-				$aisis_php_attributes = array(
+				$aisis_create_form_element->create_aisis_form_element('textarea', array(
 					'id'=>'code',
 					'name'=>'aisis_php_editor_setting[php]',
 					'value'=>$options['php']
-				);
+				));					
 			}
-			$aisis_create_form_element->create_aisis_form_element('textarea', '', $aisis_php_attributes);
 		}
 	}
 	

@@ -28,25 +28,33 @@
 		  * Load the core files for the user base.
 		  * our most important one is the file handeling.
 		  */
-		 public function __construct(){
+		 public function __construct($load_admin_package=false){
 			 $this->load_exceptions_package();
 			 require_once(AISISCORE . 'Class-Aisis-File-Handling.php');
 			 require_once(AISIS_VIEW . 'Class-Aisis-Elements.php');
 			 require_once(AISIS_VIEW . 'Class-Aisis-Form.php');
 			 require_once(AISIS_VIEW . 'Class-Aisis-Package-Loader.php');
 			 require_once(AISISCORE . 'AisisUtility.php');
+			 
+			 if($load_admin_package == true){
+				 $this->load_aisis_admin();
+			 }
 		 }
 		 
 		 /**
 		  * Incase we do not support 5.3
 		  * use the old way of doing a constructor
 		  */
-		 public function AisisCustomLoader(){
+		 public function AisisCustomLoader($load_admin_panel=false){
 			 $this->load_exceptions_package();
 			 require_once(AISISCORE . 'Class-Aisis-File-Handling.php');
 			 require_once(AISIS_VIEW . 'Class-Aisis-Elements.php');
 			 require_once(AISIS_VIEW . 'Class-Aisis-Form.php');
 			 require_once(AISIS_VIEW . 'Class-Aisis-Package-Loader.php');
+			 
+			 if($load_admin_package == true){
+				 $this->load_aisis_admin();
+			 }			 
 		 }
 		 
 		 /**
@@ -56,6 +64,15 @@
 			 require_once(AISISCORE . 'Class-Aisis-File-Handling.php');
 			 $aisis_file_handeling = new AisisFileHandling();
 			 $aisis_file_handeling->aisis_register_security($aisis_file_handeling->load_directory_of_files(AISIS_EXCEPTIONS));
+		 }
+		 
+		 /**
+		  * Load the Amin Panel
+		  */
+		 private function load_aisis_admin(){
+			 require_once(AISISCORE . 'Class-Aisis-File-Handling.php');
+			 $aisis_file_handeling = new AisisFileHandling();
+			 $aisis_file_handeling->aisis_register_security($aisis_file_handeling->load_directory_of_files(AISIS_ADMINPANEL));
 		 }
 		 
 	 }

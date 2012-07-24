@@ -128,20 +128,21 @@
 			$options = get_option('aisis_facebook_link_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['facebook_link']) && empty($options['facebook_link'])){
-				$aisis_facebook_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'facebook',
 					'name'=>'aisis_facebook_link_setting[facebook_link]',
 					'value'=>'',
-				);
+				));				
 			}else{
-				$aisis_facebook_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'facebook',
 					'name'=>'aisis_facebook_link_setting[facebook_link]',
 					'value'=>$options['facebook_link'],
 					'class'=>'test',
-				);
+				));					
 			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_facebook_attributes);
 		}
 	}
 	
@@ -154,20 +155,20 @@
 			$options = get_option('aisis_twitter_link_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['twitter_link']) && empty($options['twitter_link'])){
-				$aisis_twitter_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'twitter',
 					'name'=>'aisis_twitter_link_setting[twitter_link]',
 					'value'=>''
-				);
+				));					
 			}else{
-				$aisis_twitter_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'twitter',
 					'name'=>'aisis_twitter_link_setting[twitter_link]',
 					'value'=>$options['twitter_link'],
-				);
+				));	
 			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_twitter_attributes);
-			
 		}
 	}
 	
@@ -180,19 +181,20 @@
 			$options = get_option('aisis_tumblr_link_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['tumblr_link']) && empty($options['tumblr_link'])){
-				$aisis_tumblr_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'tumblr',
 					'name'=>'aisis_tumblr_link_setting[tumblr_link]',
 					'value'=>'',
-				);
+				));					
 			}else{
-				$aisis_tumblr_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'tumblr',
 					'name'=>'aisis_tumblr_link_setting[tumblr_link]',
 					'value'=>$options['tumblr_link'],
-				);
+				));				
 			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_tumblr_attributes);
 		}
 	}
 	
@@ -205,19 +207,20 @@
 			$options = get_option('aisis_google_link_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['google_link']) && empty($options['google_link'])){
-				$aisis_google_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'goolge',
 					'name'=>'aisis_google_link_setting[google_link]',
 					'value'=>'',
-				);
+				));					
 			}else{
-				$aisis_google_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'google',
 					'name'=>'aisis_google_link_setting[google_link]',
 					'value'=>$options['google_link'],
-				);
-			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_google_attributes);			
+				));					
+			}		
 		}
 	}
 	
@@ -230,19 +233,20 @@
 			$options = get_option('aisis_rss_link_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['rss_link']) && empty($options['rss_link'])){
-				$aisis_rss_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'rss',
 					'name'=>'aisis_rss_link_setting[rss_link]',
 					'value'=>'',
-				);
+				));					
 			}else{
-				$aisis_rss_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'rss',
 					'name'=>'aisis_rss_link_setting[rss_link]',
 					'value'=>$options['rss_link'],
-				);
-			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_rss_attributes);			
+				));					
+			}		
 		}
 	}
 	
@@ -254,19 +258,20 @@
 			$options = get_option('aisis_facebook_hover_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['facebook_hover']) && empty($options['facebook_hover'])){
-				$aisis_fb_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'facebookHover',
 					'name'=>'aisis_facebook_hover_setting[facebook_hover]',
 					'value'=>'',
-				);
+				));		
 			}else{
-				$aisis_fb_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'facebookHover',
 					'name'=>'aisis_facebook_hover_setting[facebook_hover]',
 					'value'=>$options['facebook_hover'],
-				);
-			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_fb_hover_attributes);	
+				));					
+			}	
 		}
 	}
 	
@@ -278,19 +283,20 @@
 			$options = get_option('aisis_twitter_hover_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['twitter_hover']) && empty($options['twitter_hover'])){
-				$aisis_twit_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'twitterHover',
 					'name'=>'aisis_twitter_hover_setting[twitter_hover]',
 					'value'=>'',
-				);
+				));					
 			}else{
-				$aisis_twit_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'twitterHover',
 					'name'=>'aisis_twitter_hover_setting[twitter_hover]',
 					'value'=>$options['twitter_hover'],
-				);
+				));				
 			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_twit_hover_attributes);	
 		}
 	}
 	
@@ -302,19 +308,20 @@
 			$options = get_option('aisis_tumblr_hover_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['tumblr_hover']) && empty($options['tumblr_hover'])){
-				$aisis_tum_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'tumblrHover',
 					'name'=>'aisis_tumblr_hover_setting[tumblr_hover]',
 					'value'=>'',
-				);
+				));					
 			}else{
-				$aisis_tum_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'tumblrHover',
 					'name'=>'aisis_tumblr_hover_setting[tumblr_hover]',
 					'value'=>$options['tumblr_hover'],
-				);
+				));				
 			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_tum_hover_attributes);	
 		}
 	}
 	
@@ -326,20 +333,20 @@
 			$options = get_option('aisis_google_hover_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['google_hover']) && empty($options['google_hover'])){
-				$aisis_gog_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'googleHover',
 					'name'=>'aisis_google_hover_setting[google_hover]',
 					'value'=>'',
-				);
+				));				
 			}else{
-				$aisis_gog_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'googleHover',
 					'name'=>'aisis_google_hover_setting[google_hover]',
 					'value'=>$options['google_hover'],
-					'onClick'=>"this.value=''"
-				);
+				));					
 			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_gog_hover_attributes);	
 		}
 	}
 	
@@ -351,19 +358,20 @@
 			$options = get_option('aisis_rss_hover_setting');
 			$aisis_create_form_elements = new AisisForm();
 			if(!isset($options['rss_hover']) && empty($options['rss_hover'])){
-				$aisis_rss_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'rssHover',
 					'name'=>'aisis_rss_hover_setting[rss_hover]',
 					'value'=>'',
-				);
+				));				
 			}else{
-				$aisis_rss_hover_attributes = array(
+				$aisis_create_form_elements->create_aisis_form_element('input', array(
+					'type'=>'text',
 					'id'=>'rssHover',
 					'name'=>'aisis_rss_hover_setting[rss_hover]',
 					'value'=>$options['rss_hover'],
-				);
+					));
 			}
-			$aisis_create_form_elements->create_aisis_form_element('input', 'text', $aisis_rss_hover_attributes);	
 		}
 	}
 	
