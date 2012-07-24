@@ -101,7 +101,7 @@
 				'type'=>'checkbox',
 				'id'=>'sidebar_global',
 				'name'=>'aisis_core_theme_setting_sidebar_global[no_sidebar_global]',
-				'value'=>'1',
+				'value'=>'0',
 				'checked' => checked(1, $options['no_sidebar_global'], false)
 			));
 		}
