@@ -93,8 +93,45 @@
 		function check_theme_version(){
 			$version_url = 'http://adambalan.com/aisis/version.xml';
 			$aisis_update_xml_object = simplexml_load_file($version_url);
-			$aisis_version = $aisis_update_xml_object[0];
+			$aisis_version = $aisis_update_xml_object->version[0];
 			return trim($aisis_version);
+		}
+		
+		/**
+		 * If we need to delete 
+		 * contents to repopulate them this is what we do
+		 *
+		 * This function will return the physical word of 
+		 * true or false based on whats in our xml file.
+		 */
+		function delete_contents(){
+			$xml_file = 'http://adambalan.com/aisis/version.xml';
+			$aisis_delete_content = simplexml_load_file($xml_file);
+			$aisis_delete_content_bool = $aisis_delete_content->delete[0];
+			if($aisis_delete_content_bool == 'true'){
+				$this->delete_contents_in_folder(AISISCORE);
+			}
+		}
+		
+		/**
+		 * based on the delete we either delete 
+		 * everything inside or we ignore it.
+		 */
+		function delete_contents_in_folder($path_to_dir){
+			if(is_file($path_to_dir)){
+				return @unlink($path_to_dir);
+			}
+			elseif(is_dir($path_to_dir)){
+				$scan = glob(rtrim($path_to_dir,'/').'/*');
+				foreach($scan as $index=>$path){
+					$this->delete_contents_in_folder($path);
+				}
+				if($path_to_dir == AISISCORE){
+					return;
+				}else{
+					return @rmdir($path_to_dir);
+				}
+			}
 		}
 
 		/**
@@ -201,6 +238,8 @@
 				}
 				
 				$aisis_unzip_to = $wp_filesystem->wp_content_dir() . "/themes/" . get_option('template');
+				
+				$this->delete_contents(); //Check if we need to delete the aisis core folder.
 				
 				$aisis_do_unzip = unzip_file($aisis_temp_file_download, $aisis_unzip_to);
 				

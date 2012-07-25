@@ -66,7 +66,7 @@ body {
 	color: #666;
 }
 a {
-	color: #9B6B78;
+	color: #026acb;
 	text-decoration: none;
 	outline: none;
 }
@@ -140,11 +140,6 @@ STRUCTURE
 	margin: 0 auto;
 }
 
-#objectWrapper{
-	width: 100%;
-}
-
-
 /************************************************************************************
 HEADER
 *************************************************************************************/
@@ -202,11 +197,6 @@ HEADER
 	-moz-transition: width .7s;
 	transition: width .7s;
 }
-.flex-caption {
-	width: 96.3% !important;
-	background: rgba(0, 0, 0, 0.7) !important;
-	margin-bottom: -13px !important;
-}
 
 #miniFeedWrapper{
 	width: 100%;
@@ -260,7 +250,7 @@ HEADER
 	box-shadow:2px 2px 4px rgba(0,0,0,0.3)
 }
 .miniFeed .readMore a {
-	color:#2989B6 !important;
+	color:rgb(31,55,70);
 }
 .miniFeed .readMore a:hover {
 	text-decoration: underline;
@@ -332,7 +322,6 @@ MAIN NAVIGATION
 /* dropdown */
 #nav li:hover > ul {
 	display: block;
-	margin-top: 12px;
 }
 
 /* level 2 list */
@@ -413,14 +402,6 @@ CONTENT
 	margin-left: 15px;
 	width: 50%;
 }
-#centerSliderImage{
-	width:80%;
-	margin: 0 auto 0 auto;
-}
-#centerSliderImage img{
-	max-width: 100%;
-	margin: 0 auto 0 auto;
-}
 #sliderText {
 	float: right;
 	width: 46%;
@@ -453,7 +434,7 @@ CONTENT
 	text-decoration: underline;
 }
 .success {
-	background: #F3F7F4;
+	background: #c0e4c7;
 	border: 1px solid #3d5b37;
 	color: #333;
 	padding: 10px;
@@ -482,8 +463,7 @@ CONTENT
 	margin: 15px 0 -15px 0;
 	clear: both;
 }
-#content, #contentFull, #category, 
-#categoryFull, #author, #authorFull, #sticky, #stickyFull{
+#content, #contentFull, #category, #categoryFull, #author, #authorFull, #sticky, #stickyFull {
 	background-color: white;
 	border-color: #DDD;
 	border-width: 1px;
@@ -506,14 +486,6 @@ CONTENT
 #contentFull, #authorFull, #categoryFull, #stickyFull{
 	width: 93%;
 }
-.center404Text{
-	width: 80%;
-	margin: 10px auto;
-	padding: 10px;
-}
-.center404Text p{
-	text-align:justify;
-}
 .post{
 	margin-bottom: 40px;
 }
@@ -529,13 +501,13 @@ CONTENT
 	font-weight:bold;
 }
 .post .infoPost {
-	width: 90%;
+	width : 90%;
 	margin: 10px auto;
-	background: #FDF9D7;
-	border: 1px solid #B3A03F;
+	background : #e0dcbe;
+	border: 1px solid #796d2d;
 	border-radius: 3px;
-	padding: 10px 10px 10px 35px;
-	font-size: 14px;
+	padding : 10px 10px 10px 35px;
+	font-size : 14px;
 }
 .post .updatePost {
 	width : 90%;
@@ -549,7 +521,7 @@ CONTENT
 .postTitle {
 	margin: 0 0 5px;
 	padding: 0;
-	font: bold 37px/110% 'Open Sans', sans-serif;
+	font: bold 50px/120% 'Open Sans', sans-serif;
 	text-align:left;
 }
 .postTitle a {
@@ -557,7 +529,8 @@ CONTENT
 	color: #5A7A85;
 }
 .postComments {
-	margin-left : 15px;
+	margin-left : 75px;
+	margin-top : -10px;
 	margin-bottom : 10px;
 	font-size : 20px;
 	color : #962c5f;
@@ -599,10 +572,6 @@ CONTENT
 	border-radius: 3px;
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 	float: right;
-}
-
-.readMore a, .readMoreFull a{
-	color: #2989B6 !important;
 }
 .image-wrap {
 	position: relative;
@@ -664,9 +633,26 @@ CONTENT
 .listCategories br{
 	display:none;
 }
-.pagnation, .pagnationFull{
+.pagnation{
 	width: 670px;
+	float:left;
+	height:18px;
+	border-color:rgb(153,153,153);
+	border-width:1px;
+	border-radius:4px;
+	border-style:solid;
+	box-shadow:inset 0px 0px 3px rgba(187,187,187,0.35);
+	text-align:center;	
+	background-color:rgb(174,190,202);
+	margin: 0 0 10px 0;
+	padding-bottom: 7px;
+	text-align:center;
+}
+.pagnationFull{
+	width: 100%;
 	float: left;
+	margin: 0 0 10px 150px;
+	padding-bottom: 7px;
 	height: 18px;
 	border-color: #999;
 	border-width: 1px;
@@ -674,14 +660,8 @@ CONTENT
 	border-style: solid;
 	box-shadow: inset 0px 0px 3px rgba(187, 187, 187, 0.35);
 	text-align: center;
-	background-color: #F0F2F3;
-	margin: 0 0 10px 0;
-	padding-bottom: 7px;
-	padding-top: 7px;
-	text-align: center;
-}
-.pagnationFull{
-	width: 100%;
+	background-color: #D3DDE6;
+	text-align:center;
 }
 .nextPost {
 	float:right;
@@ -693,15 +673,6 @@ CONTENT
 	float:left;
 	margin: 0 0 20px 10px;
 	padding-bottom:5px;
-}
-.relatedPosts{
-	margin-left: 10px;
-	float:left;
-	width: 40%;
-}
-
-.relatedPosts ul li{
-	line-height: 20px;
 }
 /************************************************************************************
 Comments
@@ -910,9 +881,6 @@ SIDEBAR
 	clear: both;
 	border-top: solid 1px #eee;
 }
-.widget a{
-	color: #648D9C;
-}
 .emailInput, #search{
 	background: #fff;
 	border: none;
@@ -923,118 +891,33 @@ SIDEBAR
 }
 
 .button{
-	width:228px;
+	width:100px;
 	height:50px;
 	border-color: rgb(136,136,136);
 	border-width: 1px;
 	border-style: solid;
 	text-align: center;
+	margin-left: 175px;
 	background-color:rgb(204,219,196);
 	border-radius:3px;
 	box-shadow:2px 2px 4px rgba(0,0,0,0.3);
+	margin-left: 70px;
 }
 
-.button a:hover{
-	cursor:pointer;
+#objectWrapper{
+	width: 100%;
 }
 
-.downloadButton{
-	background-color: #C1D1A3;
-	width: 79%;
-	padding: 20px;
-	border-color: #92B366;
-	border-width: 1px;
-	border-radius: 3px;
-	border-style: solid;
-	box-shadow:2px 2px 3px rgba(170,170,170,0.65);
-	margin-bottom: 10px;
-}
-
-.downloadButton a{
-	text-align:center;
-	font-size:16px;
-	font-weight:bold;
-}
-
-.listCategories a, .listTags a{
-	color: #477A92 !important;
-}
-
-.aboutAuthor{
-	float:right;
-	width:46%;
-}
-
-.aboutAuthorFull{
-	width:80%;
-}
-
-.authImage{
-	float: right;
-}
 /************************************************************************************
 FOOTER
 *************************************************************************************/
 #footer {
-	clear:both;
-	color: #2C2B2B;
+	clear: both;
+	color: #ccc;
 	font-size: 85%;
 }
 #footer a {
-	color: #3D859C;
-}
-
-.footerWrapper {
-	width: 100%;
-	margin: 10px auto 10px -2px;
-}
-.block {
-	float: left;
-	width: 232px;
-	padding-left: 10px;
-}
-.block .footerWidget {
-	background-color: #fff;
-	border-color: #DDD;
-	border-width: 1px;
-	border-radius: 4px;
-	border-style: solid;
-	box-shadow: 0px 5px 9px rgba(204, 204, 204, 0.3);
-	margin : 0 0 30px;
-	padding : 30px 10px !important;	
-}
-.block .footerWidget a{
-	color:#83ACBA !important;
-}
-.block .footerWidgettitle {
-	margin : 0 0 5px;
-	padding : 0;
-}
-.footerWidget ul {
-	margin : 0;
-	padding : 0;
-}
-.footerWidget li {
-	margin : 0;
-	padding : 6px 0;
-	list-style : none;
-	clear : both;
-	border-top : 1px solid #eee;
-}
-.afterBlock {
-	clear: both;
-	background: #fff;
-	padding: 10px;
-	text-align: center;
-}
-.afterBlock .rightText {
-	text-align: right;
-	width: 50%;
-	float: right !important;
-}
-.afterBlock .leftText {
-	text-align: left;
-	width: 50%;
+	color: #fff;
 }
 
 /************************************************************************************
