@@ -180,6 +180,7 @@ h2{
 	margin-bottom: 20px;
 	margin-top: 20px;
 	padding: 20px;
+	clear:both;
 }
 
 .alignForm{
@@ -215,6 +216,12 @@ h2{
 	width: 40%;
 }
 
+.alignForm input[type="submit"]{
+	margin-right: 24%;
+	margin-top: -37px;
+	cursor:pointer;
+}
+
 input[type="submit"]{
 	background-color:rgb(192,210,181) !important;
 	width:auto;
@@ -226,6 +233,7 @@ input[type="submit"]{
 	margin-top: -10px;
 	margin-left: 108px;
 	float: right;
+	cursor:pointer;
 }
 
 #upload_image_button{

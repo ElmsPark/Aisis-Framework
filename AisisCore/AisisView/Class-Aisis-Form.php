@@ -29,7 +29,7 @@
 		  * The user will enter in an array of attibutes
 		  * that will then create our opening form tag.
 		  */
-		 function start_form(array $attributes){
+		 function open_form(array $attributes){
 		   if(isset($attributes['action'])){
 			   $this->_action = 'action="'.$attributes['action'].'"';
 		   }
@@ -94,7 +94,7 @@
 		 /**
 		  * All we do is close the form.
 		  */
-		 function end_form(){
+		 function close_form(){
 			 echo '
 			 </form>
 			 ';

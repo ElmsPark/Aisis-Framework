@@ -29,7 +29,7 @@
 		  * will be that of opening form tag attributes,
 		  * such as action, method and so on.
 		  */
-		 function start_form(array $attributes);
+		 function open_form(array $attributes);
 		 
 		 /**
 		  * We pass in the element, input, textarea, select (so on)
@@ -41,6 +41,6 @@
 		 /**
 		  * just echos the form closing tag.
 		  */
-		 function end_form();
+		 function close_form();
 	 }
 ?>

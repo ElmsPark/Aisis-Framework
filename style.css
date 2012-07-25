@@ -962,7 +962,11 @@ SIDEBAR
 
 .aboutAuthor{
 	float:right;
-	width:54%;
+	width:46%;
+}
+
+.aboutAuthorFull{
+	width:80%;
 }
 
 .authImage{
