@@ -58,6 +58,18 @@
 		 function get_current_theme_version();
 		 
 		 /**
+		  * Check if we need to delete any contents.
+		  * should call the delete_contents_in_folder
+		  * method if we do.
+		  */
+		 function delete_contents_check();		 
+		 
+		 /**
+		  * Responsile for deleteing files inside of a folder.
+		  */
+		 function delete_contents_in_folder($path_to_dir);
+		 
+		 /**
 		  * All themes and updates come in .zip
 		  * file and thus we get the zip from the 
 		  * server and unpack it and install it.

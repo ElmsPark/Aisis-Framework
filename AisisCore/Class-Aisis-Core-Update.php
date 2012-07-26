@@ -27,7 +27,7 @@
 
 		private $aisis_current_theme_version;
 		public $credential_check;
-		
+				
 		/**
 		 * Default constructor. We set up the option
 		 * here for use later on.
@@ -104,11 +104,12 @@
 		 * This function will return the physical word of 
 		 * true or false based on whats in our xml file.
 		 */
-		function delete_contents(){
+		function delete_contents_check(){
 			$xml_file = 'http://adambalan.com/aisis/version.xml';
 			$aisis_delete_content = simplexml_load_file($xml_file);
 			$aisis_delete_content_bool = $aisis_delete_content->delete[0];
 			if($aisis_delete_content_bool == 'true'){
+				$this->updating_bool = true;
 				$this->delete_contents_in_folder(AISISCORE);
 			}
 		}
@@ -118,19 +119,27 @@
 		 * everything inside or we ignore it.
 		 */
 		function delete_contents_in_folder($path_to_dir){
+			/*Files we do not want touched.*/
+			$array_of_files = array(AISISCORE . 'AisisCore.php', AISISCORE . 'AisisHooks.php',
+			AISISCORE . 'IAisis-Core-Update.php', AISISCORE . 'Class-Aisis-File-Handling.php',
+			AISISCORE . 'Class-Aisis-Core-Register.php', AISISCORE . 'AisisDebugger.php',
+			AISISCORE . 'Class-Aisis-MultiSite.php', AISISCORE . 'Class-Aisis-Activation.php',
+			AISISCORE . 'Class-Aisis-Package-Loader.php', AISISCORE . 'Class-Aisis-Core-Update.php',
+			AISIS_TEMPLATES . 'BuildAisisTheme.php');
+			
 			if(is_file($path_to_dir)){
 				return @unlink($path_to_dir);
 			}
 			elseif(is_dir($path_to_dir)){
 				$scan = glob(rtrim($path_to_dir,'/').'/*');
 				foreach($scan as $index=>$path){
-					$this->delete_contents_in_folder($path);
+					if(!in_array($path, $array_of_files)){
+						$this->delete_contents_in_folder($path);
+					}
 				}
-				if($path_to_dir == AISISCORE){
-					return;
-				}else{
+				if($path_to_dir != AISISCORE && $path_to_dir != AISIS_TEMPLATES){
 					return @rmdir($path_to_dir);
-				}
+				}else{ return; }
 			}
 		}
 
@@ -239,7 +248,7 @@
 				
 				$aisis_unzip_to = $wp_filesystem->wp_content_dir() . "/themes/" . get_option('template');
 				
-				$this->delete_contents(); //Check if we need to delete the aisis core folder.
+				$this->delete_contents_check(); //Check if we need to delete the aisis core folder.
 				
 				$aisis_do_unzip = unzip_file($aisis_temp_file_download, $aisis_unzip_to);
 				
