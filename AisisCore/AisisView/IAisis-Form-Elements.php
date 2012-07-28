@@ -23,7 +23,7 @@
 		 * such as button, submit and so on as well
 		 * as a series of attributes in the form of an array.
 		 */
-	 	function input($type, array $attributes);
+	 	function input(array $attributes);
 		
 		/**
 		 * We create a text area with a series of attributes

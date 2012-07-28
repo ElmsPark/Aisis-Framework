@@ -29,6 +29,7 @@ You can head over to the [issues](https://github.com/AdamKyle/Aisis-Framework/is
 #Building a child theme with Aisis
 ----------------------------------
 
+
 Since the way a wordpress child theme and parent theme works, the parent theme function.php file is loaded first and since most of the functions
 are pluggables and calling a class is as easy as going
 
@@ -51,6 +52,14 @@ or having to touch the core files. Plus these changes dont require activation - 
 
 You can read more [here](https://github.com/AdamKyle/Aisis-Framework/wiki/Packages-in-Aisis) on packages.
 
+=======
+Is as easy as including the Aisis functions.php in to your child themes function.php, this gives you access to every Aisis function, class and API that’s out there. You won’t have to worry about doing:
+
+```javascript
+require_once('aisisfile');
+```
+
+Instead if that file is not a class you just call its function, if that file is a class you can just instantiate the class and call its functions from there.
 
 ##Contributing
 --------------

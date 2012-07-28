@@ -23,14 +23,14 @@
 	 *
 	 * =================================================================
 	 */
-	 global $more, $post;
+	 global $more, $post, $wp_query;
 	 $more = 0; //declare and set $more before The Loop
-	  
+	 
 	 $options = get_option('aisis_core_theme_setting_sidebar_single');
 	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
 	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
 	 $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_single');
-	 $options_recent_posts = get_option('aisis_display_related_posts_setting');
+	 $options_related_posts = get_option('aisis_display_related_posts_setting');
 	 $options_cat_tags = get_option('aisis_display_categories_tags_setting');
 	  
 	 $aisis_category_list_options = array(
@@ -53,8 +53,7 @@
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
                 <div class="postComments"><?php comments_number('0', '1', '%'); ?> comments</div>
-                <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
-                <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
+                Author: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a>, <?php the_time('F, jS, Y'); ?>
             </header>
             <?php if(has_post_thumbnail()){?>
                 <figure class="soft-embossed postImage">
@@ -83,9 +82,7 @@
     
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
-                <div class="postComments"><?php comments_number('0', '1', '%'); ?> comments</div>
-                <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
-                <div class="dateWrote"><?php the_time('F, jS, Y'); ?></div>
+                <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a>, <?php the_time('F, jS, Y'); ?>, <?php comments_number('0', '1', '%'); ?> comments</div>      
             </header>
             <?php if(has_post_thumbnail()){?>
                 <figure class="soft-embossed post-image">
@@ -93,25 +90,54 @@
                 </figure>
             <?php } ?>
             <p> <?php the_content(); ?></p>
+            <?php
+				if($options_related_posts['related_posts'] != 1){
+			?>
             <div class="relatedPosts">
                 <h2>Related Posts</h2>
                 <?php
-                $related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 5, 'post__not_in' => array($post->ID) ) );
+				$tags = wp_get_post_tags($post->ID);
+				if ($tags) {
+					$first_tag = $tags[0]->term_id;
+					$args=array(
+						'tag__in' => array($first_tag),
+						'post__not_in' => array($post->ID),
+						'showposts'=>5,
+						'caller_get_posts'=>1
+					);
+					$my_query = new WP_Query($args);
+					if( $my_query->have_posts() ) {
+						while ($my_query->have_posts()) : $my_query->the_post(); ?>
+                      	<strong><a href="<?php echo get_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>">
+						<?php echo get_the_title($post->ID); ?></a></strong>, <?php + " "; ?>
+						<?php endwhile;
+					}
+				}
 				?>
-                <p>The following are posts that you may be interested in and related to this post.</p>
-                <ul> 
-                <?php
-                if( $related ) foreach( $related as $post ) {
-                setup_postdata($post); ?>
-                   <li>
-                     <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-                   </li>  
-                <?php }
+            </div>
+            <div class="aboutAuthor">
+            <?php $curauth = $wp_query->get_queried_object(); ?>
+                <h2>Author: <?php the_author_posts_link(); ?></h2>
+                <figure class="glossy postImage authImage">
+                   <?php echo get_avatar(get_the_author_email(), 125);?>
+                </figure>
+                <p><?php if (the_author_description() != ''){the_author_description();}else{?>
+                <?php deafualt_aisis_author_default_text(); } ?></p>
+            </div> 
+             <?php 
+			 }else{
 				?>
-                </ul> 
-                <?php
-                wp_reset_postdata(); ?>
-            </div>            
+			<div class="aboutAuthorFull">
+            <?php $curauth = $wp_query->get_queried_object(); ?>
+                <h2>Author: <?php the_author_posts_link(); ?></h2>
+                <figure class="glossy postImage authImage">
+                   <?php echo get_avatar(get_the_author_email(), 125);?>
+                </figure>
+                <p><?php if (the_author_description() != ''){the_author_description();}else{?>
+                <?php deafualt_aisis_author_default_text(); } ?></p>
+             </div> 
+				<?php	 
+			 }?>           
         </article>
         <?php
 			endwhile; 
@@ -123,12 +149,17 @@
         <div class="listTags"><?php the_tags();?></div> 
     <?php } ?>  
     </div>
-    
     <?php
 	}
 	if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){
 		get_sidebar();
 	}
+	
+	?><div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ 
+	echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
+        <div class="prevPost"><?php echo  previous_post_link();?></div>
+        <div class="nextPost"><?php echo  next_post_link(); ?></div>
+    </div><?php
 
     if('open' == $post->comment_status){
 	    comments_template('', true);

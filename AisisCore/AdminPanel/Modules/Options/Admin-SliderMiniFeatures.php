@@ -87,14 +87,13 @@
 		function aisis_core_theme_slider_mini_global(){
 			$options = get_option('aisis_core_theme_setting_slider_mini_global');
 			$aisis_create_form_element = new AisisForm();
-			$aisis_slider_mini_check = array(
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+			  'type'=>'checkbox',
 			  'id'=>'slider_mini_global',
 			  'name'=>'aisis_core_theme_setting_slider_mini_global[no_slider_mini_global]',
 			  'value'=>'1',
 			  'checked' => checked(1, $options['no_slider_mini_global'], false)
-			);
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
+			));			
 		}
 	}
 	
@@ -110,27 +109,25 @@
 			$aisis_create_form_element = new AisisForm();
 			$option_global = get_option('aisis_core_theme_setting_slider_mini_global');
 			if($option_global['no_slider_mini_global'] != 1){
-				$aisis_slider_mini_check = array(
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+				  'type'=>'checkbox',
 				  'id'=>'slider_mini_global',
 				  'name'=>'aisis_core_theme_setting_slider_mini_index[no_slider_mini_index]',
 				  'value'=>'1',
 				  'checked' => checked(1, $options['no_slider_mini_index'], false),
 				  'class' => 'slider_mini'
-				  
-				);
+				));				
 			}else{
-				$aisis_slider_mini_check = array(
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+				  'type'=>'checkbox',
 				  'id'=>'slider_mini_global',
 				  'disabled' => 'disabled',
 				  'name'=>'aisis_core_theme_setting_slider_mini_index[no_slider_mini_index]',
 				  'value'=>'1',
 				  'checked' => checked(1, $options['no_slider_mini_index'], false),
 				  'class' => 'slider_mini'
-				  
-				);				
+				));							
 			}
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}
 	
@@ -144,25 +141,25 @@
 			$aisis_create_form_element = new AisisForm();
 			$option_global = get_option('aisis_core_theme_setting_slider_mini_global');
 			if($option_global['no_slider_mini_global'] != 1){
-				$aisis_slider_mini_check = array(
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+				  'type'=>'checkbox',
 				  'id'=>'slider_mini_single',
 				  'name'=>'aisis_core_theme_setting_slider_mini_single[no_slider_mini_single]',
 				  'value'=>'1',
 				  'checked' => checked(1, $options['no_slider_mini_single'], false),
 				  'class' => 'slider_mini'
-				);
+				));	
 			}else{
-				$aisis_slider_mini_check = array(
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+				  'type'=>'checkbox',
 				  'id'=>'slider_mini_single',
 				  'name'=>'aisis_core_theme_setting_slider_mini_single[no_slider_mini_single]',
 				  'value'=>'1',
 				  'checked' => checked(1, $options['no_slider_mini_single'], false),
 				  'class' => 'slider_mini',
 				  'disabled' => 'disabled'
-				);
+				));				
 			}
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}
 	
@@ -176,25 +173,25 @@
 			$aisis_create_form_element = new AisisForm();
 			$option_global = get_option('aisis_core_theme_setting_slider_mini_global');
 			if($option_global['no_slider_mini_global'] != 1){
-				$aisis_slider_mini_check = array(
-				  'id'=>'slider_mini_custom',
-				  'name'=>'aisis_core_theme_setting_slider_mini_custom[no_slider_mini_custom]',
-				  'value'=>'1',
-				  'checked' => checked(1, $options['no_slider_mini_custom'], false),
-				  'class' => 'slider_mini'
-				);
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+					'type'=>'checkbox',
+					'id'=>'slider_mini_custom',
+					'name'=>'aisis_core_theme_setting_slider_mini_custom[no_slider_mini_custom]',
+					'value'=>'1',
+					'checked' => checked(1, $options['no_slider_mini_custom'], false),
+					'class' => 'slider_mini'
+				));
 			}else{
-				$aisis_slider_mini_check = array(
-				  'id'=>'slider_mini_custom',
-				  'name'=>'aisis_core_theme_setting_slider_mini_custom[no_slider_mini_custom]',
-				  'value'=>'1',
-				  'checked' => checked(1, $options['no_slider_mini_custom'], false),
-				  'class' => 'slider_mini',
-				  'disabled' => 'disabled'
-				);				
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+					'type'=>'checkbox',
+					  'id'=>'slider_mini_custom',
+					  'name'=>'aisis_core_theme_setting_slider_mini_custom[no_slider_mini_custom]',
+					  'value'=>'1',
+					  'checked' => checked(1, $options['no_slider_mini_custom'], false),
+					  'class' => 'slider_mini',
+					  'disabled' => 'disabled'
+				));							
 			}
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}
 	
@@ -207,26 +204,26 @@
 			$options = get_option('aisis_core_theme_setting_slider_mini_page');
 			$aisis_create_form_element = new AisisForm();
 			$option_global = get_option('aisis_core_theme_setting_slider_mini_global');
-			if($option_global['no_slider_mini_global'] != 1){			
-				$aisis_slider_mini_check = array(
-				  'id'=>'slider_mini_page',
-				  'name'=>'aisis_core_theme_setting_slider_mini_page[no_slider_mini_page]',
-				  'value'=>'1',
-				  'checked' => checked(1, $options['no_slider_mini_page'], false),
-				  'class' => 'slider_mini'
-				);
+			if($option_global['no_slider_mini_global'] != 1){
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+					'type'=>'checkbox',
+					'id'=>'slider_mini_page',
+					'name'=>'aisis_core_theme_setting_slider_mini_page[no_slider_mini_page]',
+					'value'=>'1',
+					'checked' => checked(1, $options['no_slider_mini_page'], false),
+					'class' => 'slider_mini'
+				));								
 			}else{
-				$aisis_slider_mini_check = array(
-				  'id'=>'slider_mini_page',
-				  'name'=>'aisis_core_theme_setting_slider_mini_page[no_slider_mini_page]',
-				  'value'=>'1',
-				  'checked' => checked(1, $options['no_slider_mini_page'], false),
-				  'class' => 'slider_mini',
-				  'disabled' => 'disabeled'
-				);				
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+					'type'=>'checkbox',
+					'id'=>'slider_mini_page',
+					'name'=>'aisis_core_theme_setting_slider_mini_page[no_slider_mini_page]',
+					'value'=>'1',
+					'checked' => checked(1, $options['no_slider_mini_page'], false),
+					'class' => 'slider_mini',
+					'disabled' => 'disabeled'
+				));								
 			}
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}
 	
@@ -239,26 +236,26 @@
 			$options = get_option('aisis_core_theme_setting_slider_mini_front_page');
 			$aisis_create_form_element = new AisisForm();
 			$option_global = get_option('aisis_core_theme_setting_slider_mini_global');
-			if($option_global['no_slider_mini_global'] != 1){			
-				$aisis_slider_mini_check = array(
-				  'id'=>'slider_mini_page',
-				  'name'=>'aisis_core_theme_setting_slider_mini_front_page[no_slider_mini_front_page]',
-				  'value'=>'1',
-				  'checked' => checked(1, $options['no_slider_mini_front_page'], false),
-				  'class' => 'slider_mini'
-				);
+			if($option_global['no_slider_mini_global'] != 1){
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+					'type'=>'checkbox',
+					'id'=>'slider_mini_page',
+					'name'=>'aisis_core_theme_setting_slider_mini_front_page[no_slider_mini_front_page]',
+					'value'=>'1',
+					'checked' => checked(1, $options['no_slider_mini_front_page'], false),
+					'class' => 'slider_mini'
+				));								
 			}else{
-				$aisis_slider_mini_check = array(
-				  'id'=>'slider_mini_page',
-				  'name'=>'aisis_core_theme_setting_slider_mini_front_page[no_slider_mini_front_page]',
-				  'value'=>'1',
-				  'checked' => checked(1, $options['no_slider_mini_front_page'], false),
-				  'class' => 'slider_mini',
-				  'disabled' => 'disabeled'
-				);				
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+					'type'=>'checkbox',
+					'id'=>'slider_mini_page',
+					'name'=>'aisis_core_theme_setting_slider_mini_front_page[no_slider_mini_front_page]',
+					'value'=>'1',
+					'checked' => checked(1, $options['no_slider_mini_front_page'], false),
+					'class' => 'slider_mini',
+					'disabled' => 'disabeled'
+				));								
 			}
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_slider_mini_check);
 		}
 	}					
 

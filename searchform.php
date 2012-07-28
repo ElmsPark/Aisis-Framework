@@ -13,7 +13,7 @@
 	 
 	 $aisis_form = new AisisForm();
 	 
-	 $aisis_form->start_form(array(
+	 $aisis_form->open_form(array(
 	 		'method'=>'get',
 	 		'action'=>home_url() . '/',
 			'id'=>'searchform'
@@ -26,6 +26,6 @@
 	 
 	 ));
 	 
-	 $aisis_form->end_form();
+	 $aisis_form->close_form();
 ?>
 	

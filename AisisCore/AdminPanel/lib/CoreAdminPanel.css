@@ -17,15 +17,15 @@ instead of selected pages.
 ===========================================================
 **/
 
-.notice {
-	background : #fff9d7;
-	border : 1px solid #e2c822;
-	color : #333;
-	padding : 10px;
-	font-size : 13px;
-	border-radius : 5px;
-	margin : 10px 0px -8px 80px;
-	width: 60%
+.metaNotice {
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin: 10px 0px -8px 80px;
+	width: 60%;
 }
 
 .adminThemeNotice {

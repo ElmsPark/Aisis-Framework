@@ -53,16 +53,15 @@
 	  */
 	if(!function_exists('aisis_display_related_posts')){
 		function aisis_display_related_posts(){
-			$aisis_create_form_element = new AisisForm();
 			$options = get_option('aisis_display_related_posts_setting');
-			$aisis_related_posts = array(
+			$aisis_create_form_element = new AisisForm();
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+				'type'=>'checkbox',
  				'id'=>'relatedPostsCheck',
 			  	'name'=>'aisis_display_related_posts_setting[related_posts]',
 			  	'value'=>'1',
 			  	'checked' => checked(1, $options['related_posts'], false)
-			);
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_related_posts);
+			));
 		}
 	}
 	
@@ -73,14 +72,13 @@
 		function aisis_display_categories_tags(){
 			$aisis_create_form_element = new AisisForm();
 			$options = get_option('aisis_display_categories_tags_setting');
-			$aisis_show_cat_tags = array(
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+				'type'=>'checkbox',
  				'id'=>'catTagsCheck',
 			  	'name'=>'aisis_display_categories_tags_setting[cat_tags]',
 			  	'value'=>'1',
 			  	'checked' => checked(1, $options['cat_tags'], false)
-			);
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_show_cat_tags);
+			));			
 		}
 	}
 	/**
@@ -91,26 +89,26 @@
 			$aisis_create_form_element = new AisisForm();
 			$options = get_option('aisis_upload_header_image_setting');
 			if(isset($options['aisis_header_img']) && !empty($options['aisis_header_img'])){
-				$file_chosen = array(
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+					  'type' => 'text',
 					  'name' => 'aisis_upload_header_image_setting[aisis_header_img]',
 					  'id' => 'aisis_header_img',
 					  'value' => $options['aisis_header_img']
-				);
+				));	
 			}else{
-				$file_chosen = array(
+				$aisis_create_form_element->create_aisis_form_element('input', array(
+					  'type' => 'text',
 					  'name' => 'aisis_upload_header_image_setting[aisis_header_img]',
 					  'id' => 'aisis_header_img',
 					  'value' => ''
-				);				  
+				));									  
 			}
-			$button = array(
-				'name' => 'upload_image',
-				'id' => 'upload_image_button',
-				'value' => 'Choose a file to upload.'
-			);
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'text', $file_chosen);
-			$aisis_create_form_element->create_aisis_form_element('input', 'button', $button);
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+				  'type' => 'button',
+				  'name' => 'aisis_upload_header_image_setting[aisis_header_img]',
+				  'id' => 'upload_image_button',
+				  'value' => 'upload your image!'
+			));				
 		}
 	}		
 	/**

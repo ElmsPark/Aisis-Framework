@@ -29,7 +29,7 @@
 		  * The user will enter in an array of attibutes
 		  * that will then create our opening form tag.
 		  */
-		 function start_form(array $attributes){
+		 function open_form(array $attributes){
 		   if(isset($attributes['action'])){
 			   $this->_action = 'action="'.$attributes['action'].'"';
 		   }
@@ -65,7 +65,7 @@
 		  * @param an array of attributes for that element
 		  *
 		  */
-		 function create_aisis_form_element($element, $type, array $attributes){
+		 function create_aisis_form_element($element, array $attributes){
 			 
 			 $aisis_elements = new AisisElements();
 			 
@@ -73,12 +73,8 @@
 				 _e("<div class='err'" . new ForException('<strong>Element must be of type String.</strong>') . "</div>");
 			 }
 			 
-			 if(!is_string($type)){
-				 _e("<div class='err'" . new ForException('<strong>Element type must be of type String.</strong>') . "</div>");
-			 }
-			 
 			 if($element == 'input'){
-				 $aisis_form_element = $aisis_elements->input($type, $attributes);
+				 $aisis_form_element = $aisis_elements->input($attributes);
 			 }
 			 
 			 if($element == 'textarea'){
@@ -98,7 +94,7 @@
 		 /**
 		  * All we do is close the form.
 		  */
-		 function end_form(){
+		 function close_form(){
 			 echo '
 			 </form>
 			 ';

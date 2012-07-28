@@ -31,11 +31,11 @@
 	 require_once(AISISCORE . 'AisisDebugger.php');
 	 require_once(AISISCORE . 'Class-Aisis-MultiSite.php');
 	 require_once(AISISCORE . 'Class-Aisis-Activation.php');
-	 require_once(AISISCORE . 'Class-Aisis-Core-Update.php');
 	 require_once(AISISCORE . 'Class-Aisis-Package-Loader.php');
-	 
+	 require_once(AISISCORE . 'Class-Aisis-Core-Update.php');
 	 //Build the  front end
 	 require_once(AISIS_TEMPLATES . 'BuildAisisTheme.php');
+	 
 	 
 	 //instantiate the class
 	 $aisis_package_loader = new AisisPackageLoader();
@@ -49,7 +49,7 @@
 	 
 	 //When the theme if first activated.
 	 $aisis_activation = new AisisActivation();
-	 $aisis_activation->aisis_do_on_load(); 
+	 $aisis_activation->aisis_do_on_load();
 	
 	 /**
 	  * Why are we doing this? so we (Aisis) can use

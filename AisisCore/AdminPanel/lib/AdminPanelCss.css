@@ -63,6 +63,17 @@ h2{
 	clear:both;
 }
 
+.notice {
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin: 10px 0px 10px 43px;
+	width: 80%;
+}
+
 .bottomNotice {
 	background : #fff9d7;
 	border: 1px solid #e2c822;
@@ -139,7 +150,7 @@ h2{
 	padding: 10px;
 	font-size: 13px;
 	border-radius: 5px;
-	width: 50%;
+	width: 95%;
 	margin-bottom: 20px;
 	clear: both;
 }
@@ -169,6 +180,7 @@ h2{
 	margin-bottom: 20px;
 	margin-top: 20px;
 	padding: 20px;
+	clear:both;
 }
 
 .alignForm{
@@ -204,6 +216,12 @@ h2{
 	width: 40%;
 }
 
+.alignForm input[type="submit"]{
+	margin-right: 24%;
+	margin-top: -37px;
+	cursor:pointer;
+}
+
 input[type="submit"]{
 	background-color:rgb(192,210,181) !important;
 	width:auto;
@@ -215,6 +233,7 @@ input[type="submit"]{
 	margin-top: -10px;
 	margin-left: 108px;
 	float: right;
+	cursor:pointer;
 }
 
 #upload_image_button{

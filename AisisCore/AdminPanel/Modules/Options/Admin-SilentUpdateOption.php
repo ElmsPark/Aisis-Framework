@@ -41,14 +41,13 @@
 		function aisis_core_silent_update(){
 			$options = get_option('aisis_core_theme_setting_silent_update');
 			$aisis_create_form_element = new AisisForm();
-			$aisis_silent_update = array(
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+			  'type'=>'checkbox',
 			  'id'=>'silent_update',
 			  'name'=>'aisis_core_theme_setting_silent_update[turn_on_silent_update]',
 			  'value'=>'1',
 			  'checked' => checked(1, $options['turn_on_silent_update'], false)
-			);
-			
-			$aisis_create_form_element->create_aisis_form_element('input', 'checkbox', $aisis_silent_update);
+			));
 		}
 	}				
 	
