@@ -99,20 +99,24 @@
 				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><strong><?php _e('Enter the title of your subscription', 'sub'); ?></strong></label><br />
 				<?php 
 				if(!isset($instance['title'])){
-					$array_of_subscription_feedburner_id = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=> 'text',
 						'id' => $this->get_field_id('title'),
 						'name' => $this->get_field_name('title'),
 						'style' => 'width:100%'
+					));
+					$array_of_subscription_feedburner_id = array(
+
 					);
 				}else{
-					$array_of_subscription_feedburner_id = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=> 'text',
 						'id' => $this->get_field_id('title'),
 						'name' => $this->get_field_name('title'),
 						'style' => 'width:100%',
 						'value' => $instance['title']
-					);
+					));					
 				}
-				$aisis_form_build->create_aisis_form_element('input', 'text', $array_of_subscription_feedburner_id);
 				?>
              </p>
 			
@@ -120,60 +124,63 @@
 				<label for="<?php echo $this->get_field_id( 'id' ); ?>"><strong><?php _e('Enter an id (If for feedburner, enter your subscription ID)', 'sub'); ?></strong></label><br />
 				<?php 
 				if(!isset($instance['id'])){
-					$array_of_subscription_feedburner_id = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=> 'text',
 						'id' => $this->get_field_id('id'),
 						'name' => $this->get_field_name('id'),
 						'style' => 'width:100%'
-					);
+					));						
 				}else{
-					$array_of_subscription_feedburner_id = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=> 'text',
 						'id' => $this->get_field_id('id'),
 						'name' => $this->get_field_name('id'),
 						'style' => 'width:100%',
 						'value' => $instance['id']
-					);
+					));	
 				}
-				$aisis_form_build->create_aisis_form_element('input', 'text', $array_of_subscription_feedburner_id);
 				?>
              </p>
              <p>
 				<label for="<?php echo $this->get_field_id( 'url' ); ?>"><strong><?php _e('If using MailChimp, enter the MailChimp list subscribe url', 'sub'); ?></strong></label><br />
 				<?php 
 				if(!isset($instance['url'])){
-					$array_mailchimp_subscribe_url = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=> 'url',
 						'id' => $this->get_field_id('url'),
 						'name' => $this->get_field_name('url'),
 						'style' => 'width:100%'
-					);
+					));										
 				}else{
-					$array_mailchimp_subscribe_url = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=> 'url',
 						'id' => $this->get_field_id('url'),
 						'name' => $this->get_field_name('url'),
 						'style' => 'width:100%',
 						'value' => $instance['url']
-					);
+					));					
 				}
-				$aisis_form_build->create_aisis_form_element('input', 'text', $array_mailchimp_subscribe_url);
 				?>
              </p>
              <p>
 				<label for="<?php echo $this->get_field_id( 'description' ); ?>"><strong><?php _e('Enter a description for your subscribe', 'donwload'); ?></strong></label><br />
 				<?php 
 				if(!isset($instance['description'])){
-					$array_description = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=> 'text',
 						'id' => $this->get_field_id('description'),
 						'name' => $this->get_field_name('description'),
 						'style' => 'width:100%'
-					);
+					));					
 				}else{
-					$array_description = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=> 'text',
 						'id' => $this->get_field_id('description'),
 						'name' => $this->get_field_name('description'),
 						'style' => 'width:100%',
 						'value' => $instance['description']
-					);
+					));					
 				}
-				$aisis_form_build->create_aisis_form_element('input', 'text', $array_description);
 				?> 
                 </p>
 	

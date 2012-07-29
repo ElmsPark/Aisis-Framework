@@ -100,40 +100,42 @@
 				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><strong><?php _e('User Name (with out the "@")', 'donwload'); ?></strong></label><br />
 				<?php 
 				if(!isset($instance['user_name'])){
-					$array_of_input_user_name_elements = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=>'text',
 						'id' => $this->get_field_id('user_name'),
 						'name' => $this->get_field_name('user_name'),
-						'style' => 'width:100%'
-					);
+						'style' => 'width:100%'						
+					));
 				}else{
-					$array_of_input_user_name_elements = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=>'text',
 						'id' => $this->get_field_id('user_name'),
 						'name' => $this->get_field_name('user_name'),
 						'style' => 'width:100%',
-						'value' => $instance['user_name']
-					);
+						'value' => $instance['user_name']					
+					));					
 				}
-				$aisis_form_build->create_aisis_form_element('input', 'text', $array_of_input_user_name_elements);
 				?>
              </p>
  			<p>
 				<label for="<?php echo $this->get_field_id( 'count' ); ?>"><strong><?php _e('How many tweets should we show?', 'donwload'); ?></strong></label><br />
 				<?php 
 				if(!isset($instance['count'])){
-					$array_count_input = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=>'text',
 						'id' => $this->get_field_id('count'),
 						'name' => $this->get_field_name('count'),
-						'style' => 'width:100%'
-					);
+						'style' => 'width:100%'				
+					));					
 				}else{
-					$array_count_input = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=>'text',
 						'id' => $this->get_field_id('count'),
 						'name' => $this->get_field_name('count'),
 						'style' => 'width:100%',
-						'value' => $instance['count']
-					);
+						'value' => $instance['count']				
+					));						
 				}
-				$aisis_form_build->create_aisis_form_element('input', 'text', $array_count_input);
 				?>
              </p>            
 		<?php

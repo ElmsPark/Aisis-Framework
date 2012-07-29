@@ -78,20 +78,22 @@
 				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><strong><?php _e('Download url', 'donwload'); ?></strong></label><br />
 				<?php 
 				if(!isset($instance['url'])){
-					$array_of_input_link_elements = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=>'url',
 						'id' => $this->get_field_id('url'),
 						'name' => $this->get_field_name('url'),
 						'style' => 'width:100%'
-					);
+					
+					));
 				}else{
-					$array_of_input_link_elements = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=>'url',
 						'id' => $this->get_field_id('url'),
 						'name' => $this->get_field_name('url'),
 						'style' => 'width:100%',
-						'value' => $instance['url']
-					);
+						'value' => $instance['url']						
+					));
 				}
-				$aisis_form_build->create_aisis_form_element('input', 'url', $array_of_input_link_elements);
 				?>
 			</p>
 	
@@ -99,42 +101,42 @@
 				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><strong><?php _e('Title your download', 'download');?></strong></label><br />
 				<?php 
 				if(!isset($instance['title'])){
-					$array_of_input_title_elements = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=>'text',
 						'id' => $this->get_field_id('title'),
 						'name' => $this->get_field_name('title'),
-						'style' => 'width:100%'
-					);
+						'style' => 'width:100%'					
+					));					
 				}else{
-					$array_of_input_title_elements = array(
+					$aisis_form_build->create_aisis_form_element('input', array(
+						'type'=>'text',
 						'id' => $this->get_field_id('title'),
 						'name' => $this->get_field_name('title'),
 						'style' => 'width:100%',
-						'value' => $instance['title']
-					);
+						'value' => $instance['title']				
+					));						
 				}
-				$aisis_form_build->create_aisis_form_element('input', 'text', $array_of_input_title_elements);
 				?>            
 			</p>
 			<p>
 				<label for="<?php echo $this->get_field_id( 'info' ); ?>"><strong><?php _e('Give us a quick description ', 'download');?></strong></label><br />
 				<?php 
 				if(!isset($instance['info'])){
-					$array_of_textarea_elements = array(
+					$aisis_form_build->create_aisis_form_element('textarea', array(
 						'id' => $this->get_field_id('info'),
 						'name' => $this->get_field_name('info'),
-						'cols' => '50',
-						'rows' => '15'
-					);
+						'cols' => 50,
+						'rows' => 15				
+					));					
 				}else{
-					$array_of_textarea_elements = array(
+					$aisis_form_build->create_aisis_form_element('textarea', array(
 						'id' => $this->get_field_id('info'),
 						'name' => $this->get_field_name('info'),
 						'cols' => '50',
 						'rows' => '15',
-						'value' => $instance['info']
-					);				
+						'value' => $instance['info']			
+					));									
 				}
-				$aisis_form_build->create_aisis_form_element('textarea', '', $array_of_textarea_elements);
 				?>            
 			</p>        
 	
