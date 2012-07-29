@@ -23,11 +23,17 @@
             <p>Looking to edit your custom-functions.php file? Make your changes bellow and hit the save button to see the changes take affect.</p>
         </div>
         <div class="content">
-            <?php $aisis_forum_url = 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-css-editor' ?>
-            <form method="post" action="<?php echo $aisis_forum_url ?>">
-                <?php settings_fields( 'aisis-css-editor' ); ?>
-                <?php do_settings_fields('aisis-css-editor', 'aisis_css_editor_section'); ?>
-                <?php $aisis_form_element->create_aisis_form_element('input', $basic_array_submit);?>
-            </form>
+        	<?php
+            $aisis_form_element->open_form(array(
+				'method'=>'post', 
+				'action'=>'options.php?redirect_to=/wp-admin/admin.php?page=aisis-css-editor'
+			));
+            
+			settings_fields( 'aisis-css-editor' );
+            do_settings_fields('aisis-css-editor', 'aisis_css_editor_section');
+            $aisis_form_element->create_aisis_form_element('input', $basic_array_submit);
+            
+			$aisis_form_element->close_form();
+			?>
             <br />
         </div>

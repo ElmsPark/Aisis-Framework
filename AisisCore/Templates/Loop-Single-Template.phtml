@@ -131,7 +131,7 @@
             <?php $curauth = $wp_query->get_queried_object(); ?>
                 <h2>Author: <?php the_author_posts_link(); ?></h2>
                 <figure class="glossy postImage authImage">
-                   <?php echo get_avatar(get_the_author_email(), 125);?>
+                   <?php echo get_avatar(get_the_author_email(), 150);?>
                 </figure>
                 <p><?php if (the_author_description() != ''){the_author_description();}else{?>
                 <?php deafualt_aisis_author_default_text(); } ?></p>

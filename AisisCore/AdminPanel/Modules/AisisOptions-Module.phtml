@@ -53,22 +53,29 @@ $aisis_form->open_form(array(
         <div class="content">
             <div class="alignForm">
                 <div class="smallNotice">Selecting this will deactivate the other choices.</div>
-                <label>click to remove the  Sidebar (Global)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_global'); ?><br />
-                <label>click to remove the Sidebar (Index)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_index'); ?><br />
-                <label>click to remove the Sidebar (Single)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_single'); ?><br />
-                <label>Click to remove the Sidebar (Search)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_search');?><br />
-                <label>click to remove the Sidebar (Page)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_page'); ?><br />                 
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the  Sidebar (Global)'));
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_global'); ?><br />
+                <?php
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Sidebar (Index)')); 
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_index'); ?><br />
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Sidebar (Single)')); 
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_single'); ?><br />
+                <?php
+				$aisis_form->create_aisis_form_element('label', array('value'=>'Click to remove the Sidebar (Search)'));  
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_search');?><br />
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Sidebar (Page)')); 
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_page'); ?><br />                 
                 <div class="smallNotice">By default we do not show the sidebar on a single Articles and Essays post.</div>
-                <label>click to remove the Sidebar (Custom Index)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_custom'); ?><br /> 
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Sidebar (Custom Index)')); 
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_custom'); ?><br /> 
                 <div class="smallNotice">Only applies if you have a static front page.</div>
-                <label>click to remove the Sidebar (Front)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_front_page'); ?><br />                                                               
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Sidebar (Front)')); 
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_front_page');?>                                            
             </div>
         </div>
     </div>
@@ -85,22 +92,28 @@ $aisis_form->open_form(array(
                 mini feeds.
             </div>
             <div class="alignForm">
-                <label>click to remove the Slider and Mini Feed (Global)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_global'); ?><br />
-                <label>click to remove the Slider and Mini Feed <br />
-				(Index)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_index'); ?><br />
-                <label>click to remove the Slider and Mini Feed (Single)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_single'); ?><br />
-                <label>click to remove the Slider and Mini Feed <br />
-				(Page)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_page'); ?><br />                 
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Slider and Mini Feed (Global)')); 
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_global'); ?><br />
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Slider and Mini Feed <br />
+				(Index)')); 
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_index'); ?><br />
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Slider and Mini Feed (Single)'));
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_single'); ?><br />
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Slider and Mini Feed <br />
+				(Page)'));
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_page'); ?><br />                 
                 <div class="smallNotice">By default we do not show the slider and mini feed on a single Articles and Essays post.</div>
-                <label>click to remove the Slider and Mini Feed (Custom Index)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_custom'); ?><br /> 
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Slider and Mini Feed (Custom Index)'));
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_custom'); ?><br /> 
                 <div class="smallNotice">This only applies if you have set a static front page.</div>
-                <label>click to remove the Slider and Mini Feed (Front)</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_front_page'); ?><br /> 
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Slider and Mini Feed (Front)'));
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_front_page'); ?><br /> 
                  <br />                                                             
             </div>
         </div>        
@@ -209,12 +222,15 @@ $aisis_form->open_form(array(
        		</div>
        	<div class="content">
             <div class="alignForm">
-                <label>Do Not Show Related Posts?</label><br />
-                <?php do_settings_fields('aisis-core-options', 'aisis_display_related_posts_section'); ?><br />
-                <label>Should we Hide Categories and Tags?</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_display_categories_tags_section'); ?><br />
-                <label>Upload your image!</label>
-                <?php do_settings_fields('aisis-core-options', 'aisis_upload_header_image_section'); ?><br /> 
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'Do Not Show Related Posts?'));
+				do_settings_fields('aisis-core-options', 'aisis_display_related_posts_section'); ?><br />
+                <?php
+				$aisis_form->create_aisis_form_element('label', array('value'=>'Should we Hide Categories and Tags?'));
+				do_settings_fields('aisis-core-options', 'aisis_display_categories_tags_section'); ?><br />
+                <?php 
+				$aisis_form->create_aisis_form_element('label', array('value'=>'Upload your image!'));
+				do_settings_fields('aisis-core-options', 'aisis_upload_header_image_section'); ?><br /> 
             </div>               
        	</div>
       </div>
