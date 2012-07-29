@@ -27,8 +27,13 @@
 	 global $wp_query;
 	 
 	 //Posts and author data
-	 $curauth = $wp_query->get_queried_object();
-	 $aisis_author_arguments = array('author' => $curauth->ID); 
+	 
+	 if(false == ($aisis_author_info = get_transient( 'aisis_author_info' ))){
+	 	$aisis_author_info = $wp_query->get_queried_object();
+		set_transient( 'aisis_author_info', $aisis_author_info );
+	 }
+	 
+	 $aisis_author_arguments = array('author' => $aisis_author_info->ID); 
 	 $posts = query_posts($aisis_author_arguments);
 	 
 	 //Options
@@ -43,12 +48,12 @@
     <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
         <article class="post clearfix">
             <header>
-                <h1 class="postTitle"><?php echo $curauth->user_login; ?></h1>
+                <h1 class="postTitle"><?php echo $aisis_author_info->user_login; ?></h1>
             </header>
                 <figure class="glossy postImage">
-                   <?php echo get_avatar($curauth->user_email, 300);?>
+                   <?php echo get_avatar($aisis_author_info->user_email, 300);?>
                 </figure>
-            <p><?php if ( $curauth->user_description != '' ){echo $curauth->user_description;}else{?>
+            <p><?php if ( $aisis_author_info->user_description != '' ){echo $aisis_author_info->user_description;}else{?>
             <?php deafualt_aisis_author_default_text(); } ?></p>
         </article>
     </div> 

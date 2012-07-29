@@ -890,7 +890,7 @@ SIDEBAR
 	margin-bottom: 10px;	
 }
 
-.button{
+.downloadButton, .button{
 	width:100px;
 	height:50px;
 	border-color: rgb(136,136,136);
@@ -902,10 +902,28 @@ SIDEBAR
 	border-radius:3px;
 	box-shadow:2px 2px 4px rgba(0,0,0,0.3);
 	margin-left: 70px;
+	cursor:pointer;
+}
+
+.downloadButton{
+	width: 95%;
+	padding: 10px;
+	height: 20px;
+	margin: 0 auto 10px auto;
 }
 
 #objectWrapper{
 	width: 100%;
+}
+
+.aboutAuthor{
+	float:right;
+	width:40%;
+}
+
+.relatedPosts{
+	float:left;
+	width:40%;
 }
 
 /************************************************************************************
