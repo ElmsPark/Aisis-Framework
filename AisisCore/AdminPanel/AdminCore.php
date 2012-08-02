@@ -56,6 +56,8 @@
 				   wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true);	
 				   wp_enqueue_script( 'toast', get_template_directory_uri() . '/AisisCore/AdminPanel/lib/jquery.toastmessage.js', array('jquery')); 
 				   wp_enqueue_script( 'admin-js', get_template_directory_uri() . '/AisisCore/AdminPanel/lib/AdminPanelJS.js', array('jquery'), false, true );
+				   wp_enqueue_script( 'colorBox', get_template_directory_uri() . '/AisisCore/AdminPanel/lib/ColorBox.js', array('jquery'), false, true );				   
+				   
 						   
 			   }
 			}

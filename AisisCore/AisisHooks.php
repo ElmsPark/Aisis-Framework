@@ -82,17 +82,6 @@
 		 do_action('aisis_default_right_footer_text');
 	 }
 	 
- 	 /**
-	  * This allows you yo change the entire nav
-	  * menu that is shown when the use does not use
-	  * WP3.0's new menu system to build a menu.
-	  *
-	  * @see Default-Nav-Template
-	  */
-	 function aisis_default_nav_template(){
-		 do_action('aisis_default_nav_template');
-	 }
-	 
 	 /**
 	  * ======================[DEFINE]======================
 	  *
@@ -178,15 +167,6 @@
 		  }
 	  }	  
 	  
-	  //default nav template
-	  function default_aisis_default_nav_template(){
-		  ?>
-            <ul id="main-nav" class="main-nav clearfix">
-                <li><a href="<?php bloginfo('url') ?>">Home</a>
-            </ul>
-          <?php
-	  }
-	  
 	  /**
 	   * We add all the actions here.
 	   */
@@ -196,7 +176,6 @@
 	  add_action('aisis_category_default_text','default_aisis_category_default_text');
 	  add_action('aisis_default_right_footer_text','default_aisis_default_right_footer_text');
 	  add_action('aisis_default_left_footer_text','default_aisis_default_left_footer_text');
-	  add_action('aisis_default_nav_template','default_aisis_default_nav_template');
 	  
 	  
 	 

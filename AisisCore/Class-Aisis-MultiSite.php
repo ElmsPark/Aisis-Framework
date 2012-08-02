@@ -42,7 +42,7 @@
 			  }
 			  return true;
 		   }else{
-			   _e('<div class="err">' .new MultiSiteException('<strong>We could not write to or create the custom folder</strong>').'</div>');
+			   _e('<div class="err">' .new MultiSiteException('<strong>We could not write to or create the custom folder - please Log inthrough ssh or ftp and change the directory structure to 777.</strong>').'</div>');
 		   }
 		}
 	 }

@@ -46,21 +46,11 @@
 		));
 	}
 	
-	// Register Custom Menu Function
-	function aisis_register_custom_nav() {
-		if (function_exists('register_nav_menus')) {
-			register_nav_menus( array(
-				'main-nav' => __( 'Main Navigation', 'aisis' ),
-			) );
-		}
-	}
-	
-	// Register Custom Menu Function - Action
-	add_action('init', 'aisis_register_custom_nav');
-	
 	// Default Main Nav Function
 	function aisis_default_main_nav() {
-		aisis_nav_fallback();
+	  ?>
+      	<li><a href="<?php bloginfo('url') ?>">Home</a></li>
+      <?php
 	}
 
 	// Add home link to menus
