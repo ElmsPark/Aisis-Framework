@@ -42,6 +42,7 @@
 	}	
 	#upload_image_button {
 		margin-left: 3px;
+		margin-top: 5px;
 	}	
 }
 @media screen and (max-width:1280px){

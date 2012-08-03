@@ -144,7 +144,8 @@
 			  	'name'=>'aisis_site_design_setting[layout]',
 			  	'value'=>'1',
 			  	'checked' => checked(1, $options['layout'], false)
-			));	?><a href="#" class="images"><img src="#" width="32" height="32" /></a><br /><?php
+			));	?>
+            <br /><?php
 			$aisis_create_form_element->create_aisis_form_element('label', array(
 				'value'=>'Would you like: Sperate The Posts '
 			));
@@ -154,7 +155,8 @@
 			  	'name'=>'aisis_site_design_setting[layout]',
 			  	'value'=>'2',
 			  	'checked' => checked(2, $options['layout'], false)
-			));	?><a href="#" class="images"><img src="#" width="32" height="32" /></a><br /><?php
+			));	?>
+            <br /><?php
 			$aisis_create_form_element->create_aisis_form_element('label', array(
 				'value'=>'Would you like: No Back '
 			));
@@ -164,7 +166,8 @@
 			  	'name'=>'aisis_site_design_setting[layout]',
 			  	'value'=>'3',
 			  	'checked' => checked(3, $options['layout'], false)
-			));	?><a href="#" class="images"><img src="#" width="32" height="32" /></a><br /><br /><?php														
+			));	?>
+            </a><br /><br /><?php														
 		}
 	}	
 	
@@ -181,7 +184,8 @@
 			  	'name'=>'aisis_ae_design_setting[layout]',
 			  	'value'=>'1',
 			  	'checked' => checked(1, $options['layout'], false)
-			));	?><a href="#" class="images"><img src="#" width="32" height="32" /></a><br /><?php
+			));	?>
+            <br /><?php
 			$aisis_create_form_element->create_aisis_form_element('label', array(
 				'value'=>'Would you like: Sperate The Posts '
 			));
@@ -191,7 +195,8 @@
 			  	'name'=>'aisis_ae_design_setting[layout]',
 			  	'value'=>'2',
 			  	'checked' => checked(2, $options['layout'], false)
-			));	?><a href="#" class="images"><img src="#" width="32" height="32" /></a><br /><?php
+			));	?>
+            <br /><?php
 			$aisis_create_form_element->create_aisis_form_element('label', array(
 				'value'=>'Would you like: No Back '
 			));
@@ -201,7 +206,8 @@
 			  	'name'=>'aisis_ae_design_setting[layout]',
 			  	'value'=>'3',
 			  	'checked' => checked(3, $options['layout'], false)
-			));	?><a href="#" class="images"><img src="#" width="32" height="32" /></a><br /><br /><?php														
+			));	?>
+            <br /><br /><?php														
 		}
 	}		
 

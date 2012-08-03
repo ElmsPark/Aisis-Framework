@@ -328,7 +328,8 @@ MAIN NAVIGATION
 #nav ul {
 	display: none;
 	z-index: 9999;
-	margin: 0;
+	margin-top: 10px;
+	margin-left:0px;
 	padding: 0;
 	width: 185px;
 	position: absolute;
@@ -484,6 +485,10 @@ CONTENT
 }
 
 #sticky, #stickyFull{
+	background-color:rgb(247,245,219);
+	border: 1ps solid rgb(240,234,153);
+	border-radius:5px;
+	border-style:solid;	
 }
 
 #category{
@@ -500,6 +505,13 @@ CONTENT
 
 .post{
 	margin-bottom: 40px;
+}
+
+.postSticky{
+	background-color:rgb(247,245,219);
+	border: 1ps solid rgb(240,234,153);
+	border-radius:5px;
+	border-style:solid;	
 }
 .post p{
 	margin-top: 2.2em;
@@ -533,7 +545,7 @@ CONTENT
 .postTitle {
 	margin: 0 0 5px;
 	padding: 0;
-	font: bold 50px/120% 'Open Sans', sans-serif;
+	font: bold 35px/120% 'Open Sans', sans-serif;
 	text-align:left;
 }
 .postTitle a {
@@ -936,6 +948,22 @@ SIDEBAR
 .relatedPosts{
 	float:left;
 	width:40%;
+}
+
+.afterBlock {
+	clear: both;
+	background: #fff;
+	padding: 10px;
+	text-align: center;
+}
+.afterBlock .rightText {
+	text-align: right;
+	width: 50%;
+	float: right !important;
+}
+.afterBlock .leftText {
+	text-align: left;
+	width: 50%;
 }
 
 /************************************************************************************

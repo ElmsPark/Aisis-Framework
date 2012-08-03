@@ -26,24 +26,33 @@
 	 */
 	 global $wp_query;
 	 
-	 //Posts and author data
+	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $option_slider_minifeed_global = get_option('aisis_core_theme_setting_slider_mini_global');
 	 
-	 if(false == ($aisis_author_info = get_transient( 'aisis_author_info' ))){
-	 	$aisis_author_info = $wp_query->get_queried_object();
+	 /**
+	  * Transient data for getting author information
+	  */
+	  if(false == ($aisis_author_info = get_transient( 'aisis_author_info' ))){
+		$aisis_author_info = $wp_query->get_queried_object();
 		set_transient( 'aisis_author_info', $aisis_author_info );
+	  }
+	 
+	 /**
+	  * Transient information for the various posts
+	  * this author has done.
+	  */
+	 if(false == ($posts = get_transient('posts'))){
+		$aisis_author_arguments = array('author' => $aisis_author_info->ID); 
+	 	$posts = query_posts($aisis_author_arguments);
+		set_transient('posts', $posts);
 	 }
-	 
-	 $aisis_author_arguments = array('author' => $aisis_author_info->ID); 
-	 $posts = query_posts($aisis_author_arguments);
-	 
-	 //Options
-	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
-	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
 	
-	//Do we display the slider mini?
-	if($options_slider_mini_global['no_slider_mini_global'] != 1){
-		aisis_header();
-	}
+	 /**
+	  * If the user wan't the slider and mini feed to display we do this.
+	  */
+	 if($options_slider_mini_global['no_slider_mini_global'] != 1){
+		 aisis_header();
+	 }
 ?>    
     <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
         <article class="post clearfix">

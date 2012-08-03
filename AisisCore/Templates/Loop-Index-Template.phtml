@@ -36,7 +36,7 @@
 	 
 ?>
 
-	<?php if($option_index_layout['layout'] == 1 || !isset($option_index_layout['layout'])){?>
+	<?php if($option_index_layout['layout'] == 1 || $option_index_layout['layout'] == ''){?>
 	<div id="<?php if($option_sidebar_index['no_sidebar_index'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
 	{ echo 'content'; }else{ echo 'contentFull'; }?>">
     	<?php while(have_posts()) : the_post();?>
@@ -46,7 +46,7 @@
                 <div class="authorInfo">
                 Author of this post:
                 <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
-				<?php the_author_meta('display_name'); ?></a>
+				<?php the_author_meta('display_name'); ?></a>, <?php comments_number('0', '1', '%'); ?> comments
                 </div>
             </header>
             <?php if(has_post_thumbnail()){?>
