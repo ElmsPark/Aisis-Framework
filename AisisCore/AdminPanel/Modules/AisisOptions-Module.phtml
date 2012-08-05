@@ -39,7 +39,7 @@ $aisis_form->open_form(array(
         <li><a href="#aisisSliderMiniOptions">Aisis Slider and Mini Feed Options</a></li>
     	<li><a href="#aisisDefault">Aisis Default Text</a></li>
         <li><a href="#aisisSocial">Aisis Social Options</a></li>
-        <li><a href="#aisisMisc">Misc. Options</a></li>
+        <li><a href="#aisisMisc">Site Style</a></li>
     </ul>
     <div class="bottom"></div>
     <div id="aisisSidebarOptions">
@@ -215,22 +215,61 @@ $aisis_form->open_form(array(
    </div>
    <div id="aisisMisc">
        	<div class="content">
-       		<h1>Misc. Options</h1>
-       			<p>These options are all the options that didn't fit in else where
-       			for the user to use. So we placed them here.</p>
+       		<h1>Style Options</h1>
+       			<p>The following options allow for greator flexability over the theme in terms of content
+                layout. While you were able to change things such as sidebars, mini feeds and sliders this
+                section gives you some basic changes that affect the theme in a more drastic way.</p>
        			<p><?php $aisis_form->create_aisis_form_element('input', $core_options_save);?></p>
        		</div>
        	<div class="content">
             <div class="alignForm">
+                <div class="cosideTextntent">
+                    <h1>Related Posts and Categories/Tags</h1>
+                    <p>The following will allow you to display Related posts for that post, categories and Tags that
+                    the post belongs to. This helps the user find posts that are simmilar to it's content.</p>
+                </div>
                 <?php 
 				$aisis_form->create_aisis_form_element('label', array('value'=>'Do Not Show Related Posts?'));
 				do_settings_fields('aisis-core-options', 'aisis_display_related_posts_section'); ?><br />
                 <?php
 				$aisis_form->create_aisis_form_element('label', array('value'=>'Should we Hide Categories and Tags?'));
 				do_settings_fields('aisis-core-options', 'aisis_display_categories_tags_section'); ?><br />
+                <div class="sideText">
+                    <h1>Upload an Image!</h1>
+                    <p>This image will be used as your header image and will scale to that of your screen size.
+                    This image should repersent your blog and be: <strong>980x119px</strong></p>
+                </div>                
                 <?php 
 				$aisis_form->create_aisis_form_element('label', array('value'=>'Upload your image!'));
 				do_settings_fields('aisis-core-options', 'aisis_upload_header_image_section'); ?><br /> 
+				<div class="notice">Bellow you can select a look for the site that will apply to all instances where we show you 
+                a list of posts. this means categories, tags, authors, index, list of Articles and Essays and so on.</div>
+                <div class="sideText">
+                    <h1>Site Content Layout</h1>
+                    <p>The following choices will allow you to show how you want the content of each section to be displayed.
+                    This relates to any page where you see a list of posts. index pages, author pages, list of category posts and so on.
+                    You can see each of the images bellow:
+                    
+                    <div id="SideText">
+                    	<a href="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp.png" class="images">
+            <img src="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp.png" width="32" height="32" />
+                        <a href="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp2.png" class="images">
+            <img src="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp2.png" width="32" height="32" />
+                        <a href="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp3.png" class="images">
+            <img src="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp3.png" width="32" height="32" /></a>
+                    </div></p>
+                </div>                
+				<div class="wrapper">
+				<?php
+				do_settings_fields('aisis-core-options', 'aisis_site_design_section');
+				?></div><br />
+                <div class="notice">Bellow you can select the look for the Aisis <strong>Articles and Essays</strong>. 
+                These options are the same as the above site options except that these only apply to the list of 
+                Aisis <strong>Articles and Essays</strong>.</div><div class="wrapper">
+				<?php
+				do_settings_fields('aisis-core-options', 'aisis_ae_design_section');
+				?>
+                </div>
             </div>               
        	</div>
       </div>

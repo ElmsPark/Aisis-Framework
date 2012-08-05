@@ -29,14 +29,9 @@
 	 * =================================================================
 	 */
 	 	global $more, $post;
-		$more = 0; //declare and set $more before The Loop
 		
-	 	$options = get_option('aisis_core_theme_setting_sidebar_single');
-		$option_global = get_option('aisis_core_theme_setting_sidebar_global');
 		$options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
-		$options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_single');
-		$options_recent_posts = get_option('aisis_display_related_posts_setting');
-		$options_cat_tags = get_option('aisis_display_categories_tags_setting');
+		$options_slider_mini_single = get_option('aisis_core_theme_setting_slider_mini_single');
 		
 		$aisis_category_list_options = array(
 				'orderby' => 'name',
@@ -44,7 +39,7 @@
 				'title_li'=> '',
 		);
 		
-		if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_single'] != 1){
+		if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini_single['no_slider_mini_single'] != 1){
 			aisis_header();
 		}				
 ?>
@@ -55,7 +50,9 @@
     
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
-                <div class="authorInfo">Author of this post:  <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
+                <div class="authorInfo">Author of this post: 
+                <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
+				<?php the_author_meta('display_name'); ?></a></div>
             </header>
             <?php if(has_post_thumbnail()){?>
                 <figure class="soft-embossed post-image">
@@ -66,10 +63,7 @@
         </article>
         <?php
 			endwhile; 
-		  	wp_reset_query(); 
 		?>
-        <!-- /.post -->
-    
     </div>
     
     <?php

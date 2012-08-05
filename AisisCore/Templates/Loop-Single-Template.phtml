@@ -26,34 +26,50 @@
 	 global $more, $post, $wp_query;
 	 $more = 0; //declare and set $more before The Loop
 	 
-	 $options = get_option('aisis_core_theme_setting_sidebar_single');
-	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
-	 $options_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
-	 $options_slider_mini = get_option('aisis_core_theme_setting_slider_mini_single');
-	 $options_related_posts = get_option('aisis_display_related_posts_setting');
-	 $options_cat_tags = get_option('aisis_display_categories_tags_setting');
+	 $option_sidebar_single = get_option('aisis_core_theme_setting_sidebar_single');
+	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $option_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 $option_slider_mini_single = get_option('aisis_core_theme_setting_slider_mini_single');
+	 $option_related_posts = get_option('aisis_display_related_posts_setting');
+	 $option_cat_tags = get_option('aisis_display_categories_tags_setting');
 	  
-	 $aisis_category_list_options = array(
+	 $aisis_category_list_option = array(
 			 'orderby' => 'name',
 			 'style' => 'none',
 			 'title_li'=> '',
 	 );	
 	 
-	if($options_slider_mini_global['no_slider_mini_global'] != 1 && $options_slider_mini['no_slider_mini_single'] != 1){
+	if($option_slider_mini_global['no_slider_mini_global'] != 1 && $option_slider_mini['no_slider_mini_single'] != 1){
 		aisis_header();
-	}	 
+	}
 	
-	if(is_sticky()){
-?>
-	
-    <div id="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'sticky'; }else{ echo 'stickyFull'; }?>">
+	if(has_post_format('aside')){?>
+    <div id="<?php if($option['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1)
+	{ echo 'content'; }else{ echo 'contentFull'; }?>">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
-    
+            <?php if(has_post_thumbnail()){?>
+                <figure class="soft-embossed postImage">
+                    <?php the_post_thumbnail();?>
+                </figure>
+            <?php } ?>
+            <p> <?php the_content(); ?></p>
+        </article>
+        <?php
+			endwhile; 
+		  	wp_reset_query(); 
+		?>
+    </div><?php		
+	}elseif(is_sticky()){?>
+	<div id="<?php if($option['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1)
+	{ echo 'sticky'; }else{ echo 'stickyFull'; }?>">
+    	<?php while(have_posts()) : the_post();?>
+        <article class="post clearfix">
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
                 <div class="postComments"><?php comments_number('0', '1', '%'); ?> comments</div>
-                Author: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a>, <?php the_time('F, jS, Y'); ?>
+                Author: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
+				<?php the_author_meta('display_name'); ?></a>, <?php the_time('F, jS, Y'); ?>
             </header>
             <?php if(has_post_thumbnail()){?>
                 <figure class="soft-embossed postImage">
@@ -66,23 +82,24 @@
 			endwhile; 
 		  	wp_reset_query(); 
 		?>
-        <!-- /.post -->
-    <?php if($options_cat_tags['cat_tags'] != 1){?>
-        <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list_options);?></div> 
+    <?php if($option_cat_tags['cat_tags'] != 1){?>
+        <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list_option);?></div> 
         <div class="listTags"><?php the_tags();?></div> 
     <?php } ?>  
     </div>
     
-    <?php
-	}else{
-	?>
-    <div id="<?php if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'contentFull'; }?>">
+    <?php		
+	}else{?>
+	<div id="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+	{echo 'content';}else{echo 'contentFull';}?>">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
-    
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
-                <div class="whoWrote">Author of this post: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a>, <?php the_time('F, jS, Y'); ?>, <?php comments_number('0', '1', '%'); ?> comments</div>      
+                <div class="whoWrote">Author of this post: 
+                <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
+				<?php the_author_meta('display_name'); ?></a>, <?php the_time('F, jS, Y'); ?>, 
+				<?php comments_number('0', '1', '%'); ?> comments</div>      
             </header>
             <?php if(has_post_thumbnail()){?>
                 <figure class="soft-embossed post-image">
@@ -91,7 +108,7 @@
             <?php } ?>
             <p> <?php the_content(); ?></p>
             <?php
-				if($options_related_posts['related_posts'] != 1){
+				if($option_related_posts['related_posts'] != 1){
 			?>
             <div class="relatedPosts">
                 <h2>Related Posts</h2>
@@ -110,7 +127,7 @@
 						while ($my_query->have_posts()) : $my_query->the_post(); ?>
                       	<strong><a href="<?php echo get_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>">
 						<?php echo get_the_title($post->ID); ?></a></strong>, <?php + " "; ?>
-						<?php endwhile;
+						<?php endwhile; wp_reset_query();
 					}
 				}
 				?>
@@ -143,19 +160,18 @@
 			endwhile; 
 		  	wp_reset_query(); 
 		?>
-        <!-- /.post -->
-    <?php if($options_cat_tags['cat_tags'] != 1){?>
-        <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list_options);?></div> 
+    <?php if($option_cat_tags['cat_tags'] != 1){?>
+        <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list_option);?></div> 
         <div class="listTags"><?php the_tags();?></div> 
     <?php } ?>  
-    </div>
-    <?php
+    </div><?php		
 	}
-	if($options['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){
+	
+	if($option['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1){
 		get_sidebar();
 	}
 	
-	?><div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ 
+	?><div class="<?php if($option['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){ 
 	echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
         <div class="prevPost"><?php echo  previous_post_link();?></div>
         <div class="nextPost"><?php echo  next_post_link(); ?></div>

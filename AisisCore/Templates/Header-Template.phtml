@@ -31,13 +31,27 @@
 	 * =================================================================
 	 */
 	 global $post; 
+	 
+	 /**
+	  * transient for the slides
+	  * to display them.
+	  */
+	 if ( false === ( $loop = get_transient( 'loop' ) ) ) {
+		 $slides_to_show = array( 'post_type' => 'slides');
+		 $loop = new WP_Query( $slides_to_show );
+		 set_transient('loop', $loop);
+	 }	
+	 
+	 /**
+	  * This transient will display the 
+	  * minifeed content.
+	  */
+	 if ( false === ( $loop_mini = get_transient( 'loop_mini' ) ) ) {
+		 $post_type = array('post_type' => 'mini');
+		 $loop_mini = new WP_Query($post_type);
+		 set_transient('loop_mini', $loop_mini);
+	 }	  
 ?>
-	
-	<?php
-	//Slider Code bellow.
-	$args = array( 'post_type' => 'slides');
-	$loop = new WP_Query( $args );
-	?>
     <?php if($loop->have_posts()){?>
         <div id="objectWrapper">
             <div class="flex-container">
@@ -63,11 +77,6 @@
         </div>
     <?php }?>
 	
-    <?php 
-	//MiniFeed Code bellow.
-	$post_type = array('post_type' => 'mini');
-	$loop_mini = new WP_Query($post_type);
-	?>
     <?php if($loop_mini->have_posts()){?>
     <div id="miniFeedWrapper">
     	<?php while ($loop_mini->have_posts()) : $loop_mini->the_post();?>

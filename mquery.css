@@ -14,10 +14,16 @@ smaller than 980
 	#commentsbox{
 		width:70%;
 	}
-	#contentFull, #commentsboxFull, #authorFull, #categoryFull, #stickyFull, .pagnationFull{
+	#contentFull, #commentsboxFull, #authorFull, 
+	#categoryFull, #stickyFull, .pagnationFull, 
+	#contentNoBack{
 		width: 93%;
 		padding: 3% 4%;
 	}
+	
+	#contentNoBackFull{
+		width: 60%;
+	}	
 	/* sidebar */
 	#sidebar {
 		width: 30%;
@@ -74,7 +80,8 @@ smaller than 650
 	/* content */
 	#content, #contentFull, #commentsbox, 
 	#commentsBoxFull, #author, #authorFull, .miniFeed,
-	#category, #categoryFull, #stickyFull, .pagnation, .pagnationFull {
+	#category, #categoryFull, #stickyFull, .pagnation, .pagnationFull,
+	#contentNoBack, #contentNoBackFull {
 		width: auto;
 		float: none;
 		margin: 20px 0;

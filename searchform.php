@@ -19,7 +19,8 @@
 			'id'=>'searchform'
 	 ));
 	 
-	 $aisis_form->create_aisis_form_element('input', 'search', array(
+	 $aisis_form->create_aisis_form_element('input',array(
+	 		'type'=>'search',
 	 		'id' => 'search',
 			'name' => 's',
 			'placeholder' => 'search'

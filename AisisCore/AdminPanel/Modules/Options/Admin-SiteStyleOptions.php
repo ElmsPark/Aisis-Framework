@@ -41,11 +41,29 @@
 			'aisis_upload_header_image',
 			'aisis-core-options',
 			'aisis_upload_header_image_section'
-		);		
+		);
+		
+		add_settings_field(
+			'aisis_site_design_setting',
+			'',
+			'aisis_site_design',
+			'aisis-core-options',
+			'aisis_site_design_section'
+		);
+		
+		add_settings_field(
+			'aisis_ae_design_setting',
+			'',
+			'aisis_ae_design',
+			'aisis-core-options',
+			'aisis_ae_design_section'
+		);							
 		
 		register_setting('aisis-core-options', 'aisis_display_categories_tags_setting', 'aisis_display_categories_tags_Validation');
 		register_setting('aisis-core-options', 'aisis_display_related_posts_setting', 'aisis_display_related_posts_validation');
 		register_setting('aisis-core-options', 'aisis_upload_header_image_setting', 'aisis_upload_header_image_validation');
+		register_setting('aisis-core-options', 'aisis_site_design_setting', 'aisis_site_design_validation');
+		register_setting('aisis-core-options', 'aisis_ae_design_setting', 'aisis_ae_design_validation');
 	 }
 	
 	 /**
@@ -81,6 +99,7 @@
 			));			
 		}
 	}
+
 	/**
 	 * set up the image jazz
 	 */
@@ -110,7 +129,88 @@
 				  'value' => 'upload your image!'
 			));				
 		}
+	}
+			
+	if(!function_exists('aisis_site_design')){
+		function aisis_site_design(){
+			$aisis_create_form_element = new AisisForm();
+			$options = get_option('aisis_site_design_setting');
+			$aisis_create_form_element->create_aisis_form_element('label', array(
+				'value'=>'Would you like: Default Look'
+			));
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+				'type'=>'radio',
+ 				'id'=>'designlayout',
+			  	'name'=>'aisis_site_design_setting[layout]',
+			  	'value'=>'1',
+			  	'checked' => checked(1, $options['layout'], false)
+			));	?>
+            <br /><?php
+			$aisis_create_form_element->create_aisis_form_element('label', array(
+				'value'=>'Would you like: Sperate The Posts '
+			));
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+				'type'=>'radio',
+ 				'id'=>'designNone',
+			  	'name'=>'aisis_site_design_setting[layout]',
+			  	'value'=>'2',
+			  	'checked' => checked(2, $options['layout'], false)
+			));	?>
+            <br /><?php
+			$aisis_create_form_element->create_aisis_form_element('label', array(
+				'value'=>'Would you like: No Back '
+			));
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+				'type'=>'radio',
+ 				'id'=>'designDefault',
+			  	'name'=>'aisis_site_design_setting[layout]',
+			  	'value'=>'3',
+			  	'checked' => checked(3, $options['layout'], false)
+			));	?>
+            </a><br /><br /><?php														
+		}
+	}	
+	
+	if(!function_exists('aisis_ae_design')){
+		function aisis_ae_design(){
+			$aisis_create_form_element = new AisisForm();
+			$options = get_option('aisis_ae_design_setting');
+			$aisis_create_form_element->create_aisis_form_element('label', array(
+				'value'=>'Would you like: Default Look'
+			));
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+				'type'=>'radio',
+ 				'id'=>'designlayout',
+			  	'name'=>'aisis_ae_design_setting[layout]',
+			  	'value'=>'1',
+			  	'checked' => checked(1, $options['layout'], false)
+			));	?>
+            <br /><?php
+			$aisis_create_form_element->create_aisis_form_element('label', array(
+				'value'=>'Would you like: Sperate The Posts '
+			));
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+				'type'=>'radio',
+ 				'id'=>'designNone',
+			  	'name'=>'aisis_ae_design_setting[layout]',
+			  	'value'=>'2',
+			  	'checked' => checked(2, $options['layout'], false)
+			));	?>
+            <br /><?php
+			$aisis_create_form_element->create_aisis_form_element('label', array(
+				'value'=>'Would you like: No Back '
+			));
+			$aisis_create_form_element->create_aisis_form_element('input', array(
+				'type'=>'radio',
+ 				'id'=>'designDefault',
+			  	'name'=>'aisis_ae_design_setting[layout]',
+			  	'value'=>'3',
+			  	'checked' => checked(3, $options['layout'], false)
+			));	?>
+            <br /><br /><?php														
+		}
 	}		
+
 	/**
 	 * We validate and store the value
 	 */
@@ -153,7 +253,25 @@
 			update_option('admin_success_message', 'true'); 
 			return $options; 
 		}
-	}		
+	}	
+	
+	if(!function_exists('aisis_site_design_validation')){
+		function aisis_site_design_validation($input){
+			$options = get_option('aisis_site_design_setting');
+			$options['layout'] = $input['layout'];
+			update_option('admin_success_message', 'true'); 
+			return $options; 
+		}
+	}
+	
+	if(!function_exists('aisis_ae_design_validation')){
+		function aisis_ae_design_validation($input){
+			$options = get_option('aisis_ae_design_setting');
+			$options['layout'] = $input['layout'];
+			update_option('admin_success_message', 'true'); 
+			return $options; 
+		}
+	}			
 	
 	add_option('admin_success_message', '', '', 'yes');
 	add_action('admin_init', 'set_up_related_posts');

@@ -113,6 +113,9 @@
 	 * uploading images for the author banner.
 	 */        
 	jQuery(document).ready(function() {
+		
+		jQuery(".images").colorbox({rel:'images'});
+		
 		jQuery('#upload_image_button').click(function() {
 			formfield = jQuery('#upload_image').attr('name');
 			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
@@ -135,7 +138,17 @@
 			imgurl = jQuery('img',html).attr('src');
 			jQuery('#aisis_header_img').val(imgurl);
 			tb_remove();
-		}			
+		}
+		
+		var max = 10;
+		
+		jQuery(".alignForm label").each(function(){
+			if($(this).width() > max){
+				max = $(this).width();	
+			}
+		});
+		
+		jQuery(".alignForm label").width(max);
 	
 	});	
 	</script>
