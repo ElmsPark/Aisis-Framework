@@ -44,6 +44,13 @@
 		'before_title' => '<h4 class="footerWidgettitle">',
 		'after_title' => '</h4>',
 		));
+		register_sidebar(array(
+		'name'=>'bbpress',
+		'before_widget' => '<section class="widget">',
+		'after_widget' => '</section>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+		));
 	}
 	
 	// Default Main Nav Function
