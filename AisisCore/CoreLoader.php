@@ -23,6 +23,9 @@
 	 * =================================================================
 	 */
 	 
+	 //So we can do checks for plugins
+	 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	 
 	 //Defaults - Core - Load it
 	 require_once(AISISCORE . 'AisisCore.php');
 	 require_once(AISISCORE . 'AisisHooks.php');
@@ -70,7 +73,12 @@
 	 function aisis_load_scripts_styles(){ 
 	 	wp_enqueue_style( 'core-styles', get_bloginfo('stylesheet_url')); //Load core styles
 	 	wp_enqueue_style( 'mediaquery-css', get_template_directory_uri() . '/mquery.css'); //Load core Media Query
-		wp_enqueue_style( 'bbpress-css', get_template_directory_uri() . '/AisisCore/BBPress/styles.css'); //BBpress		
+		
+		//if bbpress is active do this.
+		if(is_plugin_active("bbpress/bbpress.php")){
+			wp_enqueue_style( 'bbpress-css', get_template_directory_uri() . '/AisisCore/BBPress/styles.css'); //BBpress	
+		}
+		
 	 	wp_enqueue_style( 'googlefont-ubuntu', 'http://fonts.googleapis.com/css?family=Open+Sans'); //Load Ubuntu Font
 	 	wp_enqueue_style( 'tip-tip-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/tipTip.css'); //Load plugin css
 	 	wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css'); //Load plugin css

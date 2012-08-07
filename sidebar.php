@@ -25,9 +25,15 @@
 <aside id="sidebar">
 
 	<?php 
-	if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar') ) : else :
-    	aisis_default_sidebar();
-    endif; ?>
+	aisis_var_dump($_GET['topic'], true);
+		
+	if('forum' == get_post_type() && !empty($_GET['topic'])){
+		if(function_exists('dynamic_sidebar') && dynamic_sidebar('bbpress'));
+	}else{
+		if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar')):else:
+			aisis_default_sidebar();
+		endif;			
+	}?>
 						
 </aside>
 <!-- /#sidebar -->
