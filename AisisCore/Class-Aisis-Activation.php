@@ -79,7 +79,7 @@
 					  
 					  if(!empty($errors)){
 						  aisis_theme_actiovation_check_errors($errors);
-						  echo "<div class='adminThemeErrors'>We could not load your LoadCustom.php because of the ors at hand.</div>";
+						  echo "<div class='adminThemeErrors'>We could not load your LoadCustom.php because of the errors at hand.</div>";
 						  $this->aisis_theme_activation_notice();
 					  }else{
 						  chmod(CUSTOM . 'custom-functions.php', 0755);

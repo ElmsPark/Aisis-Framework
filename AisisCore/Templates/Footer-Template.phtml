@@ -22,10 +22,17 @@
 	 *
 	 * =================================================================
 	 */
+	 $option_footer_bbpress = get_option('aisis_use_bbpress_footer_widget_setting');
 ?>
 	<footer id="footer">
         <div class="footerWrapper">     
-            <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Footer') )?>
+            <?php 
+			if(($option_footer_bbpress['bbpress_footer'] == 1 && 'topic' == get_post_type()) || 
+			($option_footer_bbpress['bbpress_footer'] == 1 && !empty($_GET['topic']))){
+				if(function_exists('dynamic_sidebar') && dynamic_sidebar('bbpress_footer'));
+			}else{
+				if(function_exists('dynamic_sidebar') && dynamic_sidebar('Footer'));
+			}?>
         </div>
         <div class="afterBlock">
             <div class="rightText"><?php aisis_default_right_footer_text(); ?></div>

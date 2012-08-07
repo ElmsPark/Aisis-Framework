@@ -49,6 +49,7 @@
 	 $aisis_package_loader->load_aisis_codes_package();
 	 $aisis_package_loader->load_aisis_view_package();
 	 $aisis_package_loader->load_aisis_social_media_package();
+	 if(does_plugin_exist('bbpress/bbpress.php')){$aisis_package_loader->load_aisis_bbpress();}
 	 
 	 //When the theme if first activated.
 	 $aisis_activation = new AisisActivation();
@@ -75,7 +76,7 @@
 	 	wp_enqueue_style( 'mediaquery-css', get_template_directory_uri() . '/mquery.css'); //Load core Media Query
 		
 		//if bbpress is active do this.
-		if(is_plugin_active("bbpress/bbpress.php")){
+		if(does_plugin_exist("bbpress/bbpress.php")){
 			wp_enqueue_style( 'bbpress-css', get_template_directory_uri() . '/AisisCore/BBPress/styles.css'); //BBpress	
 		}
 		

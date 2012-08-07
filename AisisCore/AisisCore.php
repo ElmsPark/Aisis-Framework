@@ -37,6 +37,7 @@
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 		));
+		
 		register_sidebar(array(
 		'name' => 'Footer',
 		'before_widget' => '<div class="block"><section class="footerWidget">',
@@ -44,13 +45,23 @@
 		'before_title' => '<h4 class="footerWidgettitle">',
 		'after_title' => '</h4>',
 		));
-		register_sidebar(array(
-		'name'=>'bbpress',
-		'before_widget' => '<section class="widget">',
-		'after_widget' => '</section>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-		));
+		
+		if(does_plugin_exist('bbpress/bbpress.php')){
+			register_sidebar(array(
+			'name'=>'bbpress',
+			'before_widget' => '<section class="widget">',
+			'after_widget' => '</section>',
+			'before_title' => '<h4 class="widgettitle">',
+			'after_title' => '</h4>',
+			));
+			register_sidebar(array(
+			'name'=>'bbpress_footer',
+			'before_widget' => '<div class="block"><section class="footerWidget">',
+			'after_widget' => '</section></div>',
+			'before_title' => '<h4 class="footerWidgettitle">',
+			'after_title' => '</h4>',
+			));			
+		}
 	}
 	
 	// Default Main Nav Function
@@ -96,6 +107,11 @@
 	   }
 
 	   return $html;
+	}
+	
+	//plugin checker
+	function does_plugin_exist($path_to_plugin_file){
+		return is_plugin_active($path_to_plugin_file);
 	}
 	
 	add_filter('pre_get_posts','aisis_search_filter');

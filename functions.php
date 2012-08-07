@@ -43,6 +43,7 @@
 	 define('AISIS_TEMPLATES',TEMPLATEPATH . '/AisisCore/Templates/');
 	 define('AISIS_SHORTCODES', TEMPLATEPATH . '/AisisCore/ShortCodes/');
 	 define('AISIS_VIEW', TEMPLATEPATH . '/AisisCore/AisisView/');
+	 define('AISIS_BBPRESS', TEMPLATEPATH . '/AisisCore/BBPress/');
 	 
 	 // Define Aisis Custom - for loading the whole folder.
 	 if(is_multisite()){
