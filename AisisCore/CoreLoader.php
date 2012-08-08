@@ -77,7 +77,7 @@
 		
 		//if bbpress is active do this.
 		if(does_plugin_exist("bbpress/bbpress.php")){
-			wp_enqueue_style( 'bbpress-css', get_template_directory_uri() . '/AisisCore/BBPress/styles.css'); //BBpress	
+			wp_enqueue_style( 'bbpress-css', get_template_directory_uri() . '/AisisCore/BBPress/Styles/styles.css'); //BBpress	
 		}
 		
 	 	wp_enqueue_style( 'googlefont-ubuntu', 'http://fonts.googleapis.com/css?family=Open+Sans'); //Load Ubuntu Font

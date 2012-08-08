@@ -75,7 +75,9 @@
               </div>
             </div>
         </div>
-    <?php }?>
+    <?php }
+	
+	wp_reset_query();?>
 	
     <?php if($loop_mini->have_posts()){?>
     <div id="miniFeedWrapper">
@@ -92,4 +94,6 @@
         </div>
         <?php endwhile; ?>                   
     </div>
-   	<?php } ?>
+   	<?php } 
+	
+	wp_reset_query();?>

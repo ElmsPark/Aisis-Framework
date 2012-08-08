@@ -114,6 +114,8 @@
 		return is_plugin_active($path_to_plugin_file);
 	}
 	
+	if(!isset($content_width)){$content_width = 550;}
+	
 	add_filter('pre_get_posts','aisis_search_filter');
 	add_filter('embed_oembed_html', 'theme_youtube_handler', 10, 4);
 	add_filter('excerpt_more', 'aisis_excerpt');

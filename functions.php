@@ -30,26 +30,26 @@
 	 
 	 //Define Aisis Core Package
 	 define('AISIS_DIR', get_template_directory_uri() . '/');
-	 define('AISIS', TEMPLATEPATH . '/');
+	 define('AISIS', get_template_directory() . '/');
 	 
-	 define('AISISCORE', TEMPLATEPATH . '/AisisCore/');
-	 define('AISIS_EXCEPTIONS', TEMPLATEPATH . '/AisisCore/Exceptions/');
-	 define('AISIS_ADMINPANEL', TEMPLATEPATH . '/AisisCore/AdminPanel/');
-	 define('AISIS_ADMINPANEL_MODULES', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/');
-	 define('AISIS_ADMINPANEL_MODULES_OPTIONS', TEMPLATEPATH . '/AisisCore/AdminPanel/Modules/Options/');
-	 define('AISIS_CUSTOM_POST_TYPES', TEMPLATEPATH . '/AisisCore/AdminPanel/AisisCustomPostTypes/');
-	 define('AISIS_CUSTOM_POST_TYPES_META', TEMPLATEPATH . '/AisisCore/AdminPanel/AisisCustomPostTypes/MetaTemplates/');
-	 define('AISIS_SOCIAL', TEMPLATEPATH . '/AisisCore/AisisSocialMedia/');
-	 define('AISIS_TEMPLATES',TEMPLATEPATH . '/AisisCore/Templates/');
-	 define('AISIS_SHORTCODES', TEMPLATEPATH . '/AisisCore/ShortCodes/');
-	 define('AISIS_VIEW', TEMPLATEPATH . '/AisisCore/AisisView/');
-	 define('AISIS_BBPRESS', TEMPLATEPATH . '/AisisCore/BBPress/');
+	 define('AISISCORE', get_template_directory() . '/AisisCore/');
+	 define('AISIS_EXCEPTIONS', get_template_directory() . '/AisisCore/Exceptions/');
+	 define('AISIS_ADMINPANEL', get_template_directory() . '/AisisCore/AdminPanel/');
+	 define('AISIS_ADMINPANEL_MODULES', get_template_directory() . '/AisisCore/AdminPanel/Modules/');
+	 define('AISIS_ADMINPANEL_MODULES_OPTIONS', get_template_directory() . '/AisisCore/AdminPanel/Modules/Options/');
+	 define('AISIS_CUSTOM_POST_TYPES', get_template_directory() . '/AisisCore/AdminPanel/AisisCustomPostTypes/');
+	 define('AISIS_CUSTOM_POST_TYPES_META', get_template_directory() . '/AisisCore/AdminPanel/AisisCustomPostTypes/MetaTemplates/');
+	 define('AISIS_SOCIAL', get_template_directory() . '/AisisCore/AisisSocialMedia/');
+	 define('AISIS_TEMPLATES',get_template_directory() . '/AisisCore/Templates/');
+	 define('AISIS_SHORTCODES', get_template_directory() . '/AisisCore/ShortCodes/');
+	 define('AISIS_VIEW', get_template_directory() . '/AisisCore/AisisView/');
+	 define('AISIS_BBPRESS', get_template_directory() . '/AisisCore/BBPress/');
 	 
 	 // Define Aisis Custom - for loading the whole folder.
 	 if(is_multisite()){
-	 	define('CUSTOM', TEMPLATEPATH . '/custom-'.$blog_id.'/');
+	 	define('CUSTOM', get_template_directory() . '/custom-'.$blog_id.'/');
 	 }else{
-		define('CUSTOM', TEMPLATEPATH . '/custom/');
+		define('CUSTOM', get_template_directory() . '/custom/');
 	 }
 	 
 	 //for loading js, css based files.

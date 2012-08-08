@@ -61,7 +61,7 @@
 		?>
     </div><?php		
 	}elseif(is_sticky()){?>
-	<div id="<?php if($option['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1)
+	<div class="<?php if($option['no_sidebar_single'] != 1 && $option_global['no_sidebar_global'] != 1)
 	{ echo 'sticky'; }else{ echo 'stickyFull'; }?>">
     	<?php while(have_posts()) : the_post();?>
         <article class="post clearfix">
@@ -125,8 +125,10 @@
 					$my_query = new WP_Query($args);
 					if( $my_query->have_posts() ) {
 						while ($my_query->have_posts()) : $my_query->the_post(); ?>
-                      	<strong><a href="<?php echo get_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>">
-						<?php echo get_the_title($post->ID); ?></a></strong>, <?php + " "; ?>
+                      	<ul>
+                        	<li><a href="<?php echo get_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>">
+						<?php echo get_the_title($post->ID); ?></a></li>
+                        </ul>
 						<?php endwhile; wp_reset_query();
 					}
 				}

@@ -65,9 +65,12 @@ $aisis_form->open_form(array(
 				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Sidebar (Custom Index)')); 
 				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_custom'); ?><br /> 
                 <div class="smallNotice">Only applies if you have a static front page.</div>
-                <?php 
+                <div class="wrapper"><?php 
 				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Sidebar (Front)')); 
-				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_front_page');?>                                            
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_front_page');?>	
+                <?php if(does_plugin_exist('bbpress/bbpress.php')){
+					do_settings_fields('aisis-core-options', 'aisis_sidebar_bbpress_section');
+				}?>	</div><br  /><br />                                            
             </div>
         </div>
     </div>
@@ -106,6 +109,7 @@ $aisis_form->open_form(array(
                 <?php 
 				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Slider and Mini Feed (Front)'));
 				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_front_page'); ?><br /> 
+                <div class="wrapper"><?php do_settings_fields('aisis-core-options', 'aisis_slider_minifeed_section');?></div><br />
                  <br />                                                             
             </div>
         </div>        
