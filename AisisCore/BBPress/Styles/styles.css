@@ -91,3 +91,7 @@ div.bbp-submit-wrapper {
 #bbp-lost-pass fieldset label {
 	width: 102px;
 }
+
+#bbpress-forums .status-closed, #bbpress-forums .status-closed a {
+	color: #635F5F !important;
+}

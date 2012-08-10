@@ -102,7 +102,17 @@
 				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Post Types package: AisisCustomPostTypes</strong>") . "</div>");
 				 exit;
 			 }
-		 }			 		 		 	 
+		 }	
+		 
+		 function load_aisis_bbpress(){
+			 $this->aisis_file_handling = new AisisFileHandling();
+			 if($this->aisis_file_handling->check_dir(AISIS_BBPRESS)){
+				 $this->aisis_file_handling->aisis_register_security($this->aisis_file_handling->load_directory_of_files(AISIS_BBPRESS));
+			 }else{
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the BBPress package: BBPress</strong>") . "</div>");
+				 exit;
+			 }
+		 }			 
 		 
 		 /**
 		  * This is our helper function to allow you
@@ -116,6 +126,5 @@
 				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the package you want to load at the directory of: $dir_of_package </strong>") . "</div>"); 
 			 }
 		 }
-	 
 	 }
 ?>

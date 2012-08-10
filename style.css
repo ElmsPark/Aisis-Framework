@@ -5,12 +5,12 @@
 	Author: Adam Balan
 	Author URI: http://adambalan.com
 	Version: 1.0
-	Tags: framework, functionality, responsive, aisis, Aisis, Adam, Balan, Adam Balan
-	.
-	Aisis  Copyright (C) 2012  Adam Balan
+	Tags: custom-menu, flexible-width, full-width-template, gray, light, one-column, sticky-post, theme-options, threaded-comments, white
+	License: Aisis  Copyright (C) 2012  Adam Balan
 	This program comes with ABSOLUTELY NO WARRANTY.
 	This is free software, and you are welcome to redistribute it
 	under certain conditions.
+	License URI: http://www.gnu.org/copyleft/gpl.html
  *	
  *====================== [[CSS STYLE SHEET]] ===========================
  *
@@ -464,7 +464,7 @@ CONTENT
 	margin: 15px 0 -15px 0;
 	clear: both;
 }
-#content, #contentFull, #category, #categoryFull, #author, #authorFull, #sticky, #stickyFull{
+#content, #contentFull, #category, #categoryFull, #author, #authorFull, .sticky, .stickyFull{
 	background-color: white;
 	border-color: #DDD;
 	border-width: 1px;
@@ -484,7 +484,7 @@ CONTENT
 	float:left;
 }
 
-#sticky, #stickyFull{
+.sticky, .stickyFull{
 	background-color:rgb(247,245,219);
 	border: 1ps solid rgb(240,234,153);
 	border-radius:5px;
@@ -495,7 +495,7 @@ CONTENT
 	margin-bottom: 20px;
 }
 
-#contentFull, #authorFull, #categoryFull, #stickyFull{
+#contentFull, #authorFull, #categoryFull, .stickyFull{
 	width: 93%;
 }
 
@@ -659,18 +659,18 @@ CONTENT
 }
 .pagnation{
 	width: 670px;
-	float:left;
-	height:18px;
-	border-color:rgb(153,153,153);
-	border-width:1px;
-	border-radius:4px;
-	border-style:solid;
-	box-shadow:inset 0px 0px 3px rgba(187,187,187,0.35);
-	text-align:center;	
-	background-color:rgb(174,190,202);
+	float: left;
+	height: 18px;
+	border-color: #999;
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: solid;
+	box-shadow: inset 0px 0px 3px rgba(187, 187, 187, 0.35);
+	text-align: center;
+	background-color: #E3E9EE;
 	margin: 0 0 10px 0;
-	padding-bottom: 7px;
-	text-align:center;
+	padding: 7px 0 7px 0;
+	text-align: center;
 }
 .pagnationFull{
 	width: 100%;
@@ -975,7 +975,7 @@ FOOTER
 	font-size: 85%;
 }
 #footer a {
-	color: #fff;
+	color: #7C7373;
 }
 
 /************************************************************************************
@@ -984,3 +984,34 @@ CLEARFIX
 .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 .clearfix { display: inline-block; }
 .clearfix { display: block; zoom: 1; }
+
+/************************************************************************************
+WORDPRESS  - SPECIFIC
+*************************************************************************************/
+
+.wp-caption, .gallery-caption {
+	background-color:rgb(238,238,238);
+	border-radius:5px;
+	border: 1px dashed rgb(221,221,221);
+	box-shadow:0px 3px 3px rgba(221,221,221,0.35);
+	margin:10px;
+	padding:4px;
+	max-width:90%;
+}
+.wp-caption img, .gallery-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+.wp-caption p.wp-caption-text {
+	font-size: 12px;
+	line-height: 17px;
+	padding: 0 4px 5px;
+	margin: 0;
+}
+
+/************************************************************************************
+WORDPRESS  - SPECIFIC - Not currently used....
+*************************************************************************************/
+.bypostauthor{}
+.aligncenter{} 

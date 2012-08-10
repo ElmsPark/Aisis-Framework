@@ -49,10 +49,12 @@
 	 $aisis_package_loader->load_aisis_codes_package();
 	 $aisis_package_loader->load_aisis_view_package();
 	 $aisis_package_loader->load_aisis_social_media_package();
+	 if(does_plugin_exist('bbpress/bbpress.php')){$aisis_package_loader->load_aisis_bbpress();}
 	 
 	 //When the theme if first activated.
 	 $aisis_activation = new AisisActivation();
 	 $aisis_activation->aisis_do_on_load();
+	 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
 	
 	 /**
 	  * Why are we doing this? so we (Aisis) can use
@@ -75,8 +77,8 @@
 	 	wp_enqueue_style( 'mediaquery-css', get_template_directory_uri() . '/mquery.css'); //Load core Media Query
 		
 		//if bbpress is active do this.
-		if(is_plugin_active("bbpress/bbpress.php")){
-			wp_enqueue_style( 'bbpress-css', get_template_directory_uri() . '/AisisCore/BBPress/styles.css'); //BBpress	
+		if(does_plugin_exist("bbpress/bbpress.php")){
+			wp_enqueue_style( 'bbpress-css', get_template_directory_uri() . '/AisisCore/BBPress/Styles/styles.css'); //BBpress	
 		}
 		
 	 	wp_enqueue_style( 'googlefont-ubuntu', 'http://fonts.googleapis.com/css?family=Open+Sans'); //Load Ubuntu Font

@@ -25,7 +25,7 @@
 	 */
 	 
 	class AisisActivation{
-	 
+		
 	 	/**
 		 * We essentially make sure that the proper files and
 		 * that the custom folder are in the appropriate location.
@@ -79,7 +79,7 @@
 					  
 					  if(!empty($errors)){
 						  aisis_theme_actiovation_check_errors($errors);
-						  echo "<div class='adminThemeErrors'>We could not load your LoadCustom.php because of the ors at hand.</div>";
+						  echo "<div class='adminThemeErrors'>We could not load your LoadCustom.php because of the errors at hand.</div>";
 						  $this->aisis_theme_activation_notice();
 					  }else{
 						  chmod(CUSTOM . 'custom-functions.php', 0755);
@@ -94,6 +94,21 @@
 				  }
 			  }
 		  }
+		 
+		/**
+		 * This finction requires two parameters.
+		 * one is the path to the plugin.php file
+		 * so in our case its bbpress/bbpress.php as a string
+		 * and then name is bbpress.
+		 */  
+		function check_plugin_is_activated($plugin_path, $name){
+			global $pagenow;
+			if(is_admin() && isset($_GET['activate']) && $pagenow == 'plugins.php'){
+				if(does_plugin_exist($plugin_path)){
+					$this->aisis_bbpess_activation_message($name);
+				}
+			}
+		}		  
 		
 		/**
 		 * Used to display the activation
@@ -158,6 +173,12 @@
 			<div class="adminThemeNotice">Your theme was loaded successfully but there were errors...</div>
 			<?php
 		 }
+		 
+		 function aisis_bbpess_activation_message($name){
+			echo '<div class="pluginThemeActivation">You have activated: <strong>'.$name.'</strong>. As a resualt Aisis
+			has some new features in the options page regarding this plugin and how it interacts with the software! Check it out!</div>';
+		 }		
+
 		 
 		 /**
 		  * The success message. We hide the default 

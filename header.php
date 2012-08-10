@@ -52,7 +52,16 @@
             <header id="header">
         		
                 <hgroup>
-                    <div id="siteLogo"><a href="<?php bloginfo('url')?>"><img src="<?php if($option['aisis_header_img'] != ''){echo $option['aisis_header_img'];}else{bloginfo('template_directory');?>/images/bridge.jpg<?php } ?>" /></a></div>
+                    <div id="siteLogo">
+                    <?php if(get_header_image() == ''){?>
+                    <a href="<?php bloginfo('url')?>"><img src="<?php if($option['aisis_header_img'] != '')
+					{echo $option['aisis_header_img'];}else{bloginfo('template_directory');?>/images/bridge.jpg<?php } ?>" />
+                    </a>
+                    <?php }else{
+						?><a href="<?php bloginfo('url')?>">
+                        <img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" 
+                        height="<?php echo get_custom_header()->height; ?>" /></a><?php
+					}?></div>
                 </hgroup>
         		<div class="socialMediaLink"><?php aisis_social_media(); ?></div>
                 <nav>

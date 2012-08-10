@@ -32,25 +32,11 @@
 	 */
 	 global $post; 
 	 
-	 /**
-	  * transient for the slides
-	  * to display them.
-	  */
-	 if ( false === ( $loop = get_transient( 'loop' ) ) ) {
-		 $slides_to_show = array( 'post_type' => 'slides');
-		 $loop = new WP_Query( $slides_to_show );
-		 set_transient('loop', $loop);
-	 }	
+	 $slides_to_show = array( 'post_type' => 'slides');
+	 $loop = new WP_Query( $slides_to_show );
 	 
-	 /**
-	  * This transient will display the 
-	  * minifeed content.
-	  */
-	 if ( false === ( $loop_mini = get_transient( 'loop_mini' ) ) ) {
-		 $post_type = array('post_type' => 'mini');
-		 $loop_mini = new WP_Query($post_type);
-		 set_transient('loop_mini', $loop_mini);
-	 }	  
+	 $post_type = array('post_type' => 'mini');
+	 $loop_mini = new WP_Query($post_type); 
 ?>
     <?php if($loop->have_posts()){?>
         <div id="objectWrapper">

@@ -31,14 +31,8 @@
 	 $option_slider_mini = get_option('aisis_core_theme_setting_slider_mini_page');
 	 $option_slider_mini_front_page = get_option('aisis_core_theme_setting_slider_mini_front_page');	 
 	 $option_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
-	 
-	 if(is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
-	 $option_slider_mini_front_page['no_slider_mini_front_page'] != 1){
-		 aisis_header();
-	 }elseif(!is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
-	 $option_slider_mini['no_slider_mini_page'] != 1){
-		 aisis_header();
-	 }
+	 $option_sidebar_bbpress = get_option('aisis_sidebar_bbpress_setting');
+	 $option_header_bbepress = get_option('aisis_bbpress_slider_minifeed_setting');
 	 
 	 if(is_front_page() && $option_sidebar_front_page['no_sidebar_front'] != 1 && 
 	 $option_sidebar_global['no_sidebar_global'] != 1){
@@ -49,9 +43,26 @@
 	 }else{
 		 $content_class = 'contentFull';
 	 }
- ?>  
+	 
+	 
+	 if(is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
+	 $option_slider_mini_front_page['no_slider_mini_front_page'] != 1 && 'forum' != get_post_type()
+	 && 'topic' != get_post_type()){
+		 aisis_header();
+	 }elseif(!is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
+	 $option_slider_mini['no_slider_mini_page'] != 1 && 'forum' != get_post_type() && 'topic' != get_post_type()){
+		 aisis_header();
+	 }
+	  
+	 if(('forum' == get_post_type() && $option_header_bbepress['bbpress_slider_mini'] != 1) || 
+	 ('topic' == get_post_type() && $option_header_bbepress['bbpress_slider_mini'] != 1 )){
+		 aisis_header();
+	 }
+
+?>  
     <div id="<?php echo $content_class;?>">
-    	<?php while(have_posts()) : the_post();?>
+    	<?php 
+		while(have_posts()) : the_post();?>
         <article class="post clearfix">
     
             <header>
@@ -76,6 +87,9 @@
 		 get_sidebar();
 	 }elseif(!is_front_page() && $option_sidebar_page['no_sidebar_page'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
 		  get_sidebar();
+	 }elseif(('forum' == get_post_type() && $option_sidebar_bbpress['bbpress_sidebar'] == 1) 
+	 || !empty($_GET['topic']) && $option_sidebar_bbpress['bbpress_sidebar'] == 1){
+		 get_sidebar();
 	 }
 	 
      if('open' == $post->comment_status){

@@ -20,12 +20,28 @@
 	 * =================================================================
 	 */
 	 
+	 $aisis_default = array(
+		'default-image'          => '',
+		'random-default'         => false,
+		'width'                  => 980,
+		'height'                 => 119,
+		'flex-height'            => true,
+		'flex-width'             => true,
+		'default-text-color'     => '',
+		'header-text'            => true,
+		'uploads'                => true,
+		'wp-head-callback'       => '',
+		'admin-head-callback'    => '',
+		'admin-preview-callback' => '',
+	);
+	 
 
 	//We want to add post thumbnail support
 	if(function_exists('add_theme_support')){
 		add_theme_support('post-thumbnails');
-		add_theme_support( 'post-formats', array( 'aside', 'link', 'gallery', 'status', 'quote', 'image' ) );
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('post-formats', array('aside', 'link', 'gallery', 'status', 'quote', 'image'));
+		add_theme_support('automatic-feed-links');
+		add_theme_support('custom-header', $aisis_default);
 	}
 	
 	//Sidebar jazz
@@ -37,6 +53,7 @@
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 		));
+		
 		register_sidebar(array(
 		'name' => 'Footer',
 		'before_widget' => '<div class="block"><section class="footerWidget">',
@@ -44,13 +61,23 @@
 		'before_title' => '<h4 class="footerWidgettitle">',
 		'after_title' => '</h4>',
 		));
-		register_sidebar(array(
-		'name'=>'bbpress',
-		'before_widget' => '<section class="widget">',
-		'after_widget' => '</section>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-		));
+		
+		if(does_plugin_exist('bbpress/bbpress.php')){
+			register_sidebar(array(
+			'name'=>'bbpress',
+			'before_widget' => '<section class="widget">',
+			'after_widget' => '</section>',
+			'before_title' => '<h4 class="widgettitle">',
+			'after_title' => '</h4>',
+			));
+			register_sidebar(array(
+			'name'=>'bbpress_footer',
+			'before_widget' => '<div class="block"><section class="footerWidget">',
+			'after_widget' => '</section></div>',
+			'before_title' => '<h4 class="footerWidgettitle">',
+			'after_title' => '</h4>',
+			));			
+		}
 	}
 	
 	// Default Main Nav Function
@@ -97,6 +124,13 @@
 
 	   return $html;
 	}
+	
+	//plugin checker
+	function does_plugin_exist($path_to_plugin_file){
+		return is_plugin_active($path_to_plugin_file);
+	}
+	
+	if(!isset($content_width)){$content_width = 550;}
 	
 	add_filter('pre_get_posts','aisis_search_filter');
 	add_filter('embed_oembed_html', 'theme_youtube_handler', 10, 4);

@@ -16,15 +16,7 @@
 	 */
 	 
 	 $aisis_form = new AisisForm();
-	 
-	 $basic_array_submit = array('type'=>'submit', 'value'=>'Save Your Work!', 'name'=>'defaults', 'class'=>'defaultText');
-	 $facebook_save = array('type'=>'submit', 'value'=>'Link to Facebook!', 'name'=>'defaults');
-	 $twitter_save = array('type'=>'submit', 'value'=>'Link to Twitter!', 'name'=>'defaults');
-	 $tumblr_save = array('type'=>'submit','value'=>'Link to Tumblr!', 'name'=>'defaults');
-	 $google_save = array('type'=>'submit','value'=>'Link to Google+!', 'name'=>'defaults');
-	 $rss_save = array('type'=>'submit','value'=>'Link to RSS!', 'name'=>'defaults');
 	 $core_options_save = array('type'=>'submit','value'=>'Save your Settings!', 'name'=>'defaults');
-	 
 	 $options = get_option('aisis_core_theme_setting_sidebar_global');
 ?>
 <?php
@@ -73,9 +65,12 @@ $aisis_form->open_form(array(
 				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Sidebar (Custom Index)')); 
 				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_custom'); ?><br /> 
                 <div class="smallNotice">Only applies if you have a static front page.</div>
-                <?php 
+                <div class="wrapper"><?php 
 				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Sidebar (Front)')); 
-				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_front_page');?>                                            
+				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_sidebar_front_page');?>	
+                <?php if(does_plugin_exist('bbpress/bbpress.php')){
+					do_settings_fields('aisis-core-options', 'aisis_sidebar_bbpress_section');
+				}?>	</div><br  /><br />                                            
             </div>
         </div>
     </div>
@@ -84,7 +79,7 @@ $aisis_form->open_form(array(
             <h1>Slider and Mini Feed?</h1>
             <p>We allow you to choose with pages, if any, the slider and the mini feed are displayed on. Much like the Sidebar Options we
             give you fine controll over where you want to displaye the slider and mini feeds.</p>
-            <p><?php $aisis_form->create_aisis_form_element('input', $basic_array_submit);?></p>
+            <p><?php $aisis_form->create_aisis_form_element('input', $core_options_save);?></p>
         </div>
 		<div class="content">
         	<div class="notice">
@@ -114,6 +109,10 @@ $aisis_form->open_form(array(
                 <?php 
 				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Slider and Mini Feed (Front)'));
 				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_front_page'); ?><br /> 
+                <div class="wrapper">
+				<?php if(does_plugin_exist("bbpress/bbpress.php"))
+				{do_settings_fields('aisis-core-options', 'aisis_bbpress_slider_minifeed_section');}?>
+                </div><br />
                  <br />                                                             
             </div>
         </div>        
@@ -123,7 +122,7 @@ $aisis_form->open_form(array(
             <h1>Change Default Text</h1>
             <p>Looking to change some of the default text and options through out the theme?
             Edit the information bellow to change the default text through out the site.</p>
-            <p><?php $aisis_form->create_aisis_form_element('input', $basic_array_submit);?></p>
+            <p><?php $aisis_form->create_aisis_form_element('input', $core_options_save);?></p>
         </div>
         
         <div class="content">
@@ -171,7 +170,7 @@ $aisis_form->open_form(array(
           <h1>Social Networks</h1>
           <p>Enter in your details bellow for the links that appear at the top of the navigation menu in the header.
           For each one of these that is filled out, you will see an icon.</p>
-          <p><?php $aisis_form->create_aisis_form_element('input', $basic_array_submit);?></p>
+          <p><?php $aisis_form->create_aisis_form_element('input', $core_options_save);?></p>
        </div>
       <div class="content">
             <div class="notice">For each section filled out here, you will see a coresponding icon above search on the front page
@@ -223,7 +222,7 @@ $aisis_form->open_form(array(
        		</div>
        	<div class="content">
             <div class="alignForm">
-                <div class="cosideTextntent">
+                <div class="sidetext">
                     <h1>Related Posts and Categories/Tags</h1>
                     <p>The following will allow you to display Related posts for that post, categories and Tags that
                     the post belongs to. This helps the user find posts that are simmilar to it's content.</p>
@@ -260,16 +259,29 @@ $aisis_form->open_form(array(
                     </div></p>
                 </div>                
 				<div class="wrapper">
-				<?php
-				do_settings_fields('aisis-core-options', 'aisis_site_design_section');
-				?></div><br />
-                <div class="notice">Bellow you can select the look for the Aisis <strong>Articles and Essays</strong>. 
-                These options are the same as the above site options except that these only apply to the list of 
-                Aisis <strong>Articles and Essays</strong>.</div><div class="wrapper">
-				<?php
-				do_settings_fields('aisis-core-options', 'aisis_ae_design_section');
-				?>
+					<?php
+                    do_settings_fields('aisis-core-options', 'aisis_site_design_section');
+                    ?></div><br />
+                    <div class="notice">Bellow you can select the look for the Aisis <strong>Articles and Essays</strong>. 
+                    These options are the same as the above site options except that these only apply to the list of 
+                    Aisis <strong>Articles and Essays</strong>.</div><div class="wrapper">
+                    <?php
+                    do_settings_fields('aisis-core-options', 'aisis_ae_design_section');
+                    ?>
                 </div>
+                <?php if(does_plugin_exist('bbpress/bbpress.php')){
+				?>
+                <div class="sideText">
+                	<h1>BBPress Options</h1>
+                    <p>We see that you have bbpress installed and are excited for you! Aside from their basic options we
+                    offer you a few more. For example - we allow you to switch out your footer widgets used across your site
+                    for  bbpress one where you can place bbpress specific widgets.</p>
+                </div>
+                <div class="wrapper">
+                	<?php do_settings_fields('aisis-core-options', 'aisis_use_bbpress_footer_widget_section'); ?>
+                </div>
+                <?php	
+				}?>
             </div>               
        	</div>
       </div>
