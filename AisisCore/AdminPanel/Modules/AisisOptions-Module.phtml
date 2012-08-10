@@ -109,7 +109,10 @@ $aisis_form->open_form(array(
                 <?php 
 				$aisis_form->create_aisis_form_element('label', array('value'=>'click to remove the Slider and Mini Feed (Front)'));
 				do_settings_fields('aisis-core-options', 'aisis_core_theme_section_slider_mini_front_page'); ?><br /> 
-                <div class="wrapper"><?php do_settings_fields('aisis-core-options', 'aisis_slider_minifeed_section');?></div><br />
+                <div class="wrapper">
+				<?php if(does_plugin_exist("bbpress/bbpress.php"))
+				{do_settings_fields('aisis-core-options', 'aisis_bbpress_slider_minifeed_section');}?>
+                </div><br />
                  <br />                                                             
             </div>
         </div>        

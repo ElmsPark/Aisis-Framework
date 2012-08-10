@@ -20,12 +20,28 @@
 	 * =================================================================
 	 */
 	 
+	 $aisis_default = array(
+		'default-image'          => '',
+		'random-default'         => false,
+		'width'                  => 980,
+		'height'                 => 119,
+		'flex-height'            => true,
+		'flex-width'             => true,
+		'default-text-color'     => '',
+		'header-text'            => true,
+		'uploads'                => true,
+		'wp-head-callback'       => '',
+		'admin-head-callback'    => '',
+		'admin-preview-callback' => '',
+	);
+	 
 
 	//We want to add post thumbnail support
 	if(function_exists('add_theme_support')){
 		add_theme_support('post-thumbnails');
-		add_theme_support( 'post-formats', array( 'aside', 'link', 'gallery', 'status', 'quote', 'image' ) );
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('post-formats', array('aside', 'link', 'gallery', 'status', 'quote', 'image'));
+		add_theme_support('automatic-feed-links');
+		add_theme_support('custom-header', $aisis_default);
 	}
 	
 	//Sidebar jazz

@@ -33,7 +33,7 @@
 			'',
 			'aisis_slider_minifeed',
 			'aisis-core-options',
-			'aisis_slider_minifeed_section'
+			'aisis_bbpress_slider_minifeed_section'
 		);		
 		
 		register_setting('aisis-core-options', 'aisis_use_bbpress_footer_widget_setting', 'aisis_use_bbpress_footer_widget_validation');

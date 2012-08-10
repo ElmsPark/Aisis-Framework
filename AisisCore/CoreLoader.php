@@ -54,6 +54,7 @@
 	 //When the theme if first activated.
 	 $aisis_activation = new AisisActivation();
 	 $aisis_activation->aisis_do_on_load();
+	 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
 	
 	 /**
 	  * Why are we doing this? so we (Aisis) can use
