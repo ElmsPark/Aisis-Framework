@@ -30,21 +30,26 @@
 	 *
 	 * =================================================================
 	 */
-	 global $post; 
+	 global $post;
 	 
-	 $slides_to_show = array( 'post_type' => 'slides');
-	 $loop = new WP_Query( $slides_to_show );
+	 $slides_loop = get_transient('loop');
+	 if(!$slides_loop){
+		 $slides_loop = header_slide_loop(); 
+	 }
 	 
-	 $post_type = array('post_type' => 'mini');
-	 $loop_mini = new WP_Query($post_type); 
+	 $mini_loop = get_transient('loop_mini');
+	 
+	 if(!$mini_loop){
+		 $mini_loop = mini_feed_loop();
+	 }
 ?>
-    <?php if($loop->have_posts()){?>
+    <?php if($slides_loop->have_posts()){?>
         <div id="objectWrapper">
             <div class="flex-container">
               <div class="flexslider">
                 <ul class="slides">
                   <?php
-                    while($loop->have_posts()) : $loop->the_post();
+                    while($slides_loop->have_posts()) : $slides_loop->the_post();
                   ?>
                   <li>
                     <?php 
@@ -63,9 +68,9 @@
         </div>
     <?php }?>
 	
-    <?php if($loop_mini->have_posts()){?>
+    <?php if($mini_loop->have_posts()){?>
     <div id="miniFeedWrapper">
-    	<?php while ($loop_mini->have_posts()) : $loop_mini->the_post();?>
+    	<?php while ($mini_loop->have_posts()) : $mini_loop->the_post();?>
     	<div class="miniFeed">
         	<div class="title">
             <img src="<?php echo get_post_meta($post->ID, 'aisis_content_img', true);?>" width="32" height="32"/>

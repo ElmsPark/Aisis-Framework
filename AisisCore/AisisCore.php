@@ -20,6 +20,62 @@
 	 * =================================================================
 	 */
 	 
+	 global $postid;
+	  
+	 /**
+	  * transient for the slides
+	  * to display them.
+	  */
+	 function header_slide_loop(){ 
+		 if (false === ($loop = get_transient('loop'))) {
+			 $slides_to_show = array( 'post_type' => 'slides');
+			 $loop = new WP_Query($slides_to_show);
+			 set_transient('loop', $loop, 3600);
+			 return $loop;
+		 }
+	 }
+	
+	/**
+	 * delete the transient if we are doing an update.
+	 */ 
+	function header_slide_loop_delete($post_id) {
+		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
+			return;
+		}
+		if ('slides' == $_POST['post_type']){
+			delete_transient('loop');
+		}
+	}
+	
+	add_action('save_post', 'header_slide_loop_delete');
+
+	 /**
+	  * This transient will display the 
+	  * minifeed content.
+	  */
+	 function mini_feed_loop(){ 
+		 if ( false === ( $loop_mini = get_transient( 'loop_mini' ) ) ) {
+			 $post_type = array('post_type' => 'mini');
+			 $loop_mini = new WP_Query($post_type);
+			 set_transient('loop_mini', $loop_mini, 3600);
+			 return $loop;
+		 }
+	 }
+	 
+	/**
+	 * delete the transient if we are doing an update.
+	 */ 
+	function mini_feed_transient_delete($post_id) {
+		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
+			return;
+		}
+		if ('mini' == $_POST['post_type']){
+			delete_transient('loop_mini');
+		}
+	}
+	
+	add_action('save_post', 'mini_feed_transient_delete');	 	  
+	 
 	 $aisis_default = array(
 		'default-image'          => '',
 		'random-default'         => false,
@@ -34,7 +90,6 @@
 		'admin-head-callback'    => '',
 		'admin-preview-callback' => '',
 	);
-	 
 
 	//We want to add post thumbnail support
 	if(function_exists('add_theme_support')){
