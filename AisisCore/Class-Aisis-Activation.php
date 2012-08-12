@@ -104,11 +104,21 @@
 		function check_plugin_is_activated($plugin_path, $name){
 			global $pagenow;
 			if(is_admin() && isset($_GET['activate']) && $pagenow == 'plugins.php'){
-				if(does_plugin_exist($plugin_path)){
+				if(!get_option($name)){
+					add_option($name, '', '', 'yes');
+				}
+				
+				if(does_plugin_exist($plugin_path) && get_option($name) != 'true'){
 					$this->aisis_bbpess_activation_message($name);
+					update_option($name, 'true');
+					aisis_var_dump(get_option($name), true);
+				}else{
+					if(get_option($name) == 'true'){
+						update_option($name, 'false');
+					}
 				}
 			}
-		}		  
+		}
 		
 		/**
 		 * Used to display the activation
