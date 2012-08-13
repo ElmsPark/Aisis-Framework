@@ -1,0 +1,40 @@
+<?php
+	/**
+	 *
+	 * ==================== [-DO NOT TOUCH!!!-] =======================
+	 *
+	 *		This file is the Js editor for Aisis in which it will
+	 *		load in the custom/custom-js.js file and allow you
+	 *		to edit the file. If it is not there you will get an
+	 *		error message telling you to create one.
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->Modules
+	 * =================================================================
+	 */
+	 
+	 $aisis_form_element = new AisisForm();
+	 $basic_array_submit = array('type'=>'submit', 'value'=>'Save Your Work!', 'name'=>'defaults', 'class'=>'jsEditorButton');
+	 
+?>
+        <div class="content">
+        	<h1>JavaScript Editor</h1>
+            <p>Looking to add your own custom JS? add it bellow and hit save and watch your java script functions come alive!</p>
+        </div>
+        <div class 
+			<?php
+			$aisis_form_element->open_form(array(
+				'method'=>'post',
+				'action'=> 'options.php?redirect_to=/wp-admin/admin.php?page=aisis-js-editor' 
+			));
+			
+			settings_fields( 'aisis-js-editor' );
+            do_settings_fields('aisis-js-editor', 'aisis_js_editor_section');
+            $aisis_form_element->create_aisis_form_element('input', $basic_array_submit);
+			
+            $aisis_form_element->close_form();
+		   ?>
+            <br />
+        </div>
+    

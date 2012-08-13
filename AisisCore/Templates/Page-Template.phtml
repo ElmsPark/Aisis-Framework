@@ -1,0 +1,100 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This file is responsible for loading what a single page looks
+	 *		like. essentially this is your page.php.
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->Templates
+	 *
+	 * =================================================================
+	 */
+	 global $page_title, $post;
+	 
+	 $option_sidebar_front_page = get_option('aisis_core_theme_setting_sidebar_front_page');
+	 $option_sidebar_page = get_option('aisis_core_theme_setting_sidebar_page');
+	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $option_slider_mini = get_option('aisis_core_theme_setting_slider_mini_page');
+	 $option_slider_mini_front_page = get_option('aisis_core_theme_setting_slider_mini_front_page');	 
+	 $option_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 $option_sidebar_bbpress = get_option('aisis_sidebar_bbpress_setting');
+	 $option_header_bbepress = get_option('aisis_bbpress_slider_minifeed_setting');
+	 
+	 if(is_front_page() && $option_sidebar_front_page['no_sidebar_front'] != 1 && 
+	 $option_sidebar_global['no_sidebar_global'] != 1){
+		 $content_class = 'content';
+	 }elseif(!is_front_page() && $option_sidebar_page['no_sidebar_page'] != 1 && 
+	 $option_goption_sidebar_globallobal['no_sidebar_global'] != 1){
+		 $content_class = 'content';
+	 }else{
+		 $content_class = 'contentFull';
+	 }
+	 
+	 
+	 if(is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
+	 $option_slider_mini_front_page['no_slider_mini_front_page'] != 1 && 'forum' != get_post_type()
+	 && 'topic' != get_post_type()){
+		 aisis_header();
+	 }elseif(!is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
+	 $option_slider_mini['no_slider_mini_page'] != 1 && 'forum' != get_post_type() && 'topic' != get_post_type()){
+		 aisis_header();
+	 }
+	  
+	 if(('forum' == get_post_type() && $option_header_bbepress['bbpress_slider_mini'] != 1) || 
+	 ('topic' == get_post_type() && $option_header_bbepress['bbpress_slider_mini'] != 1 )){
+		 aisis_header();
+	 }
+
+?>  
+    <div id="<?php echo $content_class;?>">
+    	<?php 
+		while(have_posts()) : the_post();?>
+        <article class="post clearfix">
+    
+            <header>
+                <h1 class="postTitle"><?php the_title(); ?></h1>
+            </header>
+            <?php if(has_post_thumbnail()){?>
+                <figure class="soft-embossed post-image">
+                    <?php the_post_thumbnail();?>
+                </figure>
+            <?php } ?>
+             <?php the_content(); ?>
+        </article>
+        <?php
+			endwhile; 
+		  	wp_reset_query(); 
+		?>
+        <!-- /.post -->  
+    </div>
+    
+    <?php
+	 if(is_front_page() && $option_sidebar_front_page['no_sidebar_front'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
+		 get_sidebar();
+	 }elseif(!is_front_page() && $option_sidebar_page['no_sidebar_page'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
+		  get_sidebar();
+	 }elseif(('forum' == get_post_type() && $option_sidebar_bbpress['bbpress_sidebar'] == 1) 
+	 || !empty($_GET['topic']) && $option_sidebar_bbpress['bbpress_sidebar'] == 1){
+		 get_sidebar();
+	 }
+	 
+     if('open' == $post->comment_status){
+	     comments_template('', true);
+	 }
+	 
+     aisis_footer();
+	?>

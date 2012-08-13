@@ -1,0 +1,86 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This file deals with the slider and the mini feeds.
+	 *		This file, while loaded through BuildAisisTheme
+	 *		is used in other template files and checked for, if it should
+	 *		load above those, by options that are set in the Aisis Options
+	 *		Panel.
+	 *
+	 *		We deal with both the Slider and the Mini Feed here. Please
+	 *		make sure that if you are over rideing this file that you take
+	 *		both into consideration.
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->Templates
+	 *
+	 * =================================================================
+	 */
+	 global $post;
+	 
+	 $slides_loop = get_transient('loop');
+	 if(!$slides_loop){
+		 $slides_loop = header_slide_loop(); 
+	 }
+	 
+	 $mini_loop = get_transient('loop_mini');
+	 
+	 if(!$mini_loop){
+		 $mini_loop = mini_feed_loop();
+	 }
+?>
+    <?php if($slides_loop->have_posts()){?>
+        <div id="objectWrapper">
+            <div class="flex-container">
+              <div class="flexslider">
+                <ul class="slides">
+                  <?php
+                    while($slides_loop->have_posts()) : $slides_loop->the_post();
+                  ?>
+                  <li>
+                    <?php 
+						echo get_post_meta($post->ID, 'aisis_slider_meta_box_desc', true);
+						if(get_post_meta($post->ID, 'aisis_slider_meta_box_short_desc', true)){
+							echo "<p class='flex-caption'>";
+							echo get_post_meta($post->ID, 'aisis_slider_meta_box_short_desc', true);	
+							echo "</p>";
+						}
+					?>
+                  </li>
+                  <?php endwhile;?>
+                </ul>
+              </div>
+            </div>
+        </div>
+    <?php }?>
+	
+    <?php if($mini_loop->have_posts()){?>
+    <div id="miniFeedWrapper">
+    	<?php while ($mini_loop->have_posts()) : $mini_loop->the_post();?>
+    	<div class="miniFeed">
+        	<div class="title">
+            <img src="<?php echo get_post_meta($post->ID, 'aisis_content_img', true);?>" width="32" height="32"/>
+            <?php echo get_the_title();?>
+            </div>
+            <p><?php echo get_post_meta($post->ID, 'aisis_content_desc', true);?></p>
+            <div class="readMore">
+            	<a href="<?php echo get_post_meta($post->ID, 'aisis_content_link', true);?>">Read More</a>
+            </div>
+        </div>
+        <?php endwhile; ?>                   
+    </div>
+   	<?php } ?>

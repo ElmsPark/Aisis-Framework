@@ -1,0 +1,68 @@
+<?php
+    /**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This file is used to set up the default Author Template.
+	 *		That is, the template you see when viewing the Author's 
+	 *		profile via clicking there name.
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->Templates
+	 *
+	 * =================================================================
+	 */
+	 global $wp_query;
+	 
+	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $option_slider_minifeed_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 
+	 /**
+	  * Transient data for getting author information
+	  */
+	  if(false == ($aisis_author_info = get_transient( 'aisis_author_info' ))){
+		$aisis_author_info = $wp_query->get_queried_object();
+		set_transient( 'aisis_author_info', $aisis_author_info );
+	  }
+	 
+	 /**
+	  * Transient information for the various posts
+	  * this author has done.
+	  */
+	 if(false == ($posts = get_transient('posts'))){
+		$aisis_author_arguments = array('author' => $aisis_author_info->ID); 
+	 	$posts = query_posts($aisis_author_arguments);
+		set_transient('posts', $posts);
+	 }
+	
+	 /**
+	  * If the user wan't the slider and mini feed to display we do this.
+	  */
+	 if($options_slider_mini_global['no_slider_mini_global'] != 1){
+		 aisis_header();
+	 }
+?>    
+    <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
+        <article class="post clearfix">
+            <header>
+                <h1 class="postTitle"><?php echo $aisis_author_info->user_login; ?></h1>
+            </header>
+                <figure class="glossy postImage">
+                   <?php echo get_avatar($aisis_author_info->user_email, 300);?>
+                </figure>
+            <p><?php if ( $aisis_author_info->user_description != '' ){echo $aisis_author_info->user_description;}else{?>
+            <?php deafualt_aisis_author_default_text(); } ?></p>
+        </article>
+    </div> 

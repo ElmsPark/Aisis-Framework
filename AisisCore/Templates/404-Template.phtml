@@ -1,0 +1,36 @@
+	<?php
+    /**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This file is the default 404 Template for the 404.php file
+	 *		in the theme it's self. This file is loaded via the
+	 *		LoadTemplates.
+	 *
+	 *		Function used to load this file: aisis_404();
+	 *		Can over write this function?: yes
+	 *
+	 *		@see Aisis->AisisCore->Templates->LoadTemplates
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->Templates
+	 *
+	 * =================================================================
+	 */
+?>	
+    <div class="err"><?php echo aisis_404_err_message_banner(); ?></div>
+    <div id="contentFull">
+      <article class="post clearfix">
+          <header>
+              <h1 class="postTitle"><?php echo aisis_404_err_message(); ?></h1>
+          </header>
+          <div class="center404Text">
+          <p>Seems you found content that is not here, never was here, never will be here or was moved from here.
+          Please try again!</p>
+          </div>
+      </article>
+      <!-- /.post -->
+    
+    </div>
+    <?php aisis_footer(); ?>
