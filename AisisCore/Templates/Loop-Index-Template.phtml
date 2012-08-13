@@ -56,7 +56,7 @@
                 </figure>
             </div>
             <?php }
-			the_excerpt(); 
+			 the_content('<div class="readMore">More</a>');
 			?>
         </article>
         <?php endwhile; ?>
@@ -90,7 +90,7 @@
                     </figure>
                 </div>
                 <?php }
-                the_excerpt(); 
+                the_content('<div class="readMore">More</a>'); 
                 ?>
             </article>
         </div>	 
@@ -116,7 +116,7 @@
                     </figure>
                 </div>
                 <?php }
-                the_excerpt(); 
+                the_content('<div class="readMore">More</a>'); 
                 ?>
             </article>
             <?php endwhile; ?>
