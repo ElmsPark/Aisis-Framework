@@ -100,10 +100,11 @@
                             value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" 
 							<?php if ($req) echo "aria-required='true'"; ?> />
                             
-                            <label for="emailInput">Mail <small><?php if ($req) echo "(required)"; ?></small></label>
+                            
                             <input type="text" name="emailInput" id="emailInput" 
                             value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" 
 							<?php if ($req) echo "aria-required='true'"; ?> />
+                            <label for="emailInput">Mail <small><?php if ($req) echo "(required)"; ?></small></label>
                             
                             
                             <input type="text" name="urlInput" id="urlInput" 
