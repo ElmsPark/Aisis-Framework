@@ -38,6 +38,18 @@ instead of selected pages.
 	margin-top : -10px;
 	width: 94.7%
 }
+
+.globalThemeNotice {
+	background : #fff9d7;
+	border : 1px solid #e2c822;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin-top : 40px;
+	width: 94.7%
+}
+
 .adminThemeSuccess {
 	background : #c0e4c7;
 	border : 1px solid #3d5b37;
