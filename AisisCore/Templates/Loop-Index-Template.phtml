@@ -62,11 +62,11 @@
         <?php endwhile; ?>
     </div>	 
     <?php 
-	if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){
+	if($option_sidebar_index['no_sidebar_index'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
 		get_sidebar();
 	}
 	}elseif($option_index_layout['layout'] == 2){ 
-        if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){
+        if($option_sidebar_index['no_sidebar_index'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
             get_sidebar();
         }
 		
@@ -127,7 +127,7 @@
         }    
 	}
 	global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
-    <div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1)
+    <div class="<?php if($option_sidebar_index['no_sidebar_index'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
 	{ echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
       <div class="prevPost"><?php previous_posts_link(__( 'Next', 'aisis' )) ?></div>
       <div class="nextPost"><?php next_posts_link(__( 'Previous', 'aisis' )) ?></div>

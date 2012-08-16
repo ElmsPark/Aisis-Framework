@@ -74,6 +74,20 @@ instead of selected pages.
 	width: 93%;
 }
 
+.pluginThemeActivated{
+	background: #C0E4C7;
+	border: 1px solid #3D5B37;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-left: 53px;
+	margin-bottom: 1px;
+	float: left;
+	width: 93%;
+}
+
 /**
 ===========================================================
 
