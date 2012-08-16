@@ -4,7 +4,7 @@
 	Description: A theme framework for developing rich, interactive child themes.
 	Author: Adam Balan
 	Author URI: http://adambalan.com
-	Version: 1.0.2
+	Version: 1.0.3
 	Tags: custom-menu, flexible-width, full-width-template, gray, light, one-column, sticky-post, theme-options, threaded-comments, white
 	License: Aisis  Copyright (C) 2012  Adam Balan
 	This program comes with ABSOLUTELY NO WARRANTY.
@@ -817,8 +817,10 @@ ol.commentlist li ul.children {
 	margin : 5px 0;
 }
 #respond label {
-	color : #888;
-	padding : 5px 0;
+	color: #888;
+	padding: 5px 0;
+	float: left;
+	width: 60px;
 }
 #respond input {
 	color : #aaa;
