@@ -85,6 +85,10 @@
 						  chmod(CUSTOM . 'custom-functions.php', 0755);
 				  		  require_once(CUSTOM . 'custom-functions.php');
 						  $this->aisis_theme_activation_success();
+						  if(does_plugin_exist('bbpress/bbpress.php')){
+							  aisis_plugin_already_activated_message('bbpress');
+							  add_option('bbpress', 'true', '', 'yes');
+						  }
 					  }
 					  
 				  }else{
@@ -103,15 +107,15 @@
 		 */  
 		function check_plugin_is_activated($plugin_path, $name){
 			global $pagenow;
+			
+			if(!get_option($name)){
+				add_option($name, '', '', 'yes');
+			}
+			
 			if(is_admin() && isset($_GET['activate']) && $pagenow == 'plugins.php'){
-				if(!get_option($name)){
-					add_option($name, '', '', 'yes');
-				}
-				
 				if(does_plugin_exist($plugin_path) && get_option($name) != 'true'){
-					$this->aisis_bbpess_activation_message($name);
+					$this->aisis_plugin_activation_message($name);
 					update_option($name, 'true');
-					aisis_var_dump(get_option($name), true);
 				}else{
 					if(get_option($name) == 'true'){
 						update_option($name, 'false');
@@ -184,8 +188,13 @@
 			<?php
 		 }
 		 
-		 function aisis_bbpess_activation_message($name){
+		 function aisis_plugin_activation_message($name){
 			echo '<div class="pluginThemeActivation">You have activated: <strong>'.$name.'</strong>. As a resualt Aisis
+			has some new features in the options page regarding this plugin and how it interacts with the software! Check it out!</div>';
+		 }
+		 
+		 function aisis_plugin_already_activated_message($name){
+			echo '<div class="pluginThemeActivated">You have activated: <strong>'.$name.'</strong>. As a resualt Aisis
 			has some new features in the options page regarding this plugin and how it interacts with the software! Check it out!</div>';
 		 }		
 
