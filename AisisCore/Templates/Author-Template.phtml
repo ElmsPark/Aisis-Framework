@@ -24,45 +24,33 @@
 	 *
 	 * =================================================================
 	 */
-	 global $wp_query;
+	 global $wp_queryglobal, $current_user;
+	 
+	 //We need the current user info
+     get_currentuserinfo();
 	 
 	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
 	 $option_slider_minifeed_global = get_option('aisis_core_theme_setting_slider_mini_global');
 	 
-	 /**
-	  * Transient data for getting author information
-	  */
-	  if(false == ($aisis_author_info = get_transient( 'aisis_author_info' ))){
-		$aisis_author_info = $wp_query->get_queried_object();
-		set_transient( 'aisis_author_info', $aisis_author_info );
-	  }
-	 
-	 /**
-	  * Transient information for the various posts
-	  * this author has done.
-	  */
-	 if(false == ($posts = get_transient('posts'))){
-		$aisis_author_arguments = array('author' => $aisis_author_info->ID); 
-	 	$posts = query_posts($aisis_author_arguments);
-		set_transient('posts', $posts);
-	 }
+	 $aisis_author_arguments = array('author' => $current_user->ID); 
+	 $posts = query_posts($aisis_author_arguments);
 	
 	 /**
 	  * If the user wan't the slider and mini feed to display we do this.
 	  */
-	 if($options_slider_mini_global['no_slider_mini_global'] != 1){
+	 if(isset($option_slider_minifeed_global['no_slider_mini_global']) && $option_slider_minifeed_global['no_slider_mini_global'] != 1){
 		 aisis_header();
 	 }
 ?>    
-    <div id="<?php if($option_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
+    <div id="<?php if($option_sidebar_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
         <article class="post clearfix">
             <header>
-                <h1 class="postTitle"><?php echo $aisis_author_info->user_login; ?></h1>
+                <h1 class="postTitle"><?php echo $current_user->user_login; ?></h1>
             </header>
                 <figure class="glossy postImage">
-                   <?php echo get_avatar($aisis_author_info->user_email, 300);?>
+                   <?php echo get_avatar($current_user->user_email, 300);?>
                 </figure>
-            <p><?php if ( $aisis_author_info->user_description != '' ){echo $aisis_author_info->user_description;}else{?>
+            <p><?php if ( $current_user->user_description != '' ){echo $current_user->user_description;}else{?>
             <?php deafualt_aisis_author_default_text(); } ?></p>
         </article>
     </div> 
