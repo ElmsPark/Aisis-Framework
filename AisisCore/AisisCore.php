@@ -74,21 +74,20 @@
 	
 	add_action('save_post', 'mini_feed_transient_delete');	
 	
-		/**
-		 * Display across the admin section
-		 */
-		function display_admin_notice(){
-			$aisis_update_check = new AisisUpdate();
-			if($aisis_update_check->check_for_update_bool()){
-				$aisis_version = $aisis_update_check->check_theme_version();
-				echo "<div class='upgradeNotice'><strong>You have an update!</strong> You are currently version <strong>" . $aisis_update_check->get_current_theme_version() . 
-						"</strong> and the version we have on the server is <strong>" . $aisis_version . "</strong>. We encourgage you to upgrade to the latest version. 
-							For further information please see <a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650' class='thickbox' title='Aisis Version Info'>Aisis Upgrade Notes</a>
-							 to see whats changed. <a href='".admin_url('admin.php?page=aisis-core-update')."'>Update!</a></div>";
-			}
+	function display_message(){
+		$aisis_update_check = new AisisUpdate();
+		$aisis_version = $aisis_update_check->check_theme_version();
+		if($aisis_update_check->check_for_udate_bool()){
+			echo "<div class='globalThemeNotice'><strong>Update Available!!!</strong> - It seems that Aisis currently has an update
+			for you. You seem to be running version: <strong>".$aisis_update_check->get_current_theme_version()."</strong>
+			where as we have: <strong>".$aisis_version."</strong>. It is recomended that you 
+			<a href='".admin_url('admin.php?page=aisis-core-update')."'>update to the latest version</a>.
+			You can read the <a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650'
+			 class='thickbox' title='Aisis Version Info'>update logs</a>. </div>";
 		}
-		
-		add_action('admin_notice', 'display_admin_notice');	 	  
+	}
+	
+	add_action('admin_notices', 'display_message');
 	 
 	 $aisis_default = array(
 		'default-image'          => '',
