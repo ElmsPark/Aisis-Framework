@@ -1,4 +1,5 @@
 <?php
+
 	/**
 	 *
 	 * ==================== [DONT TOUCH THIS FILE!] ====================
@@ -16,15 +17,12 @@
 	 *
 	 * =================================================================
 	 */
-	 
 	global $post;
 	$values = get_post_custom( $post->ID );
-	
 	$aisis_create_form_elements = new AisisForm();
 ?>
 
     <div class="aisis_meta_control">
-        
           <div class="metaNotice"><strong>Note:</strong> Mini feeds can be used to display summaries about Articles and Essays or about special posts or about almost anything you want
           </div>
           <br  />
@@ -113,6 +111,5 @@
 			jQuery('#aisis_content_img').val(imgurl);
 			tb_remove();
 		}
-	
 	});
     </script>

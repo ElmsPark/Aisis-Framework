@@ -19,8 +19,6 @@
 	 *
 	 * =================================================================
 	 */
-	 
-	 global $postid;
 	  
 	 /**
 	  * transient for the slides
@@ -42,12 +40,13 @@
 		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
 			return;
 		}
-		if ('slides' == $_POST['post_type']){
-			delete_transient('loop');
-		}
+		
+		delete_transient('loop');
 	}
 	
 	add_action('save_post', 'header_slide_loop_delete');
+	
+	
 
 	 /**
 	  * This transient will display the 
@@ -68,13 +67,27 @@
 	function mini_feed_transient_delete($post_id) {
 		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
 			return;
-		}
-		if ('mini' == $_POST['post_type']){
-			delete_transient('loop_mini');
+		}	
+		
+		delete_transient('loop-mini');
+	}
+	
+	add_action('save_post', 'mini_feed_transient_delete');	
+	
+	function display_message(){
+		$aisis_update_check = new AisisUpdate();
+		$aisis_version = $aisis_update_check->check_theme_version();
+		if($aisis_update_check->check_for_udate_bool()){
+			echo "<div class='globalThemeNotice'><strong>Update Available!!!</strong> - It seems that Aisis currently has an update
+			for you. You seem to be running version: <strong>".$aisis_update_check->get_current_theme_version()."</strong>
+			where as we have: <strong>".$aisis_version."</strong>. It is recomended that you 
+			<a href='".admin_url('admin.php?page=aisis-core-update')."'>update to the latest version</a>.
+			You can read the <a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650'
+			 class='thickbox' title='Aisis Version Info'>update logs</a>. </div>";
 		}
 	}
 	
-	add_action('save_post', 'mini_feed_transient_delete');	 	  
+	add_action('admin_notices', 'display_message');
 	 
 	 $aisis_default = array(
 		'default-image'          => '',

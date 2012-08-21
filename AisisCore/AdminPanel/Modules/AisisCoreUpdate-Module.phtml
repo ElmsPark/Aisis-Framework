@@ -41,11 +41,11 @@
 					'method'=>'post',
 					'action'=>'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options'
 				));
-				
+
 				$aisis_form->create_aisis_form_element('label', array(
 					'value'=>'Silent Auto Update Options. (On or Off)'
 				));
-				
+
 				do_settings_fields('aisis-core-update', 'aisis_core_silent_update_section');
                 $aisis_form->create_aisis_form_element('input',$silent_update);
                 settings_fields( 'aisis-core-update' );
@@ -86,7 +86,7 @@
 						'method'=>'post',
 						'action'=> admin_url('admin.php?page=aisis-core-update')
 					));
-					
+
 					if(!$aisis_update->credential_check){
 						$aisis_form->create_aisis_form_element('input', array(
 							'type' => 'submit',
@@ -95,7 +95,7 @@
 							'class' => 'bigUpgrade'
 						));
 					}
-					
+
 					$aisis_form->close_form();
 					}else{
 					echo "<div class='success'>You are currently running: <strong>" . $aisis_update->get_current_theme_version() . " Version</strong> of 

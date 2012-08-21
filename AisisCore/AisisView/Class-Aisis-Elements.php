@@ -73,6 +73,8 @@
 			 
 			 if(isset($attributes['class'])){
 				 $this->class = 'class="'.$attributes['class'].'"';
+			 }else{
+				 $this->class = 'class="aisisInputElement"';
 			 }
 			 
 			 if(isset($attributes['value'])){
@@ -122,6 +124,8 @@
 			 
 			 if(isset($attributes['class'])){
 				 $this->class = 'class="'.$attributes['class'].'"';
+			 }else{
+				 $this->class = 'class="aisisTextElement"';
 			 }
 			 
 			 if(isset($attributes['rows'])){
@@ -164,6 +168,8 @@
 			 
 			 if(isset($attributes['class'])){
 				 $this->class = 'class="'.$attributes['class'].'"';
+			 }else{
+				 $this->class = 'class="aisisLabelElement"';
 			 }
 			 
 			 if(isset($attributes['for'])){
@@ -206,6 +212,8 @@
 			 
 			 if(isset($attributes['class'])){
 				 $this->class = 'class="'.$attributes['class'].'"';
+			 }else{
+				 $this->class = 'class="aisisSelectElement"';
 			 }
 			 
 			 if(isset($attaributes['options'])){

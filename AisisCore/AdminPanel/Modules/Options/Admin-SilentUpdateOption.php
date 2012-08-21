@@ -58,7 +58,7 @@
 	if(!function_exists('aisis_core_theme_silent_update_validation')){
 		function aisis_core_theme_silent_update_validation($input){
 			$options = get_option('aisis_core_theme_setting_silent_update');
-			if($input['turn_on_silent_update'] == 1){
+			if(isset($input['turn_on_silent_update']) && $input['turn_on_silent_update'] == 1){
 				$options['turn_on_silent_update'] = 1;
 			}else{
 				$options['turn_on_silent_update'] = 0;
