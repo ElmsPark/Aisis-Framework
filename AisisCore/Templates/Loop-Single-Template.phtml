@@ -62,8 +62,8 @@
 		  	wp_reset_query(); 
 		?>
     </div><?php
-	}elseif(has_post_form('Gallery') || has_post_form('image') || has_post_form('video') || has_post_form('quote')
-	|| has_post_form('link')){?>
+	}elseif(has_post_format('Gallery') || has_post_format('image') || has_post_format('video') || has_post_format('quote')
+	|| has_post_format('link')){?>
     <div id="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
 	{ echo 'content'; }else{ echo 'contentFull'; }?>">
         <article class="post clearfix">

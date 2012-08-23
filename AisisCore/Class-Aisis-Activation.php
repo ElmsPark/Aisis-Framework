@@ -26,6 +26,9 @@
 	 
 	class AisisActivation{
 		
+		protected $disabled_auto_update;
+		private $aisis_write;
+		
 	 	/**
 		 * We essentially make sure that the proper files and
 		 * that the custom folder are in the appropriate location.
@@ -82,12 +85,10 @@
 						  echo "<div class='adminThemeErrors'>We could not load your LoadCustom.php because of the errors at hand.</div>";
 						  $this->aisis_theme_activation_notice();
 					  }else{
-						  chmod(CUSTOM . 'custom-functions.php', 0755);
-				  		  require_once(CUSTOM . 'custom-functions.php');
+						  $this->chmod_aisis_root();
 						  $this->aisis_theme_activation_success();
 						  if(does_plugin_exist('bbpress/bbpress.php')){
-							  aisis_plugin_already_activated_message('bbpress');
-							  add_option('bbpress', 'true', '', 'yes');
+							  add_action("admin_notices", array($this, 'aisis_bbpress_activated'));
 						  }
 					  }
 					  
@@ -107,21 +108,52 @@
 		 */  
 		function check_plugin_is_activated($plugin_path, $name){
 			global $pagenow;
-			
 			if(!get_option($name)){
 				add_option($name, '', '', 'yes');
 			}
 			
 			if(is_admin() && isset($_GET['activate']) && $pagenow == 'plugins.php'){
 				if(does_plugin_exist($plugin_path) && get_option($name) != 'true'){
-					$this->aisis_plugin_activation_message($name);
+					add_action('admin_notices', array($this, 'aisis_bbpress_activation'));
 					update_option($name, 'true');
-				}else{
-					if(get_option($name) == 'true'){
-						update_option($name, 'false');
-					}
+				}
+			}elseif(is_admin() && isset($_GET['deactivate']) && $pagenow == 'plugins.php'){
+				if(!does_plugin_exist($plugin_path) && get_option($name) == true){
+					update_option($name, 'false');
+				}
+			}elseif(is_admin() && $pagenow == 'plugins.php'){
+				if(does_plugin_exist($plugin_path) && get_option($name) != 'true'){
+					update_option($name, 'true');
 				}
 			}
+		}
+		
+		function chmod_aisis_root(){
+			$aisis_file = new AisisFileHandling();
+			$array_of_files = $aisis_file->dir_tree(AISIS);
+			
+			foreach($array_of_files as $files);{
+				if(!is_writable($files)){
+					$this->aisis_write = false;
+				}
+			}
+			
+			if(!$this->aisis_write){
+				if($aisis_file->aisis_chmod(AISIS, $mode = 0775, $recursive = true)){
+					continue;
+				}else{
+					add_action("admin_notices", array($this, "aisis_chmod_error"));
+					$this->set_disable_update(true);
+				}
+			}
+		}
+		
+		function set_disable_update($bool){
+			$this->disabled_auto_update = $bool;
+		}
+		
+		function get_disable_update(){
+			return $this->disabled_auto_update;
 		}
 		
 		/**
@@ -137,11 +169,21 @@
 		 }
 		 
 		 /**
+		  * Thrown when the chmod function fails
+		  * to chmod a file or folder.
+		  */
+		function aisis_chmod_error(){
+		  echo "<div class='globalThemeNotice'>Your server configuration does not allow for us to enable 
+		  <strong>Silent Auto Update</strong>. We have disabled this - You make have to enter your FTP credentials when
+		  uploading or updating.</div>";
+		}		 
+		 
+		 /**
 		 * Used to display the activation
 		 * notice messages
 		 */
 		 function aisis_theme_activation_notice(){
-			 global $pagenow;
+			global $pagenow;
 	
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				add_action('admin_notices', array(&$this, 'aisis_activation_notice_message'));
@@ -153,7 +195,7 @@
 		 * success messages
 		 */
 		 function aisis_theme_activation_success(){
-			 global $pagenow;
+			global $pagenow;
 	
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				add_action('admin_notices', array(&$this, 'aisis_activation_success_message'));
@@ -166,7 +208,7 @@
 		 * the various files and folders.
 		 */
 		 function aisis_theme_activation_check_errors(array $errors){
-			 global $pagenow;
+			global $pagenow;
 	
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				add_action('admin_notices', array(&$this, 'aisis_activation_check_error_messages'));
@@ -179,11 +221,6 @@
 		  */
 		 function aisis_activation_notice_message(){
 			?>
-			<script type="text/javascript">
-				jQuery(document).ready(function($) {
-					$('#message2').css('display', 'none');
-				});
-			</script>
 			<div class="adminThemeNotice">Your theme was loaded successfully but there were errors...</div>
 			<?php
 		 }
@@ -193,10 +230,15 @@
 			has some new features in the options page regarding this plugin and how it interacts with the software! Check it out!</div>';
 		 }
 		 
-		 function aisis_plugin_already_activated_message($name){
-			echo '<div class="pluginThemeActivated">You have activated: <strong>'.$name.'</strong>. As a resualt Aisis
-			has some new features in the options page regarding this plugin and how it interacts with the software! Check it out!</div>';
-		 }		
+		 function aisis_bbpress_activated(){
+			echo '<div class="pluginThemeActivated"><strong>BBPress</strong> is already activated, thus we have some amazing 
+			features for you to checkout and use for your theme!</div>';
+		 }
+		 
+		 function aisis_bbpress_activation(){
+			echo '<div class="pluginThemeActivated"><strong>BBPress</strong> has just been activated - Aisis sees and loves this. 
+			We have updated your options to reflect the bbpress plugin activation :D</div>';
+		 }		 		
 
 		 
 		 /**
@@ -205,12 +247,8 @@
 		  */
 		 function aisis_activation_success_message(){
 			?>
-			<script type="text/javascript">
-				jQuery(document).ready(function($) {
-					$('#message2').css('display', 'none');
-				});
-			</script>
-			<div class="adminThemeSuccess">Your theme is ready for use! All custom folders and files are intact and ready for use! Enjoy! :D</div>
+			<div class="adminThemeSuccess">Your theme is ready for use! All custom folders and files are 
+            intact and ready for use! Enjoy! :D</div>
 			<?php
 		 }
 		 
@@ -219,13 +257,6 @@
 		  * wordpress theme activation message.
 		  */
 		 function aisis_activation_check_error_messages(array $errors){
-			?>
-			<script type="text/javascript">
-				jQuery(document).ready(function($) {
-					$('#message2').css('display', 'none');
-				});
-			</script>
-			<?php
 			foreach($errors as $error){
 				?>
 				<div class="adminThemeErrors"><?php $error ?></div>

@@ -40,14 +40,15 @@ instead of selected pages.
 }
 
 .globalThemeNotice {
-	background : #fff9d7;
-	border : 1px solid #e2c822;
-	color : #333;
-	padding : 10px;
-	font-size : 13px;
-	border-radius : 5px;
-	margin-top : 40px;
-	width: 94.7%
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 94.7%;
 }
 
 .adminThemeSuccess {
@@ -94,10 +95,7 @@ instead of selected pages.
 	font-size: 13px;
 	border-radius: 5px;
 	margin-top: 10px;
-	margin-left: 53px;
-	margin-bottom: 1px;
-	float: left;
-	width: 93%;
+	width: 94.8%;
 }
 
 /**

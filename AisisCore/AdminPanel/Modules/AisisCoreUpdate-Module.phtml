@@ -30,27 +30,30 @@
     </div>
 	<div class="content">
         	<div class="updateNotice">
-            	This is the update page. You have the option to turn on <strong>Silent Auto Update</strong> which, when there is an updatem will automattically 
-                update your system with out you ever knowing. <strong>Note:</strong> those who require to enter there ftp user and pass should not select Silent
-                Auto Update.
+            This is the update page where you will come if you have an update to the software. You can, if your server configuations
+            support it - enable <strong>Silent Auto Update</strong>, which will have us tell you there is an update, how ever we will
+            go ahead and update for you - when you click the link to update your version of Aisis.
             </div>
                 <div class="alignForm">
                 	
 				<?php
-				$aisis_form->open_form(array(
-					'method'=>'post',
-					'action'=>'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options'
-				));
-
-				$aisis_form->create_aisis_form_element('label', array(
-					'value'=>'Silent Auto Update Options. (On or Off)'
-				));
-
-				do_settings_fields('aisis-core-update', 'aisis_core_silent_update_section');
-                $aisis_form->create_aisis_form_element('input',$silent_update);
-                settings_fields( 'aisis-core-update' );
-                
-                $aisis_form->close_form();
+				$aisis_activation = new AisisActivation();
+				if(!$aisis->get_disable_update()){
+					$aisis_form->open_form(array(
+						'method'=>'post',
+						'action'=>'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options'
+					));
+	
+					$aisis_form->create_aisis_form_element('label', array(
+						'value'=>'Silent Auto Update Options. (On or Off)'
+					));
+	
+					do_settings_fields('aisis-core-update', 'aisis_core_silent_update_section');
+					$aisis_form->create_aisis_form_element('input',$silent_update);
+					settings_fields( 'aisis-core-update' );
+					
+					$aisis_form->close_form();
+				}
 				?>
                 
                 </div>
