@@ -17,6 +17,8 @@
 	 
 	 class AisisFileHandling{
 		 
+		 private $files_got_back;
+		 
 		/**
 		 * We are chking to see if a file name exists.
 		 * for this instance we dont care about the directory
@@ -118,13 +120,13 @@
 		function all_files($dir, $path_extension='')
 		{
 		  $files = Array();
-		  $file_tmp= glob($dir.'*',GLOB_MARK | GLOB_NOSORT);;
+		  $file_tmp= glob($dir.'/*',GLOB_MARK | GLOB_NOSORT);;
 		
 		  foreach($file_tmp as $item){
 			if(is_file($item) && pathinfo($item, PATHINFO_EXTENSION) == $path_extension){
 			  $files[] = $item;       
 			}elseif(is_dir($item)){
-			  $files = array_merge($files,$this->all_files($item));
+			  $files = array_merge($files,$this->all_files($item, $path_extension));
 			}
 		  }
 		  	
@@ -244,6 +246,32 @@
 		   }
 		}
 		
+		function get_directory_of_files($path, $filename, $extension){
+			if(!is_dir($path)){
+				_e("<div class='err'>".new DirException("<strong>The directory you passed in: ".$path." is not
+				a directory.</strong>")."</div>");
+			}
+
+			if($this->check_exists($filename, true)){
+				$handler = opendir($path);
+				while($file = readdir($handler)){
+					if($file != "." && $file != ".."){
+						$this->package_files[] = $file;
+						$count = count($this->package_files);
+						for($i = 0; $i<$count; $i++){
+							if(substr(strrchr($this->package_files[$i],'.'),1)==$extension){
+								if($this->package_files[$i] == $filename){
+									$this->files_got_back = $this->package_files[$i];
+								}
+							}
+						}
+					}
+				}
+			}
+
+			return $this->files_got_back;
+		}		
+		
 		/**
 		 * This function is used for loading all the php files from a 
 		 * directory that you pass in. if you set the recusive to
@@ -255,7 +283,7 @@
 		 *					    files in sub directories and loads those.
 		 */
 		function load_directory_of_files($path, $recuive = false){
-			$array_of_files = $this->all_files($path, "php");
+			$array_of_files = $this->all_files($path, "php", $recuive);
 			foreach($array_of_files as $file_to_load){
 				require_once($file_to_load);
 			}
