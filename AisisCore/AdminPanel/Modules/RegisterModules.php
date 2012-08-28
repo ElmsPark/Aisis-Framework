@@ -22,15 +22,15 @@
 	  if(!function_exists('aisis_admin_panel_load_core_look')){
 		  function aisis_admin_panel_load_core_look(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('AdminPanel-Core-Look-Module.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel_Core_Look_Module.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  
 	  //Load Options Page
-	  if(!function_exists('aisis_admin_options_page')){
-		  function aisis_admin_options_page(){
+	  if(!function_exists('aisis_sidebar_options')){
+		  function aisis_sidebar_options(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('AisisOptions-Module.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel_Sidebar_Options.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  

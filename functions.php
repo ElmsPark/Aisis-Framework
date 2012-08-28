@@ -72,7 +72,8 @@
 	 if(is_dir(AISISCORE)){ //saftey check.
 		 function load_aisis_custom_folder(){
 			 $aisis_file_handling = new AisisFileHandling();
-			 if($aisis_file_handling->check_dir(CUSTOM, true)){
+			 
+			 if($aisis_file_handling->check_dir(CUSTOM)){
 				 $aisis_file_handling->load_directory_of_files(CUSTOM);
 			 }else{
 				 _e('Failed to load the custom folder: ' . CUSTOM);

@@ -66,9 +66,7 @@
 		 * then we attempt to create said directory at said
 		 * location.
 		 *
-		 * We also now check if the directory is writable
-		 * if this is set to true then  we will also check if this
-		 * directory is  writable.
+		 * 
 		 *
 		 * @param dir of type directory
 		 * @param create_dir of type boolean
@@ -77,7 +75,7 @@
 		 */
 		function check_dir($dir, $create_dir=false){
 			if(is_dir($dir)){
-				return is_writable($dir);
+				return true;
 			}elseif($create_dir == true){
 				return mkdir($dir);
 			}

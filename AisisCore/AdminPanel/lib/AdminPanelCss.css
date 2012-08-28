@@ -54,6 +54,7 @@ h2{
 	border-radius:4px;
 	border-style:solid;
 	padding-bottom:40px;
+	overflow:auto;
 }
 
 .content h1{
@@ -182,6 +183,7 @@ h2{
 	margin-top: 20px;
 	padding: 20px;
 	clear:both;
+	overflow:auto;
 }
 
 #SideText {
@@ -302,11 +304,6 @@ textarea{
 	background:#FFF;
 	margin-top:40px;
 	width:100%;
-}
-
-.phpEditorButton{
-	margin-left: 632px !important;
-	margin-top: 7px !important;
 }
 
 .cssEditorButton{

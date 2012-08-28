@@ -1,0 +1,178 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This is the core look and feel for the entire admin section.
+	 *		from here we load individual registered admin modules that
+	 *		then add to this page based on what page the user is on.
+	 *		
+	 *		@author: Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->Modules
+	 *
+	 * =================================================================
+	 */
+	 
+	//check theme version
+	$aisis_check_version = new AisisUpdate();
+	 
+	function create_submit(){
+		$aisis_form = new AisisForm();
+		return $aisis_form->create_aisis_form_element('input', array(
+			'type'=>'submit',
+			'value'=>'Save Your Choices!',
+			'class'=>'jsEditorButton'
+		));
+	} 
+?>
+    <div id="top">
+        <div class="title">
+            Aisis Core Theme Options <?php echo $aisis_check_version->get_current_theme_version();?>
+    	</div>
+	</div>
+       
+	<?php
+    check_for_aisis_messages();
+	
+    if(isset($_GET['page']) && $_GET['page'] == 'aisis-core-options'){
+		$aisis_form = new AisisForm();
+		$aisis_form->open_form(array(
+			'method'=>'post',
+			'action'=>'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options'
+		));
+		?>
+        <div id="coreTabs">
+        	<ul>
+                <li><a href="#aisisSidebarOptions">Aisis Sidebar Options</a></li>
+                <li><a href="#aisisSliderMiniOptions">Aisis Slider and Mini Feed Options</a></li>
+                <li><a href="#aisisDefault">Aisis Default Text</a></li>
+                <li><a href="#aisisSocial">Aisis Social Options</a></li>
+                <li><a href="#aisisMisc">Site Style</a></li>
+            </ul>
+            <div id="aisisSidebarOptions">
+            	<div class="content">
+            		<?php aisis_sidebar_options(); ?>
+                </div>
+            </div>
+            <div id="aisisSliderMiniOptions">
+            </div>
+            <div id="aisisDefault">
+            </div>
+            <div id="aisisSocial">
+            </div>
+            <div id="aisisMisc">
+            </div>            
+        </div>
+        <?php
+		settings_fields( 'aisis-core-options' ); 
+		$aisis_form->close_form();
+    }
+    else if(isset($_GET['page']) && $_GET['page'] == 'aisis-css-editor'){
+        aisis_css_editor_page();
+    }
+    else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-js-editor'){
+        aisis_js_editor_page();
+    }
+    else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-php-editor'){
+        aisis_php_editor_page();
+    }
+    else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-core-update'){
+        aisis_core_update_page();
+    }
+    ?>
+    
+    </div>
+    <script>
+	/**
+	 * Core functionality upon page load.
+	 */
+	$(function() {
+		$( "#coreTabs" ).tabs();
+		
+		enableSideBar();
+		$('#sidebar_global').click(enableSideBar)
+		enableSliderMini();
+		$('#slider_mini_global').click(enableSliderMini)			
+	});
+	
+	/**
+	 * If the user has chosen to not show the
+	 * the sidebar across the site keep the
+	 * rest disabled.
+	 */
+	function enableSideBar(){
+		if(this.checked){
+			$('input.sidebar').attr("disabled", true);
+		}else{
+			<?php
+			if(isset($options['no_sidebar_global']) && $options['no_sidebar_global'] != 1){
+			?>
+			$('input.sidebar').removeAttr('disabled');
+			<?php
+			}
+			?>
+			
+		}
+	}
+	
+	/**
+	 * If the user has chosen to not show the
+	 * the slider and mini feed across the site keep the
+	 * rest disabled.
+	 */		
+	function enableSliderMini(){
+		if(this.checked){
+			$('input.slider_mini').attr("disabled", true);
+		}else{
+			<?php
+			if(isset($options['no_slider_mini_global']) && $options['no_slider_mini_global'] != 1){
+			?>
+			$('input.slider_mini').removeAttr('disabled');
+			<?php
+			}
+			?>
+		}
+	}
+	
+	/**
+	 * This is used for the media uploader for when we are
+	 * uploading images for the author banner.
+	 */        
+	jQuery(document).ready(function() {
+		
+		jQuery(".images").colorbox({rel:'images'});
+		
+		jQuery('#upload_image_button').click(function() {
+			formfield = jQuery('#upload_image').attr('name');
+			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+			return false;
+		});
+	
+		window.send_to_editor = function(html) {
+			imgurl = jQuery('img',html).attr('src');
+			jQuery('#upload_image').val(imgurl);
+			tb_remove();
+		}
+		
+		jQuery('#upload_image_button').click(function() {
+			formfield = jQuery('#upload_image').attr('name');
+			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+			return false;
+		});
+		
+		window.send_to_editor = function(html) {
+			imgurl = jQuery('img',html).attr('src');
+			jQuery('#aisis_header_img').val(imgurl);
+			tb_remove();
+		}
+		
+		var max = 10;
+		jQuery(".alignForm label").each(function(){
+			if($(this).width() > max){
+				max = $(this).width();	
+			}
+		});
+		jQuery(".alignForm label").width(max);
+	});	
+	</script>

@@ -26,12 +26,7 @@
 	 global $more, $post, $wp_query;
 	 $more = 0; //declare and set $more before The Loop
 	 
-	 $option_sidebar_single = get_option('aisis_core_theme_setting_sidebar_single');
-	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
-	 $option_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
-	 $option_slider_mini_single = get_option('aisis_core_theme_setting_slider_mini_single');
-	 $option_related_posts = get_option('aisis_display_related_posts_setting');
-	 $option_cat_tags = get_option('aisis_display_categories_tags_setting');
+	 $options = get_option('aisis_core');
 	  
 	 $aisis_category_list = array(
 			 'orderby' => 'name',
@@ -48,7 +43,7 @@
 	the_post();
 	
 	if(has_post_format('aside') || has_post_format('status')){?>
-    <div id="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+    <div id="<?php if($options['sidebar_single'] != 1 && $options['sidebar_global'] != 1)
 	{ echo 'content'; }else{ echo 'contentFull'; }?>">
         <article class="post clearfix">
             <?php if(has_post_thumbnail()){?>
@@ -64,7 +59,7 @@
     </div><?php
 	}elseif(has_post_format('Gallery') || has_post_format('image') || has_post_format('video') || has_post_format('quote')
 	|| has_post_format('link')){?>
-    <div id="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+    <div id="<?php if($options['sidebar_single'] != 1 && $options['sidebar_global'] != 1)
 	{ echo 'content'; }else{ echo 'contentFull'; }?>">
         <article class="post clearfix">
             <?php if(has_post_thumbnail()){?>
@@ -80,7 +75,7 @@
 		?>
     </div><?php
 	}elseif(is_sticky()){?>
-	<div class="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+	<div class="<?php if($options['sidebar_single'] != 1 && $options['sidebar_global'] != 1)
 	{ echo 'sticky'; }else{ echo 'stickyFull'; }?>">
         <article class="post clearfix">
             <header>
@@ -106,7 +101,7 @@
     </div>
     <?php		
 	}else{?>
-	<div id="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+	<div id="<?php if($options['sidebar_single'] != 1 && $options['sidebar_global'] != 1)
 	{echo 'content';}else{echo 'contentFull';}?>">
         <article class="post clearfix">
             <header>
@@ -185,11 +180,11 @@
     </div><?php		
 	}
 
-	if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
+	if($options['sidebar_single'] != 1 && $options['sidebar_global'] != 1){
 		get_sidebar();
 	}
 
-	?><div class="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){ 
+	?><div class="<?php if($options['sidebar_single'] != 1 && $options['sidebar_global'] != 1){ 
 	
 	echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
         <div class="prevPost"><?php echo  previous_post_link();?></div>

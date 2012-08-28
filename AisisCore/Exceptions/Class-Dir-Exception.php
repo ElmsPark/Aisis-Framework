@@ -13,6 +13,6 @@
 	 *
 	 * =================================================================
 	 */
-	 
+	 require_once('Class-Aisis-Core-Exception.php');
 	 class DirException extends AisisCoreException{}
 ?>

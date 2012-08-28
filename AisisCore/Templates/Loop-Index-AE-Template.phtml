@@ -25,9 +25,7 @@
 	 * =================================================================
 	 */	
 	 
-	$option_sidebar_index = get_option('aisis_core_theme_setting_sidebar_index');
-	$option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
-	$option_ae_layout = get_option('aisis_ae_design_setting');
+ 	$options = get_option('aisis_core');
 	
 	$aisis_query= array(
 		'post_type' => 'ae',
@@ -44,7 +42,7 @@
 ?>
 
 	<?php if($option_ae_layout['layout'] == 1 || $option_ae_layout['layout'] == ''){?>
-	<div id="<?php if($option_sidebar_index['no_sidebar_index'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+	<div id="<?php if($options['sidebar_index'] != 1 && $options['sidebar_global'] != 1)
 	{ echo 'content'; }else{ echo 'contentFull'; }?>">
     	<?php while(have_posts()) : the_post();?>
     	<article class="post clearfix">
@@ -69,17 +67,17 @@
         <?php endwhile; ?>
     </div>	 
     <?php 
-	if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){
+	if($options['sidebar_index'] != 1 && $options['sidebar_global'] != 1){
 		get_sidebar();
 	}
 	}elseif($option_ae_layout['layout'] == 2){ 
-        if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){
+        if($options['sidebar_index'] != 1 && $options['sidebar_global'] != 1){
             get_sidebar();
         }
 		
 		while(have_posts()) : the_post();	
 		?>
-        <div id="<?php if($option_sidebar_index['no_sidebar_index'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+        <div id="<?php if($options['sidebar_index'] != 1 && $options['sidebar_global'] != 1)
         { echo 'content'; }else{ echo 'contentFull'; }?>">
             <article class="post clearfix">
                 <header>
@@ -104,7 +102,7 @@
         <?php 
 		endwhile;
 	}elseif($option_ae_layout['layout'] == 3){ ?>
-        <div id="<?php if($option_sidebar_index['no_sidebar_index'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+        <div id="<?php if($options['sidebar_index'] != 1 && $options['sidebar_global'] != 1)
         { echo 'contentNoBack'; }else{ echo 'contentNoBackFull'; }?>">
             <?php while(have_posts()) : the_post();?>
             <article class="post clearfix">
@@ -130,12 +128,12 @@
         </div>	 
         <?php 
 
-        if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1){
+        if($options['sidebar_index'] != 1 && $options['sidebar_global'] != 1){
             get_sidebar();
         }    
 	}
 	global $wp_query; $total_pages = $wp_query->max_num_pages; if($total_pages > 1){?>
-    <div class="<?php if($options['no_sidebar_index'] != 1 && $option_global['no_sidebar_global'] != 1)
+    <div class="<?php if($options['sidebar_index'] != 1 && $options['sidebar_global'] != 1)
 	{ echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
       <div class="prevPost"><?php previous_posts_link(__( 'Next', 'aisis' )) ?></div>
       <div class="nextPost"><?php next_posts_link(__( 'Previous', 'aisis' )) ?></div>

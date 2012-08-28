@@ -25,20 +25,14 @@
 	 */
 	 global $page_title, $post;
 	 
-	 $option_sidebar_front_page = get_option('aisis_core_theme_setting_sidebar_front_page');
-	 $option_sidebar_page = get_option('aisis_core_theme_setting_sidebar_page');
-	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
-	 $option_slider_mini = get_option('aisis_core_theme_setting_slider_mini_page');
-	 $option_slider_mini_front_page = get_option('aisis_core_theme_setting_slider_mini_front_page');	 
-	 $option_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
-	 $option_sidebar_bbpress = get_option('aisis_sidebar_bbpress_setting');
-	 $option_header_bbepress = get_option('aisis_bbpress_slider_minifeed_setting');
-	 
-	 if(is_front_page() && $option_sidebar_front_page['no_sidebar_front'] != 1 && 
-	 $option_sidebar_global['no_sidebar_global'] != 1){
+	 $options = get_option('aisis_core');
+	 $bbress_options = get_option('aisis_core_bbpress');
+	 	 
+	 if(is_front_page() && $options['sidebar_front'] != 1 && 
+	 $options['sidebar_global'] != 1){
 		 $content_class = 'content';
-	 }elseif(!is_front_page() && $option_sidebar_page['no_sidebar_page'] != 1 && 
-	 $option_goption_sidebar_globallobal['no_sidebar_global'] != 1){
+	 }elseif(!is_front_page() && $options['sidebar_page'] != 1 && 
+	 $options['sidebar_global'] != 1){
 		 $content_class = 'content';
 	 }else{
 		 $content_class = 'contentFull';
@@ -83,12 +77,12 @@
     </div>
     
     <?php
-	 if(is_front_page() && $option_sidebar_front_page['no_sidebar_front'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
+	 if(is_front_page() && $options['sidebar_front'] != 1 && $options['sidebar_global'] != 1){
 		 get_sidebar();
-	 }elseif(!is_front_page() && $option_sidebar_page['no_sidebar_page'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
+	 }elseif(!is_front_page() && $options['sidebar_page'] != 1 && $options['sidebar_global'] != 1){
 		  get_sidebar();
-	 }elseif(('forum' == get_post_type() && $option_sidebar_bbpress['bbpress_sidebar'] == 1) 
-	 || !empty($_GET['topic']) && $option_sidebar_bbpress['bbpress_sidebar'] == 1){
+	 }elseif(('forum' == get_post_type() && $bbress_options['sidebar_bbpress'] == 1) 
+	 || !empty($_GET['topic']) && $bbress_options['sidebar_bbpress'] == 1){
 		 get_sidebar();
 	 }
 	 
