@@ -1,7 +1,3 @@
-<?php
-$aisis_form = new AisisForm();
-?>
-
 <div class="sideText">
     <h1>Core Sidebar Options</h1>
     <p>Bellow are the associated sidebar options for Aisis. These changes will reflect on
@@ -9,13 +5,10 @@ $aisis_form = new AisisForm();
     <p><?php create_submit(); ?></p>
 </div>
 <div class="alignForm">
-<?php
-	do_settings_fields('aisis-core-options','aisis_sidebar_section');
-	if(does_plugin_exist('bbpress/bbpress.php')){
-		do_settings_fields('aisis-core-options', 'aisis_sidebar_bbpress_section');		
-	}
-?></div><?php
-
-
-
-?>
+	<?php
+        do_settings_fields('aisis-core-options','aisis_sidebar_section');
+        if(does_plugin_exist('bbpress/bbpress.php')){
+            do_settings_fields('aisis-core-options', 'aisis_sidebar_bbpress_section');		
+        }
+    ?>
+</div>

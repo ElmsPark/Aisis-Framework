@@ -35,10 +35,10 @@
 	  }
 	  
 	  //Load the CSS Editor
-	  if(!function_exists('aisis_css_editor_page')){
-		  function aisis_css_editor_page(){
+	  if(!function_exists('aisis_slider_options')){
+		  function aisis_slider_options(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('CSSEditor-Module.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel_Slider_Options.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  

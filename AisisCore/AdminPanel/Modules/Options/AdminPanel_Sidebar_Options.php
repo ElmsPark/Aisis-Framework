@@ -81,16 +81,7 @@
 			'value'=>1,
 			'checked' => checked(1, $options['sidebar_ae'], false),
 			'disabled' => check_for_disabled()
-		));
-	
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from front page?'));
-		$aisis_form->create_aisis_form_element('input', array(
-			'type'=>'checkbox',
-			'name'=>'aisis_core[sidebar_front]',
-			'value'=>1,
-			'checked' => checked(1, $options['sidebar_front'], false),
-			'disabled' => check_for_disabled()
-		));					
+		));				
 	}
 	
 	/**
@@ -115,13 +106,8 @@
 	 * Validate all aisis_core checkboxes
 	 */
 	function aisis_sidebar_bbpress_validation($input){
-		$bbpress_options = get_option('aisis_core_bbpress');
-			
-		if($input['sidebar_bbpress'] == 1){
-			$bbpress_options['sidebar_bbpress'] = 1;
-		}else{
-			$bbpress_options['sidebar_bbpress'] = 0;
-		}
+		$bbpress_options = get_option('aisis_core_bbpress');	
+		$bbpress_options = $input;
 		
 		update_option('admin_success_message', 'true'); 
 		return $bbpress_options; 		
@@ -132,13 +118,7 @@
 	 */
 	function aisis_sidebar_validation($input){
 		$options = get_option('aisis_core');
-		foreach($options as $key=>$value){
-			if($input[$key] == 1){
-				$options[$key] = 1;
-			}else{
-				$options[$key] = 0;
-			}
-		}
+		$options = $input;
 				
 		update_option('admin_success_message', 'true'); 
 		return $options; 	

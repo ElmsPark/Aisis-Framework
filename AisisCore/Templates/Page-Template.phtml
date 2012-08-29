@@ -77,13 +77,8 @@
     </div>
     
     <?php
-	 if(is_front_page() && $options['sidebar_front'] != 1 && $options['sidebar_global'] != 1){
-		 get_sidebar();
-	 }elseif(!is_front_page() && $options['sidebar_page'] != 1 && $options['sidebar_global'] != 1){
+	 if(!is_front_page()){
 		  get_sidebar();
-	 }elseif(('forum' == get_post_type() && $bbress_options['sidebar_bbpress'] == 1) 
-	 || !empty($_GET['topic']) && $bbress_options['sidebar_bbpress'] == 1){
-		 get_sidebar();
 	 }
 	 
      if('open' == $post->comment_status){

@@ -1,0 +1,19 @@
+<?php
+aisis_var_dump(get_option('aisis_core_slider'), true);
+?>
+
+<div class="sideText">
+    <h1>Core Slider Options Options</h1>
+    <p>Bellow are the options that relate to the slider and its appearance across the site.</p>
+    <div class="notice"><strong>Note:</strong> If you select remove from the site, you will not see this custom post type
+    in your admin section.</div>
+    <p><?php create_submit(); ?></p>
+</div>
+<div class="alignForm">
+	<?php
+        do_settings_fields('aisis-core-options','aisis_slider_section');
+        if(does_plugin_exist('bbpress/bbpress.php')){
+            do_settings_fields('aisis-core-options', 'aisis_slider_bbpress_section');		
+        }
+    ?>
+</div>
