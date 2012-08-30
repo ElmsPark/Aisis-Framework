@@ -209,7 +209,7 @@ a.imagehover:hover img {
 
 .alignForm label{
 	float: left;
-	width: 50%;
+	width: 50% !important;
 	text-align: left;
 	margin-top: 10px;
 	margin-bottom: 15px;

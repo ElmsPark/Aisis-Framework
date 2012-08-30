@@ -119,7 +119,6 @@
 	function aisis_sidebar_validation($input){
 		$options = get_option('aisis_core');
 		$options = $input;
-				
 		update_option('admin_success_message', 'true'); 
 		return $options; 	
 	}

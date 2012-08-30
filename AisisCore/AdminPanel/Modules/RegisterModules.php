@@ -42,6 +42,13 @@
 		  }
 	  }
 	  
+	  if(!function_exists('aisis_minifeed_options')){
+		  function aisis_minifeed_options(){
+			  global $aisis_template_loader;
+			  $aisis_template_loader->aisis_register('AdminPanel_MiniFeed_Options.phtml', AISIS_ADMINPANEL_MODULES);
+		  }
+	  }	  
+	  
 	  //Load the PHP Editor
 	  if(!function_exists('aisis_php_editor_page')){
 		  function aisis_php_editor_page(){

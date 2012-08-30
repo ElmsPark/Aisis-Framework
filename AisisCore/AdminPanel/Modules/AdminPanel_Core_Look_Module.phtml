@@ -44,27 +44,39 @@
 		?>
         <div id="coreTabs">
         	<ul>
-                <li><a href="#aisisSidebarOptions">Aisis Sidebar Options</a></li>
-                <li><a href="#aisisSliderMiniOptions">Aisis Slider and Mini Feed Options</a></li>
-                <li><a href="#aisisDefault">Aisis Default Text</a></li>
-                <li><a href="#aisisSocial">Aisis Social Options</a></li>
-                <li><a href="#aisisMisc">Site Style</a></li>
+            	<li><a href="#aisisCoreStyles">Core Styles</a></li>
+                <li><a href="#aisisSidebar">Sidebar Config</a></li>
+                <li><a href="#aisisSlider">Slider Config</a></li>
+                <li><a href="#aisisMiniFeed">MiniFeed(s) Config</a></li>
+                <li><a href="#aisisCustomText">Default Text</a></li>
+                <li><a href="#aisisSocial">Social Media Options</a></li>
             </ul>
-            <div id="aisisSidebarOptions">
+            <div id="aisisCoreStyles">
+            	<div class="content">
+                </div>
+            </div>
+            <div id="aisisSidebar">
             	<div class="content">
             		<?php aisis_sidebar_options(); ?>
                 </div>
             </div>
-            <div id="aisisSliderMiniOptions">
+            <div id="aisisSlider">
             	<div class="content">
                 	<?php aisis_slider_options(); ?>
                 </div>
             </div>
-            <div id="aisisDefault">
+            <div id="aisisMiniFeed">
+            	<div class="content">
+                	<?php aisis_minifeed_options(); ?>
+                </div>
+            </div>
+            <div id="aisisCustomText">
+            	<div class="content">
+            	</div>
             </div>
             <div id="aisisSocial">
-            </div>
-            <div id="aisisMisc">
+            	<div class="content">
+                </div>
             </div>            
         </div>
         <?php
