@@ -30,7 +30,7 @@ function aisis_slider(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[slider_global]',
 		'value'=>1,
-		'checked' => checked(1, $option['slider_global'], false),
+		'checked' => checked(1, isset($option['slider_global']), false),
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the slider from Articles and Essays?'));
@@ -38,7 +38,7 @@ function aisis_slider(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[slider_front]',
 		'value'=>1,
-		'checked' => checked(1, $option['slider_front'], false),
+		'checked' => checked(1, isset($option['slider_front']), false),
 		'disabled'=>check_slider_disabled()
 	));	
 	
@@ -47,7 +47,7 @@ function aisis_slider(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[slider_index]',
 		'value'=>1,
-		'checked' => checked(1, $option['slider_index'], false),
+		'checked' => checked(1, isset($option['slider_index']), false),
 		'disabled'=>check_slider_disabled()
 	));	
 	
@@ -56,7 +56,7 @@ function aisis_slider(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[slider_single]',
 		'value'=>1,
-		'checked' => checked(1, $option['slider_single'], false),
+		'checked' => checked(1, isset($option['slider_single']), false),
 		'disabled'=>check_slider_disabled()
 	));	
 	
@@ -65,7 +65,7 @@ function aisis_slider(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[slider_page]',
 		'value'=>1,
-		'checked' => checked(1, $option['slider_page'], false),
+		'checked' => checked(1, isset($option['slider_page']), false),
 		'disabled'=>check_slider_disabled()
 	));	
 	
@@ -74,7 +74,7 @@ function aisis_slider(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[slider_ae]',
 		'value'=>1,
-		'checked' => checked(1, $option['slider_ae'], false),
+		'checked' => checked(1, isset($option['slider_ae']), false),
 		'disabled'=>check_slider_disabled()
 	));						
 }
@@ -88,7 +88,7 @@ function aisis_slider_bbpress(){
 	  'type'=>'checkbox',
 	  'name'=>'aisis_core_bbpress[slider_bbpress]',
 	  'value'=>1,
-	  'checked' => checked(1, $bbpress_options['slider_bbpress'], false),
+	  'checked' => checked(1, isset($bbpress_options['slider_bbpress']), false),
 	  'disabled'=>check_slider_disabled()
   ));		
 }
@@ -110,7 +110,7 @@ function aisis_slider_bbpress_validation($input){
 
 function check_slider_disabled(){
 	$option = get_option('aisis_core');
-	if($option['slider_global'] == 1){
+	if(isset($option['slider_global']) && $option['slider_global'] == 1){
 		return 'disabled';
 	}
 }

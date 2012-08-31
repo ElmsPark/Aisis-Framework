@@ -27,14 +27,6 @@
 	 
 	 /**
 	  * Allows you to change the default 
-	  * error banner message displayed on the 404
-	  */
-	 function aisis_404_err_message_banner(){
-		 do_action('aisis_404_err_message_banner');
-	 }
-	 
-	 /**
-	  * Allows you to change the default 
 	  * 404 error message text
 	  */
 	 function aisis_404_err_message(){
@@ -92,40 +84,20 @@
 	  *  ===================================================
 	  */
 	  
-	  //default 404 err banner message
-	  if(!function_exists('default_aisis_404_err_message_banner')){
-		  function default_aisis_404_err_message_banner(){
-			  $options = get_option('aisis_default_404_banner_setting');
-			  if(!isset($options['banner_content']) ){
-				  _e('It seems we could not find what you were looking for.');
-			  }else{
-				  _e($options['banner_content']);
-			  }
-		  }
-	  }
-	  
 	  //default 404 err message and title
 	  if(!function_exists('default_aisis_404_err_message')){
 		  function default_aisis_404_err_message(){
-			  $options = get_option('aisis_default_404_message_setting');
-			  if(!isset($options['err_404_theme_message'])){
-				 _e('<h1>404</h1><p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>');
-				 
-			  }else{
-				 echo $options['err_404_theme_message'];
-			  }
+			 return '<h1>404</h1><p class="ErrorMessage">Seems the content you were searching 
+			 for doesn not exist. Please try searching for it.</p>';
 		  }
 	  }
 	  
 	  //default author message
 	  if(!function_exists('deafualt_aisis_author_default_text')){
 		  function deafualt_aisis_author_default_text(){
-			  $options = get_option('aisis_default_author_text_setting');
-			  if(!isset($options['default_author_text'])){
-				echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles for the blog its self and we are proud to have them here and apart of our team :D";
-			  }else{
-				 echo $options['default_author_text'];
-			  }
+				return "This author is a writer and a contributor to the blog. They enjoy writing 
+				various content and articles for the blog its self and we are proud to have them here 
+				and apart of our team :D";
 		  }
 	  }
 	  
@@ -133,44 +105,29 @@
 	  if(!function_exists('default_aisis_category_default_text')){
 		  function default_aisis_category_default_text(){
 			  $options = get_option('aisis_default_category_text_setting');
-			  if(!isset($options['default_cat_text'])){
-				echo "Welcome to this category " . single_cat_title() . " where we hope that we present you with the latest and greatest in content from this section. Please enjoy your stay :D";
-			  }else{
-				 $options['default_cat_text'];
-			  }
+				return "Welcome to this category " . single_cat_title() . " where we hope that we present 
+				you with the latest and greatest in content from this section. Please enjoy your stay :D";
 		  }
 	  }  
 	  
 	  //default right footer text
 	  if(!function_exists('default_aisis_default_right_footer_text')){
 		  function default_aisis_default_right_footer_text(){
-			  $options = get_option('aisis_default_right_footer_text_setting');
-			  if(!isset($options['default_right_footer_text'])){
-				echo "Powered by WordPress | Aisis | Adam Balan -  2012";
-			  }else{
-				 echo $options['default_right_footer_text'];
-			  }
+				return "Powered by <a href='http://wordpress.org'>WordPress</a> | <a href='http://aisis.adambalan.com'>Aisis</a>
+				 | <a href='http://adambalan.com'>Adam Balan</a> -  2012";
 		  }
 	  }
 	  
 	  //default left footer text
 	  if(!function_exists('default_aisis_default_left_footer_text')){
 		  function default_aisis_default_left_footer_text(){
-			  $options = get_option('aisis_default_left_footer_text_setting');
-			  
-			  if(!isset($options['default_left_footer_text'])){
-				echo "(C) 2012";
-				
-			  }else{
-				 echo $options['default_left_footer_text'];
-			  }
+				return "(C) 2012";
 		  }
 	  }	  
 	  
 	  /**
 	   * We add all the actions here.
 	   */
-	  add_action('aisis_404_err_message_banner','default_aisis_404_err_message_banner');
 	  add_action('aisis_404_err_message','default_aisis_404_err_message');
 	  add_action('aisis_author_default_text','deafualt_aisis_author_default_text');
 	  add_action('aisis_category_default_text','default_aisis_category_default_text');

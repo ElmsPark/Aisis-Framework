@@ -30,7 +30,7 @@ function aisis_mini(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[mini_global]',
 		'value'=>1,
-		'checked' => checked(1, $option['mini_global'], false),
+		'checked' => checked(1, isset($option['mini_global']), false),
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Articles and Essays?'));
@@ -38,7 +38,7 @@ function aisis_mini(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[mini_front]',
 		'value'=>1,
-		'checked' => checked(1, $option['mini_front'], false),
+		'checked' => checked(1, isset($option['mini_front']), false),
 		'disabled'=>check_mini_disabled()
 	));	
 	
@@ -47,7 +47,7 @@ function aisis_mini(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[mini_index]',
 		'value'=>1,
-		'checked' => checked(1, $option['mini_index'], false),
+		'checked' => checked(1, isset($option['mini_index']), false),
 		'disabled'=>check_mini_disabled()
 	));	
 	
@@ -56,7 +56,7 @@ function aisis_mini(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[mini_single]',
 		'value'=>1,
-		'checked' => checked(1, $option['mini_single'], false),
+		'checked' => checked(1, isset($option['mini_single']), false),
 		'disabled'=>check_mini_disabled()
 	));	
 	
@@ -65,7 +65,7 @@ function aisis_mini(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[mini_page]',
 		'value'=>1,
-		'checked' => checked(1, $option['mini_page'], false),
+		'checked' => checked(1, isset($option['mini_page']), false),
 		'disabled'=>check_mini_disabled()
 	));	
 	
@@ -74,7 +74,7 @@ function aisis_mini(){
 		'type'=>'checkbox',
 		'name'=>'aisis_core[mini_ae]',
 		'value'=>1,
-		'checked' => checked(1, $option['mini_ae'], false),
+		'checked' => checked(1, isset($option['mini_ae']), false),
 		'disabled'=>check_mini_disabled()
 	));						
 }
@@ -88,7 +88,7 @@ function aisis_mini_bbpress(){
 	  'type'=>'checkbox',
 	  'name'=>'aisis_core_bbpress[mini_bbpress]',
 	  'value'=>1,
-	  'checked' => checked(1, $bbpress_options['mini_bbpress'], false),
+	  'checked' => checked(1, isset($bbpress_options['mini_bbpress']), false),
 	  'disabled'=>check_mini_disabled()
   ));		
 }
@@ -110,7 +110,7 @@ function aisis_mini_bbpress_validation($input){
 
 function check_mini_disabled(){
 	$option = get_option('aisis_core');
-	if($option['mini_global'] == 1){
+	if(isset($option['mini_global']) && $option['mini_global'] == 1){
 		return 'disabled';
 	}
 }

@@ -53,7 +53,7 @@
 			'type'=>'checkbox',
 			'name'=>'aisis_core[sidebar_global]',
 			'value'=>1,
-			'checked' => checked(1, $options['sidebar_global'], false)
+			'checked' => checked(1, isset($options['sidebar_global']), false)
 		));
 		
 		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from list of posts?'));
@@ -61,7 +61,7 @@
 			'type'=>'checkbox',
 			'name'=>'aisis_core[sidebar_index]',
 			'value'=>1,
-			'checked' => checked(1, $options['sidebar_index'], false),
+			'checked' => checked(1, isset($options['sidebar_index']), false),
 			'disabled' => check_for_disabled()
 		));		
 		
@@ -70,7 +70,7 @@
 			'type'=>'checkbox',
 			'name'=>'aisis_core[sidebar_page]',
 			'value'=>1,
-			'checked' => checked(1, $options['sidebar_page'], false),
+			'checked' => checked(1, isset($options['sidebar_page']), false),
 			'disabled' => check_for_disabled()
 		));
 		
@@ -79,7 +79,7 @@
 			'type'=>'checkbox',
 			'name'=>'aisis_core[sidebar_ae]',
 			'value'=>1,
-			'checked' => checked(1, $options['sidebar_ae'], false),
+			'checked' => checked(1, isset($options['sidebar_ae']), false),
 			'disabled' => check_for_disabled()
 		));				
 	}
@@ -97,7 +97,7 @@
 			'type'=>'checkbox',
 			'name'=>'aisis_core_bbpress[sidebar_bbpress]',
 			'value'=>1,
-			'checked' => checked(1, $bbpress_options['sidebar_bbpress'], false),
+			'checked' => checked(1, isset($bbpress_options['sidebar_bbpress']), false),
 			'disabled' => check_for_disabled()
 		));		
 	}
@@ -130,7 +130,7 @@
 	 */
 	function check_for_disabled(){
 		$option = get_option('aisis_core');
-		if($option['sidebar_global'] == 1){
+		if(isset($option['sidebar_global']) && $options['sidebar_global'] == 1){
 			return 'disabled';
 		}
 	}

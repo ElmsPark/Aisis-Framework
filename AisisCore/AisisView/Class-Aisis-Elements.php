@@ -151,9 +151,8 @@
 									.$this->rows  
 									.$this->cols 
 									.$this->style
-									.'>'. $this->value . '</textarea>';
-									
-			echo $build_aisis_element;
+									.'>'. $this->value . '</textarea>';				
+			 echo $build_aisis_element;
 		 } 
 		 
 		 /**

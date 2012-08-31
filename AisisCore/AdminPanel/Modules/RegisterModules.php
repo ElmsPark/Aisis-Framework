@@ -26,7 +26,7 @@
 		  }
 	  }
 	  
-	  //Load Options Page
+	  //Load the sidebar options
 	  if(!function_exists('aisis_sidebar_options')){
 		  function aisis_sidebar_options(){
 			  global $aisis_template_loader;
@@ -34,7 +34,7 @@
 		  }
 	  }
 	  
-	  //Load the CSS Editor
+	  //load the slider options
 	  if(!function_exists('aisis_slider_options')){
 		  function aisis_slider_options(){
 			  global $aisis_template_loader;
@@ -42,6 +42,7 @@
 		  }
 	  }
 	  
+	  //load the mini feed options
 	  if(!function_exists('aisis_minifeed_options')){
 		  function aisis_minifeed_options(){
 			  global $aisis_template_loader;
@@ -49,13 +50,13 @@
 		  }
 	  }	  
 	  
-	  //Load the PHP Editor
-	  if(!function_exists('aisis_php_editor_page')){
-		  function aisis_php_editor_page(){
+	  //load the custom (default) text section
+	  if(!function_exists('aisis_customtext_options')){
+		  function aisis_customtext_options(){
 			  global $aisis_template_loader;
-			  $aisis_template_loader->aisis_register('PHPEditor-Module.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel_Default_Text.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
-	  }
+	  }	
 	  
 	  //Load JS Editor
 	  if(!function_exists('aisis_js_editor_page')){
