@@ -115,6 +115,5 @@ function check_mini_disabled(){
 	}
 }
 
-add_action('admin_init', 'aisis_mini_options');
-add_option('admin_success_message', '', '', 'yes');			
+add_action('admin_init', 'aisis_mini_options');		
 ?>

@@ -219,13 +219,18 @@ a.imagehover:hover img {
 	padding-left: 20px;
 }
 
-.alignForm input[type="checkbox"], .alignForm input[type="radio"]{
+.alignForm input[type="checkbox"], .alignForm input[type="radio"], .alignForm input[type="input"]{
 	float: right;
 	width: 2%;
 	text-align: left;
 	margin-top: 12px;
 	padding-top: 7px;
 	margin-right: 340px;
+}
+
+.alignForm input[type="input"]{
+	width:50%;
+	margin-top: 0px;
 }
 
 .alignForm input[type="radio"]{
@@ -255,6 +260,10 @@ a.imagehover:hover img {
 	margin-top: -24px;
 	margin-left: 30px;
 	float: left;	
+}
+
+#aisis_header_img{
+	float:left;
 }
 
 

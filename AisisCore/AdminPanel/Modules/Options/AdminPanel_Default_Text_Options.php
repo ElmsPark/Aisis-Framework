@@ -76,6 +76,5 @@ function get_value($key_name, $hook_to_display){
 	}
 }
 
-add_action('admin_init', 'aisis_custom_text_options');
-add_option('admin_success_message', '', '', 'yes');			
+add_action('admin_init', 'aisis_custom_text_options');		
 ?>

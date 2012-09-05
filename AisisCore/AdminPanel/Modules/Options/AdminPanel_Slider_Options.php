@@ -115,6 +115,5 @@ function check_slider_disabled(){
 	}
 }
 
-add_action('admin_init', 'aisis_core_options');
-add_option('admin_success_message', '', '', 'yes');			
+add_action('admin_init', 'aisis_core_options');		
 ?>

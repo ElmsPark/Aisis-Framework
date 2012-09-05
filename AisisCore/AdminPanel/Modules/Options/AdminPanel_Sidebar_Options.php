@@ -137,6 +137,5 @@
 	
 	
 	add_action('admin_init', 'aisis_core_sidebar_options');
-	add_option('admin_success_message', '', '', 'yes');
 
 ?>

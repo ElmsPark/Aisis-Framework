@@ -1,0 +1,47 @@
+<div class="sideText">
+    <h1>General Post Options</h1>
+    <p>Bellow you have some basic options of weather or not you want to show the related posts and/or the categories and tags
+    for each post. clicking either checkbox will hid the respective item from posts.</p>
+    <p><?php create_submit(); ?></p>
+</div>
+<div class="alignForm">
+	<?php
+        do_settings_fields('aisis-core-options','general_post_options_section');
+    ?>
+</div> 
+<div class="sideText">
+    <h1>Image Header</h1>
+    <p>Want to upload an image for the header? Select a image of size: 980x120 to use.</p>
+</div>
+<div class="alignForm">
+	<?php
+        do_settings_fields('aisis-core-options','image_header_section');
+    ?>
+</div> 
+<div class="sideText">
+    <h1>Core Site Design</h1>
+    <p>Bellow you can choose how you want the posts to display when a user is looking at the 
+    general blog. Each  Image bellow repersents an example of how the site may look.</p>
+    <a href="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp.png" class="images">
+    <img src="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp.png" width="80" height="80" />
+    <a href="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp2.png" class="images">
+    <img src="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp2.png" width="80" height="80" />
+    <a href="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp3.png" class="images">
+    <img src="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp3.png" width="80" height="80" /></a>
+</div>
+<div class="alignForm">
+	<?php
+        do_settings_fields('aisis-core-options','aisis_site_design_section');
+    ?>
+</div>
+<?php if(does_plugin_exist('bbpress/bbpress.php')){ ?>
+<div class="sideText">
+    <h1>BBPress Options</h1>
+    <p>here we give you some basic BBPress Options to select from that will affect the BBPress section of the site.</p>
+</div>
+<div class="alignForm">
+	<?php
+        do_settings_fields('aisis-core-options','aisis_site_design_bbpress_section');
+}
+    ?>
+</div>

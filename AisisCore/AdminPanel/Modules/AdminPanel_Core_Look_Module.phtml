@@ -16,7 +16,10 @@
 	 
 	//check theme version
 	$aisis_check_version = new AisisUpdate();
-	 
+	
+	//Add the option for the update message
+	add_option('admin_success_message', '', '', 'yes');	
+	
 	function create_submit(){
 		$aisis_form = new AisisForm();
 		return $aisis_form->create_aisis_form_element('input', array(
@@ -53,6 +56,7 @@
             </ul>
             <div id="aisisCoreStyles">
             	<div class="content">
+                	<?php aisis_site_design_options(); ?>
                 </div>
             </div>
             <div id="aisisSidebar">
@@ -77,6 +81,7 @@
             </div>
             <div id="aisisSocial">
             	<div class="content">
+                	<?php aisis_social_media_options(); ?>
                 </div>
             </div>            
         </div>
@@ -89,9 +94,6 @@
     }
     else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-js-editor'){
         aisis_js_editor_page();
-    }
-    else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-php-editor'){
-        aisis_php_editor_page();
     }
     else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-core-update'){
         aisis_core_update_page();

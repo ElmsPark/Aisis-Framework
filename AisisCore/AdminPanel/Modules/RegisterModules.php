@@ -58,6 +58,20 @@
 		  }
 	  }	
 	  
+	  if(!function_exists('aisis_social_media_options')){
+		  function aisis_social_media_options(){
+			  global $aisis_template_loader;
+			  $aisis_template_loader->aisis_register('AdminPanel_Social_Options.phtml', AISIS_ADMINPANEL_MODULES);
+		  }
+	  }	
+	  
+	  if(!function_exists('aisis_site_design_options')){
+		  function aisis_site_design_options(){
+			  global $aisis_template_loader;
+			  $aisis_template_loader->aisis_register('AdminPanel_Site_Design.phtml', AISIS_ADMINPANEL_MODULES);
+		  }
+	  }		  	  
+	  
 	  //Load JS Editor
 	  if(!function_exists('aisis_js_editor_page')){
 		  function aisis_js_editor_page(){
