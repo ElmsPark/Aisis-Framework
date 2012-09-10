@@ -44,6 +44,7 @@
 	 define('AISIS_TEMPLATES',get_template_directory() . '/AisisCore/Templates/');
 	 define('AISIS_SHORTCODES', get_template_directory() . '/AisisCore/ShortCodes/');
 	 define('AISIS_VIEW', get_template_directory() . '/AisisCore/AisisView/');
+	  define('AISIS_TEMPLATE_BUILDER', get_template_directory() . '/AisisCore/Templates/TemplateBuilder/');
 	 define('AISIS_BBPRESS', get_template_directory() . '/AisisCore/BBPress/');
 	 
 	 // Define Aisis Custom - for loading the whole folder.

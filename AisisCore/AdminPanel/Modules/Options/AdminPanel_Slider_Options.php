@@ -67,7 +67,16 @@ function aisis_slider(){
 		'value'=>1,
 		'checked' => checked(1, isset($option['slider_page']), false),
 		'disabled'=>check_slider_disabled()
-	));	
+	));
+	
+	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the slider from Author Pages?'));
+	$aisis_form->create_aisis_form_element('input', array(
+		'type'=>'checkbox',
+		'name'=>'aisis_core[slider_author]',
+		'value'=>1,
+		'checked' => checked(1, isset($option['slider_author']), false),
+		'disabled'=>check_slider_disabled()
+	));		
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the slider from Articles and Essays?'));
 	$aisis_form->create_aisis_form_element('input', array(

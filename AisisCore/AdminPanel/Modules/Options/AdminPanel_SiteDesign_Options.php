@@ -88,9 +88,9 @@ function aisis_site_design(){
 	$aisis_form->create_aisis_form_element('input', array(
 		'type'=>'radio',
 		'id'=>'designlayout',
-		'name'=>'aisis_core[layout_default]',
+		'name'=>'aisis_core[layout]',
 		'value'=>'1',
-		'checked' => checked(1, isset($options['layout_default']), false)
+		'checked' => checked(1, isset($options['layout']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -99,9 +99,9 @@ function aisis_site_design(){
 	$aisis_form->create_aisis_form_element('input', array(
 		'type'=>'radio',
 		'id'=>'designlayout',
-		'name'=>'aisis_core[layout_seperate]',
-		'value'=>'1',
-		'checked' => checked(1, isset($options['layout_seperate']), false)
+		'name'=>'aisis_core[layout]',
+		'value'=>'2',
+		'checked' => checked(2, isset($options['layout']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -110,9 +110,9 @@ function aisis_site_design(){
 	$aisis_form->create_aisis_form_element('input', array(
 		'type'=>'radio',
 		'id'=>'designlayout',
-		'name'=>'aisis_core[layout_none]',
-		'value'=>'1',
-		'checked' => checked(1, isset($options['layout_default']), false)
+		'name'=>'aisis_core[layout]',
+		'value'=>'3',
+		'checked' => checked(3, isset($options['layout_default']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -121,9 +121,9 @@ function aisis_site_design(){
 	$aisis_form->create_aisis_form_element('input', array(
 		'type'=>'radio',
 		'id'=>'designlayout',
-		'name'=>'aisis_core[layout_default_ae]',
+		'name'=>'aisis_core[layout_ae]',
 		'value'=>'1',
-		'checked' => checked(1, isset($options['layout_default_ae']), false)
+		'checked' => checked(1, isset($options['layout_ae']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -132,9 +132,9 @@ function aisis_site_design(){
 	$aisis_form->create_aisis_form_element('input', array(
 		'type'=>'radio',
 		'id'=>'designlayout',
-		'name'=>'aisis_core[layout_seperate_ae]',
-		'value'=>'1',
-		'checked' => checked(1, isset($options['layout_seperate_ae']), false)
+		'name'=>'aisis_core[layout_ae]',
+		'value'=>'2',
+		'checked' => checked(2, isset($options['layout_ae']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -143,9 +143,9 @@ function aisis_site_design(){
 	$aisis_form->create_aisis_form_element('input', array(
 		'type'=>'radio',
 		'id'=>'designlayout',
-		'name'=>'aisis_core[layout_none_ae]',
-		'value'=>'1',
-		'checked' => checked(1, isset($options['layout_none_ae']), false)
+		'name'=>'aisis_core[layout_ae]',
+		'value'=>'3',
+		'checked' => checked(3, isset($options['layout_ae']), false)
 	));			
 	
 }

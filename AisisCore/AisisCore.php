@@ -57,7 +57,7 @@
 			 $post_type = array('post_type' => 'mini');
 			 $loop_mini = new WP_Query($post_type);
 			 set_transient('loop_mini', $loop_mini, 3600);
-			 return $loop;
+			 return $loop_mini;
 		 }
 	 }
 	 

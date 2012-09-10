@@ -1,0 +1,31 @@
+<?php
+	 global $post;
+	 
+	 $options = get_option('aisis_core');
+	 
+	 $mini_loop = get_transient('loop_mini');
+	 
+	 if(!$mini_loop){
+		 $mini_loop = mini_feed_loop();
+	 }
+?>
+	 
+    <?php
+	if(isset($options['mini_global']) && $options['mini_global'] != 1){ 
+	if($mini_loop->have_posts()){?>
+    <div id="miniFeedWrapper">
+    	<?php while ($mini_loop->have_posts()) : $mini_loop->the_post();?>
+    	<div class="miniFeed">
+        	<div class="title">
+            <img src="<?php echo get_post_meta($post->ID, 'aisis_content_img', true);?>" width="32" height="32"/>
+            <?php echo get_the_title();?>
+            </div>
+            <p><?php echo get_post_meta($post->ID, 'aisis_content_desc', true);?></p>
+            <div class="readMore">
+            	<a href="<?php echo get_post_meta($post->ID, 'aisis_content_link', true);?>">Read More</a>
+            </div>
+        </div>
+        <?php endwhile; ?>                   
+    </div>
+   	<?php } 
+	}?>	 

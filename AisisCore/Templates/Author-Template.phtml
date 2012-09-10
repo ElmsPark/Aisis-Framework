@@ -29,20 +29,12 @@
 	 //We need the current user info
      get_currentuserinfo();
 	 
-	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
-	 $option_slider_minifeed_global = get_option('aisis_core_theme_setting_slider_mini_global');
-	 
 	 $aisis_author_arguments = array('author' => $current_user->ID); 
 	 $posts = query_posts($aisis_author_arguments);
 	
-	 /**
-	  * If the user wan't the slider and mini feed to display we do this.
-	  */
-	 if(isset($option_slider_minifeed_global['no_slider_mini_global']) && $option_slider_minifeed_global['no_slider_mini_global'] != 1){
-		 aisis_header();
-	 }
+	 is_author_page();
 ?>    
-    <div id="<?php if($option_sidebar_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
+    <div id="author">
         <article class="post clearfix">
             <header>
                 <h1 class="postTitle"><?php echo $current_user->user_login; ?></h1>

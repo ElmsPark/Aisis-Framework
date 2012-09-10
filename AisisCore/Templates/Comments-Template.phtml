@@ -33,10 +33,7 @@
 	 
 	 if(is_single()){
 ?>
-        <div id="<?php if($options_sidebar_single['no_sidebar_single'] != 1 
-		&& $options_sidebar_global['no_sidebar_global'] != 1)
-		{echo 'commentsbox';}
-		else{echo 'commentsboxFull';}?>">
+        <div id="commentsbox">
                 <?php if ( have_comments() ) : ?>
                 <hr class="remove-bottom">
                     <h3 id="comments">
@@ -108,16 +105,9 @@
             <?php endif; // if you delete this the sky will fall on your head ?>
         </div>
 <?php
-	 }elseif(is_page()){	
-	 if(is_front_page() && $options_sidebar_front['no_sidebar_front'] != 1 && $options_sidebar_global['no_sidebar_global'] != 1){
-		 $comments_class = 'commentsbox';
-	 }elseif(!is_front_page() && $options_sidebar_page['no_sidebar_page'] != 1 && $options_sidebar_global['no_sidebar_global'] != 1){
-		 $comments_class = 'commentsbox';
-	 }else{
-		 $comments_class = 'commentsboxFull';
-	 }	  
+	 }elseif(is_page()){		  
 ?>
-      <div id="<?php echo $comments_class; ?>">
+      <div id="commentsbox">
               <?php if ( have_comments() ) : ?>
               <hr class="remove-bottom">
                   <h3 id="comments">

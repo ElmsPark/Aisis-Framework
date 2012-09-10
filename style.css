@@ -1183,10 +1183,11 @@ HEADER
 }
 #siteLogo img{
 	width: 980px;
-	height: 119px;
+	height: 120px;
 	max-width: 100%;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius:5px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	margin-top: -8px;
 }
 #siteLogo a {
 	font: bold 30px/100% 'Open Sans', sans-serif;;

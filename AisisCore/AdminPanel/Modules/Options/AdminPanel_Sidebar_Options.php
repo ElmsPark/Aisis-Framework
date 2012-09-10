@@ -74,6 +74,15 @@
 			'disabled' => check_for_disabled()
 		));
 		
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from Single Posts?'));
+		$aisis_form->create_aisis_form_element('input', array(
+			'type'=>'checkbox',
+			'name'=>'aisis_core[sidebar_single]',
+			'value'=>1,
+			'checked' => checked(1, isset($options['sidebar_single']), false),
+			'disabled' => check_for_disabled()
+		));		
+		
 		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from Articles & Essays list of posts?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',

@@ -43,7 +43,8 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_ADMINPANEL)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_ADMINPANEL, true);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Admin Exceptions Package: AdminPanel</strong>") . "</div>");
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Admin Exceptions 
+				 Package: AdminPanel</strong>") . "</div>");
 				 exit;
 			 }
 		 }
@@ -57,10 +58,22 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_VIEW)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_VIEW, true);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis View Package: AdminView</strong>") . "</div>");
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis View Package: 
+				 AdminView</strong>") . "</div>");
 				 exit;
 			 }
 		 }
+		 
+		 function load_template_builder_package(){
+			 $this->aisis_file_handling = new AisisFileHandling();
+			 if($this->aisis_file_handling->check_dir(AISIS_TEMPLATE_BUILDER)){
+				 $this->aisis_file_handling->load_directory_of_files(AISIS_TEMPLATE_BUILDER);
+			 }else{
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Template Builder
+				  Package: Template Builder</strong>") . "</div>");
+				 exit;
+			 }
+		 }		 
 		 
 		 /**
 		  * Load the aisis short codes package. Spazz out if it's not
@@ -71,7 +84,8 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_SHORTCODES)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_SHORTCODES, true);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Short Codes package: ShortCodes</strong>") . "</div>");
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Short Codes package: 
+				 ShortCodes</strong>") . "</div>");
 				 exit;
 			 }
 		 }
@@ -85,7 +99,8 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_SOCIAL)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_SOCIAL, true);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Social Media package: AisisSocialMedia</strong>") . "</div>");
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Social Media package: 
+				 AisisSocialMedia</strong>") . "</div>");
 				 exit;
 			 }
 		 }
@@ -99,7 +114,8 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_CUSTOM_POST_TYPES)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_CUSTOM_POST_TYPES, true);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Post Types package: AisisCustomPostTypes</strong>") . "</div>");
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom 
+				 Post Types package: AisisCustomPostTypes</strong>") . "</div>");
 				 exit;
 			 }
 		 }	
@@ -109,7 +125,8 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_BBPRESS)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_BBPRESS, true);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the BBPress package: BBPress</strong>") . "</div>");
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the BBPress package: 
+				 BBPress</strong>") . "</div>");
 				 exit;
 			 }
 		 }			 
@@ -126,7 +143,8 @@
 			 if($this->aisis_file_handling->check_dir($dir_of_package)){
 				 $this->aisis_file_handling->load_directory_of_files($dir_of_package, $recusive);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the package you want to load at the directory of: $dir_of_package </strong>") . "</div>"); 
+				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the package you want 
+				 to load at the directory of: $dir_of_package </strong>") . "</div>"); 
 			 }
 		 }
 	 }

@@ -29,8 +29,7 @@
 	 $options = get_option('aisis_core');	 
 ?>
 
-	<div id="<?php if($options['sidebar_index'] != 1 
-	&& $options['sidebar_global'] != 1){echo 'category'; }else{ echo 'categoryFull'; } ?>">
+	<div id="category">
 		<article class="post clearfix">
 			<header>
 				<h1><?php single_cat_title(); ?></h1>

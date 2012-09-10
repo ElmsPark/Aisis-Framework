@@ -25,36 +25,20 @@
 	 */
 	 global $page_title, $post;
 	 
-	 $options = get_option('aisis_core');
-	 $bbress_options = get_option('aisis_core_bbpress');
-	 	 
-	 if(is_front_page() && $options['sidebar_front'] != 1 && 
-	 $options['sidebar_global'] != 1){
-		 $content_class = 'content';
-	 }elseif(!is_front_page() && $options['sidebar_page'] != 1 && 
-	 $options['sidebar_global'] != 1){
-		 $content_class = 'content';
-	 }else{
-		 $content_class = 'contentFull';
-	 }
 	 
-	 
-	 if(is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
-	 $option_slider_mini_front_page['no_slider_mini_front_page'] != 1 && 'forum' != get_post_type()
+	 if(is_front_page() && 'forum' != get_post_type()
 	 && 'topic' != get_post_type()){
-		 aisis_header();
-	 }elseif(!is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
-	 $option_slider_mini['no_slider_mini_page'] != 1 && 'forum' != get_post_type() && 'topic' != get_post_type()){
-		 aisis_header();
+		 is_front_page_content();
+	 }elseif(!is_front_page() && 'forum' != get_post_type() && 'topic' != get_post_type()){
+		is_single_page();
 	 }
 	  
-	 if(('forum' == get_post_type() && $option_header_bbepress['bbpress_slider_mini'] != 1) || 
-	 ('topic' == get_post_type() && $option_header_bbepress['bbpress_slider_mini'] != 1 )){
-		 aisis_header();
+	 if('forum' == get_post_type() || 'topic' == get_post_type()){
+		is_bbpress_fourm();
 	 }
 
 ?>  
-    <div id="<?php echo $content_class;?>">
+    <div id="content">
     	<?php 
 		while(have_posts()) : the_post();?>
         <article class="post clearfix">
@@ -77,9 +61,7 @@
     </div>
     
     <?php
-	 if(!is_front_page()){
-		  get_sidebar();
-	 }
+	 sidebar_page();
 	 
      if('open' == $post->comment_status){
 	     comments_template('', true);
