@@ -22,7 +22,7 @@
 	  if(!function_exists('aisis_admin_panel_load_core_look')){
 		  function aisis_admin_panel_load_core_look(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel_Core_Look_Module.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel-Core-Look-Module.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  
@@ -30,7 +30,7 @@
 	  if(!function_exists('aisis_sidebar_options')){
 		  function aisis_sidebar_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel_Sidebar_Options.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel-Sidebar-Options.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  
@@ -38,7 +38,7 @@
 	  if(!function_exists('aisis_slider_options')){
 		  function aisis_slider_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel_Slider_Options.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel-Slider-Options.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }
 	  
@@ -46,7 +46,7 @@
 	  if(!function_exists('aisis_minifeed_options')){
 		  function aisis_minifeed_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel_MiniFeed_Options.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel-MiniFeed-Options.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }	  
 	  
@@ -54,21 +54,21 @@
 	  if(!function_exists('aisis_customtext_options')){
 		  function aisis_customtext_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel_Default_Text.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel-Default-Text.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }	
 	  
 	  if(!function_exists('aisis_social_media_options')){
 		  function aisis_social_media_options(){
 			 $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel_Social_Options.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel-Social-Options.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }	
 	  
 	  if(!function_exists('aisis_site_design_options')){
 		  function aisis_site_design_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel_Site_Design.phtml', AISIS_ADMINPANEL_MODULES);
+			  $aisis_template_loader->aisis_register('AdminPanel-Site-Design.phtml', AISIS_ADMINPANEL_MODULES);
 		  }
 	  }		  	  
 	  

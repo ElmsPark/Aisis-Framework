@@ -20,7 +20,7 @@
 	 */
 	if(!function_exists('aisis_add_articles_essay')){
 		function aisis_add_articles_essay() 
-		{
+		{	
 		  $labels = array(
 			'name' => _x('Articles and Essays', 'post type general name', 'aisis', 'aisis'),
 			'rewrite' => array('slug'=>'ae'),
@@ -55,35 +55,38 @@
 	if(!function_exists('aisis_add_mini_feeds')){
 		function aisis_add_mini_feeds() 
 		{
-		  $labels = array(
-			'name' => _x('Mini Feeds', 'post type general name', 'aisis', 'aisis'),
-			'rewrite' => array('slug'=>'mini'),
-			'singular_name' => _x('Mini Feed', 'post type singular name', 'aisis'),
-			'add_new' => _x('Add New', 'mini', 'aisis'),
-			'add_new_item' => __('Add new Mini Feed', 'aisis'),
-			'edit_item' => __('Edit Mini Feed', 'aisis'),
-			'new_item' => __('New Mini Feed', 'aisis'),
-			'view_item' => __('View Mini Feed', 'aisis'),
-			'search_items' => __('Search Mini Feeds', 'aisis'),
-			'not_found' =>  __('No Mini Feeds found', 'aisis'),
-			'not_found_in_trash' => __('No Mini Feeds found in Trash', 'aisis'), 
-			'parent_item_colon' => '',
-		  );
-		  $args = array(
-			'labels' => $labels,
-			'public' => true,
-			'publicly_queryable' => true,
-			'show_ui' => true, 
-			'query_var' => true,
-			'rewrite' => true,
-			'capability_type' => 'post',
-			'hierarchical' => false,
-			'menu_icon' => get_template_directory_uri() .'/images/mini.png',
-			'menu_position' => null,
-			'supports' => array('title','editor'),
-			'exclude_from_search' => true
-		  ); 
-		  register_post_type('mini',$args);
+		  $options = get_option('aisis_core');
+		  if($options['mini_global'] != 1){			
+			  $labels = array(
+				'name' => _x('Mini Feeds', 'post type general name', 'aisis', 'aisis'),
+				'rewrite' => array('slug'=>'mini'),
+				'singular_name' => _x('Mini Feed', 'post type singular name', 'aisis'),
+				'add_new' => _x('Add New', 'mini', 'aisis'),
+				'add_new_item' => __('Add new Mini Feed', 'aisis'),
+				'edit_item' => __('Edit Mini Feed', 'aisis'),
+				'new_item' => __('New Mini Feed', 'aisis'),
+				'view_item' => __('View Mini Feed', 'aisis'),
+				'search_items' => __('Search Mini Feeds', 'aisis'),
+				'not_found' =>  __('No Mini Feeds found', 'aisis'),
+				'not_found_in_trash' => __('No Mini Feeds found in Trash', 'aisis'), 
+				'parent_item_colon' => '',
+			  );
+			  $args = array(
+				'labels' => $labels,
+				'public' => true,
+				'publicly_queryable' => true,
+				'show_ui' => true, 
+				'query_var' => true,
+				'rewrite' => true,
+				'capability_type' => 'post',
+				'hierarchical' => false,
+				'menu_icon' => get_template_directory_uri() .'/images/mini.png',
+				'menu_position' => null,
+				'supports' => array('title','editor'),
+				'exclude_from_search' => true
+			  ); 
+			  register_post_type('mini',$args);
+		  }
 		}	
 	}
 		
@@ -95,35 +98,38 @@
 	if(!function_exists('aisis_add_slides')){
 		function aisis_add_slides() 
 		{
-		  $labels = array(
-			'name' => _x('Slides', 'post type general name', 'aisis', 'aisis'),
-			'singular_name' => _x('Slides', 'post type singular name', 'aisis'),
-			'add_new' => _x('Add New', 'slide', 'aisis'),
-			'add_new_item' => __('Add new Slides', 'aisis'),
-			'edit_item' => __('Edit Slide', 'aisis'),
-			'new_item' => __('New Slide', 'aisis'),
-			'view_item' => __('View Slide', 'aisis'),
-			'search_items' => __('Search Slides', 'aisis'),
-			'not_found' =>  __('No Slides found', 'aisis'),
-			'not_found_in_trash' => __('No Slides found in Trash', 'aisis'), 
-			'parent_item_colon' => ''
-		  );
-		  $args = array(
-			'labels' => $labels,
-			'public' => false,
-			'publicly_queryable' => false,
-			'show_ui' => true, 
-			'query_var' => true,
-			'rewrite' => true,
-			'map_meta_cap' => true,	
-			'capability_type' => 'post',
-			'hierarchical' => false,
-			'menu_icon' => get_template_directory_uri() .'/images/slides.png',
-			'menu_position' => null,
-			'supports' => array('title','editor'),
-			'exclude_from_search' => true
-		  ); 
-		  register_post_type('slides',$args);
+		  $options = get_option('aisis_core');
+		  if($options['slider_global'] != 1){
+			  $labels = array(
+				'name' => _x('Slides', 'post type general name', 'aisis', 'aisis'),
+				'singular_name' => _x('Slides', 'post type singular name', 'aisis'),
+				'add_new' => _x('Add New', 'slide', 'aisis'),
+				'add_new_item' => __('Add new Slides', 'aisis'),
+				'edit_item' => __('Edit Slide', 'aisis'),
+				'new_item' => __('New Slide', 'aisis'),
+				'view_item' => __('View Slide', 'aisis'),
+				'search_items' => __('Search Slides', 'aisis'),
+				'not_found' =>  __('No Slides found', 'aisis'),
+				'not_found_in_trash' => __('No Slides found in Trash', 'aisis'), 
+				'parent_item_colon' => ''
+			  );
+			  $args = array(
+				'labels' => $labels,
+				'public' => false,
+				'publicly_queryable' => false,
+				'show_ui' => true, 
+				'query_var' => true,
+				'rewrite' => true,
+				'map_meta_cap' => true,	
+				'capability_type' => 'post',
+				'hierarchical' => false,
+				'menu_icon' => get_template_directory_uri() .'/images/slides.png',
+				'menu_position' => null,
+				'supports' => array('title','editor'),
+				'exclude_from_search' => true
+			  ); 
+			  register_post_type('slides',$args);
+		  }
 		}
 	}
 	
