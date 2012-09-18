@@ -11,7 +11,7 @@
 ?>
 	 
     <?php
-	if(isset($options['mini_global']) && $options['mini_global'] != 1){ 
+	if($options['mini_global'] != 1){ 
 	if($mini_loop->have_posts()){?>
     <div id="miniFeedWrapper">
     	<?php while ($mini_loop->have_posts()) : $mini_loop->the_post();?>

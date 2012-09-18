@@ -27,7 +27,6 @@
 		<![endif]--><?php
 		
 	 //Load the index page
-	 aisis_var_dump(get_option('aisis_core'), true);	
 	 aisis_core_index();
 	 //require_once(AISISCORE . '/Templates/BuildAisisTheme.php');
 		

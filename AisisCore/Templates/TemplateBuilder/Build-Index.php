@@ -25,6 +25,9 @@
 	if(!function_exists('build_the_index_layout')){
 		function build_the_index_layout(){
 			$options = get_option('aisis_core');
+			
+			is_index_page();
+			
 			if($options['layout'] == 1){
 				layout_default();
 			}elseif($options['layout'] == 2){

@@ -8,7 +8,7 @@
 		 $slides_loop = header_slide_loop(); 
 	 }
 ?>
-	<?php if(isset($options['slider_global']) && $options['slider_global'] != 1){
+	<?php if($options['slider_global'] != 1){
      	  	if($slides_loop->have_posts()){?>
         <div id="objectWrapper">
             <div class="flex-container">
