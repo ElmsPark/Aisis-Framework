@@ -40,7 +40,7 @@
 	the_post();
 	
 	if(has_post_format('aside') || has_post_format('status')){?>
-    <div id="content">
+    <div id="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
             <?php if(has_post_thumbnail()){?>
                 <figure class="soft-embossed postImage">
@@ -55,7 +55,7 @@
     </div><?php
 	}elseif(has_post_format('Gallery') || has_post_format('image') || has_post_format('video') || has_post_format('quote')
 	|| has_post_format('link')){?>
-    <div id="content">
+    <div id="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
             <?php if(has_post_thumbnail()){?>
             	<h1 class="postTitle"><?php the_title(); ?></h1>
@@ -70,7 +70,7 @@
 		?>
     </div><?php
 	}elseif(is_sticky()){?>
-	<div class="sticky">
+	<div class="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
@@ -95,7 +95,7 @@
     </div>
     <?php		
 	}else{?>
-	<div id="content">
+	<div id="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
@@ -175,7 +175,7 @@
 
 	sidebar_single();
 
-	?><div class="pagnation">
+	?><div class="<?php pagnation_class(); ?>">
         <div class="prevPost"><?php echo  previous_post_link();?></div>
         <div class="nextPost"><?php echo  next_post_link(); ?></div>
     </div><?php

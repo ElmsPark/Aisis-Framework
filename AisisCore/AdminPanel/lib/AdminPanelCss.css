@@ -281,7 +281,7 @@ input[type="submit"]{
 	cursor:pointer;
 }
 
-#upload_image_button{
+#upload_image_button, #upload_aisis_header{
 	background-color:rgb(192,210,181) !important;
 	width:auto;
 	padding:5px;

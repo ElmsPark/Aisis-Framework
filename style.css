@@ -676,7 +676,6 @@ CONTENT
 .pagnationFull{
 	width: 100%;
 	float: left;
-	margin: 0 0 10px 150px;
 	padding-bottom: 7px;
 	height: 18px;
 	border-color: #999;
@@ -1196,8 +1195,8 @@ HEADER
 }
 
 .socialMediaLink {
-	margin: -46px 0 10px 0px;
-	z-index: 999999;
+	margin: -32px 0 10px 0px;
+	z-index: 999;
 	width: 50%;
 }
 .socialMediaLink img {
@@ -1705,7 +1704,6 @@ CONTENT
 .pagnationFull{
 	width: 100%;
 	float: left;
-	margin: 0 0 10px 150px;
 	padding-bottom: 7px;
 	height: 18px;
 	border-color: #999;

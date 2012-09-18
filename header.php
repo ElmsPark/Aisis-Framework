@@ -40,7 +40,7 @@
         }else{
             bloginfo('name');
         }
-    	$option = get_option('aisis_upload_header_image_setting');
+    	$option = get_option('aisis_core');
     ?>
     </title>
     
@@ -54,8 +54,8 @@
                 <hgroup>
                     <div id="siteLogo">
                     <?php if(get_header_image() == ''){?>
-                    <a href="<?php bloginfo('url')?>"><img src="<?php if($option['aisis_header_img'] != '')
-					{echo $option['aisis_header_img'];}else{bloginfo('template_directory');?>/images/bridge.jpg<?php } ?>" />
+                    <a href="<?php bloginfo('url')?>"><img src="<?php if($option['image_header'] != '')
+					{echo $option['image_header'];}else{bloginfo('template_directory');?>/images/forest.png<?php } ?>" />
                     </a>
                     <?php }else{
 						?><a href="<?php bloginfo('url')?>">

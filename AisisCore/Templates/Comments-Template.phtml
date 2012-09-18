@@ -33,7 +33,7 @@
 	 
 	 if(is_single()){
 ?>
-        <div id="commentsbox">
+        <div id="<?php comments_id(); ?>">
                 <?php if ( have_comments() ) : ?>
                 <hr class="remove-bottom">
                     <h3 id="comments">

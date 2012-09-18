@@ -69,12 +69,12 @@ function image_header(){
 		'type' => 'text',
 		'name' => 'aisis_core[image_header]',
 		'id' => 'aisis_header_img',
-		'value' => isset($options['image_header'])
+		'value' => $options['image_header']
 	));
 	$aisis_form->create_aisis_form_element('input', array(
 		'type' => 'button',
 		'value' => 'Upload',
-		'id' => 'upload_image_button'
+		'id' => 'upload_aisis_header'
 	));
 }
 

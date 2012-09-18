@@ -159,8 +159,6 @@
 	 */        
 	jQuery(document).ready(function() {
 		
-		jQuery(".images").colorbox({rel:'images'});
-		
 		jQuery('#upload_image_button').click(function() {
 			formfield = jQuery('#upload_image').attr('name');
 			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
@@ -173,7 +171,7 @@
 			tb_remove();
 		}
 		
-		jQuery('#upload_image_button').click(function() {
+		jQuery('#upload_aisis_header').click(function() {
 			formfield = jQuery('#upload_image').attr('name');
 			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
 			return false;

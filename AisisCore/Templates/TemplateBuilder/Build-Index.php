@@ -81,7 +81,8 @@
 	 * function and should not be called else where.
 	 */	
 	if(!function_exists('layout_seperate')){
-		function layout_seperate(){?>
+		function layout_seperate(){
+			sidebar_index();?>
 			<?php while(have_posts()) : the_post();?>
 			<div id="<?php content_id(); ?>">
 				<article class="post clearfix">
@@ -106,7 +107,7 @@
 			</div>	 
 			<?php endwhile; ?>
 			<?php 	
-			sidebar_index();
+			
 			aisis_footer();			
 		}
 	}
