@@ -1525,11 +1525,11 @@ CONTENT
 }
 
 #contentFull, #authorFull, #categoryFull, .stickyFull{
-	width: 93%;
+	width: 95%;
 }
 
 #contentNoBackFull{
-	width: 62%;
+	width: 95%;
 }
 
 .post{

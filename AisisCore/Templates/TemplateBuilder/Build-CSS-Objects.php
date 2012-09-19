@@ -61,7 +61,7 @@
 				build_content_id();
 			}
 			elseif($option['layout_ae'] == 3){
-				if($option['sidebar_global'] != 1 && $option['sidebar_index'] != 1){
+				if($option['sidebar_global'] != 1 && $option['sidebar_ae'] != 1){
 					echo 'contentNoBack';
 				}else{
 					echo 'contentNoBackFull';

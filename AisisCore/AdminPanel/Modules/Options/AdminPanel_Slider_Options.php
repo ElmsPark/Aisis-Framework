@@ -31,6 +31,7 @@ function aisis_slider(){
 		'name'=>'aisis_core[slider_global]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['slider_global']), false),
+		'id' => 'slider_global'
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the slider from Articles and Essays?'));
@@ -39,7 +40,8 @@ function aisis_slider(){
 		'name'=>'aisis_core[slider_front]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['slider_front']), false),
-		'disabled'=>check_slider_disabled()
+		'disabled'=>check_slider_disabled(),
+		'class' => 'slider'
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the slider from list of Posts'));
@@ -48,7 +50,8 @@ function aisis_slider(){
 		'name'=>'aisis_core[slider_index]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['slider_index']), false),
-		'disabled'=>check_slider_disabled()
+		'disabled'=>check_slider_disabled(),
+		'class' => 'slider'
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the slider from Single posts?'));
@@ -57,7 +60,8 @@ function aisis_slider(){
 		'name'=>'aisis_core[slider_single]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['slider_single']), false),
-		'disabled'=>check_slider_disabled()
+		'disabled'=>check_slider_disabled(),
+		'class' => 'slider'
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the slider from Pages?'));
@@ -66,7 +70,8 @@ function aisis_slider(){
 		'name'=>'aisis_core[slider_page]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['slider_page']), false),
-		'disabled'=>check_slider_disabled()
+		'disabled'=>check_slider_disabled(),
+		'class' => 'slider'
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the slider from Author Pages?'));
@@ -75,7 +80,8 @@ function aisis_slider(){
 		'name'=>'aisis_core[slider_author]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['slider_author']), false),
-		'disabled'=>check_slider_disabled()
+		'disabled'=>check_slider_disabled(),
+		'class' => 'slider'
 	));		
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the slider from Articles and Essays?'));
@@ -84,7 +90,8 @@ function aisis_slider(){
 		'name'=>'aisis_core[slider_ae]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['slider_ae']), false),
-		'disabled'=>check_slider_disabled()
+		'disabled'=>check_slider_disabled(),
+		'class' => 'slider'
 	));						
 }
 
@@ -98,7 +105,8 @@ function aisis_slider_bbpress(){
 	  'name'=>'aisis_core_bbpress[slider_bbpress]',
 	  'value'=>1,
 	  'checked' => checked(1, isset($bbpress_options['slider_bbpress']), false),
-	  'disabled'=>check_slider_disabled()
+	  'disabled'=>check_slider_disabled(),
+	  'class' => 'slider'
   ));		
 }
 

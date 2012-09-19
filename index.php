@@ -20,14 +20,13 @@
 
 	  get_header(); 
 	
-		?><!--[if lt ie 7]>
+		?><!--[if lt ie 8]>
 		<div class="notice">
 			This site is not supported by IE 6 or lower please consider upgrading
 		</div>
 		<![endif]--><?php
 		
 	 //Load the index page
-	 aisis_var_dump(get_option('aisis_core'), true);
 	 aisis_core_index();
 	 //require_once(AISISCORE . '/Templates/BuildAisisTheme.php');
 		

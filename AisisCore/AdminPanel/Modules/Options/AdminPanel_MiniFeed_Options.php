@@ -31,6 +31,7 @@ function aisis_mini(){
 		'name'=>'aisis_core[mini_global]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['mini_global']), false),
+		'id' => 'mini_global'
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Articles and Essays?'));
@@ -39,7 +40,8 @@ function aisis_mini(){
 		'name'=>'aisis_core[mini_front]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['mini_front']), false),
-		'disabled'=>check_mini_disabled()
+		'disabled'=>check_mini_disabled(),
+		'class' => 'mini'
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from list of Posts'));
@@ -48,7 +50,8 @@ function aisis_mini(){
 		'name'=>'aisis_core[mini_index]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['mini_index']), false),
-		'disabled'=>check_mini_disabled()
+		'disabled'=>check_mini_disabled(),
+		'class' => 'mini'
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Single posts?'));
@@ -57,7 +60,8 @@ function aisis_mini(){
 		'name'=>'aisis_core[mini_single]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['mini_single']), false),
-		'disabled'=>check_mini_disabled()
+		'disabled'=>check_mini_disabled(),
+		'class' => 'mini'
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Pages?'));
@@ -66,7 +70,8 @@ function aisis_mini(){
 		'name'=>'aisis_core[mini_page]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['mini_page']), false),
-		'disabled'=>check_mini_disabled()
+		'disabled'=>check_mini_disabled(),
+		'class' => 'mini'
 	));	
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Author Page?'));
@@ -75,7 +80,8 @@ function aisis_mini(){
 		'name'=>'aisis_core[mini_author]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['mini_author']), false),
-		'disabled'=>check_mini_disabled()
+		'disabled'=>check_mini_disabled(),
+		'class' => 'mini'
 	));		
 	
 	$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Articles and Essays?'));
@@ -84,7 +90,8 @@ function aisis_mini(){
 		'name'=>'aisis_core[mini_ae]',
 		'value'=>1,
 		'checked' => checked(1, isset($option['mini_ae']), false),
-		'disabled'=>check_mini_disabled()
+		'disabled'=>check_mini_disabled(),
+		'class' => 'mini'
 	));						
 }
 
@@ -98,7 +105,8 @@ function aisis_mini_bbpress(){
 	  'name'=>'aisis_core_bbpress[mini_bbpress]',
 	  'value'=>1,
 	  'checked' => checked(1, isset($bbpress_options['mini_bbpress']), false),
-	  'disabled'=>check_mini_disabled()
+	  'disabled'=>check_mini_disabled(),
+	  'class' => 'mini'
   ));		
 }
 

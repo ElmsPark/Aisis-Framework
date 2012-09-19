@@ -107,10 +107,12 @@
 	if(!function_exists('is_ae_page')){
 		function is_ae_page(){
 			$options = get_option('aisis_core');
+			
 			if($options['slider_ae'] != 1){
 				aisis_slider_template();
 			}
-			if($options['mini_aer'] != 1){
+			
+			if($options['mini_ae'] != 1){
 				aisis_mini_feed_template();
 			}	
 		}

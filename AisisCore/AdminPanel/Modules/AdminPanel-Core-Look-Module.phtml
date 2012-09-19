@@ -110,8 +110,10 @@
 		
 		enableSideBar();
 		$('#sidebar_global').click(enableSideBar)
-		enableSliderMini();
-		$('#slider_mini_global').click(enableSliderMini)			
+		enableMini();
+		$('#mini_global').click(enableMini)
+		enableSlider();
+		$('#slider_global').click(enableSlider)				
 	});
 	
 	/**
@@ -122,36 +124,30 @@
 	function enableSideBar(){
 		if(this.checked){
 			$('input.sidebar').attr("disabled", true);
-		}else{
-			<?php
-			if(isset($options['no_sidebar_global']) && $options['no_sidebar_global'] != 1){
-			?>
-			$('input.sidebar').removeAttr('disabled');
-			<?php
-			}
-			?>
-			
 		}
 	}
 	
 	/**
 	 * If the user has chosen to not show the
-	 * the slider and mini feed across the site keep the
-	 * rest disabled.
+	 * the mini across the site, keep the other options
+	 * disabled
 	 */		
-	function enableSliderMini(){
+	function enableMini(){
 		if(this.checked){
-			$('input.slider_mini').attr("disabled", true);
-		}else{
-			<?php
-			if(isset($options['no_slider_mini_global']) && $options['no_slider_mini_global'] != 1){
-			?>
-			$('input.slider_mini').removeAttr('disabled');
-			<?php
-			}
-			?>
+			$('input.mini').attr("disabled", true);
 		}
 	}
+	
+	/**
+	 * If the user has chosen to not show the
+	 * the slider across the site, keep the other options
+	 * disabled
+	 */
+	function enableSlider(){
+		if(this.checked){
+			$('input.slider').attr("disabled", true);
+		}
+	}	
 	
 	/**
 	 * This is used for the media uploader for when we are
