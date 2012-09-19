@@ -26,14 +26,13 @@
 	if(!function_exists('content_id')){
 		function content_id(){
 			$option = get_option('aisis_core');
-			
-			if($option['layout'] == 1 || $option['layout_ae'] == 1){
+			if($option['layout'] == 1){
 				build_content_id();
 			}
-			elseif($option['layout'] == 2 || $option['layout_ae'] == 2){
+			elseif($option['layout'] == 2){
 				build_content_id();
 			}
-			elseif($option['layout'] == 3 || $option['layout_ae'] == 3){
+			elseif($option['layout'] == 3){
 				if($option['sidebar_global'] != 1 && $option['sidebar_index'] != 1){
 					echo 'contentNoBack';
 				}else{
@@ -45,6 +44,34 @@
 				
 		}
 	}
+	
+	/**
+	 * Render out the content id based on the 
+	 * the layout option and if there is a sidebar
+	 * for the index or if the side bar has been turned off
+	 * completly.
+	 */	
+	if(!function_exists('ae_content_id')){
+		function ae_content_id(){
+			$option = get_option('aisis_core');
+			if($option['layout_ae'] == 1){
+				build_content_id();
+			}
+			elseif($option['layout_ae'] == 2){
+				build_content_id();
+			}
+			elseif($option['layout_ae'] == 3){
+				if($option['sidebar_global'] != 1 && $option['sidebar_index'] != 1){
+					echo 'contentNoBack';
+				}else{
+					echo 'contentNoBackFull';
+				}
+			}else{
+				build_content_id();		
+			}
+				
+		}
+	}	
 	
 	/**
 	 * Based on the sidebar choices we should

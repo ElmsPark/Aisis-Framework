@@ -22,15 +22,9 @@
 	 * chosen through the options panel.
 	 */
 	if(!function_exists('build_ae_index')){
-		function build_ae_index(){
-			$aisis_query = array(
-				'post_type' => 'ae',
-				'paged'	 	=> $aisis_page_articles_essays
-			);
+		function build_ae_index(){	
 			
-			query_posts($aisis_query);	
-			
-			is_ae_page();	
+			is_ae_page();
 			
 			$options = get_option('aisis_core');
 			if($options['layout_ae'] == 1){
@@ -51,8 +45,16 @@
 	 * Used in the building of the ae index.
 	 */
 	if(!function_exists('ae_layout_default')){
-		function ae_layout_default(){?>
-			<div id="<?php content_id(); ?>">
+		function ae_layout_default(){
+			$aisis_query = array(
+				'post_type' => 'ae'
+			);
+			
+			query_posts($aisis_query);
+			
+			?>
+        
+			<div id="<?php ae_content_id(); ?>">
 				<?php while(have_posts()) : the_post();?>
 				<article class="post clearfix">
 					<header>
@@ -88,9 +90,15 @@
 	 */
 	if(!function_exists('ae_layout_seperate')){
 		function ae_layout_seperate(){
+			$aisis_query = array(
+				'post_type' => 'ae'
+			);
+			
+			query_posts($aisis_query);
+					
 			sidebar_ae();?>
 			<?php while(have_posts()) : the_post();?>
-			<div id="<?php content_id(); ?>">
+			<div id="<?php ae_content_id(); ?>">
 				<article class="post clearfix">
 					<header>
 						<h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
@@ -124,8 +132,15 @@
 	 * Used in the building of the ae index.
 	 */
 	if(!function_exists('ae_layout_no_back')){
-		function ae_layout_no_back(){?>
-			<div id="<?php content_id(); ?>">
+		function ae_layout_no_back(){			
+			$aisis_query = array(
+				'post_type' => 'ae'
+			);
+			
+			query_posts($aisis_query);
+			
+			?>
+			<div id="<?php ae_content_id(); ?>">
 				<?php while(have_posts()) : the_post();?>
 				<article class="post clearfix">
 					<header>
