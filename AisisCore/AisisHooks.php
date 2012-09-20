@@ -104,7 +104,6 @@
 	  //default category text
 	  if(!function_exists('default_aisis_category_default_text')){
 		  function default_aisis_category_default_text(){
-			  $options = get_option('aisis_default_category_text_setting');
 				return "Welcome to this category " . single_cat_title() . " where we hope that we present 
 				you with the latest and greatest in content from this section. Please enjoy your stay :D";
 		  }
