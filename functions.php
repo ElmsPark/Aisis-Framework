@@ -38,13 +38,14 @@
 	 define('AISIS_ADMINPANEL', get_template_directory() . '/AisisCore/AdminPanel/');
 	 define('AISIS_ADMINPANEL_OPTIONS', get_template_directory() . '/AisisCore/AdminPanel/Options/');
 	 define('AISIS_ADMINPANEL_OPTIONS_OPTIONSTABLE', get_template_directory() . '/AisisCore/AdminPanel/Options/OptionsTable/');
+	 define('AISIS_ADMINPANEL_TEMPLATES', get_template_directory() . '/AisisCore/AdminPanel/AdminPanel-Templates/');
 	 define('AISIS_CUSTOM_POST_TYPES', get_template_directory() . '/AisisCore/AdminPanel/AisisCustomPostTypes/');
 	 define('AISIS_CUSTOM_POST_TYPES_META', get_template_directory() . '/AisisCore/AdminPanel/AisisCustomPostTypes/MetaTemplates/');
 	 define('AISIS_SOCIAL', get_template_directory() . '/AisisCore/AisisSocialMedia/');
 	 define('AISIS_TEMPLATES',get_template_directory() . '/AisisCore/Templates/');
 	 define('AISIS_SHORTCODES', get_template_directory() . '/AisisCore/ShortCodes/');
 	 define('AISIS_VIEW', get_template_directory() . '/AisisCore/AisisView/');
-	  define('AISIS_TEMPLATE_BUILDER', get_template_directory() . '/AisisCore/Templates/TemplateBuilder/');
+	 define('AISIS_TEMPLATE_BUILDER', get_template_directory() . '/AisisCore/Templates/TemplateBuilder/');
 	 define('AISIS_BBPRESS', get_template_directory() . '/AisisCore/BBPress/');
 	 
 	 // Define Aisis Custom - for loading the whole folder.

@@ -90,13 +90,10 @@
 		$aisis_form->close_form();
     }
     else if(isset($_GET['page']) && $_GET['page'] == 'aisis-css-editor'){
-        aisis_css_editor_page();
-    }
-    else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-js-editor'){
-        aisis_js_editor_page();
+        aisis_styles();
     }
     else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-core-update'){
-        aisis_core_update_page();
+        aisis_update();
     }
     ?>
     

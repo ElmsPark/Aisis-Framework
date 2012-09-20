@@ -71,20 +71,4 @@
 			  $aisis_template_loader->aisis_register('AdminPanel-Site-Design.phtml', AISIS_ADMINPANEL_OPTIONS);
 		  }
 	  }		  	  
-	  
-	  //Load JS Editor
-	  if(!function_exists('aisis_js_editor_page')){
-		  function aisis_js_editor_page(){
-			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('JSEditor-Module.phtml', AISIS_ADMINPANEL_OPTIONS);
-		  }
-	  }
-	  
-	  //Load Documentation Page
-	  if(!function_exists('aisis_core_update_page')){
-		  function aisis_core_update_page(){
-			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AisisCoreUpdate-Module.phtml', AISIS_ADMINPANEL_OPTIONS);
-		  }
-	  }
 ?>

@@ -89,7 +89,6 @@
 				function aisis_add_settings_page() {
 					add_menu_page(__('Aisis', 'aisis'), __('Aisis', 'aisis'), 'edit_themes', 'aisis-core-options', array('AdminPanel', 'build_admin_panel'),  get_template_directory_uri() . '/images/block.png', 31);
 					add_submenu_page('aisis-core-options', __('Css Editor', 'aisis'), __('CSS Editor', 'aisis'), 'edit_themes', 'aisis-css-editor', array('AdminPanel', 'build_admin_panel'));
-					add_submenu_page('aisis-core-options', __('JS editor', 'aisis'), __('JS Ediotr', 'aisis'), 'edit_themes', 'aisis-js-editor', array('AdminPanel', 'build_admin_panel'));
 					add_submenu_page('aisis-core-options', __('Aisis Update', 'aisis'), __('Aisis Update', 'aisis'), 'edit_themes', 'aisis-core-update', array('AdminPanel', 'build_admin_panel'));
 				}
 			}
