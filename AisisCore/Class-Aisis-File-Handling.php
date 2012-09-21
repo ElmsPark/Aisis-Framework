@@ -221,7 +221,7 @@
 		 * @return contents of type string.
 		 */
 		function write_to_file($filename, $contents, $dir){
-			if($this->check_dir($dir, true) && $this->check_exists($filename, true) && $this->check_writable($dir, $filename)){
+			if($this->check_dir($dir) && $this->check_exists($filename) && $this->check_writable($dir, $filename)){
 				if ($contents != ''){
 					file_put_contents($dir . $filename, trim($contents));
 					return true;

@@ -72,7 +72,7 @@
 					wp_enqueue_style( 'admin-panel-media-css', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/AdminPanelMediaQuery.css'); 
 					wp_enqueue_style( 'code-mirror-css', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/codemirror.css'); 
 					wp_enqueue_style( 'jquery-ui-css', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery-ui-1.8.19.custom.css'); 
-					wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/assets/Javascript/plugins/pluginCss/jquery.toastmessage.css');
+					wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css');
 					wp_enqueue_style( 'color-Box', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/ColorBox.css');
 					wp_enqueue_style('thickbox');
 				}
@@ -88,8 +88,11 @@
 			if(!function_exists('aisis_add_settings_page')){
 				function aisis_add_settings_page() {
 					add_menu_page(__('Aisis', 'aisis'), __('Aisis', 'aisis'), 'edit_themes', 'aisis-core-options', array('AdminPanel', 'build_admin_panel'),  get_template_directory_uri() . '/images/block.png', 31);
-					add_submenu_page('aisis-core-options', __('Css Editor', 'aisis'), __('CSS Editor', 'aisis'), 'edit_themes', 'aisis-css-editor', array('AdminPanel', 'build_admin_panel'));
+					if(get_option('disabled_css_editor') != 'true'){
+						add_submenu_page('aisis-core-options', __('Css Editor', 'aisis'), __('CSS Editor', 'aisis'), 'edit_themes', 'aisis-css-editor', array('AdminPanel', 'build_admin_panel'));
+					}
 					add_submenu_page('aisis-core-options', __('Aisis Update', 'aisis'), __('Aisis Update', 'aisis'), 'edit_themes', 'aisis-core-update', array('AdminPanel', 'build_admin_panel'));
+					add_submenu_page('aisis-core-options', __('Aisis Reset', 'aisis'), __('Aisis Reset', 'aisis'), 'edit_themes', 'aisis-reset', array('AdminPanel', 'build_admin_panel'));
 				}
 			}
 			
@@ -97,8 +100,10 @@
 			add_action('admin_menu', 'aisis_add_settings_page');
 			
 			//Only register if on these pages.
-			if(isset($_GET['page']) && $_GET['page'] == 'aisis-core-options' || isset($_GET['page']) && $_GET['page'] == 'aisis-css-editor' || isset($_GET['page']) && $_GET['page'] == 'aisis-php-editor' 
-				|| isset($_GET['page']) && $_GET['page'] == 'aisis-js-editor' || isset($_GET['page']) && $_GET['page'] == 'aisis-doc' || isset($_GET['page']) && $_GET['page'] == 'aisis-core-update'){
+			if(isset($_GET['page']) && $_GET['page'] == 'aisis-core-options' 
+			|| isset($_GET['page']) && $_GET['page'] == 'aisis-css-editor' 
+			|| isset($_GET['page']) && $_GET['page'] == 'aisis-core-update'
+			|| isset($_GET['page']) && $_GET['page'] == 'aisis-reset'){
 				add_action( 'admin_init', 'aisis_theme_settings_init' );
 				add_action('admin_head', 'aisis_lt_ie_nine');
 				add_action('admin_enqueue_scripts', 'aisis_register_admin_jquery');

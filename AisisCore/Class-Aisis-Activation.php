@@ -27,6 +27,7 @@
 	class AisisActivation{
 		
 		protected $disabled_auto_update;
+		protected $disabled_css_editor;
 		private $aisis_write;
 		
 	 	/**
@@ -140,21 +141,37 @@
 			
 			if(!$this->aisis_write){
 				if($aisis_file->aisis_chmod(AISIS, $mode = 0775, $recursive = true)){
-					continue;
+					$this->set_disable_css_editor(false);
+					$this->set_disable_update(false);
 				}else{
 					add_action("admin_notices", array($this, "aisis_chmod_error"));
+					add_action("admin_notices", array($this, "aisis_chmod_css_file_error"));
+					$this->set_disable_css_editor(true);
 					$this->set_disable_update(true);
 				}
 			}
 		}
 		
 		function set_disable_update($bool){
-			$this->disabled_auto_update = $bool;
+			add_option('disabled_update', '', '', 'yes');
+			if($bool == true){
+				update_option('disabled_update', 'true');
+			}else{
+				update_option('disabled_update', '');
+			}
 		}
 		
-		function get_disable_update(){
-			return $this->disabled_auto_update;
+		
+		function set_disable_css_editor($bool){
+			add_option('disabled_css_editor', '' ,'' ,'yes');
+			if($bool == true){
+				update_option('disabled_css_editor', 'true');
+			}else{
+				update_option('disabled_css_editor', '');
+			}
 		}
+		
+
 		
 		/**
 		 * Used to display the activation
@@ -164,7 +181,7 @@
 			global $pagenow;
 	
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
-				add_action('admin_notices', array(&$this, 'aisis_activation_error_message'));
+				add_action('admin_notices', array(&$this, 'aisis_chmod_css_file_error'));
 			}
 		 }
 		 
@@ -174,9 +191,14 @@
 		  */
 		function aisis_chmod_error(){
 		  echo "<div class='globalThemeNotice'>Your server configuration does not allow for us to enable 
-		  <strong>Silent Auto Update</strong>. We have disabled this - You make have to enter your FTP credentials when
+		  <strong>Silent Auto Update</strong>. We have disabled this - You may have to enter your FTP credentials when
 		  uploading or updating.</div>";
-		}		 
+		}
+		
+		function aisis_chmod_css_file_error(){
+		  echo "<div class='globalThemeNotice'>Due to server configuration issues we cannot allow you to edit your css file from
+		  with in the theme it's self. For this reason we have disabeled the css editor.</div>";
+		}				 
 		 
 		 /**
 		 * Used to display the activation

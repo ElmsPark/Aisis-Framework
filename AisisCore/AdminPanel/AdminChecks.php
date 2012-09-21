@@ -19,18 +19,22 @@
 	 * This function is used at the top of the Aisis Admin Panel
 	 * to show all the messages that are returned when you do 
 	 * any thing relating to the forms or form submission in Aisis.
+	 *
+	 * Only check if were on the aisis-core-options page
 	 */
 	if(!function_exists('aisis_admin_message_check')){
 		function aisis_admin_message_check(){
-			if(get_option('admin_success_message') == 'true'){
-				?>
-				<div class="topSuccess">We have successfully updated your site! Check it out now to see your new changes!</div>
-				<script>
-					$().toastmessage('showSuccessToast', "We have made some killer changes to your site! Check it out now!");
-				</script>                
-				<?php
-				update_option('admin_success_message', '');
-            }
+			if($_GET['page'] == 'aisis-core-options'){
+				if(get_option('admin_success_message') == 'true'){
+					?>
+					<div class="topSuccess">We have successfully updated your site! Check it out now to see your new changes!</div>
+					<script>
+						$().toastmessage('showSuccessToast', "We have made some killer changes to your site! Check it out now!");
+					</script>                
+					<?php
+					update_option('admin_success_message', '');
+				}
+			}
 		}
 	}
 	
@@ -38,28 +42,32 @@
 	 * This function is used at the top of the Aisis Admin Panel
 	 * to show all the messages that are returned when you do 
 	 * any thing relating to the css editor.
+	 *
+	 * Only check if were on the aisis-css-editor page
 	 */	
 	if(!function_exists('check_file_update')){
 		function check_file_update(){
-				if(get_option('updated_file') == 'true'){
-					?>
-					<div class="topSuccess">We have successfully updated your custom-css.css file in your custom folder.</div>
-					<script>
-						$().toastmessage('showSuccessToast', "We have successfully updated your custom-css.css file in your custom folder. Check out your site to see the new changes.");
-					</script>
-					<?php
-					update_option('updated_file', '');
+				if($_GET['page'] == 'aisis-css-editor'){
+					if(get_option('updated_file') == 'true'){
+						?>
+						<div class="topSuccess">We have successfully updated your custom-css.css file in your custom folder.</div>
+						<script>
+							$().toastmessage('showSuccessToast', "We have successfully updated your custom-css.css file in your custom folder. Check out your site to see the new changes.");
+						</script>
+						<?php
+						update_option('updated_file', '');
+					}
+					
+					if(get_option('failed_update') == 'true'){
+						?>
+						<div class="topErr">Either you tried to save an empty custom-css.css file or your custom-functions.php file is not writable. Please try again.</div>
+						<script>
+						$().toastmessage('showErrorToast', "We do not allow you to save empty css files. Please check that your file is not empty. We also might not be able to write to it because you do not have write access. First check that what yopu are trying to save is not empty.");
+						</script>
+						<?php
+						update_option('failed_update', '');
+					}
 				}
-				
-				if(get_option('failed_update') == 'true'){
-					?>
-					<div class="topErr">Either you tried to save an empty custom-css.css file or your custom-functions.php file is not writable. Please try again.</div>
-					<script>
-					$().toastmessage('showErrorToast', "We do not allow you to save empty css files. Please check that your file is not empty. We also might not be able to write to it because you do not have write access. First check that what yopu are trying to save is not empty.");
-					</script>
-					<?php
-					update_option('failed_update', '');
-				}		
 		}
 	}
 	
@@ -94,7 +102,6 @@
 		function check_for_aisis_messages(){
 			aisis_admin_message_check();
 			check_file_update();
-			
 			if(isset($_GET['page']) && $_GET['page']=='aisis-core-update'){
 				check_for_update_message();
 			}

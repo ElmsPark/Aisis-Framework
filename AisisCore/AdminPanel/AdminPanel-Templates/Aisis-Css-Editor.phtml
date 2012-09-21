@@ -1,0 +1,23 @@
+<div class="content">
+	<?php
+	$aisis_form = new AisisForm();
+	$aisis_form->open_form(array(
+		'method'=>'post',
+		'action'=>'options.php?redirect_to=/wp-admin/admin.php?page=aisis-css-editor'
+	));
+	?>
+    <div class="sideText">
+        <h1>Css Editor</h1>
+        <p>You can edit the themes css here. This file is written to your custom folder. If you are using multisite
+        then we write this to the custom folder that has your blog id appended to the name.</p>
+        <p><?php create_submit(); ?></p>
+    </div>
+    <?php
+	aisis_var_dump(get_option('aisis_core'), true);
+	
+	do_settings_fields('aisis-css-editor','aisis_css_section');
+	
+	settings_fields( 'aisis-css-editor' ); 
+	$aisis_form->close_form();
+	?>
+</div>

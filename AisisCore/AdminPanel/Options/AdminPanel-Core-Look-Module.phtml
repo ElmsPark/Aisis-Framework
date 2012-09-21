@@ -44,6 +44,7 @@
 			'method'=>'post',
 			'action'=>'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-options'
 		));
+		
 		?>
         <div id="coreTabs">
         	<ul>
@@ -94,7 +95,9 @@
     }
     else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-core-update'){
         aisis_update();
-    }
+    }else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-reset'){
+		aisis_reset();
+	}
     ?>
     
     </div>
