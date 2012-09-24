@@ -4,47 +4,30 @@
 	 *
 	 * ==================== [-DO NOT TOUCH!!!-] =======================
 	 *
-	 *		This class is used in dealing with file and loading them.
-	 *		the core functionality of this class is used in the Admin
-	 *		Panel section (@see AdminPanel (Package)) under Modules
-	 *		for the Css, Js and PHP editor for loading custom
-	 *		files into the the associated editors.
-	 *
-	 *		This class can be used else where how ever please note
-	 *		that unlike other classes this one does not use the Exception
-	 *		package (@see AisisCoreException) but instead throws
-	 *		"errors" for the user due to the fact that
-	 *		this is used on the admin side of things and the errors
-	 *		should be user friendly instead of developer based exceptions.
-	 *
-	 *		If you would like you can override these functions to throw
-	 *		the LoadFileException in the Exception package.
+	 *		This class is used in Aisis Core to deal with loading files,
+	 *		writing to files, creating directories, listing files 
+	 *		in directories and changing permision of files and 
+	 *		directories.
+	 *		
 	 *		
 	 *		@author:  Adam Balan
 	 *		@version: 1.0
 	 *		@package: AisisCore
-	 * =================================================================
 	 */
-
-	class AisisFileHandling {
-		
-		//Store the contents of the file here.
-		private $file_contents;
-		//Store the contents of the directory here
-		private $package_files = array();
-		private $files_got_back = array();
-		
+	 
+	 class AisisFileHandling{
+		 
+		 private $files_got_back;
+		 
 		/**
 		 * We are chking to see if a file name exists.
-		 * for this instance we dont care about the directory<br />
+		 * for this instance we dont care about the directory
 		 * because this method is to be called when you are insaid
 		 * directory.
 		 *
-		 * if said file exists, return true, if not return false,<br />
+		 * if said file exists, return true, if not return false,
 		 * if it is false, but we said create_file is true then we
 		 * create the file by opening it, closing it and setting the chmod.
-		 *
-		 * TODO: is there not a better way to create the file?
 		 *
 		 * @param filename of type String
 		 * @return true or false of type Boolean
@@ -52,54 +35,12 @@
 		function check_exists($filename, $create_file=false){
 		   if(!file_exists($filename)){
 			   if($create_file){
-				   //not a better way to do this?
-				   $fp = fopen($filename, 'x+');
-				   fclose($fp);
-				   chmod($filename, '0755');
+				   file_put_contents($filename, "");
 				   return true;
-				   
 			   }
-			   ?> File does not exist at said location<?php
 			   return false;
 		   }
-		   
 		   return true;
-		}
-		
-		/**
-		 * This looks for a specific file in a directory that contains
-		 * files with multiple extensions. This will narrow in on
-		 * one file that you want.
-		 *
-		 * @param $path of type directory.
-		 * @param $filename of type file name with extension.
-		 * @param $extension of type extension (eg: css, php, html)
-		 *
-		 * @return filename.
-		 */
-		function get_directory_of_files($path, $filename, $extension){
-			if(!$this->check_dir($path, true)){
-				_e('the ' . $path . ' is not a directory. We have created it for you.');
-			}
-			
-			if($this->check_exists($filename, true)){
-				$handler = opendir($path);
-				while($file = readdir($handler)){
-					if($file != "." && $file != ".."){
-						$this->package_files[] = $file;
-						$count = count($this->package_files);
-						for($i = 0; $i<$count; $i++){
-							if(substr(strrchr($this->package_files[$i],'.'),1)==$extension){
-								if($this->package_files[$i] == $filename){
-									$this->files_got_back = $this->package_files[$i];
-								}
-							}
-						}
-					}
-				}
-			}
-			
-			return $this->files_got_back;
 		}
 		
 		/**
@@ -112,26 +53,165 @@
 		function check_writable($path, $filename){
 		   if ($this->check_exists($path, $filename)){
 			   if(!is_writable($path . $filename)){
-					?> This file does not seem to be writable. Please check your server permissions.<?php
 					return false;
 			   }
-			   
 			   return true;
 		   }
 		}
 		
 		/**
-		 * return the contents of the file.
-		 * used for the custom folder.
+		 * We are essentially saying that if said directory
+		 * exists then return true, if not, return false, but
+		 * if it doesnt eists and we set create_dir to true
+		 * then we attempt to create said directory at said
+		 * location.
 		 *
-		 * @param filename of type String
-		 * @return contents of type string.
+		 * 
+		 *
+		 * @param dir of type directory
+		 * @param create_dir of type boolean
+		 * @param check_writable
+		 * @return true or false
 		 */
-		function get_contents($path, $filename){
-		   chmod($path . $filename, 0755);
-		   if($this->check_dir($path, true) && $this->check_exists($filename, true) && $this->check_writable($path, $filename)){
-			   return $this->file_contents = file_get_contents($path . $filename);
+		function check_dir($dir, $create_dir=false){
+			if(is_dir($dir)){
+				return true;
+			}elseif($create_dir == true){
+				return mkdir($dir);
+			}
+			
+			return false;
+		}
+		
+		/**
+		 * Check for files in a directory. Get that list of files
+		 * and return them based on the directory passed in.
+		 *
+		 * @param dir of type Directory
+		 * @return list of files of type array
+		 */
+		function aisis_get_dir($dir){
+			if(!$this->check_dir($dir)){
+				_e("<div class='err'>".new DirException("<strong>The Directory: ".$dir." is not a directory</strong>")."</div>");
+			}
+			
+			$handler = opendir($dir);
+			while($file = readdir($handler)){
+				if($file != "." && $file != ".."){
+					$this->directory_files[] = $file;
+				}
+			}
+			
+			return $this->directory_files;
+		}
+		
+		/**
+		 * This function is responsble for returning
+		 * an array of all files in a directory and its
+		 * associated directories which contain the 
+		 * extension that you passed in.
+		 *
+		 * param $dir - the directory passed in
+		 * param $path_extension - The extension of 
+		 * 						   the files you want returned.
+		 */
+		function all_files($dir, $path_extension='')
+		{
+		  $files = Array();
+		  $file_tmp= glob($dir.'/*',GLOB_MARK | GLOB_NOSORT);;
+		
+		  foreach($file_tmp as $item){
+			if(is_file($item) && pathinfo($item, PATHINFO_EXTENSION) == $path_extension){
+			  $files[] = $item;       
+			}elseif(is_dir($item)){
+			  $files = array_merge($files,$this->all_files($item, $path_extension));
+			}
+		  }
+		  	
+		  return $files;
+		}
+		
+		/**
+		 * This funcon walks through a directory and all
+		 * sub directories and returns files with their path.
+		 * where as all_files returns just the files.
+		 *
+		 * example: path/to/said/file.php would be returned with
+		 * this function instead of file.php
+		 *
+		 * @param dir - The directory to walk through, does sub folders
+		 * @return - The array of all paths to all files in the directory
+		 *          and sub directories.
+		 *
+		 */
+		function dir_tree($dir) {
+		   $path = '';
+		   $stack[] = $dir;
+		   while ($stack) {
+			   $thisdir = array_pop($stack);
+			   if ($dircont = scandir($thisdir)) {
+				   $i=0;
+				   while (isset($dircont[$i])) {
+					   if ($dircont[$i] !== '.' && $dircont[$i] !== '..') {
+						   $current_file = "{$thisdir}/{$dircont[$i]}";
+						   if (is_file($current_file)) {
+							   $path[] = "{$thisdir}/{$dircont[$i]}";
+						   } elseif (is_dir($current_file)) {
+								$path[] = "{$thisdir}/{$dircont[$i]}";
+							   $stack[] = $current_file;
+						   }
+					   }
+					   $i++;
+				   }
+			   }
 		   }
+		   return $path;
+		}		
+		
+		/**
+		 * This chmod function was taken from the cake PHP
+		 * utillity function for dealing with chmoding directories and
+		 * files recusivly. We have altered it here to retun true or
+		 * false based on the options you passed in and any errors or 
+		 * issues that are encountered should be handeled seperetly.
+		 *
+		 * By default we set the mode to 0777 if one is not passed in.
+		 *
+		 * @param $path - The directory path you want chomded
+		 * @param $mode (default empty) - The mode in octal value (0775) to change the
+		 *								 permission too. (default if empty: 0777)
+		 * @param $recusive - If set to true we do sub directories.
+		 * @param $exceptions - An array of files and directories to ignore.
+		 * @return true or false based on if it succeded or not.
+		 *
+		 */
+		public function aisis_chmod($path, $mode = false, $recursive = true, $exceptions = array()) {
+			if(!$mode){
+				$mode = 0777;
+			}
+	
+			if ($recursive === false && is_dir($path)) {
+				if (@chmod($path, intval($mode, 8))) {					
+					return true;
+				}
+				return false;
+			}
+	
+			if (is_dir($path)) {
+				$paths = $this->dir_tree($path);
+				foreach ($paths as $fullpath) {
+					$check = explode(DS, $fullpath);
+					$count = count($check);
+					if (in_array($check[$count - 1], $exceptions)) {
+						continue;
+					}
+					if (@chmod($fullpath, intval($mode, 8))) {
+						return true;
+					}
+				}
+			}
+			
+			return false;
 		}
 		
 		/**
@@ -152,145 +232,59 @@
 		}
 		
 		/**
-		 * We are essentially saying that if said directory
-		 * exists then return true, if not, return false, but
-		 * if it doesnt eists and we set create_dir to true
-		 * then we attempt to create said directory at said
-		 * location.
+		 * return the contents of the file.
+		 * used for the custom folder.
 		 *
-		 * We also now check if the directory is writable
-		 * if this is set to true then  we will also check if this
-		 * directory is  writable.
-		 *
-		 * @param dir of type directory
-		 * @param create_dir of type boolean
-		 * @param check_writable
-		 * @return true or false
+		 * @param filename of type String
+		 * @return contents of type string.
 		 */
-		function check_dir($dir, $create_dir=false, $check_writable=false){
-			$bool;
-			if(is_dir($dir)){
-				if($check_writable){
-					$bool = true;
-				}else{
-					$bool = true;
-				}
-			}else{
-				if($create_dir){
-					if(mkdir($dir, '0755')){
-						$bool = true;
-					}
-				}
-				
-				$bool = false;
-			}
-			
-			return $bool;
+		function get_contents($path, $filename){
+		   if($this->check_dir($path, true) && $this->check_exists($filename, true) && $this->check_writable($path, $filename)){
+			   return $this->file_contents = file_get_contents($path . $filename);
+		   }
 		}
 		
-		/**
-		 * Check if a directorys contents contain .php
-		 * files and then if so - load each file into
-		 * a require once statement.
-		 *
-		 * @param dir of type Directory
-		 */
-		public function load_if_extension_is_php($dir){
-			$list = array();
-			
-			$list = $this->aisis_get_dir($dir);
-			
-			$count = count($list);
-			for($i = 0; $i<$count; $i++){
-				if(substr(strrchr($list[$i],'.'),1)=="php"){
-					require_once($dir . $list[$i]);
-				}
+		function get_directory_of_files($path, $filename, $extension){
+			if(!is_dir($path)){
+				_e("<div class='err'>".new DirException("<strong>The directory you passed in: ".$path." is not
+				a directory.</strong>")."</div>");
 			}
-			
-		}
-		
-		/**
-		 * We only allow Dashes, Alphanumeric, Periods or underscores in the name.
-		 * Anything else and we thow and error.
-		 *
-		 * @param filename of type file name plus the extension.
-		 */
-		public function aisis_register_security($filename){
-			if(preg_match('/[^a-z0-9\\/\\\\_.:-]/i',$filename)){
-				_e('<div class="ext">'.new LoadFileSecutiryException('<strong>Security threat with file: ' . $filename . 
-						'. We only allow alphanumeric, dashes, underscores and periods in the name. Stack Trace: </strong>').'</div>');
-			}
-			
-			return true;
-		}
-		
-		/**
-		 * Check for files in a directory. Get that list of files
-		 * and return them based on the directory passed in.
-		 *
-		 * @param dir of type Directory
-		 * @return list of files of type array
-		 */
-		function aisis_get_dir($dir){
-			
-			if(!$this->check_dir($dir)){
-				_e('Not a Directory');
-			}
-			$handler = opendir($dir);
-			while($file = readdir($handler)){
-				if($file != "." && $file != ".."){
-					$this->directory_files[] = $file;
-				}
-			}
-			
-			return $this->directory_files;
-			
-		}
-		
-		/**
-		 * This file is responsible for loading any file in the directory you
-		 * specify including sub directories. Essentially you pass in the 
-		 * root directory, this is the directory containing sub folders that you
-		 * want loaded. You would pass nothing in for the $allData, how ever if
-		 * you have files you want ignored then you would also pass those in as
-		 * and array of files. The default extenision it will look for it php,
-		 * how ever you can change that to any thing you want.
-		 *
-		 * @param root_dir is the directory you want loaded.
-		 * @param $allData - dont touch - of type array
-		 * @param files_to_ignore of type array is a list of files (eg: "file.php") that 
-		 * you want ignored in the loading of the files.
-		 * @param extension is the type of extension you want to load. Currently we only support
-		 * php files.
-		 *
-		 */
-		function load_directory_of_files($root_dir, $allData=array(), $files_to_ignore=array(), $extension="php") {
-			$invisibleFileNames = array(".", "..", ".htaccess", ".htpasswd");
-			chmod($root_dir, 0755);
-			$dirContent = scandir($root_dir);
-			foreach($dirContent as $key => $content) {
-				$path = $root_dir.'/'.$content;
-				if(!in_array($content, $invisibleFileNames)) {
-					if(!in_array($content, $files_to_ignore)){
-						if(is_file($path) && is_readable($path)) {
-							$allData[] = $path;
-						}elseif(is_dir($path) && is_readable($path)) {
-							$allData = $this->load_directory_of_files($path, $allData, $files_to_ignore);
+
+			if($this->check_exists($filename, true)){
+				$handler = opendir($path);
+				while($file = readdir($handler)){
+					if($file != "." && $file != ".."){
+						$this->package_files[] = $file;
+						$count = count($this->package_files);
+						for($i = 0; $i<$count; $i++){
+							if(substr(strrchr($this->package_files[$i],'.'),1)==$extension){
+								if($this->package_files[$i] == $filename){
+									$this->files_got_back = $this->package_files[$i];
+								}
+							}
 						}
 					}
 				}
 			}
-			
-			$list = $allData;
-			$count = count($list);
-			for($i = 0; $i<$count; $i++){
-				if(substr(strrchr($list[$i],'.'),1)==$extension){
-					if($extension == "php"){
-						require_once($list[$i]);
-					}
-				}
+
+			return $this->files_got_back;
+		}		
+		
+		/**
+		 * This function is used for loading all the php files from a 
+		 * directory that you pass in. if you set the recusive to
+		 * true then you will load all the php files of that directories
+		 * sub directories.
+		 *
+		 * @param $path - The path of where the files live
+		 * @param $erecursive - True or false - goes through all the
+		 *					    files in sub directories and loads those.
+		 */
+		function load_directory_of_files($path, $recuive = false){
+			$array_of_files = $this->all_files($path, "php", $recuive);
+			foreach($array_of_files as $file_to_load){
+				require_once($file_to_load);
 			}
 		}
-	}
-
+	 }
 ?>

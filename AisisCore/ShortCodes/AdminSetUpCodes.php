@@ -30,11 +30,7 @@
 	    }
     }
 	
-	//We only want this added to specific pages
-	//TODO: better way to do this?
-	if($_SERVER['PHP_SELF'] == '/wp-admin/post-new.php' || $_SERVER['PHP_SELF'] == '/wp-admin/post.php'){
-    	add_action('media_buttons', 'aisis_media_buttons_link', 999);
-	}
+    add_action('media_buttons', 'aisis_media_buttons_link', 999);
 	
 	if(!empty($_GET['codes']) && $_GET['codes'] == 'aisis-codes'){
 		add_action( 'parse_request', 'parse_wp_request' );
