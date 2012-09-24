@@ -36,18 +36,18 @@
 	 require_once(AISISCORE . 'Class-Aisis-Activation.php');
 	 require_once(AISISCORE . 'Class-Aisis-Package-Loader.php');
 	 require_once(AISISCORE . 'Class-Aisis-Core-Update.php');
+	 require_once(AISISCORE . 'Class-Core-Exception.php');
 	 require_once(AISIS_TEMPLATES . 'BuildAisisTheme.php');
 	 
 	 //instantiate the class
 	 $aisis_package_loader = new AisisPackageLoader();
-	 //Load the packages, starting with 
-	 //exceptions then doing top down.
-	 $aisis_package_loader->load_aisis_exceptions_package();
+	 
+	 //Load the packages.
 	 $aisis_package_loader->load_aisis_admin_panel_package();
 	 $aisis_package_loader->load_aisis_codes_package();
 	 $aisis_package_loader->load_aisis_view_package();
 	 $aisis_package_loader->load_aisis_social_media_package();
-	 $aisis_package_loader->load_template_builder_package();
+	 $aisis_package_loader->load_aisis_template_builder();
 	 if(does_plugin_exist('bbpress/bbpress.php')){$aisis_package_loader->load_aisis_bbpress();}
 	 
 	 //When the theme if first activated.

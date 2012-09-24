@@ -34,9 +34,9 @@ instead of selected pages.
 	color : #333;
 	padding : 10px;
 	font-size : 13px;
-	border-radius : 5px;
-	margin-top : -10px;
-	width: 94.7%
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 97.7%;
 }
 
 .globalThemeNotice {
@@ -52,14 +52,15 @@ instead of selected pages.
 }
 
 .adminThemeSuccess {
-	background : #c0e4c7;
-	border : 1px solid #3d5b37;
-	color : #333;
-	padding : 10px;
-	font-size : 13px;
-	border-radius : 5px;
-	margin-top : -10px;
-	width: 94.7%
+	background: #C0E4C7;
+	border: 1px solid #3D5B37;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 97.7%;
 }
 .adminThemeErrors {
 	background : #ebc2ce;
@@ -68,9 +69,9 @@ instead of selected pages.
 	padding : 10px;
 	font-size : 13px;
 	border-radius : 5px;
-	margin-top : -10px;
-	margin-bottom: 20px;
-	width: 94.7%
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 97.7%;
 }
 
 .pluginThemeActivation{
@@ -161,4 +162,5 @@ instead of selected pages.
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 	cursor: pointer;
 	color: #026ACB;
+
 }

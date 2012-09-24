@@ -28,6 +28,10 @@
 	 * =================================================================
 	 */
 	 
+	 /**
+	  * We need to make sure that a redirection for the update
+	  * happens before anything else loadss
+	  */
 	 function callback($buffer){
 		 return $buffer;
 	 }

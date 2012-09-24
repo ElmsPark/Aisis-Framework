@@ -23,12 +23,12 @@
 	 *		@package: Aisis->AisisCore
 	 * =================================================================
 	 */
-	 
+
 	class AisisActivation{
-		
+
 		protected $disabled_auto_update;
 		private $aisis_write;
-		
+
 	 	/**
 		 * We essentially make sure that the proper files and
 		 * that the custom folder are in the appropriate location.
@@ -37,16 +37,16 @@
 		 * table for data to put in them.
 		 */
 		function aisis_do_on_load(){
-			
+
 			global $pagenow;
 			$aisis_class_multisite = new AisisMultiSite();
-			
+
 			  if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				  $errors = array();
 				  $aisis_file_handeling = new AisisFileHandling();
-				  
+
 				  if($aisis_file_handeling->check_dir(CUSTOM, true)){
-					   
+
 					  if($aisis_file_handeling->check_exists(CUSTOM . 'custom-css.css', true)){
 						  $options = get_option('aisis_css_editor_setting');
 						  if(isset($options['code']) && !empty($options['code'])){
@@ -57,7 +57,7 @@
 					  else{
 						  $errors[] = "Seems that we cannot create your custom-css.css file. Please check your permissions.";
 					  }
-					  
+
 					  if($aisis_file_handeling->check_exists(CUSTOM . 'custom-functions.php', true)){
 						  $options = get_option('aisis_php_editor_setting');
 						  if(isset($options['aisis-php']) && !empty($options['aisis-php'])){
@@ -67,7 +67,7 @@
 					  }else{
 						  $errors[] = "Seems that we cannot create your custom-functions.php file. Please check your permissions.";
 					  }
-					  
+
 					  if($aisis_file_handeling->check_exists(CUSTOM . 'custom-js.js', true)){
 						  $options = get_option('aisis_js_editor_setting');
 						  if(isset($options['aisis-js']) && !empty($options['aisis-js'])){
@@ -77,10 +77,10 @@
 					  }else{
 						  $errors[] = "Seems we cannot create your custom-js.js file. Please check your permissions";
 					  }
-					  
+
 					  //now we check for multisite
 					  $aisis_class_multisite->create_components();
-					  
+
 					  if(!empty($errors)){
 						  aisis_theme_actiovation_check_errors($errors);
 						  echo "<div class='adminThemeErrors'>We could not load your LoadCustom.php because of the errors at hand.</div>";
@@ -92,7 +92,7 @@
 							  add_action("admin_notices", array($this, 'aisis_bbpress_activated'));
 						  }
 					  }
-					  
+
 				  }else{
 					  $errors[] = "We cannot create your custom folder....Do you have appropriate permissions?";
 					  $this->aisis_theme_actiovation_check_errors($errors);
@@ -100,7 +100,7 @@
 				  }
 			  }
 		  }
-		 
+
 		/**
 		 * This finction requires two parameters.
 		 * one is the path to the plugin.php file
@@ -112,7 +112,7 @@
 			if(!get_option($name)){
 				add_option($name, '', '', 'yes');
 			}
-			
+
 			if(is_admin() && isset($_GET['activate']) && $pagenow == 'plugins.php'){
 				if(does_plugin_exist($plugin_path) && get_option($name) != 'true'){
 					add_action('admin_notices', array($this, 'aisis_bbpress_activation'));
@@ -128,17 +128,17 @@
 				}
 			}
 		}
-		
+
 		function chmod_aisis_root(){
 			$aisis_file = new AisisFileHandling();
 			$array_of_files = $aisis_file->dir_tree(AISIS);
-			
+
 			foreach($array_of_files as $files);{
 				if(!is_writable($files)){
 					$this->aisis_write = false;
 				}
 			}
-			
+
 			if(!$this->aisis_write){
 				if($aisis_file->aisis_chmod(AISIS, $mode = 0775, $recursive = true)){
 					$this->set_disable_update(false);
@@ -151,7 +151,7 @@
 				}
 			}
 		}
-		
+
 		/**
 		 * Disbale the update
 		 */
@@ -163,8 +163,8 @@
 				update_option('disable_update', '');
 			}
 		}
-		
-		
+
+
 		/**
 		 * Disbale the css editor
 		 */
@@ -176,19 +176,19 @@
 				update_option('disable_css_editor', '');
 			}
 		}
-		
+
 		/**
 		 * Used to display the activation
 		 * eror messages
 		 */
 		function aisis_theme_activation_error(){
 			global $pagenow;
-	
+
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				add_action('admin_notices', array(&$this, 'aisis_activation_error_message'));
 			}
 		 }
-		 
+
 		 /**
 		  * Thrown when the chmod function fails
 		  * to chmod a file or folder.
@@ -198,37 +198,37 @@
 		  <strong>Silent Auto Update</strong>. We have disabled this - You make have to enter your FTP credentials when
 		  uploading or updating.</div>";
 		}	
-		
+
 		function aisis_css_editor_error(){
 		  echo "<div class='globalThemeNotice'>Your server configurations do not allow for us to allow you to use the CSS editor.
 		  Please consider asking your server admin to <strong>chmod the Aisis Theme to 0755</strong> and then 
 		  retry activating this theme.</div>";
 		}			 
-		 
+
 		 /**
 		 * Used to display the activation
 		 * notice messages
 		 */
 		 function aisis_theme_activation_notice(){
 			global $pagenow;
-	
+
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				add_action('admin_notices', array(&$this, 'aisis_activation_notice_message'));
 			}
 		 }
-		 
+
 		/**
 		 * Used to display the activation
 		 * success messages
 		 */
 		 function aisis_theme_activation_success(){
 			global $pagenow;
-	
+
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				add_action('admin_notices', array(&$this, 'aisis_activation_success_message'));
 			}
 		 }
-		 
+
 		/**
 		 * Used to display the activation error messages
 		 * that were collected along the way as we created
@@ -236,12 +236,12 @@
 		 */
 		 function aisis_theme_activation_check_errors(array $errors){
 			global $pagenow;
-	
+
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				add_action('admin_notices', array(&$this, 'aisis_activation_check_error_messages'));
 			}
 		 }
-		 
+
 		 /**
 		  * The notice message. We hide the default 
 		  * wordpress theme activation message.
@@ -251,23 +251,23 @@
 			<div class="adminThemeNotice">Your theme was loaded successfully but there were errors...</div>
 			<?php
 		 }
-		 
+
 		 function aisis_plugin_activation_message($name){
 			echo '<div class="pluginThemeActivation">You have activated: <strong>'.$name.'</strong>. As a resualt Aisis
 			has some new features in the options page regarding this plugin and how it interacts with the software! Check it out!</div>';
 		 }
-		 
+
 		 function aisis_bbpress_activated(){
 			echo '<div class="pluginThemeActivated"><strong>BBPress</strong> is already activated, thus we have some amazing 
 			features for you to checkout and use for your theme!</div>';
 		 }
-		 
+
 		 function aisis_bbpress_activation(){
 			echo '<div class="pluginThemeActivated"><strong>BBPress</strong> has just been activated - Aisis sees and loves this. 
 			We have updated your options to reflect the bbpress plugin activation :D</div>';
 		 }		 		
 
-		 
+
 		 /**
 		  * The success message. We hide the default 
 		  * wordpress theme activation message.
@@ -278,7 +278,7 @@
             intact and ready for use! Enjoy! :D</div>
 			<?php
 		 }
-		 
+
 		 /**
 		  * The error message of type array. We hide the default 
 		  * wordpress theme activation message.
