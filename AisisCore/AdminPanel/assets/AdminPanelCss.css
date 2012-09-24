@@ -65,10 +65,6 @@ h2{
 	clear:both;
 }
 
-.content .err{
-	width:60%;
-}
-
 .notice {
 	background: #FFF9D7;
 	border: 1px solid #E2C822;
@@ -209,16 +205,6 @@ a.imagehover:hover img {
 	opacity: .65;
 	filter: alpha(opacity=65);
 	border: 0;
-}
-
-#resetForm input[type="submit"]{
-	position: relative;
-	top: -34px;
-	left: 100px;
-}
-
-.contentForm{
-	width:20%;
 }
 
 .alignForm label{
