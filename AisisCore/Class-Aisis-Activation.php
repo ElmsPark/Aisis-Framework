@@ -82,7 +82,7 @@
 						  echo "<div class='adminThemeErrors'>We could not load your LoadCustom.php because of the errors at hand.</div>";
 						  $this->aisis_theme_activation_notice();
 					  }else{
-						  chmod(CUSTOM . 'custom-functions.php', 0755);
+						  //chmod(CUSTOM . 'custom-functions.php', 0755);
 				  		  require_once(CUSTOM . 'custom-functions.php');
 						  $this->aisis_theme_activation_success();
 						  if(does_plugin_exist('bbpress/bbpress.php')){
