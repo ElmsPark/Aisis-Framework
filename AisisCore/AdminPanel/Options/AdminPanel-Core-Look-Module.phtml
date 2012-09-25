@@ -37,7 +37,6 @@
        
 	<?php
     check_for_aisis_messages();
-	aisis_var_dump(get_option('disable_css_editor'), true);
     if(isset($_GET['page']) && $_GET['page'] == 'aisis-core-options'){
 		$aisis_form = new AisisForm();
 		$aisis_form->open_form(array(
@@ -90,10 +89,7 @@
 		$aisis_form->close_form();
     }
     else if(isset($_GET['page']) && $_GET['page'] == 'aisis-css-editor'){
-        aisis_css_editor_page();
-    }
-    else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-js-editor'){
-        aisis_js_editor_page();
+       aisis_css_editor();
     }
     else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-core-update'){
         aisis_core_update_page();

@@ -37,6 +37,7 @@
 		 * table for data to put in them.
 		 */
 		function aisis_do_on_load(){
+			
 			global $pagenow;
 			$aisis_class_multisite = new AisisMultiSite();
 			
@@ -144,7 +145,7 @@
 					$this->set_disable_css_editor(false);
 				}else{
 					add_action("admin_notices", array($this, "aisis_chmod_error"));
-					add_action("admin_notcies", array($this, 'aisis_css_editor_error'));
+					add_action("admin_notices", array($this, "aisis_css_editor_error"));
 					$this->set_disable_update(true);
 					$this->set_disable_css_editor(true);
 				}
@@ -158,6 +159,8 @@
 			add_option('disable_update','','','yes');
 			if($bool == true){
 				update_option('disable_update', 'true');
+			}else{
+				update_option('disable_update', 'aisis_css_section');
 			}
 		}
 		
@@ -169,6 +172,8 @@
 			add_option('disable_css_editor','','','yes');
 			if($bool == true){
 				update_option('disable_css_editor', 'true');
+			}else{
+				update_option('disable_css_editor', '');
 			}
 		}
 		
