@@ -1,10 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-
-<body>
-</body>
-</html>
+<div class="content">
+	<?php
+	$option = get_option('aisis_core');
+	$aisis_form = new AisisForm();
+	$aisis_update = new AisisUpdate();
+	var_dump(get_option('disable_update'));
+	if(get_option('disable_update') != true){
+        
+		$aisis_form->open_form(array(
+			'method'=>'post',
+			'action'=>'options.php?redirect_to=/wp-admin/admin.php?page=aisis-core-update'
+		));
+	?>
+            <div class="sideText">
+                <h1>Aisis Core Update</h1>
+                <p>You can choose bellow if you would like to have Aisis automatically check for, download
+                and install updates for you.<p>
+                <?php if($option['update'] == 1){?> <div class="notice"><strong>You have</strong> turned on silent auto update. 
+                We will do the rest from here for you. Which includes downloading, installing and updating Aisis for you :D</div><?php }?>
+                <p><?php create_submit(); ?></p>
+            </div>
+            <div class="alignForm">
+                <?php
+                do_settings_fields('aisis-core-update','aisis_update_section');
+                
+                ?>
+            </div>
+            <?php
+        settings_fields('aisis-core-update'); 
+        $aisis_form->close_form();
+	}
+	
+	if($option['update'] != 1){
+		
+		if($_POST['update']){
+			$aisis_update->get_latest_version_zip();
+		}
+		
+		$aisis_form->open_form(array(
+			'method'=>'post',
+			'action'=>''
+		));
+		
+		if($aisis_update->check_for_udate_bool()){	
+			?>
+            <div class="sideText">
+                <h1>Aisis Update!</h1>
+                <p><?php if($aisis_update->check_for_udate_bool()){
+					?>Look like you have an update! Click the update button bellow to update Aisis to the latest version!<?php
+				}else{
+					?>You are all up to date with Aisis! Thats a good thing ya know!<?php	
+				}?></p>
+            </div>
+            <div class="updateNotice"><strong>You have an update!</strong>. Click the button bellow to update your site to the
+			latest version!<?php
+			$aisis_form->create_aisis_form_element('input', array(
+				'type' => 'submit',
+				'value' => 'Update Aisis!',
+				'name' => 'update',
+				'class' => 'updateAisis'
+			));
+		}else{
+			echo "<div class='success'>You are running the latest version of Aisis!</div>";
+		}
+		
+		$aisis_form->close_form();
+	}
+	?>
+</div>

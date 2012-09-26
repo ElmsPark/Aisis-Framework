@@ -76,6 +76,18 @@ h2{
 	width: 80%;
 }
 
+.updateNotice {
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin: 10px 0px 10px 43px;
+	width: 80%;
+	float:left;
+}
+
 .bottomNotice {
 	background : #fff9d7;
 	border: 1px solid #e2c822;
@@ -323,6 +335,11 @@ textarea{
 .jsEditorButton{
 	margin-left: 632px !important;
 	margin-top: 7px !important;	
+}
+
+.updateAisis{
+	position: relative;
+	top: 50px;
 }
 
 #footer{

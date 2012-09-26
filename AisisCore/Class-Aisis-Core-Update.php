@@ -155,12 +155,10 @@
 			if(function_exists('wp_get_theme')){
 				if(wp_get_theme()->exists()){
 					$this->aisis_current_theme_version = wp_get_theme();
-					//aisis_var_dump($this->aisis_current_theme_version, true);
 				}
 			}else{
 				$this->aisis_current_theme_version = wp_get_theme(get_theme_root() . '/Aisis/style.css');
 			}
-			//aisis_var_dump($this->aisis_current_theme_version->Version, true);
 			return $this->aisis_current_theme_version->Version;
 		}
 		
@@ -169,8 +167,7 @@
 		 * in relation to the update.
 		 */
 		private function aisis_framework_download_update_erors(){
-			_e("<div class='err'>".new InvalidURLException('<strong>We could not locate the url you are requesting. 
-									Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");
+			_e("<div class='err'>".new InvalidURLException('<strong>We could not locate the url you are requesting.</strong>')."</div>");
 		}
 		
 		/**
@@ -178,8 +175,7 @@
 		 * relation to incompatible archives.
 		 */
 		private function aisis_incompatible_archive_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>The archive we downloaded is incompatible with wordpress standards. 
-																	Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");														
+			_e("<div class='err'>".new UpdateIssuesException('<strong>The archive we downloaded is incompatible with wordpress standards. </strong>')."</div>");														
 		}
 		
 		/**
@@ -187,8 +183,7 @@
 		 * relation to empty archives.
 		 */
 		private function aisis_empty_archive_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>This archive that we downloaded for the update seems to be empty. 
-																	Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");	
+			_e("<div class='err'>".new UpdateIssuesException('<strong>This archive that we downloaded for the update seems to be empty. </strong>')."</div>");	
 		}
 		
 		/**
@@ -196,8 +191,8 @@
 		 * relation to making a directory or directories.
 		 */
 		private function aisis_mkdir_failed_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>We failed to make the required directories for the update. 
-																	Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");				
+			echo "<div class='err'>We could not make the directories we need to make to complete the install. We advise you to
+			check your server configuration <strong>or</strong> download the update and use FTP to update.</div>";				
 		}
 		
 		/**
@@ -205,8 +200,7 @@
 		 * relation to copying files from the archive to the theme directory.
 		 */
 		private function aisis_copy_failed_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>We have failed to copy the files from the archive to the theme directory.
-																	Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");	
+			_e("<div class='err'>".new UpdateIssuesException('<strong>We have failed to copy the files from the archive to the theme directory. This could be because of your Server configuration or the archive was corrupt. Please try again or download the update and use FTP to update.</strong>')."</div>");	
 		}
 		
 		private function need_credentials(){

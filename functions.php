@@ -36,8 +36,8 @@
 	 define('AISISCORE', get_template_directory() . '/AisisCore/');
 	 define('AISIS_EXCEPTIONS', get_template_directory() . '/AisisCore/Exceptions/');
 	 define('AISIS_ADMINPANEL', get_template_directory() . '/AisisCore/AdminPanel/');
-	 define('AISIS_ADMINPANEL_OPTIONS', get_template_directory() . '/AisisCore/AdminPanel/Options/');
-	 define('AISIS_ADMINPANEL_OPTIONS_OPTIONSTABLE', get_template_directory() . '/AisisCore/AdminPanel/Options/OptionsTable/');
+	 define('AISIS_ADMINPANEL_OPTIONS', get_template_directory() . '/AisisCore/AdminPanel/Modules/');
+	 define('AISIS_ADMINPANEL_OPTIONS_OPTIONSTABLE', get_template_directory() . '/AisisCore/AdminPanel/Modules/OptionsTable/');
 	 define('AISIS_ADMINPANEL_TEMPLATES', get_template_directory() . '/AisisCore/AdminPanel/AdminPanel-Templates/');
 	 define('AISIS_CUSTOM_POST_TYPES', get_template_directory() . '/AisisCore/AdminPanel/AisisCustomPostTypes/');
 	 define('AISIS_CUSTOM_POST_TYPES_META', get_template_directory() . '/AisisCore/AdminPanel/AisisCustomPostTypes/MetaTemplates/');
