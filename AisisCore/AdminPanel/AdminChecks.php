@@ -143,6 +143,20 @@
 		}
 	}
 	
+	if(!function_exists('passed_update')){
+		function passed_update(){
+			$aisis_update = new AisisUpdate(); 
+			if(get_option('update_success') == 'true'){
+				?>
+				 <script>
+				$().toastmessage('showNoticeToast', "Oh you are in for a treat! Aisis Just updated to the latest version! check out all the new features!");
+				</script>
+				<?php
+				update_option('update_success', '');
+			}
+		}
+	}
+	
 	/**
 	* This function just calls all the other functions
 	* into one. We could make this file a class how ever
@@ -154,6 +168,7 @@
 			check_css_editor_messages();
 			check_js_editor_messages();
 			check_php_editor_messages();
+			passed_update();
 			
 			if(isset($_GET['page']) && $_GET['page']=='aisis-core-update'){
 				check_for_update_message();

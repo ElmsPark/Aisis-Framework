@@ -92,7 +92,7 @@
 		 * on the server
 		 */
 		function check_theme_version(){
-			$version_url = 'http://adambalan.com/aisis/version.xml';
+			$version_url = 'http://adambalan.com/aisis/version2.xml';
 			$aisis_update_xml_object = simplexml_load_file($version_url);
 			$aisis_version = $aisis_update_xml_object->version[0];
 			return trim($aisis_version);
@@ -106,7 +106,7 @@
 		 * true or false based on whats in our xml file.
 		 */
 		function delete_contents_check(){
-			$xml_file = 'http://adambalan.com/aisis/version.xml';
+			$xml_file = 'http://adambalan.com/aisis/version2.xml';
 			$aisis_delete_content = simplexml_load_file($xml_file);
 			$aisis_delete_content_bool = $aisis_delete_content->delete[0];
 			if($aisis_delete_content_bool == 'true'){
@@ -169,8 +169,7 @@
 		 * in relation to the update.
 		 */
 		private function aisis_framework_download_update_erors(){
-			_e("<div class='err'>".new InvalidURLException('<strong>We could not locate the url you are requesting. 
-									Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");
+			echo new AisisCoreException('<p><strong>Fatal: </strong> Seems we could not locate the url we need to do the update.</p>');
 		}
 		
 		/**
@@ -178,8 +177,7 @@
 		 * relation to incompatible archives.
 		 */
 		private function aisis_incompatible_archive_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>The archive we downloaded is incompatible with wordpress standards. 
-																	Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");														
+			echo new AisisCoreException('<p><strong>Fatal: </strong> The archive you downloaded is imcompatible with what need, which is a .zip.</p>');													
 		}
 		
 		/**
@@ -187,8 +185,7 @@
 		 * relation to empty archives.
 		 */
 		private function aisis_empty_archive_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>This archive that we downloaded for the update seems to be empty. 
-																	Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");	
+			echo new AisisCoreException('<p><strong>Fatal: </strong> Seems the archive is a bit empty.</p>');
 		}
 		
 		/**
@@ -196,8 +193,8 @@
 		 * relation to making a directory or directories.
 		 */
 		private function aisis_mkdir_failed_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>We failed to make the required directories for the update. 
-																	Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");				
+			echo new AisisCoreException('<p><strong>Fatal: </strong> We cannot make a temp directory and thus we cannot continue with the update process. Please check your server
+			configuration or use FTP to upload the new version of Aisis.</p>');			
 		}
 		
 		/**
@@ -205,8 +202,7 @@
 		 * relation to copying files from the archive to the theme directory.
 		 */
 		private function aisis_copy_failed_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>We have failed to copy the files from the archive to the theme directory.
-																	Please send an email to: adamkylebalan@gmail.com for support.</strong>')."</div>");	
+			echo new AisisCoreException('<p><strong>Fatal: </strong> We could not copy the contents from the zip archive to the theme directory. Unknown error.</p>');	
 		}
 
 		/**
@@ -229,7 +225,7 @@
 		 */
 		 function get_latest_version_zip(){
 			 global $wp_filesystem;
-			 
+			 add_option('update_success', '', '', 'yes');
 			 if(current_user_can('update_themes')){
 				$aisis_file_system_structure = WP_Filesystem();
 				$aisis_cred_url = 'admin.php?page=aisis-core-update';
@@ -238,7 +234,7 @@
 					$this->credential_check = true;
 				}
 				
-				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis.zip' );
+				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis2.zip' );
 				
 				if(is_wp_error($aisis_temp_file_download)){
 					$error = $aisis_temp_file_download->get_error_code();
@@ -270,6 +266,9 @@
 						$this->aisis_copy_failed_errors();
 					}
 					return;
+				}else{
+					update_option('update_success', 'true');
+					wp_redirect(admin_url('admin.php?page=aisis-core-options'));
 				}
 			 }
 		 }
