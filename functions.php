@@ -28,12 +28,31 @@
 	 * =================================================================
 	 */
 	 
+	 /**
+	  * The following allows us to 
+	  * do an update and then redirect before
+	  * anything happens.
+	  */ 
+	 function callback($buffer){
+		 return $buffer;
+	 }
+	 
+	 function add_ob_start(){
+		 ob_start("callback");
+	 }
+	 
+	 function flush_ob_end(){
+		 ob_end_flush();
+	 }
+	 
+	 add_action('init', 'add_ob_start');
+	 add_action('wp_footer', 'flush_ob_end');
+	 
 	 //Define Aisis Core Package
 	 define('AISIS_DIR', get_template_directory_uri() . '/');
 	 define('AISIS', get_template_directory() . '/');
 	 
 	 define('AISISCORE', get_template_directory() . '/AisisCore/');
-	 define('AISIS_EXCEPTIONS', get_template_directory() . '/AisisCore/Exceptions/');
 	 define('AISIS_ADMINPANEL', get_template_directory() . '/AisisCore/AdminPanel/');
 	 define('AISIS_ADMINPANEL_MODULES', get_template_directory() . '/AisisCore/AdminPanel/Modules/');
 	 define('AISIS_ADMINPANEL_MODULES_OPTIONS', get_template_directory() . '/AisisCore/AdminPanel/Modules/Options/');
