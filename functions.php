@@ -28,6 +28,21 @@
 	 * =================================================================
 	 */
 	 
+	 function callback($buffer){
+		 return $buffer;
+	 }
+	 
+	 function add_ob_start(){
+		 ob_start("callback");
+	 }
+	 
+	 function flush_ob_end(){
+		 ob_end_flush();
+	 }
+	 
+	 add_action('wp_head', 'add_ob_start');
+	 add_action('wp_footer', 'flush_ob_end');	 
+	 
 	 //Define Aisis Core Package
 	 define('AISIS_DIR', get_template_directory_uri() . '/');
 	 define('AISIS', get_template_directory() . '/');

@@ -3,7 +3,6 @@
 	$option = get_option('aisis_core');
 	$aisis_form = new AisisForm();
 	$aisis_update = new AisisUpdate();
-	var_dump(get_option('disable_update'));
 	if(get_option('disable_update') != true){
         
 		$aisis_form->open_form(array(
@@ -16,12 +15,12 @@
                 <p>You can choose bellow if you would like to have Aisis automatically check for, download
                 and install updates for you.<p>
                 <?php if($option['update'] == 1){?> <div class="notice"><strong>You have</strong> turned on silent auto update. 
-                We will do the rest from here for you. Which includes downloading, installing and updating Aisis for you :D</div><?php }?>
+                We will do the rest from here for you. Which includes downloading, installing and updating Aisis for you :D. </div><?php }?>
                 <p><?php create_submit(); ?></p>
             </div>
             <div class="alignForm">
                 <?php
-                do_settings_fields('aisis-core-update','aisis_update_section');
+                do_settings_fields('aisis-core-update','aisis_core_update_section');
                 
                 ?>
             </div>
@@ -52,7 +51,7 @@
 				}?></p>
             </div>
             <div class="updateNotice"><strong>You have an update!</strong>. Click the button bellow to update your site to the
-			latest version!<?php
+			latest version! <strong>please also note</strong> that you will be logged out upon a successful update.</div><?php
 			$aisis_form->create_aisis_form_element('input', array(
 				'type' => 'submit',
 				'value' => 'Update Aisis!',

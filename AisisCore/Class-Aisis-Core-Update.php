@@ -227,12 +227,13 @@
 		 * @return boolean of type True/False
 		 */
 		 function get_latest_version_zip(){
-			 global $wp_filesystem;
+			 
+			 $options = get_option('aisis_core');
 			 
 			 if(current_user_can('update_themes')){
 				$this->cred_check();
 				
-				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis.zip' );
+				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis2.zip' );
 				
 				if(is_wp_error($aisis_temp_file_download)){
 					$error = $aisis_temp_file_download->get_error_code();
@@ -265,6 +266,8 @@
 					}
 					return;
 				}
+				
+				wp_redirect(admin_url('admin.php?page=aisis-core-options'));
 			 }
 		 }
 		 

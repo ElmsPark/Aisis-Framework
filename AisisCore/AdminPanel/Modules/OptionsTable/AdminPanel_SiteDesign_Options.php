@@ -57,7 +57,7 @@ function general_post_options(){
 		'name' => 'aisis_core[categories]',
 		'value' => 1,
 		'checked' => checked(1, isset($options['categories']), false)
-	));		
+	));	
 }
 
 function image_header(){

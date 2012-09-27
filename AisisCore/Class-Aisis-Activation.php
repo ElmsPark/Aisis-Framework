@@ -160,7 +160,7 @@
 			if($bool == true){
 				update_option('disable_update', 'true');
 			}else{
-				update_option('disable_update', 'aisis_css_section');
+				update_option('disable_update', '');
 			}
 		}
 		

@@ -29,6 +29,17 @@
 	 */
 	if (is_admin()){
 		
+		function mock_delete_me(){
+			 $aisis_update = new AisisUpdate();
+			 $options = get_option('aisis_core');
+			 if($options['update'] == 1 ){
+				if($aisis_update->check_for_udate_bool()){
+					$aisis_update->auto_silent_update();
+			 	}
+			 }
+			 
+		}
+		
 		//Register Admin Jquery 1.7.1
 		function aisis_register_admin_jquery() {
 			wp_deregister_script( 'jquery' );
@@ -96,6 +107,7 @@
 			}
 		}
 		
+		add_action('admin_init', 'mock_delete_me');
 		add_action( 'admin_init', 'core_aisis_admin_scripts' );
 		add_action('admin_menu', 'aisis_add_settings_page');
 		
