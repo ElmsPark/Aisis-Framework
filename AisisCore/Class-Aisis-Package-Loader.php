@@ -18,21 +18,7 @@
 	 
 	 class AisisPackageLoader{
 	 
-		 private $aisis_file_handling;		 
-		 
-		 /**
-		  * Load the exceptions package. Spazz out if it's not
-		  * there or we try to override this function.
-		  */
-		 function load_aisis_exceptions_package(){
-			 $this->aisis_file_handling = new AisisFileHandling();
-			 if($this->aisis_file_handling->check_dir(AISIS_EXCEPTIONS)){
-				 $this->aisis_file_handling->load_directory_of_files(AISIS_EXCEPTIONS);
-			 }else{
-				 echo "Failed to load Aisis Exceptions Package.";
-				 exit;
-			 }
-		 }
+		 private $aisis_file_handling;
 		 
 		 /**
 		  * Load the admin panel package. Spazz out if it's not
@@ -43,7 +29,7 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_ADMINPANEL)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_ADMINPANEL);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Admin Exceptions Package: AdminPanel</strong>") . "</div>");
+				 echo new AisisCoreException('<p><strong>Fatal: </strong> Cannot find the package: </p>' . AISIS_ADMINPANEL);
 				 exit;
 			 }
 		 }
@@ -57,7 +43,7 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_VIEW)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_VIEW);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis View Package: AdminView</strong>") . "</div>");
+				 echo new AisisCoreException('<p><strong>Fatal: </strong> Cannot find the package: </p>' . AISIS_VIEW);
 				 exit;
 			 }
 		 }
@@ -71,7 +57,7 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_SHORTCODES)){
 				$this->aisis_file_handling->load_directory_of_files(AISIS_SHORTCODES);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Short Codes package: ShortCodes</strong>") . "</div>");
+				 echo new AisisCoreException('<p><strong>Fatal: </strong> Cannot find the package: </p>' . AISIS_SHORTCODES);
 				 exit;
 			 }
 		 }
@@ -85,7 +71,7 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_SOCIAL)){
 				$this->aisis_file_handling->load_directory_of_files(AISIS_SOCIAL);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Social Media package: AisisSocialMedia</strong>") . "</div>");
+				 echo new AisisCoreException('<p><strong>Fatal: </strong> Cannot find the package: </p>' . AISIS_SOCIAL);
 				 exit;
 			 }
 		 }
@@ -99,7 +85,7 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_CUSTOM_POST_TYPES)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_CUSTOM_POST_TYPES);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the Aisis Custom Post Types package: AisisCustomPostTypes</strong>") . "</div>");
+				 echo new AisisCoreException('<p><strong>Fatal: </strong> Cannot find the package: </p>' . AISIS_CUSTOM_POST_TYPES);
 				 exit;
 			 }
 		 }	
@@ -109,7 +95,7 @@
 			 if($this->aisis_file_handling->check_dir(AISIS_BBPRESS)){
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_BBPRESS);
 			 }else{
-				 _e("<div class='err'>" . new PackageNotFoundException("<strong>Cannot find the BBPress package: BBPress</strong>") . "</div>");
+				  echo new AisisCoreException('<p><strong>Fatal: </strong> Cannot find the package: </p>' . AISIS_BBPRESS);
 				 exit;
 			 }
 		 }			 
