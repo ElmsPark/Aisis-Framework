@@ -1,0 +1,390 @@
+/*====================== [[CSS STYLE SHEET]] ===========================
+ *
+ *		This is the core Admin styles for the Admin Panel page.
+ *		if you are making your own Admin Template instead of the
+ *		core one used here then please make sure to over ride the classes
+ *		and ID's here in your custom-css.css file.
+ *
+ *		These styles borrow from the styles.css 
+ *
+ *		@Author: Adam Balan
+ *		@version: 1.0
+ *		@Package: Aisis->AisisCore->AdminPanel->Template
+ *
+ *
+ *======================================================================
+ */
+ 
+/**
+==================[CORE]==================
+**/
+
+h2{
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 3px;
+	margin-bottom: -8px;
+}
+
+#top{
+	background-color:rgb(255,255,255);
+	border-color:rgb(204,204,204);
+	border-width:1px;
+	border-radius:1px;
+	border-style:solid;
+	box-shadow:0px 3px 2px rgba(119,119,119,0.45);
+	margin-bottom: 50px;
+	margin-left: -20px;
+}
+
+#top .title{
+	text-align:center;
+	font-size:50px;
+	padding: 25px;
+	margin-bottom:25px;
+}
+
+.content{
+	background-color:rgb(234,237,238);
+	width:40%;
+	margin:0 auto 20px; auto;
+	padding: 20px;
+	border-color:rgb(185,206,208);
+	border-width:1px;
+	border-radius:4px;
+	border-style:solid;
+	padding-bottom:40px;
+	overflow:auto;
+}
+
+.content h1{
+	font-size:18px;
+	border-left: solid #ADC79E 5px;
+	margin-left:-20px;
+	padding-left: 20px;
+	clear:both;
+}
+
+.notice {
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin: 10px 0px 10px 43px;
+	width: 80%;
+}
+
+.updateNotice {
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin: 10px 0px 10px 43px;
+	width: 80%;
+	float:left;
+}
+
+.bottomNotice {
+	background : #fff9d7;
+	border: 1px solid #e2c822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin: 100px auto 20px auto;
+	width: 90%;
+	clear: both;
+}
+
+.upgradeNotice {
+	background : #fff9d7;
+	border: 1px solid #e2c822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin: 20px auto 20px auto;
+	width: 60%;
+	clear: both;
+}
+
+.bottomNotice h1{
+	border-left: none;
+}
+.success {
+	background: #F3F7F4;
+	border : 1px solid #3d5b37;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin-top : 10px;
+}
+.topSuccess{
+	background: #F3F7F4;
+	border: 1px solid #3D5B37;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin: 10px auto 10px auto;
+	width: 59%;
+}
+.err {
+	background : #ebc2ce;
+	border : 1px solid #772038;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin-top : 10px;
+	margin-bottom: 10px;
+	clear: both;
+	width:71%;
+}
+.topErr {
+	background : #ebc2ce;
+	border : 1px solid #772038;
+	color : #333;
+	padding : 10px;
+	font-size : 13px;
+	border-radius : 5px;
+	margin: 10px auto 10px auto;
+	clear: both;
+	width:43%;
+}
+.smallNotice{
+	background : #fff9d7;
+	border: 1px solid #e2c822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	width: 95%;
+	margin-bottom: 20px;
+	clear: both;
+}
+
+.updateNotice{
+	background : #fff9d7;
+	border: 1px solid #e2c822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	width: 50%;
+	margin: 0 auto 30px auto;
+	clear: both;
+}
+
+.sideText{
+	background-color: #EAF0E6;
+	width: 63%;
+	border-color: #888;
+	border-left: none !important;
+	border-width: 1px;
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+	border-style: solid;
+	margin-left: -20px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 20px;
+	clear:both;
+	overflow:auto;
+}
+
+#SideText {
+	width: 100%;
+	overflow: hidden;
+	text-align: center;
+	font-size: 0;
+	line-height: 1px;
+}
+
+#SideText img{
+	border: 0;
+	width: 128px;
+	height:128px;
+	margin: 1px;
+}
+
+a.imagehover:hover img {
+	opacity: .65;
+	filter: alpha(opacity=65);
+	border: 0;
+}
+
+.alignForm label{
+	float: left;
+	width: 50% !important;
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	font-weight: bold;
+	border-left: solid #ADC79E 5px;
+	margin-left: -20px;
+	padding-left: 20px;
+}
+
+.alignForm input[type="checkbox"], .alignForm input[type="radio"], .alignForm input[type="input"]{
+	float: right;
+	width: 2%;
+	text-align: left;
+	margin-top: 12px;
+	padding-top: 7px;
+	margin-right: 340px;
+}
+
+.alignForm input[type="input"]{
+	width:50%;
+	margin-top: 0px;
+}
+
+.alignForm input[type="radio"]{
+	margin-top: 7px;
+}
+
+
+.alignForm input[type="text"]{
+	float: right;
+	text-align: left;
+	padding-top: 7px;
+	margin-right: 67px;
+	width: 40%;
+}
+
+.alignForm input[type="submit"]{
+	margin-right: 24%;
+	margin-top: -37px;
+	cursor:pointer;
+}
+
+.alignForm .wrapper{
+	margin: 20px 0 40px 0;
+}
+
+.alignForm .wrapper img{
+	margin-top: -24px;
+	margin-left: 30px;
+	float: left;	
+}
+
+#aisis_header_img{
+	float:left;
+}
+
+
+input[type="submit"]{
+	background-color:rgb(192,210,181) !important;
+	width:auto;
+	padding:5px;
+	border-color:rgb(119,119,119);
+	border-width:1px;
+	border-radius:5px;
+	border-style:solid;
+	margin-top: -10px;
+	margin-left: 108px;
+	float: right;
+	cursor:pointer;
+}
+
+#upload_image_button, #upload_aisis_header{
+	background-color:rgb(192,210,181) !important;
+	width:auto;
+	padding:5px;
+	border-color:rgb(119,119,119);
+	border-width:1px;
+	border-radius:5px;
+	border-style:solid;
+	clear: both;
+	margin: 5px 0 0 0px;
+}
+
+#slider_mini_global{
+	float: right;
+	width: 2%;
+	text-align: left;
+	margin-top: 12px;
+	padding-top: 7px;
+	margin-right: 340px;
+}
+
+textarea{
+	width: 66%;
+	height: 150px;
+}
+
+.CodeMirror {
+	line-height: 1em;
+	font-family: monospace;
+	background:#FFF;
+	margin-top:40px;
+	width:100%;
+}
+
+.cssEditorButton{
+	margin-left: 632px !important;
+	margin-top: 7px !important;
+}
+
+.jsEditorButton{
+	margin-left: 632px !important;
+	margin-top: 7px !important;	
+}
+
+.updateAisis{
+	position: relative;
+	top: 50px;
+}
+
+#footer{
+	display:none;
+}
+
+
+/**
+==================[Tabs]==================
+**/
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background-color: #F5FAFA !important;
+	border-color: #E7EEF0 !important;
+	-moz-border-top-right-radius: 4px !important;
+	-moz-border-top-left-radius: 4px !important;
+	-webkit-border-top-right-radius: 4px !important;
+	-webkit-border-top-left-radius: 4px !important;
+	border-top-right-radius: 4px !important;
+	border-top-left-radius: 4px !important;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	background-color: #D7E5E9 !important;
+	border-color: #C7DBDF !important;
+	-moz-border-top-right-radius: 4px !important;
+	-moz-border-top-left-radius: 4px !important;
+	-webkit-border-top-right-radius: 4px !important;
+	-webkit-border-top-left-radius: 4px !important;
+	border-top-right-radius: 4px !important;
+	border-top-left-radius: 4px !important;
+	height: 37px !important;
+	cursor:pointer !important;
+}
+
+.ui-widget-content {
+	border: none !important;
+	background: #fff !important;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	height: 26px !important;
+}
+
+.ui-tabs .ui-tabs-nav {
+	margin: 0 auto 0 auto !important;
+	width: 46% !important;
+}

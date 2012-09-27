@@ -1,0 +1,189 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This file loads the comments template for either a single
+	 *		(is_single()) post or a page (is_page()).
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->Templates
+	 *
+	 * =================================================================
+	 */
+
+	 //Set the variables to shut up the notices.
+	 global $user_identity, $post, $req, $comment_author_email, $comment_author_url, $comment_author;
+	 $options_sidebar_single = get_option('aisis_core_theme_setting_sidebar_single');
+	 $options_sidebar_page = get_option('aisis_core_theme_setting_sidebar_page');
+	 $options_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $options_sidebar_front = get_option('aisis_core_theme_setting_sidebar_front_page');
+	 
+	 if(is_single()){
+?>
+        <div id="<?php comments_id(); ?>">
+                <?php if ( have_comments() ) : ?>
+                <hr class="remove-bottom">
+                    <h3 id="comments">
+                    <?php comments_number('0 Responses', '1 Response', '% Responses' );?> so far.
+                    </h3>
+                <hr class="remove-bottom remove-top">
+                <ol class="commentlist">
+                <?php wp_list_comments(); ?>
+                </ol>
+                <div class="comment-nav">
+                    <div class="alignleft"><?php previous_comments_link() ?></div>
+                    <div class="alignright"><?php next_comments_link() ?></div>
+                </div>
+                <?php else : // this is displayed if there are no comments so far ?>
+                <?php if ( comments_open() ) : ?>
+                <div class="notice">
+                    There Seems to be no comments.
+                </div>
+                <?php else : // comments are closed ?>
+                <!-- If comments are closed. -->
+                <div class="commentNoticeWrapper">
+                    We seem to come across closed comments.
+                </div>
+                <div class="err">
+                    Comments are closed to the public.
+                </div>
+                <?php endif; ?>
+                <?php endif; ?>
+                <?php if (comments_open()) : ?>
+                <div id="comment-form">
+                    <div id="respond">
+                        <?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
+                        <p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
+                        <?php else : ?>
+                        <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+                            <h3><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
+                            <div class="cancel-comment-reply">
+                                <small><?php cancel_comment_reply_link(); ?></small>
+                            </div>
+                            <?php if ( is_user_logged_in() ) : ?>
+                            <p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. 
+                                <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p> 
+                            <?php else : ?>
+                            <label for="authorInput" class="aisisInput">Name <small><?php if ($req) echo "(required)"; ?></small></label>
+                            <input type="text" name="authorInput" id="authorInput" 
+                            value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" 
+							<?php if ($req) echo "aria-required='true'"; ?> />
+                            <input type="text" name="emailInput" id="emailInput" 
+                            value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" 
+							<?php if ($req) echo "aria-required='true'"; ?> />
+                            <label for="emailInput" class="aisisInput">Mail <small><?php if ($req) echo "(required)"; ?></small></label>
+                            <input type="text" name="urlInput" id="urlInput" 
+                            value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
+                            <label for="urlInput" class="aisisInput">Website</label>
+                            
+                            <?php endif;?>
+                            <textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea><br />
+                            <input name="submit" type="submit" id="commentSubmit" tabindex="5" value="Submit" />
+                            <?php comment_id_fields(); ?>
+                            <?php do_action('comment_form', $post->ID); ?>
+                     
+                        </form>
+                <?php endif; // If registration required and not logged in ?>
+                </div>
+            </div>
+            <?php endif; // if you delete this the sky will fall on your head ?>
+        </div>
+<?php
+	 }elseif(is_page()){		  
+?>
+      <div id="commentsbox">
+              <?php if ( have_comments() ) : ?>
+              <hr class="remove-bottom">
+                  <h3 id="comments">
+                  <?php comments_number('0 Responses', '1 Response', '% Responses' );?> so far.
+                  </h3>
+              <hr class="remove-bottom remove-top">
+              <ol class="commentlist">
+              <?php wp_list_comments(); ?>
+              </ol>
+      
+              <div class="comment-nav">
+                  <div class="alignleft"><?php previous_comments_link() ?></div>
+                  <div class="alignright"><?php next_comments_link() ?></div> 
+              </div>
+              <?php else : // this is displayed if there are no comments so far ?>
+      
+              <?php if ( comments_open() ) : ?>
+              <div class="commentNoticeWrapper">
+                  We seem to have come across empty comments.
+              </div>
+              <div class="notice">
+                  There Seems to be no comments.
+              </div>
+        
+              <?php else : // comments are closed ?>
+              <!-- If comments are closed. -->
+              
+              <div class="err">
+                  Comments are closed to the public.
+              </div>
+              <?php endif; ?>
+              <?php endif; ?>
+      
+              <?php if ( comments_open() ) : ?>
+              <div id="comment-form">
+                  <div id="respond">
+                      <?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
+                      <p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
+                      <?php else : ?>
+      
+                      <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+                          <h3><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
+                          <div class="cancel-comment-reply">
+                              <small><?php cancel_comment_reply_link(); ?></small>
+                          </div>
+                          <?php if ( is_user_logged_in() ) : ?>
+                          
+                         <p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. 
+                              <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
+                          
+                          <?php else : ?>
+                          
+                          <input type="text" name="authorInput" id="authorInput" 
+                          value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" 
+						  <?php if ($req) echo "aria-required='true'"; ?> />
+                          <label for="authorInput" class="aisisInput">Name <small><?php if ($req) echo "(required)"; ?></small></label>
+                          
+                          <input type="text" name="emailInput" id="emailInput" 
+                          value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" 
+						  <?php if ($req) echo "aria-required='true'"; ?> />
+                          <label for="emailInput" class="aisisInput">Mail <small><?php if ($req) echo "(required)"; ?></small></label>
+                          
+                          <input type="text" name="urlInput" id="urlInput" 
+                          value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
+                          <label for="urlInput" class="aisisInput">Website</label>
+                          
+                          <?php endif; ?>
+                          
+                          <textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea><br />
+                          
+                          <input name="submit" type="submit" id="commentSubmit" tabindex="5" value="Submit" />
+                          <?php comment_id_fields(); ?>
+                          <?php do_action('comment_form', $post->ID); ?>
+                      
+                      </form>
+      
+              <?php endif; // If registration required and not logged in ?>
+              </div>
+          </div>
+          <?php endif; // if you delete this the sky will fall on your head ?>
+      </div>
+<?php }?>

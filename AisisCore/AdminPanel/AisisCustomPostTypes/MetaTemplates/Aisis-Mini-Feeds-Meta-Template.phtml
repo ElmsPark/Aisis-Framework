@@ -1,0 +1,115 @@
+<?php
+
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This one is used to show the mini feed meta tag info.
+	 *
+	 *		The Css used here is located in the admin panel css
+	 *		under the AdminPanel->Options->Required->AdminPanelCSS.css
+	 *
+	 *		@see AisisCore->AisisView-> Class-Aisis-Form
+	 *		
+	 *		@author: Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->AdminPanel->AisisCustomPostTypes->MetaTemplates
+	 *
+	 * =================================================================
+	 */
+	global $post;
+	$values = get_post_custom( $post->ID );
+	$aisis_create_form_elements = new AisisForm();
+?>
+
+    <div class="aisis_meta_control">
+          <div class="metaNotice"><strong>Note:</strong> Mini feeds can be used to display summaries about Articles and Essays or about special posts or about almost anything you want
+          </div>
+          <br  />
+          <p>                        
+			  <?php
+			  $aisis_create_form_elements->create_aisis_form_element('label', array('for'=>'aisis_content_link',
+			  'value'=>'Insert the URL of the Read More button.'));
+              if(isset($values['aisis_content_link']) && !empty($values['aisis_content_link'])){
+				  $aisis_create_form_elements->create_aisis_form_element('input',array(
+				  		'type' => 'url',
+				  		'name' => 'aisis_content_link',
+						'id' => 'aisis_content_link',
+						'value' => $values['aisis_content_link'][0]
+				  ));
+			  }else{
+				  $aisis_create_form_elements->create_aisis_form_element('input', array(
+				  		'type' => 'url',
+				  		'name' => 'aisis_content_link',
+						'id' => 'aisis_content_link',
+						'value' => ''
+				  ));				  
+			  }
+			  
+              ?>
+          </p>  
+          <p>
+			  <?php
+			  $aisis_create_form_elements->create_aisis_form_element('label', array('for'=>'aisis_content_desc',
+			  'value'=>'Enter a small summary about said content fo the feed.'));
+              if(isset($values['aisis_content_desc']) && !empty($values['aisis_content_desc'])){
+				  $aisis_create_form_elements->create_aisis_form_element('textarea', array(
+				  		'name' => 'aisis_content_desc',
+						'id' => 'aisis_content_desc',
+						'value' => $values['aisis_content_desc'][0]
+				  ));				  
+			  }else{
+				  $aisis_create_form_elements->create_aisis_form_element('textarea', array(
+				  		'name' => 'aisis_content_desc',
+						'id' => 'aisis_content_desc',
+						'value' =>''
+				  ));				  
+			  }
+              ?>
+          </p>  
+          <p>
+			  <?php
+			  $aisis_create_form_elements->create_aisis_form_element('label', array('for'=>'aisis_content_img', 
+			  'value'=>'Upload an image and use it as your icon beisde the title of your mini feed.
+              All images should be <strong>32x32</strong>'));
+			  if(isset($values['aisis_content_img']) && !empty($values['aisis_content_img'])){
+				  $aisis_create_form_elements->create_aisis_form_element('input', array(
+				  		'type' => 'text',
+						'name' => 'aisis_content_img',
+						'id' => 'aisis_content_img',
+						'value' => $values['aisis_content_img'][0]
+				  ));				  
+			  }else{
+				  $aisis_create_form_elements->create_aisis_form_element('input', array(
+				  		'type' => 'text',
+						'name' => 'aisis_content_img',
+						'id' => 'aisis_content_img',
+						'value' => ''
+				  ));				  
+			  }
+			  $aisis_create_form_elements->create_aisis_form_element('input', array(
+			  	  'type' => 'button',
+				  'name' => 'upload_image',
+				  'id' => 'upload_image_button',
+				  'value' => 'Choose a file to upload.'
+			  ));
+              ?>
+          </p>                  
+    </div>
+    
+    <script language="JavaScript">
+	//Upload the image and populate the text box
+	jQuery(document).ready(function() {
+		jQuery('#upload_image_button').click(function() {
+			formfield = jQuery('#aisis_content_img').attr('name');
+			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+			return false;
+		});
+	
+		window.send_to_editor = function(html) {
+			imgurl = jQuery('img',html).attr('src');
+			jQuery('#aisis_content_img').val(imgurl);
+			tb_remove();
+		}
+	});
+    </script>
