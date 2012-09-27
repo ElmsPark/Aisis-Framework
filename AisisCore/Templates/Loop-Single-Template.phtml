@@ -1,0 +1,184 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This file is responsible for displaying a single post.
+	 *		This is essentially your single.php
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->Templates
+	 *
+	 * =================================================================
+	 */
+	 global $more, $post, $wp_query;
+	 $more = 0; //declare and set $more before The Loop
+	 
+	 $option_sidebar_single = get_option('aisis_core_theme_setting_sidebar_single');
+	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $option_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 $option_slider_mini_single = get_option('aisis_core_theme_setting_slider_mini_single');
+	 $option_related_posts = get_option('aisis_display_related_posts_setting');
+	 $option_cat_tags = get_option('aisis_display_categories_tags_setting');
+	  
+	 $aisis_category_list = array(
+			 'orderby' => 'name',
+			 'style' => 'none',
+			 'title_li'=> '',
+	 );	
+	 
+	if(isset($option_sidebar_global['no_slider_mini_global ']) && $option_sidebar_global['no_slider_mini_global'] != 1 
+	&& isset($option_slider_mini_single['no_slider_mini_single']) && $option_slider_mini_single['no_slider_mini_single'] != 1){
+		aisis_header();
+	}
+	
+	//Get the post for the page.
+	the_post();
+	
+	if(has_post_format('aside')){?>
+    <div id="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+	{ echo 'content'; }else{ echo 'contentFull'; }?>">
+        <article class="post clearfix">
+            <?php if(has_post_thumbnail()){?>
+                <figure class="soft-embossed postImage">
+                    <?php the_post_thumbnail();?>
+                </figure>
+            <?php } ?>
+            <p> <?php the_content(); ?></p>
+        </article>
+        <?php
+		  	wp_reset_query(); 
+		?>
+    </div><?php		
+	}elseif(is_sticky()){?>
+	<div class="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+	{ echo 'sticky'; }else{ echo 'stickyFull'; }?>">
+        <article class="post clearfix">
+            <header>
+                <h1 class="postTitle"><?php the_title(); ?></h1>
+                <div class="postComments"><?php comments_number('0', '1', '%'); ?> comments</div>
+                Author: <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
+				<?php the_author_meta('display_name'); ?></a>, <?php the_time('F, jS, Y'); ?>
+            </header>
+            <?php if(has_post_thumbnail()){?>
+                <figure class="soft-embossed postImage">
+                    <?php the_post_thumbnail();?>
+                </figure>
+            <?php } ?>
+            <p> <?php the_content(); ?></p>
+        </article>
+        <?php
+		  	wp_reset_query(); 
+		?>
+    <?php if($option_cat_tags['cat_tags'] != 1){?>
+        <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list);?></div> 
+        <div class="listTags"><?php the_tags();?></div> 
+    <?php } ?>  
+    </div>
+    
+    <?php		
+	}else{?>
+	<div id="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
+	{echo 'content';}else{echo 'contentFull';}?>">
+        <article class="post clearfix">
+            <header>
+                <h1 class="postTitle"><?php the_title(); ?></h1>
+                <div class="whoWrote">Author of this post: 
+                <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
+				<?php the_author_meta('display_name'); ?></a>, <?php the_time('F, jS, Y'); ?>, 
+				<?php comments_number('0', '1', '%'); ?> comments</div>      
+            </header>
+            <?php if(has_post_thumbnail()){?>
+                <figure class="soft-embossed post-image">
+                    <?php the_post_thumbnail();?>
+                </figure>
+            <?php } ?>
+            <p> <?php the_content(); ?></p>
+            <?php
+				if($option_related_posts['related_posts'] != 1){
+			?>
+            <div class="relatedPosts">
+                <h2>Related Posts</h2>
+                <?php
+				$tags = wp_get_post_tags($post->ID);
+				if ($tags) {
+					$first_tag = $tags[0]->term_id;
+					$args=array(
+						'tag__in' => array($first_tag),
+						'post__not_in' => array($post->ID),
+						'showposts'=>5,
+						'caller_get_posts'=>1
+					);
+					$my_query = new WP_Query($args);
+					if( $my_query->have_posts() ) {
+						while ($my_query->have_posts()) : $my_query->the_post(); ?>
+                      	<ul>
+                        	<li><a href="<?php echo get_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>">
+						<?php echo get_the_title($post->ID); ?></a></li>
+                        </ul>
+						<?php endwhile; wp_reset_query();
+					}
+				}
+				?>
+            </div>
+            <div class="aboutAuthor">
+            <?php $curauth = $wp_query->get_queried_object(); ?>
+                <h2>Author: <?php the_author_posts_link(); ?></h2>
+                <figure class="glossy postImage authImage">
+                   <?php echo get_avatar(get_the_author_email(), 125);?>
+                </figure>
+                <p><?php if (the_author_description() != ''){the_author_description();}else{?>
+                <?php deafualt_aisis_author_default_text(); } ?></p>
+            </div> 
+             <?php 
+			 }else{
+				?>
+			<div class="aboutAuthorFull">
+            <?php $curauth = $wp_query->get_queried_object(); ?>
+                <h2>Author: <?php the_author_posts_link(); ?></h2>
+                <figure class="glossy postImage authImage">
+                   <?php echo get_avatar(get_the_author_email(), 150);?>
+                </figure>
+                <p><?php if (the_author_description() != ''){the_author_description();}else{?>
+                <?php deafualt_aisis_author_default_text(); } ?></p>
+             </div> 
+				<?php	 
+			 }?>           
+        </article>
+        <?php
+		  	wp_reset_query(); 
+		?>
+    <?php if($option_cat_tags['cat_tags'] != 1){?>
+        <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list);?></div> 
+        <div class="listTags"><?php the_tags();?></div> 
+    <?php } ?>  
+    </div><?php		
+	}
+	
+	if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
+		get_sidebar();
+	}
+	
+	?><div class="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){ 
+	echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
+        <div class="prevPost"><?php echo  previous_post_link();?></div>
+        <div class="nextPost"><?php echo  next_post_link(); ?></div>
+    </div><?php
+
+    if('open' == $post->comment_status){
+	    comments_template('', true);
+    }
+	aisis_footer();
+	?>

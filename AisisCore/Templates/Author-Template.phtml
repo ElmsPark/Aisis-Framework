@@ -1,0 +1,56 @@
+<?php
+    /**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This file is used to set up the default Author Template.
+	 *		That is, the template you see when viewing the Author's 
+	 *		profile via clicking there name.
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->Templates
+	 *
+	 * =================================================================
+	 */
+	 global $wp_queryglobal, $current_user;
+	 
+	 //We need the current user info
+     get_currentuserinfo();
+	 
+	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $option_slider_minifeed_global = get_option('aisis_core_theme_setting_slider_mini_global');
+	 
+	 $aisis_author_arguments = array('author' => $current_user->ID); 
+	 $posts = query_posts($aisis_author_arguments);
+	
+	 /**
+	  * If the user wan't the slider and mini feed to display we do this.
+	  */
+	 if(isset($option_slider_minifeed_global['no_slider_mini_global']) && $option_slider_minifeed_global['no_slider_mini_global'] != 1){
+		 aisis_header();
+	 }
+?>    
+    <div id="<?php if($option_sidebar_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
+        <article class="post clearfix">
+            <header>
+                <h1 class="postTitle"><?php echo $current_user->user_login; ?></h1>
+            </header>
+                <figure class="glossy postImage">
+                   <?php echo get_avatar($current_user->user_email, 300);?>
+                </figure>
+            <p><?php if ( $current_user->user_description != '' ){echo $current_user->user_description;}else{?>
+            <?php deafualt_aisis_author_default_text(); } ?></p>
+        </article>
+    </div> 
