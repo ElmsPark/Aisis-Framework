@@ -28,6 +28,18 @@ instead of selected pages.
 	width: 60%;
 }
 
+.upgradeNotice {
+	background : #fff9d7;
+	border: 1px solid #e2c822;
+	color: #333;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 5px;
+	margin: 20px auto 20px auto;
+	width: 60%;
+	clear: both;
+}
+
 .adminThemeNotice {
 	background : #fff9d7;
 	border : 1px solid #e2c822;

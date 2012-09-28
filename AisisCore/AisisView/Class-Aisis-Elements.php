@@ -112,7 +112,7 @@
 		  * @param array of attributes
 		  * @return the element
 		  */
-		 function textarea(array $attributes){
+		  function textarea(array $attributes){
 			 
 			 if(isset($attributes['name'])){
 				 $this->name = 'name="'.$attributes['name'].'"';
@@ -153,7 +153,7 @@
 									.$this->style
 									.'>'. $this->value . '</textarea>';				
 			 echo $build_aisis_element;
-		 } 
+		  } 
 		 
 		 /**
 		  * We build up the aisis label element.

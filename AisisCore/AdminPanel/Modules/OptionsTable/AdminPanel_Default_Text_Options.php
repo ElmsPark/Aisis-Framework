@@ -36,7 +36,7 @@
 			'rows'=>50,
 			'cols'=>50,
 			'name'=>'aisis_core[404_message]',
-			'value'=>get_value('404_message', default_aisis_404_err_message())
+			'value'=>get_value('404_message')
 		));
 		
 		$aisis_form->create_aisis_form_element('label', array('value'=>'Set the default Author message'));
@@ -44,7 +44,7 @@
 			'rows'=>50,
 			'cols'=>50,
 			'name'=>'aisis_core[author]',
-			'value'=>get_value('author', deafualt_aisis_author_default_text())
+			'value'=>get_value('author')
 		));
 		
 		$aisis_form->create_aisis_form_element('label', array('value'=>'Set the default Category message'));
@@ -52,7 +52,7 @@
 			'rows'=>50,
 			'cols'=>50,
 			'name'=>'aisis_core[category]',
-			'value'=>get_value('category', default_aisis_category_default_text())
+			'value'=>get_value('category')
 		));
 		
 		$aisis_form->create_aisis_form_element('label', array('value'=>'Set the Left Footer text area'));
@@ -60,7 +60,7 @@
 			'rows'=>50,
 			'cols'=>50,
 			'name'=>'aisis_core[left_footer]',
-			'value'=>get_value('left_footer', default_aisis_default_left_footer_text())
+			'value'=>get_value('left_footer')
 		));	
 		
 		$aisis_form->create_aisis_form_element('label', array('value'=>'Set the Right Footer text area'));
@@ -68,7 +68,7 @@
 			'rows'=>50,
 			'cols'=>50,
 			'name'=>'aisis_core[right_footer]',
-			'value'=>get_value('right_footer', default_aisis_default_right_footer_text())
+			'value'=>get_value('right_footer')
 		));				
 	}
 	
@@ -79,15 +79,12 @@
 		return $options;	
 	}
 	
-	function get_value($key_name, $hook_to_display){
+	function get_value($key){
 		$option = get_option('aisis_core');
-		if(array_key_exists($key_name, $option)){
-			if(!isset($option[$key_name])){
-				return $option[$key_name] = $hook_to_display;
-			}else{
-				return strip_tags($option[$key_name],'<h1></h1><h2></h2><h3></h3><p></p><blockquote></blockquote><a></a>');
+		if($option == true){
+			if(array_key_exists($key, $option)){
+				return strip_tags($option[$key],'<h1></h1><h2></h2><h3></h3><p></p><blockquote></blockquote><a></a>');
 			}
-				
 		}
 	}
 	

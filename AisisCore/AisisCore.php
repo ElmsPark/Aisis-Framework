@@ -74,20 +74,18 @@
 	
 	add_action('save_post', 'mini_feed_transient_delete');	
 	
-	function display_message(){
-		$aisis_update_check = new AisisUpdate();
-		$aisis_version = $aisis_update_check->check_theme_version();
-		if($aisis_update_check->check_for_udate_bool()){
-			echo "<div class='globalThemeNotice'><strong>Update Available!!!</strong> - It seems that Aisis currently has an update
-			for you. You seem to be running version: <strong>".$aisis_update_check->get_current_theme_version()."</strong>
-			where as we have: <strong>".$aisis_version."</strong>. It is recomended that you 
-			<a href='".admin_url('admin.php?page=aisis-core-update')."'>update to the latest version</a>.
-			You can read the <a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650'
-			 class='thickbox' title='Aisis Version Info'>update logs</a>. </div>";
+	if(!is_child_theme()){
+		function display_message(){
+			$aisis_update_check = new AisisUpdate();
+			$aisis_update_check->check_for_update_with_message();
+		}
+		
+		if(function_exists('display_message')){
+			add_action('admin_notices', 'display_message');
 		}
 	}
 	
-	add_action('admin_notices', 'display_message');
+	
 	 
 	 $aisis_default = array(
 		'default-image'          => '',
@@ -191,6 +189,17 @@
 	   }
 
 	   return $html;
+	}
+	
+	function aisis_pagination(){
+	  global $wp_query;
+	  if($wp_query->max_num_pages > 1){?>
+			  <div class=<?php pagnation_class(); ?>>
+				  <div class="nextPost"><?php echo next_posts_link(__('Older Posts >>', 'aisis')); ?></div>
+				  <div class="prevPost"><?php echo previous_posts_link(__('<< Latest and Greatest!', 'aisis')); ?></div>
+			  </div>
+	  <?php 
+	  }		
 	}
 	
 	//plugin checker

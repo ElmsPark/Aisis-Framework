@@ -87,40 +87,70 @@
 	  //default 404 err message and title
 	  if(!function_exists('default_aisis_404_err_message')){
 		  function default_aisis_404_err_message(){
-			 return '<h1>404</h1><p class="ErrorMessage">Seems the content you were searching 
-			 for doesn not exist. Please try searching for it.</p>';
+			 $options = get_option('aisis_core');
+			 if($options['404_message'] != ''){
+				 echo $options['404_message'];
+			 }else{
+				 echo '
+				 <header>
+              	 	<h1 class="postTitle">404</h1>
+                 </header>
+                 <div class="center404Text">
+                 	We could not find what you were looking for.
+                 </div>';
+			 }
 		  }
 	  }
 	  
 	  //default author message
 	  if(!function_exists('deafualt_aisis_author_default_text')){
 		  function deafualt_aisis_author_default_text(){
-				return "This author is a writer and a contributor to the blog. They enjoy writing 
-				various content and articles for the blog its self and we are proud to have them here 
-				and apart of our team :D";
+			  $options = get_option('aisis_core');
+			  if($options['author'] != ''){
+				  echo $options['author'];
+			  }else{
+				  echo "This author is a writer and a contributor to the blog. They enjoy writing 
+				  various content and articles for the blog its self and we are proud to have them here 
+				  and apart of our team :D";
+			  }
 		  }
 	  }
 	  
 	  //default category text
 	  if(!function_exists('default_aisis_category_default_text')){
 		  function default_aisis_category_default_text(){
-				return "Welcome to this category " . single_cat_title() . " where we hope that we present 
-				you with the latest and greatest in content from this section. Please enjoy your stay :D";
+			  $options = get_option('aisis_core');
+			  if($options['category']){
+				  echo $options['category'];
+			  }else{
+				  echo "Welcome to " . single_cat_title() . " where we hope that we present 
+				  you with the latest and greatest in content from this section. Please enjoy your stay :D";
+			  }
 		  }
 	  }  
 	  
 	  //default right footer text
 	  if(!function_exists('default_aisis_default_right_footer_text')){
 		  function default_aisis_default_right_footer_text(){
-				return "Powered by <a href='http://wordpress.org'>WordPress</a> | <a href='http://aisis.adambalan.com'>Aisis</a>
-				 | <a href='http://adambalan.com'>Adam Balan</a> -  2012";
+			  $options = get_option('aisis_core');
+			  if($options['right_footer']){
+				  echo $options['right_footer'];
+			  }else{
+				  echo "Powered by <a href='http://wordpress.org'>WordPress</a> | <a href='http://aisis.adambalan.com'>Aisis</a>
+				   | <a href='http://adambalan.com'>Adam Balan</a> -  2012";
+			  }
 		  }
 	  }
 	  
 	  //default left footer text
 	  if(!function_exists('default_aisis_default_left_footer_text')){
 		  function default_aisis_default_left_footer_text(){
-				return "(C) 2012";
+			  if($options['left_footer']){
+				  echo $options['left_footer'];
+			  }else{
+				 echo "(C) 2012";
+			  }
+		  		
 		  }
 	  }	  
 	  

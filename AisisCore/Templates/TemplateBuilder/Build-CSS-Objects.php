@@ -134,10 +134,10 @@
 		function comments_id(){
 			$option = get_option('aisis_core');
 			if($option['sidebar_global'] != 1 && $option['sidebar_single'] != 1 
-			&& $option['sidebar_page'] != 1){
-				echo 'commentsBox';
+			|| $option['sidebar_global'] != 1 && $option['sidebar_page'] != 1){
+				echo 'commentsbox';
 			}else{
-				echo 'commentsBoxFull';
+				echo 'commentsboxFull';
 			}
 		}
 	}

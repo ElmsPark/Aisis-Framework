@@ -29,7 +29,7 @@
 	 */
 	if (is_admin()){
 		
-		function mock_delete_me(){
+		function aisis_auto_silent_update(){
 			 $aisis_update = new AisisUpdate();
 			 $options = get_option('aisis_core');
 			 if($options['update'] == 1 ){
@@ -69,7 +69,8 @@
 			   wp_enqueue_script( 'toast', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery.toastmessage.js', array('jquery')); 
 			   wp_enqueue_script( 'admin-js', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/AdminPanelJS.js', array('jquery'), false, true );
 			   wp_enqueue_script( 'colorBox', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/ColorBox.js', array('jquery'), false, true );				   
-			   
+			   wp_enqueue_script( 'css-editor-search', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/searchcursor.js', array('jquery'), false, true );
+			   wp_enqueue_script( 'css-editor-highlight', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/match-highlighter.js', array('jquery'), false, true );
 					   
 		   }
 		}
@@ -107,7 +108,7 @@
 			}
 		}
 		
-		add_action('admin_init', 'mock_delete_me');
+		add_action('admin_init', 'aisis_auto_silent_update');
 		add_action( 'admin_init', 'core_aisis_admin_scripts' );
 		add_action('admin_menu', 'aisis_add_settings_page');
 		

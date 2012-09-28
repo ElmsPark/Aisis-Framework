@@ -72,7 +72,8 @@
 				<?php endwhile; ?>
 			</div>	 
 			<?php 
-			sidebar_index();	
+			sidebar_index();
+			aisis_pagination();
 			aisis_footer();		   
 		}
 	}
