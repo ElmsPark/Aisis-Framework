@@ -53,6 +53,7 @@
 		  	wp_reset_query(); 
 		?>
     </div><?php
+	aisis_after_sticky_aside_post();
 	}elseif(has_post_format('Gallery') || has_post_format('image') || has_post_format('video') || has_post_format('quote')
 	|| has_post_format('link')){?>
     <div id="<?php single_post_css_object(); ?>">
@@ -69,6 +70,7 @@
 		  	wp_reset_query(); 
 		?>
     </div><?php
+	aisis_after_other_post();
 	}elseif(is_sticky()){?>
 	<div class="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
@@ -93,7 +95,8 @@
         <div class="listTags"><?php the_tags();?></div> 
     <?php } ?>  
     </div>
-    <?php		
+    <?php
+	aisis_after_sticky_post();		
 	}else{?>
 	<div id="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
@@ -170,14 +173,12 @@
         <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list);?></div> 
         <div class="listTags"><?php the_tags();?></div> 
     <?php } ?>  
-    </div><?php		
+    </div><?php	
+	aisis_after_default_post();	
 	}
 
 	sidebar_single();
-	?><div class="<?php pagnation_class(); ?>">
-        <div class="prevPost"><?php echo  previous_post_link();?></div>
-        <div class="nextPost"><?php echo  next_post_link(); ?></div>
-    </div><?php
+	aisis_single_post_pagination();
 
     if('open' == $post->comment_status){
 	    comments_template('', true);

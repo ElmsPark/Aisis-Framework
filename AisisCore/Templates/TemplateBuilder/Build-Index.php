@@ -73,7 +73,7 @@
 			</div>	 
 			<?php 
 			sidebar_index();
-			aisis_pagination();
+			aisis_index_pagination();
 			aisis_footer();		   
 		}
 	}
@@ -111,7 +111,7 @@
 			</div>	 
 			<?php endwhile; ?>
 			<?php 	
-			
+			aisis_index_pagination();
 			aisis_footer();			
 		}
 	}

@@ -75,6 +75,71 @@
 	 }
 	 
 	 /**
+	  * Allows for us to have a pagination for the
+	  * index party of Aisis.
+	  */
+	 function aisis_index_pagination(){
+		 do_action('aisis_index_pagination');
+	 }
+	 
+	 /**
+	  * Allows for us to put pagination on the
+	  * single post page.
+	  */
+	 function aisis_single_post_pagination(){
+		 do_action('aisis_single_post_pagination');
+	 }
+	 
+	 /**
+	  * Allows for people to put stuff
+	  * after a single sticky post.
+	  */
+	 function aisis_after_sticky_post(){
+		 do_action('aisis_after_sticky_post');
+	 }
+	 
+	 /**
+	  * Allows for people to put content after
+	  * a regular post.
+	  */
+	 function aisis_after_default_post(){
+		 do_action('aisis_after_default_post');
+	 }
+	 
+	 /**
+	  * This function adds content after any post
+	  * that is of type status or aside.
+	  */
+	 function aisis_after_status_aside_post(){
+		 do_action('aisis_after_status_aside_post');
+	 }
+	 
+	 /**
+	  * This will place content after post types of type:
+	  *		-- gallery
+	  * 	-- image
+	  *		-- video
+	  *		-- quote
+	  *		-- link
+	  */
+	 function aisis_after_other_post(){
+		 do_action('aisis_after_other_post');
+	 }
+	 
+	 /**
+	  * This goes after the sidebar
+	  */
+	 function aisis_after_sidebar(){
+		 do_action('aisis_after_sidebar');
+	 } 
+	 
+	 /**
+	  * This goes before the sidebar
+	  */	 
+	 function aisis_before_sidebar(){
+		 do_action('aisis_before_sidebar');
+	 }
+	 /**
 	  * ======================[DEFINE]======================
 	  *
 	  *		We define the Aisis Hooks bellow. When you edit

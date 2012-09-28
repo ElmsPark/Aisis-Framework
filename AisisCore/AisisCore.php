@@ -110,7 +110,10 @@
 		add_theme_support('custom-header', $aisis_default);
 	}
 	
-	//Sidebar jazz
+	/**
+	 * This deals with where widgets can be placed.
+	 * such as the sidebar or footer
+	 */
 	if (function_exists('register_sidebar')){
 		register_sidebar(array(
 		'name' => 'Sidebar',
@@ -136,6 +139,7 @@
 			'before_title' => '<h4 class="widgettitle">',
 			'after_title' => '</h4>',
 			));
+			
 			register_sidebar(array(
 			'name'=>'bbpress_footer',
 			'before_widget' => '<div class="block"><section class="footerWidget">',
@@ -191,6 +195,9 @@
 	   return $html;
 	}
 	
+	/**
+	 * Used across the index parts of Aisis
+	 */
 	function aisis_pagination(){
 	  global $wp_query;
 	  if($wp_query->max_num_pages > 1){?>
@@ -202,12 +209,26 @@
 	  }		
 	}
 	
+	/**
+	 * Used in single posts.
+	 */
+	function aisis_single_pagination(){
+		?><div class="<?php pagnation_class(); ?>">
+			<div class="prevPost"><?php echo  previous_post_link();?></div>
+			<div class="nextPost"><?php echo  next_post_link(); ?></div>
+		</div><?php		
+	}
+	
 	//plugin checker
 	function does_plugin_exist($path_to_plugin_file){
 		return is_plugin_active($path_to_plugin_file);
 	}
 	
 	if(!isset($content_width)){$content_width = 550;}
+	
+	
+	add_action('aisis_index_pagination', 'aisis_pagination');
+	add_action('aisis_single_post_pagination', 'aisis_single_pagination');
 	
 	add_filter('pre_get_posts','aisis_search_filter');
 	add_filter('embed_oembed_html', 'theme_youtube_handler', 10, 4);

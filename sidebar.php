@@ -19,7 +19,7 @@
 	 *		@package: Aisis 
 	 * =================================================================
 	 */
-	 
+	aisis_before_sidebar(); 
 ?>
 
 <aside id="sidebar">
@@ -43,4 +43,5 @@
 	}?>
 						
 </aside>
+ <?php aisis_after_sidebar(); ?>
 <!-- /#sidebar -->
