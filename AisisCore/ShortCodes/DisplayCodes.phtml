@@ -4,7 +4,7 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/lib/ShortCode-JS.js' ?>"></script>
 <link href="<?php echo get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/snipit.css' ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery-ui-1.8.19.custom.css' ?>" rel="stylesheet" type="text/css">
-<link href="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/lib/ShortCode-Css.css' ?>" rel="stylesheet" type="text/css">
+<link href="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/lib/Shortcode-Css.css' ?>" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 
 jQuery(document).ready(function($){
@@ -28,8 +28,8 @@ jQuery(document).ready(function($){
 
 <div id="tabs">
   <ul>
-    <li><a href="#aisis">Aisis Short Codes</a></li>
-    <li><a href="#postImages">General Short Codes</a></li>
+    <li><a href="#aisis">Introduction</a></li>
+    <li><a href="#postImages">Genral Codes</a></li>
     <li><a href="#postCode">Implementing Code</a></li>
   </ul>
   <div id="aisis">
@@ -58,83 +58,75 @@ jQuery(document).ready(function($){
     <div class="contentSection">
       <div class="title"> General Short Codes </div>
       <div class="section">
-        <p> Aisis has an interesting and unique way of displaying images using Css3, html and java script. 
-          
-          You don’t have to worry about these things as we deal with 
-          
-          them for you. Bellow we show you two of the ways Aisis can 
-          
-          deal with images, Soft Images and Glossy Images. To use either just click the "insert into post!" </p>
+        <p> These general short codes allow you to insert content into posts, pages, articles and more with a simple click of  button. </p>
       </div>
       <div class="middleText"> Glossy Image </div>
-      <pre class="js">
-
-            [glossyimg] img src [/glossyimg]
-
-            </pre>
+      <div class="section">
+          <p>
+          The following short code will give your images a glossy look that can really make the image pop.<br /><br />
+          <strong>Note:</strong> If your browser does not support CSS3 we will do a fall back to a regular image.
+          </p>
+      </div>
+      <pre class="js">[glossyimg] img src [/glossyimg]</pre>
+      
       <div class="imgPost centerImage">
         <figure class="post-image glossy"> <img src="<?php bloginfo('template_directory');?>/images/natureForest.jpg" width="300" height="300"/> </figure>
       </div>
       <input type="button" value="Insert Into Post!" onclick="glossyImage()" />
-      <br />
+
       <div class="middleText"> Soft Image </div>
-      <pre class="js">
-
-            [softimg] img src [/softimg]
-
-            </pre>
+      <div class="section">
+          <p>
+          The following short code will give your images a soft look that can really bring emotion to an image.<br /><br />
+          <strong>Note:</strong> If your browser does not support CSS3 we will do a fall back to a regular image.
+          </p>
+      </div>
+      <pre class="js">[softimg] img src [/softimg]</pre>
       <div class="imgPost centerImage">
         <figure class="post-image soft-embossed"> <img src="<?php bloginfo('template_directory');?>/images/natureForest.jpg" width="300" height="300"/> </figure>
       </div>
       <input type="button" value="Insert Into Post!" onclick="softImage()" />
-      <br />
+
       <div class="middleText"> Info Post </div>
-      <pre class="js">
-
-            [info]This is some info or a summary about said article or paragraph[/info]
-
-            </pre>
+      <div class="section">
+          <p>
+          Wan't to quickly sum up an article or a paragraph? Well now you can! Really dfrive home the point
+          of your posts with the info tag.
+          </p>
+      </div>
       <div class="infoPost"> This is some info or a summary about said article or paragraph </div>
       <input type="button" value="Insert Into Post!" onclick="info()" />
-      <pre class="js">
-
-            [update]Update Post - Usually at the bottom of the post.[/update]
-
-            </pre>
+      
       <div class="middleText"> Update Post </div>
+      <div class="section">
+          <p>
+          Made an update to your content? use this tag to really catch the reader attention!
+          </p>
+      </div>      
       <div class="updatePost"> This is some info or a summary about said article or paragraph </div>
       <input type="button" value="Insert Into Post!" onclick="update()" />
-      <br />
+
       <div class="middleText"> Create a Blue Button </div>
-      <div class="blueButton"> This wi </div>
-      <input type="button" value="Insert Into Post!" onclick="update()" />
-      <br />
+      <div class="blueButton"><a href="#" class="text">Blue Button</a></div>
+      <input type="button" value="Insert Into Post!" onclick="aisisBlueButton()" />
+
 	  <div class="middleText"> Create a Red Button </div>
-      <div class="redButton"> This is some info or a summary about said article or paragraph </div>
-      <input type="button" value="Insert Into Post!" onclick="update()" />
-      <br /> 
+      <div class="redButton"><a href="#" class="text">Red Button</a></div>
+      <input type="button" value="Insert Into Post!" onclick="aisisRedButton()" />
+
       <div class="middleText"> Create a green Button </div>
-      <div class="greenButton"> This is some info or a summary about said article or paragraph </div>
-      <input type="button" value="Insert Into Post!" onclick="update()" />
-      <br />     
+      <div class="greenButton"><a href="#" class="text">Green Button</a></div>
+      <input type="button" value="Insert Into Post!" onclick="aisisGreeneButton()" />    
     </div>
   </div>
   <div id="postCode">
     <div class="contentSection">
       <div class="title"> Implementing Code </div>
       <div class="section">
-        <p>When a user is posting, they might have some code to share, currently Aisis supports Java script and CSS code 
-          
-          for you to demonstrate your ideas. We have some example bellow of what this will look like 
-          
-          and if you have been going through the individual tabs of this popup you have seen them already.</p>
+        <p>Ever find your self needing to insert code into a post or page? Well we provide tools to do just that!</p>
       </div>
       <div class="middleText"> JavaScript </div>
-      <pre class="js">
-
-            function(){}
-
-            </pre>
+      <pre class="js">function(){}</pre>
       <input type="button" value="Insert Into Post!" onclick="jsCode()" />
       <br />
       <div class="middleText"> CSS </div>

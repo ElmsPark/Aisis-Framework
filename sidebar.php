@@ -19,12 +19,13 @@
 	 *		@package: Aisis 
 	 * =================================================================
 	 */
-	aisis_before_sidebar(); 
+	 
 ?>
 
 <aside id="sidebar">
 
 	<?php 
+	aisis_before_sidebar();
 	$option = get_option('aisis_core_bbpress');
 	
 	if('forum' == get_post_type()
@@ -40,8 +41,9 @@
 		if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar')):else:
 			aisis_default_sidebar();
 		endif;			
-	}?>
+	}
+	 aisis_after_sidebar()
+	 ?>
 						
 </aside>
- <?php aisis_after_sidebar(); ?>
 <!-- /#sidebar -->

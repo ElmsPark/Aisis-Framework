@@ -24,25 +24,32 @@
 	 *
 	 * =================================================================
 	 */
-	 global $wp_queryglobal, $current_user;
-	 
-	 //We need the current user info
-     get_currentuserinfo();
-	 
-	 $aisis_author_arguments = array('author' => $current_user->ID); 
-	 $posts = query_posts($aisis_author_arguments);
+	 global $wp_queryglobal, $current_user, $ID;
 	
 	 is_author_page();
+	 
+	 function aisis_get_author_id(){
+		 if($_GET['author'] != ''){
+			 return $_GET['author'];
+		 }
+	 }
 ?>    
-    <div id="author">
+    <div id="<?php author_id(); ?>">
         <article class="post clearfix">
             <header>
-                <h1 class="postTitle"><?php echo $current_user->user_login; ?></h1>
+                <h1 class="postTitle"><?php echo get_the_author_meta('user_login', aisis_get_author_id()); ?></h1>
             </header>
                 <figure class="glossy postImage">
-                   <?php echo get_avatar($current_user->user_email, 300);?>
+                   <?php echo get_avatar( get_the_author_meta('user_email', aisis_get_author_id()), 300);?>
                 </figure>
-            <p><?php if ( $current_user->user_description != '' ){echo $current_user->user_description;}else{?>
-            <?php deafualt_aisis_author_default_text(); } ?></p>
+            <p>
+				<?php
+				if(get_the_author_meta('user_description', aisis_get_author_id()) != ''){
+					echo get_the_author_meta('user_description', aisis_get_author_id());
+				}else{
+					aisis_author_default_text();
+				}
+                ?>
+            </p>
         </article>
     </div> 

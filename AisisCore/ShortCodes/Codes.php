@@ -70,8 +70,12 @@
 	 * Allows us to create a red button
 	 */
 	if(!function_exists('create_aisis_red_button')){
-		function create_aisis_red_button($atts, $content = null){
-			return "<div class='redButton'>".$content."</div>";
+		function create_aisis_red_button( $atts, $content = null ) {
+		   extract( shortcode_atts( array(
+			  'link' => 'link',
+			  ), $atts ) );
+		 
+		   return '<div class="redButton"><a href="'.esc_attr($link).'" class="text">'.$content.'</a></div>';
 		}
 	}
 	
@@ -79,8 +83,12 @@
 	 * Allows us to create a blue button
 	 */
 	if(!function_exists('create_aisis_blue_button')){
-		function create_aisis_blue_button($atts, $content = null){
-			return "<div class='blueButton'>".$content."</div>";
+		function create_aisis_blue_button( $atts, $content = null ) {
+		   extract( shortcode_atts( array(
+			  'link' => 'link',
+			  ), $atts ) );
+		 
+		   return '<div class="blueButton"><a href="'.esc_attr($link).'" class="text">'.$content.'</a></div>';
 		}
 	}
 	
@@ -89,8 +97,12 @@
 	 * Allows us to create a green button
 	 */	
 	if(!function_exists('create_aisis_green_button')){
-		function create_aisis_green_button($atts, $content = null){
-			return "<div class='greenButton'>".$content."</div>";
+		function create_aisis_green_button( $atts, $content = null ) {
+		   extract( shortcode_atts( array(
+			  'link' => 'link',
+			  ), $atts ) );
+		 
+		   return '<div class="greenButton"><a href="'.esc_attr($link).'" class="text">'.$content.'</a></div>';
 		}
 	}		
 	

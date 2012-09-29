@@ -69,12 +69,14 @@
 }
 
 .redButton, .greenButton, .blueButton{
-	background-color:rgb(0,103,140);
-	width:157px;
-	height:49px;
-	border-radius:4px;
-	padding:10px;
-	cursor:pointer;
+	background-color: #00678C;
+	width: 225px;
+	height: 20px;
+	border-radius: 4px;
+	padding: 10px;
+	cursor: pointer;
+	text-align: center;
+	margin: 20px 0;
 }
 
 .redButton:hover, .greenButton:hover, .blueButton:hover{
@@ -93,6 +95,7 @@
 	margin: 0 auto;
 	font-size: 22px;
 	color: white;
+	text-decoration:none;
 }
 
 /** Over All Layout **/
@@ -109,14 +112,9 @@
 	box-shadow: 2px 4px 4px rgba(221,221,221,0.65);
 }
 .section {
-	background-color: rgb(213,221,227);
 	width: 90%;
 	margin: 10px auto 10px auto;
 	padding: 20px;
-	border-color: rgb(204,204,204);
-	border-width: 1px;
-	border-radius: 4px;
-	border-style: solid;
 }
 .title {
 	text-align: center;
@@ -124,7 +122,12 @@
 }
 .middleText {
 	text-align: center;
-	font-size: 18px;
+	background-color: #EDEED4;
+	border: 1px solid #C7C4A4;
+	padding: 10px;
+	margin: 20px 0 20px -21px;
+	width: 103.3%;
+	font-size: 22px;
 }
 .centerImage {
 	margin-left: 116px;
@@ -154,29 +157,47 @@ input[type="button"] {
 }
 /** Jquery UI Changes **/
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-	background-color: #F5FAFA !important;
-	border-color: #E7EEF0 !important;
-	-moz-border-top-right-radius: 4px !important;
-	-moz-border-top-left-radius: 4px !important;
-	-webkit-border-top-right-radius: 4px !important;
-	-webkit-border-top-left-radius: 4px !important;
-	border-top-right-radius: 4px !important;
-	border-top-left-radius: 4px !important;
+	background-color:transparent !important;
+	border-color: transparent !important;
+	border-top-right-radius: 0px !important;
+	border-top-left-radius: 0px !important;
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-	background-color: #D7E5E9 !important;
-	border-color: #C7DBDF !important;
-	-moz-border-top-right-radius: 4px !important;
-	-moz-border-top-left-radius: 4px !important;
-	-webkit-border-top-right-radius: 4px !important;
-	-webkit-border-top-left-radius: 4px !important;
+	background-color: #F1F1F1 !important;
+	border-color: #ECECEC !important;
 	border-top-right-radius: 4px !important;
 	border-top-left-radius: 4px !important;
 	height: 37px !important;
+	margin-top: 2px !important;
 }
 
 .ui-widget-content {
 	border: none !important;
 	background: #fff !important;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color: #D59869 !important;
+	text-decoration: none !important;
+}
+
+.ui-widget-header {
+	border-bottom: #333 1px solid;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+	-moz-border-radius-bottomright: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-khtml-border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-khtml-border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 0px;
 }
