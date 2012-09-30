@@ -139,6 +139,35 @@
 	 function aisis_before_sidebar(){
 		 do_action('aisis_before_sidebar');
 	 }
+	 
+	 /**
+	  * Used to display the social media from the 
+	  * options panel.
+	  */
+	 function aisis_social_medai(){
+		  do_action('aisis_social_medai');
+	 }
+	 
+	 /**
+	  * We use this hook to set up the admin panel,
+	  * the reason we do it through a hook is
+	  * so that with child themes, we can deregister
+	  * the hook to create our own admin panel.
+	  */
+	 function aisis_load_admin_panel(){
+		  do_action('aisis_load_admin_panel');
+	 }	
+	 
+	 /**
+	  * We want to register what should happen upon activation of
+	  * Aisis or a child theme.
+	  *
+	  * Should deregister this if you are de-registering Aisis Admin
+	  * Panel.
+	  */
+	 function aisis_activation(){
+		  do_action('aisis_activation');
+	 }
 	 /**
 	  * ======================[DEFINE]======================
 	  *
@@ -217,7 +246,24 @@
 			  }
 		  		
 		  }
-	  }	  
+	  }
+	  
+	  /**
+	   * register the admin panel
+	   */
+	  function register_admin_apanel(){
+		$aisis_package_loader = new AisisPackageLoader();
+		$aisis_package_loader->load_aisis_admin_panel_package();
+	  }	
+	  
+	  /**
+	   * Stuff that happens upon activation of Aisis
+	   */
+	  function activation_jazz(){
+		 $aisis_activation = new AisisActivation();
+		 $aisis_activation->aisis_do_on_load();
+		 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
+	  }  
 	  
 	  /**
 	   * We add all the actions here.
@@ -227,6 +273,8 @@
 	  add_action('aisis_category_default_text','default_aisis_category_default_text');
 	  add_action('aisis_default_right_footer_text','default_aisis_default_right_footer_text');
 	  add_action('aisis_default_left_footer_text','default_aisis_default_left_footer_text');
+	  add_action('aisis_load_admin_panel', 'register_admin_apanel');
+	  add_action('aisis_activation', 'activation_jazz');
 	  
 	  
 	 

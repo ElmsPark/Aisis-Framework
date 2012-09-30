@@ -23,8 +23,9 @@
 	 *		@package: Aisis->AisisCore
 	 * =================================================================
 	 */
-
-	class AisisActivation{
+	require_once('IAisis-Activation.php'); 
+	
+	class AisisActivation implements IAisisActivation{
 
 		protected $disabled_auto_update;
 		private $aisis_write;

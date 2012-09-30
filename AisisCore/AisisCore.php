@@ -74,6 +74,22 @@
 	
 	add_action('save_post', 'mini_feed_transient_delete');	
 	
+	/**
+	 * We want to get the current
+	 * authors id, that is the authors id
+	 * we are looking at when viewing their
+	 * "profile"
+	 */
+	function aisis_get_author_id(){
+		 if($_GET['author'] != ''){
+			 return $_GET['author'];
+		 }
+	 }
+	
+	/**
+	 * If is child theme do not display update messages
+	 * because this package is not included.
+	 */
 	if(!is_child_theme()){
 		function display_message(){
 			$aisis_update_check = new AisisUpdate();
@@ -85,7 +101,11 @@
 		}
 	}
 	
+	function social_media_icons(){
+		?><div class="socialMediaLink"><?php aisis_social_media(); ?></div><?php
+	}
 	
+	add_action('aisis_social_medai', 'social_media_icons');
 	 
 	 $aisis_default = array(
 		'default-image'          => '',

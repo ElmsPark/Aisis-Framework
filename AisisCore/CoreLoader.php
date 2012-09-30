@@ -43,7 +43,7 @@
 	 $aisis_package_loader = new AisisPackageLoader();
 	 
 	 //Load the packages.
-	 $aisis_package_loader->load_aisis_admin_panel_package();
+	 aisis_load_admin_panel();
 	 $aisis_package_loader->load_aisis_codes_package();
 	 $aisis_package_loader->load_aisis_view_package();
 	 $aisis_package_loader->load_aisis_social_media_package();
@@ -51,9 +51,7 @@
 	 if(does_plugin_exist('bbpress/bbpress.php')){$aisis_package_loader->load_aisis_bbpress();}
 	 
 	 //When the theme if first activated.
-	 $aisis_activation = new AisisActivation();
-	 $aisis_activation->aisis_do_on_load();
-	 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
+	 aisis_activation();
 	
 	 /**
 	  * Why are we doing this? so we (Aisis) can use

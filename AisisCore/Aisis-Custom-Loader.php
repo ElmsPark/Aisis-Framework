@@ -46,7 +46,7 @@
 	  * Load the core of Aisis based on options passed in
 	  * these are set to true by default.
 	  */
-	 function load_aisis_core($load_all_packages = true, $load_bbpress_jazz= true){
+	 function load_aisis_core($load_all_packages = true, $load_bbpress_jazz= true, $disable_admin = false){
 		 //So we can do checks for plugins
 		 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		 
@@ -65,7 +65,6 @@
 			 $aisis_package_loader = new AisisPackageLoader();
 			 
 			 //Load the packages.
-			 $aisis_package_loader->load_aisis_admin_panel_package();
 			 $aisis_package_loader->load_aisis_codes_package();
 			 $aisis_package_loader->load_aisis_view_package();
 			 $aisis_package_loader->load_aisis_social_media_package();
@@ -74,14 +73,28 @@
 		 	if($load_bbpress_jazz == true){
 				if(does_plugin_exist('bbpress/bbpress.php')){$aisis_package_loader->load_aisis_bbpress();}
 			}
+			
+			if($disable_admin == true){
+				remove_action('aisis_load_admin_panel', 'register_admin_apanel');
+				remove_action('aisis_activation', 'activation_jazz');
+			}
 		 }
 	 }
 	 
-	 function load_aisis_update_interfaces(){
+	 /**
+	  * Used to load the interface for creating your
+	  * own update mechanisms in Aisis child themes
+	  */
+	 function load_aisis_update_interface(){
 		 require_once(AISISCORE . 'IAisis-Core-Update.php');
-		 
 	 }
 	 
-	 
-
+	 /**
+	  * Used to load activation interface for
+	  * what should happen when you activate the child
+	  * theme for aisis.
+	  */
+	 function load_aisis_activation_interface(){
+		 require_once(AISISCORE . 'IAisis-Activation.php');
+	 }
 ?>

@@ -63,7 +63,7 @@
                         height="<?php echo get_custom_header()->height; ?>" /></a><?php
 					}?></div>
                 </hgroup>
-        		<div class="socialMediaLink"><?php aisis_social_media(); ?></div>
+        		<?php aisis_social_medai(); ?>
                 <nav>
                     <ul id="nav" class="clearfix">
                     <?php wp_nav_menu(array(
