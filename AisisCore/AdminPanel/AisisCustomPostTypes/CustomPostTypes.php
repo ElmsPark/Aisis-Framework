@@ -144,9 +144,6 @@
 	}
 	
 	//Add these actions to the init
-	add_action('init', 'aisis_add_articles_essay');
-	add_action('init', 'aisis_add_mini_feeds');
-	add_action('init', 'aisis_add_slides');
 	
 	add_action('after_switch_theme', 'aisis_flush_re_write');
 	

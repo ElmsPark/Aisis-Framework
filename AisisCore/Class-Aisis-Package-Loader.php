@@ -12,7 +12,7 @@
 	 *		
 	 *		@author: Adam Balan
 	 *		@version: 1.0
-	 *		@package: Aisis->custom	 
+	 *		@package: Aisis->AisisCore
 	 * =================================================================
 	 */
 	 

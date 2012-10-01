@@ -18,7 +18,7 @@
 	 *		
 	 *		@author: Adam Balan
 	 *		@version: 1.0
-	 *		@package: AisisCore
+	 *		@package: Aisis->AisisCore
 	 *
 	 * =================================================================
 	 */

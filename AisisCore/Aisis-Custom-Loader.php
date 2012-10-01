@@ -46,7 +46,7 @@
 	  * Load the core of Aisis based on options passed in
 	  * these are set to true by default.
 	  */
-	 function load_aisis_core($load_all_packages = true, $load_bbpress_jazz= true, $disable_admin = false){
+	 function load_aisis_core($load_all_packages = true, $load_bbpress_jazz= true, $disable_admin = false, $disable_custom_post_types = false){
 		 //So we can do checks for plugins
 		 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		 
@@ -77,6 +77,13 @@
 			if($disable_admin == true){
 				remove_action('aisis_load_admin_panel', 'register_admin_apanel');
 				remove_action('aisis_activation', 'activation_jazz');
+				remove_action('init', 'aisis_add_articles_essay');
+	  		    remove_action('init', 'aisis_add_mini_feeds');
+	  			remove_action('init', 'aisis_add_slides');
+			}elseif($disable_custom_post_types == true){
+				remove_action('init', 'aisis_add_articles_essay');
+	  		    remove_action('init', 'aisis_add_mini_feeds');
+	  			remove_action('init', 'aisis_add_slides');
 			}
 		 }
 	 }
@@ -96,5 +103,11 @@
 	  */
 	 function load_aisis_activation_interface(){
 		 require_once(AISISCORE . 'IAisis-Activation.php');
+	 }
+	 
+	 function load_aisis_view(){
+		 require_once(AISISCORE . 'Class-Aisis-Package-Loader.php');
+	     $aisis_package_loader = new AisisPackageLoader();
+		 $aisis_package_loader->load_aisis_view_package();
 	 }
 ?>

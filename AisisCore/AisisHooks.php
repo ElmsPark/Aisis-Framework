@@ -168,6 +168,13 @@
 	 function aisis_activation(){
 		  do_action('aisis_activation');
 	 }
+	 
+	 /**
+	  * The header
+	  */
+	  function aisis_header(){
+		 do_action('aisis_header');
+	  }
 	 /**
 	  * ======================[DEFINE]======================
 	  *
@@ -263,7 +270,41 @@
 		 $aisis_activation = new AisisActivation();
 		 $aisis_activation->aisis_do_on_load();
 		 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
-	  }  
+	  } 
+	  
+	  function default_aisis_header(){
+		  ?>
+          	<header id="header">
+        		
+                <hgroup>
+                    <div id="siteLogo">
+                    <?php if(get_header_image() == ''){?>
+                    <a href="<?php bloginfo('url')?>"><img src="<?php if($option['image_header'] != '')
+					{echo $option['image_header'];}else{bloginfo('template_directory');?>/images/forest.png<?php } ?>" />
+                    </a>
+                    <?php }else{
+						?><a href="<?php bloginfo('url')?>">
+                        <img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" 
+                        height="<?php echo get_custom_header()->height; ?>" /></a><?php
+					}?></div>
+                </hgroup>
+        		<?php aisis_social_medai(); ?>
+                <nav>
+                    <ul id="nav" class="clearfix">
+                    <?php wp_nav_menu(array(
+                        'fallback_cb' => 'aisis_default_main_nav',
+                        'items_wrap' => '<li>%3$s</li>'
+                    ));?>
+                    </ul>
+                </nav>
+        
+                <form method="get" id="searchForm" action="<?php echo home_url(); ?>/">
+                    <input type="search" id="s" name="s"  placeholder="Search">
+                </form>
+        
+            </header>
+          <?php
+	  }
 	  
 	  /**
 	   * We add all the actions here.
@@ -275,6 +316,14 @@
 	  add_action('aisis_default_left_footer_text','default_aisis_default_left_footer_text');
 	  add_action('aisis_load_admin_panel', 'register_admin_apanel');
 	  add_action('aisis_activation', 'activation_jazz');
+	  add_action('aisis_header', 'default_aisis_header');
+	  
+	  /**
+	   * Custom Post Types
+	   */
+	  add_action('init', 'aisis_add_articles_essay');
+	  add_action('init', 'aisis_add_mini_feeds');
+	  add_action('init', 'aisis_add_slides');
 	  
 	  
 	 

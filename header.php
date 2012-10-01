@@ -49,32 +49,4 @@
     
     <body>
     	<div id="pageWrap">
-            <header id="header">
-        		
-                <hgroup>
-                    <div id="siteLogo">
-                    <?php if(get_header_image() == ''){?>
-                    <a href="<?php bloginfo('url')?>"><img src="<?php if($option['image_header'] != '')
-					{echo $option['image_header'];}else{bloginfo('template_directory');?>/images/forest.png<?php } ?>" />
-                    </a>
-                    <?php }else{
-						?><a href="<?php bloginfo('url')?>">
-                        <img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" 
-                        height="<?php echo get_custom_header()->height; ?>" /></a><?php
-					}?></div>
-                </hgroup>
-        		<?php aisis_social_medai(); ?>
-                <nav>
-                    <ul id="nav" class="clearfix">
-                    <?php wp_nav_menu(array(
-                        'fallback_cb' => 'aisis_default_main_nav',
-                        'items_wrap' => '<li>%3$s</li>'
-                    ));?>
-                    </ul>
-                </nav>
-        
-                <form method="get" id="searchForm" action="<?php echo home_url(); ?>/">
-                    <input type="search" id="s" name="s"  placeholder="Search">
-                </form>
-        
-            </header>
+         <?php aisis_header(); ?>   
