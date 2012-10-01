@@ -35,6 +35,27 @@
 	}
 	
 	/**
+	 * This function is used for when the user decides they want
+	 * to reset their core options for both
+	 *
+	 * aisis_core and 
+	 * aisis_core_bbpress
+	 */
+	if(!function_exists('aisis_core_options_reset_message')){
+		function aisis_core_options_reset_message(){
+			if(get_option('reset_message') == 'true'){
+				?>
+                <div class="topSuccess">We have gone ahead and reset all core options!</div>
+				<script>
+					$().toastmessage('showSuccessToast', "All your theme options have now been reset! You can start fresh!");
+				</script>                
+				<?php
+				update_option('admin_success_message', '');
+            }
+		}
+	}	
+	
+	/**
 	 * This function is used at the top of the Aisis Admin Panel
 	 * to show all the messages that are returned when you do 
 	 * any thing relating to the css editor.
@@ -95,7 +116,7 @@
 		function check_for_aisis_messages(){
 			aisis_admin_message_check();
 			check_css_editor_messages();
-			
+			aisis_core_options_reset_message();
 			if(isset($_GET['page']) && $_GET['page']=='aisis-core-update'){
 				check_for_update_message();
 			}

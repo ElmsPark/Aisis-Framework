@@ -32,6 +32,7 @@
     <div id="top">
         <div class="title">
             Aisis Core Theme Options <?php echo $aisis_check_version->get_current_theme_version();?>
+            <?php reset_aisis_options_form(); ?>
     	</div>
 	</div>
        
@@ -46,7 +47,7 @@
 		?>
         <div id="coreTabs">
         	<ul>
-            	<li><a href="#aisisCoreStyles">Core Styles</a></li>
+            	<li><a href="#aisisCoreStyles">Core Config</a></li>
                 <li><a href="#aisisSidebar">Sidebar Config</a></li>
                 <li><a href="#aisisSlider">Slider Config</a></li>
                 <li><a href="#aisisMiniFeed">MiniFeed(s) Config</a></li>
