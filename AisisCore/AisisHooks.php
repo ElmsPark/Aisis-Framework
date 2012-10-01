@@ -258,7 +258,7 @@
 	  /**
 	   * register the admin panel
 	   */
-	  function register_admin_apanel(){
+	  function default_register_admin_apanel(){
 		$aisis_package_loader = new AisisPackageLoader();
 		$aisis_package_loader->load_aisis_admin_panel_package();
 	  }	
@@ -266,7 +266,7 @@
 	  /**
 	   * Stuff that happens upon activation of Aisis
 	   */
-	  function activation_jazz(){
+	  function default_activation_jazz(){
 		 $aisis_activation = new AisisActivation();
 		 $aisis_activation->aisis_do_on_load();
 		 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
@@ -314,8 +314,8 @@
 	  add_action('aisis_category_default_text','default_aisis_category_default_text');
 	  add_action('aisis_default_right_footer_text','default_aisis_default_right_footer_text');
 	  add_action('aisis_default_left_footer_text','default_aisis_default_left_footer_text');
-	  add_action('aisis_load_admin_panel', 'register_admin_apanel');
-	  add_action('aisis_activation', 'activation_jazz');
+	  add_action('aisis_load_admin_panel', 'default_register_admin_apanel');
+	  add_action('aisis_activation', 'default_activation_jazz');
 	  add_action('aisis_header', 'default_aisis_header');
 	  
 	  /**
@@ -323,7 +323,6 @@
 	   */
 	  add_action('init', 'aisis_add_articles_essay');
 	  add_action('init', 'aisis_add_mini_feeds');
-	  add_action('init', 'aisis_add_slides');
 	  
 	  
 	 

@@ -246,7 +246,6 @@
 	
 	if(!isset($content_width)){$content_width = 550;}
 	
-	
 	add_action('aisis_index_pagination', 'aisis_pagination');
 	add_action('aisis_single_post_pagination', 'aisis_single_pagination');
 	

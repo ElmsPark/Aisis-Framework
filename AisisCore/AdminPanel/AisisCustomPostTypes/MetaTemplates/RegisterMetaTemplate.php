@@ -20,15 +20,7 @@
 			$aisis_template_loader = new AisisCoreRegister();
 			$aisis_template_loader->aisis_register('Aisis-Mini-Feeds-Meta-Template.phtml', AISIS_CUSTOM_POST_TYPES_META); 
 		 }
-	 }	 
-	 
-	 //Register the Slider Meta Template
-	 if(!function_exists('aisis_slider_meta_box')){
-		 function aisis_slider_meta_box(){
-			$aisis_template_loader = new AisisCoreRegister();
-			$aisis_template_loader->aisis_register('Aisis-Slider-Meta-Template.phtml', AISIS_CUSTOM_POST_TYPES_META); 
-		 }
-	 }	
+	 }	 	
 	 
 
 ?>

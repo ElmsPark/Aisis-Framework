@@ -50,7 +50,7 @@
 					$().toastmessage('showSuccessToast', "All your theme options have now been reset! You can start fresh!");
 				</script>                
 				<?php
-				update_option('admin_success_message', '');
+				update_option('reset_message', '');
             }
 		}
 	}	

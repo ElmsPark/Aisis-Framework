@@ -89,49 +89,6 @@
 		  }
 		}	
 	}
-		
-	/**
-	 * This adds Slides to the 
-	 * custom post types. If you are looking
-	 * to query through these use bio.
-	 */
-	if(!function_exists('aisis_add_slides')){
-		function aisis_add_slides() 
-		{
-		  $options = get_option('aisis_core');
-		  if($options['slider_global'] != 1){
-			  $labels = array(
-				'name' => _x('Slides', 'post type general name', 'aisis', 'aisis'),
-				'singular_name' => _x('Slides', 'post type singular name', 'aisis'),
-				'add_new' => _x('Add New', 'slide', 'aisis'),
-				'add_new_item' => __('Add new Slides', 'aisis'),
-				'edit_item' => __('Edit Slide', 'aisis'),
-				'new_item' => __('New Slide', 'aisis'),
-				'view_item' => __('View Slide', 'aisis'),
-				'search_items' => __('Search Slides', 'aisis'),
-				'not_found' =>  __('No Slides found', 'aisis'),
-				'not_found_in_trash' => __('No Slides found in Trash', 'aisis'), 
-				'parent_item_colon' => ''
-			  );
-			  $args = array(
-				'labels' => $labels,
-				'public' => false,
-				'publicly_queryable' => false,
-				'show_ui' => true, 
-				'query_var' => true,
-				'rewrite' => true,
-				'map_meta_cap' => true,	
-				'capability_type' => 'post',
-				'hierarchical' => false,
-				'menu_icon' => get_template_directory_uri() .'/images/slides.png',
-				'menu_position' => null,
-				'supports' => array('title','editor'),
-				'exclude_from_search' => true
-			  ); 
-			  register_post_type('slides',$args);
-		  }
-		}
-	}
 	
 	/**
 	 * Flush the rewrite rules for the 

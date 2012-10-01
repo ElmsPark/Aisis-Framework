@@ -45,13 +45,6 @@
 		}
 	  }
 	  
-	  if(!function_exists('aisis_slider_template')){
-		  function aisis_slider_template(){
-			  $aisis_template_loader = new AisisCoreRegister(); 
-			  $aisis_template_loader->aisis_register('Slider-Template.phtml');
-		  }
-	  }
-	  
 	  if(!function_exists('aisis_mini_feed_template')){
 		  function aisis_mini_feed_template(){
 			  $aisis_template_loader = new AisisCoreRegister(); 

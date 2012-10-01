@@ -22,24 +22,23 @@ function reset_aisis_options_form(){
 
 function reset_options(){
 	
-	$aisis_core = get_option('aisis_core');
-	$aisis_core_bbpress = get_option('aisis_core_bbpress');
+	//$aisis_core = get_option('aisis_core');
+	//$aisis_core_bbpress = get_option('aisis_core_bbpress');
 	
 	add_option('reset_message', '', '', 'yes');
 	
 	if($_POST['reset_options']){
 		
-		foreach($aisis_core as $key=>$value){
-			$aisis_core[$key] = '';
-		}
+		delete_option('aisis_core');
 		
 		if(does_plugin_exist('bbpress/bbpress')){
-			foreach($aisis_core_bbpress as $key=>$value){
-				$aisis_core_bbpress[$key] = '';
-			}
+			delete_option('aisis_core_bbpress');
 		}
 		
 		update_option('reset_message', 'true');
+		
+		//wp_cashe_flush();
+		unset($_POST['reset_options']);
 	}
 }
 

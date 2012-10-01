@@ -79,11 +79,9 @@
 				remove_action('aisis_activation', 'activation_jazz');
 				remove_action('init', 'aisis_add_articles_essay');
 	  		    remove_action('init', 'aisis_add_mini_feeds');
-	  			remove_action('init', 'aisis_add_slides');
 			}elseif($disable_custom_post_types == true){
 				remove_action('init', 'aisis_add_articles_essay');
 	  		    remove_action('init', 'aisis_add_mini_feeds');
-	  			remove_action('init', 'aisis_add_slides');
 			}
 		 }
 	 }
