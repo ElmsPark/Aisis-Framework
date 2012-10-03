@@ -26,7 +26,6 @@
 	class AisisUpdate implements IAisisCoreUpdate{
 
 		private $aisis_current_theme_version;
-		
 		private $credential_check;
 				
 		/**
@@ -168,7 +167,7 @@
 		 * in relation to the update.
 		 */
 		private function aisis_framework_download_update_erors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> Seems we could not locate the url we need to do the update.</p>');
+			_e("<div class='err'>".new InvalidURLException('<strong>We could not locate the url you are requesting.</strong>')."</div>");
 		}
 		
 		/**
@@ -176,7 +175,7 @@
 		 * relation to incompatible archives.
 		 */
 		private function aisis_incompatible_archive_errors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> The archive you downloaded is imcompatible with what need, which is a .zip.</p>');													
+			_e("<div class='err'>".new UpdateIssuesException('<strong>The archive we downloaded is incompatible with wordpress standards. </strong>')."</div>");														
 		}
 		
 		/**
@@ -184,7 +183,7 @@
 		 * relation to empty archives.
 		 */
 		private function aisis_empty_archive_errors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> Seems the archive is a bit empty.</p>');
+			_e("<div class='err'>".new UpdateIssuesException('<strong>This archive that we downloaded for the update seems to be empty. </strong>')."</div>");	
 		}
 		
 		/**
@@ -192,8 +191,8 @@
 		 * relation to making a directory or directories.
 		 */
 		private function aisis_mkdir_failed_errors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> We cannot make a temp directory and thus we cannot continue with the update process. Please check your server
-			configuration or use FTP to upload the new version of Aisis.</p>');			
+			echo "<div class='err'>We could not make the directories we need to make to complete the install. We advise you to
+			check your server configuration <strong>or</strong> download the update and use FTP to update.</div>";				
 		}
 		
 		/**
@@ -201,7 +200,12 @@
 		 * relation to copying files from the archive to the theme directory.
 		 */
 		private function aisis_copy_failed_errors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> We could not copy the contents from the zip archive to the theme directory. Unknown error.</p>');	
+			_e("<div class='err'>".new UpdateIssuesException('<strong>We have failed to copy the files from the archive to the theme directory. This could be because of your Server configuration or the archive was corrupt. Please try again or download the update and use FTP to update.</strong>')."</div>");	
+		}
+		
+		private function need_credentials(){
+			_e("<div class='err'>We cannot do a auto silent update due to the fact that you need to
+			provide the ftp credentials</div>");			
 		}
 
 		/**
@@ -261,10 +265,9 @@
 						$this->aisis_copy_failed_errors();
 					}
 					return;
-				}else{
-					update_option('update_success', 'true');
-					wp_redirect(admin_url('admin.php?page=aisis-core-options'));
 				}
+				
+				wp_redirect(admin_url('admin.php?page=aisis-core-options'));
 			 }
 		 }
 		 

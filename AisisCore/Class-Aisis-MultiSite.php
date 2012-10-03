@@ -42,8 +42,7 @@
 			  }
 			  return true;
 		   }else{
-			   echo new AisisCoreException('<p><strong>Fatal: </strong> We cannot complete the setup, nor can we complete the installation and activation of this theme. Seems your
-			   server configurations are not allowing us to create required files for multi site installtion.</p>');
+			   _e('<div class="err">' .new MultiSiteException('<strong>We could not write to or create the custom folder - please Log inthrough ssh or ftp and change the directory structure to 777.</strong>').'</div>');
 		   }
 		}
 	 }

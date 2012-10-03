@@ -79,11 +79,11 @@
 					$().toastmessage('showErrorToast', "We do not allow you to save empty css files. Please check that your file is not empty. We also might not be able to write to it because you do not have write access. First check that what yopu are trying to save is not empty.");
 					</script>
 					<?php
-
 					update_option('aisis_css_update_message', '');
 				}		
 		}
 	}
+	
 	
 	/**
 	 * We check for the update message and if so

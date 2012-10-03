@@ -54,6 +54,9 @@
 			wp_register_script('jquery-ui-core', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery-ui-1.8.19.custom.min.js');
 			wp_enqueue_script('jquery-ui-core', false, true);
 		}
+
+		
+		
 		
 		//load our custom js
 		if(!function_exists('aisis_load_admin_js')){
@@ -120,4 +123,5 @@
 			add_filter('upload_dir', 'aisis_change_image_upload_path');			
 		}	 
 }
+
 ?>
