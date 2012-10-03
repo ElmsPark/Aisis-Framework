@@ -22,9 +22,6 @@ function reset_aisis_options_form(){
 
 function reset_options(){
 	
-	//$aisis_core = get_option('aisis_core');
-	//$aisis_core_bbpress = get_option('aisis_core_bbpress');
-	
 	add_option('reset_message', '', '', 'yes');
 	
 	if($_POST['reset_options']){
@@ -37,7 +34,6 @@ function reset_options(){
 		
 		update_option('reset_message', 'true');
 		
-		//wp_cashe_flush();
 		unset($_POST['reset_options']);
 	}
 }

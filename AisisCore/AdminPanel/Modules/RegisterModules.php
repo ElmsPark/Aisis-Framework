@@ -38,7 +38,7 @@
 	  if(!function_exists('aisis_minifeed_options')){
 		  function aisis_minifeed_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel-MiniFeed-Options.phtml', AISIS_ADMINPANEL_OPTIONS);
+			  $aisis_template_loader->aisis_register('AdminPanel-MiniFeed-Module.phtml', AISIS_ADMINPANEL_OPTIONS);
 		  }
 	  }	  
 	  
@@ -46,7 +46,7 @@
 	  if(!function_exists('aisis_customtext_options')){
 		  function aisis_customtext_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel-Default-Text.phtml', AISIS_ADMINPANEL_OPTIONS);
+			  $aisis_template_loader->aisis_register('AdminPanel-Default-Text-Module.phtml', AISIS_ADMINPANEL_OPTIONS);
 		  }
 	  }	
 	  
