@@ -25,46 +25,23 @@
 	 */
 	 global $page_title, $post;
 	 
-	 $option_sidebar_front_page = get_option('aisis_core_theme_setting_sidebar_front_page');
-	 $option_sidebar_page = get_option('aisis_core_theme_setting_sidebar_page');
-	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
-	 $option_slider_mini = get_option('aisis_core_theme_setting_slider_mini_page');
-	 $option_slider_mini_front_page = get_option('aisis_core_theme_setting_slider_mini_front_page');	 
-	 $option_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
-	 $option_sidebar_bbpress = get_option('aisis_sidebar_bbpress_setting');
-	 $option_header_bbepress = get_option('aisis_bbpress_slider_minifeed_setting');
 	 
-	 if(is_front_page() && $option_sidebar_front_page['no_sidebar_front'] != 1 && 
-	 $option_sidebar_global['no_sidebar_global'] != 1){
-		 $content_class = 'content';
-	 }elseif(!is_front_page() && $option_sidebar_page['no_sidebar_page'] != 1 && 
-	 $option_goption_sidebar_globallobal['no_sidebar_global'] != 1){
-		 $content_class = 'content';
-	 }else{
-		 $content_class = 'contentFull';
-	 }
-	 
-	 
-	 if(is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
-	 $option_slider_mini_front_page['no_slider_mini_front_page'] != 1 && 'forum' != get_post_type()
+	 if(is_front_page() && 'forum' != get_post_type()
 	 && 'topic' != get_post_type()){
-		 aisis_header();
-	 }elseif(!is_front_page() && $option_slider_mini_global['no_slider_mini_global'] != 1 && 
-	 $option_slider_mini['no_slider_mini_page'] != 1 && 'forum' != get_post_type() && 'topic' != get_post_type()){
-		 aisis_header();
+		 is_front_page_content();
+	 }elseif(!is_front_page() && 'forum' != get_post_type() && 'topic' != get_post_type()){
+		is_single_page();
 	 }
 	  
-	 if(('forum' == get_post_type() && $option_header_bbepress['bbpress_slider_mini'] != 1) || 
-	 ('topic' == get_post_type() && $option_header_bbepress['bbpress_slider_mini'] != 1 )){
-		 aisis_header();
+	 if('forum' == get_post_type() || 'topic' == get_post_type()){
+		is_bbpress_forum();
 	 }
 
 ?>  
-    <div id="<?php echo $content_class;?>">
+    <div id="<?php content_id(); ?>">
     	<?php 
 		while(have_posts()) : the_post();?>
         <article class="post clearfix">
-    
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
             </header>
@@ -76,21 +53,13 @@
              <?php the_content(); ?>
         </article>
         <?php
-			endwhile; 
-		  	wp_reset_query(); 
+			endwhile;  
 		?>
         <!-- /.post -->  
     </div>
     
     <?php
-	 if(is_front_page() && $option_sidebar_front_page['no_sidebar_front'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
-		 get_sidebar();
-	 }elseif(!is_front_page() && $option_sidebar_page['no_sidebar_page'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
-		  get_sidebar();
-	 }elseif(('forum' == get_post_type() && $option_sidebar_bbpress['bbpress_sidebar'] == 1) 
-	 || !empty($_GET['topic']) && $option_sidebar_bbpress['bbpress_sidebar'] == 1){
-		 get_sidebar();
-	 }
+	 sidebar_page();
 	 
      if('open' == $post->comment_status){
 	     comments_template('', true);

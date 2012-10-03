@@ -35,88 +35,52 @@
 	}
 	
 	/**
+	 * This function is used for when the user decides they want
+	 * to reset their core options for both
+	 *
+	 * aisis_core and 
+	 * aisis_core_bbpress
+	 */
+	if(!function_exists('aisis_core_options_reset_message')){
+		function aisis_core_options_reset_message(){
+			if(get_option('reset_message') == 'true'){
+				?>
+                <div class="topSuccess">We have gone ahead and reset all core options!</div>
+				<script>
+					$().toastmessage('showSuccessToast', "All your theme options have now been reset! You can start fresh!");
+				</script>                
+				<?php
+				update_option('reset_message', '');
+            }
+		}
+	}	
+	
+	/**
 	 * This function is used at the top of the Aisis Admin Panel
 	 * to show all the messages that are returned when you do 
 	 * any thing relating to the css editor.
 	 */	
 	if(!function_exists('check_css_editor_messages')){
 		function check_css_editor_messages(){
-				if(get_option('did_we_write_to_the_file_css') == 'true'){
+				if(get_option('aisis_css_update_message') == 'pass'){
 					?>
 					<div class="topSuccess">We have successfully updated your custom-css.css file in your custom folder.</div>
 					<script>
 						$().toastmessage('showSuccessToast', "We have successfully updated your custom-css.css file in your custom folder. Check out your site to see the new changes.");
 					</script>
 					<?php
-					update_option('did_we_write_to_the_file_css', '');
+					update_option('aisis_css_update_message', '');
 				}
 				
-				if(get_option('did_it_fail_to_update_css') == 'true'){
+				if(get_option('aisis_css_update_message') == 'fail'){
 					?>
 					<div class="topErr">Either you tried to save an empty custom-css.css file or your custom-functions.php file is not writable. Please try again.</div>
 					<script>
 					$().toastmessage('showErrorToast', "We do not allow you to save empty css files. Please check that your file is not empty. We also might not be able to write to it because you do not have write access. First check that what yopu are trying to save is not empty.");
 					</script>
 					<?php
-					update_option('did_it_fail_to_update_css', '');
-				}		
-		}
-	}
-	
-	/**
-	 * This function is used at the top of the Aisis Admin Panel
-	 * to show all the messages that are returned when you do 
-	 * any thing relating to the js editor.
-	 */		
-	if(!function_exists('check_js_editor_messages')){
-		function check_js_editor_messages(){
-				if(get_option('did_we_write_to_the_file_js') == 'true'){
-					?>
-					<div class="topSuccess">We have successfully updated your custom-js.js file in your custom folder.</div>
-					<script>
-					$().toastmessage('showSuccessToast', "We have successfully updated your custom-js.js file in your custom folder. Check out your site to see the new changes.");
-					</script>
-					<?php
-					update_option('did_we_write_to_the_file_js', '');
-				}
-				
-				if(get_option('did_it_fail_to_update_js') == 'true'){
-					?>
-					<div class="topErr">Either you tried to save an empty custom-js.js file or your custom-js.js file is not writable. Please try again.</div>
-					<script>
-					$().toastmessage('showErrorToast', "We do not allow you to save empty js files. Please check that your file is not empty. We also might not be able to write to it because you do not have write access. First check that what yopu are trying to save is not empty.");
-					</script>
-					<?php
-					update_option('did_it_fail_to_update_js', '');
-				}		
-		}
-	}
-	
-	/**
-	 * This function is used at the top of the Aisis Admin Panel
-	 * to show all the messages that are returned when you do 
-	 * any thing relating to the php editor.
-	 */		
-	if(!function_exists('check_php_editor_messages')){
-		function check_php_editor_messages(){
-				if(get_option('did_we_write_to_the_file_php') == 'true'){
-					?>
-					<div class="topSuccess">We have successfully updated your custom-functions.php file in your custom folder.</div>
-					 <script>
-					$().toastmessage('showSuccessToast', "We have successfully updated your custom-functions.php file in your custom folder. Check out your site to see the new changes.");
-					</script>
-					<?php
-					update_option('did_we_write_to_the_file_php', '');
-				}
-				
-				if(get_option('did_it_fail_to_update_php') == 'true'){
-					?>
-					<div class="topErr">Either you tried to save an empty custom-functions.php file or your custom-functions.php file is not writable. Please try again.</div>
-					<script>
-					$().toastmessage('showErrorToast', "We do not allow you to save empty php files. Please check that your file is not empty. We also might not be able to write to it because you do not have write access. First check that what yopu are trying to save is not empty.");
-					</script>
-					<?php
-					update_option('did_it_fail_to_update_php', '');
+
+					update_option('aisis_css_update_message', '');
 				}		
 		}
 	}
@@ -143,20 +107,6 @@
 		}
 	}
 	
-	if(!function_exists('passed_update')){
-		function passed_update(){
-			$aisis_update = new AisisUpdate(); 
-			if(get_option('update_success') == 'true'){
-				?>
-				 <script>
-				$().toastmessage('showNoticeToast', "Oh you are in for a treat! Aisis Just updated to the latest version! check out all the new features!");
-				</script>
-				<?php
-				update_option('update_success', '');
-			}
-		}
-	}
-	
 	/**
 	* This function just calls all the other functions
 	* into one. We could make this file a class how ever
@@ -166,10 +116,7 @@
 		function check_for_aisis_messages(){
 			aisis_admin_message_check();
 			check_css_editor_messages();
-			check_js_editor_messages();
-			check_php_editor_messages();
-			passed_update();
-			
+			aisis_core_options_reset_message();
 			if(isset($_GET['page']) && $_GET['page']=='aisis-core-update'){
 				check_for_update_message();
 			}

@@ -26,7 +26,8 @@
 	class AisisUpdate implements IAisisCoreUpdate{
 
 		private $aisis_current_theme_version;
-		public $credential_check;
+		
+		private $credential_check;
 				
 		/**
 		 * Default constructor. We set up the option
@@ -155,12 +156,10 @@
 			if(function_exists('wp_get_theme')){
 				if(wp_get_theme()->exists()){
 					$this->aisis_current_theme_version = wp_get_theme();
-					//aisis_var_dump($this->aisis_current_theme_version, true);
 				}
 			}else{
 				$this->aisis_current_theme_version = wp_get_theme(get_theme_root() . '/Aisis/style.css');
 			}
-			//aisis_var_dump($this->aisis_current_theme_version->Version, true);
 			return $this->aisis_current_theme_version->Version;
 		}
 		
@@ -224,15 +223,11 @@
 		 * @return boolean of type True/False
 		 */
 		 function get_latest_version_zip(){
-			 global $wp_filesystem;
-			 add_option('update_success', '', '', 'yes');
+			 
+			 $options = get_option('aisis_core');
+			 
 			 if(current_user_can('update_themes')){
-				$aisis_file_system_structure = WP_Filesystem();
-				$aisis_cred_url = 'admin.php?page=aisis-core-update';
-				if($aisis_file_system_structure == false){
-					request_filesystem_credentials($aisis_cred_url);
-					$this->credential_check = true;
-				}
+				$this->cred_check();
 				
 				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis2.zip' );
 				
@@ -274,6 +269,19 @@
 		 }
 		 
 		 /**
+		  * credntial check
+		  */
+		 function cred_check(){
+			$aisis_file_system_structure = WP_Filesystem();
+			if($aisis_file_system_structure == false){
+				add_action('admin_notices', 'need_credentials');
+				return true;
+			}
+			
+			return false;			 
+		 }
+		 
+		 /**
 		  * This function is used for 
 		  * the silent auto update feature in 
 		  * Aisis which when activated essentially
@@ -281,10 +289,11 @@
 		  * just updates the code for you.
 		  */
 		 function auto_silent_update(){
-			 if($this->check_for_udate_bool()){
-				 $this->get_latest_version_zip();
+			 if($this->cred_check() == false){
+				 if($this->check_for_udate_bool()){
+					 $this->get_latest_version_zip();
+				 }
 			 }
 		 }
 	}
-
 ?>

@@ -25,8 +25,7 @@
 	 */
 	 global $post_id;
 	 
-	 $options = get_option('aisis_core_theme_setting_sidebar_search');
-	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 $options = get_option('aisis_core');
 	 if(have_posts()){
 	?>
 	<div id="<?php if($options['no_sidebar_search'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'contentFull'; }?>">

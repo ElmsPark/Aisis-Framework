@@ -29,10 +29,16 @@
 	 */
 	 
 	 /**
+<<<<<<< HEAD
 	  * The following allows us to 
 	  * do an update and then redirect before
 	  * anything happens.
 	  */ 
+=======
+	  * We need to make sure that a redirection for the update
+	  * happens before anything else loadss
+	  */
+>>>>>>> dev1.1
 	 function callback($buffer){
 		 return $buffer;
 	 }
@@ -45,23 +51,31 @@
 		 ob_end_flush();
 	 }
 	 
+<<<<<<< HEAD
 	 add_action('init', 'add_ob_start');
 	 add_action('wp_footer', 'flush_ob_end');
+=======
+	 add_action('wp_head', 'add_ob_start');
+	 add_action('wp_footer', 'flush_ob_end');	 
+>>>>>>> dev1.1
 	 
 	 //Define Aisis Core Package
 	 define('AISIS_DIR', get_template_directory_uri() . '/');
 	 define('AISIS', get_template_directory() . '/');
+	 define('DS', DIRECTORY_SEPARATOR);
 	 
 	 define('AISISCORE', get_template_directory() . '/AisisCore/');
 	 define('AISIS_ADMINPANEL', get_template_directory() . '/AisisCore/AdminPanel/');
-	 define('AISIS_ADMINPANEL_MODULES', get_template_directory() . '/AisisCore/AdminPanel/Modules/');
-	 define('AISIS_ADMINPANEL_MODULES_OPTIONS', get_template_directory() . '/AisisCore/AdminPanel/Modules/Options/');
+	 define('AISIS_ADMINPANEL_OPTIONS', get_template_directory() . '/AisisCore/AdminPanel/Modules/');
+	 define('AISIS_ADMINPANEL_OPTIONS_OPTIONSTABLE', get_template_directory() . '/AisisCore/AdminPanel/Modules/OptionsTable/');
+	 define('AISIS_ADMINPANEL_TEMPLATES', get_template_directory() . '/AisisCore/AdminPanel/AdminPanel-Templates/');
 	 define('AISIS_CUSTOM_POST_TYPES', get_template_directory() . '/AisisCore/AdminPanel/AisisCustomPostTypes/');
 	 define('AISIS_CUSTOM_POST_TYPES_META', get_template_directory() . '/AisisCore/AdminPanel/AisisCustomPostTypes/MetaTemplates/');
 	 define('AISIS_SOCIAL', get_template_directory() . '/AisisCore/AisisSocialMedia/');
 	 define('AISIS_TEMPLATES',get_template_directory() . '/AisisCore/Templates/');
 	 define('AISIS_SHORTCODES', get_template_directory() . '/AisisCore/ShortCodes/');
 	 define('AISIS_VIEW', get_template_directory() . '/AisisCore/AisisView/');
+	 define('AISIS_TEMPLATE_BUILDER', get_template_directory() . '/AisisCore/Templates/TemplateBuilder/');
 	 define('AISIS_BBPRESS', get_template_directory() . '/AisisCore/BBPress/');
 	 
 	 // Define Aisis Custom - for loading the whole folder.
@@ -90,7 +104,8 @@
 	 if(is_dir(AISISCORE)){ //saftey check.
 		 function load_aisis_custom_folder(){
 			 $aisis_file_handling = new AisisFileHandling();
-			 if($aisis_file_handling->check_dir(CUSTOM, true)){
+			 
+			 if($aisis_file_handling->check_dir(CUSTOM)){
 				 $aisis_file_handling->load_directory_of_files(CUSTOM);
 			 }else{
 				 _e('Failed to load the custom folder: ' . CUSTOM);

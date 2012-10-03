@@ -12,7 +12,7 @@
 	 *		
 	 *		@author: Adam Balan
 	 *		@version: 1.0
-	 *		@package: Aisis->custom	 
+	 *		@package: Aisis->AisisCore
 	 * =================================================================
 	 */
 	 
@@ -88,7 +88,7 @@
 				 echo new AisisCoreException('<p><strong>Fatal: </strong> Cannot find the package: </p>' . AISIS_CUSTOM_POST_TYPES);
 				 exit;
 			 }
-		 }	
+		 }
 		 
 		 function load_aisis_bbpress(){
 			 $this->aisis_file_handling = new AisisFileHandling();
@@ -96,6 +96,16 @@
 				 $this->aisis_file_handling->load_directory_of_files(AISIS_BBPRESS);
 			 }else{
 				  echo new AisisCoreException('<p><strong>Fatal: </strong> Cannot find the package: </p>' . AISIS_BBPRESS);
+				 exit;
+			 }
+		 }	
+		 
+		 function load_aisis_template_builder(){
+			 $this->aisis_file_handling = new AisisFileHandling();
+			 if($this->aisis_file_handling->check_dir(AISIS_TEMPLATE_BUILDER)){
+				 $this->aisis_file_handling->load_directory_of_files(AISIS_TEMPLATE_BUILDER);
+			 }else{
+				  echo new AisisCoreException('<p><strong>Fatal: </strong> Cannot find the package: </p>' . AISIS_TEMPLATE_BUILDER);
 				 exit;
 			 }
 		 }			 
@@ -113,4 +123,5 @@
 			 }
 		 }
 	 }
+>>>>>>> dev1.1
 ?>

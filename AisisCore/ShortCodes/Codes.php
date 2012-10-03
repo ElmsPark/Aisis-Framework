@@ -19,7 +19,7 @@
 	//Add the ability to show soft images
 	if(!function_exists('aisis_soft_img')){
 		function aisis_soft_img( $atts, $content = null ) {
-		   return '<div class="imgPost">
+		   return '<div class="postImage">
 						<figure class="soft-embossed post-image">
 							<img src="' .$content. '" />
 						</figure>
@@ -30,7 +30,7 @@
 	//Add the ability to show glossy images
 	if(!function_exists('aisis_gloss_img')){
 		function aisis_gloss_img( $atts, $content = null ) {
-		   return '<div class="imgPost">
+		   return '<div class="postImage">
 						<figure class="post-image glossy">
 							<img src="' .$content. '" />
 						</figure>
@@ -66,34 +66,54 @@
 		}
 	}
 	
-	//embed search
-	if(!function_exists('aisis_search_embed')){
-		function aisis_search_embed($atts){
-			 $aisis_form = new AisisForm();
-			 
-			 $aisis_form->open_form(array(
-					'method'=>'get',
-					'action'=>home_url() . '/',
-					'id'=>'searchform'
-			 ));
-			 
-			 $aisis_form->create_aisis_form_element('input', 'search', array(
-					'id' => 'search',
-					'name' => 's',
-					'placeholder' => 'search'
-			 
-			 ));
-			 
-			 $aisis_form->close_form();
+	/**
+	 * Allows us to create a red button
+	 */
+	if(!function_exists('create_aisis_red_button')){
+		function create_aisis_red_button( $atts, $content = null ) {
+		   extract( shortcode_atts( array(
+			  'link' => 'link',
+			  ), $atts ) );
+		 
+		   return '<div class="redButton"><a href="'.esc_attr($link).'" class="text">'.$content.'</a></div>';
 		}
 	}
 	
+	/**
+	 * Allows us to create a blue button
+	 */
+	if(!function_exists('create_aisis_blue_button')){
+		function create_aisis_blue_button( $atts, $content = null ) {
+		   extract( shortcode_atts( array(
+			  'link' => 'link',
+			  ), $atts ) );
+		 
+		   return '<div class="blueButton"><a href="'.esc_attr($link).'" class="text">'.$content.'</a></div>';
+		}
+	}
+	
+	
+	/**
+	 * Allows us to create a green button
+	 */	
+	if(!function_exists('create_aisis_green_button')){
+		function create_aisis_green_button( $atts, $content = null ) {
+		   extract( shortcode_atts( array(
+			  'link' => 'link',
+			  ), $atts ) );
+		 
+		   return '<div class="greenButton"><a href="'.esc_attr($link).'" class="text">'.$content.'</a></div>';
+		}
+	}		
+	
+	add_shortcode( 'green_button', 'create_aisis_green_button');
+	add_shortcode( 'blue_button', 'create_aisis_blue_button');
+	add_shortcode( 'red_button', 'create_aisis_red_button');
 	add_shortcode( 'softimg', 'aisis_soft_img' );
 	add_shortcode( 'glossimg', 'aisis_gloss_img' );
 	add_shortcode( 'info', 'aisis_info_post' );
 	add_shortcode( 'update', 'aisis_update_post' );
 	add_shortcode( 'cssCode', 'aisis_css_code' );
 	add_shortcode( 'jsCode', 'aisis_js_code' );
-	add_shortcode( 'embedSearch', 'aisis_search_embed' );
 		
 ?>

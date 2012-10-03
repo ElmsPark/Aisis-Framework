@@ -24,33 +24,26 @@
 	 *
 	 * =================================================================
 	 */
-	 global $wp_queryglobal, $current_user;
-	 
-	 //We need the current user info
-     get_currentuserinfo();
-	 
-	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
-	 $option_slider_minifeed_global = get_option('aisis_core_theme_setting_slider_mini_global');
-	 
-	 $aisis_author_arguments = array('author' => $current_user->ID); 
-	 $posts = query_posts($aisis_author_arguments);
+	 global $wp_queryglobal, $current_user, $ID;
 	
-	 /**
-	  * If the user wan't the slider and mini feed to display we do this.
-	  */
-	 if(isset($option_slider_minifeed_global['no_slider_mini_global']) && $option_slider_minifeed_global['no_slider_mini_global'] != 1){
-		 aisis_header();
-	 }
+	 is_author_page();
 ?>    
-    <div id="<?php if($option_sidebar_global['no_sidebar_global'] != 1){echo 'author'; }else{ echo 'authorFull'; } ?>">
+    <div id="<?php author_id(); ?>">
         <article class="post clearfix">
             <header>
-                <h1 class="postTitle"><?php echo $current_user->user_login; ?></h1>
+                <h1 class="postTitle"><?php echo get_the_author_meta('user_login', aisis_get_author_id()); ?></h1>
             </header>
                 <figure class="glossy postImage">
-                   <?php echo get_avatar($current_user->user_email, 300);?>
+                   <?php echo get_avatar( get_the_author_meta('user_email', aisis_get_author_id()), 300);?>
                 </figure>
-            <p><?php if ( $current_user->user_description != '' ){echo $current_user->user_description;}else{?>
-            <?php deafualt_aisis_author_default_text(); } ?></p>
+            <p>
+				<?php
+				if(get_the_author_meta('user_description', aisis_get_author_id()) != ''){
+					echo get_the_author_meta('user_description', aisis_get_author_id());
+				}else{
+					aisis_author_default_text();
+				}
+                ?>
+            </p>
         </article>
     </div> 

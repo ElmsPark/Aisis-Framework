@@ -25,13 +25,25 @@
 <aside id="sidebar">
 
 	<?php 
-	if('forum' == get_post_type() || !empty($_GET['topic'])){
-		if(function_exists('dynamic_sidebar') && dynamic_sidebar('bbpress'));
+	aisis_before_sidebar();
+	$option = get_option('aisis_core_bbpress');
+	
+	if('forum' == get_post_type()
+	|| !empty($_GET['topic'])){
+		if($option['sidebar_bbpress'] == 1){
+			if(function_exists('dynamic_sidebar') && dynamic_sidebar('bbpress'));
+		}else{
+			if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar')):else:
+				aisis_default_sidebar();
+			endif;	
+		}
 	}else{
 		if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar')):else:
 			aisis_default_sidebar();
 		endif;			
-	}?>
+	}
+	 aisis_after_sidebar()
+	 ?>
 						
 </aside>
 <!-- /#sidebar -->
