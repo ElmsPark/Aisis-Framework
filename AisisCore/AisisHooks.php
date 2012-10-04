@@ -144,8 +144,8 @@
 	  * Used to display the social media from the 
 	  * options panel.
 	  */
-	 function aisis_social_medai(){
-		  do_action('aisis_social_medai');
+	 function aisis_social_media(){
+		  do_action('aisis_social_media');
 	 }
 	 
 	 /**
@@ -255,55 +255,96 @@
 		  }
 	  }
 	  
+	  if(!function_exists('default_social_media_icons')){
+		  function default_social_media_icons(){
+			?><div class="socialMediaLink"><?php aisis_social_media_icons(); ?></div><?php
+		  }
+	  }
+	  
 	  /**
 	   * register the admin panel
 	   */
-	  function default_register_admin_apanel(){
-		$aisis_package_loader = new AisisPackageLoader();
-		$aisis_package_loader->load_aisis_admin_panel_package();
-	  }	
+	  if(!function_exists('default_register_admin_apanel')){
+		  function default_register_admin_apanel(){
+			$aisis_package_loader = new AisisPackageLoader();
+			$aisis_package_loader->load_aisis_admin_panel_package();
+		  }	
+	  }
 	  
 	  /**
 	   * Stuff that happens upon activation of Aisis
 	   */
-	  function default_activation_jazz(){
-		 $aisis_activation = new AisisActivation();
-		 $aisis_activation->aisis_do_on_load();
-		 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
-	  } 
+	  if(!function_exists('default_activation_jazz')){
+		  function default_activation_jazz(){
+			 $aisis_activation = new AisisActivation();
+			 $aisis_activation->aisis_do_on_load();
+			 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
+		  } 
+	  }
 	  
-	  function default_aisis_header(){
-		  ?>
-          	<header id="header">
-        		
-                <hgroup>
-                    <div id="siteLogo">
-                    <?php if(get_header_image() == ''){?>
-                    <a href="<?php bloginfo('url')?>"><img src="<?php if($option['image_header'] != '')
-					{echo $option['image_header'];}else{bloginfo('template_directory');?>/images/forest.png<?php } ?>" />
-                    </a>
-                    <?php }else{
-						?><a href="<?php bloginfo('url')?>">
-                        <img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" 
-                        height="<?php echo get_custom_header()->height; ?>" /></a><?php
-					}?></div>
-                </hgroup>
-        		<?php aisis_social_medai(); ?>
-                <nav>
-                    <ul id="nav" class="clearfix">
-                    <?php wp_nav_menu(array(
-                        'fallback_cb' => 'aisis_default_main_nav',
-                        'items_wrap' => '<li>%3$s</li>'
-                    ));?>
-                    </ul>
-                </nav>
-        
-                <form method="get" id="searchForm" action="<?php echo home_url(); ?>/">
-                    <input type="search" id="s" name="s"  placeholder="Search">
-                </form>
-        
-            </header>
-          <?php
+	  if(!function_exists('default_aisis_header')){
+		  function default_aisis_header(){
+			  ?>
+				<header id="header">
+					
+					<hgroup>
+						<div id="siteLogo">
+						<?php if(get_header_image() == ''){?>
+						<a href="<?php bloginfo('url')?>"><img src="<?php if($option['image_header'] != '')
+						{echo $option['image_header'];}else{bloginfo('template_directory');?>/images/forest.png<?php } ?>" />
+						</a>
+						<?php }else{
+							?><a href="<?php bloginfo('url')?>">
+							<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" 
+							height="<?php echo get_custom_header()->height; ?>" /></a><?php
+						}?></div>
+					</hgroup>
+					<?php aisis_social_media(); ?>
+					<nav>
+						<ul id="nav" class="clearfix">
+						<?php wp_nav_menu(array(
+							'fallback_cb' => 'aisis_default_main_nav',
+							'items_wrap' => '<li>%3$s</li>'
+						));?>
+						</ul>
+					</nav>
+			
+					<form method="get" id="searchForm" action="<?php echo home_url(); ?>/">
+						<input type="search" id="s" name="s"  placeholder="Search">
+					</form>
+			
+				</header>
+			  <?php
+		  }
+	  }
+	  
+	  
+	/**
+	 * Used across the index parts of Aisis
+	 */
+	if(function_exists('default_aisis_pagination')){ 
+		function default_aisis_pagination(){
+		  global $wp_query;
+		  if($wp_query->max_num_pages > 1){?>
+				  <div class=<?php pagnation_class(); ?>>
+					  <div class="nextPost"><?php echo next_posts_link(__('Older Posts >>', 'aisis')); ?></div>
+					  <div class="prevPost"><?php echo previous_posts_link(__('<< Latest and Greatest!', 'aisis')); ?></div>
+				  </div>
+		  <?php 
+		  }		
+		}
+	}
+	
+	  /**
+	   * Used in single posts.
+	   */
+	  if(!function_exists('default_aisis_single_pagination')){
+		  function default_aisis_single_pagination(){
+			  ?><div class="<?php pagnation_class(); ?>">
+				  <div class="prevPost"><?php echo  previous_post_link();?></div>
+				  <div class="nextPost"><?php echo  next_post_link(); ?></div>
+			  </div><?php		
+		  }	 
 	  }
 	  
 	  /**
@@ -316,14 +357,14 @@
 	  add_action('aisis_default_left_footer_text','default_aisis_default_left_footer_text');
 	  add_action('aisis_load_admin_panel', 'default_register_admin_apanel');
 	  add_action('aisis_activation', 'default_activation_jazz');
+	  add_action('aisis_social_media', 'default_social_media_icons');
 	  add_action('aisis_header', 'default_aisis_header');
+	  add_action('aisis_index_pagination', 'default_aisis_pagination');
+	  add_action('aisis_single_post_pagination', 'default_aisis_single_pagination');	 
 	  
 	  /**
 	   * Custom Post Types
 	   */
 	  add_action('init', 'aisis_add_articles_essay');
 	  add_action('init', 'aisis_add_mini_feeds');
-	  
-	  
-	 
 ?>

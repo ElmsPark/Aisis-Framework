@@ -178,18 +178,6 @@
 			}
 		}
 
-		/**
-		 * Used to display the activation
-		 * eror messages
-		 */
-		function aisis_theme_activation_error(){
-			global $pagenow;
-
-			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
-				add_action('admin_notices', array(&$this, 'aisis_activation_error_message'));
-			}
-		 }
-
 		 /**
 		  * Thrown when the chmod function fails
 		  * to chmod a file or folder.
@@ -227,19 +215,6 @@
 
 			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
 				add_action('admin_notices', array(&$this, 'aisis_activation_success_message'));
-			}
-		 }
-
-		/**
-		 * Used to display the activation error messages
-		 * that were collected along the way as we created
-		 * the various files and folders.
-		 */
-		 function aisis_theme_activation_check_errors(array $errors){
-			global $pagenow;
-
-			if(is_admin() && isset($_GET['activated']) && $pagenow == 'themes.php'){
-				add_action('admin_notices', array(&$this, 'aisis_activation_check_error_messages'));
 			}
 		 }
 

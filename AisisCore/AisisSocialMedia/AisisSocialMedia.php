@@ -18,7 +18,7 @@
 	  * Sets up the social media icods and there links
 	  * along with descriptions
 	  */
-	 function aisis_social_media(){
+	 function aisis_social_media_icons(){
 		$option = get_option('aisis_core');
 		 
 		 if(isset($option['facebook_link']) && !empty($option['facebook_link'])){

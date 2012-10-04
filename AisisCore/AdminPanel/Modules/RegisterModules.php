@@ -30,7 +30,7 @@
 	  if(!function_exists('aisis_sidebar_options')){
 		  function aisis_sidebar_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel-Sidebar-Options.phtml', AISIS_ADMINPANEL_OPTIONS);
+			  $aisis_template_loader->aisis_register('AdminPanel-Sidebar-Module.phtml', AISIS_ADMINPANEL_OPTIONS);
 		  }
 	  }
 	  
@@ -53,14 +53,14 @@
 	  if(!function_exists('aisis_social_media_options')){
 		  function aisis_social_media_options(){
 			 $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel-Social-Options.phtml', AISIS_ADMINPANEL_OPTIONS);
+			  $aisis_template_loader->aisis_register('AdminPanel-Social-Module.phtml', AISIS_ADMINPANEL_OPTIONS);
 		  }
 	  }	
 	  
 	  if(!function_exists('aisis_site_design_options')){
 		  function aisis_site_design_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
-			  $aisis_template_loader->aisis_register('AdminPanel-Site-Design.phtml', AISIS_ADMINPANEL_OPTIONS);
+			  $aisis_template_loader->aisis_register('AdminPanel-Site-Design-Module.phtml', AISIS_ADMINPANEL_OPTIONS);
 		  }
 	  }		  	  
 	  
