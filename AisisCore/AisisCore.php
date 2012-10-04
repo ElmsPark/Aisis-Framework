@@ -19,35 +19,7 @@
 	 *
 	 * =================================================================
 	 */
-	  
-	 /**
-	  * transient for the slides
-	  * to display them.
-	  */
-	 function header_slide_loop(){ 
-		 if (false === ($loop = get_transient('loop'))) {
-			 $slides_to_show = array( 'post_type' => 'slides');
-			 $loop = new WP_Query($slides_to_show);
-			 set_transient('loop', $loop, 3600);
-			 return $loop;
-		 }
-	 }
 	
-	/**
-	 * delete the transient if we are doing an update.
-	 */ 
-	function header_slide_loop_delete($post_id) {
-		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
-			return;
-		}
-		
-		delete_transient('loop');
-	}
-	
-	add_action('save_post', 'header_slide_loop_delete');
-	
-	
-
 	 /**
 	  * This transient will display the 
 	  * minifeed content.
@@ -101,11 +73,7 @@
 		}
 	}
 	
-	function social_media_icons(){
-		?><div class="socialMediaLink"><?php aisis_social_media(); ?></div><?php
-	}
-	
-	add_action('aisis_social_medai', 'social_media_icons');
+	aisis_social_media();
 	 
 	 $aisis_default = array(
 		'default-image'          => '',
@@ -187,7 +155,7 @@
 		function aisis_excerpt(){
 			global $post;
 			$options = get_option('aisis_core_theme_setting_sidebar_search');
-			if($options['no_sidebar_search'] != 1 && $option_global['no_sidebar_global'] != 1)
+			if($option_global['sidebar_global'] != 1)
 			{ 
 				$css_class =  'readMore'; 
 			}else{ 
@@ -215,29 +183,6 @@
 	   return $html;
 	}
 	
-	/**
-	 * Used across the index parts of Aisis
-	 */
-	function aisis_pagination(){
-	  global $wp_query;
-	  if($wp_query->max_num_pages > 1){?>
-			  <div class=<?php pagnation_class(); ?>>
-				  <div class="nextPost"><?php echo next_posts_link(__('Older Posts >>', 'aisis')); ?></div>
-				  <div class="prevPost"><?php echo previous_posts_link(__('<< Latest and Greatest!', 'aisis')); ?></div>
-			  </div>
-	  <?php 
-	  }		
-	}
-	
-	/**
-	 * Used in single posts.
-	 */
-	function aisis_single_pagination(){
-		?><div class="<?php pagnation_class(); ?>">
-			<div class="prevPost"><?php echo  previous_post_link();?></div>
-			<div class="nextPost"><?php echo  next_post_link(); ?></div>
-		</div><?php		
-	}
 	
 	//plugin checker
 	function does_plugin_exist($path_to_plugin_file){
@@ -246,8 +191,7 @@
 	
 	if(!isset($content_width)){$content_width = 550;}
 	
-	add_action('aisis_index_pagination', 'aisis_pagination');
-	add_action('aisis_single_post_pagination', 'aisis_single_pagination');
+	
 	
 	add_filter('pre_get_posts','aisis_search_filter');
 	add_filter('embed_oembed_html', 'theme_youtube_handler', 10, 4);

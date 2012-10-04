@@ -144,8 +144,8 @@
 	  * Used to display the social media from the 
 	  * options panel.
 	  */
-	 function aisis_social_medai(){
-		  do_action('aisis_social_medai');
+	 function aisis_social_media(){
+		  do_action('aisis_social_media');
 	 }
 	 
 	 /**
@@ -306,6 +306,36 @@
           <?php
 	  }
 	  
+	  function default_social_media_icons(){
+		?><div class="socialMediaLink"><?php aisis_social_media(); ?></div><?php
+	  }
+	  
+	/**
+	 * Used across the index parts of Aisis
+	 */
+	function default_aisis_pagination(){
+	  global $wp_query;
+	  if($wp_query->max_num_pages > 1){?>
+			  <div class=<?php pagnation_class(); ?>>
+				  <div class="nextPost"><?php echo next_posts_link(__('Older Posts >>', 'aisis')); ?></div>
+				  <div class="prevPost"><?php echo previous_posts_link(__('<< Latest and Greatest!', 'aisis')); ?></div>
+			  </div>
+	  <?php 
+	  }		
+	}
+	
+	/**
+	 * Used in single posts.
+	 */
+	function default_aisis_single_pagination(){
+		?><div class="<?php pagnation_class(); ?>">
+			<div class="prevPost"><?php echo  previous_post_link();?></div>
+			<div class="nextPost"><?php echo  next_post_link(); ?></div>
+		</div><?php		
+	}	  
+	
+	 
+	  
 	  /**
 	   * We add all the actions here.
 	   */
@@ -317,6 +347,9 @@
 	  add_action('aisis_load_admin_panel', 'default_register_admin_apanel');
 	  add_action('aisis_activation', 'default_activation_jazz');
 	  add_action('aisis_header', 'default_aisis_header');
+	  add_action('aisis_social_media', 'default_social_media_icons');
+	  add_action('aisis_index_pagination', 'default_aisis_pagination');
+	  add_action('aisis_single_post_pagination', 'default_aisis_single_pagination');	 
 	  
 	  /**
 	   * Custom Post Types
