@@ -72,8 +72,6 @@
 			add_action('admin_notices', 'display_message');
 		}
 	}
-	
-	aisis_social_media();
 	 
 	 $aisis_default = array(
 		'default-image'          => '',
@@ -190,7 +188,6 @@
 	}
 	
 	if(!isset($content_width)){$content_width = 550;}
-	
 	
 	
 	add_filter('pre_get_posts','aisis_search_filter');

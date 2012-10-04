@@ -50,7 +50,7 @@
 			
 			if($path != ''){
 				if(!file_exists($path . $filename)){
-					_e('<div class="err">'.new LoadFileException('<strong>Could not find specified file name: ' . $filename . '. Stack Trace: </strong>').'</div>');
+					echo new AisisCoreException('We could not find the file you were looking for. Here is a stack trace of what was passed in: <p>'.aisis_var_dump($path.$filename).'</p>');
 				}
 				
 				require_once($path . $filename);
@@ -58,7 +58,7 @@
 			}else{
 			
 				if(!file_exists(TEMPLATEPATH . '/AisisCore/Templates/' . $filename)){
-					_e('<div class="err">'.new LoadFileException('<strong>Could not find specified file name: ' . $filename . '. Stack Trace: </strong>').'</div>');
+					echo new AisisCoreException('We could not load the file at the path sepcified. The file is: <p>'.aisis_var_dump($filename).'</p>');
 				}
 				
 				require_once(TEMPLATEPATH . '/AisisCore/Templates/' . $filename);
