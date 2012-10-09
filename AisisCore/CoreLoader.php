@@ -63,6 +63,7 @@
 		 wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
 		 wp_enqueue_script('jquery', false, true);
 	 }
+	 
 	 add_action('wp_enqueue_scripts', 'aisis_jq_cdn');
 	 
 	 /**

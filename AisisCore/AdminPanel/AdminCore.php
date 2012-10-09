@@ -71,6 +71,7 @@
 			   wp_enqueue_script( 'colorBox', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/ColorBox.js', array('jquery'), false, true );				   
 			   wp_enqueue_script( 'css-editor-search', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/searchcursor.js', array('jquery'), false, true );
 			   wp_enqueue_script( 'css-editor-highlight', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/match-highlighter.js', array('jquery'), false, true );
+			   wp_enqueue_script( 'fancy-box-js', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery.fancybox.pack.js', false, true ); 	
 					   
 		   }
 		}
@@ -87,6 +88,7 @@
 				wp_enqueue_style( 'jquery-ui-css', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery-ui-1.8.19.custom.css'); 
 				wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css');
 				wp_enqueue_style( 'color-Box', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/ColorBox.css');
+				wp_enqueue_style( 'fancy-box-css', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery.fancybox.css'); 
 				wp_enqueue_style('thickbox');
 			}
 		}

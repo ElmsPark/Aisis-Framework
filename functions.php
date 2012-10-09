@@ -102,7 +102,7 @@
 			 }
 		 }
 	 }else{
-		_e('You are missing the directory AisisCore I cannot load any further. Please try re-downlading and installing the theme.');
+		echo "You are missing the core of Aisis. Please try downloading and installing again.";
 		return;	 
 	 }
 	 
@@ -115,11 +115,11 @@
 		 if(file_exists(AISISCORE . 'CoreLoader.php')){
 			require_once(AISISCORE . 'CoreLoader.php');
 		 }else{
-			_e('You are missing a vital peice of the puzzel. Please try re-downloading and installing the theme.');
+			echo 'You are missing a vital peice of the puzzel. Please try re-downloading and installing the theme.';
 			return;
 		 }
 	 }else{
-		 _e('You are missing the directory AisisCore I cannot load any further. Please try re-downlading and installing the theme.');
+		 echo 'You are missing the directory AisisCore I cannot load any further. Please try re-downlading and installing the theme.';
 		 return;
 	 }
 ?>
