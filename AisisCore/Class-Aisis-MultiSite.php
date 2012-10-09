@@ -38,7 +38,7 @@
 			  $aisis_file->check_exists(CUSTOM . $aisis_array_of_directories_files['js_file'], true);
 			  $aisis_file->check_exists(CUSTOM . $aisis_array_of_directories_files['php_file'], true);
 			  if('' == filesize(CUSTOM . $aisis_array_of_directories_files['php_file'])){
-				  file_put_contents(CUSTOM . $aisis_array_of_directories_files['php_file'], trim($contents));
+				  file_put_contents(CUSTOM . $aisis_array_of_directories_files['php_file'], '/*PHP File For Custom Functions*/');
 			  }
 			  return true;
 		   }else{
