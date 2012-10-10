@@ -284,12 +284,13 @@
 	  
 	  if(!function_exists('default_aisis_header')){
 		  function default_aisis_header(){
+			  $option = get_option('aisis_core');
 			  ?>
 				<header id="header">
 					
 					<hgroup>
 						<div id="siteLogo">
-						<?php if(get_header_image() == ''){?>
+						<?php if($option['image_header'] != ''){?>
 						<a href="<?php bloginfo('url')?>"><img src="<?php if($option['image_header'] != '')
 						{echo $option['image_header'];}else{bloginfo('template_directory');?>/images/forest.png<?php } ?>" />
 						</a>
@@ -322,7 +323,7 @@
 	/**
 	 * Used across the index parts of Aisis
 	 */
-	if(function_exists('default_aisis_pagination')){ 
+	if(!function_exists('default_aisis_pagination')){ 
 		function default_aisis_pagination(){
 		  global $wp_query;
 		  if($wp_query->max_num_pages > 1){?>

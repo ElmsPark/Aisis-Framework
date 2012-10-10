@@ -30,7 +30,7 @@
 	 && 'topic' != get_post_type()){
 		 is_front_page_content();
 	 }elseif(!is_front_page() && 'forum' != get_post_type() && 'topic' != get_post_type()){
-		is_single_page();
+		is_page_content();
 	 }
 	  
 	 if('forum' == get_post_type() || 'topic' == get_post_type()){
