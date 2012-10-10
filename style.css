@@ -844,6 +844,12 @@ ol.commentlist li ul.children {
 #commentform p {
 	color : #888;
 	margin : 5px 0;
+	clear: left;
+}
+.required{
+	float:left;
+	margin-left:-10px;
+	margin-top:3px;
 }
 #respond label {
 	color: #888;
@@ -856,9 +862,29 @@ ol.commentlist li ul.children {
 	margin : 0 10px 10px 0;
 	padding : 5px;
 }
-#commentform input {
+
+#commentform input[type="text"], #commentform input[type="url"] {
 	width : 50%;
+	margin-left:10px;
+	background-color: white;
+	border-color: #DDD;
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: solid;
+	box-shadow: 0px 5px 9px rgba(204, 204, 204, 0.3);
 }
+
+.comment-notes{
+	margin-bottom: 15px !important;
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	color: #333;
+	padding: 5px 0 0 15px;
+	font-size: 13px;
+	border-radius: 5px;
+	clear: both;
+}
+
 #respond input#commentSubmit {
 	width : 100px;
 	background : #333;
