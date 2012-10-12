@@ -2,9 +2,12 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/lib/Javascript/plugins/jquery.snipit.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/lib/ShortCode-JS.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/lib/rainbow.min.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/lib/language/generic.js' ?>"></script>
 <link href="<?php echo get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/snipit.css' ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery-ui-1.8.19.custom.css' ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/lib/Shortcode-Css.css' ?>" rel="stylesheet" type="text/css">
+<link href="<?php echo get_template_directory_uri() . '/AisisCore/ShortCodes/lib/themes/github.css' ?>" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 
 jQuery(document).ready(function($){
@@ -20,9 +23,7 @@ jQuery(document).ready(function($){
 	$("pre.js").snippet("javascript",{style:"acid", showNum:false});
 	$("pre.styles").snippet("css",{style:"acid"});
 	$( "#tabs" ).tabs();
-
 });
-
 
 </script>
 
@@ -125,13 +126,17 @@ jQuery(document).ready(function($){
       <div class="section">
         <p>Ever find your self needing to insert code into a post or page? Well we provide tools to do just that!</p>
       </div>
-      <div class="middleText"> JavaScript </div>
-      <pre class="js">function(){}</pre>
-      <input type="button" value="Insert Into Post!" onclick="jsCode()" />
-      <br />
-      <div class="middleText"> CSS </div>
-      <pre class="styles">.css{}</pre>
-      <input type="button" value="Insert Into Post!" onclick="cssCode()" />
+      <div class="middleText"> Code </div>
+      <pre>
+      	<code data-language="generic">
+        if(!function_exists('cleanup')){
+            function cleanup(){
+                echo "I am all cleaned up";	
+            }
+        }
+    	</code>
+      </pre>
+      <input type="button" value="Insert Into Post!" onclick="code()" />
       <br />
     </div>
   </div>

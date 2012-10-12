@@ -99,6 +99,14 @@
 	 }
 	 
 	 /**
+	  * Allows for people to put stuff
+	  * after a single aside post.
+	  */
+	 function aisis_after_aside_post(){
+		 do_action('aisis_after_aside_post');
+	 }	 
+	 
+	 /**
 	  * Allows for people to put content after
 	  * a regular post.
 	  */

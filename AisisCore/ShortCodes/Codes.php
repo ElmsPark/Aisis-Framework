@@ -52,17 +52,15 @@
 		}
 	}
 	
-	//Syntax highlighting for css code
-	if(!function_exists('aisis_css_code')){
-		function aisis_css_code( $atts, $content = null ) {
-		   return '<pre class="styles">' . $content . '</pre>';
-		}
-	}
-	
-	//syntax highlighting for JS code
-	if(!function_exists('aisis_js_code')){
-		function aisis_js_code( $atts, $content = null ) {
-		   return '<pre class="js">'.$content.'</pre>';
+	//Syntax highlighting for code
+	if(!function_exists('aisis_code')){
+		function aisis_code( $atts, $content = null ) {
+		   return '
+		  <pre>
+			  <code data-language="generic">
+			  '.$content.'
+			  </code>
+		  </pre>';
 		}
 	}
 	
@@ -113,7 +111,6 @@
 	add_shortcode( 'glossimg', 'aisis_gloss_img' );
 	add_shortcode( 'info', 'aisis_info_post' );
 	add_shortcode( 'update', 'aisis_update_post' );
-	add_shortcode( 'cssCode', 'aisis_css_code' );
-	add_shortcode( 'jsCode', 'aisis_js_code' );
+	add_shortcode( 'code', 'aisis_code' );
 		
 ?>
