@@ -98,21 +98,11 @@ function youtube() {
 	}
 }
 
-function jsCode() {
+function code() {
 	var debug = true;
 	try{
 		var win = window.dialogArguments || opener || parent || top;
-		win.send_to_editor('<pre class="js">code here</pre>');
-	}catch(e){
-		console.log("Could not send to window: " + e);
-	}
-}
-
-function cssCode() {
-	var debug = true;
-	try{
-		var win = window.dialogArguments || opener || parent || top;
-		win.send_to_editor('<pre class="styles">code here</pre>');
+		win.send_to_editor('[code].example_class{}[/code]');
 	}catch(e){
 		console.log("Could not send to window: " + e);
 	}

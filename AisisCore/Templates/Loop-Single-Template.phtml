@@ -53,7 +53,7 @@
 		  	wp_reset_query(); 
 		?>
     </div><?php
-	aisis_after_sticky_aside_post();
+	aisis_after_aside_post();
 	}elseif(has_post_format('Gallery') || has_post_format('image') || has_post_format('video') || has_post_format('quote')
 	|| has_post_format('link')){?>
     <div id="<?php single_post_css_object(); ?>">
@@ -96,7 +96,7 @@
     <?php } ?>  
     </div>
     <?php
-	aisis_after_sticky_post();		
+	//aisis_after_sticky_post();		
 	}else{?>
 	<div id="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
