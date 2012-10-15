@@ -124,6 +124,5 @@
 			add_action('admin_enqueue_scripts', 'aisis_load_admin_js' );
 			add_filter('upload_dir', 'aisis_change_image_upload_path');			
 		}	 
-}
-
+	}
 ?>

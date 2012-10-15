@@ -1,4 +1,4 @@
-﻿#Aisis
+#Aisis
 ------
 
 Aisis is a highly dynamic, beautiful, responsive and clean theme framework designed and developed for developers of child themes. Its core mission statement and goal is to:
@@ -86,5 +86,3 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 This license can be read in full at [GPL 3.0] (http://www.gnu.org/licenses/gpl.html)
 We package a copy of the license with the software starting as of 5/14/2012.
-
-

@@ -103,5 +103,4 @@
 	//Add these actions to the init
 	
 	add_action('after_switch_theme', 'aisis_flush_re_write');
-	
 ?>

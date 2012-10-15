@@ -30,5 +30,4 @@
 	 //require_once(AISISCORE . '/Templates/BuildAisisTheme.php');
 		
 	 get_footer(); 
-	
 ?>

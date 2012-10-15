@@ -1,8 +1,0 @@
-author
-authorFull
-category
-categoryFull
-content
-contentFull
-pagnation
-pagnationFull
