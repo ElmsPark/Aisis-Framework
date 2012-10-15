@@ -1,0 +1,15 @@
+<div class="sideText">
+    <h1>Core Mini Feed(s) Options Options</h1>
+    <p>Bellow are the options that relate to the Mini Feed(s) and its appearance across the site.</p>
+    <div class="notice"><strong>Note:</strong> If you select remove from the site, you will not see this custom post type
+    in your admin section.</div>
+    <p><?php create_submit(); ?></p>
+</div>
+<div class="alignForm">
+	<?php
+        do_settings_fields('aisis-core-options','aisis_mini_section');
+        if(does_plugin_exist('bbpress/bbpress.php')){
+            do_settings_fields('aisis-core-options', 'aisis_mini_bbpress_section');		
+        }
+    ?>
+</div>

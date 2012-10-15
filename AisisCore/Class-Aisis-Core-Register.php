@@ -50,8 +50,7 @@
 			
 			if($path != ''){
 				if(!file_exists($path . $filename)){
-					echo new AisisCoreException('<p><strong>Fatal: </strong> Could not locate the directory you passed in. Heres a dump of what you passed in: </p>'. 
-					'<pre>'.aisis_var_dump($path).'</pre>' . '<p>For more info - WordPress has spit out some additional details bellow.</p>');
+					echo new AisisCoreException('We could not find the file you were looking for. Here is a stack trace of what was passed in: <p>'.aisis_var_dump($path.$filename).'</p>');
 				}
 				
 				require_once($path . $filename);
@@ -59,8 +58,7 @@
 			}else{
 			
 				if(!file_exists(TEMPLATEPATH . '/AisisCore/Templates/' . $filename)){
-					echo new AisisCoreException('<p><strong>Fatal: </strong> Could not locate the directory you passed in. Heres a dump of what you passed in: </p>'. 
-					'<pre>'.aisis_var_dump($path).'</pre>' . '<p>For more info - WordPress has spit out some additional details bellow.</p>');
+					echo new AisisCoreException('We could not load the file at the path sepcified. The file is: <p>'.aisis_var_dump($filename).'</p>');
 				}
 				
 				require_once(TEMPLATEPATH . '/AisisCore/Templates/' . $filename);

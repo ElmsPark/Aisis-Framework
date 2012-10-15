@@ -26,12 +26,7 @@
 	 global $more, $post, $wp_query;
 	 $more = 0; //declare and set $more before The Loop
 	 
-	 $option_sidebar_single = get_option('aisis_core_theme_setting_sidebar_single');
-	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');
-	 $option_slider_mini_global = get_option('aisis_core_theme_setting_slider_mini_global');
-	 $option_slider_mini_single = get_option('aisis_core_theme_setting_slider_mini_single');
-	 $option_related_posts = get_option('aisis_display_related_posts_setting');
-	 $option_cat_tags = get_option('aisis_display_categories_tags_setting');
+	 $options = get_option('aisis_core');
 	  
 	 $aisis_category_list = array(
 			 'orderby' => 'name',
@@ -39,17 +34,13 @@
 			 'title_li'=> '',
 	 );	
 	 
-	if(isset($option_sidebar_global['no_slider_mini_global ']) && $option_sidebar_global['no_slider_mini_global'] != 1 
-	&& isset($option_slider_mini_single['no_slider_mini_single']) && $option_slider_mini_single['no_slider_mini_single'] != 1){
-		aisis_header();
-	}
+	is_single_post_page();
 	
 	//Get the post for the page.
 	the_post();
 	
-	if(has_post_format('aside')){?>
-    <div id="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
-	{ echo 'content'; }else{ echo 'contentFull'; }?>">
+	if(has_post_format('aside') || has_post_format('status')){?>
+    <div id="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
             <?php if(has_post_thumbnail()){?>
                 <figure class="soft-embossed postImage">
@@ -61,10 +52,27 @@
         <?php
 		  	wp_reset_query(); 
 		?>
-    </div><?php		
+    </div><?php
+	aisis_after_aside_post();
+	}elseif(has_post_format('Gallery') || has_post_format('image') || has_post_format('video') || has_post_format('quote')
+	|| has_post_format('link')){?>
+    <div id="<?php single_post_css_object(); ?>">
+        <article class="post clearfix">
+            <?php if(has_post_thumbnail()){?>
+            	<h1 class="postTitle"><?php the_title(); ?></h1>
+                <figure class="soft-embossed postImage">
+                    <?php the_post_thumbnail();?>
+                </figure>
+            <?php } ?>
+            <p> <?php the_content(); ?></p>
+        </article>
+        <?php
+		  	wp_reset_query(); 
+		?>
+    </div><?php
+	aisis_after_other_post();
 	}elseif(is_sticky()){?>
-	<div class="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
-	{ echo 'sticky'; }else{ echo 'stickyFull'; }?>">
+	<div class="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
@@ -87,11 +95,10 @@
         <div class="listTags"><?php the_tags();?></div> 
     <?php } ?>  
     </div>
-    
-    <?php		
+    <?php
+	//aisis_after_sticky_post();		
 	}else{?>
-	<div id="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1)
-	{echo 'content';}else{echo 'contentFull';}?>">
+	<div id="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
             <header>
                 <h1 class="postTitle"><?php the_title(); ?></h1>
@@ -107,7 +114,7 @@
             <?php } ?>
             <p> <?php the_content(); ?></p>
             <?php
-				if($option_related_posts['related_posts'] != 1){
+				if(isset($option['related_posts']) && $option['related_posts'] != 1){
 			?>
             <div class="relatedPosts">
                 <h2>Related Posts</h2>
@@ -157,28 +164,25 @@
 				<?php	 
 			 }?>           
         </article>
+
         <?php
 		  	wp_reset_query(); 
 		?>
-    <?php if($option_cat_tags['cat_tags'] != 1){?>
+
+    <?php if($options['categories'] != 1){?>
         <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list);?></div> 
         <div class="listTags"><?php the_tags();?></div> 
     <?php } ?>  
-    </div><?php		
+    </div><?php	
+	aisis_after_default_post();	
 	}
-	
-	if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){
-		get_sidebar();
-	}
-	
-	?><div class="<?php if($option_sidebar_single['no_sidebar_single'] != 1 && $option_sidebar_global['no_sidebar_global'] != 1){ 
-	echo 'pagnation'; }else{ echo 'pagnationFull'; }?>">
-        <div class="prevPost"><?php echo  previous_post_link();?></div>
-        <div class="nextPost"><?php echo  next_post_link(); ?></div>
-    </div><?php
+
+	sidebar_single();
+	aisis_single_post_pagination();
 
     if('open' == $post->comment_status){
 	    comments_template('', true);
     }
+	
 	aisis_footer();
-	?>
+?>

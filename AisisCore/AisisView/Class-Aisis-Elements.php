@@ -73,6 +73,8 @@
 			 
 			 if(isset($attributes['class'])){
 				 $this->class = 'class="'.$attributes['class'].'"';
+			 }else{
+				 $this->class = 'class="aisisInputElement"';
 			 }
 			 
 			 if(isset($attributes['value'])){
@@ -110,7 +112,7 @@
 		  * @param array of attributes
 		  * @return the element
 		  */
-		 function textarea(array $attributes){
+		  function textarea(array $attributes){
 			 
 			 if(isset($attributes['name'])){
 				 $this->name = 'name="'.$attributes['name'].'"';
@@ -122,6 +124,8 @@
 			 
 			 if(isset($attributes['class'])){
 				 $this->class = 'class="'.$attributes['class'].'"';
+			 }else{
+				 $this->class = 'class="aisisTextElement"';
 			 }
 			 
 			 if(isset($attributes['rows'])){
@@ -147,10 +151,9 @@
 									.$this->rows  
 									.$this->cols 
 									.$this->style
-									.'>'. $this->value . '</textarea>';
-									
-			echo $build_aisis_element;
-		 } 
+									.'>'. $this->value . '</textarea>';				
+			 echo $build_aisis_element;
+		  } 
 		 
 		 /**
 		  * We build up the aisis label element.
@@ -164,6 +167,8 @@
 			 
 			 if(isset($attributes['class'])){
 				 $this->class = 'class="'.$attributes['class'].'"';
+			 }else{
+				 $this->class = 'class="aisisLabelElement"';
 			 }
 			 
 			 if(isset($attributes['for'])){
@@ -206,6 +211,8 @@
 			 
 			 if(isset($attributes['class'])){
 				 $this->class = 'class="'.$attributes['class'].'"';
+			 }else{
+				 $this->class = 'class="aisisSelectElement"';
 			 }
 			 
 			 if(isset($attaributes['options'])){

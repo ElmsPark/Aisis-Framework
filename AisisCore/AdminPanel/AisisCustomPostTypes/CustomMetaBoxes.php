@@ -125,58 +125,6 @@
 		}
 	}
 	
-	/**
-	 * Save Slider data
-	 */
-	if(!function_exists('aisis_slider_meta_save')){
-		function aisis_slider_meta_save($post_id){
-			global $post;
-			
-			if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
-				 return;
-			}
-			
-			if(!isset($_POST['slider_meta_box_nonce']) || !wp_verify_nonce($_POST['slider_meta_box_nonce'], 'aisis_slider_meta_box_nonce')){
-				 return;
-			}
-			
-			if ( 'slides' == $_POST['post_type'] ) 
-			{
-				if ( !current_user_can( 'edit_page', $post_id ) )
-					return;
-			}
-			else
-			{
-				if ( !current_user_can( 'edit_post', $post_id ) )
-					return;
-			}
-			
-			$aisis_meta_slider_box_desc = 'aisis_slider_meta_box_desc';
-			$aisis_meta_slider_box_desc_new = (isset($_POST['aisis_slider_meta_box_desc']) ? $_POST['aisis_slider_meta_box_desc'] : '');
-			
-			if($aisis_meta_slider_box_desc_new && '' == $aisis_meta_slider_box_desc){
-				add_post_meta($post_id, $aisis_meta_slider_box_desc, $aisis_meta_slider_box_desc_new, true);
-			}elseif($aisis_meta_slider_box_desc_new && $aisis_meta_slider_box_desc_new != $aisis_meta_slider_box_desc){
-				update_post_meta($post_id, $aisis_meta_slider_box_desc, $aisis_meta_slider_box_desc_new);
-			}elseif($aisis_meta_slider_box_desc && $aisis_meta_slider_box_desc_new == ''){
-				delete_post_meta($post_id, $aisis_meta_slider_box_desc, $aisis_meta_slider_box_desc_new);
-			}
-			
-			
-			$aisis_meta_slider_box_short_desc = 'aisis_slider_meta_box_short_desc';
-			$aisis_meta_slider_box_short_desc_new = (isset($_POST['aisis_slider_meta_box_short_desc']) ? $_POST['aisis_slider_meta_box_short_desc'] : '');
-			
-			if($aisis_meta_slider_box_short_desc_new && '' == $aisis_meta_slider_box_short_desc){
-				add_post_meta($post_id, $aisis_meta_slider_box_short_desc, $aisis_meta_slider_box_short_desc_new, true);
-			}elseif($aisis_meta_slider_box_short_desc_new && $aisis_meta_slider_box_short_desc_new != $aisis_meta_slider_box_short_desc){
-				update_post_meta($post_id, $aisis_meta_slider_box_short_desc, $aisis_meta_slider_box_short_desc_new);
-			}elseif($aisis_meta_slider_box_short_desc && $aisis_meta_slider_box_short_desc_new == ''){
-				delete_post_meta($post_id, $aisis_meta_slider_box_short_desc, $aisis_meta_slider_box_short_desc_new);
-			}			
-		}
-	}	
-	
 	add_action( 'add_meta_boxes', 'aisis_add_meta_boxes' );
 	add_action( 'save_post', 'aisis_mini_feeds_save', 10, 2);
-	add_action( 'save_post', 'aisis_slider_meta_save', 10 ,2);
 ?>

@@ -27,14 +27,6 @@
 	 
 	 /**
 	  * Allows you to change the default 
-	  * error banner message displayed on the 404
-	  */
-	 function aisis_404_err_message_banner(){
-		 do_action('aisis_404_err_message_banner');
-	 }
-	 
-	 /**
-	  * Allows you to change the default 
 	  * 404 error message text
 	  */
 	 function aisis_404_err_message(){
@@ -83,6 +75,115 @@
 	 }
 	 
 	 /**
+	  * Allows for us to have a pagination for the
+	  * index party of Aisis.
+	  */
+	 function aisis_index_pagination(){
+		 do_action('aisis_index_pagination');
+	 }
+	 
+	 /**
+	  * Allows for us to put pagination on the
+	  * single post page.
+	  */
+	 function aisis_single_post_pagination(){
+		 do_action('aisis_single_post_pagination');
+	 }
+	 
+	 /**
+	  * Allows for people to put stuff
+	  * after a single sticky post.
+	  */
+	 function aisis_after_sticky_post(){
+		 do_action('aisis_after_sticky_post');
+	 }
+	 
+	 /**
+	  * Allows for people to put stuff
+	  * after a single aside post.
+	  */
+	 function aisis_after_aside_post(){
+		 do_action('aisis_after_aside_post');
+	 }	 
+	 
+	 /**
+	  * Allows for people to put content after
+	  * a regular post.
+	  */
+	 function aisis_after_default_post(){
+		 do_action('aisis_after_default_post');
+	 }
+	 
+	 /**
+	  * This function adds content after any post
+	  * that is of type status or aside.
+	  */
+	 function aisis_after_status_aside_post(){
+		 do_action('aisis_after_status_aside_post');
+	 }
+	 
+	 /**
+	  * This will place content after post types of type:
+	  *		-- gallery
+	  * 	-- image
+	  *		-- video
+	  *		-- quote
+	  *		-- link
+	  */
+	 function aisis_after_other_post(){
+		 do_action('aisis_after_other_post');
+	 }
+	 
+	 /**
+	  * This goes after the sidebar
+	  */
+	 function aisis_after_sidebar(){
+		 do_action('aisis_after_sidebar');
+	 } 
+	 
+	 /**
+	  * This goes before the sidebar
+	  */	 
+	 function aisis_before_sidebar(){
+		 do_action('aisis_before_sidebar');
+	 }
+	 
+	 /**
+	  * Used to display the social media from the 
+	  * options panel.
+	  */
+	 function aisis_social_media(){
+		  do_action('aisis_social_media');
+	 }
+	 
+	 /**
+	  * We use this hook to set up the admin panel,
+	  * the reason we do it through a hook is
+	  * so that with child themes, we can deregister
+	  * the hook to create our own admin panel.
+	  */
+	 function aisis_load_admin_panel(){
+		  do_action('aisis_load_admin_panel');
+	 }	
+	 
+	 /**
+	  * We want to register what should happen upon activation of
+	  * Aisis or a child theme.
+	  *
+	  * Should deregister this if you are de-registering Aisis Admin
+	  * Panel.
+	  */
+	 function aisis_activation(){
+		  do_action('aisis_activation');
+	 }
+	 
+	 /**
+	  * The header
+	  */
+	  function aisis_header(){
+		 do_action('aisis_header');
+	  }
+	 /**
 	  * ======================[DEFINE]======================
 	  *
 	  *		We define the Aisis Hooks bellow. When you edit
@@ -92,39 +193,34 @@
 	  *  ===================================================
 	  */
 	  
-	  //default 404 err banner message
-	  if(!function_exists('default_aisis_404_err_message_banner')){
-		  function default_aisis_404_err_message_banner(){
-			  $options = get_option('aisis_default_404_banner_setting');
-			  if(!isset($options['banner_content']) ){
-				  _e('It seems we could not find what you were looking for.');
-			  }else{
-				  _e($options['banner_content']);
-			  }
-		  }
-	  }
-	  
 	  //default 404 err message and title
 	  if(!function_exists('default_aisis_404_err_message')){
 		  function default_aisis_404_err_message(){
-			  $options = get_option('aisis_default_404_message_setting');
-			  if(!isset($options['err_404_theme_message'])){
-				 _e('<h1>404</h1><p class="ErrorMessage">Seems the content you were searching for doesn not exist. Please try searching for it.</p>');
-				 
-			  }else{
-				 echo $options['err_404_theme_message'];
-			  }
+			 $options = get_option('aisis_core');
+			 if($options['404_message'] != ''){
+				 echo $options['404_message'];
+			 }else{
+				 echo '
+				 <header>
+              	 	<h1 class="postTitle">404</h1>
+                 </header>
+                 <div class="center404Text">
+                 	We could not find what you were looking for.
+                 </div>';
+			 }
 		  }
 	  }
 	  
 	  //default author message
 	  if(!function_exists('deafualt_aisis_author_default_text')){
 		  function deafualt_aisis_author_default_text(){
-			  $options = get_option('aisis_default_author_text_setting');
-			  if(!isset($options['default_author_text'])){
-				echo "This author is a writer and a contributor to the blog. They enjoy writing various content and articles for the blog its self and we are proud to have them here and apart of our team :D";
+			  $options = get_option('aisis_core');
+			  if($options['author'] != ''){
+				  echo $options['author'];
 			  }else{
-				 echo $options['default_author_text'];
+				  echo "This author is a writer and a contributor to the blog. They enjoy writing 
+				  various content and articles for the blog its self and we are proud to have them here 
+				  and apart of our team :D";
 			  }
 		  }
 	  }
@@ -132,11 +228,12 @@
 	  //default category text
 	  if(!function_exists('default_aisis_category_default_text')){
 		  function default_aisis_category_default_text(){
-			  $options = get_option('aisis_default_category_text_setting');
-			  if(!isset($options['default_cat_text'])){
-				echo "Welcome to this category " . single_cat_title() . " where we hope that we present you with the latest and greatest in content from this section. Please enjoy your stay :D";
+			  $options = get_option('aisis_core');
+			  if($options['category']){
+				  echo $options['category'];
 			  }else{
-				 $options['default_cat_text'];
+				  echo "Welcome to " . single_cat_title() . " where we hope that we present 
+				  you with the latest and greatest in content from this section. Please enjoy your stay :D";
 			  }
 		  }
 	  }  
@@ -144,11 +241,12 @@
 	  //default right footer text
 	  if(!function_exists('default_aisis_default_right_footer_text')){
 		  function default_aisis_default_right_footer_text(){
-			  $options = get_option('aisis_default_right_footer_text_setting');
-			  if(!isset($options['default_right_footer_text'])){
-				echo "Powered by WordPress | Aisis | Adam Balan -  2012";
+			  $options = get_option('aisis_core');
+			  if($options['right_footer']){
+				  echo $options['right_footer'];
 			  }else{
-				 echo $options['default_right_footer_text'];
+				  echo "Powered by <a href='http://wordpress.org'>WordPress</a> | <a href='http://aisis.adambalan.com'>Aisis</a>
+				   | <a href='http://adambalan.com'>Adam Balan</a> -  2012";
 			  }
 		  }
 	  }
@@ -156,27 +254,126 @@
 	  //default left footer text
 	  if(!function_exists('default_aisis_default_left_footer_text')){
 		  function default_aisis_default_left_footer_text(){
-			  $options = get_option('aisis_default_left_footer_text_setting');
-			  
-			  if(!isset($options['default_left_footer_text'])){
-				echo "(C) 2012";
-				
+			  if($options['left_footer']){
+				  echo $options['left_footer'];
 			  }else{
-				 echo $options['default_left_footer_text'];
+				 echo "(C) 2012";
 			  }
+		  		
 		  }
-	  }	  
+	  }
+	  
+	  if(!function_exists('default_social_media_icons')){
+		  function default_social_media_icons(){
+			?><div class="socialMediaLink"><?php aisis_social_media_icons(); ?></div><?php
+		  }
+	  }
+	  
+	  /**
+	   * register the admin panel
+	   */
+	  if(!function_exists('default_register_admin_apanel')){
+		  function default_register_admin_apanel(){
+			$aisis_package_loader = new AisisPackageLoader();
+			$aisis_package_loader->load_aisis_admin_panel_package();
+		  }	
+	  }
+	  
+	  /**
+	   * Stuff that happens upon activation of Aisis
+	   */
+	  if(!function_exists('default_activation_jazz')){
+		  function default_activation_jazz(){
+			 $aisis_activation = new AisisActivation();
+			 $aisis_activation->aisis_do_on_load();
+			 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
+		  } 
+	  }
+	  
+	  if(!function_exists('default_aisis_header')){
+		  function default_aisis_header(){
+			  $option = get_option('aisis_core');
+			  ?>
+				<header id="header">
+					
+					<hgroup>
+						<div id="siteLogo">
+						<?php if($option['image_header'] != ''){?>
+						<a href="<?php bloginfo('url')?>"><img src="<?php if($option['image_header'] != '')
+						{echo $option['image_header'];}else{bloginfo('template_directory');?>/images/forest.png<?php } ?>" />
+						</a>
+						<?php }else{
+							?><a href="<?php bloginfo('url')?>">
+							<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" 
+							height="<?php echo get_custom_header()->height; ?>" /></a><?php
+						}?></div>
+					</hgroup>
+					<?php aisis_social_media(); ?>
+					<nav>
+						<ul id="nav" class="clearfix">
+						<?php wp_nav_menu(array(
+							'fallback_cb' => 'aisis_default_main_nav',
+							'items_wrap' => '<li>%3$s</li>'
+						));?>
+						</ul>
+					</nav>
+			
+					<form method="get" id="searchForm" action="<?php echo home_url(); ?>/">
+						<input type="search" id="s" name="s"  placeholder="Search">
+					</form>
+			
+				</header>
+			  <?php
+		  }
+	  }
+	  
+	  
+	/**
+	 * Used across the index parts of Aisis
+	 */
+	if(!function_exists('default_aisis_pagination')){ 
+		function default_aisis_pagination(){
+		  global $wp_query;
+		  if($wp_query->max_num_pages > 1){?>
+				  <div class=<?php pagnation_class(); ?>>
+					  <div class="nextPost"><?php echo next_posts_link(__('Older Posts >>', 'aisis')); ?></div>
+					  <div class="prevPost"><?php echo previous_posts_link(__('<< Latest and Greatest!', 'aisis')); ?></div>
+				  </div>
+		  <?php 
+		  }		
+		}
+	}
+	
+	  /**
+	   * Used in single posts.
+	   */
+	  if(!function_exists('default_aisis_single_pagination')){
+		  function default_aisis_single_pagination(){
+			  ?><div class="<?php pagnation_class(); ?>">
+				  <div class="prevPost"><?php echo  previous_post_link();?></div>
+				  <div class="nextPost"><?php echo  next_post_link(); ?></div>
+			  </div><?php		
+		  }	 
+	  }
 	  
 	  /**
 	   * We add all the actions here.
 	   */
-	  add_action('aisis_404_err_message_banner','default_aisis_404_err_message_banner');
 	  add_action('aisis_404_err_message','default_aisis_404_err_message');
 	  add_action('aisis_author_default_text','deafualt_aisis_author_default_text');
 	  add_action('aisis_category_default_text','default_aisis_category_default_text');
 	  add_action('aisis_default_right_footer_text','default_aisis_default_right_footer_text');
 	  add_action('aisis_default_left_footer_text','default_aisis_default_left_footer_text');
+	  add_action('aisis_load_admin_panel', 'default_register_admin_apanel');
+	  add_action('aisis_activation', 'default_activation_jazz');
+	  add_action('aisis_social_media', 'default_social_media_icons');
+	  add_action('aisis_header', 'default_aisis_header');
+	  add_action('aisis_index_pagination', 'default_aisis_pagination');
+	  add_action('aisis_single_post_pagination', 'default_aisis_single_pagination');	 
 	  
-	  
-	 
+	  /**
+	   * Custom Post Types
+	   */
+	  add_action('init', 'aisis_add_articles_essay');
+	  add_action('init', 'aisis_add_mini_feeds');
 ?>
