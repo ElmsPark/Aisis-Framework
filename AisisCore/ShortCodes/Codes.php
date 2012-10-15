@@ -55,12 +55,13 @@
 	//Syntax highlighting for code
 	if(!function_exists('aisis_code')){
 		function aisis_code( $atts, $content = null ) {
-		   return '
-		  <pre>
-			  <code data-language="generic">
-			  '.$content.'
-			  </code>
-		  </pre>';
+			$code = 	remove_tags($content);			
+		  	return '
+			  <pre>
+				  <code data-language="generic">
+				  '.$code.'
+				  </code>
+			  </pre>';
 		}
 	}
 	
@@ -102,6 +103,28 @@
 		 
 		   return '<div class="greenButton"><a href="'.esc_attr($link).'" class="text">'.$content.'</a></div>';
 		}
+	}	
+	
+	/**
+	 * helper function to remove BR and P tags from
+	 * code blocks.
+	 */
+	function remove_tags($content){
+ 
+		$content = trim( wpautop( do_shortcode( $content ) ) ); 
+		
+		if ( substr( $content, 0, 4 ) == '</p>' ){ 
+			$content = substr( $content, 4 ); 
+		}
+			
+		if ( substr( $content, -3, 3 ) == '<p>' ){ 
+			$content = substr( $content, 0, -3 ); 
+		}
+			
+		$content = str_replace( array( '<p></p>' ), '', $content ); 
+	 
+		return $content; 
+
 	}		
 	
 	add_shortcode( 'green_button', 'create_aisis_green_button');
