@@ -29,7 +29,8 @@
 	 $options = get_option('aisis_core');
 	  
 	 $aisis_category_list = array(
-			 'orderby' => 'name',
+			 'orderby' => 'id',
+			 'order' => 'ASC',
 			 'style' => 'none',
 			 'title_li'=> '',
 	 );	
@@ -39,7 +40,7 @@
 	//Get the post for the page.
 	the_post();
 	
-	if(has_post_format('aside') || has_post_format('status')){?>
+	if(has_post_format('aside')){?>
     <div id="<?php single_post_css_object(); ?>">
         <article class="post clearfix">
             <?php if(has_post_thumbnail()){?>
@@ -54,6 +55,22 @@
 		?>
     </div><?php
 	aisis_after_aside_post();
+	}
+	elseif(has_post_format('status')){?>
+    <div id="<?php single_post_css_object(); ?>">
+        <article class="post clearfix">
+            <?php if(has_post_thumbnail()){?>
+                <figure class="soft-embossed postImage">
+                    <?php the_post_thumbnail();?>
+                </figure>
+            <?php } ?>
+            <p> <?php the_content(); ?></p>
+        </article>
+        <?php
+		  	wp_reset_query(); 
+		?>
+    </div><?php
+	aisis_after_status_post();
 	}elseif(has_post_format('Gallery') || has_post_format('image') || has_post_format('video') || has_post_format('quote')
 	|| has_post_format('link')){?>
     <div id="<?php single_post_css_object(); ?>">
@@ -91,7 +108,7 @@
 		  	wp_reset_query(); 
 		?>
     <?php if($option_cat_tags['cat_tags'] != 1){?>
-        <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list);?></div> 
+        <div class="listCategories">Categories: <?php get_categories_for_post(); ?></div> 
         <div class="listTags"><?php the_tags();?></div> 
     <?php } ?>  
     </div>
@@ -114,7 +131,7 @@
             <?php } ?>
             <p> <?php the_content(); ?></p>
             <?php
-				if(isset($option['related_posts']) && $option['related_posts'] != 1){
+				if($option['related_posts'] != 1){
 			?>
             <div class="relatedPosts">
                 <h2>Related Posts</h2>
@@ -128,6 +145,7 @@
 						'showposts'=>5,
 						'caller_get_posts'=>1
 					);
+					
 					$my_query = new WP_Query($args);
 					if( $my_query->have_posts() ) {
 						while ($my_query->have_posts()) : $my_query->the_post(); ?>
@@ -170,7 +188,7 @@
 		?>
 
     <?php if($options['categories'] != 1){?>
-        <div class="listCategories">Categories: <?php wp_list_categories($aisis_category_list);?></div> 
+        <div class="listCategories">Categories: <?php get_categories_for_post(); ?></div> 
         <div class="listTags"><?php the_tags();?></div> 
     <?php } ?>  
     </div><?php	

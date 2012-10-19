@@ -118,8 +118,8 @@
 	  * This function adds content after any post
 	  * that is of type status or aside.
 	  */
-	 function aisis_after_status_aside_post(){
-		 do_action('aisis_after_status_aside_post');
+	 function aisis_after_status_post(){
+		 do_action('aisis_after_status_post');
 	 }
 	 
 	 /**
@@ -232,8 +232,7 @@
 			  if($options['category']){
 				  echo $options['category'];
 			  }else{
-				  echo "Welcome to " . single_cat_title() . " where we hope that we present 
-				  you with the latest and greatest in content from this section. Please enjoy your stay :D";
+				  echo single_cat_title('You are currently browsing the posts in: ');
 			  }
 		  }
 	  }  
@@ -331,8 +330,8 @@
 	/**
 	 * Used across the index parts of Aisis
 	 */
-	if(!function_exists('default_aisis_pagination')){ 
-		function default_aisis_pagination(){
+	if(!function_exists('default_aisis_index_pagination')){ 
+		function default_aisis_index_pagination(){
 		  global $wp_query;
 		  if($wp_query->max_num_pages > 1){?>
 				  <div class=<?php pagnation_class(); ?>>
@@ -368,7 +367,7 @@
 	  add_action('aisis_activation', 'default_activation_jazz');
 	  add_action('aisis_social_media', 'default_social_media_icons');
 	  add_action('aisis_header', 'default_aisis_header');
-	  add_action('aisis_index_pagination', 'default_aisis_pagination');
+	  add_action('aisis_index_pagination', 'default_aisis_index_pagination');
 	  add_action('aisis_single_post_pagination', 'default_aisis_single_pagination');	 
 	  
 	  /**
