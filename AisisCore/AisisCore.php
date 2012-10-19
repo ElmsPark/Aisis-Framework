@@ -190,6 +190,16 @@
 	if(!isset($content_width)){$content_width = 550;}
 	
 	
+	function get_categories_for_post(){
+		global $post;
+		$catgeories = get_the_category($post->ID);
+		
+		foreach($catgeories as $cat){
+			echo '<a href="'.get_category_link($cat->term_id).'">'.$cat->cat_name.'</a>, ';
+		}
+		
+	}
+	
 	add_filter('pre_get_posts','aisis_search_filter');
 	add_filter('embed_oembed_html', 'theme_youtube_handler', 10, 4);
 	add_filter('excerpt_more', 'aisis_excerpt');

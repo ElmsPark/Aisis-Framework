@@ -54,12 +54,11 @@
 	
 	//Syntax highlighting for code
 	if(!function_exists('aisis_code')){
-		function aisis_code( $atts, $content = null ) {
-			$code = 	remove_tags($content);			
+		function aisis_code( $atts, $content = null ) {			
 		  	return '
 			  <pre>
 				  <code data-language="generic">
-				  '.$code.'
+				  '.$content.'
 				  </code>
 			  </pre>';
 		}
@@ -125,7 +124,11 @@
 	 
 		return $content; 
 
-	}		
+	}	
+	
+	remove_filter( 'the_content', 'wpautop' );
+	add_filter( 'the_content', 'wpautop' , 99);
+	add_filter( 'the_content', 'remove_tags',100 );	
 	
 	add_shortcode( 'green_button', 'create_aisis_green_button');
 	add_shortcode( 'blue_button', 'create_aisis_blue_button');

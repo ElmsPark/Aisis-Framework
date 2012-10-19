@@ -90,7 +90,6 @@
 	 	wp_enqueue_style( 'thickbox');
 	 	wp_enqueue_script( 'main-site', get_template_directory_uri() . '/lib/Javascript/mainSite.js', array('jquery'), false, true ); //Load Core JS
 	 	wp_enqueue_script( 'tip-tip', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.tipTip.minified.js', array('jquery'), false, true ); //Loadtip tip js
-	 	wp_enqueue_script( 'flex', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.flexslider-min.js', array('jquery'), false, true ); //Load flex slider
 	 	wp_enqueue_script( 'toast', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.toastmessage.js', array('jquery'), false, true ); //Load toastmessage js
 	 	wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true); //Load ThickBox
 	 	wp_enqueue_script( 'snipit-code', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.snipit.js', array('jquery'), false, true ); //Load jquery snipit
