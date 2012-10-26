@@ -92,7 +92,7 @@
 		 * on the server
 		 */
 		function check_theme_version(){
-			$version_url = 'http://adambalan.com/aisis/version2.xml';
+			$version_url = 'http://adambalan.com/aisis/version.xml';
 			$aisis_update_xml_object = simplexml_load_file($version_url);
 			$aisis_version = $aisis_update_xml_object->version[0];
 			return trim($aisis_version);
@@ -106,7 +106,7 @@
 		 * true or false based on whats in our xml file.
 		 */
 		function delete_contents_check(){
-			$xml_file = 'http://adambalan.com/aisis/version2.xml';
+			$xml_file = 'http://adambalan.com/aisis/version.xml';
 			$aisis_delete_content = simplexml_load_file($xml_file);
 			$aisis_delete_content_bool = $aisis_delete_content->delete[0];
 			if($aisis_delete_content_bool == 'true'){
@@ -233,7 +233,7 @@
 			 if(current_user_can('update_themes')){
 				$this->cred_check();
 				
-				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis2.zip' );
+				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis.zip' );
 				
 				if(is_wp_error($aisis_temp_file_download)){
 					$error = $aisis_temp_file_download->get_error_code();
