@@ -20,32 +20,6 @@
 	 * =================================================================
 	 */
 	
-	 /**
-	  * This transient will display the 
-	  * minifeed content.
-	  */
-	 function mini_feed_loop(){ 
-		 if ( false === ( $loop_mini = get_transient( 'loop_mini' ) ) ) {
-			 $post_type = array('post_type' => 'mini');
-			 $loop_mini = new WP_Query($post_type);
-			 set_transient('loop_mini', $loop_mini, 3600);
-			 return $loop_mini;
-		 }
-	 }
-	 
-	/**
-	 * delete the transient if we are doing an update.
-	 */ 
-	function mini_feed_transient_delete($post_id) {
-		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
-			return;
-		}	
-		
-		delete_transient('loop-mini');
-	}
-	
-	add_action('save_post', 'mini_feed_transient_delete');	
-	
 	/**
 	 * We want to get the current
 	 * authors id, that is the authors id
