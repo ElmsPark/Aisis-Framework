@@ -38,7 +38,7 @@
 	 }
 
 ?>  
-    <div id="<?php content_id(); ?>">
+    <div id="<?php if(is_front_page()){ content_id_front(); }else{content_id();} ?>">
     	<?php 
 		while(have_posts()) : the_post();?>
         <article class="post clearfix">

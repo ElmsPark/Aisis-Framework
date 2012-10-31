@@ -66,7 +66,17 @@
 			'checked' => checked(1, $options['sidebar_index'], false),
 			'disabled' => check_for_disabled()
 		));		
-		
+
+		$aisis_form->create_aisis_form_element('label', array('value' => 'Remove Sidebar from front Pages?'));
+		$aisis_form->create_aisis_form_element('input', array(
+			'type' => 'checkbox',
+			'name' => 'aisis_core[sidebar_front]',
+			'value'=> 1,
+			'class'=> 'sidebar',
+			'checked' => checked(1, $options['sidebar_front'], false),
+			'disabled' => check_for_disabled()
+		));
+
 		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from pages?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
