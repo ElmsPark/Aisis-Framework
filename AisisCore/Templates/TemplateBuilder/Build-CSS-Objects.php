@@ -130,11 +130,14 @@
 		}
 	}
 	
+	/**
+	 * Build comment id based on the options
+	 */
 	if(!function_exists('comments_id')){
 		function comments_id(){
 			$option = get_option('aisis_core');
-			if($option['sidebar_global'] != 1 && $option['sidebar_single'] != 1 
-			|| $option['sidebar_global'] != 1 && $option['sidebar_page'] != 1){
+			if($option['sidebar_global'] != 1 && $option['sidebar_single'] != 1 ||
+			$option['sidebar_front'] != 1 || $option['sidebar_page'] != 1){
 				echo 'commentsbox';
 			}else{
 				echo 'commentsboxFull';
@@ -142,6 +145,31 @@
 		}
 	}
 	
+	if(!function_exists('comments_id_page')){
+		function comments_id_page(){
+			$option = get_option('aisis_core');
+			if($option['sidebar_page'] != 1){
+				echo 'commentsbox';
+			}else{
+				echo 'commentsboxFull';
+			}
+		}
+	}
+	
+	if(!function_exists('comments_id_front')){
+		function comments_id_front(){
+			$option = get_option('aisis_core');
+			if($option['sidebar_front'] != 1){
+				echo 'commentsbox';
+			}else{
+				echo 'commentsboxFull';
+			}
+		}
+	}
+	
+	/**
+	 * Build the pagnation class based on the options
+	 */
 	if(!function_exists('pagnation_class')){
 		function pagnation_class(){
 			$option = get_option('aisis_core');
@@ -149,6 +177,21 @@
 				echo 'pagnation';
 			}else{
 				echo 'pagnationFull';
+			}
+		}
+	}
+	
+		
+	/**
+	 * If front page build the content_id
+	 */
+	if(!function_exists("content_id_front")){
+		function content_id_front(){
+			$option = get_option('aisis_core');
+			if($option['sidebar_front'] != 1){
+				echo "content";
+			}else{
+				echo "contentFull";
 			}
 		}
 	}
@@ -162,7 +205,14 @@
 	if(!function_exists('build_content_id')){
 		function build_content_id(){
 			$option = get_option('aisis_core');
-			if($option['sidebar_global'] != 1 && $option['sidebar_index'] != 1){
+			if(is_page()){
+				if($option['sidebar_page'] != 1){
+					echo "content";
+				}else{
+					echo "contentFull";
+				}
+			}
+			elseif($option['sidebar_global'] != 1  && $option['sidebar_index'] != 1){
 				echo 'content';
 			}else{
 				echo 'contentFull';

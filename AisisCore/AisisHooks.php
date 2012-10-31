@@ -301,10 +301,13 @@
 						<a href="<?php bloginfo('url')?>"><img src="<?php if($option['image_header'] != '')
 						{echo $option['image_header'];}else{bloginfo('template_directory');?>/images/forest.png<?php } ?>" />
 						</a>
-						<?php }else{
+						<?php }elseif(header_image() != null){
 							?><a href="<?php bloginfo('url')?>">
 							<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" 
 							height="<?php echo get_custom_header()->height; ?>" /></a><?php
+						}else{
+							?><a href="<?php bloginfo('url')?>">
+							<img src="<?php bloginfo('template_directory');?>/images/forest.png" /></a><?php
 						}?></div>
 					</hgroup>
 					<?php aisis_social_media(); ?>
