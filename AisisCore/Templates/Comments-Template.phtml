@@ -104,7 +104,7 @@
 <?php
 	 }elseif(is_page()){		  
 ?>
-      <div id="<?php comments_id(); ?>">
+      <div id="<?php if(is_front_page()){comments_id_front();}else{comments_id_page();} ?>">
               <?php if ( have_comments() ) : ?>
               <hr class="remove-bottom">
                   <h3 id="comments">
