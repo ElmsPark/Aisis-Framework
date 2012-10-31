@@ -74,7 +74,7 @@
 			'value'=> 1,
 			'class'=> 'sidebar',
 			'checked' => checked(1, $options['sidebar_front'], false),
-			'disabled' => disabeled()
+			'disabled' => check_for_disabled()
 		));
 
 		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from pages?'));

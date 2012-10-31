@@ -1089,3 +1089,9 @@ WORDPRESS  - SPECIFIC - Not currently used....
 *************************************************************************************/
 .bypostauthor{}
 .aligncenter{} 
+
+.subscribe-label{
+	width: 180px !important;
+	position: relative;
+	top: -10px;
+}

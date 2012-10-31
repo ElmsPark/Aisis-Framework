@@ -134,7 +134,7 @@
 		function comments_id(){
 			$option = get_option('aisis_core');
 			if($option['sidebar_global'] != 1 && $option['sidebar_single'] != 1 
-			|| $option['sidebar_global'] != 1 && $option['sidebar_page'] != 1){
+			|| $option['sidebar_front'] != 1 && $option['sidebar_page'] != 1){
 				echo 'commentsbox';
 			}else{
 				echo 'commentsboxFull';
@@ -162,7 +162,7 @@
 	if(!function_exists('build_content_id')){
 		function build_content_id(){
 			$option = get_option('aisis_core');
-			if($option['sidebar_global'] != 1 && $option['sidebar_index'] != 1){
+			if($option['sidebar_global'] != 1 && $option['sidebar_front'] != 1 && $option['sidebar_index'] != 1){
 				echo 'content';
 			}else{
 				echo 'contentFull';
