@@ -18,7 +18,7 @@
 	 *		
 	 *		@author: Adam Balan
 	 *		@version: 1.0
-	 *		@package: AisisCore
+	 *		@package: Aisis->AisisCore
 	 *
 	 * =================================================================
 	 */
@@ -37,24 +37,21 @@
 	 require_once(AISISCORE . 'Class-Aisis-Package-Loader.php');
 	 require_once(AISISCORE . 'Class-Aisis-Core-Update.php');
 	 require_once(AISISCORE . 'Class-Core-Exception.php');
-	 //Build the  front end
 	 require_once(AISIS_TEMPLATES . 'BuildAisisTheme.php');
-	 
 	 
 	 //instantiate the class
 	 $aisis_package_loader = new AisisPackageLoader();
 	 
 	 //Load the packages.
-	 $aisis_package_loader->load_aisis_admin_panel_package();
+	 aisis_load_admin_panel();
 	 $aisis_package_loader->load_aisis_codes_package();
 	 $aisis_package_loader->load_aisis_view_package();
 	 $aisis_package_loader->load_aisis_social_media_package();
+	 $aisis_package_loader->load_aisis_template_builder();
 	 if(does_plugin_exist('bbpress/bbpress.php')){$aisis_package_loader->load_aisis_bbpress();}
 	 
 	 //When the theme if first activated.
-	 $aisis_activation = new AisisActivation();
-	 $aisis_activation->aisis_do_on_load();
-	 $aisis_activation->check_plugin_is_activated('bbpress/bbpress.php', 'bbpress');
+	 aisis_activation();
 	
 	 /**
 	  * Why are we doing this? so we (Aisis) can use
@@ -66,6 +63,7 @@
 		 wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
 		 wp_enqueue_script('jquery', false, true);
 	 }
+	 
 	 add_action('wp_enqueue_scripts', 'aisis_jq_cdn');
 	 
 	 /**
@@ -87,11 +85,11 @@
 	 	wp_enqueue_style( 'camera-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/flexslider.css'); //Load Camera css
 	 	wp_enqueue_style( 'snipit-code-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/snipit.css'); //Load Snipit Css
 	 	wp_enqueue_style( 'tweet-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.jtweetsanywhere-1.3.1.css'); //Load twitter css
+		wp_enqueue_style( 'rainbow-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/github.css'); //rainbow language css
 		wp_enqueue_style( 'custom-style', CUSTOM_NONPHP.'custom-css.css'); //custom css
 	 	wp_enqueue_style( 'thickbox');
 	 	wp_enqueue_script( 'main-site', get_template_directory_uri() . '/lib/Javascript/mainSite.js', array('jquery'), false, true ); //Load Core JS
 	 	wp_enqueue_script( 'tip-tip', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.tipTip.minified.js', array('jquery'), false, true ); //Loadtip tip js
-	 	wp_enqueue_script( 'flex', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.flexslider-min.js', array('jquery'), false, true ); //Load flex slider
 	 	wp_enqueue_script( 'toast', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.toastmessage.js', array('jquery'), false, true ); //Load toastmessage js
 	 	wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true); //Load ThickBox
 	 	wp_enqueue_script( 'snipit-code', get_template_directory_uri() . '/lib/Javascript/plugins/jquery.snipit.js', array('jquery'), false, true ); //Load jquery snipit
@@ -100,6 +98,8 @@
 	 	wp_enqueue_script( 'jstweet', get_template_directory_uri() . '/lib/Javascript/plugins/jtweetsanywhere-de-1.3.1.js', false, true ); //Load jquery tweet
 	 	wp_enqueue_script( 'apitwitter', 'http://platform.twitter.com/anywhere.js?id=APIKey&v=1'); //Load jquery tweet
 		wp_enqueue_script( 'custom-js', CUSTOM_NONPHP.'custom-js.js', array('jquery'), false, true); //load custom js
+		wp_enqueue_script( 'rainbow', get_template_directory_uri() . '/lib/Javascript/plugins/rainbow.min.js', false, true ); //Load rainbow
+		wp_enqueue_script( 'rainbow-generic-language', get_template_directory_uri() . '/lib/Javascript/plugins/generic.js', false, true ); //Load rainbow
 	 	if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );
 		
 	 }
@@ -123,5 +123,4 @@
 	 }
 	 
 	 add_action( 'wp_head', 'aisis_viewport_tag', 999 );
-	 
 ?>

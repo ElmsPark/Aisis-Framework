@@ -92,9 +92,7 @@
 		 */
 		function aisis_get_dir($dir){
 			if(!$this->check_dir($dir)){
-				echo new AisisCoreException('<p><strong>Fatal: </strong> Could not locate the directory you were trying 
-				to find. Heres a dump of what you passed in: </p>'. 
-				'<pre>'.aisis_var_dump($dir).'</pre>' . '<p>For more info - WordPress has spit out some additional details bellow.</p>');
+				_e("<div class='err'>".new DirException("<strong>The Directory: ".$dir." is not a directory</strong>")."</div>");
 			}
 			
 			$handler = opendir($dir);
@@ -248,8 +246,8 @@
 		
 		function get_directory_of_files($path, $filename, $extension){
 			if(!is_dir($path)){
-				echo new AisisCoreException('<p><strong>Fatal: </strong> Could not locate the directory you passed in. Heres a dump of what you passed in: </p>'. 
-				'<pre>'.aisis_var_dump($path).'</pre>' . '<p>For more info - WordPress has spit out some additional details bellow.</p>');
+				_e("<div class='err'>".new DirException("<strong>The directory you passed in: ".$path." is not
+				a directory.</strong>")."</div>");
 			}
 
 			if($this->check_exists($filename, true)){

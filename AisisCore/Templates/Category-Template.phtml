@@ -26,12 +26,10 @@
 	 *
 	 * =================================================================
 	 */
-	 $option_sidebar_index = get_option('aisis_core_theme_setting_sidebar_index');
-	 $option_sidebar_global = get_option('aisis_core_theme_setting_sidebar_global');	 
+	 $options = get_option('aisis_core');	 
 ?>
 
-	<div id="<?php if($option_sidebar_index['no_sidebar_index'] != 1 
-	&& $option_sidebar_global['no_sidebar_global'] != 1){echo 'category'; }else{ echo 'categoryFull'; } ?>">
+	<div id="category">
 		<article class="post clearfix">
 			<header>
 				<h1><?php single_cat_title(); ?></h1>
@@ -61,11 +59,11 @@
                         if($tag_id != '' || $post_tag != ''){
                         echo '<a href="'.get_tag_link($tag_id).'">'.$post_tag->name.'</a>, ';
                         }else{
-                            echo 'This category seems to have no tags.';
+                            echo '<br /> This category seems to have no tags.';
                         }
                     }
                 }else{
-                    echo 'This category seems to have no tags.';
+                    echo '<br /> This category seems to have no tags.';
                 }
                         
                 ?>

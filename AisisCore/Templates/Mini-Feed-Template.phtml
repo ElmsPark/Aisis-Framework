@@ -1,0 +1,29 @@
+<?php
+	 global $post;
+	 
+	 $options = get_option('aisis_core');
+	 
+	 $query = array('post_type' => 'mini', 'order' => 'DESC');
+	 $new_query = new WP_Query($query);
+	 
+?>
+	 
+    <?php
+	if($options['mini_global'] != 1){ 
+	if( $new_query->have_posts()){?>
+    <div id="miniFeedWrapper">
+    	<?php while ( $new_query->have_posts()) :  $new_query->the_post();?>
+    	<div class="miniFeed">
+        	<div class="title">
+            <img src="<?php echo get_post_meta($post->ID, 'aisis_content_img', true);?>" width="32" height="32"/>
+            <?php echo get_the_title();?>
+            </div>
+            <p><?php echo the_content();?></p>
+            <div class="readMore">
+            	<a href="<?php echo get_post_meta($post->ID, 'aisis_content_link', true);?>">Read More</a>
+            </div>
+        </div>
+        <?php endwhile; ?>                   
+    </div>
+   	<?php } 
+	}?>	 

@@ -26,7 +26,7 @@
 	class AisisUpdate implements IAisisCoreUpdate{
 
 		private $aisis_current_theme_version;
-		public $credential_check;
+		private $credential_check;
 				
 		/**
 		 * Default constructor. We set up the option
@@ -92,7 +92,7 @@
 		 * on the server
 		 */
 		function check_theme_version(){
-			$version_url = 'http://adambalan.com/aisis/version2.xml';
+			$version_url = 'http://adambalan.com/aisis/version.xml';
 			$aisis_update_xml_object = simplexml_load_file($version_url);
 			$aisis_version = $aisis_update_xml_object->version[0];
 			return trim($aisis_version);
@@ -106,7 +106,7 @@
 		 * true or false based on whats in our xml file.
 		 */
 		function delete_contents_check(){
-			$xml_file = 'http://adambalan.com/aisis/version2.xml';
+			$xml_file = 'http://adambalan.com/aisis/version.xml';
 			$aisis_delete_content = simplexml_load_file($xml_file);
 			$aisis_delete_content_bool = $aisis_delete_content->delete[0];
 			if($aisis_delete_content_bool == 'true'){
@@ -155,12 +155,10 @@
 			if(function_exists('wp_get_theme')){
 				if(wp_get_theme()->exists()){
 					$this->aisis_current_theme_version = wp_get_theme();
-					//aisis_var_dump($this->aisis_current_theme_version, true);
 				}
 			}else{
 				$this->aisis_current_theme_version = wp_get_theme(get_theme_root() . '/Aisis/style.css');
 			}
-			//aisis_var_dump($this->aisis_current_theme_version->Version, true);
 			return $this->aisis_current_theme_version->Version;
 		}
 		
@@ -169,7 +167,7 @@
 		 * in relation to the update.
 		 */
 		private function aisis_framework_download_update_erors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> Seems we could not locate the url we need to do the update.</p>');
+			_e("<div class='err'>".new InvalidURLException('<strong>We could not locate the url you are requesting.</strong>')."</div>");
 		}
 		
 		/**
@@ -177,7 +175,7 @@
 		 * relation to incompatible archives.
 		 */
 		private function aisis_incompatible_archive_errors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> The archive you downloaded is imcompatible with what need, which is a .zip.</p>');													
+			_e("<div class='err'>".new UpdateIssuesException('<strong>The archive we downloaded is incompatible with wordpress standards. </strong>')."</div>");														
 		}
 		
 		/**
@@ -185,7 +183,7 @@
 		 * relation to empty archives.
 		 */
 		private function aisis_empty_archive_errors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> Seems the archive is a bit empty.</p>');
+			_e("<div class='err'>".new UpdateIssuesException('<strong>This archive that we downloaded for the update seems to be empty. </strong>')."</div>");	
 		}
 		
 		/**
@@ -193,8 +191,8 @@
 		 * relation to making a directory or directories.
 		 */
 		private function aisis_mkdir_failed_errors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> We cannot make a temp directory and thus we cannot continue with the update process. Please check your server
-			configuration or use FTP to upload the new version of Aisis.</p>');			
+			echo "<div class='err'>We could not make the directories we need to make to complete the install. We advise you to
+			check your server configuration <strong>or</strong> download the update and use FTP to update.</div>";				
 		}
 		
 		/**
@@ -202,7 +200,12 @@
 		 * relation to copying files from the archive to the theme directory.
 		 */
 		private function aisis_copy_failed_errors(){
-			echo new AisisCoreException('<p><strong>Fatal: </strong> We could not copy the contents from the zip archive to the theme directory. Unknown error.</p>');	
+			_e("<div class='err'>".new UpdateIssuesException('<strong>We have failed to copy the files from the archive to the theme directory. This could be because of your Server configuration or the archive was corrupt. Please try again or download the update and use FTP to update.</strong>')."</div>");	
+		}
+		
+		private function need_credentials(){
+			_e("<div class='err'>We cannot do a auto silent update due to the fact that you need to
+			provide the ftp credentials</div>");			
 		}
 
 		/**
@@ -224,17 +227,13 @@
 		 * @return boolean of type True/False
 		 */
 		 function get_latest_version_zip(){
-			 global $wp_filesystem;
-			 add_option('update_success', '', '', 'yes');
+			 
+			 $options = get_option('aisis_core');
+			 
 			 if(current_user_can('update_themes')){
-				$aisis_file_system_structure = WP_Filesystem();
-				$aisis_cred_url = 'admin.php?page=aisis-core-update';
-				if($aisis_file_system_structure == false){
-					request_filesystem_credentials($aisis_cred_url);
-					$this->credential_check = true;
-				}
+				$this->cred_check();
 				
-				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis2.zip' );
+				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis.zip' );
 				
 				if(is_wp_error($aisis_temp_file_download)){
 					$error = $aisis_temp_file_download->get_error_code();
@@ -266,11 +265,23 @@
 						$this->aisis_copy_failed_errors();
 					}
 					return;
-				}else{
-					update_option('update_success', 'true');
-					wp_redirect(admin_url('admin.php?page=aisis-core-options'));
 				}
+				
+				wp_redirect(admin_url('admin.php?page=aisis-core-options'));
 			 }
+		 }
+		 
+		 /**
+		  * credntial check
+		  */
+		 function cred_check(){
+			$aisis_file_system_structure = WP_Filesystem();
+			if($aisis_file_system_structure == false){
+				add_action('admin_notices', 'need_credentials');
+				return true;
+			}
+			
+			return false;			 
 		 }
 		 
 		 /**
@@ -281,10 +292,11 @@
 		  * just updates the code for you.
 		  */
 		 function auto_silent_update(){
-			 if($this->check_for_udate_bool()){
-				 $this->get_latest_version_zip();
+			 if($this->cred_check() == false){
+				 if($this->check_for_udate_bool()){
+					 $this->get_latest_version_zip();
+				 }
 			 }
 		 }
 	}
-
 ?>

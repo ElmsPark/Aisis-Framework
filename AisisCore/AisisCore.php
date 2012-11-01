@@ -19,75 +19,33 @@
 	 *
 	 * =================================================================
 	 */
-	  
-	 /**
-	  * transient for the slides
-	  * to display them.
-	  */
-	 function header_slide_loop(){ 
-		 if (false === ($loop = get_transient('loop'))) {
-			 $slides_to_show = array( 'post_type' => 'slides');
-			 $loop = new WP_Query($slides_to_show);
-			 set_transient('loop', $loop, 3600);
-			 return $loop;
+	
+	/**
+	 * We want to get the current
+	 * authors id, that is the authors id
+	 * we are looking at when viewing their
+	 * "profile"
+	 */
+	function aisis_get_author_id(){
+		 if($_GET['author'] != ''){
+			 return $_GET['author'];
 		 }
 	 }
 	
 	/**
-	 * delete the transient if we are doing an update.
-	 */ 
-	function header_slide_loop_delete($post_id) {
-		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
-			return;
+	 * If is child theme do not display update messages
+	 * because this package is not included.
+	 */
+	if(!is_child_theme()){
+		function display_message(){
+			$aisis_update_check = new AisisUpdate();
+			$aisis_update_check->check_for_update_with_message();
 		}
 		
-		delete_transient('loop');
-	}
-	
-	add_action('save_post', 'header_slide_loop_delete');
-	
-	
-
-	 /**
-	  * This transient will display the 
-	  * minifeed content.
-	  */
-	 function mini_feed_loop(){ 
-		 if ( false === ( $loop_mini = get_transient( 'loop_mini' ) ) ) {
-			 $post_type = array('post_type' => 'mini');
-			 $loop_mini = new WP_Query($post_type);
-			 set_transient('loop_mini', $loop_mini, 3600);
-			 return $loop_mini;
-		 }
-	 }
-	 
-	/**
-	 * delete the transient if we are doing an update.
-	 */ 
-	function mini_feed_transient_delete($post_id) {
-		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
-			return;
-		}	
-		
-		delete_transient('loop-mini');
-	}
-	
-	add_action('save_post', 'mini_feed_transient_delete');	
-	
-	function display_message(){
-		$aisis_update_check = new AisisUpdate();
-		$aisis_version = $aisis_update_check->check_theme_version();
-		if($aisis_update_check->check_for_udate_bool()){
-			echo "<div class='globalThemeNotice'><strong>Update Available!!!</strong> - It seems that Aisis currently has an update
-			for you. You seem to be running version: <strong>".$aisis_update_check->get_current_theme_version()."</strong>
-			where as we have: <strong>".$aisis_version."</strong>. It is recomended that you 
-			<a href='".admin_url('admin.php?page=aisis-core-update')."'>update to the latest version</a>.
-			You can read the <a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650'
-			 class='thickbox' title='Aisis Version Info'>update logs</a>. </div>";
+		if(function_exists('display_message')){
+			add_action('admin_notices', 'display_message');
 		}
 	}
-	
-	add_action('admin_notices', 'display_message');
 	 
 	 $aisis_default = array(
 		'default-image'          => '',
@@ -112,7 +70,10 @@
 		add_theme_support('custom-header', $aisis_default);
 	}
 	
-	//Sidebar jazz
+	/**
+	 * This deals with where widgets can be placed.
+	 * such as the sidebar or footer
+	 */
 	if (function_exists('register_sidebar')){
 		register_sidebar(array(
 		'name' => 'Sidebar',
@@ -138,6 +99,7 @@
 			'before_title' => '<h4 class="widgettitle">',
 			'after_title' => '</h4>',
 			));
+			
 			register_sidebar(array(
 			'name'=>'bbpress_footer',
 			'before_widget' => '<div class="block"><section class="footerWidget">',
@@ -165,7 +127,7 @@
 		function aisis_excerpt(){
 			global $post;
 			$options = get_option('aisis_core_theme_setting_sidebar_search');
-			if($options['no_sidebar_search'] != 1 && $option_global['no_sidebar_global'] != 1)
+			if($option_global['sidebar_global'] != 1)
 			{ 
 				$css_class =  'readMore'; 
 			}else{ 
@@ -193,12 +155,24 @@
 	   return $html;
 	}
 	
+	
 	//plugin checker
 	function does_plugin_exist($path_to_plugin_file){
 		return is_plugin_active($path_to_plugin_file);
 	}
 	
 	if(!isset($content_width)){$content_width = 550;}
+	
+	
+	function get_categories_for_post(){
+		global $post;
+		$catgeories = get_the_category($post->ID);
+		
+		foreach($catgeories as $cat){
+			echo '<a href="'.get_category_link($cat->term_id).'">'.$cat->cat_name.'</a>, ';
+		}
+		
+	}
 	
 	add_filter('pre_get_posts','aisis_search_filter');
 	add_filter('embed_oembed_html', 'theme_youtube_handler', 10, 4);

@@ -4,7 +4,7 @@
 	Description: A theme framework for developing rich, interactive child themes.
 	Author: Adam Balan
 	Author URI: http://adambalan.com
-	Version: 1.0.6
+	Version: 1.1
 	Tags: custom-menu, flexible-width, full-width-template, gray, light, one-column, sticky-post, theme-options, threaded-comments, white
 	License: Aisis  Copyright (C) 2012  Adam Balan
 	This program comes with ABSOLUTELY NO WARRANTY.
@@ -16,7 +16,7 @@
  *
  *		This is the core style sheet for the Aisis Theme/Framework.
  *		You should NOT be editing this file in any way shape or form.
- *		instead use the /lib/custom/custom-css.css file to make changes
+ *		instead use the /assets/custom/custom-css.css file to make changes
  *		and edits to this css file.
  *
  *		This file contains 7 errors according the W3C standards.
@@ -154,10 +154,11 @@ HEADER
 }
 #siteLogo img{
 	width: 980px;
-	height: 119px;
+	height: 120px;
 	max-width: 100%;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius:5px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	margin-top: -8px;
 }
 #siteLogo a {
 	font: bold 30px/100% 'Open Sans', sans-serif;;
@@ -166,8 +167,8 @@ HEADER
 }
 
 .socialMediaLink {
-	margin: -46px 0 10px 0px;
-	z-index: 999999;
+	margin: -32px 0 10px 0px;
+	z-index: 999;
 	width: 50%;
 }
 .socialMediaLink img {
@@ -250,7 +251,7 @@ HEADER
 	box-shadow:2px 2px 4px rgba(0,0,0,0.3)
 }
 .miniFeed .readMore a {
-	color:rgb(31,55,70);
+	color:#026ACB;
 }
 .miniFeed .readMore a:hover {
 	text-decoration: underline;
@@ -312,7 +313,7 @@ MAIN NAVIGATION
 #nav ul li:hover a, #nav li:hover li a {
 	background: none;
 	border: none;
-	color: #666;
+	color:rgb(0,133,178);
 	box-shadow: none;
 }
 #nav ul a:hover {
@@ -372,6 +373,10 @@ MAIN NAVIGATION
 #nav ul li:last-child > a {
 	border-bottom-left-radius: 4px;
 	border-radius-bottom-left: 4px;
+}
+
+#nav ul li a:hover{
+	text-decoration:underline;
 }
 
 /* clearfix */
@@ -496,11 +501,11 @@ CONTENT
 }
 
 #contentFull, #authorFull, #categoryFull, .stickyFull{
-	width: 93%;
+	width: 95%;
 }
 
 #contentNoBackFull{
-	width: 62%;
+	width: 95%;
 }
 
 .post{
@@ -639,6 +644,42 @@ CONTENT
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.6)), color-stop(100%, rgba(255,255,255,.15)));
 	background: linear-gradient(top, rgba(255,255,255,0.6) 0%, rgba(255,255,255,.15) 100%);
 }
+.redButton, .greenButton, .blueButton{
+	background-color: #00678C;
+	width: 225px;
+	height: 20px;
+	border-radius: 4px;
+	padding: 10px;
+	cursor: pointer;
+	text-align: center;
+	margin: 20px 0;
+}
+
+.redButton:hover, .greenButton:hover, .blueButton:hover{
+	box-shadow:0px 0px 10px 4px rgba(170,170,170,0.45);
+}
+
+.redButton{
+	background-color:rgb(140,0,0);
+}
+
+.greenButton{
+	background-color:rgb(26,102,0);
+}
+
+.redButton .text, .greenButton .text, .blueButton .text{
+	margin: 0 auto;
+	font-size: 22px;
+	color: white;
+	text-decoration:none;
+}
+.editor{
+	position:absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
 .postImageFull{
 	width: 800px;
 }
@@ -675,7 +716,6 @@ CONTENT
 .pagnationFull{
 	width: 100%;
 	float: left;
-	margin: 0 0 10px 150px;
 	padding-bottom: 7px;
 	height: 18px;
 	border-color: #999;
@@ -815,6 +855,12 @@ ol.commentlist li ul.children {
 #commentform p {
 	color : #888;
 	margin : 5px 0;
+	clear: left;
+}
+.required{
+	float:left;
+	margin-left:-10px;
+	margin-top:3px;
 }
 #respond label {
 	color: #888;
@@ -827,9 +873,29 @@ ol.commentlist li ul.children {
 	margin : 0 10px 10px 0;
 	padding : 5px;
 }
-#commentform input {
+
+#commentform input[type="text"], #commentform input[type="url"] {
 	width : 50%;
+	margin-left:10px;
+	background-color: white;
+	border-color: #DDD;
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: solid;
+	box-shadow: 0px 5px 9px rgba(204, 204, 204, 0.3);
 }
+
+.comment-notes{
+	margin-bottom: 15px !important;
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	color: #333;
+	padding: 5px 0 0 15px;
+	font-size: 13px;
+	border-radius: 5px;
+	clear: both;
+}
+
 #respond input#commentSubmit {
 	width : 100px;
 	background : #333;
@@ -1024,3 +1090,9 @@ WORDPRESS  - SPECIFIC - Not currently used....
 *************************************************************************************/
 .bypostauthor{}
 .aligncenter{} 
+
+.subscribe-label{
+	width: 180px !important;
+	position: relative;
+	top: -10px;
+}

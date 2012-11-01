@@ -1,4 +1,5 @@
 <?php
+
 	/**
 	 *
 	 * ==================== [DONT TOUCH THIS FILE!] ====================
@@ -16,15 +17,12 @@
 	 *
 	 * =================================================================
 	 */
-	 
 	global $post;
 	$values = get_post_custom( $post->ID );
-	
 	$aisis_create_form_elements = new AisisForm();
 ?>
 
     <div class="aisis_meta_control">
-        
           <div class="metaNotice"><strong>Note:</strong> Mini feeds can be used to display summaries about Articles and Essays or about special posts or about almost anything you want
           </div>
           <br  />
@@ -49,26 +47,7 @@
 			  }
 			  
               ?>
-          </p>  
-          <p>
-			  <?php
-			  $aisis_create_form_elements->create_aisis_form_element('label', array('for'=>'aisis_content_desc',
-			  'value'=>'Enter a small summary about said content fo the feed.'));
-              if(isset($values['aisis_content_desc']) && !empty($values['aisis_content_desc'])){
-				  $aisis_create_form_elements->create_aisis_form_element('textarea', array(
-				  		'name' => 'aisis_content_desc',
-						'id' => 'aisis_content_desc',
-						'value' => $values['aisis_content_desc'][0]
-				  ));				  
-			  }else{
-				  $aisis_create_form_elements->create_aisis_form_element('textarea', array(
-				  		'name' => 'aisis_content_desc',
-						'id' => 'aisis_content_desc',
-						'value' =>''
-				  ));				  
-			  }
-              ?>
-          </p>  
+          </p>    
           <p>
 			  <?php
 			  $aisis_create_form_elements->create_aisis_form_element('label', array('for'=>'aisis_content_img', 
@@ -113,6 +92,5 @@
 			jQuery('#aisis_content_img').val(imgurl);
 			tb_remove();
 		}
-	
 	});
     </script>
