@@ -72,6 +72,7 @@
 			   wp_enqueue_script( 'css-editor-search', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/searchcursor.js', array('jquery'), false, true );
 			   wp_enqueue_script( 'css-editor-highlight', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/match-highlighter.js', array('jquery'), false, true );
 			   wp_enqueue_script( 'fancy-box-js', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery.fancybox.pack.js', false, true ); 	
+			   wp_enqueue_script( 'colorPicker', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/ColorPicker/js/colorpicker.js', false, true ); 
 					   
 		   }
 		}
@@ -89,6 +90,7 @@
 				wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css');
 				wp_enqueue_style( 'color-Box', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/ColorBox.css');
 				wp_enqueue_style( 'fancy-box-css', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/jquery.fancybox.css'); 
+				wp_enqueue_style( 'colorPicker', get_template_directory_uri() . '/AisisCore/AdminPanel/assets/ColorPicker/css/colorpicker.css'); 
 				wp_enqueue_style('thickbox');
 			}
 		}
@@ -124,6 +126,5 @@
 			add_action('admin_enqueue_scripts', 'aisis_load_admin_js' );
 			add_filter('upload_dir', 'aisis_change_image_upload_path');			
 		}	 
-}
-
+	}
 ?>

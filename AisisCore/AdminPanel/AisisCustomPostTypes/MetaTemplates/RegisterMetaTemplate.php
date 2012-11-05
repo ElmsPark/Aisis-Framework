@@ -21,6 +21,4 @@
 			$aisis_template_loader->aisis_register('Aisis-Mini-Feeds-Meta-Template.phtml', AISIS_CUSTOM_POST_TYPES_META); 
 		 }
 	 }	 	
-	 
-
 ?>

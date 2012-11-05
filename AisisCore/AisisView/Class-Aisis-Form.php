@@ -11,7 +11,7 @@
 	 *
 	 *		@author: Adam Balan
 	 *		@since: 1.0
-	 *		@package: AisisCore->Exceptions
+	 *		@package: AisisCore->AisisView
 	 *
 	 *
 	 * =================================================================

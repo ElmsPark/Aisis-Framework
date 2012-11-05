@@ -31,7 +31,7 @@
 		$option = get_option('aisis_core');
 		$aisis_form = new AisisForm();
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Set the 404 message'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Create a 404 error message.'));
 		$aisis_form->create_aisis_form_element('textarea', array(
 			'rows'=>50,
 			'cols'=>50,
@@ -39,7 +39,7 @@
 			'value'=>get_value('404_message')
 		));
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Set the default Author message'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Create the default author description text.'));
 		$aisis_form->create_aisis_form_element('textarea', array(
 			'rows'=>50,
 			'cols'=>50,
@@ -47,7 +47,7 @@
 			'value'=>get_value('author')
 		));
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Set the default Category message'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Create the default category message.'));
 		$aisis_form->create_aisis_form_element('textarea', array(
 			'rows'=>50,
 			'cols'=>50,
@@ -55,7 +55,7 @@
 			'value'=>get_value('category')
 		));
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Set the Left Footer text area'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Create the left hand side footer text.'));
 		$aisis_form->create_aisis_form_element('textarea', array(
 			'rows'=>50,
 			'cols'=>50,
@@ -63,7 +63,7 @@
 			'value'=>get_value('left_footer')
 		));	
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Set the Right Footer text area'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Create the right hand side footer text.'));
 		$aisis_form->create_aisis_form_element('textarea', array(
 			'rows'=>50,
 			'cols'=>50,

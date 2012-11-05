@@ -873,6 +873,7 @@ ol.commentlist li ul.children {
 	margin : 0 10px 10px 0;
 	padding : 5px;
 }
+
 #commentform input[type="text"], #commentform input[type="url"] {
 	width : 50%;
 	margin-left:10px;

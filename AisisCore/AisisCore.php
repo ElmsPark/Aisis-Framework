@@ -47,7 +47,7 @@
 		}
 	}
 	 
-	 $aisis_default = array(
+	 $aisis_default_image = array(
 		'default-image'          => '',
 		'random-default'         => false,
 		'width'                  => 980,
@@ -61,13 +61,18 @@
 		'admin-head-callback'    => '',
 		'admin-preview-callback' => '',
 	);
+	
+	$aisis_default_background = array(
+		'default-color' => 'ffffff'
+	);
 
 	//We want to add post thumbnail support
 	if(function_exists('add_theme_support')){
 		add_theme_support('post-thumbnails');
 		add_theme_support('post-formats', array('aside', 'link', 'gallery', 'status', 'quote', 'image'));
 		add_theme_support('automatic-feed-links');
-		add_theme_support('custom-header', $aisis_default);
+		add_theme_support('custom-header', $aisis_default_image);
+		add_theme_support('custom-background', $aisis_default_background);
 	}
 	
 	/**
