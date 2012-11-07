@@ -19,6 +19,29 @@
 	 *
 	 * =================================================================
 	 */
+	 
+	/**
+	 * This function handels get requests
+	 * it is essentially a wrapper for $_GET
+	 */
+	 function aisis_get_request($key = null){
+		 if($key != null){
+			 return $_GET[$key];
+		 }else{
+			 return $_GET;
+		 }
+	 }
+	 
+	 /**
+	  * deals with getting post requests.
+	  */
+	 function aisis_get_post($key = null){
+		 if($key != null){
+			 return $_POST[$key];
+		 }else{
+			 return $_POST;
+		 }
+	 }
 	
 	/**
 	 * We want to get the current
