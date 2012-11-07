@@ -54,6 +54,19 @@
 			 return $_GET['author'];
 		 }
 	 }
+	 
+	 /**
+	  * This is responsible for returning true or false based
+	  * on if the pages were onare not null.
+	  */
+	 function bbpress_check_pages(){
+		 if(aisis_get_request('forum') != null || aisis_get_request('topic') != null 
+		 || aisis_get_request('post_type') != null){
+			 return true;
+		 }else{
+			 return false;
+		 }
+	 }
 	
 	/**
 	 * If is child theme do not display update messages
