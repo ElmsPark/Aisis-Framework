@@ -42,22 +42,22 @@
     	$option = get_option('aisis_core');
     ?>
     </title>
-    
     <?php 
 	if($option['aisis_link_color'] != '' && $option['aisis_header_colors']){?>
 		<style>
-        #content a, #sidebar a{
-            color:#<?php echo $option['aisis_link_color']; ?> !important;
-        }
-        
-        h1, h2, h3, h4{
-            color:#<?php echo $option['aisis_header_colors']; ?> !important;
-        }
-        </style>
-    <?php 
+		#content a, #sidebar a{
+			color:#<?php echo $option['aisis_link_color']; ?> !important;
+		}
+		
+		h1, h2, h3, h4{
+			color:#<?php echo $option['aisis_header_colors']; ?> !important;
+		}
+		</style>
+	<?php 
 	}
 	
-	wp_head();
+	wp_head(); 
+	
 	?>
     </head>
     

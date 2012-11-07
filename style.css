@@ -82,7 +82,8 @@ p {
 ul, ol {
 	margin: 1em 0 1.4em 24px;
 	padding: 0;
-	line-height: 140%;
+	line-height: 1.8em%;
+	font-size: 14px;
 }
 li {
 	margin: 0 0 .5em 0;
