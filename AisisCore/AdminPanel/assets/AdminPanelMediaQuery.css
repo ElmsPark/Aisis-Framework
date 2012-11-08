@@ -59,9 +59,24 @@
 	#upload_image_button {
 		margin-left: 13px;
 	}
-
+	
+	.alignForm input[type="text"]{
+		width:46.5%;
+		margin-left: 142px
+	}
 }
-@media screen and (max-width:980px) {
+@media screen and (max-width:960px) {
+	.alignForm input[type="input"]{
+		margin-right: 50px;
+		position: relative;
+		top: -34px;
+		width: 60%;
+	}
+	
+	.alignForm input[type="text"] {
+		width: 61.5%;
+		margin-left: 178px;
+	}	
 }
 @media screen and (max-width:768px) {
 }

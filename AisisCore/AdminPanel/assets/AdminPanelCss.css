@@ -41,6 +41,7 @@ h2{
 	font-size:50px;
 	padding: 25px;
 	margin-bottom:25px;
+	line-height: 1.2em;
 }
 
 #top .title input[typee=submit]{
@@ -236,18 +237,22 @@ a.imagehover:hover img {
 	padding-left: 20px;
 }
 
+.alignForm input[type="checkbox"]{
+	position:relative;
+	top: 14px;
+}
+
 .alignForm input[type="checkbox"], .alignForm input[type="radio"], .alignForm input[type="input"]{
 	float: right;
 	width: 2%;
-	text-align: left;
-	margin-top: 12px;
-	padding-top: 7px;
-	margin-right: 340px;
+	margin-right: 36%;
 }
 
 .alignForm input[type="input"]{
-	width:50%;
+	width: 45%;
 	margin-top: 0px;
+	position: relative;
+	top: -34px;
 }
 
 .alignForm input[type="radio"]{
@@ -256,11 +261,19 @@ a.imagehover:hover img {
 
 
 .alignForm input[type="text"]{
-	float: right;
 	text-align: left;
 	padding-top: 7px;
-	margin-right: 67px;
-	width: 40%;
+	margin-left: 125px;
+	margin-bottom: 10px;
+	width: 47%;
+	position: relative;
+	top: -30px;
+}
+
+.alignForm input[type="url"]{
+	text-align: left;
+	float:left;
+	width:50%;
 }
 
 .alignForm input[type="submit"]{
@@ -283,6 +296,10 @@ a.imagehover:hover img {
 	float:left;
 }
 
+#aisis_link_color, #aisis_header_colors{
+	width: 24%;
+}
+
 
 input[type="submit"]{
 	background-color:rgb(192,210,181) !important;
@@ -300,15 +317,15 @@ input[type="submit"]{
 }
 
 #upload_image_button, #upload_aisis_header{
-	background-color:rgb(192,210,181) !important;
-	width:auto;
-	padding:5px;
-	border-color:rgb(119,119,119);
-	border-width:1px;
-	border-radius:5px;
-	border-style:solid;
+	background-color: #C0D2B5 !important;
+	width: auto;
+	padding: 5px;
+	border-color: #777;
+	border-width: 1px;
+	border-radius: 5px;
+	border-style: solid;
 	clear: both;
-	margin: 5px 0 0 0px;
+	margin: 42px 0 0 5px;
 }
 
 #slider_mini_global{

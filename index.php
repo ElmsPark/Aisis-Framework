@@ -21,7 +21,7 @@
 	
 		?><!--[if lt ie 8]>
 		<div class="notice">
-			This site is not supported by IE 6 or lower please consider upgrading
+			This site is not supported by IE 7 or lower please consider upgrading
 		</div>
 		<![endif]--><?php
 		
