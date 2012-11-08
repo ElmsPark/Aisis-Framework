@@ -39,7 +39,7 @@
 		$option = get_option('aisis_core');
 		$aisis_form = new AisisForm();
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from the site?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show MiniFeeds at all?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[mini_global]',
@@ -48,7 +48,7 @@
 			'id' => 'mini_global'
 		));	
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Articles and Essays?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show MiniFeeds on the front page?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[mini_front]',
@@ -58,7 +58,7 @@
 			'class' => 'mini'
 		));	
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from list of Posts'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show MiniFeeds when looking at a list of posts?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[mini_index]',
@@ -68,7 +68,7 @@
 			'class' => 'mini'
 		));	
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Single posts?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show MiniFeeds when looking at a single post?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[mini_single]',
@@ -78,7 +78,7 @@
 			'class' => 'mini'
 		));	
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Pages?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show MiniFeeds on Pages?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[mini_page]',
@@ -88,7 +88,7 @@
 			'class' => 'mini'
 		));	
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Author Page?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show MiniFeeds when viewing an authors page?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[mini_author]',
@@ -98,7 +98,7 @@
 			'class' => 'mini'
 		));		
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove the Mini Feed(s) from Articles and Essays?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show MiniFeeds when viewing a list of Articles and Essays?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[mini_ae]',
@@ -113,7 +113,7 @@
 	  $aisis_form = new AisisForm();
 	  $bbpress_options = get_option('aisis_core_bbpress');
 	  
-	  $aisis_form->create_aisis_form_element('label', array('value'=>'remove the Mini Feed(s) from BBPress?'));
+	  $aisis_form->create_aisis_form_element('label', array('value'=>'Remove all instances of MiniFeeds from BBPress specific sections?'));
 	  $aisis_form->create_aisis_form_element('input', array(
 		  'type'=>'checkbox',
 		  'name'=>'aisis_core_bbpress[mini_bbpress]',

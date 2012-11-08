@@ -14,6 +14,8 @@
 	 * =================================================================
 	 */
 	 
+	 $aisis_form_jazz = new AisisForm();
+	 
 	//check theme version
 	$aisis_check_version = new AisisUpdate();
 	
@@ -37,6 +39,7 @@
 	</div>
        
 	<?php
+	
     check_for_aisis_messages();
     if(isset($_GET['page']) && $_GET['page'] == 'aisis-core-options'){
 		$aisis_form = new AisisForm();
@@ -175,5 +178,18 @@
 				}
 			}
 		});
+		
+		$('#aisis_link_color, #aisis_header_colors').ColorPicker({
+			onSubmit: function(hsb, hex, rgb, el) {
+				$(el).val(hex);
+				$(el).ColorPickerHide();
+			},
+			onBeforeShow: function () {
+				$(this).ColorPickerSetColor(this.value);
+			}
+		})
+		.bind('keyup', function(){
+			$(this).ColorPickerSetColor(this.value);
+		});		
 	});	
 	</script>

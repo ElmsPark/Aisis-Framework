@@ -48,7 +48,7 @@
 		$aisis_form = new AisisForm();
 		$options = get_option('aisis_core');
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from the site?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show the sidebar any where on the site?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[sidebar_global]',
@@ -57,7 +57,7 @@
 			'id' => 'sidebar_global'
 		));
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from list of posts?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show the sidebar when viewing a list of posts?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[sidebar_index]',
@@ -67,7 +67,7 @@
 			'disabled' => check_for_disabled()
 		));		
 
-		$aisis_form->create_aisis_form_element('label', array('value' => 'Remove Sidebar from front Pages?'));
+		$aisis_form->create_aisis_form_element('label', array('value' => 'Do not show the sidebar on the front page?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type' => 'checkbox',
 			'name' => 'aisis_core[sidebar_front]',
@@ -77,7 +77,7 @@
 			'disabled' => check_for_disabled()
 		));
 
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from pages?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show the sidebar on Pages?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[sidebar_page]',
@@ -87,7 +87,7 @@
 			'disabled' => check_for_disabled()
 		));
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from Single Posts?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show the sidebar when viewing a single post?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[sidebar_single]',
@@ -97,7 +97,7 @@
 			'disabled' => check_for_disabled()
 		));		
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Remove Sidebar from Articles & Essays list of posts?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Do not show the sidebar when viewing a list of Articles and Essays?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core[sidebar_ae]',
@@ -116,7 +116,7 @@
 		$aisis_form = new AisisForm();
 		$bbpress_options = get_option('aisis_core_bbpress');
 		
-		$aisis_form->create_aisis_form_element('label', array('value'=>'Use the BBPress sidebar instead of Aisis?'));
+		$aisis_form->create_aisis_form_element('label', array('value'=>'Use the BBPress sidebar instead of the Aisis sidebar?'));
 		$aisis_form->create_aisis_form_element('input', array(
 			'type'=>'checkbox',
 			'name'=>'aisis_core_bbpress[sidebar_bbpress]',
