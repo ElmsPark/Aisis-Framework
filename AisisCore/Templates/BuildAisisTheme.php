@@ -188,6 +188,5 @@
 			  $aisis_template_loader = new AisisCoreRegister();
 			  $aisis_template_loader->aisis_register('Default-Sidebar-Template.phtml');
 		  }
-	  }		  
-	  
+	  }
 ?>

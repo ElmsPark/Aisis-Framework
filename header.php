@@ -15,8 +15,7 @@
 	 * =================================================================
 	 */
 
-  	
-	$options = get_option('aisis_upload_header_image_setting');
+	$option =  get_option('aisis_core');
 	 
 ?>
     <!doctype html>
@@ -43,10 +42,25 @@
     	$option = get_option('aisis_core');
     ?>
     </title>
-    
-    <?php wp_head();?>
+    <?php 
+	if($option['aisis_link_color'] != '' && $option['aisis_header_colors']){?>
+		<style>
+		#content a, #sidebar a{
+			color:#<?php echo $option['aisis_link_color']; ?> !important;
+		}
+		
+		h1, h2, h3, h4{
+			color:#<?php echo $option['aisis_header_colors']; ?> !important;
+		}
+		</style>
+	<?php 
+	}
+	
+	wp_head(); 
+	
+	?>
     </head>
     
-    <body>
+    <body <?php body_class(); ?>>
     	<div id="pageWrap">
          <?php aisis_header(); ?>   
