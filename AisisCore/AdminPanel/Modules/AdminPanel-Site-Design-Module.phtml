@@ -1,7 +1,6 @@
 <div class="sideText">
     <h1>General Post Options</h1>
-    <p>Bellow you have some basic options of weather or not you want to show the related posts and/or the categories and tags
-    for each post. clicking either checkbox will hid the respective item from posts.</p>
+    <p>Below we give you the options to display or not display things such as categories and related posts for a post.</p>
     <p><?php create_submit(); ?></p>
 </div>
 <div class="alignForm">
@@ -19,9 +18,18 @@
     ?>
 </div> 
 <div class="sideText">
+    <h1>Colors</h1>
+    <p>Bellow you can change the link and the H1, 2, 3 and 4 colors</p>
+</div>
+<div class="alignForm">
+	<?php
+        do_settings_fields('aisis-core-options','links_header_color_section');
+    ?>
+</div> 
+<div class="sideText">
     <h1>Core Site Design</h1>
-    <p>Bellow you can choose how you want the posts to display when a user is looking at the 
-    general blog. Each  Image bellow repersents an example of how the site may look.</p>
+    <p>Below you can choose how you want the posts to display when a user is looking at the 
+    general blog. Each  Image bellow repersents an example of how the site may look, in terms of how we list the posts.</p>
     <a id="admin_panel_image" href="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp.png" class="images" title="Full layout. No seperation.">
     <img src="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp.png" width="80" height="80" /></a>
     <a id="admin_panel_image" href="<?php bloginfo('template_directory');?>/AisisCore/AdminPanel/images/ScreenShotPopUp2.png" class="images" title="Seperate Boxes for each post.">
@@ -37,7 +45,7 @@
 <?php if(does_plugin_exist('bbpress/bbpress.php')){ ?>
 <div class="sideText">
     <h1>BBPress Options</h1>
-    <p>here we give you some basic BBPress Options to select from that will affect the BBPress section of the site.</p>
+    <p>We have some basic BBPress options that may affect how the user uss the forum part of the site.</p>
 </div>
 <div class="alignForm">
 	<?php do_settings_fields('aisis-core-options','aisis_site_design_bbpress_section'); ?>

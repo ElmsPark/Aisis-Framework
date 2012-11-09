@@ -205,8 +205,15 @@
 	if(!function_exists('build_content_id')){
 		function build_content_id(){
 			$option = get_option('aisis_core');
-			if(is_page()){
-				if($option['sidebar_page'] != 1){
+			if(bbpress_check_pages()){
+				if($option['sidebar_page'] != 1 && $option['sidebar_global'] != 1){
+					echo "content";
+				}else{
+					echo "contentFull";
+				}
+			}
+			elseif(is_page()){
+				if($option['sidebar_page'] != 1 && $option['sidebar_global'] != 1){
 					echo "content";
 				}else{
 					echo "contentFull";
