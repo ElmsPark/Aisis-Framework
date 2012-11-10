@@ -20,14 +20,14 @@
 	 *
 	 * =================================================================
 	 */
-	 
+
 	require_once('IAisis-Core-Update.php'); 
 
 	class AisisUpdate implements IAisisCoreUpdate{
 
 		private $aisis_current_theme_version;
 		private $credential_check;
-				
+
 		/**
 		 * Default constructor. We set up the option
 		 * here for use later on.
@@ -35,7 +35,7 @@
 		function __construct(){
 			add_option('aisis_success_message_update','','','yes');
 		}
-		
+
 		/**
 		 * Default constructor. We set up the option
 		 * here for use later on.
@@ -67,8 +67,8 @@
 				}
 			}
 		}
-		
-		
+
+
 		/**
 		 * We check if there is an update or not.
 		 * we simply return true. This is good for 
@@ -86,7 +86,7 @@
 				return false;
 			}
 		}
-		
+
 		/**
 		 * We check the theme version that is
 		 * on the server
@@ -97,7 +97,7 @@
 			$aisis_version = $aisis_update_xml_object->version[0];
 			return trim($aisis_version);
 		}
-		
+
 		/**
 		 * If we need to delete 
 		 * contents to repopulate them this is what we do
@@ -114,7 +114,7 @@
 				$this->delete_contents_in_folder(AISISCORE);
 			}
 		}
-		
+
 		/**
 		 * based on the delete we either delete 
 		 * everything inside or we ignore it.
@@ -127,7 +127,7 @@
 			AISISCORE . 'Class-Aisis-MultiSite.php', AISISCORE . 'Class-Aisis-Activation.php',
 			AISISCORE . 'Class-Aisis-Package-Loader.php', AISISCORE . 'Class-Aisis-Core-Update.php',
 			AISIS_TEMPLATES . 'BuildAisisTheme.php');
-			
+
 			if(is_file($path_to_dir)){
 				return @unlink($path_to_dir);
 			}
@@ -161,31 +161,32 @@
 			}
 			return $this->aisis_current_theme_version->Version;
 		}
-		
+
 		/**
 		 * This private function is used for displaying any errors
 		 * in relation to the update.
 		 */
 		private function aisis_framework_download_update_erors(){
-			_e("<div class='err'>".new InvalidURLException('<strong>We could not locate the url you are requesting.</strong>')."</div>");
+			echo "<div class='err'><strong>We could not locate the url you are requesting.</strong>').";
 		}
-		
+
 		/**
 		 * This private function is used for displaying any errors in
 		 * relation to incompatible archives.
 		 */
 		private function aisis_incompatible_archive_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>The archive we downloaded is incompatible with wordpress standards. </strong>')."</div>");														
+			echo "<div class='err'><strong>The archive we downloaded 
+			is incompatible with wordpress standards.</strong></div>";														
 		}
-		
+
 		/**
 		 * This private function is used for displaying any errors in
 		 * relation to empty archives.
 		 */
 		private function aisis_empty_archive_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>This archive that we downloaded for the update seems to be empty. </strong>')."</div>");	
+			echo "<div class='err'><strong>This archive that we downloaded for the update seems to be empty. </strong></div>";
 		}
-		
+
 		/**
 		 * This private function is used for displaying any errors in
 		 * relation to making a directory or directories.
@@ -194,18 +195,20 @@
 			echo "<div class='err'>We could not make the directories we need to make to complete the install. We advise you to
 			check your server configuration <strong>or</strong> download the update and use FTP to update.</div>";				
 		}
-		
+
 		/**
 		 * This private function is used for displaying any errors in
 		 * relation to copying files from the archive to the theme directory.
 		 */
 		private function aisis_copy_failed_errors(){
-			_e("<div class='err'>".new UpdateIssuesException('<strong>We have failed to copy the files from the archive to the theme directory. This could be because of your Server configuration or the archive was corrupt. Please try again or download the update and use FTP to update.</strong>')."</div>");	
+			echo "<div class='err'><strong>We have failed to copy the files from the archive to the theme directory. 
+			This could be because of your Server configuration or the archive was corrupt. Please try again or download 
+			the update and use FTP to update.</strong></div>";
 		}
-		
+
 		private function need_credentials(){
-			_e("<div class='err'>We cannot do a auto silent update due to the fact that you need to
-			provide the ftp credentials</div>");			
+			echo "<div class='err'>We cannot do a auto silent update due to the fact that you need to
+			provide the ftp credentials</div>";			
 		}
 
 		/**
@@ -227,31 +230,32 @@
 		 * @return boolean of type True/False
 		 */
 		 function get_latest_version_zip(){
-			 
+			 global $wp_filesystem;
 			 $options = get_option('aisis_core');
-			 
+
 			 if(current_user_can('update_themes')){
 				$this->cred_check();
-				
+
 				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/Aisis.zip' );
-				
+
 				if(is_wp_error($aisis_temp_file_download)){
 					$error = $aisis_temp_file_download->get_error_code();
 					if($error == 'http_no_url') {
 						add_action( 'admin_notices', 'aisis_framework_download_update_erors' );
 					}
 				}
-				
+
 				$aisis_unzip_to = $wp_filesystem->wp_content_dir() . "/themes/" . get_option('template');
-				
+			
 				$this->delete_contents_check(); //Check if we need to delete the aisis core folder.
-				
+
 				$aisis_do_unzip = unzip_file($aisis_temp_file_download, $aisis_unzip_to);
-				
+
 				unlink($aisis_temp_file_download); //delete temp jazz
-				
+
 				if(is_wp_error($aisis_do_unzip)){
 					$error = $aisis_do_unzip->get_error_code();
+					//echo $error; exit;
 					if($error == 'incompatible_archive') {
 						$this->aisis_incompatible_archive_errors();
 					}
@@ -262,15 +266,14 @@
 						$this->aisis_mkdir_failed_errors();
 					}
 					if($error == 'copy_failed') {
+						//echo $aisis_do_unzip->get_error_message('copy_failed'); exit;
 						$this->aisis_copy_failed_errors();
 					}
 					return;
 				}
-				
-				wp_redirect(admin_url('admin.php?page=aisis-core-options'));
 			 }
 		 }
-		 
+
 		 /**
 		  * credntial check
 		  */
@@ -280,10 +283,10 @@
 				add_action('admin_notices', 'need_credentials');
 				return true;
 			}
-			
+
 			return false;			 
 		 }
-		 
+
 		 /**
 		  * This function is used for 
 		  * the silent auto update feature in 
