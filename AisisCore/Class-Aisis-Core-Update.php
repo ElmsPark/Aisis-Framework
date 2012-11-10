@@ -245,11 +245,11 @@
 					}
 				}
 
-				$aisis_unzip_to = $wp_filesystem->wp_content_dir() . "/themes/" . get_option('template');
+				$aisis_unzip_to = get_theme_root() . "/" . get_option('template');
 			
 				$this->delete_contents_check(); //Check if we need to delete the aisis core folder.
 
-				$aisis_do_unzip = unzip_file($aisis_temp_file_download, $aisis_unzip_to);
+				$aisis_do_unzip = unzip_file($aisis_temp_file_medownload, $aisis_unzip_to);
 
 				unlink($aisis_temp_file_download); //delete temp jazz
 
