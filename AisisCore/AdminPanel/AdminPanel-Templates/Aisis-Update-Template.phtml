@@ -1,8 +1,10 @@
 <div class="content">
 	<?php
 	$option = get_option('aisis_core');
+	
 	$aisis_form = new AisisForm();
 	$aisis_update = new AisisUpdate();
+	
 	if(get_option('disable_update') != true){
         
 		$aisis_form->open_form(array(
@@ -50,8 +52,9 @@
 					?>You are all up to date with Aisis! Thats a good thing ya know!<?php	
 				}?></p>
             </div>
-            <div class="updateNotice"><strong>You have an update!</strong>. Click the button bellow to update your site to the
-			latest version! <strong>please also note</strong> that you will be logged out upon a successful update.</div><?php
+            <div class="updateNotice"><strong>You have an update!</strong> Click the button bellow to update your site to the
+			latest version! <strong>please also note</strong> that you will be directed to the Aisis Admin Panel upon a successful update.
+            </div><?php
 			$aisis_form->create_aisis_form_element('input', array(
 				'type' => 'submit',
 				'value' => 'Update Aisis!',

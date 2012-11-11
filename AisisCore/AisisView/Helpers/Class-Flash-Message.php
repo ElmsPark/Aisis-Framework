@@ -29,10 +29,14 @@
 			}
 			
 			if($type != '' && is_array($message)){
-				$this->_messag  = array($type=>$message);
+				$this->_message  = array($type=>$message);
 			}else{
 				$this->_message = array($type=>$message);
 			}
+		}
+		
+		function get(){
+			var_dump($this->_message);
 		}
 		
 		/**

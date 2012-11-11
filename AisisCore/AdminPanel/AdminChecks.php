@@ -86,28 +86,6 @@
 	
 	
 	/**
-	 * We check for the update message and if so
-	 * we display a message on the update screen.
-	 * this only happens if we dont have silent auto update
-	 * turned on.
-	 */
-	if(!function_exists('check_for_update_message')){
-		function check_for_update_message(){
-			$aisis_update = new AisisUpdate();
-			$option = get_option('aisis_core_theme_setting_silent_update'); 
-			if($option['turn_on_silent_update'] != 1){
-				if($aisis_update->check_for_udate_bool()){
-					?>
-					 <script>
-					$().toastmessage('showNoticeToast', "<strong>Please Note</strong>: You may have to hit the update button again if your page refreshes and nothing happened. Upon a successfull or a failure in the update you should see some kind of banner at the top alerting you of the success or failure.");
-					</script>
-					<?php
-				}
-			}
-		}
-	}
-	
-	/**
 	* This function just calls all the other functions
 	* into one. We could make this file a class how ever
 	* I want to keep everything pluggable.
@@ -117,9 +95,6 @@
 			aisis_admin_message_check();
 			check_css_editor_messages();
 			aisis_core_options_reset_message();
-			if(isset($_GET['page']) && $_GET['page']=='aisis-core-update'){
-				check_for_update_message();
-			}
 		}
 	}
 ?>
