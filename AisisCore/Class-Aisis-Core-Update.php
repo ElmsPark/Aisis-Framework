@@ -167,48 +167,12 @@
 		 * in relation to the update.
 		 */
 		private function aisis_framework_download_update_erors(){
-			echo "<div class='err'><strong>We could not locate the url you are requesting.</strong>').";
-		}
-
-		/**
-		 * This private function is used for displaying any errors in
-		 * relation to incompatible archives.
-		 */
-		private function aisis_incompatible_archive_errors(){
-			echo "<div class='err'><strong>The archive we downloaded 
-			is incompatible with wordpress standards.</strong></div>";														
-		}
-
-		/**
-		 * This private function is used for displaying any errors in
-		 * relation to empty archives.
-		 */
-		private function aisis_empty_archive_errors(){
-			echo "<div class='err'><strong>This archive that we downloaded for the update seems to be empty. </strong></div>";
-		}
-
-		/**
-		 * This private function is used for displaying any errors in
-		 * relation to making a directory or directories.
-		 */
-		private function aisis_mkdir_failed_errors(){
-			echo "<div class='err'>We could not make the directories we need to make to complete the install. We advise you to
-			check your server configuration <strong>or</strong> download the update and use FTP to update.</div>";				
-		}
-
-		/**
-		 * This private function is used for displaying any errors in
-		 * relation to copying files from the archive to the theme directory.
-		 */
-		private function aisis_copy_failed_errors(){
-			echo "<div class='err'><strong>We have failed to copy the files from the archive to the theme directory. 
-			This could be because of your Server configuration or the archive was corrupt. Please try again or download 
-			the update and use FTP to update.</strong></div>";
+			_e("<div class='err'>".new InvalidURLException('<strong>We could not locate the url you are requesting.</strong>')."</div>");
 		}
 
 		private function need_credentials(){
-			echo "<div class='err'>We cannot do a auto silent update due to the fact that you need to
-			provide the ftp credentials</div>";			
+			_e("<div class='err'>We cannot do a auto silent update due to the fact that you need to
+			provide the ftp credentials</div>");			
 		}
 
 		/**
@@ -230,7 +194,7 @@
 		 * @return boolean of type True/False
 		 */
 		 function get_latest_version_zip(){
-			 global $wp_filesystem;
+			 $aisis_messages = new FlashMessage();
 			 $options = get_option('aisis_core');
 
 			 if(current_user_can('update_themes')){
@@ -244,33 +208,21 @@
 						add_action( 'admin_notices', 'aisis_framework_download_update_erors' );
 					}
 				}
+				
+				global $wp_filesystem;
+				$aisis_unzip_to = $wp_filesystem->wp_content_dir() . "/themes/" . get_option('template');
+				
+				$this->delete_contents_check(); 
 
-				$aisis_unzip_to = get_theme_root() . "/" . get_option('template');
-			
-				$this->delete_contents_check(); //Check if we need to delete the aisis core folder.
-
-				$aisis_do_unzip = unzip_file($aisis_temp_file_medownload, $aisis_unzip_to);
-
-				unlink($aisis_temp_file_download); //delete temp jazz
+				$aisis_do_unzip = unzip_file($aisis_temp_file_download, $aisis_unzip_to);
+				
+				unlink($aisis_temp_file_download);
 
 				if(is_wp_error($aisis_do_unzip)){
 					$error = $aisis_do_unzip->get_error_code();
-					//echo $error; exit;
-					if($error == 'incompatible_archive') {
-						$this->aisis_incompatible_archive_errors();
-					}
-					if($error == 'empty_archive') {
-						$this->aisis_empty_archive_errors();
-					}
-					if($error == 'mkdir_failed') {
-						$this->aisis_mkdir_failed_errors();
-					}
-					if($error == 'copy_failed') {
-						//echo $aisis_do_unzip->get_error_message('copy_failed'); exit;
-						$this->aisis_copy_failed_errors();
-					}
-					return;
+					echo "<div class='error'>".$aisis_do_unzip->get_error_message($error)."</div>";
 				}
+
 			 }
 		 }
 
@@ -302,4 +254,3 @@
 			 }
 		 }
 	}
-?>
