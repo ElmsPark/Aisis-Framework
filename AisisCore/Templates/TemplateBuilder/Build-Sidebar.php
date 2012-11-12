@@ -42,6 +42,8 @@
 			|| aisis_get_request('topic') != null && $option['sidebar_page'] != 1 && $option['sidebar_global'] != 1
 			|| aisis_get_request('post_type') != null && $option['sidebar_page'] != 1 && $option['sidebar_global'] != 1){
 				get_sidebar();
+			}elseif(!is_front_page() && $option['sidebar_page'] != 1 && $option['sidebar_global'] != 1){
+				get_sidebar();
 			}
 		}
 	}
