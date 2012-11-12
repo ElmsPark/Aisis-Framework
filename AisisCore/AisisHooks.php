@@ -41,7 +41,6 @@
 		 do_action('aisis_author_default_text');
 	 }
 	 
-	 
 	 /**
 	  * Allows you to change the default category text if
 	  * no text has been entered for the category desc.

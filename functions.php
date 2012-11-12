@@ -90,20 +90,15 @@
 	  * to then manipulate or change it to do what you want.
 	  */
 	 require_once(AISISCORE . '/Class-Aisis-File-Handling.php');
-	 if(is_dir(AISISCORE)){ //saftey check.
-		 function load_aisis_custom_folder(){
-			 $aisis_file_handling = new AisisFileHandling();
-			 
-			 if($aisis_file_handling->check_dir(CUSTOM)){
-				 $aisis_file_handling->load_directory_of_files(CUSTOM);
-			 }else{
-				 _e('Failed to load the custom folder: ' . CUSTOM);
-				 exit;
-			 }
+	 function load_aisis_custom_folder(){
+		 $aisis_file_handling = new AisisFileHandling();
+		 
+		 if($aisis_file_handling->check_dir(CUSTOM)){
+			 $aisis_file_handling->load_directory_of_files(CUSTOM);
+		 }else{
+			 _e('Failed to load the custom folder: ' . CUSTOM);
+			 exit;
 		 }
-	 }else{
-		echo "You are missing the core of Aisis. Please try downloading and installing again.";
-		return;	 
 	 }
 	 
 	 load_aisis_custom_folder();

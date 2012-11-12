@@ -17,7 +17,7 @@
 	 */
 	class FlashMessage{
 		
-		private $_message;
+		private $_message = null;
 		
 		/**
 		 * Pass in the type, which can be null and the 
@@ -29,14 +29,10 @@
 			}
 			
 			if($type != '' && is_array($message)){
-				$this->_message  = array($type=>$message);
-			}else{
 				$this->_message = array($type=>$message);
+			}else{
+				$this->_message = array($message);
 			}
-		}
-		
-		function get(){
-			var_dump($this->_message);
 		}
 		
 		/**
@@ -44,8 +40,10 @@
 		 * or both.
 		 */
 		function get_message($type = '', $message = ''){
+			$mesage = get_option('aisis_message');
+			var_dump($message); exit;
 			if($type != ''){
-				return $this->_message[$type];
+				
 			}elseif($message != ''){
 				if(in_array($message, $this->_message)){
 					return $message;
@@ -57,11 +55,32 @@
 					}
 				}
 			}else{
-				return $this->_message;
+				return $$this->_mesage;
 			}
 			
 		}
 		
+		/**
+		 * This method allows you to essentially reset the message
+		 * based array.
+		 */
+		function clear_messages(){
+			return $this->_message = '';
+		}
+		
+		/**
+		 * This method will count the messages you have,
+		 * either over all or for a specific type.
+		 */
+		function count_messages($type= ''){
+			if($this->_message[$type] != ''){
+				if($this->_message[$type] != 0){
+					return count($this->_message[$type]);
+				}
+			}else{
+				return count($this->_message);
+			}
+		}
 	}
-
+	
 ?>

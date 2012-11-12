@@ -56,7 +56,7 @@
 		function aisis_add_mini_feeds() 
 		{
 		  $options = get_option('aisis_core');
-		  if($options['mini_global'] != 1){			
+		  if(!isset($options['mini_global'])){			
 			  $labels = array(
 				'name' => _x('Mini Feeds', 'post type general name', 'aisis', 'aisis'),
 				'rewrite' => array('slug'=>'mini'),

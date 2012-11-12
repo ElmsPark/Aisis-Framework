@@ -36,11 +36,13 @@
 	if(!function_exists('sidebar_page')){
 		function sidebar_page(){
 			$option = get_option('aisis_core');
-			if(is_front_page()){
+			if(is_front_page() && $option['sidebar_front'] != 1){
 				get_sidebar();
 			}elseif(aisis_get_request('forum') != null && $option['sidebar_page'] != 1 && $option['sidebar_global'] != 1
 			|| aisis_get_request('topic') != null && $option['sidebar_page'] != 1 && $option['sidebar_global'] != 1
 			|| aisis_get_request('post_type') != null && $option['sidebar_page'] != 1 && $option['sidebar_global'] != 1){
+				get_sidebar();
+			}elseif(!is_front_page() && $option['sidebar_page'] != 1 && $option['sidebar_global'] != 1){
 				get_sidebar();
 			}
 		}

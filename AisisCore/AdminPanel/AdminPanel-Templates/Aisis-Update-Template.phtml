@@ -1,10 +1,16 @@
+<?php
+$option = get_option('aisis_core');
+
+$aisis_form = new AisisForm();
+$aisis_update = new AisisUpdate();
+
+if(!$aisis_update->check_for_udate_bool()){
+	echo "<div class='success'>You are running the latest version of Aisis!</div>";
+}
+?>
+
 <div class="content">
 	<?php
-	$option = get_option('aisis_core');
-	
-	$aisis_form = new AisisForm();
-	$aisis_update = new AisisUpdate();
-	
 	if(get_option('disable_update') != true){
         
 		$aisis_form->open_form(array(
@@ -16,7 +22,8 @@
                 <h1>Aisis Core Update</h1>
                 <p>You can choose bellow if you would like to have Aisis automatically check for, download
                 and install updates for you.<p>
-                <?php if($option['update'] == 1){?> <div class="notice"><strong>You have</strong> turned on silent auto update. 
+                <?php if(isset($option['update']) && $option['update'] == 1){?> <div class="notice">
+                <strong>You have</strong> turned on silent auto update. 
                 We will do the rest from here for you. Which includes downloading, installing and updating Aisis for you :D. </div><?php }?>
                 <p><?php create_submit(); ?></p>
             </div>
@@ -31,9 +38,9 @@
         $aisis_form->close_form();
 	}
 	
-	if($option['update'] != 1){
-		
-		if($_POST['update']){
+	if(!isset($option['update'])){
+
+		if($_POST['check_me']){
 			$aisis_update->get_latest_version_zip();
 		}
 		
@@ -52,17 +59,21 @@
 					?>You are all up to date with Aisis! Thats a good thing ya know!<?php	
 				}?></p>
             </div>
-            <div class="updateNotice"><strong>You have an update!</strong> Click the button bellow to update your site to the
-			latest version! <strong>please also note</strong> that you will be directed to the Aisis Admin Panel upon a successful update.
+            <div class="updateNotice"><strong>Update!!</strong> You have an update to the software waiting for you!
+            Please note that you may need to click the update button twice inorder for it to work completely.
             </div><?php
 			$aisis_form->create_aisis_form_element('input', array(
 				'type' => 'submit',
 				'value' => 'Update Aisis!',
-				'name' => 'update',
+				'name' => 'update_me',
 				'class' => 'updateAisis'
 			));
-		}else{
-			echo "<div class='success'>You are running the latest version of Aisis!</div>";
+			
+			$aisis_form->create_aisis_form_element('input', array(
+				'type' => 'hidden',
+				'value' => '1',
+				'name' => 'check_me'
+			));			
 		}
 		
 		$aisis_form->close_form();
