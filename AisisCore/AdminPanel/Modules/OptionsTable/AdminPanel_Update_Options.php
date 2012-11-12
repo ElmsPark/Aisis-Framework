@@ -40,7 +40,8 @@
 		$aisis_form = new AisisForm();
 		$options = get_option('aisis_core');
 		
-		if($options['update'] == 1){
+		
+		if(isset($options['update']) && $options['update'] == 1){
 			$aisis_form->create_aisis_form_element('label', array('value'=>'Turn off Silent Auto Update?'));
 		}else{
 			$aisis_form->create_aisis_form_element('label', array('value'=>'Use Silent Auto Update?'));
@@ -50,10 +51,11 @@
 			'type'=>'checkbox',
 			'name'=>'aisis_core[update]',
 			'value'=>1,
-			'checked' => checked(1, $options['update'], false),
+			'checked' => checked(1, isset($options['update']), false),
 			'id' => 'sidebar_global'
 		));			
 	}
+	
 	
 	/**
 	 * Validate all aisis_core_bbress checkboxes

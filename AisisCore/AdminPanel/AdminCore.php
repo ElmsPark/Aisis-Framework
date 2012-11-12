@@ -32,7 +32,7 @@
 		function aisis_auto_silent_update(){
 			 $aisis_update = new AisisUpdate();
 			 $options = get_option('aisis_core');
-			 if($options['update'] == 1 ){
+			 if(isset($options['update']) && $options['update'] == 1 ){
 				if($aisis_update->check_for_udate_bool()){
 					$aisis_update->auto_silent_update();
 			 	}

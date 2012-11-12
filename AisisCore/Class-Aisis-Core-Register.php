@@ -30,10 +30,6 @@
 	 
 	 class AisisCoreRegister{
 		 
-		 //Store all files of a directory
-		 private $directory_files = array();
-		 private $directory_list = array();
-		 
 		/**
 		 * Meant for registering html based modules and templates for aisis.
 		 *
@@ -50,20 +46,23 @@
 			
 			if($path != ''){
 				if(!file_exists($path . $filename)){
-					echo new AisisCoreException('We could not find the file you were looking for. Here is a stack trace of what was passed in: <p>'.aisis_var_dump($path.$filename).'</p>');
+					echo new AisisCoreException('<p>Failed to find: '.$path.$filename.'</p>');
 				}
 				
 				require_once($path . $filename);
 				
 			}else{
 			
-				if(!file_exists(TEMPLATEPATH . '/AisisCore/Templates/' . $filename)){
-					echo new AisisCoreException('We could not load the file at the path sepcified. The file is: <p>'.aisis_var_dump($filename).'</p>');
+				if(file_exists(TEMPLATEPATH . '/AisisCore/Templates/' . $filename)){
+					require_once(TEMPLATEPATH . '/AisisCore/Templates/' . $filename);
+				}elseif(file_exists(AISIS_ADMINPANEL_TEMPLATES . $filename)){
+					require_once(AISIS_ADMINPANEL_TEMPLATES . $filename);
+				}elseif(file_exists(AISIS_ADMINPANEL_OPTIONS . $filename)){
+					require_once(AISIS_ADMINPANEL_OPTIONS . $filename);
+				}else{
+					echo new AisisCoreException('</p>Failed to find: '.$filename.'</p>');
 				}
-				
-				require_once(TEMPLATEPATH . '/AisisCore/Templates/' . $filename);
 			}
-			
 		}
 	}
 ?>

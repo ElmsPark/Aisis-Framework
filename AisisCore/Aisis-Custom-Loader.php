@@ -46,7 +46,8 @@
 	  * Load the core of Aisis based on options passed in
 	  * these are set to true by default.
 	  */
-	 function load_aisis_core($load_all_packages = true, $load_bbpress_jazz= true, $disable_admin = false, $disable_custom_post_types = false){
+	 function load_aisis_core($load_all_packages = true, $load_bbpress_jazz= true, 
+	 	$disable_admin = false, $disable_custom_post_types = false){
 		 //So we can do checks for plugins
 		 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		 

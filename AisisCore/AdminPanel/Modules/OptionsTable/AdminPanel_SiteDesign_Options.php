@@ -78,7 +78,7 @@ function image_header(){
 		'type' => 'url',
 		'name' => 'aisis_core[image_header]',
 		'id' => 'aisis_header_img',
-		'value' => $options['image_header']
+		'value' =>get_option_value('image_header')
 	));
 	$aisis_form->create_aisis_form_element('input', array(
 		'type' => 'button',
@@ -96,7 +96,7 @@ function links_header_color(){
 		'type' => 'input',
 		'name' => 'aisis_core[aisis_link_color]',
 		'id' => 'aisis_link_color',
-		'value' => $options['aisis_link_color']
+		'value' => get_option_value('aisis_link_color')
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array('value' => 'Change the color of ALL the headers: '));
@@ -104,7 +104,7 @@ function links_header_color(){
 		'type' => 'input',
 		'name' => 'aisis_core[aisis_header_colors]',
 		'id' => 'aisis_header_colors',
-		'value' => $options['aisis_header_colors']
+		'value' => get_option_value('aisis_header_colors')
 	));	
 }
 
@@ -120,7 +120,7 @@ function aisis_site_design(){
 		'id'=>'designlayout',
 		'name'=>'aisis_core[layout]',
 		'value'=>'1',
-		'checked' => checked(1, $options['layout'], false)
+		'checked' => checked(1, isset($options['layout']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -131,7 +131,7 @@ function aisis_site_design(){
 		'id'=>'designlayout',
 		'name'=>'aisis_core[layout]',
 		'value'=>'2',
-		'checked' => checked(2, $options['layout'], false)
+		'checked' => checked(2, isset($options['layout']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -142,7 +142,7 @@ function aisis_site_design(){
 		'id'=>'designlayout',
 		'name'=>'aisis_core[layout]',
 		'value'=>'3',
-		'checked' => checked(3, $options['layout'], false)
+		'checked' => checked(3, isset($options['layout']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -153,7 +153,7 @@ function aisis_site_design(){
 		'id'=>'designlayout',
 		'name'=>'aisis_core[layout_ae]',
 		'value'=>'1',
-		'checked' => checked(1, $options['layout_ae'], false)
+		'checked' => checked(1, isset($options['layout_ae']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -164,7 +164,7 @@ function aisis_site_design(){
 		'id'=>'designlayout',
 		'name'=>'aisis_core[layout_ae]',
 		'value'=>'2',
-		'checked' => checked(2, $options['layout_ae'], false)
+		'checked' => checked(2, isset($options['layout_ae']), false)
 	));
 	
 	$aisis_form->create_aisis_form_element('label', array(
@@ -175,7 +175,7 @@ function aisis_site_design(){
 		'id'=>'designlayout',
 		'name'=>'aisis_core[layout_ae]',
 		'value'=>'3',
-		'checked' => checked(3, $options['layout_ae'], false)
+		'checked' => checked(3, isset($options['layout_ae']), false)
 	));			
 	
 }
@@ -224,6 +224,13 @@ function aisis_site_design_bbpress_validation($input){
 	$options = get_option('aisis_core_bbpress');
 	$options = $input;
 	return $options;
+}
+
+function get_option_value($option){
+	$options = get_option('aisis_core');
+	if(isset($options[$option])){
+		return $options[$option];
+	}
 }
 
 add_action('admin_init', 'aisis_core_site_design');

@@ -60,9 +60,13 @@
 			if(isset($aisis_version) && $aisis_version != ''){
 				if(version_compare( $aisis_version, $this->get_current_theme_version(), '>')){
 
-					echo "<div class='upgradeNotice'><strong>You have an update!</strong> You are currently version <strong>" . $this->get_current_theme_version() . 
-						"</strong> and the version we have on the server is <strong>" . $aisis_version . "</strong>. We encourgage you to upgrade to the latest version. 
-							For further information please see <a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650' class='thickbox' title='Aisis Version Info'>Aisis Upgrade Notes</a>
+					echo "<div class='upgradeNotice'><strong>You have an update!</strong> 
+					You are currently version <strong>" . $this->get_current_theme_version() . 
+						"</strong> and the version we have on the server is <strong>" . $aisis_version . 
+						"</strong>. We encourgage you to upgrade to the latest version. 
+							For further information please see 
+							<a href=http://adambalan.com/aisis/VersionInfo.txt?keepThis=true&TB_iframe=true&height=650&width=650'
+							 class='thickbox' title='Aisis Version Info'>Aisis Upgrade Notes</a>
 							 to see whats changed. <a href='".admin_url('admin.php?page=aisis-core-update')."'>Update!</a></div>";
 				}
 			}
@@ -121,12 +125,22 @@
 		 */
 		function delete_contents_in_folder($path_to_dir){
 			/*Files we do not want touched.*/
-			$array_of_files = array(AISISCORE . 'AisisCore.php', AISISCORE . 'AisisHooks.php',
-			AISISCORE . 'IAisis-Core-Update.php', AISISCORE . 'Class-Aisis-File-Handling.php',
-			AISISCORE . 'Class-Aisis-Core-Register.php', AISISCORE . 'AisisDebugger.php',
-			AISISCORE . 'Class-Aisis-MultiSite.php', AISISCORE . 'Class-Aisis-Activation.php',
-			AISISCORE . 'Class-Aisis-Package-Loader.php', AISISCORE . 'Class-Aisis-Core-Update.php',
-			AISIS_TEMPLATES . 'BuildAisisTheme.php');
+			$array_of_files = array(
+				AISISCORE . 'AisisCore.php',
+				AISISCORE . 'AisisHooks.php',
+				AISISCORE . 'Class-Aisis-File-Handling.php',
+				AISISCORE . 'Class-Aisis-Core-Register.php',
+				AISISCORE . 'AisisDebugger.php',
+				AISISCORE . 'Class-Aisis-MultiSite.php',
+				AISISCORE . 'Class-Aisis-Activation.php',
+				AISISCORE . 'Class-Aisis-Package-Loader.php',
+				AISISCORE . 'Class-Aisis-Core-Update.php',
+				AISISCORE . 'Class-Core-Exception.php',
+				AISISCORE . 'CoreLoader.php',
+				AISISCORE . 'IAisis-Activation.php',
+				AISISCORE . 'IAisis-Core-Update.php',
+				AISIS_TEMPLATES . 'BuildAisisTheme.php'
+			);
 
 			if(is_file($path_to_dir)){
 				return @unlink($path_to_dir);
@@ -162,17 +176,9 @@
 			return $this->aisis_current_theme_version->Version;
 		}
 
-		/**
-		 * This private function is used for displaying any errors
-		 * in relation to the update.
-		 */
-		private function aisis_framework_download_update_erors(){
-			_e("<div class='err'>".new InvalidURLException('<strong>We could not locate the url you are requesting.</strong>')."</div>");
-		}
-
-		private function need_credentials(){
-			_e("<div class='err'>We cannot do a auto silent update due to the fact that you need to
-			provide the ftp credentials</div>");			
+		function need_credentials(){
+			echo "<div class='upgradeNotice'>We cannot do a auto silent update due to the fact that you need to
+			provide the ftp credentials</div>";			
 		}
 
 		/**
@@ -194,7 +200,6 @@
 		 * @return boolean of type True/False
 		 */
 		 function get_latest_version_zip(){
-			 $aisis_messages = new FlashMessage();
 			 $options = get_option('aisis_core');
 
 			 if(current_user_can('update_themes')){
@@ -205,7 +210,7 @@
 				if(is_wp_error($aisis_temp_file_download)){
 					$error = $aisis_temp_file_download->get_error_code();
 					if($error == 'http_no_url') {
-						add_action( 'admin_notices', 'aisis_framework_download_update_erors' );
+						echo "<div class='error'>".$aisis_temp_file_download->get_error_message($error)."</div>";
 					}
 				}
 				
@@ -215,14 +220,11 @@
 				$this->delete_contents_check(); 
 
 				$aisis_do_unzip = unzip_file($aisis_temp_file_download, $aisis_unzip_to);
-				
 				unlink($aisis_temp_file_download);
-
 				if(is_wp_error($aisis_do_unzip)){
 					$error = $aisis_do_unzip->get_error_code();
-					echo "<div class='error'>".$aisis_do_unzip->get_error_message($error)."</div>";
+					echo "<div class='err'>".$aisis_do_unzip->get_error_message($error)."</div>";
 				}
-
 			 }
 		 }
 
@@ -232,7 +234,7 @@
 		 function cred_check(){
 			$aisis_file_system_structure = WP_Filesystem();
 			if($aisis_file_system_structure == false){
-				add_action('admin_notices', 'need_credentials');
+				add_action('admin_notices', array($this, 'need_credentials'));
 				return true;
 			}
 
