@@ -42,6 +42,24 @@
 			 return $_POST;
 		 }
 	 }
+	 
+	 /**
+	  * We wan't the current url.
+	  * 
+	  * @return string
+	  */
+	 function aisis_current_url(){
+	 	if(isset($_SERVER['HTTPS'])){
+	 		return 'https://' . $_SERVER["HTTP_HOST"].$_SERVER['REQUEST_URI'];
+	 	}else{
+	 		return 'http://' . $_SERVER["HTTP_HOST"].$_SERVER['REQUEST_URI'];
+	 	}
+	 }
+	 
+	 function aisis_clean_url($url){
+	 	$plorp = substr(strrchr($url,'/'), 1);
+	 	return substr($url, 0, - strlen($plorp));
+	 }
 	
 	/**
 	 * We want to get the current
@@ -109,6 +127,7 @@
 		add_theme_support('automatic-feed-links');
 		add_theme_support('custom-header', $aisis_default_image);
 		add_theme_support('custom-background', $aisis_default_background);
+		add_theme_support('bbpress');
 	}
 	
 	/**

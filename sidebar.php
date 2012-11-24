@@ -28,8 +28,9 @@
 	aisis_before_sidebar();
 	$option = get_option('aisis_core_bbpress');
 	
-	if('forum' == get_post_type()
-	|| !empty($_GET['topic'])){
+	if(aisis_get_request('forum') != null
+	|| aisis_get_request('topic') != null
+	|| aisis_get_request('post_type') != null){
 		if($option['sidebar_bbpress'] == 1){
 			if(function_exists('dynamic_sidebar') && dynamic_sidebar('bbpress'));
 		}else{

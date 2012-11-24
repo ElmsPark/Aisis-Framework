@@ -35,8 +35,7 @@
 			elseif(is_single()){		
 				aisis_loop_single();
 			}
-			else{
-				build_header();				
+			else{ 				
 				aisis_loop_index();
 			}
 		  }else{

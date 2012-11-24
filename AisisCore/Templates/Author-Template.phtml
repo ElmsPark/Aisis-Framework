@@ -26,7 +26,8 @@
 	 */
 	 global $wp_queryglobal, $current_user, $ID;
 	
-	 is_author_page();
+	 $author_page = new AisisMiniFeed('aisis_core');
+	 $author_page->author_page_mini_feed();
 ?>    
     <div id="<?php author_id(); ?>">
         <article class="post clearfix">

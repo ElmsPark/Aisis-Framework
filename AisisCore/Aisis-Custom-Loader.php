@@ -72,7 +72,7 @@
 			 $aisis_package_loader->load_aisis_template_builder();
 			 
 		 	if($load_bbpress_jazz == true){
-				if(does_plugin_exist('bbpress/bbpress.php')){$aisis_package_loader->load_aisis_bbpress();}
+				//if(does_plugin_exist('bbpress/bbpress.php')){$aisis_package_loader->load_aisis_bbpress();}
 			}
 			
 			if($disable_admin == true){

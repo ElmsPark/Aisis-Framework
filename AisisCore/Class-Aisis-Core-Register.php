@@ -59,6 +59,8 @@
 					require_once(AISIS_ADMINPANEL_TEMPLATES . $filename);
 				}elseif(file_exists(AISIS_ADMINPANEL_OPTIONS . $filename)){
 					require_once(AISIS_ADMINPANEL_OPTIONS . $filename);
+				}elseif(!file_exists($filename)){
+					require_once($filename);	
 				}else{
 					echo new AisisCoreException('</p>Failed to find: '.$filename.'</p>');
 				}

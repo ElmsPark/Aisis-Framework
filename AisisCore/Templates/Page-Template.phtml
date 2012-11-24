@@ -25,16 +25,17 @@
 	 */
 	 global $page_title, $post;
 	 
+	 $page = new AisisMiniFeed('aisis_core');
 	 
-	 if(is_front_page() && 'forum' != get_post_type()
-	 && 'topic' != get_post_type()){
-		 is_front_page_content();
-	 }elseif(!is_front_page() && 'forum' != get_post_type() && 'topic' != get_post_type()){
-		is_page_content();
+	 if(is_front_page()){
+		 $page->front_page_mini_feed();
+	 }elseif(!is_front_page()){
+		 $page->page_mini_feed();
 	 }
 	  
-	 if('forum' == get_post_type() || 'topic' == get_post_type()){
-		is_bbpress_forum();
+	 if(aisis_get_request('forum')
+	 && aisis_get_request('topic') && aisis_get_request('post_type')){
+		$page->bbpress_forum_mini_feed();
 	 }
 
 ?>  
@@ -43,7 +44,7 @@
 		while(have_posts()) : the_post();?>
         <article class="post clearfix">
             <header>
-                <h1 class="postTitle"><?php the_title(); ?></h1>
+                <h1 class="postTitle"><?php if(bbpress_check_pages()){echo aisis_bbpress_forum_title();}else{the_title();} ?></h1>
             </header>
             <?php if(has_post_thumbnail()){?>
                 <figure class="soft-embossed post-image">

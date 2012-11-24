@@ -41,7 +41,7 @@
 	<?php
 	
     check_for_aisis_messages();
-    if(isset($_GET['page']) && $_GET['page'] == 'aisis-core-options'){
+    if(aisis_get_request('page') == 'aisis-core-options'){
 		$aisis_form = new AisisForm();
 		$aisis_form->open_form(array(
 			'method'=>'post',
@@ -86,11 +86,14 @@
 		settings_fields( 'aisis-core-options' ); 
 		$aisis_form->close_form();
     }
-    else if(isset($_GET['page']) && $_GET['page'] == 'aisis-css-editor'){
-       aisis_css_editor();
+    else if(aisis_get_request('page') == 'aisis-css-editor'){
+       	aisis_css_editor();
     }
-    else if(isset ($_GET['page']) && $_GET['page'] == 'aisis-core-update'){
-       aisis_update_page();
+    else if(aisis_get_request('page') == 'aisis-core-update'){
+      	aisis_update_page();
+    }
+    else if(aisis_get_request('page') == 'aisis-core-bbpress'){
+    	aisis_bbpress_core_options();
     }
     ?>
     
@@ -190,6 +193,19 @@
 		})
 		.bind('keyup', function(){
 			$(this).ColorPickerSetColor(this.value);
-		});		
+		});	
+
+		$('#aisis_bbpress_link_color, #aisis_bbpress_header_color').ColorPicker({
+			onSubmit: function(hsb, hex, rgb, el) {
+				$(el).val(hex);
+				$(el).ColorPickerHide();
+			},
+			onBeforeShow: function () {
+				$(this).ColorPickerSetColor(this.value);
+			}
+		})
+		.bind('keyup', function(){
+			$(this).ColorPickerSetColor(this.value);
+		});				
 	});	
 	</script>

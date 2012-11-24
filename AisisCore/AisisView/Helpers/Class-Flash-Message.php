@@ -17,7 +17,7 @@
 	 */
 	class FlashMessage{
 		
-		private $_message = null;
+		private static $_message = null;
 		
 		/**
 		 * Pass in the type, which can be null and the 

@@ -3,25 +3,21 @@
 	 *
 	 * ==================== [DONT TOUCH THIS FILE!] ====================
 	 *
-	 *		We load the list of ALL posts here. This is your index.php
-	 *		file essentially.
+	 *		Builds the index based off of layout and sidebar options.
 	 *
-	 *		This file is loaded via the BuildAisisTheme file as
-	 *		is loaded into a pluggable. This allows you to over
-	 *		ride that function (which loads this file) in your custom
-	 *		-functions.php Thus allowing you to change the way this page
-	 *		looks by telling the function to load a different phtml file.
-	 *
-	 *		The same goal can be achieved in over writing this file
-	 *		in a child theme or through Aisis Packages.
-	 *
-	 *		@see AisisCore->Templates->BuildAisisTheme
+	 *		@see AisisIndex
+	 *		@see AisisTemplateBuilder
 	 *		
 	 *		@author:  Adam Balan
-	 *		@version: 1.0
+	 *		@version: 1.2
 	 *		@package: AisisCore->Templates
 	 *
 	 * =================================================================
 	 */
-		build_the_index_layout();
+
+	$index_mini = new AisisMiniFeed('aisis_core');
+	$index_mini->index_post_page_mini_feed();
+
+	$index = new AisisIndex('aisis_core');
+	$index->build_aisis_index();
 ?>

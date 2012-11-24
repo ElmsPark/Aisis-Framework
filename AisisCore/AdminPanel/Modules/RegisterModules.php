@@ -16,9 +16,6 @@
 	 * =================================================================
 	 */
 	 
-	 
-	 
-	  //Load core look and feel for the admin panels across all pages.
 	  if(!function_exists('aisis_admin_panel_load_core_look')){
 		  function aisis_admin_panel_load_core_look(){
 			  $aisis_template_loader = new AisisCoreRegister();
@@ -26,7 +23,6 @@
 		  }
 	  }
 	  
-	  //Load the sidebar options
 	  if(!function_exists('aisis_sidebar_options')){
 		  function aisis_sidebar_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
@@ -34,7 +30,6 @@
 		  }
 	  }
 	  
-	  //load the mini feed options
 	  if(!function_exists('aisis_minifeed_options')){
 		  function aisis_minifeed_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
@@ -42,7 +37,6 @@
 		  }
 	  }	  
 	  
-	  //load the custom (default) text section
 	  if(!function_exists('aisis_customtext_options')){
 		  function aisis_customtext_options(){
 			  $aisis_template_loader = new AisisCoreRegister();
@@ -64,11 +58,17 @@
 		  }
 	  }		  	  
 	  
-	  //Load Documentation Page
 	  if(!function_exists('aisis_core_update_page')){
 		  function aisis_core_update_page(){
 			  $aisis_template_loader = new AisisCoreRegister();
 			  $aisis_template_loader->aisis_register('AisisCoreUpdate-Module.phtml', AISIS_ADMINPANEL_OPTIONS);
 		  }
+	  }
+	  
+	  if(!function_exists('aisis_bbpress_core_options')){
+	  	function aisis_bbpress_core_options(){
+	  		$aisis_template_registration = new AisisCoreRegister();
+	  		$aisis_template_registration->aisis_register('BBPress-Core-Options.phtml', AISIS_ADMINPANEL_OPTIONS);
+	  	}
 	  }
 ?>

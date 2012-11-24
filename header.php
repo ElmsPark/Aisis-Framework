@@ -42,16 +42,10 @@
     	$option = get_option('aisis_core');
     ?>
     </title>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
     <?php wp_head();?>
     </head>
     
     <body>
-=======
-=======
->>>>>>> dev1.1
     <?php 
 	if($option['aisis_link_color'] != '' && $option['aisis_header_colors']){?>
 		<style>
@@ -72,9 +66,5 @@
     </head>
     
     <body <?php body_class(); ?>>
-<<<<<<< HEAD
->>>>>>> dev1.1
-=======
->>>>>>> dev1.1
     	<div id="pageWrap">
          <?php aisis_header(); ?>   

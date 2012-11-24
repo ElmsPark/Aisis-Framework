@@ -48,9 +48,13 @@
 	 $aisis_package_loader->load_aisis_view_package();
 	 $aisis_package_loader->load_aisis_social_media_package();
 	 $aisis_package_loader->load_aisis_template_builder();
-	 if(does_plugin_exist('bbpress/bbpress.php')){$aisis_package_loader->load_aisis_bbpress();}
 	 
-	 //When the theme if first activated.
+	 if(admin_url() != aisis_clean_url(aisis_current_url())){
+	 	if(bbpress_check_pages()){
+	 		$aisis_package_loader->load_aisis_bbpress();
+	 	}
+	 }
+	 
 	 aisis_activation();
 	
 	 /**
@@ -73,12 +77,6 @@
 	 function aisis_load_scripts_styles(){ 
 	 	wp_enqueue_style( 'core-styles', get_bloginfo('stylesheet_url')); //Load core styles
 	 	wp_enqueue_style( 'mediaquery-css', get_template_directory_uri() . '/mquery.css'); //Load core Media Query
-		
-		//if bbpress is active do this.
-		if(does_plugin_exist("bbpress/bbpress.php")){
-			wp_enqueue_style( 'bbpress-css', get_template_directory_uri() . '/AisisCore/BBPress/Styles/styles.css'); //BBpress	
-		}
-		
 	 	wp_enqueue_style( 'googlefont-ubuntu', 'http://fonts.googleapis.com/css?family=Open+Sans'); //Load Ubuntu Font
 	 	wp_enqueue_style( 'tip-tip-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/tipTip.css'); //Load plugin css
 	 	wp_enqueue_style( 'toastmessage-css', get_template_directory_uri() . '/lib/Javascript/plugins/pluginCss/jquery.toastmessage.css'); //Load plugin css
@@ -100,8 +98,8 @@
 		wp_enqueue_script( 'custom-js', CUSTOM_NONPHP.'custom-js.js', array('jquery'), false, true); //load custom js
 		wp_enqueue_script( 'rainbow', get_template_directory_uri() . '/lib/Javascript/plugins/rainbow.min.js', false, true ); //Load rainbow
 		wp_enqueue_script( 'rainbow-generic-language', get_template_directory_uri() . '/lib/Javascript/plugins/generic.js', false, true ); //Load rainbow
+		wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/lib/Javascript/bootstrap/js/bootstrap.min.js', false, true ); //Load rainbow)
 	 	if ( is_single() || is_page() ) wp_enqueue_script( 'comment-reply' );
-		
 	 }
 	 
 	 add_action('wp_enqueue_scripts', 'aisis_load_scripts_styles');

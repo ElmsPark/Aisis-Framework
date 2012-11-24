@@ -38,7 +38,8 @@
 				'title_li'=> '',
 		);
 		
-		is_ae_page();				
+		$ae_page = new AisisMiniFeed('aisis_core');
+		$ae_page->ae_page_mini_feed();				
 ?>
 	 
     <div id="contentFull">
@@ -68,5 +69,4 @@
 	    comments_template('', true);
     }
 	aisis_footer();
->>>>>>> development
 	?>

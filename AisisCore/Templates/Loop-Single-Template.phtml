@@ -35,7 +35,8 @@
 			 'title_li'=> '',
 	 );	
 	 
-	is_single_post_page();
+	$single_post = new AisisMiniFeed('aisis_core');
+	$single_post->single_post_page_mini_feed();
 	
 	//Get the post for the page.
 	the_post();
