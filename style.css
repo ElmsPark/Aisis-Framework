@@ -1,10 +1,10 @@
 /*
-	Theme Name: Aisis
+	Theme Name: Aisis-Development-Theme
 	Theme URI: http://aisis.adambalan.com
 	Description: A theme framework for developing rich, interactive child themes.
 	Author: Adam Balan
 	Author URI: http://adambalan.com
-	Version: 1.1.6
+	Version: 1.2
 	Tags: custom-menu, flexible-width, full-width-template, gray, light, one-column, sticky-post, theme-options, threaded-comments, white
 	License: Aisis  Copyright (C) 2012  Adam Balan
 	This program comes with ABSOLUTELY NO WARRANTY.
@@ -14,21 +14,146 @@
  *	
  *====================== [[CSS STYLE SHEET]] ===========================
  *
- *		This is the core style sheet for the Aisis Theme/Framework.
- *		You should NOT be editing this file in any way shape or form.
- *		instead use the custom/custom-css.css file to make changes
- *		and edits to this css file.
- *
- *		This file contains 7 errors according the W3C standards.
- *		These errors are in relation to the .glossy class
  *
  *		@Author: Adam Balan
- *		@version: 1.1.6
+ *		@version: 1.2
  *		@Package: Aisis
  *
  *
  *======================================================================
  */
+body {
+	padding-top: 40px;
+}
 
-@import url('lib/bootstrap/css/bootstrap.min.css');
-@import url('lib/bootstrap/css/bootstrap-responsive.min.css');
+/* CUSTOMIZE THE NAVBAR - Fix for WP
+    -------------------------------------------------- */
+body.admin-bar .navbar-fixed-top {
+	top: 28px;
+}
+
+.navbar .brand {
+	color: #000 !important;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px
+		rgba(255, 255, 255, 0.125);
+	font-weight: bold !important;
+}
+
+.nav-container {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.dropdown-menu li>a:hover,.dropdown-menu li>a:focus,.dropdown-submenu:hover>a
+	{
+	color: #fff !important;
+}
+
+#inner-header {
+	width: 100%;
+}
+
+input,textarea,select,.uneditable-input {
+	margin-bottom: 0;
+}
+
+.navbar-form,.navbar-search {
+	margin: 0 0 9px;
+}
+
+.navbar-search {
+	padding-left: 0;
+}
+
+#s {
+	width: 100px;
+}
+/* CUSTOM CAROUSEL
+    -------------------------------------------------- */
+.carousel {
+	margin-bottom: 60px;
+	margin-top:20px;
+}
+
+.carousel .container {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.carousel-control {
+	background-color: transparent;
+	border: 0;
+	font-size: 120px;
+	margin-top: 0;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+}
+
+.carousel .item {
+	height: 500px;
+}
+
+.carousel img {
+	min-width: 100%;
+	height: 500px;
+}
+
+.carousel-caption {
+	background-color: transparent !important;;
+	position: static;
+	max-width: 550px;
+	padding: 0 20px;
+	margin-bottom: 100px;
+}
+
+.carousel-caption h1,.carousel-caption .lead {
+	margin: 0;
+	line-height: 1.25;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+}
+
+.carousel-caption .btn {
+	margin-top: 10px;
+}
+
+.hero-unit {
+	margin-bottom: 60px;
+}
+
+/* CUSTOM CONTAINER
+    -------------------------------------------------- */
+.container-narrow {
+	margin: 0 auto;
+	max-width: 700px;
+}
+
+.container-narrow>hr {
+	margin: 30px 0;
+}
+
+/* JUMBOTRON - CUSTOM MARKETING
+    -------------------------------------------------- */
+.jumbotron {
+	margin: 60px 0;
+	text-align: center;
+}
+
+.jumbotron h1 {
+	font-size: 72px;
+	line-height: 1;
+}
+
+.jumbotron .btn {
+	font-size: 21px;
+	padding: 14px 24px;
+}
+
+.marketing {
+	margin: 60px 0;
+}
+
+.marketing p+h4 {
+	margin-top: 28px;
+}

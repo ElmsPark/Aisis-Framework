@@ -1,70 +1,40 @@
-<?php
-	/**
-	 *
-	 * ==================== [MAY EDIT - SEE BELLOW] ====================
-	 *
-	 *		This is the core and default header for the whole theme.
-	 *		you may want to see the AisisCore package and associated
-	 *		files. This is a file you can edit if you so desire.
-	 *
-	 *		@see AisisCore (package)
-	 *		
-	 *		@author:  Adam Balan
-	 *		@version: 1.0
-	 *		@package: Aisis 
-	 * =================================================================
-	 */
-
-	$option =  get_option('aisis_core');
-	 
-?>
-    <!doctype html>
-    <html lang="en">
-    <head>
-    <meta charset="utf-8">
-    
-    <title>
-    <?php 
-    
-        if(is_single()){
-            single_post_title();
-        }elseif(is_page() || is_front_page()){
-            bloginfo('name');
-        }elseif(is_page()){
-            single_post_title('');
-        }elseif(is_search()){
-            bloginfo('name'); print '| Search Resualts: ' . esc_html($s);
-        }elseif(is_404()){
-            bloginfo('name'); print '| Not Found - 404 ';
-        }else{
-            bloginfo('name');
-        }
-    	$option = get_option('aisis_core');
-    ?>
-    </title>
-    <?php wp_head();?>
-    </head>
-    
-    <body>
-    <?php 
-	if($option['aisis_link_color'] != '' && $option['aisis_header_colors']){?>
-		<style>
-		#content a, #sidebar a{
-			color:#<?php echo $option['aisis_link_color']; ?> !important;
-		}
-		
-		h1, h2, h3, h4{
-			color:#<?php echo $option['aisis_header_colors']; ?> !important;
-		}
-		</style>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>
+		<?php		
+			if (is_single ()) {
+				single_post_title ();
+			} elseif (is_page () || is_front_page ()) {
+				bloginfo ( 'name' );
+			} elseif (is_page ()) {
+				single_post_title ( '' );
+			} elseif (is_search ()) {
+				bloginfo ( 'name' );
+				print '| Search Resualts: ' . esc_html ( $s );
+			} elseif (is_404 ()) {
+				bloginfo ( 'name' );
+				print '| Not Found - 404 ';
+			} else {
+				bloginfo ( 'name' );
+			}
+		?>
+	</title>
+	    
+	<?php wp_head();?>
+</head>
+<body <?php body_class(); ?>>
 	<?php 
-	}
-	
-	wp_head(); 
-	
+	$core_template = new CoreTheme_Templates_Builder('aisis_core');
+	// Load nav
+	$core_template->core_navigation(CORETHEME_TEMPLATES_VIEW . 'nav.phtml');
+	// Load caousel
+	$core_template->carousel(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');
+	$core_template->core_header_content(CORETHEME_TEMPLATES_VIEW . 'header.phtml');
 	?>
-    </head>
-    
-    <body <?php body_class(); ?>>
-    	<div id="pageWrap">
-         <?php aisis_header(); ?>   
+	
+	<div class="<?php $core_template->container_class(); ?>">
+		<div class="<?php $core_template->row_class(); ?>">
+			<div class="<?php $core_template->content_class()?>">
+				
