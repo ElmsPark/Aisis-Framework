@@ -12,7 +12,7 @@ if($carousel_loop->have_posts ()){ ?>
 					$carousel_loop->the_post ();
 		?>
 			<div class="item active">
-				<?php the_post_thumbnail('full'); ?>
+				<img src="<?php echo get_post_meta($post->ID, 'image', true); ?>" />
 				<div class="container">
 					<div class="carousel-caption">
 						<h1><?php echo get_the_title(); ?></h1>

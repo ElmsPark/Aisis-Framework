@@ -72,7 +72,6 @@ input,textarea,select,.uneditable-input {
     -------------------------------------------------- */
 .carousel {
 	margin-bottom: 60px;
-	margin-top:20px;
 }
 
 .carousel .container {
@@ -104,7 +103,7 @@ input,textarea,select,.uneditable-input {
 	position: static;
 	max-width: 550px;
 	padding: 0 20px;
-	margin-bottom: 100px;
+	margin-bottom: 200px;
 }
 
 .carousel-caption h1,.carousel-caption .lead {

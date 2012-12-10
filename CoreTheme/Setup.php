@@ -129,7 +129,12 @@ $register_theme->core_wp_nav($navigation);
 // Load the scripts
 $load_scripts = new CoreTheme_Loader_Asset($scripts_to_load);
 
+// We need the shortcodes - only on the admin side.
+$file = new AisisCore_FileHandling_File();
+$file->load_directory_of_files(CORETHEME_SHORTCODES);
+
 if(is_admin()){
+	
 	// Load Custom Admin Scripts.
 	new CoreTheme_AdminPanel_Admin($admin_scrtip);
 	
