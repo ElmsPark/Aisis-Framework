@@ -135,6 +135,8 @@ $file->load_directory_of_files(CORETHEME_SHORTCODES);
 
 if(is_admin()){
 	
+	$file->load_directory_of_files(CORETHEME_ADMIN_TWITTER);
+	
 	// Load Custom Admin Scripts.
 	new CoreTheme_AdminPanel_Admin($admin_scrtip);
 	

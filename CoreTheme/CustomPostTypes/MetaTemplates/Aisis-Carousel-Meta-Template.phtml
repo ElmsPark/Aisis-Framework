@@ -1,3 +1,7 @@
+<?php 
+$template = new CoreTheme_CustomPostTypes_MetaTemplate('aisis_core');
+$template->add_meta_template_assets(); 
+?>
 <div class="aisis_meta_control">
 	<br  />
     <p>
@@ -30,3 +34,5 @@
 		}
 	});
 </script>
+
+<?php $template->remove_meta_template_assets(); ?>

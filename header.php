@@ -29,9 +29,10 @@
 	$core_template = new CoreTheme_Templates_Builder('aisis_core');
 	// Load nav
 	$core_template->core_navigation(CORETHEME_TEMPLATES_VIEW . 'nav.phtml');
-	// Load caousel
-	$core_template->carousel(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');
+	// Lod Header Piece.
 	$core_template->core_header_content(CORETHEME_TEMPLATES_VIEW . 'header.phtml');
+	// Load caousel
+	$core_template->carousel(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');	
 	?>
 	
 	<div class="<?php $core_template->container_class(); ?>">

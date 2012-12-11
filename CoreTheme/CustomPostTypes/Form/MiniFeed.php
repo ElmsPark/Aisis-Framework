@@ -100,7 +100,7 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 			'id' => 'upload_image_button',
 			'name' => 'upload_image',
 			'class' => 'btn btn-primary',
-			'value' => 'Upload Image!'
+			'value' => 'Upload Image! <i class="icon-info-sign"></i>'
 		);
 		
 		$button = new CoreTheme_Form_Elements_Button($button_array);

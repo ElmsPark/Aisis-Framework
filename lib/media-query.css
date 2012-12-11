@@ -23,6 +23,11 @@
 		margin-right: -20px;
 		margin-top: -20px;
 	}
+	.hero-unit .captian{
+		width: 65%;
+		padding: 0 70px !important;
+		margin-bottom: 130px;
+	}
 	.carousel {
 		margin-left: -20px;
 		margin-right: -20px;

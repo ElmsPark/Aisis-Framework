@@ -10,6 +10,7 @@ define('CORETHEME', get_template_directory() . '/CoreTheme/');
 define('CORETHEME_LOADER', get_template_directory() . '/CoreTheme/Loader/');
 define('CORETHEME_TEMPLATES_VIEW', get_template_directory() . '/CoreTheme/Templates/View/');
 define('CORETHEME_SHORTCODES', get_template_directory() . '/CoreTheme/ShortCodes/');
+define('CORETHEME_ADMIN_TWITTER', get_template_directory() . '/CoreTheme/AdminPanel/TwitterBootStrap');
 
 
 // Load Core Theme

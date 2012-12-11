@@ -118,7 +118,16 @@ input,textarea,select,.uneditable-input {
 }
 
 .hero-unit {
-	margin-bottom: 60px;
+	margin-bottom: 0px !important;
+	height: 0px;
+}
+
+.hero-unit .captian{
+	background-color: transparent !important;;
+	position: static;
+	max-width: 550px;
+	padding: 0 20px;
+	margin-bottom: 200px;
 }
 
 /* CUSTOM CONTAINER
