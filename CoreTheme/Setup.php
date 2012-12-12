@@ -43,52 +43,9 @@ $scripts_to_load  = array(
         	'name'=>'aisis-js',
             'path'=>get_template_directory_uri() . '/lib/aisis.js'
         ),        
-     ),
-    'admin_css' => array(
-        array(
-            'name'=>'core-css',
-            'path'=>get_bloginfo('stylesheet_url')
-        ),
-        array(
-            'name'=>'bootstrap-css',
-            'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css'
-        ),
-        array(
-            'name'=>'bootstrap-responsive-css',
-            'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap-responsive.min.css'
-        )
-    ),
-   'admin_js_jquery' => array(
-   		array(
-        	'name'=>'twbs-js-min',
-            'path'=>get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js'
-        ),
-    ),     
+     ),     
 );
 
-// Admin Scripts
-$admin_scrtip = array(
-	'css' => array(
-        array(
-            'name'=>'new-admin-css',
-            'path'=>get_template_directory_uri() . '/CoreTheme/AdminPanel/lib/admin.css'
-        ),       
-        array(
-            'name'=>'bootstrap-css',
-            'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css'
-        ),
-    ),
-	'js' => array(
-        array(
-            'name'=>'new-admin-js',
-            'path'=>get_template_directory_uri() . '/CoreTheme/AdminPanel/lib/admin.js'
-        ),       
-        array(
-        	'name'=>'twbs-js-min',
-            'path'=>get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js'
-        ),
-    ),    
-);
 
 // Set up theme support
 $theme_support = array(
@@ -104,8 +61,8 @@ $post_types = array('aside', 'link', 'gallery', 'status', 'quote', 'image');
 // Set up another array, associatiave for  custom header and background
 $custom_wp_jazz = array(
 	'custom-header' => array(
-		'width'                  => 980,
-		'height'                 => 119
+		'width'                  => 670,
+		'height'                 => 60
 	),
 	'custom-background' => array(
 		'default-color' => 'ffffff'
@@ -115,7 +72,7 @@ $custom_wp_jazz = array(
 // Set up the navigation
 $navigation = array( 
 	'main_nav' => 'The Main Menu',
-	'footer_links' => 'Footer Links'
+	'header_links' => 'Header Links'
 );
 
 // Now we register them all
@@ -136,9 +93,6 @@ $file->load_directory_of_files(CORETHEME_SHORTCODES);
 if(is_admin()){
 	
 	$file->load_directory_of_files(CORETHEME_ADMIN_TWITTER);
-	
-	// Load Custom Admin Scripts.
-	new CoreTheme_AdminPanel_Admin($admin_scrtip);
 	
 	// Load custom Post Types and Meta Boxes.
 	new CoreTheme_CustomPostTypes_Types();

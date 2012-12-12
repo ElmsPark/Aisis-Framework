@@ -1,12 +1,10 @@
 @media ( max-width : 979px) {	
-	a,.nav-collapse .dropdown-menu a {
-		color: #000 !important;
-	}
 	.dropdown ul.dropdown-menu {
 		display: block;
 	}
-	.hero-unit {
+	.header-title {
 		margin-top: -20px;
+		height: 40px;
 	}
 	.carousel .item {
 		height: 500px;
@@ -18,15 +16,8 @@
 }
 
 @media ( max-width : 767px) {
-	.hero-unit {
-		margin-left: -20px;
-		margin-right: -20px;
-		margin-top: -20px;
-	}
-	.hero-unit .captian{
-		width: 65%;
-		padding: 0 70px !important;
-		margin-bottom: 130px;
+	.header-title {
+		height: 120px;
 	}
 	.carousel {
 		margin-left: -20px;

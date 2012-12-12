@@ -39,6 +39,7 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 		
 		$array_elemts = array(
 			$this->_image_element(),
+			$this->_link_element(),
 			$this->_button_element(),
 		);
 		
@@ -66,6 +67,27 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 		$image->set_label('Image', 'control-label');
 		
 		return $image;
+	}
+	
+	/**
+	 * Create a input that takes in a link.
+	 * 
+	 * @return CoreTheme_Form_Elements_Input
+	 */
+	protected function _link_element(){
+		$link_array = array(
+			'id' => 'link_array',
+			'attributes' => array(
+				'value="'.$this->_get_link_value().'"',
+				'name="link_array"',
+				'required=""'
+			)
+		);
+		
+		$link = new CoreTheme_Form_Elements_Input($link_array);
+		$link->set_label('Button Link', 'control-label');
+		
+		return $link;
 	}
 	
 	/**
@@ -98,6 +120,17 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 	private function _get_image(){
 		if(isset($this->_values['image'])){
 			return $this->_values['image'][0];
+		}
+	}
+	
+	/**
+	 * Returns the link for populating the form.
+	 * 
+	 * @return string
+	 */
+	private function _get_link_value(){
+		if(isset($this->_values['link'])){
+			return $this->_values['link'][0];
 		}
 	}
 }

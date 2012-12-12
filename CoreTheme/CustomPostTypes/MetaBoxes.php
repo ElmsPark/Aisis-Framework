@@ -136,6 +136,7 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 		}
 		
 		$image_url['image'] = $http->get_post('aisis_content_img');
+		$link_url['link'] = $http->get_post('link_array');
 		
 		foreach($image_url as $key=>$value){
 			
@@ -148,6 +149,20 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 			}
 			
 			if(!$image_url){
+				delete_post_meta($post->ID, $key);
+			}
+		}
+		
+		foreach($link_url as $key=>$value){
+			$link_url = implode(',', (array)$value);
+				
+			if(get_post_meta($post->ID, $key, false)){
+				update_post_meta($post->ID, $key, $link_url);
+			}else{
+				add_post_meta($post->ID, $key, $link_url);
+			}
+				
+			if(!$link_url){
 				delete_post_meta($post->ID, $key);
 			}
 		}
