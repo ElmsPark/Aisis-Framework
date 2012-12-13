@@ -13,6 +13,11 @@ function load_core_css(){
 		get_template_directory_uri(). '/CoreTheme/AdminPanel/TwitterBootStrap/css/compiled-style.css');
 	wp_enqueue_style('customized-bootstrap');
 	
+	// register the css
+	wp_register_style('modified-customized-bootstrap',
+	get_template_directory_uri(). '/CoreTheme/AdminPanel/TwitterBootStrap/css/modified.css');
+	wp_enqueue_style('modified-customized-bootstrap');
+	
 	wp_register_style('chosen-css',
 	get_template_directory_uri(). '/CoreTheme/AdminPanel/TwitterBootStrap/js/chosen/chosen.css');
 	wp_enqueue_style('chosen-css');
@@ -23,7 +28,7 @@ function load_core_css(){
  */
 function load_core_js(){
 	// register the js
-	wp_register_script('bootstrap-js', get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js');
+	wp_register_script('bootstrap-js', get_template_directory_uri() . '/CoreTheme/AdminPanel/TwitterBootStrap/js/bootstrap.min.js');
 	wp_enqueue_script('bootstrap-js');
 	
 	wp_register_script('chosen-js', get_template_directory_uri() . '/CoreTheme/AdminPanel/TwitterBootStrap/js/chosen/chosen.jquery.min.js');

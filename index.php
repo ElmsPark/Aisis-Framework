@@ -1,7 +1,8 @@
-<?php get_header(); ?>
+<?php 
 
-<h1>Test WP Theme Jazz</h1>
+get_header(); 
 
-<a href="#">I go no where. I am testing to see if we have twbs installed.</a>
+$core_template = new CoreTheme_Templates_Builder('aisis_core');
+$core_template->carousel(CORETHEME_TEMPLATES_VIEW . 'index.phtml');
 
-<?php get_footer();?>
+get_footer();

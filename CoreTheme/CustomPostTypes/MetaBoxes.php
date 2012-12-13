@@ -87,6 +87,7 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 		
 		$link_url['link'] = $http->get_post('aisis_content_link');
 		$image_url['image'] = $http->get_post('aisis_content_img');
+		$link_text['link_text'] = $http->get_post('link_text');
 		
 		foreach($link_url as $key=>$value){
 			
@@ -99,6 +100,20 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 			}
 			
 			if(!$link_value){
+				delete_post_meta($post->ID, $key);
+			}
+		}
+		
+		foreach($link_text as $key=>$value){
+			$link_text = implode(',', (array)$value);
+				
+			if(get_post_meta($post->ID, $key, false)){
+				update_post_meta($post->ID, $key, $link_text);
+			}else{
+				add_post_meta($post->ID, $key, $link_text);
+			}
+				
+			if(!$link_text){
 				delete_post_meta($post->ID, $key);
 			}
 		}
@@ -137,6 +152,7 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 		
 		$image_url['image'] = $http->get_post('aisis_content_img');
 		$link_url['link'] = $http->get_post('link_array');
+		$link_text['link_text'] = $http->get_post('link_text');
 		
 		foreach($image_url as $key=>$value){
 			
@@ -149,6 +165,20 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 			}
 			
 			if(!$image_url){
+				delete_post_meta($post->ID, $key);
+			}
+		}
+		
+		foreach($link_text as $key=>$value){
+			$link_text = implode(',', (array)$value);
+		
+			if(get_post_meta($post->ID, $key, false)){
+				update_post_meta($post->ID, $key, $link_text);
+			}else{
+				add_post_meta($post->ID, $key, $link_text);
+			}
+		
+			if(!$link_url){
 				delete_post_meta($post->ID, $key);
 			}
 		}

@@ -11,12 +11,7 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	/**
 	 * @var array
 	 */
-	protected $_link;
-		
-	/**
-	 * @var array
-	 */
-	protected $_img;
+	protected $_values;
 	
 	/**
 	 * Get the value for the form based on the meta data.
@@ -27,11 +22,11 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	public function init(){
 		global $post;
 		
-		$this->_link = get_post_meta( $post->ID, 'link', true );
-		$this->_img = get_post_meta( $post->ID, 'image', true );
+		$this->_values = get_post_custom( $post->ID );
 		
 		$array_elemts = array(
 			$this->_url_element(),
+			$this->_link_text(),
 			$this->_image_element(),
 			$this->_button_element(),
 		);
@@ -51,9 +46,9 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		$url_array = array(
 			'id' => 'aisis_content_link',
 			'attributes' => array(
-				'required=""',
 				'value="'.$this->_get_url().'"',
-				'name="aisis_content_link"'
+				'name="aisis_content_link"',
+				'placeholder="Url For Button"'
 				
 			)
 		);
@@ -63,6 +58,28 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		
 		return $url;
 	} 
+	
+	/**
+	 * Returns a link text element element
+	 * 
+	 * @return CoreTheme_Form_Elements_Input
+	 */
+	protected function _link_text(){
+	
+		$link_text = array(
+				'id' => 'link_text',
+				'attributes' => array(
+						'value="'.$this->_get_link_text().'"',
+						'name="link_text"',
+						'placeholder="Link For Button"'	
+				)
+		);
+	
+		$link = new CoreTheme_Form_Elements_Input($url_array);
+		$link->set_label('Button Text', 'control-label');
+	
+		return $link;
+	}
 	
 	/**
 	 * Create an image element which will store the 
@@ -77,12 +94,12 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 			'attributes' => array(
 				'value="'.$this->_get_image().'"',
 				'name="aisis_content_img"',
-				'required=""'
+				'placeholder="Image Url"'
 			)
 		);
 		
-		$image = new CoreTheme_Form_Elements_Input($image_array);
-		$image->set_label('Image', 'control-label');
+		$image = new CoreTheme_Form_Elements_Url($image_array);
+		$image->set_label('Image <a href="#myModal" data-toggle="modal"><i class="icon-info-sign"> </i></a>', 'control-label');
 		
 		return $image;
 	}
@@ -100,7 +117,7 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 			'id' => 'upload_image_button',
 			'name' => 'upload_image',
 			'class' => 'btn btn-primary',
-			'value' => 'Upload Image! <i class="icon-info-sign"></i>'
+			'value' => 'Upload Image!'
 		);
 		
 		$button = new CoreTheme_Form_Elements_Button($button_array);
@@ -114,8 +131,19 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	 * @return string
 	 */
 	private function _get_url(){
-		if(isset($this->_link)){
-			return $this->_link;
+		if(isset($this->_value['link'])){
+			return $this->_value['link'];
+		}
+	}
+	
+	/**
+	 * Get the link text.
+	 * 
+	 * @return string
+	 */
+	private function _get_link_text(){
+		if(isset($this->_value['link_text'])){
+			return $this->_value['link_text'];
 		}
 	}
 	
@@ -125,8 +153,8 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	 * @return string
 	 */
 	private function _get_image(){
-		if(isset($this->_img)){
-			return $this->_img;
+		if(isset($this->_value['image'])){
+			return $this->_value['image'];
 		}
 	}
 }

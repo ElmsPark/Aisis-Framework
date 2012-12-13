@@ -39,6 +39,7 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 		
 		$array_elemts = array(
 			$this->_image_element(),
+			$this->_link_text(),
 			$this->_link_element(),
 			$this->_button_element(),
 		);
@@ -59,14 +60,36 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 			'attributes' => array(
 				'value="'.$this->_get_image().'"',
 				'name="aisis_content_img"',
-				'required=""'
+				'placeholder="Image Url"'
 			)
 		);
 		
 		$image = new CoreTheme_Form_Elements_Input($image_array);
-		$image->set_label('Image', 'control-label');
+		$image->set_label('Image <a href="#myModal" data-toggle="modal"><i class="icon-info-sign"> </i></a>', 'control-label');
 		
 		return $image;
+	}
+	
+	/**
+	 * Create a link element where users can enter in text about there
+	 * button.
+	 * 
+	 * @return CoreTheme_Form_Elements_Input
+	 */
+	protected function _link_element(){
+		$link_text = array(
+				'id' => 'link_text',
+				'attributes' => array(
+						'value="'.$this->_get_link_text_value().'"',
+						'name="link_text"',
+						'placeholder="Button Text"'
+				)
+		);
+	
+		$link_text_element = new CoreTheme_Form_Elements_Input($link_text);
+		$link_text_element->set_label('Button Title', 'control-label');
+	
+		return $link_text_element;
 	}
 	
 	/**
@@ -74,17 +97,17 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 	 * 
 	 * @return CoreTheme_Form_Elements_Input
 	 */
-	protected function _link_element(){
+	protected function _link_text(){
 		$link_array = array(
 			'id' => 'link_array',
 			'attributes' => array(
 				'value="'.$this->_get_link_value().'"',
 				'name="link_array"',
-				'required=""'
+				'placeholder="Button Link"'
 			)
 		);
 		
-		$link = new CoreTheme_Form_Elements_Input($link_array);
+		$link = new CoreTheme_Form_Elements_Url($link_array);
 		$link->set_label('Button Link', 'control-label');
 		
 		return $link;
@@ -131,6 +154,17 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 	private function _get_link_value(){
 		if(isset($this->_values['link'])){
 			return $this->_values['link'][0];
+		}
+	}
+	
+	/**
+	 * Get the link text value.
+	 * 
+	 * @return string
+	 */
+	private function _get_link_text_value(){
+		if(isset($this->_values['link_text'])){
+			return $this->_values['link_text'][0];
 		}
 	}
 }

@@ -40,7 +40,7 @@ class AisisCore_Form_Elements_Button extends AisisCore_Form_Element {
 		
 		$this->_html .= $this->_disabled;
 		$this->_html .= ' >';
-		$this->_html .= 'test';//$this->_options['value'];
+		$this->_html .= $this->_options['value'];
 		$this->_html .=  '</button>';
 		
 		parent::init();

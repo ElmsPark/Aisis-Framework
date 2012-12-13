@@ -1,21 +1,32 @@
 <?php 
 $template = new CoreTheme_CustomPostTypes_MetaTemplate('aisis_core');
 $template->add_meta_template_assets(); 
-?>
-<div class="aisis_meta_control">
-	<br  />
-    <p>
-    <?php 	
-    $post = array(
-		'action' => '',
-		'method' => 'post',
-		'id' => 'test',
-		'class' => 'form-horizontal'
-	);
 	
-	echo new CoreTheme_CustomPostTypes_Form_Carousel($post);
-	?>
-    </p>                
+$post = array(
+	'action' => '',
+	'method' => 'post',
+	'id' => 'test',
+	'class' => 'form-horizontal'
+);
+	
+echo new CoreTheme_CustomPostTypes_Form_Carousel($post);
+?>
+
+
+<div class="modal hide" id="myModal">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h2>Upload an Image</h2>
+	</div>
+	<div class="modal-body">
+		<p>You can click the upload an image button bellow to upload an image using the
+		power of wordpress!</p>
+		<p class="text-info">Please be aware that you have to click "insert into post" in order to insert
+		the image into the text field.</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#"class="btn" data-dismiss="modal">Close</a>
+	</div>
 </div>
     
 <script language="JavaScript">

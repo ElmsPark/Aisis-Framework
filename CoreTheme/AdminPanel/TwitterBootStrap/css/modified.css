@@ -1,0 +1,19 @@
+[class^="icon-"], [class*=" icon-"]{
+	background-image: none !important;
+}
+
+.modal-header .close {
+	margin-top: 24px;
+	margin-right: 5px;
+}
+
+.modal-header {
+	padding-top: 10px;
+	border-bottom: 1px solid #EEE;
+	background: #EEE;
+	margin-top: -20px;
+}
+
+.modal-header h2 {
+	padding-left: 20px !important;
+}

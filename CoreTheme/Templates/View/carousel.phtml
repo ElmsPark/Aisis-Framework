@@ -14,13 +14,13 @@ if ($carousel_loop_active->have_posts()){
 		<?php while ($carousel_loop_active->have_posts()):
 				$carousel_loop_active->the_post();?>
 		<div class="item active">
-			<img src="<?php echo $get_post_meta($post->ID, 'image', true); ?>" alt="">
+			<img src="<?php echo get_post_meta($post->ID, 'image', true); ?>" alt="">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1><?php echo the_title(); ?></h1>
 					<p class="lead"><?php echo the_content(); ?></p>
-					<a class="btn btn-large btn-primary" href="<?php echo $get_post_meta($post->ID, 'link', true); ?>"><
-						?php echo $get_post_meta($post->ID, 'link_title', true); ?></a>
+					<a class="btn btn-large btn-primary" href="<?php echo get_post_meta($post->ID, 'link', true); ?>">
+						<?php echo get_post_meta($post->ID, 'link_text', true); ?></a>
 				</div>
 			</div>
 		</div>
@@ -28,13 +28,13 @@ if ($carousel_loop_active->have_posts()){
 		<?php while ($carousel_loop->have_posts()):
 				$carousel_loop->the_post();?>
 		<div class="item">
-			<img src="<?php echo $get_post_meta($post->ID, 'image', true); ?>" alt="">
+			<img src="<?php echo get_post_meta($post->ID, 'image', true); ?>" alt="">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1><?php echo the_title(); ?></h1>
 					<p class="lead"><?php echo the_content(); ?></p>
-					<a class="btn btn-large btn-primary" href="<?php echo $get_post_meta($post->ID, 'link', true); ?>"><
-						?php echo $get_post_meta($post->ID, 'link_title', true); ?></a>
+					<a class="btn btn-large btn-primary" href="<?php echo get_post_meta($post->ID, 'link', true); ?>">
+						<?php echo get_post_meta($post->ID, 'link_text', true); ?></a>
 				</div>
 			</div>
 		</div>
