@@ -24,16 +24,22 @@
  */
 body {
 	padding-top: 40px;
+	font-family: 'Open Sans', sans-serif !important;
 }
 
 /* OTHER ELEMENTS - core fixes
     -------------------------------------------------- */
+.containerSpecial {
+	width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-.rowHeader{
+.rowHeader {
 	margin-top: -42px;
 }
 
-.span4Links{
+.span4Links {
 	margin-top: 16px;
 }
 
@@ -53,6 +59,10 @@ body.admin-bar .navbar-fixed-top {
 .nav-container {
 	padding-left: 0;
 	padding-right: 0;
+}
+
+.nav-tabs, .nav-pills {
+	margin-top: -6px;
 }
 
 .dropdown-menu li>a:hover,.dropdown-menu li>a:focus,.dropdown-submenu:hover>a
@@ -134,6 +144,10 @@ input,textarea,select,.uneditable-input {
 	padding: 20px 0px 20px 0;
 }
 
+.links{
+	margin-top:20px;
+}
+
 /* CUSTOM CONTAINER
     -------------------------------------------------- */
 .container-narrow {
@@ -168,4 +182,18 @@ input,textarea,select,.uneditable-input {
 
 .marketing p+h4 {
 	margin-top: 28px;
+}
+
+/* FOOTER CUSTOM
+    -------------------------------------------------- */
+.containerTop{
+	padding-top:60px;
+}
+
+#push,#footer {
+	margin-top:40px;
+}
+
+#footer {
+	background-color: #f5f5f5;
 }

@@ -33,7 +33,7 @@ class AisisCore_Template_Builder {
 	 * 
 	 * @var mixed
 	 */
-	protected $_options;
+	protected static $_options;
 	
 	/**
 	 * Either a single string or an array of pages.
@@ -60,7 +60,7 @@ class AisisCore_Template_Builder {
 	 * @param AisisTemplateBuilder $page
 	 * @param AisisTemplateBuilder $options
 	 */
-	public function __construct($options, $page = '') {
+	public function __construct($options = '', $page = '') {
 		
 		$this->_page = $page;
 		$this->_options = $options;

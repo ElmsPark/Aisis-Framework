@@ -91,15 +91,15 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 		
 		foreach($link_url as $key=>$value){
 			
-			$link_value = implode(',', (array)$value);
+			$link_url = implode(',', (array)$value);
 			
 			if(get_post_meta($post->ID, $key, false)){
-				update_post_meta($post->ID, $key, $link_value);
+				update_post_meta($post->ID, $key, $link_url);
 			}else{
-				add_post_meta($post->ID, $key, $link_value);
+				add_post_meta($post->ID, $key, $link_url);
 			}
 			
-			if(!$link_value){
+			if(!$link_url){
 				delete_post_meta($post->ID, $key);
 			}
 		}

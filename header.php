@@ -26,16 +26,22 @@
 </head>
 <body <?php body_class(); ?>>
 	<?php 
-	$core_template = new CoreTheme_Templates_Builder('aisis_core');
+	$template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
 	// Load nav
-	$core_template->core_navigation(CORETHEME_TEMPLATES_VIEW . 'nav.phtml');
+	$template->core_navigation(CORETHEME_TEMPLATES_VIEW . 'nav.phtml');
+	
 	// Lod Header Piece.
-	$core_template->core_header_content(CORETHEME_TEMPLATES_VIEW . 'header.phtml');
-	// Load caousel
-	$core_template->carousel(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');	
+	$template->core_header_content(CORETHEME_TEMPLATES_VIEW . 'header.phtml');
+	
+	// Lod if not on Single Post or Page
+	if(!is_single()){
+		// Load caousel
+		$template->carousel(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');	
+	}
 	?>
 	
-	<div class="<?php $core_template->container_class(); ?>">
-		<div class="<?php $core_template->row_class(); ?>">
-			<div class="<?php $core_template->content_class()?>">
+	<div class="<?php $template->container_class(); ?>">
+	<?php if(!is_single()){ $template->carousel(CORETHEME_TEMPLATES_VIEW . 'minifeeds.phtml'); }?>
+		<div class="<?php $template->row_class(); ?>">
+			<div class="<?php $template->content_class()?>">
 				

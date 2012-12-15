@@ -75,7 +75,7 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 				)
 		);
 	
-		$link = new CoreTheme_Form_Elements_Input($url_array);
+		$link = new CoreTheme_Form_Elements_Input($link_text);
 		$link->set_label('Button Text', 'control-label');
 	
 		return $link;
@@ -131,8 +131,8 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	 * @return string
 	 */
 	private function _get_url(){
-		if(isset($this->_value['link'])){
-			return $this->_value['link'];
+		if(isset($this->_values['link'])){
+			return $this->_values['link'][0];
 		}
 	}
 	
@@ -142,8 +142,8 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	 * @return string
 	 */
 	private function _get_link_text(){
-		if(isset($this->_value['link_text'])){
-			return $this->_value['link_text'];
+		if(isset($this->_values['link_text'])){
+			return $this->_values['link_text'][0];
 		}
 	}
 	
@@ -153,8 +153,8 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	 * @return string
 	 */
 	private function _get_image(){
-		if(isset($this->_value['image'])){
-			return $this->_value['image'];
+		if(isset($this->_values['image'])){
+			return $this->_values['image'][0];
 		}
 	}
 }

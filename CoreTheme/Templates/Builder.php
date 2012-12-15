@@ -79,6 +79,23 @@ class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 	}
 	
 	/**
+	 * Load the index of posts.
+	 * 
+	 * @param string $template
+	 */
+	public function index_content($template){
+		$this->load_template($template);
+	}
+	
+	/**
+	 * Render the footer template
+	 * @param string $template
+	 */
+	public function footer_links($template){
+		$this->load_template($template);
+	}
+	
+	/**
 	 * Builds the container class based on
 	 * what page were on and the content at hand.
 	 */
@@ -86,7 +103,7 @@ class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 		if(is_page_template('marketing-page.php')){
 			echo 'container-narrow';
 		}else{
-			echo 'container-fluid';
+			echo 'container';
 		}
 	}
 	
@@ -98,7 +115,7 @@ class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 		if(is_page_template('marketing-page.php')){
 			echo 'row-fluid marketing';
 		}else{
-			echo 'row-fluid';
+			echo 'row';
 		}
 	}
 	
@@ -107,8 +124,10 @@ class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 	 * the page we are on.
 	 */
 	public function content_class(){
-		if(!is_page_template('marketing-page.php')){
+		if(!is_page_template('marketing-page.php') && !is_single()){
 			echo 'span10';
+		}elseif(is_single()){
+			echo 'span7';
 		}
 	}
 	

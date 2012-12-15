@@ -72,8 +72,29 @@ $custom_wp_jazz = array(
 // Set up the navigation
 $navigation = array( 
 	'main_nav' => 'The Main Menu',
-	'header_links' => 'Header Links'
+	'header_links' => 'Header Links',
+	'footer_links' => 'Footer Links'
 );
+
+/**
+ * Create a list of dependencies that
+ * can be used in a factory class.
+ */
+function dependencies(){
+	
+	$dependencies = array(
+		'CoreTheme_Templates_Builder' => array(
+			'params' => array(
+				'aisis_core'
+			),
+		),
+	);
+	
+	return $dependencies;
+}
+
+// Register Dependencies 
+AisisCore_Factory_Pattern::register_dependencies(dependencies());
 
 // Now we register them all
 $register_theme = new CoreTheme_Theme();

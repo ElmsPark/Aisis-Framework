@@ -23,10 +23,11 @@ class CoreTheme_Loader_Asset extends AisisCore_Loader_Asset {
 		$http = new AisisCore_Http_Http();
 		
 		add_action ('wp_enqueue_scripts', array($this, 'load_jquery_front'));
-		add_action ( 'wp_enqueue_scripts', array ($this, 'load_script' ) );
+		add_action ('wp_enqueue_scripts', array ($this, 'load_script' ) );
 		
 		add_action ( 'wp_head', array ($this, 'apply_ie_tags' ) );
 		add_action ( 'wp_head', array ($this, 'apply_view_port_tag' ) );
+		add_action ( 'wp_enqueue_scripts', array ($this, 'apply_open_sans'));
 		
 		if (is_admin ()) {
 			// Check what pages were on so we only load on specific pages.
@@ -224,6 +225,13 @@ class CoreTheme_Loader_Asset extends AisisCore_Loader_Asset {
 	public function apply_view_port_tag() {
 		echo '<meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />';
 	}	
+	
+	/**
+	 * Add the open sans font to the header.
+	 */
+	public function apply_open_sans(){
+		wp_enqueue_style('google-font', 'http://fonts.googleapis.com/css?family=Open+Sans');
+	}
 }
 
 ?>

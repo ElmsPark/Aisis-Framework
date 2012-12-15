@@ -1,4 +1,4 @@
-@media ( max-width : 979px) {	
+@media ( max-width : 979px) {
 	.dropdown ul.dropdown-menu {
 		display: block;
 	}
@@ -43,5 +43,11 @@
 	}
 	.carousel-caption .lead,.carousel-caption .btn {
 		font-size: 18px;
+	}
+	#footer {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 }
