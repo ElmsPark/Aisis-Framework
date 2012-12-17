@@ -27,6 +27,11 @@ body {
 	font-family: 'Open Sans', sans-serif !important;
 }
 
+p {
+	font-size: 16px;
+	line-height: 1.5em;
+}
+
 /* OTHER ELEMENTS - core fixes
     -------------------------------------------------- */
 .containerSpecial {
@@ -41,6 +46,10 @@ body {
 
 .span4Links {
 	margin-top: 16px;
+}
+
+.marginTop60{
+	margin-top:60px;
 }
 
 /* CUSTOMIZE THE NAVBAR - Fix for WP
@@ -148,6 +157,13 @@ input,textarea,select,.uneditable-input {
 	margin-top:20px;
 }
 
+/* CONTENT SUBHEADLINES
+    -------------------------------------------------- */
+
+.headLine{
+	text-align:center;
+}
+
 /* CUSTOM CONTAINER
     -------------------------------------------------- */
 .container-narrow {
@@ -182,6 +198,21 @@ input,textarea,select,.uneditable-input {
 
 .marketing p+h4 {
 	margin-top: 28px;
+}
+
+/* SIDEBAR
+    -------------------------------------------------- */
+.widget{
+	width: 60%;
+	padding: 5px;
+	background-color: whiteSmoke;
+	margin: 0 auto 10px auto;
+	border-radius: 3px;
+}
+
+.widget .content{
+	margin:5px auto 5px auto;
+	width:90%;
 }
 
 /* FOOTER CUSTOM

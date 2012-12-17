@@ -13,6 +13,11 @@
 class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 	
 	/**
+	 * @var mixed
+	 */
+	protected $_category_template;
+	
+	/**
 	 * Load the templates. 
 	 * 
 	 * You would call this function with in each of the defaults
@@ -28,7 +33,8 @@ class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 				$this->author_template($template);
 			}
 			if (is_category()) {
-				$this->load_template(get_template_directory() . '/CoreTheme/Templates/View/category.phtml');
+				$this->_category_template;
+				$this->_index_template($template);
 			} elseif (is_single()) {
 				$this->_single_template($template);
 			} elseif (is_page()){
@@ -57,8 +63,14 @@ class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 		$this->load_template($template);
 	}
 	
-	public function archive_template($template){
-		$this->load_template($template);
+	/**
+	 * Store the category template into a class
+	 * level variable for use in the loop.
+	 * 
+	 * @param unknown_type $template
+	 */
+	public function category_template($template){
+		$this->_category_template = $this->load_template($template);
 	}
 	
 	/**

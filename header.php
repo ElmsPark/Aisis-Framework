@@ -28,20 +28,19 @@
 	<?php 
 	$template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
 	// Load nav
-	$template->core_navigation(CORETHEME_TEMPLATES_VIEW . 'nav.phtml');
+	$template->core_navigation_template(CORETHEME_TEMPLATES_VIEW . 'nav.phtml');
 	
 	// Lod Header Piece.
-	$template->core_header_content(CORETHEME_TEMPLATES_VIEW . 'header.phtml');
+	$template->core_header_template(CORETHEME_TEMPLATES_VIEW . 'header.phtml');
 	
 	// Lod if not on Single Post or Page
 	if(!is_single()){
 		// Load caousel
-		$template->carousel(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');	
+		$template->carousel_template(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');	
 	}
 	?>
 	
 	<div class="<?php $template->container_class(); ?>">
-	<?php if(!is_single()){ $template->carousel(CORETHEME_TEMPLATES_VIEW . 'minifeeds.phtml'); }?>
+	<?php if(!is_single()){ $template->carousel_template(CORETHEME_TEMPLATES_VIEW . 'minifeeds.phtml'); }?>
 		<div class="<?php $template->row_class(); ?>">
-			<div class="<?php $template->content_class()?>">
 				

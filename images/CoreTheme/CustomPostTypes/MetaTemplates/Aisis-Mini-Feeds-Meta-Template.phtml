@@ -1,4 +1,4 @@
-<?php 
+<?php 	
 $post = array(
 	'action' => '',
 	'method' => 'post',
@@ -6,9 +6,8 @@ $post = array(
 	'class' => 'form-horizontal'
 );
 	
-echo new CoreTheme_CustomPostTypes_Form_Carousel($post);
+echo new CoreTheme_CustomPostTypes_Form_MiniFeed($post);
 ?>
-
 
 <div class="modal hide" id="myModal">
 	<div class="modal-header">
@@ -25,7 +24,8 @@ echo new CoreTheme_CustomPostTypes_Form_Carousel($post);
 		<a href="#"class="btn" data-dismiss="modal">Close</a>
 	</div>
 </div>
-    
+​
+
 <script language="JavaScript">
 	//Upload the image and populate the text box
 	jQuery(document).ready(function() {

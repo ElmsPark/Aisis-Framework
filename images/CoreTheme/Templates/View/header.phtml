@@ -1,0 +1,21 @@
+<?php 
+	$menu_options = array(
+		'container' => '',
+		'menu_class' => 'nav nav-pills',
+       	'fallback_cb' => '',
+		'theme_location'  => 'header_links',
+	);
+?>
+<div class="header-title">
+	<div class="container">
+		<div class="row ">
+			<div class="span7">
+				<img src="<?php header_image()?>" width="<?php echo get_custom_header()->width; ?>" 
+					height="<?php echo get_custom_header()->width; ?>" />
+			</div>
+			<div class="span4 links">
+				<?php wp_nav_menu($menu_options); ?>
+			</div>
+		</div>
+	</div>
+</div> 

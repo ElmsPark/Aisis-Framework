@@ -58,8 +58,8 @@ $theme_support = array(
 $sidebar = array(
 	'name'          => 'Main Side Bar',
 	'id'            => 'aisis-side-bar',
-	'before_widget' => '<div class="widget"><div class="content">',
-	'after_widget'  => '</div></div>',
+	'before_widget' => '<li>',
+	'after_widget'  => '</li>',
 	'before_title'  => '<h2>',
 	'after_title'   => '</h2>'
 );
