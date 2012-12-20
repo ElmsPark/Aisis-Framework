@@ -25,22 +25,23 @@
 	<?php wp_head();?>
 </head>
 <body <?php body_class(); ?>>
+<div id="wrap">
 	<?php 
-	$template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
-	// Load nav
-	$template->core_navigation_template(CORETHEME_TEMPLATES_VIEW . 'nav.phtml');
 	
-	// Lod Header Piece.
-	$template->core_header_template(CORETHEME_TEMPLATES_VIEW . 'header.phtml');
+	$templates = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
+	$templates->render_template(CORETHEME_TEMPLATES_VIEW . 'navigation.phtml');
 	
-	// Lod if not on Single Post or Page
-	if(!is_single()){
-		// Load caousel
-		$template->carousel_template(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');	
+	if(!is_category() && !is_single() && !is_archive()){
+		$templates->render_template(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');
 	}
+	
 	?>
 	
-	<div class="<?php $template->container_class(); ?>">
-	<?php if(!is_single()){ $template->carousel_template(CORETHEME_TEMPLATES_VIEW . 'minifeeds.phtml'); }?>
-		<div class="<?php $template->row_class(); ?>">
+	<div class="<?php $templates->container_class(); ?>">
+		<?php 
+		if(!is_category() && !is_single() && !is_archive()){
+			$templates->render_template(CORETHEME_TEMPLATES_VIEW . 'minifeeds.phtml');
+		}
+		?>
+		
 				

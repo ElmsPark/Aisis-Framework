@@ -1,20 +1,24 @@
-<?php 
+<?php
 global $post;
 
-$mini_feed =  array ('post_type' => 'mini' );
-$mini_loop = new WP_Query ( $mini_feed );
+$mini = array('post_type' => 'mini', 'posts_per_page' => 3);
+$mini_loop = new WP_Query($mini);
 
-if ($mini_loop->have_posts()) {?>
-<div class="row-fluid">
-	<?php while ($mini_loop->have_posts()):
-			$mini_loop->the_post();?>
-	<div class="span4 marginTop">
-		<img class="img-rounded" src="<?php echo get_post_meta($post->ID, 'image', true); ?>" />
-		<h3><?php echo get_the_title(); ?></h3>
-		<p><?php echo the_content(); ?></p>
-		<p><a href="<?php echo get_post_meta($post->ID, 'link', true);?>" class="btn">
-			<?php echo get_post_meta($post->ID, 'link_text', true); ?></a>
-	</div>
-	<?php endwhile; ?>
+?>
+<div class="row">
+	<?php
+	if($mini_loop->have_posts()){
+		while($mini_loop->have_posts()) : $mini_loop->the_post();
+			?>
+			<div class="span4">
+				<img src="<?php echo  get_post_meta($post->ID, 'image', true); ?>" class="img-rounded" />
+				<h4><?php the_title() ?></h4>
+				<p><?php the_content(); ?></p>
+				<a href="<?php echo get_post_meta($post->ID, 'link', true); ?>" class="btn">
+					<?php echo get_post_meta($post->ID, 'link_text', true)?></a>
+			</div>
+			<?php 
+		endwhile;
+	}
+	?>
 </div>
-<?php } ?>

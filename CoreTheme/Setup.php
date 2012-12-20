@@ -14,6 +14,8 @@
  * deffinition of the appropriate directories.
  */
 
+require_once CORETHEME . 'hooks.php';
+
 // Load a specific set of Css and JS scripts
 $scripts_to_load  = array(
     'css' => array(
@@ -112,10 +114,6 @@ $register_theme->core_wp_options($theme_support);
 $register_theme->post_formats($post_types);
 $register_theme->custom_header_background($custom_wp_jazz);
 $register_theme->core_wp_nav($navigation);
-
-// Set up the Sidebar.
-$sidebar_register = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
-$sidebar_register->create_sidebar($sidebar);
 
 // Load the scripts
 $load_scripts = new CoreTheme_Loader_Asset($scripts_to_load);

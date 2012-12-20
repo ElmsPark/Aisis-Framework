@@ -22,14 +22,25 @@
  *
  *======================================================================
  */
-body {
-	padding-top: 40px;
+html, body {
+	height:100%;
 	font-family: 'Open Sans', sans-serif !important;
 }
 
 p {
 	font-size: 16px;
 	line-height: 1.5em;
+}
+
+/* CORE WRAPPER
+    -------------------------------------------------- */
+
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by it's height */
+	margin: 0 auto -60px;
 }
 
 /* OTHER ELEMENTS - core fixes
@@ -50,6 +61,18 @@ p {
 
 .marginTop60{
 	margin-top:60px;
+}
+
+.marginTop20{
+	margin-top:20px;
+}
+
+.marginBottom20{
+	margin-bottom:20px;
+}
+
+.imageRight{
+	margin-right:10px
 }
 
 /* CUSTOMIZE THE NAVBAR - Fix for WP
@@ -157,6 +180,13 @@ input,textarea,select,.uneditable-input {
 	margin-top:20px;
 }
 
+/* POST
+    -------------------------------------------------- */
+.post{
+	position:relative;
+	margin-bottom:60px;
+}
+
 /* CONTENT SUBHEADLINES
     -------------------------------------------------- */
 
@@ -222,7 +252,7 @@ input,textarea,select,.uneditable-input {
 }
 
 #push,#footer {
-	margin-top:40px;
+	margin-top:60px;;
 }
 
 #footer {
