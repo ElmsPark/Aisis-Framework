@@ -1,0 +1,60 @@
+<div class="wrapper">
+	<div class="container">
+		<div class="well wellChangeBorderRadius">
+			<h1 class='headLine'>Aisis Version 1.2</h1>
+			<p class="small text-success headLine">You are running the latest version of Aisis!</p>
+			<div class="alert fade-in">
+				<p><strong>Note: </strong> You are currently running version 1.1 
+				and our records indicate version 1.2 is ready! See <a href="#updateModal" data-toggle="modal">me for more details!</a>.</p>
+				<p><a href="#" class='btn btn-large btn-success'>Click me to Download Update!</a></p>
+			</div>
+		</div>
+		<?php 
+		if(get_option('success_message') == true){ ?>
+		<div class="well">
+			<p class="text-success headLine"> You have updated the text! </p>
+		</div>
+		<?php 
+			update_option('success_message', false);
+		} ?>
+		<div class="tabbable">
+			<ul class="nav nav-tabs">
+		    	<li class="active"><a href="#coreStyle" data-toggle="tab">Post Specific</a></li>
+		    	<li><a href="#socialMedia" data-toggle="tab">Page Specific</a></li>
+		    	<li><a href="#layoutOptions" data-toggle="tab">General</a></li>
+		 	</ul>
+			<div class="tab-content">
+				<div id="coreStyle" class="tab-pane active">
+				<?php new CoreTheme_AdminPanel_Form_SiteDesign(array(
+					      'method'=>'post',
+						  'action' => 'options.php'
+					  )); ?>
+				</div>
+				<div id="socialMedia" class="tab-pane">
+				</div>
+				<div id="layoutOptions" class="tab-pane">
+				</div>
+			</div>
+		</div>
+		<div clas="push"></div>
+	</div>
+</div>
+<div id="footer">
+	<div class="container containerTop">
+		<div class="row">
+			<div class="span6">
+				<p class="muted credit">
+					This is come content that should be replaced.
+				</p>
+			</div>
+			<div class="span6">
+				Possible links to other parts of the admin panel?
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php 
+$template = AisisCore_Factory_Pattern::create('CoreTheme_AdminPanel_TemplateBuilder');
+$template->render_template(get_template_directory() . '/CoreTheme/AdminPanel/Templates/updatemodal.phtml');
+?>

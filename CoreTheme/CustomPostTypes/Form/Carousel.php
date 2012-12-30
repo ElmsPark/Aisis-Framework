@@ -80,9 +80,9 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 		$link_text = array(
 				'id' => 'link_text',
 				'attributes' => array(
-						'value="'.$this->_get_link_text_value().'"',
-						'name="link_text"',
-						'placeholder="Button Text"'
+					'value="'.$this->_get_link_text_value().'"',
+					'name="link_text"',
+					'placeholder="Button Text"'
 				)
 		);
 	

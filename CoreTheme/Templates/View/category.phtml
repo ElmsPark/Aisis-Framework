@@ -1,7 +1,4 @@
-<?php 
-$template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
-
-?>
+<?php $template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder'); ?>
 
 <div class="hero-unit">
 	<h2><?php single_cat_title(); ?></h2>
@@ -10,5 +7,4 @@ $template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
 </div>
 
 <?php 
-
 $template->render_template(CORETHEME_TEMPLATES_VIEW . '/Index/index_category.phtml');

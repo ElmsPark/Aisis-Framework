@@ -35,6 +35,10 @@ class AisisCore_Form_Elements_Input extends AisisCore_Form_Element {
 			}
 		}
 		
+		if(isset($this->_options['value'])){
+			$this->_html .= ' value="'.$this->_options['value'].'" ';
+		}
+		
 		$this->_html .= $this->_disabled;
 		$this->_html .= ' />';
 		

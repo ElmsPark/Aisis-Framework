@@ -66,6 +66,8 @@ $sidebar = array(
 	'after_title'   => '</h2>'
 );
 
+register_sidebar($sidebar);
+
 // Set up another array for custom posts
 $post_types = array('aside', 'link', 'gallery', 'status', 'quote', 'image');
 
@@ -99,6 +101,10 @@ function dependencies(){
 				'aisis_core'
 			),
 		),
+		
+		'CoreTheme_AdminPanel_TemplateBuilder' => array(
+			'params' => array(),
+		),
 	);
 	
 	return $dependencies;
@@ -129,4 +135,7 @@ if(is_admin()){
 	// Load custom Post Types and Meta Boxes.
 	new CoreTheme_CustomPostTypes_Types();
 	new CoreTheme_CustomPostTypes_MetaBoxes();
+	
+	// Set up the admin panel
+	new CoreTheme_AdminPanel_AdminPanel();
 }

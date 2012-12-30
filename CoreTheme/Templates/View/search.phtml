@@ -1,0 +1,21 @@
+<?php
+if(have_posts()){
+
+$http = new AisisCore_Http_Http();
+get_header();
+
+?>
+<div class="hero-unit headLine">
+	<h1>Search Results</h1>
+	<p>Below is the resualts for your search: <strong class="text-info"><?php echo $http->get_request('s')?></strong> </p>
+</div>
+<?php
+
+$template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
+$template->render_template(CORETHEME_TEMPLATES_VIEW . 'Index/index_general.phtml');
+
+}else{
+	include_once(THEME . '404.php');
+}
+
+get_footer();

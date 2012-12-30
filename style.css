@@ -59,6 +59,10 @@ p {
 	margin-top: 16px;
 }
 
+.marginTop105{
+	margin-top:105px;
+}
+
 .marginTop60{
 	margin-top:60px;
 }
@@ -73,6 +77,10 @@ p {
 
 .imageRight{
 	margin-right:10px
+}
+
+.hero-unit h1{
+	margin-bottom:10px !important;
 }
 
 /* CUSTOMIZE THE NAVBAR - Fix for WP
