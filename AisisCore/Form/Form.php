@@ -15,7 +15,7 @@
  * @author Adam Balan
  *
  */
-class AisisCore_Form_Form {
+class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	
 	/**
 	 * Form options.
@@ -29,7 +29,7 @@ class AisisCore_Form_Form {
 	 * 
 	 * @var string
 	 */
-	protected $_form_element = '';
+	protected $_html = '';
 	
 	/**
 	 * All forms take in an array of options. Do not over ride
@@ -77,22 +77,22 @@ class AisisCore_Form_Form {
 	 * 
 	 */
 	protected function _open_form(){
-		$this->_form_element .= '<form ';
+		$this->_html .= '<form ';
 		
-		$this->_form_element .= 'action="'.$this->get_action().'" ';
-		$this->_form_element .= 'method="'.$this->get_method().'" ' ;
+		$this->_html .= 'action="'.$this->get_action().'" ';
+		$this->_html .= 'method="'.$this->get_method().'" ' ;
 		
 		if(isset($this->_options['id'])){
-			$this->_form_element .= 'id="'.$this->_options['id'].'" ';	
+			$this->_html .= 'id="'.$this->_options['id'].'" ';	
 		}
 		
 		if(isset($this->_options['class'])){
-			$this->_form_element .= 'class="'.$this->_options['class'].'" ';	
+			$this->_html .= 'class="'.$this->_options['class'].'" ';	
 		}
 		
-		$this->_form_element .= ' >';
+		$this->_html .= ' >';
 		
-		echo $this->_form_element;
+		echo $this->_html;
 	}
 
 	/**
@@ -101,7 +101,7 @@ class AisisCore_Form_Form {
 	 */
 	protected function _elements($elements, $content = array(), $sub_section){
 		foreach ($content as $display){
-			$this->_form_element .= $display;
+			$this->_html .= $display;
 		}
 		
 		$count = count($elements);
@@ -114,57 +114,19 @@ class AisisCore_Form_Form {
 				$this->_open_div($sub_section);
 				$this->_sub_section_content($sub_section);
 				$this->_sub_section_elements($sub_section);
-				
-				$this->_form_element .= '</div>';
+				$this->_close_form();
 			}
 			
-			$this->_form_element .= $element;
+			$this->_html .= $element;
 		}
 	}
-	
-	/**
-	 * 
-	 * @param array $sub_section
-	 */
-	protected function _open_div($sub_section){
-		$this->_form_element .= '<div ';
-		if(isset($sub_section['sub_content_options']['class'])){
-			$this->_form_element .= 'class="'.$sub_section['sub_content_options']['class'].'"';
-		}
-		
-		if(isset($sub_section['sub_content_options']['id'])){
-			$this->_form_element .= 'id="'.$sub_section['sub_content_options']['id'].'"';
-		}
-		
-		$this->_form_element .= ' >';
-	}
-
-	/**
-	 * 
-	 * @param array $sub_section
-	 */
-	protected function _sub_section_content($sub_section){
-		foreach($sub_section['sub_content'] as $display_content){
-			$this->_form_element .= $display_content;
-		}
-	}
-	
-	/**
-	 * 
-	 * @param array $sub_section
-	 */
-	protected function _sub_section_elements($sub_section){
-		foreach($sub_section['sub_elements'] as $sub_element){
-			$this->_form_element .= $sub_element;
-		}	
-	}	
 	
 	/**
 	 * 
 	 */
 	protected function _close_form(){
-		$this->_form_element .= ' </form>';
-		echo $this->_form_element;
+		$this->_html .= ' </form>';
+		echo $this->_html;
 	}
 	
 	/**
@@ -175,7 +137,7 @@ class AisisCore_Form_Form {
 	 * @param array $sub_content
 	 * @param array $sub_content_options
 	 * @param string $settings_fields
-	 * @see AisisCore_Form_Element
+	 * @see AisisCore_html
 	 * 
 	 * @see http://codex.wordpress.org/Function_Reference/settings_fields
 	 */
@@ -197,6 +159,6 @@ class AisisCore_Form_Form {
 	 * Render the form html to the browser.
 	 */
 	public function __toString(){
-		return $this->_form_element;
+		return $this->_html;
 	}
 }
