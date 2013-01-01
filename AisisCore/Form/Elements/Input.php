@@ -29,10 +29,16 @@ class AisisCore_Form_Elements_Input extends AisisCore_Form_Element {
 			$this->_html .= 'class="'.$this->_options['class'].'" ';
 		}
 		
-		if(isset($this->_options['attributes'])){
-			foreach($this->_options['attributes'] as $attrib){
-				$this->_html .= $attrib;
-			}
+		if(isset($this->_options['name'])){
+			$this->_html .= 'name="'.$this->_options['name'].'" ';
+		}
+		
+		if(isset($this->_options['placeholder'])){
+			$this->_html .= 'placeholder="'.$this->_options['placeholder'].'" ';
+		}
+		
+		if(isset($this->_options['required']) && $this->_options['required'] == true){
+			$this->_html .= 'required';
 		}
 		
 		if(isset($this->_options['value'])){

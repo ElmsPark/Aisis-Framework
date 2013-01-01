@@ -25,12 +25,11 @@ class CoreTheme_Templates_View_Form_NavSearch extends AisisCore_Form_Form {
 	 * 
 	 */
 	public function input_element(){
+		
 		$input_options = array(
 			'class' => 'search-query span2',
-			'attributes' => array(
-				'name="s" ',
-				'placeholder="Searching for?" ',
-			)
+			'name' => 's',
+			'placeholder' => 'Searching For?'
 		);
 		
 		$input = new CoreTheme_Form_Elements_Input($input_options);

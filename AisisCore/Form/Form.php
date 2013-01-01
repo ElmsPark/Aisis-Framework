@@ -55,14 +55,22 @@ class AisisCore_Form_Form {
 	 * Get the method of the form.
 	 */
 	public function get_method(){
-		return $this->_options['method'];
+		if(isset($this->_options['method'])){
+			return $this->_options['method'];
+		}else{
+			return;
+		}
 	}
 	
 	/**
 	 * Get the action of the form.
 	 */
 	public function get_action(){
-		return $this->_options['action'];
+		if(isset($this->_options['action'])){
+			return $this->_options['action'];
+		}else{
+			return;
+		}
 	}
 	
 	/**
@@ -70,6 +78,7 @@ class AisisCore_Form_Form {
 	 */
 	protected function _open_form(){
 		$this->_form_element .= '<form ';
+		
 		$this->_form_element .= 'action="'.$this->get_action().'" ';
 		$this->_form_element .= 'method="'.$this->get_method().'" ' ;
 		
@@ -85,16 +94,70 @@ class AisisCore_Form_Form {
 		
 		echo $this->_form_element;
 	}
-	
+
 	/**
 	 * 
 	 * @param array $elements
 	 */
-	protected function _elements($elements){
+	protected function _elements($elements, $content = array(), $sub_section){
+		foreach ($content as $display){
+			$this->_form_element .= $display;
+		}
+		
+		$count = count($elements);
+		$loop = 0;
+		
 		foreach ($elements as $element){
+			
+			$loop++;
+			if($count == $loop){
+				$this->_open_div($sub_section);
+				$this->_sub_section_content($sub_section);
+				$this->_sub_section_elements($sub_section);
+				
+				$this->_form_element .= '</div>';
+			}
+			
 			$this->_form_element .= $element;
 		}
 	}
+	
+	/**
+	 * 
+	 * @param array $sub_section
+	 */
+	protected function _open_div($sub_section){
+		$this->_form_element .= '<div ';
+		if(isset($sub_section['sub_content_options']['class'])){
+			$this->_form_element .= 'class="'.$sub_section['sub_content_options']['class'].'"';
+		}
+		
+		if(isset($sub_section['sub_content_options']['id'])){
+			$this->_form_element .= 'id="'.$sub_section['sub_content_options']['id'].'"';
+		}
+		
+		$this->_form_element .= ' >';
+	}
+
+	/**
+	 * 
+	 * @param array $sub_section
+	 */
+	protected function _sub_section_content($sub_section){
+		foreach($sub_section['sub_content'] as $display_content){
+			$this->_form_element .= $display_content;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param array $sub_section
+	 */
+	protected function _sub_section_elements($sub_section){
+		foreach($sub_section['sub_elements'] as $sub_element){
+			$this->_form_element .= $sub_element;
+		}	
+	}	
 	
 	/**
 	 * 
@@ -105,38 +168,28 @@ class AisisCore_Form_Form {
 	}
 	
 	/**
-	 * Create the form based on the options given
-	 * and based on the elements passed in.
-	 * 
-	 * the array of elements we take in should be:
-	 * 
-	 * <code>
-	 * $array = array(element1, element2);
-	 * </code>
-	 * 
-	 * We also take in a second option which is optional that allows
-	 * you to pass a sting to the form for us to set up the WordPress
-	 * settings_fields function which takes in the page of the settings fields
-	 * to allow for processing of the settings.
-	 * 
-	 * all you have to do is pass something like: <code>'aisis-core-options'</code>
-	 * which would then be used to set the form up with appropriate hidden fields
-	 * for options parameter processing.
 	 * 
 	 * @param array $elements
+	 * @param array $content
+	 * @param array $sub_elements
+	 * @param array $sub_content
+	 * @param array $sub_content_options
 	 * @param string $settings_fields
 	 * @see AisisCore_Form_Element
 	 * 
 	 * @see http://codex.wordpress.org/Function_Reference/settings_fields
 	 */
-	public function create_form(array $elements, $settings = ''){
+	public function create_form(array $elements, $content = array(), 
+		$sub_section = array(), $settings = ''){
+	 		
 		$this->_open_form();
 		
 		if(is_admin()){
 			settings_fields($settings);	
 		}
 		
-		$this->_elements($elements);
+		$this->_elements($elements, $content, $sub_section);
+			
 		$this->_close_form();
 	}
 	

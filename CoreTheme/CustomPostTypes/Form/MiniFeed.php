@@ -45,12 +45,9 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		
 		$url_array = array(
 			'id' => 'aisis_content_link',
-			'attributes' => array(
-				'value="'.$this->_get_url().'"',
-				'name="aisis_content_link"',
-				'placeholder="Url For Button"'
-				
-			)
+			'name' => 'aisis_content_link',
+			'placeholder' => 'Url For Button',
+			'value' => $this->_get_url()
 		);
 		
 		$url = new CoreTheme_Form_Elements_Url($url_array);
@@ -67,12 +64,9 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	protected function _link_text(){
 	
 		$link_text = array(
-				'id' => 'link_text',
-				'attributes' => array(
-						'value="'.$this->_get_link_text().'"',
-						'name="link_text"',
-						'placeholder="Link For Button"'	
-				)
+			'id' => 'link_text',
+			'name' => 'link_text',
+			'placeholder' => 'Link For Button'
 		);
 	
 		$link = new CoreTheme_Form_Elements_Input($link_text);
@@ -91,11 +85,9 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	protected function _image_element(){
 		$image_array = array(
 			'id' => 'aisis_content_img',
-			'attributes' => array(
-				'value="'.$this->_get_image().'"',
-				'name="aisis_content_img"',
-				'placeholder="Image Url"'
-			)
+			'name' => 'aisis_content_img',
+			'placeholder' => 'Image Url',
+			'value' => $this->_get_image(),
 		);
 		
 		$image = new CoreTheme_Form_Elements_Url($image_array);

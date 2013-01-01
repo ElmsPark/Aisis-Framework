@@ -32,10 +32,8 @@ class AisisCore_Form_Elements_Button extends AisisCore_Form_Element {
 			$this->_html .= 'class="'.$this->_options['class'].'" ';
 		}
 		
-		if(isset($options['attributes'])){
-			foreach($this->_options['attributes'] as $attrib){
-				$this->_html .= $attrib;
-			}
+		if(isset($this->_options['name'])){
+			$this->_html .= 'name="'.$this->_options['name'].'" ';
 		}
 		
 		$this->_html .= $this->_disabled;

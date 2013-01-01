@@ -89,8 +89,21 @@ class CoreTheme_AdminPanel_AdminPanel extends AisisCore_Template_Builder{
 		);
 	}
 	
+	/**
+	 * All the settings used for the options page are created here
+	 * using the register settings function in WordPress.
+	 * 
+	 * @see http://codex.wordpress.org/Function_Reference/register_setting
+	 */
 	public function settings(){
-		register_setting('test_options_group', 'test_option', array($this, 'test_validation'));
+		register_setting(
+			'aisis_options', 
+			'aisis_core', 
+			array(
+				$this, 
+				'aisis_option_validation'
+			)
+		);
 	}
 	
 	/**
@@ -104,8 +117,14 @@ class CoreTheme_AdminPanel_AdminPanel extends AisisCore_Template_Builder{
 		$this->_register_template(get_template_directory() . '/CoreTheme/AdminPanel/Templates/corelook.phtml');
 	}
 	
-	public function test_validation($input){
-		$option = get_option('test_option');
+	/**
+	 * Core validation method used by WordPress when handeling form submission
+	 * on the admin side for options related to the theme.
+	 * 
+	 * @param mixed $input
+	 */
+	public function aisis_option_validation($input){
+		$option = get_option('aisis_core');
 		$option['example'] = strip_tags($input['example']);
 		update_option('success_message', true);
 		return $option;

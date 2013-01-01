@@ -26,11 +26,9 @@ class CoreTheme_Templates_View_Form_SearchForm extends CoreTheme_Form_Form {
 	 */
 	public function input_element(){
 		$input_options = array(
-			'attributes' => array(
-				'required ',
-				'placeholder="Search for?" ',
-				'name="s"'
-			)
+			'required' => true,
+			'placeholder' => 'Search For?',
+			'name' => 's'
 		);
 		
 		$input = new CoreTheme_Form_Elements_Input($input_options);
@@ -45,9 +43,7 @@ class CoreTheme_Templates_View_Form_SearchForm extends CoreTheme_Form_Form {
 	public function submit_button(){
 		$submit_options = array(
 			'class' => 'btn btn-primary',
-			'attributes' => array(
-				'value="Search!"'
-			)
+			'value' => 'Search!',
 		);
 		
 		$submit = new CoreTheme_Form_Elements_Submit($submit_options);

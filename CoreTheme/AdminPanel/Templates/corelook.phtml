@@ -25,10 +25,15 @@
 		 	</ul>
 			<div class="tab-content">
 				<div id="coreStyle" class="tab-pane active">
-				<?php new CoreTheme_AdminPanel_Form_SiteDesign(array(
-					      'method'=>'post',
-						  'action' => 'options.php'
-					  )); ?>
+				<?php 
+				new CoreTheme_AdminPanel_Form_SiteDesign(array(
+					'method'=>'post',
+					'action' => 'options.php',
+					'sub_section' => array(
+						'class' => 'section'	
+					)
+				)); 
+				?>
 				</div>
 				<div id="socialMedia" class="tab-pane">
 				</div>
@@ -53,6 +58,29 @@
 		</div>
 	</div>
 </div>
+
+<script> 
+$(function(){     
+	$('.group-radio').click(function(){
+		if ($(this).attr("id") == "radio_1"){
+	   		$('.section').show();
+	    } else {
+	      	$('.section').hide();
+	    }
+	});
+});
+
+
+$(document).ready(function() {
+	$('.group_radio').click(function(){
+		if($(this).attr("id") == "radio_1"){
+	    	$('.section').show();
+	    }else{
+	    	$(".section").hide();
+	    }
+	});
+});
+</script>
 
 <?php 
 $template = AisisCore_Factory_Pattern::create('CoreTheme_AdminPanel_TemplateBuilder');

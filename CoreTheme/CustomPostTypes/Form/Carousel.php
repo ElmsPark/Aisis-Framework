@@ -57,11 +57,9 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 	protected function _image_element(){
 		$image_array = array(
 			'id' => 'aisis_content_img',
-			'attributes' => array(
-				'value="'.$this->_get_image().'"',
-				'name="aisis_content_img"',
-				'placeholder="Image Url"'
-			)
+			'name' => 'aisis_content_img',
+			'placeholder' => 'Image Url',
+			'value' => $this->_get_image() 
 		);
 		
 		$image = new CoreTheme_Form_Elements_Input($image_array);
@@ -78,12 +76,10 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 	 */
 	protected function _link_element(){
 		$link_text = array(
-				'id' => 'link_text',
-				'attributes' => array(
-					'value="'.$this->_get_link_text_value().'"',
-					'name="link_text"',
-					'placeholder="Button Text"'
-				)
+			'id' => 'link_text',
+			'name' => 'link_text',
+			'placeholder' => 'Button Text',				
+			'value' => $this->_get_link_text_value()
 		);
 	
 		$link_text_element = new CoreTheme_Form_Elements_Input($link_text);
@@ -100,11 +96,9 @@ class CoreTheme_CustomPostTypes_Form_Carousel extends CoreTheme_Form_Form{
 	protected function _link_text(){
 		$link_array = array(
 			'id' => 'link_array',
-			'attributes' => array(
-				'value="'.$this->_get_link_value().'"',
-				'name="link_array"',
-				'placeholder="Button Link"'
-			)
+			'name' => 'link_array',
+			'placeholder' => 'Button Link',
+			'value' => $this->_get_link_text_value()
 		);
 		
 		$link = new CoreTheme_Form_Elements_Url($link_array);

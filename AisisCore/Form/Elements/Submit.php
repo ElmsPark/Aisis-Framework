@@ -29,9 +29,9 @@ class AisisCore_Form_Elements_Submit extends AisisCore_Form_Element {
 			$this->_html .= 'class="'.$this->_options['class'].'" ';
 		}
 		
-		if(isset($options['attributes'])){
-			foreach($this->_options['attributes'] as $attrib){
-				$this->_html .= $attrib;
+		if(isset($this->_options['attributes'])){
+			foreach($this->_options['attributes'] as $attributes){
+				$this->_html .= $attributes;
 			}
 		}
 		

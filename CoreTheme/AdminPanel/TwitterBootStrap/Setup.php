@@ -85,7 +85,7 @@ function bootstrap_admin_wp_default_styles( &$styles ) {
   $styles->add( 'customize-controls', "/wp-admin/css/customize-controls$suffix.css", array( 'wp-admin', 'colors', 'ie' ) );
   $styles->add( 'media-views', "/wp-includes/css/media-views$suffix.css", array( 'buttons' ) );
   
-  $styles->add( 'buttons', get_template_directory_uri(). '/CoreTheme/AdminPanel/TwitterBootStrap/css/buttons.css.css');
+  $styles->add( 'buttons', get_template_directory_uri(). '/CoreTheme/AdminPanel/TwitterBootStrap/css/buttons.css');
 
   foreach ( $rtl_styles as $rtl_style ) {
     $styles->add_data( $rtl_style, 'rtl', true );
