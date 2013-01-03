@@ -11,8 +11,11 @@ class CoreTheme_Form_Form extends AisisCore_Form_Form {
 	 * @see AisisCore_Form_Form::elements()
 	 */
 	protected function _elements($elements, $content = array(), $sub_section = array()){
-		foreach($content as $display){
-			$this->_html .= $display;	
+		
+		if(isset($content) && !empty($content)){
+			foreach ($content as $display){
+				$this->_html .= $display;
+			}
 		}
 		
 		$this->_html .= '<fieldset>';
@@ -36,17 +39,5 @@ class CoreTheme_Form_Form extends AisisCore_Form_Form {
 		}
 
 		$this->_html .= '</fieldset>';		
-	}
-	
-	/**
-	 * 
-	 * @param array $sub_section
-	 */
-	public function _sub_section_elements($sub_section){
-		foreach($sub_section['sub_elements'] as $sub_element){
-			$this->_html .= '<div class="control-group">';
-			$this->_html .= $sub_element;
-			$this->_html .= '</div>';
-		}
 	}	
 }

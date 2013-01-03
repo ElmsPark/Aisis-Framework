@@ -1,5 +1,5 @@
 <?php
-class AisisCore_Form_Elements_Label extends AisisCore_Form_Element{
+class AisisCore_Form_Elements_Label extends AisisCore_Form_Xhtml{
 	
 	protected $_html = '';
 	

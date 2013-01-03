@@ -12,6 +12,22 @@
  * This is done througfh creating form elements and creating
  * forms them seleves.
  * 
+ * These forms now allow for you to add one sub section per form, how ever
+ * each sub section or the form elements may have their own sub section and so on.
+ * 
+ * Each form can now utalize the helper class to create what is called content. This content is displayed
+ * once per form or once per sub section and is used to display content above the form.
+ * 
+ * If a formk has a sub section it will be display just before the submit button.
+ * 
+ * Each form, if is admin, can set a settings group name which will then set and create all
+ * your settings fields based on WordPress standards.
+ * 
+ * @see AisisCore_Form_SubSection
+ * @see AisisCore_Form_Helpers_Content
+ * @see AisisCore_Form_Element
+ * @see http://codex.wordpress.org/Function_Reference/settings_fields
+ * 
  * @author Adam Balan
  *
  */
@@ -74,7 +90,9 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	}
 	
 	/**
-	 * 
+	 * We wan't to open the form it's self.
+	 * We echo the $this->_html at the end because if you are an admin
+	 * you have an option of setting the settings group name fro the settins name.
 	 */
 	protected function _open_form(){
 		$this->_html .= '<form ';
@@ -96,12 +114,21 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	}
 
 	/**
+	 * Build out a list of elements for each form, we then will place any sub section
+	 * and its elements created for the form bellow the other elements of the form but right above the submit
+	 * button of the form it's self.
+	 * 
+	 * <strong>Please note:</strong> $content and $sub_section are considered optional values.
 	 * 
 	 * @param array $elements
+	 * @param array $content
+	 * @param array $sub_section
 	 */
-	protected function _elements($elements, $content = array(), $sub_section){
-		foreach ($content as $display){
-			$this->_html .= $display;
+	protected function _elements($elements, $content, $sub_section){
+		if(isset($content) && !empty($content)){
+			foreach ($content as $display){
+				$this->_html .= $display;
+			}
 		}
 		
 		$count = count($elements);
@@ -111,10 +138,10 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 			
 			$loop++;
 			if($count == $loop){
-				$this->_open_div($sub_section);
+				$this->_open_sub_section($sub_section);
 				$this->_sub_section_content($sub_section);
 				$this->_sub_section_elements($sub_section);
-				$this->_close_form();
+				$this->_close_sub_section();
 			}
 			
 			$this->_html .= $element;
@@ -122,7 +149,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	}
 	
 	/**
-	 * 
+	 * Close the form tag. We also echo this html element.
 	 */
 	protected function _close_form(){
 		$this->_html .= ' </form>';
@@ -130,6 +157,11 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	}
 	
 	/**
+	 * We create the form. this is the only function you ever need to call when creating
+	 * a form its self. All form you want to create should extend this class and then
+	 * in the init function you call this function  and pass it an array of elements
+	 * and then any other optional content you want.
+	 * 
 	 * 
 	 * @param array $elements
 	 * @param array $content

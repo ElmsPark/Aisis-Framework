@@ -32,9 +32,25 @@
  * $link_text_element->set_label('Button Title', 'control-label');
  * </code>
  * 
+ * We also allow for a second paramter be passed in when creating the element called sub section.
+ * which you can read about in the AisisCore_Form_SubSection documentation. (see the (at)see).
+ * 
+ * Each element can have a subsection which can contain many elements and each of those can have their own
+ * subsection as well.
+ * 
+ * @see AisisCore_Form_SubSection
+ * 
  * @author Adam Balan
  */
-class AisisCore_Form_Element {
+class AisisCore_Form_Element extends AisisCore_Form_SubSection {
+	
+	/**
+	 * Contains html based elements that are
+	 * then rendered out to make an html based element.
+	 * 
+	 * @var mixed
+	 */
+	protected $_html = '';
 	
 	/**
 	 * Element options such as attibutes, id, class
@@ -71,12 +87,28 @@ class AisisCore_Form_Element {
 	 * element in question. This function should never be overridden,
 	 * instead call the init function.
 	 * 
-	 * @param unknown_type $options
+	 * We also take a second optional parameter called $sub_section
+	 * which creates a sub section for this element.
+	 * 
+	 * Please see the following for more information on sub_sections.
+	 * These will appear after the element.
+	 * 
+	 * @see AisisCore_Form_SubSection
+	 * 
+	 * @param array $options
+	 * @param array $sub_section
 	 */
-	public function __construct($options) {
+	public function __construct($options, $sub_section = array()) {
 		$this->_options = $options;
 		
 		$this->init ();
+		
+		if(isset($sub_section) && !empty($sub_section)){
+			$this->_open_sub_section($sub_section);
+			$this->_sub_section_content($sub_section);
+			$this->_sub_section_elements($sub_section);
+			$this->_close_sub_section();
+		}
 	}
 	
 	/**
@@ -133,5 +165,15 @@ class AisisCore_Form_Element {
 	 */
 	public function get_label(){
 		return $this->_label;
+	}
+	
+	/**
+	 * Returns the html so that it can be printed to the
+	 * screen thus creating the html element.
+	 * 
+	 * @return mixed
+	 */
+	public function __toString(){
+		return $this->_html;
 	}
 }

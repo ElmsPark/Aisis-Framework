@@ -18,24 +18,32 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 		);
 		
 		$content = array(
-			$this->post_display_content()
+			$this->post_display_content(),
 		);
 		
+		
+		$this->create_form($elements, $content, null, 'aisis_options');
+	}
+	
+	public function sub_section(){
 		$array = array(
-			'sub_elements' => array(
-				$this->radio_element_rows_one(),
-				$this->radio_element_rows_two(),
-				$this->radio_element_rows_three(),
-			),
-			'sub_content' => array(
-				$this->sub_form_content()
-			),
-			'sub_content_options' => array(
-				'class' => 'section'
-			)
+				'sub_elements' => array(
+					$this->radio_element_rows_one(),
+					$this->radio_element_rows_two(),
+					$this->radio_element_rows_three(),
+				),
+
+				'sub_content' => $this->sub_form_content(),
+				
+				'sub_content_options' => array(
+					'class' => 'section',
+					'sub_elements_div' => array(
+						'class' => 'control-group'
+					),
+				),
 		);
 		
-		$this->create_form($elements, $content, $array, 'aisis_options');
+		return $array;
 	}
 	
 	public function post_display_content(){
@@ -62,7 +70,7 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			'label' => 'Display as rows'
 		);
 		
-		$radio = new CoreTheme_Form_Elements_Radio($options);
+		$radio = new CoreTheme_Form_Elements_Radio($options, $this->sub_section());
 		
 		return $radio;
 	}

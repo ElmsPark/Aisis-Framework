@@ -4,7 +4,7 @@
  * @author Adam Balan
  *
  */
-class AisisCore_Form_Elements_Url extends AisisCore_Form_Element {
+class AisisCore_Form_Elements_Url extends AisisCore_Form_Xhtml {
 
 	/**
 	 * 

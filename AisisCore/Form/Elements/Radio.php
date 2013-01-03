@@ -1,5 +1,5 @@
 <?php
-class AisisCore_Form_Elements_Radio extends AisisCore_Form_Element {
+class AisisCore_Form_Elements_Radio extends AisisCore_Form_Xhtml {
 	
 	/**
 	 * @var html
