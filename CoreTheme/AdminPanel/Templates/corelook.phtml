@@ -61,22 +61,19 @@
 
 <script> 
 $(function(){     
-	$('.group-radio').click(function(){
-		if ($(this).attr("id") == "radio_1"){
+	$('.display').click(function(){
+		if ($(this).attr("id") == "rows"){
 	   		$('.section').show();
 	    } else {
 	      	$('.section').hide();
 	    }
 	});
-});
 
-
-$(document).ready(function() {
-	$('.group_radio').click(function(){
-		if($(this).attr("id") == "radio_1"){
-	    	$('.section').show();
-	    }else{
-	    	$(".section").hide();
+	$('.display').click(function(){
+		if ($(this).attr("id") == "noDisplay"){
+	   		$('.no_posts_section').show();
+	    } else {
+	      	$('.no_posts_section').hide();
 	    }
 	});
 });

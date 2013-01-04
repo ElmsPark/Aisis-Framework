@@ -129,4 +129,12 @@ class CoreTheme_AdminPanel_AdminPanel extends AisisCore_Template_Builder{
 		update_option('success_message', true);
 		return $option;
 	}
+	
+	public function get_value($option, $key){
+		$option = get_option($option);
+		
+		if(array_key_exists($key, $option)){
+			return $option[$key];
+		}
+	}
 }

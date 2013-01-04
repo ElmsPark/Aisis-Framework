@@ -32,7 +32,7 @@
  * @author Adam Balan
  *
  */
-class AisisCore_Form_Helpers_DisplayContent extends AisisCore_Form_Helpers_Content {
+class AisisCore_Template_Helpers_DisplayContent extends AisisCore_Template_Helpers_Content {
 	
 	/**
 	 * @var Mixed

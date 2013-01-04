@@ -36,6 +36,8 @@ class AisisCore_Form_Elements_Radio extends AisisCore_Form_Xhtml {
 		}
 		
 		$this->_html .= $this->_disabled;
+		$this->_html .= $this->_checked;
+		
 		$this->_html .= ' /> ';
 		
 		if(isset($this->_options['label'])){

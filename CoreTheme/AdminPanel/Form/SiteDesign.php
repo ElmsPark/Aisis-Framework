@@ -1,194 +1,206 @@
-<?php
+<?php 
 /**
  * 
- * @author Adam Balan
  */
 class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see CoreTheme_Form_Form::init()
-	 */
-	public function init(){		
-		$elements = array(
-			$this->radio_element_index_layout_row(),
-			$this->radio_element_index_layout_list(),
-			$this->radio_element_index_layout_none(),
-			$this->submit_element(),
+		
+	public function init(){
+		parent::init();
+		
+		$array_elements = array(
+			$this->_radio_rows_element(),
+			$this->_radio_list_element(),
+			$this->_radio_no_posts_element()	
 		);
 		
-		$content = array(
-			$this->post_display_content(),
-		);
-		
-		
-		$this->create_form($elements, $content, null, 'aisis_options');
+		$this->create_form($array_elements, $this->_create_header_content(), null, 'aisis_core');
 	}
 	
-	public function sub_section(){
-		$array = array(
-				'sub_elements' => array(
-					$this->radio_element_rows_one(),
-					$this->radio_element_rows_two(),
-					$this->radio_element_rows_three(),
-				),
+	protected function _create_header_content(){
 
-				'sub_content' => $this->sub_form_content(),
-				
-				'sub_content_options' => array(
-					'class' => 'section',
-					'sub_elements_div' => array(
-						'class' => 'control-group'
-					),
+		$content_array = array(
+			'class' => 'well headLine',
+			'content' => '<h1>Core Look</h1><p>Choose from the option bellow to decide 
+				how your theme will look to others!</p>',
+		);
+		
+		$header_content = new AisisCore_Template_Helpers_DisplayContent($content_array);
+		return $header_content;
+	}
+	
+	protected function _radio_rows_element(){
+		
+		$radio_element = array(
+			'name' => 'aisis_core[display_rows]',
+			'value' => 'display_rows',
+			'class' => 'display',
+			'id' => 'rows',
+			'label' => ' Display posts as rows. <a href="#radioRows" data-toggle="modal">
+				<i class="icon-info-sign"> </i></a>'		
+		);
+		
+		$radio = new CoreTheme_Form_Elements_Radio($radio_element, $this->sub_section_rows_array());
+		
+		$radio->is_checked(checked('rows', isset($options['display_rows']), false));
+		
+		return $radio;
+	}
+	
+	protected function _radio_list_element(){
+	
+		$radio_element = array(
+				'name' => 'aisis_core[display_rows]',
+				'value' => 'list',
+				'class' => 'display',
+				'label' => ' Display posts a list. <a href="#radioLists" data-toggle="modal">
+				<i class="icon-info-sign"> </i></a>'
+		);
+	
+		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
+	
+		$radio->is_checked(checked('list', isset($options['display_rows']), false));
+	
+		return $radio;
+	}
+	
+	protected function _radio_no_posts_element(){
+	
+		$radio_element = array(
+				'name' => 'aisis_core[display_rows]',
+				'value' => 'no_posts',
+				'class' => 'display',
+				'id' => 'noDisplay',
+				'label' => ' Display no posts.</a>'
+		);
+	
+		$radio = new CoreTheme_Form_Elements_Radio($radio_element, $this->_sub_section_now_posts_array());
+	
+		$radio->is_checked(checked('no_posts', isset($options['display_rows']), false));
+	
+		return $radio;
+	}
+	
+	protected function sub_section_rows_array(){
+		$rows = array(
+			'sub_content' => $this->_create_sub_header_content(),
+			'sub_elements' => array(
+				$this->_radio_three_posts(),
+				$this->_radio_six_posts(),
+				$this->_radio_nine_posts(),
+			),
+			'sub_content_options' => array(
+				'class' => 'section borderBottom',
+				'sub_elements_div' => array(
+					'class' => 'control-group'
 				),
+			),
+				
 		);
 		
-		return $array;
+		return $rows;
 	}
 	
-	public function post_display_content(){
-		$options = array(
-			'class' => 'well',
-			'content' => '<p>Pick how you would like to display posts 
-			on the front of the the blog.</p>'
+	protected function _sub_section_now_posts_array(){
+		$no_posts = array(
+				'sub_content' => $this->_create_sub_header_no_rows_content(),
+				'sub_elements' => array(
+						$this->_url_element(),
+				),
+				'sub_content_options' => array(
+						'class' => 'no_posts_section borderBottom',
+						'sub_elements_div' => array(
+								'class' => 'control-group'
+						),
+				),
+	
 		);
-		
-		$content = new AisisCore_Form_Helpers_DisplayContent($options);
-		
-		return $content;
+	
+		return $no_posts;
 	}
 	
-	/**
-	 * 
-	 */
-	public function radio_element_index_layout_row() {
-		$options = array(
-			'value' => 'layout_1', 
-			'name' => 'aisis_core[index_layout]',
-			'id' => 'radio_1',
-			'class' => 'group_radio',
-			'label' => 'Display as rows'
+	protected function _create_sub_header_content(){
+	
+		$content_array = array(
+				'class' => 'well headLine',
+				'content' => '<h1>Row Options</h1><p>Choose from one of the following to display 3, 6 or 9 posts on
+				the front page.</p>',
+		);
+	
+		$header_content = new AisisCore_Template_Helpers_DisplayContent($content_array);
+		return $header_content;
+	}
+	
+	protected function _create_sub_header_no_rows_content(){
+	
+		$content_array = array(
+				'class' => 'well headLine',
+				'content' => '<h1>Display No Rows</h1><p>If you choose to display no rows please give me a url
+				of the page or content you would like to display instead.</p><p class="text-info"><strong>Note:</strong> 
+				Formatting of said content is up you. All we do is display it.</p>',
+		);
+	
+		$header_content = new AisisCore_Template_Helpers_DisplayContent($content_array);
+		return $header_content;
+	}
+	
+	protected function _radio_three_posts(){
+		$radio_element = array(
+				'name' => 'aisis_core[row_amount]',
+				'value' => 'three',
+				'id' => 'three',
+				'label' => ' Display 3 posts.'
 		);
 		
-		$radio = new CoreTheme_Form_Elements_Radio($options, $this->sub_section());
+		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
+		
+		$radio->is_checked(checked('three', isset($options['row_amount']), false));
 		
 		return $radio;
 	}
 	
-	/**
-	 * 
-	 */
-	public function radio_element_index_layout_list() {
-		$options = array(
-			'value' => 'layout_2', 
-			'name' => 'aisis_core[index_layout]',
-			'id' => 'radio_2',
-			'class' => 'group_radio',
-			'label' => 'Display as list'
+	protected function _radio_six_posts(){
+		$radio_element = array(
+				'name' => 'aisis_core[row_amount]',
+				'value' => 'six',
+				'id' => 'six',
+				'label' => ' Display six posts',
 		);
-		
-		$radio = new CoreTheme_Form_Elements_Radio($options);
-		
-		return $radio;
-	}
 	
-	/**
-	 * 
-	 */
-	public function radio_element_index_layout_none() {
-		$options = array(
-			'value' => 'layout_3', 
-			'name' => 'aisis_core[index_layout]',
-			'id' => 'radio_3',
-			'class' => 'group_radio',
-			'label' => 'Do not show any posts'
-		);
-		
-		$radio = new CoreTheme_Form_Elements_Radio($options);
-		
-		return $radio;
-	}	
+		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
 	
-	/**
-	 * 
-	 */
-	public function submit_element(){
-		$options = array(
-			'value' => 'submit form', 
-			'class' => 'btn btn-primary btn-large'
-		);
-		
-		$submit = new CoreTheme_Form_Elements_Submit($options);
-		
-		return $submit;
-	}
-	
-	public function sub_form_content(){
-		$options = array(
-			'class' => 'well',
-			'content' => '<p>Choose from one of the following to display your posts
-			on on the front page.</p>'
-		);
-		
-		$content = new AisisCore_Form_Helpers_DisplayContent($options);
-		
-		return $content;
-	}
-	
-	/**
-	 * 
-	 */
-	public function radio_element_rows_one(){
-		
-		$options = array(
-			'value' => 'layout_row_one', 
-			'name' => 'aisis_core[layout_row]',
-			'label' => 'Display one row (three posts)'
-		);
-		
-		$radio = new CoreTheme_Form_Elements_Radio($options);
-		
-		return $radio;
-	}
-	
-	/**
-	 * 
-	 */
-	public function radio_element_rows_two(){
-		$options = array(
-			'value' => 'layout_row_two', 
-			'name' => 'aisis_core[layout_row]',
-			'label' => 'Display 2 rows (six posts)'
-		);
-		
-		$radio = new CoreTheme_Form_Elements_Radio($options);
+		$radio->is_checked(checked('six', isset($options['row_amount']), false));
 	
 		return $radio;
 	}
 	
-	/**
-	 * 
-	 */
-	public function radio_element_rows_three(){
-		$options = array(
-			'value' => 'layout_row_three', 
-			'name' => 'aisis_core[layout_row]',
-			'label' => 'Display 3 rows (nine posts)'
+	protected function _radio_nine_posts(){
+		$radio_element = array(
+				'name' => 'aisis_core[row_amount]',
+				'value' => 'nine',
+				'id' => 'nine',
+				'label' => ' Display nine posts.'
 		);
-		
-		$radio = new CoreTheme_Form_Elements_Radio($options);
-		
+	
+		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
+	
+		$radio->is_checked(checked('nine', isset($options['row_amount']), false));
+	
 		return $radio;
 	}
 	
-	/**
-	 * 
-	 * @param unknown_type $key
-	 */
-	protected function _get_value($key){
-		$options = get_option('aisis_core');
-		if(isset($options[$key]) && !empty($options[$key])){
-			return $options[$key];
-		}
+	protected function _url_element(){
+		$admin_panel = AisisCore_Factory_Pattern::create('CoreTheme_AdminPanel_AdminPanel');
+		
+		$url = array(
+			'name' => 'aisis_core[index_page_no_posts]',
+			'value'=> $admin_panel->get_value('aisis_core','index_page_no_posts'),
+			'placeholder' => 'Url'	
+		);
+		
+		$url_element = new CoreTheme_Form_Elements_Url($url);
+		$url_element->set_label('Url of the content', 'control-label');
+		
+		return $url_element;
 	}
+	
 }

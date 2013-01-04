@@ -105,6 +105,10 @@ function dependencies(){
 		'CoreTheme_AdminPanel_TemplateBuilder' => array(
 			'params' => array(),
 		),
+			
+		'CoreTheme_AdminPanel_AdminPanel' => array(
+			'params' => array(),
+		),			
 	);
 	
 	return $dependencies;

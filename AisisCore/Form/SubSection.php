@@ -135,7 +135,7 @@ class AisisCore_Form_SubSection {
 	 *		    on the front of the the blog.</p>'
 	 *	    );
 	 *	
-	 *	    $content = new AisisCore_Form_Helpers_DisplayContent($options);
+	 *	    $content = new AisisCore_Template_Helpers_DisplayContent($options);
 	 *	
 	 *	    return $content;
 	 *  }
@@ -147,7 +147,7 @@ class AisisCore_Form_SubSection {
 	 * You can only have one sub section content per sub section. 
 	 * 
 	 * @param array $sub_section
-	 * @see AisisCore_Form_Helpers_DisplayContent
+	 * @see AisisCore_Template_Helpers_DisplayContent
 	 */
 	public function _sub_section_content($sub_section){
 		if(isset($sub_section['sub_content'])){
@@ -181,11 +181,11 @@ class AisisCore_Form_SubSection {
 					$this->_html .= '<div ';
 						
 					if(isset($sub_section['sub_content_options']['sub_elements_div']['id'])){
-						$this->_html .'id="'.$sub_section['sub_content_options']['sub_element_div']['id'].'" ';
+						$this->_html .='id="'.$sub_section['sub_content_options']['sub_elements_div']['id'].'" ';
 					}
 						
 					if(isset($sub_section['sub_content_options']['sub_elements_div']['class'])){
-						$this->_html .'class="'.$sub_section['sub_content_options']['sub_elements_div']['class'].'" ';
+						$this->_html .= 'class="'.$sub_section['sub_content_options']['sub_elements_div']['class'].'" ';
 					}
 						
 					$this->_html .= ' >';

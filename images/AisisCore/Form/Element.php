@@ -15,6 +15,10 @@ class AisisCore_Form_Element {
 	 */
 	protected $_disabled;
 	
+	/**
+	 * 
+	 * @var unknown_type
+	 */
 	protected $_label;
 	
 	/**
@@ -42,14 +46,31 @@ class AisisCore_Form_Element {
 		}
 	}
 	
-	public function set_label($label, $class){
-		$value = array (
-			'value' => $label,
-			'class' => $class
-		);
+	/**
+	 * 
+	 * @param string $label
+	 * @param string $class
+	 */
+	public function set_label($label, $class = ''){
+		
+		if($class != ''){
+			$value = array (
+				'value' => $label,
+				'class' => $class
+			);
+		}else{
+			$value = array (
+				'value' => $label,
+			);
+		}
+		
 		$this->_label = new AisisCore_Form_Elements_Label($value);
 	}
 	
+	/**
+	 * 
+	 * @return AisisCore_Form_Elements_Label
+	 */
 	public function get_label(){
 		return $this->_label;
 	}

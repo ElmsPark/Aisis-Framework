@@ -18,13 +18,13 @@
  * Each form can now utalize the helper class to create what is called content. This content is displayed
  * once per form or once per sub section and is used to display content above the form.
  * 
- * If a formk has a sub section it will be display just before the submit button.
+ * If a form has a sub section it will be display just before the submit button.
  * 
  * Each form, if is admin, can set a settings group name which will then set and create all
  * your settings fields based on WordPress standards.
  * 
  * @see AisisCore_Form_SubSection
- * @see AisisCore_Form_Helpers_Content
+ * @see AisisCore_Template_Helpers_Content
  * @see AisisCore_Form_Element
  * @see http://codex.wordpress.org/Function_Reference/settings_fields
  * 
@@ -125,10 +125,8 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	 * @param array $sub_section
 	 */
 	protected function _elements($elements, $content, $sub_section){
-		if(isset($content) && !empty($content)){
-			foreach ($content as $display){
-				$this->_html .= $display;
-			}
+		if($content != ''){
+			$this->_html .= $content;
 		}
 		
 		$count = count($elements);
@@ -137,7 +135,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 		foreach ($elements as $element){
 			
 			$loop++;
-			if($count == $loop){
+			if($count == $loop && isset($sub_section) && !empty($sub_section)){
 				$this->_open_sub_section($sub_section);
 				$this->_sub_section_content($sub_section);
 				$this->_sub_section_elements($sub_section);
@@ -164,7 +162,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	 * 
 	 * 
 	 * @param array $elements
-	 * @param array $content
+	 * @param function $content
 	 * @param array $sub_elements
 	 * @param array $sub_content
 	 * @param array $sub_content_options
@@ -173,7 +171,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	 * 
 	 * @see http://codex.wordpress.org/Function_Reference/settings_fields
 	 */
-	public function create_form(array $elements, $content = array(), 
+	public function create_form(array $elements, $content = '', 
 		$sub_section = array(), $settings = ''){
 	 		
 		$this->_open_form();

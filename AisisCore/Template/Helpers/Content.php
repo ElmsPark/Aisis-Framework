@@ -14,7 +14,7 @@
  *			on on the front page.</p>'
  *		);
  *		
- *		$content = new AisisCore_Form_Helpers_DisplayContent($options);
+ *		$content = new AisisCore_Template_Helpers_DisplayContent($options);
  *		
  *		return $content;
  *	}
@@ -30,14 +30,15 @@
  * </code>
  * 
  * Helpers are used to create quick html elements for forms, they are then used 
- * with the form to display some kind of content.
+ * with the form to display some kind of content. You can also use Helpers in templates
+ * to display various peices of a template.
  * 
- * @see AisisCore_Form_Helpers_DisplayContent
+ * @see AisisCore_Template_Helpers_DisplayContent
  *
  * @author Adam Balan
  *
  */
-class AisisCore_Form_Helpers_Content {
+class AisisCore_Template_Helpers_Content {
 	
 	/**
 	 * @var array

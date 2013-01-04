@@ -151,11 +151,17 @@ class AisisCore_Form_Element extends AisisCore_Form_SubSection {
 	 * @param string $label
 	 * @param string $class
 	 */
-	public function set_label($label, $class){
-		$value = array (
-			'value' => $label,
-			'class' => $class
-		);
+	public function set_label($label, $class = ''){
+		if($class != ''){
+			$value = array (
+				'value' => $label,
+				'class' => $class
+			);
+		}else{
+			$value = array (
+				'value' => $label,
+			);
+		}
 		
 		$this->_label = new AisisCore_Form_Elements_Label($value);
 	}

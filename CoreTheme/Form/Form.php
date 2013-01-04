@@ -10,12 +10,10 @@ class CoreTheme_Form_Form extends AisisCore_Form_Form {
 	 * (non-PHPdoc)
 	 * @see AisisCore_Form_Form::elements()
 	 */
-	protected function _elements($elements, $content = array(), $sub_section = array()){
+	protected function _elements($elements, $content = '', $sub_section){
 		
-		if(isset($content) && !empty($content)){
-			foreach ($content as $display){
-				$this->_html .= $display;
-			}
+		if($content != ''){
+			$this->_html .= $content;
 		}
 		
 		$this->_html .= '<fieldset>';

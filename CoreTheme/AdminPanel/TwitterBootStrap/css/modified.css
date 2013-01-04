@@ -21,8 +21,16 @@
 /* OTHER
     -------------------------------------------------- */
 
-.section{
+.section, .no_posts_section{
 	display:none;
+	width: 80%;
+	margin-left: 80px;
+}
+
+.borderBottom{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #E3E3E3;
 }
 
 
