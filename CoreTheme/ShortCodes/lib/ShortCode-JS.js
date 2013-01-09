@@ -31,6 +31,17 @@ function marketingLead() {
 
 }
 
+function image() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[button size="" color="" link=""]place title here[/button]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+
+}
+
 function button() {
 	var debug = true;
 	try{

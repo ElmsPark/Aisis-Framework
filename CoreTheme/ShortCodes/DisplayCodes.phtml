@@ -24,6 +24,23 @@ jQuery(document).ready(function($){
   </ul>
   <div class="tab-content">
     <div id="post" class="tab-pane active">
+	    <h1>Images</h1>
+	    <p>While also a general use, as this tag can be used on pages, page templates,
+	    custom post types and more, the images tag is a pretty clean and easy way
+	    to add images to your post of any size.</p>
+	    
+	    <p><input type="button" onClick="image()" value="Insert This Shortcode!" 
+	    	class='btn btn-large btn-success'/></p>
+	
+	    <pre>
+	    <code data-language="generic">
+	    [image width="" height="" caption=""]Image src[/image]
+	    </code>
+	    </pre>
+	    
+	    <p class="text-info">As of the release of Aisis 1.2 You must enter your own caption
+	    which accptes html elements, for your image. We do not bring over WordPress image captions.
+	    </p>
     </div>
     <div id="page" class="tab-pane">
     

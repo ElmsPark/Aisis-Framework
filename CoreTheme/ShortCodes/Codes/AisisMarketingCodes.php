@@ -62,7 +62,6 @@ if (! function_exists ( 'aisis_button' )) {
 	}
 }
 
-
 add_shortcode( 'jumbotron', 'aisis_jumbotron' );
 add_shortcode( 'marketingTitle', 'aisis_marketing_title' );
 add_shortcode( 'marketingLead', 'aisis_marketing_lead' );
