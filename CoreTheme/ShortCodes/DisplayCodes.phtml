@@ -41,6 +41,48 @@ jQuery(document).ready(function($){
 	    <p class="text-info">As of the release of Aisis 1.2 You must enter your own caption
 	    which accptes html elements, for your image. We do not bring over WordPress image captions.
 	    </p>
+	    
+	    <h2>Image Rounded</h2>
+	    <p>This image will be a circle</p>
+	    
+	     <p><input type="button" onClick="image_circle()" value="Insert This Shortcode!" 
+	    	class='btn btn-large btn-success'/></p>
+	    	
+	   	<pre>
+	    <code data-language="generic">
+	    [image-circle width="" height=""Image src[/image-circle]
+	    </code>
+	    </pre>
+	    
+	    <p class="text-info">This image does not support captions. This image will not be a circle in IE7 or 8.</p>
+	    
+	    <h2>Image Rounded Corner</h2>
+	    <p>We will round the corders of this image</p>
+	    
+	     <p><input type="button" onClick="image_rounded()" value="Insert This Shortcode!" 
+	    	class='btn btn-large btn-success'/></p>
+	    	
+	   	<pre>
+	    <code data-language="generic">
+	    [image-corner width="" height=""Image src[/image-corner]
+	    </code>
+	    </pre>
+	    
+	    <p class="text-info">This image does not support captions. This image will not have rounded corners in IE7 or 8.</p>
+	    
+	    <h2>Image Polaroid</h2>
+	    <p>We will place a small amount of padding around said image to create a polaroid like affect.</p>
+	    
+	     <p><input type="button" onClick="image_polaroid()" value="Insert This Shortcode!" 
+	    	class='btn btn-large btn-success'/></p>
+	    	
+	   	<pre>
+	    <code data-language="generic">
+	    [image-polaroid width="" height=""Image src[/image-polaroid]
+	    </code>
+	    </pre>
+	    
+	    <p class="text-info">This image does not support captions.</p>
     </div>
     <div id="page" class="tab-pane">
     
@@ -86,7 +128,21 @@ jQuery(document).ready(function($){
     	<a href="#" class="btn btn-warning">yellow</a> 
     	<a href="#" class="btn btn-inverse">black</a></p>   		
     	
-    	<p><h2>Insert Into Your Post!</h2></p>
+    	<p><h2>Code</h2></p>
+    	<p>There are tons of plugins and other addons for WordPress which allow for the addition of
+    	syntax highlighting with in posts. If you are some one who writes or displays snipits of code
+    	in your blog, you will really like this.</p>
+    	
+    	<p><input type="button" onClick="code()" value="Insert This Shortcode!" 
+    	class='btn btn-large btn-success'/></p>
+    	
+    	<pre>
+    	<code data-language="generic">
+    	[code]public function test(){}[/code]
+    	</code>
+    	</pre>
+    	
+    	
     </div>
     <div id="advanced" class="tab-pane">
     	<h1>Marketing Page Layout!</h1>

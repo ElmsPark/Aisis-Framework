@@ -1,0 +1,6 @@
+<?php
+global $wp_query;
+$curauth = $wp_query->get_queried_object();
+
+$curauth->user_login;
+$curauth->description;

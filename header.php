@@ -33,7 +33,7 @@
 	
 	if(!is_category() && !is_single() && 
 		!is_archive() && !is_page_template('archive.php')
-		&& !is_404() && !is_search() && !is_tag()){
+		&& !is_404() && !is_search() && !is_tag() && !is_author()){
 		$templates->render_template(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');
 	}
 	
@@ -43,7 +43,7 @@
 		<?php 
 		if(!is_category() && !is_single() && !is_archive() && 
 			!is_page_template('archive.php') && !is_404() && !is_search()
-			&& !is_tag()){
+			&& !is_tag() && !is_author()){
 			$templates->render_template(CORETHEME_TEMPLATES_VIEW . 'minifeeds.phtml');
 		}
 		?>

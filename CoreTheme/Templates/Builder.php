@@ -27,7 +27,7 @@ class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 	 */
 	public function container_class(){
 		if(is_archive() && is_category() || is_page_template('archive.php')
-		|| is_404() || is_search() || is_tag()){
+		|| is_404() || is_search() || is_tag() || !is_author()){
 			echo 'container-narrow marginTop60';
 		}elseif(is_single()){
 			echo 'container marginTop60';
