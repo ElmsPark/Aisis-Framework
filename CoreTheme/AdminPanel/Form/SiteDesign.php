@@ -8,12 +8,14 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 		parent::init();
 		
 		$array_elements = array(
+			$this->_create_header_content(),
 			$this->_radio_rows_element(),
 			$this->_radio_list_element(),
-			$this->_radio_no_posts_element()	
+			$this->_radio_no_posts_element(),
+			$this->_submit_element()	
 		);
 		
-		$this->create_form($array_elements, $this->_create_header_content(), null, 'aisis_core');
+		$this->create_form($array_elements, null, null, 'aisis_options');
 	}
 	
 	protected function _create_header_content(){
@@ -24,7 +26,8 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 				how your theme will look to others!</p>',
 		);
 		
-		$header_content = new AisisCore_Template_Helpers_DisplayContent($content_array);
+		$header_content = new AisisCore_Form_Elements_ContentElement($content_array);
+		
 		return $header_content;
 	}
 	
@@ -36,12 +39,11 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			'class' => 'display',
 			'id' => 'rows',
 			'label' => ' Display posts as rows. <a href="#radioRows" data-toggle="modal">
-				<i class="icon-info-sign"> </i></a>'		
+				<i class="icon-info-sign"> </i></a>',
+			'checked' => $this->set_element_checked('display_rows', 'aisis_core', 'display_rows')		
 		);
 		
 		$radio = new CoreTheme_Form_Elements_Radio($radio_element, $this->sub_section_rows_array());
-		
-		$radio->is_checked(checked('rows', isset($options['display_rows']), false));
 		
 		return $radio;
 	}
@@ -49,16 +51,15 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 	protected function _radio_list_element(){
 	
 		$radio_element = array(
-				'name' => 'aisis_core[display_rows]',
-				'value' => 'list',
-				'class' => 'display',
-				'label' => ' Display posts a list. <a href="#radioLists" data-toggle="modal">
-				<i class="icon-info-sign"> </i></a>'
+			'name' => 'aisis_core[display_rows]',
+			'value' => 'list',
+			'class' => 'display',
+			'label' => ' Display posts a list. <a href="#radioLists" data-toggle="modal">
+			<i class="icon-info-sign"> </i></a>',
+			'checked' => $this->set_element_checked('list', 'aisis_core', 'display_rows')
 		);
 	
 		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
-	
-		$radio->is_checked(checked('list', isset($options['display_rows']), false));
 	
 		return $radio;
 	}
@@ -66,17 +67,16 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 	protected function _radio_no_posts_element(){
 	
 		$radio_element = array(
-				'name' => 'aisis_core[display_rows]',
-				'value' => 'no_posts',
-				'class' => 'display',
-				'id' => 'noDisplay',
-				'label' => ' Display no posts.</a>'
+			'name' => 'aisis_core[display_rows]',
+			'value' => 'no_posts',
+			'class' => 'display',
+			'id' => 'noDisplay',
+			'label' => ' Display no posts.</a>',
+			'checked' => $this->set_element_checked('no_posts', 'aisis_core', 'display_rows')	
 		);
 	
 		$radio = new CoreTheme_Form_Elements_Radio($radio_element, $this->_sub_section_now_posts_array());
-	
-		$radio->is_checked(checked('no_posts', isset($options['display_rows']), false));
-	
+		
 		return $radio;
 	}
 	
@@ -145,45 +145,42 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 	
 	protected function _radio_three_posts(){
 		$radio_element = array(
-				'name' => 'aisis_core[row_amount]',
-				'value' => 'three',
-				'id' => 'three',
-				'label' => ' Display 3 posts.'
+			'name' => 'aisis_core[row_amount]',
+			'value' => 'three',
+			'id' => 'three',
+			'label' => ' Display 3 posts.',
+			'checked' => $this->set_element_checked('three', 'aisis_core', 'row_amount')	
 		);
 		
 		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
-		
-		$radio->is_checked(checked('three', isset($options['row_amount']), false));
 		
 		return $radio;
 	}
 	
 	protected function _radio_six_posts(){
 		$radio_element = array(
-				'name' => 'aisis_core[row_amount]',
-				'value' => 'six',
-				'id' => 'six',
-				'label' => ' Display six posts',
+			'name' => 'aisis_core[row_amount]',
+			'value' => 'six',
+			'id' => 'six',
+			'label' => ' Display six posts',
+			'checked' => $this->set_element_checked('six', 'aisis_core', 'row_amount')	
 		);
 	
 		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
-	
-		$radio->is_checked(checked('six', isset($options['row_amount']), false));
 	
 		return $radio;
 	}
 	
 	protected function _radio_nine_posts(){
 		$radio_element = array(
-				'name' => 'aisis_core[row_amount]',
-				'value' => 'nine',
-				'id' => 'nine',
-				'label' => ' Display nine posts.'
+			'name' => 'aisis_core[row_amount]',
+			'value' => 'nine',
+			'id' => 'nine',
+			'label' => ' Display nine posts.',
+			'checked' => $this->set_element_checked('nine', 'aisis_core', 'row_amount')	
 		);
 	
 		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
-	
-		$radio->is_checked(checked('nine', isset($options['row_amount']), false));
 	
 		return $radio;
 	}
@@ -201,6 +198,17 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 		$url_element->set_label('Url of the content', 'control-label');
 		
 		return $url_element;
+	}
+	
+	protected function _submit_element(){
+			
+		$submit = array(
+			'value'=> 'Submit',
+		);
+	
+		$submit_element = new CoreTheme_Form_Elements_Submit($submit);
+	
+		return $submit_element;
 	}
 	
 }

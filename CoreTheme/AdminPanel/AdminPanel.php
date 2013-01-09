@@ -126,6 +126,7 @@ class CoreTheme_AdminPanel_AdminPanel extends AisisCore_Template_Builder{
 	public function aisis_option_validation($input){
 		$option = get_option('aisis_core');
 		$option['example'] = strip_tags($input['example']);
+		$option = $input;
 		update_option('success_message', true);
 		return $option;
 	}

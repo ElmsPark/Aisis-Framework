@@ -186,6 +186,21 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	}
 	
 	/**
+	 * Compare the value to the options key and return a checked
+	 * response if the $options[$key] equals the $value.
+	 * 
+	 * @param string $value
+	 * @param string $options
+	 * @param string $key
+	 */
+	public function set_element_checked($value, $options, $key){
+		$option = get_option($options);
+		if(isset($option[$key]) && $option[$key] == $value){
+			return 'checked';
+		}
+	}
+	
+	/**
 	 * Render the form html to the browser.
 	 */
 	public function __toString(){

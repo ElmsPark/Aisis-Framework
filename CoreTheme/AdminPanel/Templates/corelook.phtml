@@ -69,6 +69,14 @@ $(function(){
 	    }
 	});
 
+	if ($('input[value=display_rows]:radio:checked').attr('id') === "rows") {
+        $('.section').show();
+    }
+
+	if ($('input[value=no_posts]:radio:checked').attr('id') === "rows") {
+        $('.section').show();
+    }
+
 	$('.display').click(function(){
 		if ($(this).attr("id") == "noDisplay"){
 	   		$('.no_posts_section').show();
