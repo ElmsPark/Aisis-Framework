@@ -1,11 +1,6 @@
 <?php
 class AisisCore_Form_Elements_Radio extends AisisCore_Form_Xhtml {
 	
-	/**
-	 * @var html
-	 */
-	protected $_html;
-	
 	public function init(){
 		$this->_html .= '<input type="radio" ';
 		
@@ -48,9 +43,5 @@ class AisisCore_Form_Elements_Radio extends AisisCore_Form_Xhtml {
 		}
 		
 		parent::init();
-	}
-	
-	public function __toString(){
-		return $this->_html;
 	}
 }

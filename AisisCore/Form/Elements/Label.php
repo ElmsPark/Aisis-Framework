@@ -1,8 +1,6 @@
 <?php
 class AisisCore_Form_Elements_Label extends AisisCore_Form_Xhtml{
 	
-	protected $_html = '';
-	
 	public function init(){
 		$this->_html .= '<label ';
 		if(isset($this->_options['class'])){
@@ -15,7 +13,4 @@ class AisisCore_Form_Elements_Label extends AisisCore_Form_Xhtml{
 		parent::init();
 	}
 	
-	public function __toString(){
-		return  $this->_html;
-	}
 }

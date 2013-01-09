@@ -1,10 +1,6 @@
 <?php
 class CoreTheme_Form_Element extends AisisCore_Form_Element {
-	
-	/**
-	 *
-	 * @param array $sub_section
-	 */
+
 	public function _sub_section_elements($sub_section){
 		if(isset($sub_section['sub_elements'])){
 			foreach($sub_section['sub_elements'] as $sub_element){

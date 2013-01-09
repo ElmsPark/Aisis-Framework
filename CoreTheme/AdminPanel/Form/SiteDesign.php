@@ -75,15 +75,15 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			'checked' => $this->set_element_checked('no_posts', 'aisis_core', 'display_rows')	
 		);
 	
-		$radio = new CoreTheme_Form_Elements_Radio($radio_element, $this->_sub_section_now_posts_array());
+		$radio = new CoreTheme_Form_Elements_Radio($radio_element, $this->_sub_section_no_posts_array());
 		
 		return $radio;
 	}
 	
 	protected function sub_section_rows_array(){
 		$rows = array(
-			'sub_content' => $this->_create_sub_header_content(),
 			'sub_elements' => array(
+				$this->_create_sub_header_content(),
 				$this->_radio_three_posts(),
 				$this->_radio_six_posts(),
 				$this->_radio_nine_posts(),
@@ -100,10 +100,10 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 		return $rows;
 	}
 	
-	protected function _sub_section_now_posts_array(){
+	protected function _sub_section_no_posts_array(){
 		$no_posts = array(
-				'sub_content' => $this->_create_sub_header_no_rows_content(),
 				'sub_elements' => array(
+						$this->_create_sub_header_no_rows_content(),
 						$this->_url_element(),
 				),
 				'sub_content_options' => array(
@@ -126,7 +126,7 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 				the front page.</p>',
 		);
 	
-		$header_content = new AisisCore_Template_Helpers_DisplayContent($content_array);
+		$header_content = new AisisCore_Form_Elements_ContentElement($content_array);
 		return $header_content;
 	}
 	
