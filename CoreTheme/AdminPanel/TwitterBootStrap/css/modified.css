@@ -51,6 +51,10 @@
 	text-align:center;
 }
 
+.wellChangePushDown{
+	margin: 10px 0 10px 0;
+}
+
 .wellChangeBorderRadius{
 	border-radius: 0px;
 }
