@@ -60,19 +60,19 @@ p {
 }
 
 .marginTop105{
-	margin-top:105px;
+	margin-top:105px !important;
 }
 
 .marginTop60{
-	margin-top:60px;
+	margin-top:60px !important;
 }
 
 .marginTop20{
-	margin-top:20px;
+	margin-top:20px !important;
 }
 
 .marginBottom20{
-	margin-bottom:20px;
+	margin-bottom:20px !important;
 }
 
 .imageRight{
@@ -81,6 +81,12 @@ p {
 
 .hero-unit h1{
 	margin-bottom:10px !important;
+}
+
+.smallMove{
+	color: #7C7B7B;
+	margin-left: 10px;
+	font-size: 10px;
 }
 
 /* CUSTOMIZE THE NAVBAR - Fix for WP
@@ -188,6 +194,10 @@ input,textarea,select,.uneditable-input {
 	margin-top:20px;
 }
 
+.links br{
+	display: none;
+}
+
 /* POST
     -------------------------------------------------- */
 .post{
@@ -199,6 +209,10 @@ input,textarea,select,.uneditable-input {
     -------------------------------------------------- */
 
 .headLine{
+	text-align:center;
+}
+
+.centerText{
 	text-align:center;
 }
 

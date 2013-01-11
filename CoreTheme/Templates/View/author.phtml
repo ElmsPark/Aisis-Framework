@@ -1,6 +1,68 @@
 <?php
+// Get Author Information
 global $wp_query;
 $curauth = $wp_query->get_queried_object();
 
-$curauth->user_login;
-$curauth->description;
+// Get the categories for this author
+$cat_array = array();
+
+$args=array(
+		'author' => 4,
+		'showposts'=>-1,
+		'ignore_sticky_posts'=>1
+);
+
+$author_posts = get_posts($args);
+
+if( $author_posts ) {
+	foreach ($author_posts as $author_post ) {
+		foreach(get_the_category($author_post->ID) as $category) {
+			$cat_array[$category->term_id] =  $category->term_id;
+		}
+	}
+}
+
+$cat_ids = implode(',', $cat_array);
+
+// wp_list_categories arguments
+$args = array(
+	'include' => $cat_ids,
+	'style' => 'none',
+);
+
+?>
+<div class="well">
+	<div class="media">
+	  <a class="pull-left" href="#">
+	  	<?php echo get_avatar( 'ID', 120 ); ?>
+	  </a>
+	  <div class="media-body">
+    	<?php if($curauth->first_name != ''){?>
+		<h4 class="media-heading"><?php echo $curauth->first_name; ?><small class="smallMove"><strong>Also Known As:</strong> 
+			<em class="text-info"> <?php echo $curauth->display_name; ?> </em> </small></h4>
+		<?php }else{
+		?><h4 class="media-heading">Author! <small class="smallMove">Also Known As: 
+			<em class="text-info">I game no idea >.<
+				</em></small></h4><?php
+		}?>
+		
+		<h4 class="media-heading marginTop20">About Me!</h4>
+		<p><?php if($curauth->description != ''){
+			echo $curauth->description; 
+		}else{
+			echo "This author is responsible for the posts below. We are excited to have them be apart
+			of the site and our company. They have a lot of interesting content that they have contributed
+			to the site, the blog and much more!";
+		}?></p>
+		
+	  </div>
+	</div>
+	
+	<h4 class="headLine text-success marginTop20">All Categories By This Author</h4>
+	<p class="links centerText"><?php wp_list_categories($args); ?></p>
+</div>
+
+<?php
+$template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
+$template->render_template(CORETHEME_TEMPLATES_VIEW . '/Index/index_general.phtml');
+?>
