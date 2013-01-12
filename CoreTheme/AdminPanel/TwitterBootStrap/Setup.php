@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Set up the core css, compiling it as well.
- */
 function load_core_css(){
 	wp_register_style('bootstrap-css',
 		get_template_directory_uri(). '/lib/bootstrap/css/bootstrap.min.css');
@@ -19,12 +16,6 @@ function load_core_css(){
 	wp_enqueue_style('modified-customized-bootstrap');
 }
 
-/**
- * Set up the java script.
- * 
- * If the WPMUDEV update notifications plugin is not being used
- * we have to set up the admin icon javascript file.
- */
 function load_core_js(){
 	// register the js
 	wp_register_script('bootstrap-js', get_template_directory_uri() . '/CoreTheme/AdminPanel/TwitterBootStrap/js/bootstrap.min.js');
@@ -39,13 +30,6 @@ function load_core_js(){
   	}
 }
 
-/**
- * This function comes from the WordPress Twitter Bootstrap Admin Plugin
- * and over rides the default WordPress admin styles functions.
- * 
- * @param unknown_type $styles
- * @see http://wordpress.org/extend/plugins/bootstrap-admin/
- */
 function bootstrap_admin_wp_default_styles( &$styles ) {
 
   if ( ! $guessurl = site_url() )

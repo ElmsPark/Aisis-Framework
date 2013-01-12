@@ -1,5 +1,6 @@
 <div class="span6">
 <?php 
+global $post;
 $args = array('align' => 'centered', 'class' => 'thumbnail marginBottom20 marginTop20');
 
 if(have_posts()){
@@ -19,5 +20,10 @@ if(have_posts()){
 	<?php 
 	endwhile;
 }
+
+if('open' == $post->comment_status){
+	comments_template();
+}
+
 ?>
 </div>

@@ -64,10 +64,6 @@ class AisisCore_Template_Builder {
 		
 		return $this->_page [$page];
 	}
-
-	public function load_template($file) {
-		$this->_register_template ($file);
-	}
 	
 	public function does_template_exist($file) {
 		$file_system = new Aisis_File_Handling ();

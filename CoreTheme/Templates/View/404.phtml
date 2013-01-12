@@ -7,4 +7,10 @@
 	<p class="headLine">You can search the site again!</p>
 </div>
 
-<?php get_search_form(); ?>
+<?php 
+new CoreTheme_Templates_View_Form_SearchForm(array(
+	'action' => home_url() . '/',
+	'method' => 'get',
+	'class' => 'form-horizontal'
+)); 
+?>

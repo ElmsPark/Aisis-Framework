@@ -1,14 +1,6 @@
 <?php
-/**
- * 
- * @author Adam Balan
- *
- */
 class CoreTheme_CustomPostTypes_Types {
 	
-	/**
-	 * 
-	 */
 	public function __construct() {
 		add_action ( 'after_switch_theme', array ($this, 'aisis_flush_re_write' ) );
 		
@@ -17,9 +9,6 @@ class CoreTheme_CustomPostTypes_Types {
 		$this->aisis_add_carousel();
 	}
 	
-	/**
-	 * 
-	 */
 	function aisis_add_articles_essay() {
 		$labels = array (
 			'name' => _x ( 'Articles and Essays', 'post type general name', 'aisis', 'aisis' ), 
@@ -52,9 +41,6 @@ class CoreTheme_CustomPostTypes_Types {
 		register_post_type ( 'ae', $args );
 	}
 	
-	/**
-	 * 
-	 */
 	function aisis_add_mini_feeds() {
 		$options = get_option ( 'aisis_core' );
 		$labels = array (
@@ -122,12 +108,7 @@ class CoreTheme_CustomPostTypes_Types {
 		}
 	}	
 	
-	/**
-	 * 
-	 */	
 	function aisis_flush_re_write() {
 		flush_rewrite_rules ();
 	}
-
 }
-?>

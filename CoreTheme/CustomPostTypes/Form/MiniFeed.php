@@ -1,24 +1,8 @@
 <?php
-/**
- * This class is designed to build the mini feed form used in the meta
- * box which is used on the mini feed custom post type.
- *
- * @author Adam Balan
- *
- */
 class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	
-	/**
-	 * @var array
-	 */
 	protected $_values;
 	
-	/**
-	 * Get the value for the form based on the meta data.
-	 * then we register the elements and create the form.
-	 * 
-	 * @see CoreTheme_Form_Form::init()
-	 */
 	public function init(){
 		global $post;
 		
@@ -34,13 +18,6 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		$this->create_form($array_elemts);
 	}
 	
-	/**
-	 * Create a url element for the url link which is used to redirect the user
-	 * to more information based on the topic.
-	 * 
-	 * @see CoreTheme_Form_Elements_Url
-	 * @return $url
-	 */
 	protected function _url_element(){
 		
 		$url_array = array(
@@ -56,11 +33,6 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		return $url;
 	} 
 	
-	/**
-	 * Returns a link text element element
-	 * 
-	 * @return CoreTheme_Form_Elements_Input
-	 */
 	protected function _link_text(){
 	
 		$link_text = array(
@@ -75,13 +47,6 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		return $link;
 	}
 	
-	/**
-	 * Create an image element which will store the 
-	 * url of image.
-	 * 
-	 * @see CoreTheme_Form_Elements_Input
-	 * @return $image
-	 */
 	protected function _image_element(){
 		$image_array = array(
 			'id' => 'aisis_content_img',
@@ -96,14 +61,6 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		return $image;
 	}
 	
-	/**
-	 * Create a button element that, based on id, when clicked will
-	 * launch the image media uploader to allow you to
-	 * pick an image.
-	 * 
-	 * @see CoreTheme_Form_Elements_Button
-	 * @return $button
-	 */
 	protected function _button_element(){
 		$button_array = array(
 			'id' => 'upload_image_button',
@@ -117,33 +74,18 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		return $button;
 	}
 	
-	/**
-	 * Get the url of the link from the array.
-	 * 
-	 * @return string
-	 */
 	private function _get_url(){
 		if(isset($this->_values['link'])){
 			return $this->_values['link'][0];
 		}
 	}
 	
-	/**
-	 * Get the link text.
-	 * 
-	 * @return string
-	 */
 	private function _get_link_text(){
 		if(isset($this->_values['link_text'])){
 			return $this->_values['link_text'][0];
 		}
 	}
 	
-	/**
-	 * Get the url from the image array.
-	 * 
-	 * @return string
-	 */
 	private function _get_image(){
 		if(isset($this->_values['image'])){
 			return $this->_values['image'][0];

@@ -1,7 +1,5 @@
 <?php 
-/**
- * 
- */
+
 class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 		
 	public function init(){

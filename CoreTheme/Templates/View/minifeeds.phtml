@@ -5,7 +5,7 @@ $mini = array('post_type' => 'mini', 'posts_per_page' => 3);
 $mini_loop = new WP_Query($mini);
 
 ?>
-<div class="row">
+<div class="row marginBottom20">
 	<?php
 	if($mini_loop->have_posts()){
 		while($mini_loop->have_posts()) : $mini_loop->the_post();

@@ -17,38 +17,44 @@ $third_loop = new WP_Query ( $third_index );
 
 <div class="row">
 <?php
-while ($first_loop->have_posts()) : $first_loop->the_post(); 
-?>
-	<div class="span4 centered">
-		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-		<p><?php the_excerpt(); ?></p>
-	</div>
-<?php
-endwhile;
-?>
-</div>
-<div class="row">
-<?php
-while ($second_loop->have_posts()) : $second_loop->the_post(); 
-?>	
-	<div class="span4 centered">
-		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-		<p><?php the_excerpt(); ?></p>
-	</div>
-<?php
-endwhile; 
+if($first_loop->have_posts()){
+	while ($first_loop->have_posts()) : $first_loop->the_post(); 
+	?>
+		<div class="span4 centered">
+			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<p><?php the_excerpt(); ?></p>
+		</div>
+	<?php
+	endwhile;
+}
 ?>
 </div>
 <div class="row">
 <?php
-while ($third_loop->have_posts()) : $third_loop->the_post(); 
+if($second_loop->have_posts()){
+	while ($second_loop->have_posts()) : $second_loop->the_post(); 
+	?>	
+		<div class="span4 centered">
+			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<p><?php the_excerpt(); ?></p>
+		</div>
+	<?php
+	endwhile; 
+}
 ?>
-	<div class="span4 centered">
-		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-		<p><?php the_excerpt(); ?></p>
-	</div>
+</div>
+<div class="row">
 <?php
-endwhile; 
+if($third_loop->have_posts()){
+	while ($third_loop->have_posts()) : $third_loop->the_post(); 
+	?>
+		<div class="span4 centered">
+			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<p><?php the_excerpt(); ?></p>
+		</div>
+	<?php
+	endwhile; 
+}
 ?>
 </div>
 <div class="span9 offset3 marginTop60 marginBottom20">

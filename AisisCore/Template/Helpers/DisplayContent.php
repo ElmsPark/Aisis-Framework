@@ -1,8 +1,6 @@
 <?php
 class AisisCore_Template_Helpers_DisplayContent extends AisisCore_Template_Helpers_Content {
-
-	protected $_html = '';
-
+	
 	public function init(){
 		
 		if(isset($this->_options['class'])){
@@ -16,9 +14,5 @@ class AisisCore_Template_Helpers_DisplayContent extends AisisCore_Template_Helpe
 		$this->_html .= '</div>';
 		
 		parent::init();
-	}
-	
-	public function __toString(){
-		return $this->_html;
 	}
 }

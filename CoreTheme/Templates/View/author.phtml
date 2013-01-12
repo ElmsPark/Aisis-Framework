@@ -6,10 +6,10 @@ $curauth = $wp_query->get_queried_object();
 // Get the categories for this author
 $cat_array = array();
 
-$args=array(
-		'author' => 4,
-		'showposts'=>-1,
-		'ignore_sticky_posts'=>1
+$args = array(
+	'author' => 4,
+	'showposts'=>-1,
+	'ignore_sticky_posts'=>1
 );
 
 $author_posts = get_posts($args);

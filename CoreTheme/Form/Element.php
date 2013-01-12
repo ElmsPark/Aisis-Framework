@@ -10,5 +10,4 @@ class CoreTheme_Form_Element extends AisisCore_Form_Element {
 			}
 		}
 	}
-	
 }

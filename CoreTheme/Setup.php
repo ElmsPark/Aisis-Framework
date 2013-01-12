@@ -1,19 +1,4 @@
 <?php
-/**
- * The core purpose of this file is to load all the core
- * aspects of the theme. This means we load all of CoreTheme
- * directory and then we load all the assets of the theme.
- * 
- * After which we then set up any Core Theme Support for the
- * Theme it's self.
- * 
- * When all is said and done we add a filter to the navigation
- * css classes dor WordPress Navigation.
- * 
- * This file is called in the functions.php aftert the 
- * deffinition of the appropriate directories.
- */
-
 require_once CORETHEME . 'hooks.php';
 
 // Load a specific set of Css and JS scripts
@@ -118,8 +103,11 @@ function dependencies(){
 AisisCore_Factory_Pattern::register_dependencies(dependencies());
 
 // Now we register them all
+// This instantaition also set ups the pre_post_get action
+// For the category and tag forms.
 $register_theme = new CoreTheme_Theme();
 
+// register core options, post formats, custom headers and the nav.
 $register_theme->core_wp_options($theme_support);
 $register_theme->post_formats($post_types);
 $register_theme->custom_header_background($custom_wp_jazz);

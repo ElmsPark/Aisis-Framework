@@ -1,15 +1,6 @@
 <?php
-/**
- * 
- *
- * @author Adam Balan
- */
 class CoreTheme_Templates_View_Form_SearchForm extends CoreTheme_Form_Form {
 	
-	/**
-	 * (non-PHPdoc)
-	 * @see AisisCore_Form_Form::init()
-	 */
 	public function init(){
 		$elements = array(
 			$this->input_element(),
@@ -21,9 +12,6 @@ class CoreTheme_Templates_View_Form_SearchForm extends CoreTheme_Form_Form {
 		parent::init();
 	}
 	
-	/**
-	 * 
-	 */
 	public function input_element(){
 		$input_options = array(
 			'required' => true,
@@ -37,9 +25,6 @@ class CoreTheme_Templates_View_Form_SearchForm extends CoreTheme_Form_Form {
 		return $input;
 	}
 	
-	/**
-	 * 
-	 */
 	public function submit_button(){
 		$submit_options = array(
 			'class' => 'btn btn-primary',

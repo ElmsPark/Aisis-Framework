@@ -6,13 +6,25 @@ $attr = array(
 	'height' => 350
 );
 
-while(have_posts()){
-	the_post();
+if(have_posts()){
+	while(have_posts()){
+		the_post();
+		?>
+		<div class="post">
+			<?php the_post_thumbnail('medium', $attr); ?>
+			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<p><?php the_excerpt(); ?></p>
+		</div>
+		<?php
+	}
+	
 	?>
-	<div class="post">
-		<?php the_post_thumbnail('medium', $attr); ?>
-		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-		<p><?php the_excerpt(); ?></p>
-	</div>
-	<?php
+	<ul class="pager paddingBottom20">
+	  <li class="previous">
+	    <?php next_posts_link('&laquo; Older Entries'); ?>
+	  </li>
+	  <li class="next">
+	  	<?php previous_posts_link('Newer Entries &raquo;'); ?>
+	  </li>
+	</ul><?php 
 }
