@@ -1,6 +1,6 @@
 <?php
-global $comments, $user_ID, $post, $req, 
-	$comment_author, $comment_author_email, $comment_author_url,
+global $post, $comment, $user_ID, $comment_author, 
+	$comment_author_email, $comment_author_url, $req,
 	$user_identity;
 
 if(post_password_required()){ ?>
@@ -119,11 +119,8 @@ if(have_comments()){?>
 	</form>
 <?php }?>
 </div>
-<?php }?>
+<?php }
 
-<?php // Move me: ?>
-
-<?php
 function mytheme_comment($comment, $args, $depth) {
 	?>
 		<li class="media <?php is_admin_css(); ?> ">
@@ -172,7 +169,6 @@ function is_admin_css(){
 	}
 }
 
-// move me, adds a class to the avatar
 function the_commenter_avatar() {
     global $comment;
     $avatar = str_replace( "class='avatar", "class='img-rounded avatar", get_avatar( $comment, "64" ) );
