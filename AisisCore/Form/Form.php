@@ -49,7 +49,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 		echo $this->_html;
 	}
 
-	protected function _elements($elements, $content, $sub_section){	
+	protected function _elements($elements, $sub_section){	
 		$count = count($elements);
 		$loop = 0;
 		
@@ -82,6 +82,16 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 		
 		$this->_elements($elements, $content, $sub_section);
 			
+		if(isset($this->_options['comment_id_fields'])){
+			$this->_options['comment_id_fields'];
+		}
+		
+		if(isset($this->_options['actions']['name']) 
+			&& isset($this->_options['actions']['args'])){
+			
+			add_action($this->_options['actions']['name'], $this->_options['actions']['args']);
+		}
+		
 		$this->_close_form();
 	}
 	

@@ -30,6 +30,10 @@ class AisisCore_Form_Elements_Input extends AisisCore_Form_Xhtml {
 			$this->_html .= ' value="'.$this->_options['value'].'" ';
 		}
 		
+		if(isset($this->_options['aria-required'])){
+			$this->_html .= ' aria-required="true" ';
+		}
+		
 		$this->_html .= $this->_disabled;
 		$this->_html .= ' />';
 		

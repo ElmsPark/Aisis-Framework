@@ -7,8 +7,10 @@ class AisisCore_Template_Helpers_Content {
 
 	protected $_content;
 	
-	public function __construct($options){
-		$this->_options = $options;
+	public function __construct($options = ''){
+		if(isset($options)){
+			$this->_options = $options;
+		}
 		
 		$this->init();
 	}

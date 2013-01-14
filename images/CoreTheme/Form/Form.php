@@ -8,28 +8,27 @@ class CoreTheme_Form_Form extends AisisCore_Form_Form {
 	
 	public function init(){}
 	
-	public function create_form($elements){
-		$this->_form_element .= '<form ';
-		$this->_form_element .= 'action="'.$this->get_action().'" ';
-		$this->_form_element .= 'method="'.$this->get_method().'" ' ;
+	public function _elements($elements, $sub_section){
+		$count = count($elements);
+		$loop = 0;
 		
-		if(isset($this->_options['id'])){
-			$this->_form_element .= 'id="'.$this->_options['id'].'" ';	
-		}
+		$this->_html .= '<fieldset>';
 		
-		if(isset($this->_options['class'])){
-			$this->_form_element .= 'class="'.$this->_options['class'].'" ';	
-		}
-		
-		$this->_form_element .= ' >';
-		$this->_form_element .= '<fieldset>';
 		foreach ($elements as $element){
-			$this->_form_element .= '<div class="control-group">';
-			$this->_form_element .= $element->get_label();
-			$this->_form_element .= $element;
-			$this->_form_element .= '</div>';
+			
+			$loop++;
+			if($count == $loop && isset($sub_section) && !empty($sub_section)){
+				$this->_open_sub_section($sub_section);
+				$this->_sub_section_elements($sub_section);
+				$this->_close_sub_section();
+			}
+			
+			$this->_html .= '<div class="control-group">';
+			$this->_html .= $element->get_label();
+			$this->_html .= $element;
+			$this->_html .= '</div>';
 		}
-		$this->_form_element .= '</fieldset>';
-		$this->_form_element .= ' </form>';
+		
+		$this->_html .= '</fieldset>';
 	}
 }

@@ -83,6 +83,11 @@ p {
 	padding:20px;
 }
 
+/* Adds a default of 10 px for padding. */
+.generalPadding{
+	padding: 10px !important;
+}
+
 .imageRight{
 	margin-right:10px
 }

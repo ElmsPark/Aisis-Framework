@@ -29,7 +29,7 @@ $scripts_to_load  = array(
    		array(
         	'name'=>'aisis-js',
             'path'=>get_template_directory_uri() . '/lib/aisis.js'
-        ),        
+        ),       
      ),     
 );
 
