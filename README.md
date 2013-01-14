@@ -1,6 +1,9 @@
 #[Aisis](http://aisis.adambalan.com/)
 -------
 
+**Please Note**: Aisis 1.2 is currently under [development on the 1.2 branch](https://github.com/AdamKyle/Aisis-Framework/tree/dev1.2)
+this is the best place to look for he latest development version. The master branch currently contains the 1.1.6 version.
+
 Aisis is a highly sophisticated, modular and OOP based theme framework geared and designed towards developers of WordPress.
 
 The core concept behind Aisis is to be neat, clean, fast and easy to use as a stand alone theme on either Multisite or on a non Multisite installation of WordPress.
