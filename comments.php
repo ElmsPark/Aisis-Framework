@@ -1,3 +1,4 @@
 <?php 
 
-new CoreTheme_Templates_Helpers_CommentsTemplate();
+$templates = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
+$templates->render_template(CORETHEME_TEMPLATES_VIEW . 'comments.phtml');
