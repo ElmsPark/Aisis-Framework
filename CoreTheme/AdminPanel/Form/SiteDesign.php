@@ -21,7 +21,7 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			$this->_submit_element()	
 		);
 		
-		$this->create_form($array_elements, null, null, 'aisis_options');
+		$this->create_form($array_elements, null, 'aisis_options');
 	}
 	
 	protected function _create_header_content(){

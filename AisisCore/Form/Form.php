@@ -71,8 +71,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 		echo $this->_html;
 	}
 	
-	public function create_form(array $elements, $content = '', 
-		$sub_section = array(), $settings = ''){
+	public function create_form(array $elements, $sub_section = array(), $settings = ''){
 	 		
 		$this->_open_form();
 		
@@ -80,17 +79,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 			settings_fields($settings);	
 		}
 		
-		$this->_elements($elements, $content, $sub_section);
-			
-		if(isset($this->_options['comment_id_fields'])){
-			$this->_options['comment_id_fields'];
-		}
-		
-		if(isset($this->_options['actions']['name']) 
-			&& isset($this->_options['actions']['args'])){
-			
-			add_action($this->_options['actions']['name'], $this->_options['actions']['args']);
-		}
+		$this->_elements($elements, $sub_section);
 		
 		$this->_close_form();
 	}

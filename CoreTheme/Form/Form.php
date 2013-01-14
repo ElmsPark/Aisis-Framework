@@ -2,7 +2,7 @@
 
 class CoreTheme_Form_Form extends AisisCore_Form_Form {
 
-	protected function _elements($elements, $content = '', $sub_section){		
+	protected function _elements($elements, $sub_section){		
 		$this->_html .= '<fieldset>';
 		
 		$count = count($elements);
