@@ -1,7 +1,12 @@
 <?php
+// WordPress default globals.
 global $post, $comment, $user_ID, $comment_author, 
 	$comment_author_email, $comment_author_url, $req,
 	$user_identity;
+
+//Instaite the helper.
+$helper = new CoreTheme__Templates_View_Helpers_CommentsHelper();
+
 
 if(post_password_required()){ ?>
 <p class="text-info">
@@ -18,7 +23,7 @@ if(have_comments()){?>
 </h3>
  
 <ol>
-	<?php wp_list_comments('callback=mytheme_comment'); ?>
+	<?php $helper->get_comments(); ?>
 </ol>
 
 <ul class="pager paddingBottom20">
@@ -121,58 +126,4 @@ if(have_comments()){?>
 </div>
 <?php }
 
-function mytheme_comment($comment, $args, $depth) {
-	?>
-		<li class="media <?php is_admin_css(); ?> ">
-			<?php if($comment->comment_approved == '0'){ ?>
-				<div class="alert">
-					<p><strong>Awaiting Moderation!</strong> We are currently moderating your
-					post. It should be available soon!</p>
-				</div>
-			<?php }?>
-			<div class="pull-left">
-				<?php the_commenter_avatar(); ?>
-			</div>
-			<div class="media-body">
-				<strong class="media-heading">
-					<?php 
-					printf(__('<cite class="fn">%s</cite>  
-						<span class="says">says:</span>'), 
-						get_comment_author_link()); 
-					?>
-				</strong>
-				<?php 
-				
-				comment_text(); 
-				edit_comment_link(__('(Edit)'),'  ',''); 
-				if($args['max_depth']!=$depth){?>
-				<p>
-					<?php 
-					comment_reply_link(
-						array_merge($args, 
-							array(
-								'depth' => $depth, 
-								'max_depth' => $args['max_depth']
-							)
-						)
-					); ?>
-				</p>
-				<?php } ?>
-			</div>
-	<?php
-}
-
-function is_admin_css(){
-	global $comment;
-	if(1 == $comment->user_id){
-		echo "well";
-	}
-}
-
-function the_commenter_avatar() {
-    global $comment;
-    $avatar = str_replace( "class='avatar", "class='img-rounded avatar", get_avatar( $comment, "64" ) );
-    echo $avatar;
-}
-?>
 
