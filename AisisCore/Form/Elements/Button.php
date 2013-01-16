@@ -3,6 +3,8 @@ class AisisCore_Form_Elements_Button extends AisisCore_Form_Xhtml {
 
 	public function init(){
 		
+		parent::init();
+		
 		$this->_html .= '<button ';
 		
 		if(isset($this->_options['type'])){
@@ -25,8 +27,5 @@ class AisisCore_Form_Elements_Button extends AisisCore_Form_Xhtml {
 		$this->_html .= ' >';
 		$this->_html .= $this->_options['value'];
 		$this->_html .=  '</button>';
-		
-		parent::init();
-		
 	}
 }
