@@ -18,6 +18,14 @@
 	padding-left: 0px !important;
 }
 
+.input-xlarge{
+	width: 270px !important;
+}
+
+.radio, .checkbox{
+	width: 270px;
+}
+
 /* OTHER
     -------------------------------------------------- */
 

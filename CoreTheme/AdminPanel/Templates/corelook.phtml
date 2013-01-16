@@ -73,10 +73,6 @@ $(function(){
         $('.section').show();
     }
 
-	if ($('input[value=no_posts]:radio:checked').attr('id') === "rows") {
-        $('.section').show();
-    }
-
 	$('.display').click(function(){
 		if ($(this).attr("id") == "noDisplay"){
 	   		$('.no_posts_section').show();
@@ -85,6 +81,11 @@ $(function(){
 	    }
 	});
 
+
+	if ($('input[value=no_posts]:radio:checked').attr('id') === "noDisplay") {
+        $('.no_posts_section').show();
+    }
+	
 	$("#display_templates").popover();
 	$("#display_mini_feed_pages").popover();
 	$("#no_mini_feed_front").popover();

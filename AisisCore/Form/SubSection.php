@@ -47,6 +47,7 @@ class AisisCore_Form_SubSection {
 					$this->_html .= ' >';
 				}
 				
+				$this->_html .= $sub_element->get_label();
 				$this->_html .= $sub_element;
 				
 				if(isset($sub_section['sub_content_options']['sub_elements_div'])){

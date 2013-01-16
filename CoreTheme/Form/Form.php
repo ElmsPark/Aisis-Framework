@@ -17,7 +17,6 @@ class CoreTheme_Form_Form extends AisisCore_Form_Form {
 			}
 			
 			$this->_html .= '<div class="control-group">';
-			$this->_html .= $element->get_label();
 			$this->_html .= $element;
 			$this->_html .= '</div>';
 		}

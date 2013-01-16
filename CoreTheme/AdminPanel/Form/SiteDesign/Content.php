@@ -48,7 +48,7 @@ class CoreTheme_AdminPanel_Form_SiteDesign_Content {
 			</h1>
 			<p>Below you can link to a page that you have created, we will display that content here.</p>
 			<p class="text-info">Formatting of that content and page is up to you. We only display the contents.</p>
-			<p class="text-warning">If you enter no content, we will render nothing. You will be left with a blank page.</p>
+			<p class="text-warning"><strong>Note</strong>: If you enter no content, we will render nothing. You will be left with a blank page.</p>
 			'	
 		);
 		

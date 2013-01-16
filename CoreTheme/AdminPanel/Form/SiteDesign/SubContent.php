@@ -49,7 +49,7 @@ class CoreTheme_AdminPanel_Form_SiteDesign_SubContent {
 			'name' => 'aisis_core[row_amount]',
 			'value' => 'three',
 			'id' => 'three',
-			'label' => ' Display 3 posts.',
+			'label' => ' Display three posts.',
 			'option' => 'aisis_core',
 			'key' => 'row_amount' 
 		);
