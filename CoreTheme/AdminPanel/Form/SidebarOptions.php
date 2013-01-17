@@ -26,12 +26,8 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 				Sidebar Options
 			</h1>
 			
-			<p>The following options will allow you to display or to not display a sidebar on a particular section
-			of the site. </p>
-			<p class="text-info">If you choose to not display a sidebar on a particular page, the content of that page will expand to 
-			fit the page. Also please note that if you use the shortcode "[AddSidebar]", these options will not apply to that short code.</p>
-			<p class="text-warning"><strong>Note</strong>: If you disable all sidebars from the site, the option will not affect pages or templates
-			using the short code [AddSidebar].</p>'
+			<p>The following options below will allow you to, or not to, display a side bar on various parts of the site.
+			The sites content will then expand or contract to fit the content base on the choices you make here.</p>'
 		);
 		
 		$content_element = new AisisCore_Form_Elements_ContentElement($content);
@@ -46,10 +42,10 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 			'class' => 'sidebar',
 			'option' => 'aisis_core',
 			'key' => 'disable_sidebar',
-			'label' => 'Disable <strong>ALL</strong> sidebars from the site.
+			'label' => 'Disable <strong>all</strong> sidebars from the site.
 			 <a href="#" id="no_sidebar" rel="popover" 
-			data-content="This will disable all sidebars accept for any sidebars which were generated using [AddSidebar] shortcode
-			or any sidebar you added while creating your own custom template for pages." 
+			data-content="This will disable all sidebars from the site accept any that you have called into custom templates
+			used by your site." 
 			data-trigger="hover"
 			data-original-title="Disable All Sidebars"><i class="icon-info-sign"></i></a>'
 		);
@@ -66,9 +62,7 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 				Turn on or Off The Sidebar
 			</h1>
 			
-			<p>The following will either enable or disable sidebars on individual sections of of the site.</p>
-			<p class="text-info">Let it be known that if you create a page template, or use the [AddSidebar] short code for pages
-			that you will not see any changes to those as they fall out side the scope of these options.</p>'
+			<p>The following will either enable or disable sidebars on individual sections of of the site.</p>'
 		);
 		
 		$content_element = new AisisCore_Form_Elements_ContentElement($content);

@@ -42,9 +42,10 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			'id' => 'rows',
 			'label' => ' Display posts as rows.
 			<a href="#" id="display_rows" rel="popover" 
-			data-content="example content" 
+			data-content="The following will open a sub section to allow you to pick how many rows. 
+			If you pick none, the default is nine." 
 			data-trigger="hover"
-			data-original-title="example"><i class="icon-info-sign"></i></a>',
+			data-original-title="Disapl as Rows"><i class="icon-info-sign"></i></a>',
 			'option' => 'aisis_core',
 			'key' => 'display_rows'		
 		);
@@ -62,9 +63,9 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			'class' => 'display',
 			'label' => ' Display posts a list.
 			<a href="#" id="list" rel="popover" 
-			data-content="example content" 
+			data-content="We will show a maximum of 5 posts from all posts you curently have published." 
 			data-trigger="hover"
-			data-original-title="example"><i class="icon-info-sign"></i></a>',
+			data-original-title="Display as List"><i class="icon-info-sign"></i></a>',
 			'option' => 'aisis_core',
 			'key' => 'display_rows'	
 		);

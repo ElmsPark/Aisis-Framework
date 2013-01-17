@@ -47,6 +47,15 @@
 				?>
 				</div>
 				<div id="minifeed" class="tab-pane">
+				<?php 
+				new CoreTheme_AdminPanel_Form_MiniSlider(array(
+					'method'=>'post',
+					'action' => 'options.php',
+					'sub_section' => array(
+						'class' => 'section'	
+					)
+				));
+				?>
 				</div>
 			</div>
 		</div>
