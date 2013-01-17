@@ -26,12 +26,9 @@ class AisisCore_Form_Elements_Checkbox extends AisisCore_Form_Xhtml {
 		if(isset($this->_options['required']) && $this->_options['required'] == true){
 			$this->_html .= 'required';
 		}
-
-		if(isset($this->_options['checked'])){
-			$this->_html .= 'checked="'.$this->_options['checked'].'" ';
-		}
 		
 		$this->_html .=  $this->_disabled;
+		$this->_html .= $this->checked($this->_options['value'], $this->_options['option'], $this->_options['key']);
 		
 		$this->_html .= ' /> ';
 		

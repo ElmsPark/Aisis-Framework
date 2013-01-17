@@ -58,6 +58,13 @@ class AisisCore_Form_Element extends AisisCore_Form_SubSection {
 	public function get_label(){
 		return $this->_label;
 	}
+	
+	public function checked($value, $option, $key){
+		$options = get_option($option);
+		if(isset($options[$key]) && $options[$key] == $value){
+			return 'checked';
+		}
+	}
 
 	public function __toString(){
 		return $this->_html;

@@ -20,8 +20,8 @@
 		<div class="tabbable">
 			<ul class="nav nav-tabs">
 		    	<li class="active"><a href="#coreStyle" data-toggle="tab">General Site Design</a></li>
-		    	<li><a href="#sidebar" data-toggle="tab">Page Specific</a></li>
-		    	<li><a href="#minifeed" data-toggle="tab">General</a></li>
+		    	<li><a href="#sidebar" data-toggle="tab">Sidebar Options</a></li>
+		    	<li><a href="#minifeed" data-toggle="tab">Minifeed and Slider Options</a></li>
 		 	</ul>
 			<div class="tab-content">
 				<div id="coreStyle" class="tab-pane active">
@@ -35,9 +35,18 @@
 				)); 
 				?>
 				</div>
-				<div id="socialMedia" class="tab-pane">
+				<div id="sidebar" class="tab-pane">
+				<?php 
+				new CoreTheme_AdminPanel_Form_SidebarOptions(array(
+					'method'=>'post',
+					'action' => 'options.php',
+					'sub_section' => array(
+						'class' => 'section'	
+					)
+				));
+				?>
 				</div>
-				<div id="layoutOptions" class="tab-pane">
+				<div id="minifeed" class="tab-pane">
 				</div>
 			</div>
 		</div>
@@ -91,6 +100,11 @@ $(function(){
 	$("#no_mini_feed_front").popover();
 	$("#list").popover();
 	$("#display_rows").popover();
+	$("#no_sidebar").popover();
+
+	$("#disable").change(function(){
+		$(this).closest('.control-group').siblings('.control-group').find('input').attr("disabled", $(this).is(":checked")); 
+	});
 });
 </script>
 

@@ -12,6 +12,8 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			$this->_radio_rows_element(),
 			$this->_radio_list_element(),
 			$this->_radio_no_posts_element(),
+			$content->show_more_posts_content(),
+			$this->_url_element(),
 			$this->_submit_element()	
 		);
 		
@@ -88,7 +90,6 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 		
 		return $radio;
 	}
-	
 	
 	protected function _url_element(){
 		$admin_panel = AisisCore_Factory_Pattern::create('CoreTheme_AdminPanel_AdminPanel');

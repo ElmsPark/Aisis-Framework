@@ -34,19 +34,12 @@ class AisisCore_Form_Elements_Radio extends AisisCore_Form_Xhtml {
 		
 		$this->_html .= $this->_disabled;
 		
-		$this->_html .= $this->_checked($this->_options['value'], $this->_options['option'], $this->_options['key']);
+		$this->_html .= $this->checked($this->_options['value'], $this->_options['option'], $this->_options['key']);
 		
 		$this->_html .= ' /> ';
 		
 		if(isset($this->_options['label'])){
 			$this->_html .= $this->_options['label'];
-		}
-	}
-	
-	protected function _checked($value, $option, $key){
-		$options = get_option($option);
-		if(isset($options[$key]) && $options[$key] == $value){
-			return 'checked';
 		}
 	}
 }

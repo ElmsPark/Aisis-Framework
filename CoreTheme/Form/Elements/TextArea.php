@@ -6,5 +6,4 @@ class CoreTheme_Form_Elements_TextArea extends AisisCore_Form_Elements_TextArea 
 		parent::init();
 		$this->_html .= '</div>';
 	}
-	
 }
