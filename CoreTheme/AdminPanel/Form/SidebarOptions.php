@@ -146,5 +146,8 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 			'value' => 'Submit',
 			'class' => 'btn btn-primary'
 		);
+		
+		$submit = new CoreTheme_Form_Elements_Submit($element);
+		return $submit;
 	}
 }
