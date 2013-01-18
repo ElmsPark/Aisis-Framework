@@ -111,9 +111,9 @@ $(function(){
 	$("#display_rows").popover();
 	$("#no_sidebar").popover();
 
-	$("#disable").change(function(){
-		$(this).closest('.control-group').siblings('.control-group').find('input').attr("disabled", $(this).is(":checked")); 
-	});
+	$("#disable").change(function () {
+        $(this).closest('.control-group').siblings('.control-group').find('input').attr("disabled", $(this).is(":checked"));
+    }).change();
 });
 </script>
 
