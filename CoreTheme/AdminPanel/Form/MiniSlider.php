@@ -49,7 +49,7 @@ class CoreTheme_AdminPanel_Form_MiniSlider extends AisisCore_Form_Form {
 			'option' => 'aisis_core',
 			'key' => 'disable_slider',
 			'label' => 'Disable the slider from the site. 
-			<a href="#" id="no_sidebar" rel="popover" 
+			<a href="#" id="noSlider" rel="popover" 
 			data-content="Doing this will <strong>also</strong> disable the custom post type." 
 			data-trigger="hover"
 			data-original-title="Disable Slider Deffinition"><i class="icon-info-sign"></i></a>'
@@ -68,10 +68,10 @@ class CoreTheme_AdminPanel_Form_MiniSlider extends AisisCore_Form_Form {
 			'option' => 'aisis_core',
 			'key' => 'disable_mini',
 			'label' => 'Disable MiniFeeds from the site. 
-			<a href="#" id="no_sidebar" rel="popover" 
+			<a href="#" id="noMiniFeed" rel="popover" 
 			data-content="Doing this will <strong>also</strong> disable the custom post type." 
 			data-trigger="hover"
-			data-original-title="Disable MiniFedd Deffinition"><i class="icon-info-sign"></i></a>'
+			data-original-title="Disable MiniFeed Deffinition"><i class="icon-info-sign"></i></a>'
 		);
 		
 		$checkbox_element = new CoreTheme_Form_Elements_Checkbox($checkbox);

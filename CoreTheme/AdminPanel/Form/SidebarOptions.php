@@ -91,7 +91,7 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 			'option' => 'aisis_core',
 			'key' => 'show_pages',
 			'label' => 'Disable sidebar on <strong>all</strong> pages. 
-			<a href="#" id="no_sidebar" rel="popover" 
+			<a href="#" id="sidebarPages" rel="popover" 
 			data-content="Pages are those that you have not assigned a template to." 
 			data-trigger="hover"
 			data-original-title="Page Deffinition"><i class="icon-info-sign"></i></a>'
@@ -109,7 +109,7 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 			'option' => 'aisis_core',
 			'key' => 'show_templates',
 			'label' => 'Disable sidebar on <strong>all</strong> templates. 
-			<a href="#" id="no_sidebar" rel="popover" 
+			<a href="#" id="sidebarTemplates" rel="popover" 
 			data-content="Templates are pages that have templates. some of these templates
 			that are built in, have sidebars on them, while others do not. This option applies to 
 			<strong>all</strong> default Aisis templates." 
