@@ -1,5 +1,12 @@
-<div class="span6">
 <?php 
+$builder = new CoreTheme_Templates_Builder();
+if(!$builder->sidebar('aisis_core', 'disable_sidebar') 
+	&& !$builder->sidebar('aisis_core', 'disable_sidebar_posts')){
+	?><div class="span6"><?php	
+}else{
+	?><div class="span12"><?php
+}
+
 global $post;
 $thumb_nail_args = array(
 	'align' => 'centered', 

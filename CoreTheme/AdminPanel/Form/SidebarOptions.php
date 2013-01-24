@@ -10,7 +10,6 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 			$this->_info_content(),
 			$this->_sidebar_posts(),
 			$this->_sidebar_pages(),
-			$this->_sidebar_templates(),
 			$this->_sidebar_ae(),
 			$this->_submit(),
 		);
@@ -71,11 +70,11 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 	
 	protected function _sidebar_posts(){
 		$checkbox = array(
-			'name' => 'aisis_core[show_posts]',
-			'value' => 'show_posts',
+			'name' => 'aisis_core[disable_sidebar_posts]',
+			'value' => 'disable_sidebar_posts',
 			'class' => 'sidebar',
 			'option' => 'aisis_core',
-			'key' => 'show_posts',
+			'key' => 'disable_sidebar_posts',
 			'label' => 'Disable sidebar for <strong>all</strong> posts.'
 		);
 		
@@ -85,11 +84,11 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 	
 	protected function _sidebar_pages(){
 		$checkbox = array(
-			'name' => 'aisis_core[show_pages]',
-			'value' => 'show_pages',
+			'name' => 'aisis_core[disable_sidebar_pages]',
+			'value' => 'disable_sidebar_pages',
 			'class' => 'sidebar',
 			'option' => 'aisis_core',
-			'key' => 'show_pages',
+			'key' => 'disable_sidebar_pages',
 			'label' => 'Disable sidebar on <strong>all</strong> pages. 
 			<a href="#" id="sidebarPages" rel="popover" 
 			data-content="Pages are those that you have not assigned a template to." 
@@ -101,33 +100,13 @@ class CoreTheme_AdminPanel_Form_SidebarOptions extends AisisCore_Form_Form {
 		return $checkbox_element;
 	}
 	
-	protected function _sidebar_templates(){
-		$checkbox = array(
-			'name' => 'aisis_core[show_templates]',
-			'value' => 'show_templates',
-			'class' => 'sidebar',
-			'option' => 'aisis_core',
-			'key' => 'show_templates',
-			'label' => 'Disable sidebar on <strong>all</strong> templates. 
-			<a href="#" id="sidebarTemplates" rel="popover" 
-			data-content="Templates are pages that have templates. some of these templates
-			that are built in, have sidebars on them, while others do not. This option applies to 
-			<strong>all</strong> default Aisis templates." 
-			data-trigger="hover"
-			data-original-title="Template Deffinition"><i class="icon-info-sign"></i></a>'
-		);
-		
-		$checkbox_element = new CoreTheme_Form_Elements_Checkbox($checkbox);
-		return $checkbox_element;
-	}
-	
 	protected function _sidebar_ae(){
 		$checkbox = array(
-			'name' => 'aisis_core[show_ae]',
-			'value' => 'show_ae',
+			'name' => 'aisis_core[disable_sidebar_ae]',
+			'value' => 'disable_sidebar_ae',
 			'class' => 'sidebar',
 			'option' => 'aisis_core',
-			'key' => 'show_ae',
+			'key' => 'disable_sidebar_ae',
 			'label' => 'Disable sidebar for <strong>all</strong> Articles and Essays.'
 		);
 		

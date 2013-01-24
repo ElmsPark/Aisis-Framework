@@ -27,13 +27,12 @@
 <body <?php body_class(); ?>>
 <div id="wrap">
 	<?php 
+	$builder = new CoreTheme_Templates_Builder();
 	
 	$templates = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
 	$templates->render_template(CORETHEME_TEMPLATES_VIEW . 'navigation.phtml');
 	
-	if(!is_category() && !is_single() && 
-		!is_archive() && !is_page_template('archive.php')
-		&& !is_404() && !is_search() && !is_tag() && !is_author()){
+	if($builder->not()){
 		$templates->render_template(CORETHEME_TEMPLATES_VIEW . 'carousel.phtml');
 	}
 	
@@ -41,9 +40,7 @@
 	
 	<div class="<?php $templates->container_class(); ?>">
 		<?php 
-		if(!is_category() && !is_single() && !is_archive() && 
-			!is_page_template('archive.php') && !is_404() && !is_search()
-			&& !is_tag() && !is_author()){
+		if($builder->not()){
 			$templates->render_template(CORETHEME_TEMPLATES_VIEW . 'minifeeds.phtml');
 		}
 		?>

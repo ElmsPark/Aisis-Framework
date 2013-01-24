@@ -56,7 +56,29 @@ class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 		}
 	}
 	
-	function aisis_the_content( $id = NULL ) {
+	public function sidebar($option, $key){
+		$options = get_option($option);
+		//var_dump($options); exit;
+		if(isset($options[$key])){
+			if($options[$key] == $key){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public function not(){
+		if(!is_category() && !is_single() && 
+		!is_archive() && !is_page_template('archive.php')
+		&& !is_404() && !is_search() && !is_tag() && !is_author()){
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public function aisis_the_content( $id = NULL ) {
 		if ( !$id ) {
 			global $post;
 			$id = $post->ID;
