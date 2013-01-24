@@ -11,9 +11,9 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			$content->content_header(),
 			$this->_radio_rows_element(),
 			$this->_radio_list_element(),
-			$this->_radio_no_posts_element(),
 			$content->show_more_posts_content(),
 			$this->_url_element(),
+			$this->_button_title(),
 			$this->_submit_element()	
 		);
 		
@@ -34,7 +34,6 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 	}
 	
 	protected function _radio_rows_element(){
-		$content = new CoreTheme_AdminPanel_Form_SiteDesign_SubContent();
 		$radio_element = array(
 			'name' => 'aisis_core[display_rows]',
 			'value' => 'display_rows',
@@ -50,7 +49,7 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			'key' => 'display_rows'		
 		);
 		
-		$radio = new CoreTheme_Form_Elements_Radio($radio_element, $content->sub_section_rows());
+		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
 		
 		return $radio;
 	}
@@ -75,29 +74,10 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 		return $radio;
 	}
 	
-	protected function _radio_no_posts_element(){
-		$content = new CoreTheme_AdminPanel_Form_SiteDesign_SubContent();
-		$radio_element = array(
-			'name' => 'aisis_core[display_rows]',
-			'value' => 'no_posts',
-			'class' => 'display',
-			'id' => 'noDisplay',
-			'label' => ' Display no posts.</a>',
-			'option' => 'aisis_core',
-			'key' => 'display_rows'		
-		);
-	
-		$radio = new CoreTheme_Form_Elements_Radio($radio_element, $content->sub_section_no_posts());
-		
-		return $radio;
-	}
-	
 	protected function _url_element(){
-		$admin_panel = AisisCore_Factory_Pattern::create('CoreTheme_AdminPanel_AdminPanel');
-		
 		$url = array(
-			'name' => 'aisis_core[index_page_no_posts]',
-			'value'=> $admin_panel->get_value('aisis_core','index_page_no_posts'),
+			'name' => 'aisis_core[index_more_posts]',
+			'value'=> $this->_get_value('aisis_core','index_more_posts'),
 			'placeholder' => 'Url'	
 		);
 		
@@ -105,6 +85,19 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 		$url_element->set_label('Url of the content', 'control-label');
 		
 		return $url_element;
+	}
+	
+	protected function _button_title(){
+		$content = array(
+			'name' => 'aisis_core[button_title_more_posts]',
+			'value'=> $this->_get_value('aisis_core','button_title_more_posts'),
+			'placeholder' => 'Button title'	
+		);
+		
+		$button_element_text = new CoreTheme_Form_Elements_Input($content);
+		$button_element_text->set_label('Title of the button.', 'control-label');
+		
+		return $button_element_text;
 	}
 	
 	protected function _submit_element(){
@@ -116,6 +109,13 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 		$submit_element = new CoreTheme_Form_Elements_Submit($submit);
 	
 		return $submit_element;
+	}
+	
+	private function _get_value($option, $key){
+		$options = get_option($option);
+		if(isset($options[$key])){
+			return $options[$key];
+		}
 	}
 	
 }

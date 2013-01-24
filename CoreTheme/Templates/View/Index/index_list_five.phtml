@@ -3,8 +3,18 @@ global $wp_query;
 
 $original_query = $wp_query;
 $list_index =  array ( 'posts_per_page' => 5 );
-$wp_query = new WP_Query ( $first_index );
+$wp_query = new WP_Query ( $list_index );
 
+$attr = array(
+	'align' => 'left',
+	'class' => 'thumbnail imageRight',
+	'width' => 350,
+	'height' => 350
+);
+
+?>
+<div class="container-narrow">
+<?php 
 if($wp_query->have_posts()){
 	while($wp_query->have_posts()){
 		$wp_query->the_post();
@@ -16,16 +26,8 @@ if($wp_query->have_posts()){
 		</div>
 		<?php
 	}
-	
-	?>
-	<ul class="pager paddingBottom20">
-	  <li class="previous">
-	    <?php next_posts_link('&laquo; Older Entries'); ?>
-	  </li>
-	  <li class="next">
-	  	<?php previous_posts_link('Newer Entries &raquo;'); ?>
-	  </li>
-	</ul><?php 
 }
-
+?>
+</div>
+<?php
 $wp_query = $original_query;

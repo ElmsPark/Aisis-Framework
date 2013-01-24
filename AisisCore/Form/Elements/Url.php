@@ -20,6 +20,10 @@ class AisisCore_Form_Elements_Url extends AisisCore_Form_Xhtml {
 			$this->_html .= 'name="'.$this->_options['name'].'" ';
 		}
 		
+		if(isset($this->_options['value'])){
+			$this->_html .= 'value="'.$this->_options['value'].'"';
+		}
+		
 		if(isset($this->_options['placeholder'])){
 			$this->_html .= 'placeholder="'.$this->_options['placeholder'].'" ';
 		}

@@ -22,23 +22,6 @@ class CoreTheme_AdminPanel_Form_SiteDesign_Content {
 		return $content_element;
 	}
 	
-	public function row_count_content(){
-		$content = array(
-			'class' => 'well',
-			'content' => '
-			<h1 class="headLine">
-				How many Rows
-			</h1>
-			<p>Bellow you can choose how many rows of posts you would to display to the reader.</p>
-			<p class="text-info">If you choose none of these, yet select: "Display posts as rows", we will show the default
-			nine posts.</p>
-			'	
-		);
-		
-		$content_element = new AisisCore_Form_Elements_ContentElement($content);
-		return $content_element;
-	}
-	
 	public function row_no_posts_content(){
 		$content = array(
 			'class' => 'well',
@@ -63,9 +46,12 @@ class CoreTheme_AdminPanel_Form_SiteDesign_Content {
 			<h1 class="headLine">
 				More Posts Button
 			</h1>
-			<p>On the bottom of the main page is a blue button that states "Show more Post!" The url you
-			enter should be the one to the page in which shows a list of more posts.</p>
-			<p class="text-info"><strong>Note</strong>: If you enter nothing in, we will not show this button.</p>
+			<p>Below you can enter in the link to and the title of the button which will take users
+			to a page, that you specify, which has a list of posts on it.</p>
+			<p>We have a page template already set to go called <strong>List Posts</strong>.</p>
+			<p class="text-info"><strong>Note</strong>: If you enter nothing in, we will not show this button.
+			This also applies to if you enter nothing in as the title for the button. You need both the 
+			link and the title for the button to display.</p>
 			'	
 		);
 		

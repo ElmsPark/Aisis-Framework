@@ -10,10 +10,6 @@ $third_index =  array ( 'posts_per_page' => 3, 'offset' => 6 );
 $third_loop = new WP_Query ( $third_index );
 
 ?>
-<div class="headLine">
-	<h3>Get the latest news!!!</h3>
-	<p>We will keep you in the loop....</p>
-</div>
 
 <div class="row">
 <?php
@@ -56,8 +52,4 @@ if($third_loop->have_posts()){
 	endwhile; 
 }
 ?>
-</div>
-<div class="span9 offset3 marginTop60 marginBottom20">
-	<a href="#" class="btn btn-primary">See More Posts!</a>
-	<a href="#" class="btn btn-success">Sign up today and Never Miss Out!</a>
 </div>
