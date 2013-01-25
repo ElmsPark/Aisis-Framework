@@ -19,6 +19,10 @@ $scripts_to_load  = array(
         array(
             'name'=>'bootstrap-responsive-css',
             'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap-responsive.min.css'
+        ),
+        array(
+            'name'=>'font-awesome',
+            'path'=>get_template_directory_uri() . '/lib/fontawesome/css/font-awesome.min.css'
         )
     ),
    'js_jquery' => array(

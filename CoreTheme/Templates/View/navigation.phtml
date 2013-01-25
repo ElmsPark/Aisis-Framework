@@ -23,7 +23,14 @@
       </a>
       <a href="<?php echo home_url('/'); ?>" class="brand"><?php bloginfo('name'); ?></a>
       <div class="nav-collapse">
-      	<?php wp_nav_menu($menu_options); 
+      	<div class="moveIcons">
+      		<a href="#"><i class="icon-facebook iconSeperator"></i></a>
+      		<a href="#"><i class="icon-twitter iconSeperator"></i></a>
+      		<a href="#"><i class="icon-google-plus iconSeperator"></i></a>
+      		<a href="#"><i class="icon-github iconSeperator"></i></a>
+      		<a href="#"><i class="icon-likedin iconSeperator"></i></a>
+      	</div>
+		<?php wp_nav_menu($menu_options); 
       	new CoreTheme_Templates_View_Form_NavSearch($search_form);
       	?>
       </div>
