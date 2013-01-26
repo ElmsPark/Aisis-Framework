@@ -9,6 +9,13 @@ $second_loop = new WP_Query ( $second_index );
 $third_index =  array ( 'posts_per_page' => 3, 'offset' => 6 );
 $third_loop = new WP_Query ( $third_index );
 
+$attr = array(
+	'align' => 'center',
+	'class' => 'thumbnail',
+	'width' => 350,
+	'height' => 350
+);
+
 ?>
 
 <div class="row">
@@ -18,6 +25,7 @@ if($first_loop->have_posts()){
 	?>
 		<div class="span4 centered">
 			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<?php the_post_thumbnail('medium', $attr); ?>
 			<p><?php the_excerpt(); ?></p>
 		</div>
 	<?php
@@ -32,6 +40,7 @@ if($second_loop->have_posts()){
 	?>	
 		<div class="span4 centered">
 			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<?php the_post_thumbnail('medium', $attr); ?>
 			<p><?php the_excerpt(); ?></p>
 		</div>
 	<?php
@@ -46,6 +55,7 @@ if($third_loop->have_posts()){
 	?>
 		<div class="span4 centered">
 			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<?php the_post_thumbnail('medium', $attr); ?>
 			<p><?php the_excerpt(); ?></p>
 		</div>
 	<?php

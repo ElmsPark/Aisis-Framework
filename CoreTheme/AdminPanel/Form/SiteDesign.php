@@ -34,6 +34,8 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 	}
 	
 	protected function _radio_rows_element(){
+		$sub_section = new CoreTheme_AdminPanel_Form_SiteDesign_SubSection();
+		
 		$radio_element = array(
 			'name' => 'aisis_core[display_rows]',
 			'value' => 'display_rows',
@@ -49,8 +51,7 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			'key' => 'display_rows'		
 		);
 		
-		$radio = new CoreTheme_Form_Elements_Radio($radio_element);
-		
+		$radio = new CoreTheme_Form_Elements_Radio($radio_element, $sub_section->build_section());
 		return $radio;
 	}
 	

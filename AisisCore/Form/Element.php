@@ -12,7 +12,7 @@ class AisisCore_Form_Element extends AisisCore_Form_SubSection {
 
 	protected $_label;
 	
-	public function __construct($options, $sub_section = array()) {
+	public function __construct($options, $sub_section = array()) { 
 		$this->_options = $options;
 		
 		$this->init ();
