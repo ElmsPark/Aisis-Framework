@@ -56,9 +56,8 @@ class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 		}
 	}
 	
-	public function sidebar($option, $key){
+	public function option_check($option, $key){
 		$options = get_option($option);
-		//var_dump($options); exit;
 		if(isset($options[$key])){
 			if($options[$key] == $key){
 				return true;

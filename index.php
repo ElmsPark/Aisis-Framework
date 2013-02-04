@@ -34,4 +34,22 @@ if(isset($options['index_more_posts']) && isset($options['button_title_more_post
 </div>
 <?php
 }
+
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+$array = array(
+	'title_header' => 'h1',
+	'excerpt' => array(
+		'length' => 20,
+		'content' => 'test'
+	),
+	'query' => array(
+		'posts_per_page' => 5,
+		'paged' => $paged
+	)
+);
+
+$options = new AisisCore_Template_Helpers_Loop($array);
+$options->loop();
+
 get_footer();

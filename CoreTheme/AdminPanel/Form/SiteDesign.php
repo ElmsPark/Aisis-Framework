@@ -1,11 +1,10 @@
 <?php 
 
-class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
+class CoreTheme_AdminPanel_Form_SiteDesign extends AisisCore_Form_Form{
 		
 	public function init(){
 		parent::init();
-		
-		$content = new CoreTheme_AdminPanel_Form_SiteDesign_Content();
+		$content = new CoreTheme_AdminPanel_Form_SubSection_SiteDesignContent();
 		
 		$array_elements = array(
 			$content->content_header(),
@@ -17,7 +16,7 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 			$this->_submit_element()	
 		);
 		
-		$this->create_form($array_elements, null, 'aisis_options');
+		$this->create_form($array_elements, 'aisis_sitedesign');
 	}
 	
 	protected function _create_header_content(){
@@ -34,7 +33,7 @@ class CoreTheme_AdminPanel_Form_SiteDesign extends CoreTheme_Form_Form{
 	}
 	
 	protected function _radio_rows_element(){
-		$sub_section = new CoreTheme_AdminPanel_Form_SiteDesign_SubSection();
+		$sub_section = new CoreTheme_AdminPanel_Form_SubSection_SiteDesign();
 		
 		$radio_element = array(
 			'name' => 'aisis_core[display_rows]',

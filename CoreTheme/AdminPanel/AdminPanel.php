@@ -62,12 +62,21 @@ class CoreTheme_AdminPanel_AdminPanel extends AisisCore_Template_Builder{
 	public function settings(){
 		register_setting(
 			'aisis_options', 
-			'aisis_core', 
+			'aisis_sitedesign', 
 			array(
 				$this, 
 				'aisis_option_validation'
 			)
 		);
+		
+		register_setting(
+			'aisis_options', 
+			'aisis_sidebar', 
+			array(
+				$this, 
+				'aisis_option_validation'
+			)
+		);		
 	}
 	
 	public function build_admin_panel(){

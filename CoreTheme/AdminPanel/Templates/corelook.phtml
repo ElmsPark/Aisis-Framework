@@ -16,7 +16,8 @@
 		</div>
 		<?php 
 			update_option('success_message', false);
-		} ?>
+		} 
+		?>
 		<div class="tabbable">
 			<ul class="nav nav-tabs">
 		    	<li class="active"><a href="#coreStyle" data-toggle="tab">General Site Design</a></li>
@@ -32,29 +33,15 @@
 					'sub_section' => array(
 						'class' => 'section'	
 					)
-				)); 
+				)); 				
 				?>
 				</div>
 				<div id="sidebar" class="tab-pane">
-				<?php 
-				new CoreTheme_AdminPanel_Form_SidebarOptions(array(
-					'method'=>'post',
-					'action' => 'options.php',
-					'sub_section' => array(
-						'class' => 'section'	
-					)
-				));
+				<?php							 
 				?>
 				</div>
 				<div id="minifeed" class="tab-pane">
 				<?php 
-				new CoreTheme_AdminPanel_Form_MiniSlider(array(
-					'method'=>'post',
-					'action' => 'options.php',
-					'sub_section' => array(
-						'class' => 'section'	
-					)
-				));
 				?>
 				</div>
 			</div>
@@ -87,8 +74,20 @@ $(function(){
 	    }
 	});
 
+	$('.disableSidebar').click(function(){
+		if ($(this).attr("id") == "sidebar"){
+	   		$('.sectionSidebar').show();
+	    } else {
+	    	$('.sectionSidebar').hide();
+	    }
+	});	
+
 	if ($('input[value=display_rows]:radio:checked').attr('id') === "rows") {
         $('.section').show();
+    }
+
+	if ($('input[value=disable_sidebar]:checkbox:checked').attr('id') === "sidebar") {
+        $('.sectionSidebar').show();
     }
 
 	$("#display_templates").popover();

@@ -1,8 +1,12 @@
 <?php 
 $builder = new CoreTheme_Templates_Builder();
-if(!$builder->sidebar('aisis_core', 'disable_sidebar') 
-	&& !$builder->sidebar('aisis_core', 'disable_sidebar_posts')){
-	?><div class="span6"><?php	
+if(!$builder->option_check('aisis_core', 'disable_sidebar') 
+	&& !$builder->option_check('aisis_core', 'disable_sidebar_posts')){
+	if(!$builder->option_check('aisis_core', 'single_narrow')){
+		?><div class="container-narrow"><?php
+	}elseif(!$builder->option_check('aisis_core', 'disable_sidebar_pages')){
+		?><div class="span6"><?php	
+	}
 }else{
 	?><div class="span12"><?php
 }

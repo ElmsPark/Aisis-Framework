@@ -1,6 +1,6 @@
 <?php 
 
-class CoreTheme_AdminPanel_Form_SiteDesign_Content {
+class CoreTheme_AdminPanel_Form_SubSection_SiteDesignContent {
 	
 	public function content_header(){
 		$content = array(

@@ -1,5 +1,5 @@
 <?php
-class CoreTheme_AdminPanel_Form_SiteDesign_SubSection{
+class CoreTheme_AdminPanel_Form_SubSection_SiteDesign{
 	
 	public function build_section(){
 		return $this->_sub_section();
