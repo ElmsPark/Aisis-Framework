@@ -81,7 +81,7 @@ class AisisCore_FileHandling_File {
 	 */
 	public function aisis_get_dir($dir) {
 		if (! $this->check_dir ( $dir )) {
-			throw new AisisCoreException ( "<div class='error'>Cannot find said directory: " . $dir . "</div>" );
+			throw new AisisCore_FileHandling_FileException ( "<div class='error'>Cannot find said directory: " . $dir . "</div>" );
 		}
 		
 		$handler = opendir ( $dir );
@@ -231,7 +231,7 @@ class AisisCore_FileHandling_File {
 	 */
 	public function get_directory_of_files($path, $filename, $extension) {
 		if (! is_dir ( $path )) {
-			throw new AisisCore_Exception_Exception ( "<div class='error'>Could not find said path: " . $path . "</div>" );
+			throw new AisisCore_FileHandling_FileException ( "<div class='error'>Could not find said path: " . $path . "</div>" );
 		}
 		
 		if ($this->check_exists ( $filename, true )) {

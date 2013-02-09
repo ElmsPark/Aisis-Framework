@@ -5,4 +5,4 @@
  * @see AisisCore_Exceptions_Exception
  * @package AisisCore_Loader
  */
-class AisisCore_Loader_Loaderexception extends AisisCore_Exceptions_Exception{}
+class AisisCore_Loader_LoaderException extends AisisCore_Exceptions_Exception{}
