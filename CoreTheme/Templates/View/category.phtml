@@ -1,0 +1,10 @@
+<?php $template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder'); ?>
+
+<div class="hero-unit">
+	<h2><?php single_cat_title(); ?></h2>
+	<p><?php echo category_description(); ?></p>
+	<p><strong>Tags:</strong> <?php $template->category_tags(); ?></p>
+</div>
+
+<?php 
+$template->render_template(CORETHEME_TEMPLATES_VIEW . '/Index/index_category.phtml');

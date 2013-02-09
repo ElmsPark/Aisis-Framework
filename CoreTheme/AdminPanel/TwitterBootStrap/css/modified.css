@@ -1,0 +1,82 @@
+[class^="icon-"], [class*=" icon-"]{
+	background-image: none !important;
+}
+
+.modal-header .close {
+	margin-top: 20px;
+	margin-right: 5px;
+}
+
+.modal-header {
+	padding-top: 20px;
+	border-bottom: 1px solid #EEE;
+	background: #EEE;
+	margin-top: -20px;
+}
+
+.modal-header h2 {
+	padding-left: 0px !important;
+}
+
+.input-xlarge{
+	width: 270px !important;
+}
+
+.radio, .checkbox{
+	width: 270px;
+}
+
+/* OTHER
+    -------------------------------------------------- */
+
+.section, .sectionSidebar{
+	display:none;
+	width: 80%;
+	margin-left: 80px;
+}
+
+.borderBottom{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #E3E3E3;
+}
+
+
+/* AISIS ADMIN PANEL
+    -------------------------------------------------- */
+
+
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by it's height */
+	margin: 10px auto -60px -20px;
+	width:98%;
+}
+
+.headLine{
+	text-align:center;
+}
+
+.wellChangePushDown{
+	margin: 10px 0 10px 0;
+}
+
+.wellChangeBorderRadius{
+	border-radius: 0px;
+}
+
+.containerTop{
+	padding-top:30px;
+	padding-bottom:5px;
+}
+
+#push,#footer {
+	margin-top:60px;;
+}
+
+#footer {
+	background-color: #f5f5f5;
+	width:98%
+}
