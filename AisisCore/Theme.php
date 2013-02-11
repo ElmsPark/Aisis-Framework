@@ -54,6 +54,13 @@ class AisisCore_Theme{
 			$this->_options =  $options;
 		}
 		
+		// Set up the theme.
+		$this->setup_sidebar($this->_options);
+		$this->setup_navigation($this->_options);
+		$this->setup_theme_support_posts($this->_options);
+		$this->setup_theme_support_thumbnails($this->_options);
+		$this->setup_custom_theme_options($this->_options);
+		
 		$this->init();
 	}
 	
@@ -69,7 +76,7 @@ class AisisCore_Theme{
 	 * 
 	 *  @see http://codex.wordpress.org/Function_Reference/register_sidebar
 	 */
-	public function set_up_sidebar($opions){
+	public function setup_sidebar($opions){
 		if(isset($options['sidebar'])){
 			register_sidebar($options['sidebar']);
 		}
@@ -82,7 +89,7 @@ class AisisCore_Theme{
 	 * 
 	 * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
 	 */
-	public function set_up_navigation($options){
+	public function setup_navigation($options){
 		if(isset($options['navigation'])){
 			register_nav_menus($options['navigation']);
 		}
@@ -91,14 +98,14 @@ class AisisCore_Theme{
 	/**
 	 * Adds various post formats to a theme.
 	 * 
-	 * <p>Depends upon $options['theme_support']['posts'], which is an array of post formats
+	 * <p>Depends upon $options['theme_support']['post_formats'], which is an array of post formats
 	 * to register the various post formats.</p>
 	 * 
 	 * @see http://codex.wordpress.org/Function_Reference/add_theme_support
 	 */
-	public function set_up_theme_support_posts($options){
-		if(isset($options['theme_support']['posts'])){
-			add_theme_support('post-formats', $options['theme_support']['posts']);
+	public function setup_theme_support_posts($options){
+		if(isset($options['theme_support']['post_formats'])){
+			add_theme_support('post-formats', $options['theme_support']['post_formats']);
 		}
 	}
 	
@@ -111,7 +118,7 @@ class AisisCore_Theme{
 	 * 
 	 * @see http://codex.wordpress.org/Function_Reference/add_theme_support
 	 */
-	public function setu_up_theme_support_thumbnails($options){
+	public function setup_theme_support_thumbnails($options){
 		if(!isset($options['theme_support']['thumbnails']['exceptions'])){
 			add_theme_support('post-thumbnails');
 		}else{
@@ -127,7 +134,7 @@ class AisisCore_Theme{
 	 * 
 	 * @see http://codex.wordpress.org/Function_Reference/add_theme_support
 	 */
-	public function set_up_custom_theme_options($options){
+	public function setup_custom_theme_options($options){
 		if(isset($options['custom_theme'])){
 			foreach($options['custom_theme'] as $key=>$value){
 				add_theme_support($key, $value);

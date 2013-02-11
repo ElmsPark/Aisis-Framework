@@ -7,7 +7,8 @@
  * such as the abillity to create a menu (including submenus), set up the 
  * settings and allows for you to create a global validator for your options
  * and finally a function to register a template used for the admin panel it's self.</p>
- * 
+ *
+ * @package AisisCore_Interfaces 
  */
 interface AisisCore_Interfaces_Admin{
 	

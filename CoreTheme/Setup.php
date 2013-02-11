@@ -47,6 +47,9 @@ $scripts_to_load  = array(
      ),     
 );
 
+// Load the scripts
+$load_scripts = new CoreTheme_Loader_Asset($scripts_to_load);
+
 // Set up theme support.
 $theme_setup = array(
 	'sidebar' => array(
@@ -64,10 +67,16 @@ $theme_setup = array(
 	),
 	'theme_support' => array(
 		'post_formats' => array(
-			'post-thumbnails',
-			'automatic-feed-links',
-			'bbpress',
-			'menus'
+			'aside',
+			'gallery',
+			'link',
+			'image',
+			'quote',
+			'status',
+			'video',
+			'audio',
+			'chat'
+			
 		)
 	),
 	'custom_theme' => array(
@@ -82,7 +91,7 @@ $theme_setup = array(
 );
 
 // Set up the theme.
-new AisisCore_Theme($theme_setup);
+$theme = new AisisCore_Theme($theme_setup);
 
 // Create a list of dependencies that can be used in a factory class.
 function dependencies(){
@@ -100,9 +109,6 @@ function dependencies(){
 
 // Register Dependencies 
 AisisCore_Factory_Pattern::register_dependencies(dependencies());
-
-// Load the scripts
-$load_scripts = new CoreTheme_Loader_Asset($scripts_to_load);
 
 // We need the shortcodes - only on the admin side.
 $package = new AisisCore_Loader_Package();
