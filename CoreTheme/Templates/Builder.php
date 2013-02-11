@@ -2,7 +2,7 @@
 class CoreTheme_Templates_Builder extends AisisCore_Template_Builder {
 	
 	public function render_template($template){
-		$this->_register_template($template);
+		$this->register_template($template);
 	}
 	
 	public function container_class(){

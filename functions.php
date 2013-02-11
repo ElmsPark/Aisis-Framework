@@ -7,7 +7,7 @@ define('CORETHEME_TEMPLATES_VIEW', get_template_directory() . '/CoreTheme/Templa
 define('CORETHEME_ADMIN', get_template_directory() . '/CoreTheme/AdminPanel/');
 define('CORETHEME_ADMIN_TEMPLATES', get_template_directory() . '/CoreTheme/AdminPanel/Templates/');
 define('CORETHEME_SHORTCODES', get_template_directory() . '/CoreTheme/ShortCodes/');
-define('CORETHEME_ADMIN_TWITTER', get_template_directory() . '/CoreTheme/AdminPanel/TwitterBootStrap');
+define('CORETHEME_ADMIN_TWITTER', get_template_directory() . '/CoreTheme/AdminPanel/TwitterBootStrap/');
 
 //require the setup file.
-require_once(CORETHEME . 'setup.php');
+require_once(CORETHEME . 'Setup.php');

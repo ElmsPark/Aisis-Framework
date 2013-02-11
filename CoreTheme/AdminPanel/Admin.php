@@ -1,0 +1,95 @@
+<?php
+
+class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
+	
+	public function __construct(){
+		add_action('admin_menu', array($this, 'menu_setup'));
+		add_action('admin_init', array($this, 'register_settings'));
+
+		add_option('success_message', false);
+	}
+	
+	public function init(){}
+	
+	public function menu_setup(){
+		add_menu_page(
+			__('Aisis', 'aisis'), 
+			__('Aisis', 'aisis'), 
+			'edit_themes', 
+			'aisis-core-options', 
+			array(
+				$this, 
+				'build_template'),  
+				get_template_directory_uri() . '/images/block.png', 
+				31
+			);
+
+		add_submenu_page(
+			'aisis-core-options', 
+			__('Aisis BBPress Options', 'aisis'), 
+			__('Aisis BBpress Options', 'aisis'), 
+			'edit_themes', 
+			'aisis-core-bbpress', 
+			array(
+				$this, 
+				'build_template'
+			)
+		);
+
+		add_submenu_page(
+			'aisis-core-options', 
+			__('Aisis Packages', 'aisis'), 
+			__('Aisis Packages', 'aisis'), 
+			'edit_themes', 
+			'aisis-core-packages', 
+			array(
+				$this, 
+				'build_template'
+			)
+		);
+
+		add_submenu_page(
+			'aisis-core-options', 
+			__('Aisis Update', 'aisis'), 
+			__('Aisis Update', 'aisis'), 
+			'edit_themes', 
+			'aisis-core-update', 
+			array(
+				$this, 
+				'build_template'
+			)
+		);
+	}
+	
+	public function register_settings(){
+		register_setting(
+			'aisis_options', 
+			'aisis_sitedesign', 
+			array(
+				$this, 
+				'option_validator'
+			)
+		);
+
+		register_setting(
+			'aisis_options', 
+			'aisis_sidebar', 
+			array(
+				$this, 
+				'option_validator'
+			)
+		);
+	}
+	
+	public function build_template(){
+		$template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
+		$template->render_template(CORETHEME_ADMIN_TEMPLATES . 'coretheme.phtml');
+	}
+	
+	public function option_validator($input){
+		$option = get_option('aisis_core');
+		$option = $input;
+		update_option('success_message', true);
+		return $option;
+	}
+}

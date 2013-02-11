@@ -45,16 +45,15 @@ class AisisCore_Template_Builder {
 	 * @param array $page - optional parameter
 	 * @package AisisCore_Template
 	 */
-	public function __construct(array $options, $page = array()) {
+	public function __construct($options, $page = array()) {
 		
-		if(isset($page)){
+		if(isset($page) or !empty($page)){
 			$this->_page = $page;
 		}
 		
 		$this->_options = $options;
 		
 		$this->_set_options();
-		$this->_set_pages();
 		
 		$this->init ();
 	}
@@ -161,7 +160,7 @@ class AisisCore_Template_Builder {
 	 * @see Aisis_File_Handling
 	 */
 	public function does_template_exist($file) {
-		$file_system = new Aisis_File_Handling ();
+		$file_system = new AisisCore_FileHandling_File();
 		if ($file_system->check_exists ( $file )) {
 			return true;
 		}
@@ -175,7 +174,7 @@ class AisisCore_Template_Builder {
 	 * @param string $file
 	 * @throws AisisCore_Template_TemplateException
 	 */
-	protected function _register_template($file) {
+	public function register_template($file) {
 		
 		if ($file != '') {
 			if (! $this->does_template_exist ( $file )) {

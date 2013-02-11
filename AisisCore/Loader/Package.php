@@ -2,15 +2,22 @@
 /**
  * This class is used to load a package of code.
  * 
- * <p>This class has one main purpose which is to load a specific file
- * from a package of code. All you need to do is pass in the package name
- * of the package you want to load.</p>
+ * <p>The core purpose of this class is to load two types of packages, custom and internal.</p>
  * 
- * <p>There are two functions to be concerned with, load_package($package) which will
- * allow you load a package based soly on the name of that package.</p>
+ * <p>Custom packages live in the custom/packages folder and are custom to each theme. This allows
+ * the theme some flexabillity. All custom packages need to contain a Setup.php which is then loaded
+ * by the theme.</p>
  * 
- * <p>The other method to focus on is load_file_from_package($file, $package) which will
- * allow you to load a specific file from a sepecific package.</p>
+ * <p>Internal packages are packages that are internal to the theme. That is, packages which help
+ * the theme run or are dependant to the theme.</p>
+ * 
+ * <p>The basic structure of a package is such that:<p>
+ * 
+ * <p>
+ * PackageName
+ * |-- Files, Folders, Assets ...
+ * |-- Setup.php
+ * </p>
  * 
  * @package AisisCore_Loader
  */
@@ -29,24 +36,86 @@ class AisisCore_Loader_Package {
 	public function init(){}
 	
 	/**
+	 * This function allows us to load one of two types of packages: custom or internal.
+	 * 
+	 * <p>this function has two main goals. One is to load the custom package that
+	 * is located in theme/custom/packages/PackageName while the other is to load an internal
+	 * pacage. That is a package which is core to the themes functioanlity.</p>
+	 * 
+	 * <p>If the directory is null, or not null, but custom is true, we will load the custom
+	 * package based onthe name or the name and the directory.</p>
+	 * 
+	 * <p>If the directory is null and the custom option is false, we will load the internal
+	 * package based on the directory and the package name.</p>
+	 * 
+	 * <p>By default we load the custom package based on the name you pass in.</p>
+	 * 
+	 * @param string $package_name - the name of the folder.
+	 * @param string $dir
+	 * @param bool $custom
+	 */
+	public function load_package($package_name, $dir = null, $custom = false){
+		if($dir != null && $custom == false){
+			$this->_load_internal_package($dir, $package_name);
+		}elseif($dir != null && $custom){
+			$this->_load_custom_package($package_name, $dir);
+		}else{
+			$this->_load_custom_package($package_name);
+		}
+	}
+	
+	/**
 	 * This function takes only the name of the package.
 	 * 
 	 * <p>This function is responsible for loading the package
 	 * assuming that package is not empty or that it exists.</p>
 	 * 
 	 * @param string $package
-	 * @throws AisisCore_Loader_Loaderexception
+	 * @throws AisisCore_Loader_LoaderException
 	 */
-	public function load_package($package){
-		if(!$this->_package_exists(bloginfo('template_directory') .'/'. $package)){
-			if(!$this->_package_empty(bloginfo('template_directory') .'/'. $package)){
-				require_once(bloginfo('template_directory') .'/'. $package .'/SetUp');
+	protected function _load_custom_package($package, $dir = null){
+		if($dir != null){
+			if($this->_package_exists(bloginfo('template_directory') .'/custom/'.$dir . $package)){
+				if($this->_package_empty(bloginfo('template_directory') .'/custom/'.$dir . $package)){
+					require_once(bloginfo('template_directory').'/custom/'.$dir . $package . '/Setup.php');
+				}else{
+					throw new AisisCore_Loader_LoaderException('<p>'.$package.' Is empty.</p>');
+				}
 			}else{
-				throw new AisisCore_Loader_Loaderexception('<p>'.$package.' Is empty.</p>');
+				throw new AisisCore_Loader_LoaderException('<p>'.$package.' Could not be found.</p>');
 			}
 		}else{
-			throw new AisisCore_Loader_Loaderexception('<p>'.$package.' Could not be found.</p>');
-		}	
+			if($this->_package_exists(bloginfo('template_directory') .'/custom/packages/'. $package)){
+				if($this->_package_empty(bloginfo('template_directory') .'/custom/packages/'. $package)){
+					require_once(bloginfo('template_directory') .'/custom/packages/'. $package .'/Setup.php');
+				}else{
+					throw new AisisCore_Loader_LoaderException('<p>'.$package.' Is empty.</p>');
+				}
+			}else{
+				throw new AisisCore_Loader_LoaderException('<p>'.$package.' Could not be found.</p>');
+			}
+		}
+			
+	}
+	
+	/**
+	 * This function is meant to load internal packages.
+	 * 
+	 * <p>Any package you create that contains a Setup.php file will be loaded if you pass in
+	 * the directory of package and its name.</p>
+	 * 
+	 * @throws AisisCore_Loader_LoaderException
+	 */
+	protected function _load_internal_package($dir, $package){
+		if($this->_package_exists($dir . $package)){
+			if($this->_package_empty($dir . $package)){
+				require_once($dir . $package .'/Setup.php');
+			}else{
+				throw new AisisCore_Loader_LoaderException('<p>'.$package.' Is empty.</p>');
+			}
+		}else{
+			throw new AisisCore_Loader_LoaderException('<p>'.$package.' Could not be found.</p>');
+		}		
 	}
 	
 	/**
@@ -57,17 +126,17 @@ class AisisCore_Loader_Package {
 	 * 
 	 * @param string $filename
 	 * @param string $package
-	 * @throws AisisCore_Loader_Loaderexception
+	 * @throws AisisCore_Loader_LoaderException
 	 */
 	public function load_file_from_package($filename, $package){
 		if(is_dir(bloginfo('template_directory') .'/'. $package)){
 			if(file_exists($filename)){
 				require_once($filename);
 			}else{
-				throw new AisisCore_Loader_Loaderexception('<p>'.$filename.' does not exist.</p>');
+				throw new AisisCore_Loader_LoaderException('<p>'.$filename.' does not exist.</p>');
 			}
 		}else{
-			throw new AisisCore_Loader_Loaderexception('<p>'.$package.' does not exist.</p>');
+			throw new AisisCore_Loader_LoaderException('<p>'.$package.' does not exist.</p>');
 		}
 	}
 	
@@ -95,7 +164,7 @@ class AisisCore_Loader_Package {
 	protected function _package_empty($package){
 		$file_handler = new AisisCore_FileHandling_File();
 		
-		if(null === $file_handler->aisis_get_dir($package)){
+		if(null !== $file_handler->aisis_get_dir($package)){
 			return true;
 		}
 		

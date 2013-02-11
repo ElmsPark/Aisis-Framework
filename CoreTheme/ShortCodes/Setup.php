@@ -1,4 +1,6 @@
 <?php
+require_once('AdminSetUpCodes.php');
+
 // Define the Codes package
 define('SHORTCODES_CODES', get_template_directory() . '/CoreTheme/ShortCodes/Codes/');
 

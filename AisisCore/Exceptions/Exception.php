@@ -7,25 +7,24 @@
  */
 class AisisCore_Exceptions_Exception extends Exception {
 	
+
 	/**
 	 * Message plus any code if given.
 	 * 
 	 * @param string $message
 	 * @param int $code 
 	 */
-	public function __construct($message, $code = 0) {
-		parent::__construct ( $message, $code );
+	public function __construct($message, $code = 0){
+		parent::__construct ( $message, (int) $code);
 	}
 	
+	
 	/**
-	 * Returns the message wrapped in a div with the class error.
+	 * Returns the message for reading on screen.
+	 * 
+	 * @return string message.
 	 */
-	public function __toString() {
-		if($this->code != 0){
-			return "<div class='error'> <p>Code: ".$this->code."</p>".$this->message. "</div>";
-		}else{
-			return "<div class='error'>" . $this->message . "</div>";
-		}
-		
+	public function __toString(){
+		return parent::__toString();	
 	}
 } 
