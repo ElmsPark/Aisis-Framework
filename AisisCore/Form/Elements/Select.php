@@ -27,7 +27,7 @@
  * @see AisisCore_Form_Xhtml
  * @package AisisCore_Form_Elements
  */
-class AisisCore_Form_Elements_Password extends AisisCore_Form_Xhtml{
+class AisisCore_Form_Elements_Select extends AisisCore_Form_Xhtml{
 	/**
 	 * Builds the select element element.
 	 */
