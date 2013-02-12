@@ -1,13 +1,15 @@
 <?php 
-
-if(!function_exists('before_category_description')){
-	function before_category_description(){
-		do_action('before_category_description');
+class CoreTheme_Hooks extends AisisCore_Hooks{
+	
+	public function init(){
+		parent::init();
+		
+		$this->setup_hooks(array(
+			'test' => array($this, 'sample_hook'),
+		));
 	}
-}
-
-if(!function_exists('after_category_description')){
-	function after_category_description(){
-		do_action('after_category_description');
+	
+	public function sample_hook($test){
+		echo $test;
 	}
 }
