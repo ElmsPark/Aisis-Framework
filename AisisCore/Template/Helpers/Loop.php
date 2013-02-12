@@ -40,7 +40,7 @@
  * <p>We also deal with pagination, reseting the query and dealing with checking if
  * you are on a single page or. All you need is to call the class and the function.</p>
  * 
- * @see http://codex.wordpress.org/The_Loop
+ * @link http://codex.wordpress.org/The_Loop
  * 
  * @package AisisCore_Template_Helpers
  */

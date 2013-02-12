@@ -87,7 +87,7 @@ class AisisCore_Theme{
 	 * 
 	 * <p>Depends upon $options['navigation'] to register the navigation.</p>
 	 * 
-	 * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
+	 * @link http://codex.wordpress.org/Function_Reference/register_nav_menus
 	 */
 	public function setup_navigation($options){
 		if(isset($options['navigation'])){
@@ -101,7 +101,7 @@ class AisisCore_Theme{
 	 * <p>Depends upon $options['theme_support']['post_formats'], which is an array of post formats
 	 * to register the various post formats.</p>
 	 * 
-	 * @see http://codex.wordpress.org/Function_Reference/add_theme_support
+	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support
 	 */
 	public function setup_theme_support_posts($options){
 		if(isset($options['theme_support']['post_formats'])){
@@ -116,7 +116,7 @@ class AisisCore_Theme{
 	 * $options['theme_support']['thumbnails']['exceptions'] arrays which takes in a list
 	 * of formats where you do not want to include post thumbnails.</p>
 	 * 
-	 * @see http://codex.wordpress.org/Function_Reference/add_theme_support
+	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support
 	 */
 	public function setup_theme_support_thumbnails($options){
 		if(!isset($options['theme_support']['thumbnails']['exceptions'])){
@@ -132,7 +132,7 @@ class AisisCore_Theme{
 	 * <p>Depends upon $options['core_theme'] array which contains the two main peices:
 	 * custom-header and custom-background.</p>
 	 * 
-	 * @see http://codex.wordpress.org/Function_Reference/add_theme_support
+	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support
 	 */
 	public function setup_custom_theme_options($options){
 		if(isset($options['custom_theme'])){
