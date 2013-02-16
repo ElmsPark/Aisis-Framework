@@ -1,15 +1,13 @@
 <?php
-
 // Load the autoloader.
 require_once(get_template_directory() . '/AisisCore/Loader/AutoLoader.php');
-
-// Lood the hooks
-require_once CORETHEME . 'hooks.php';
 
 // Setup the autoloader.
 $auto_loader = AisisCore_Loader_AutoLoader::get_instance();
 $auto_loader->register_auto_loader();
 
+// Load the hooks
+new CoreTheme_Hooks();
 
 // Load a specific set of Css and JS scripts
 $scripts_to_load  = array(

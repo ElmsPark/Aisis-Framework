@@ -1,6 +1,8 @@
 <?php
 
-class CoreTheme_Form_Helpers_TabbedForm extends AisisCore_Form_Form{
+class CoreTheme_Form_TabbedForm extends AisisCore_Form_Form{
+	
+	protected $_html = '';
 	
 	public function init(){
 		parent::init();

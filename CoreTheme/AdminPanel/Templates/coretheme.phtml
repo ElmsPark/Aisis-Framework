@@ -1,6 +1,38 @@
 <?php
 
+function sub_section(){
+	$section = array(
+		'sub_elements' => array(
+			test_element_sub_section()
+		),
+		'sub_content_options' => array(
+			'class' => 'sectionSidebar borderBottom',
+			'sub_elements_div' => array(
+				'class' => 'control-group'
+			),
+		),
+	);
+
+	return $section;
+}
+
 function url_element(){
+
+	$checkbox = array(
+		'name' => 'aisis_options[disable_sidebar]',
+		'value' => 'disable_sidebar',
+		'class' => 'disableSidebar',
+		'id' => 'sidebar',
+		'label' => ' Disable all sidebars from the site.',
+		'option' => 'aisis_options',
+		'key' => 'disable_sidebar'		
+	);
+
+	$radio = new CoreTheme_Form_Elements_Checkbox($checkbox, sub_section());
+	return $radio;
+}
+
+function test_element_sub_section(){
 	$url = array(
 		'name' => 'aisis_options[index_more_posts]',
 		'placeholder' => 'Url'	
@@ -38,7 +70,7 @@ $array = array(
 	)
 );
 
-$tabbed_form = new CoreTheme_Form_Helpers_TabbedForm($array);
+$tabbed_form = new CoreTheme_Form_TabbedForm($array);
 echo $tabbed_form;
 
 var_dump(get_option('aisis_options'));

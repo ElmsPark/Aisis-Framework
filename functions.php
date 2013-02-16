@@ -9,5 +9,11 @@ define('CORETHEME_ADMIN_TEMPLATES', get_template_directory() . '/CoreTheme/Admin
 define('CORETHEME_SHORTCODES', get_template_directory() . '/CoreTheme/ShortCodes/');
 define('CORETHEME_ADMIN_TWITTER', get_template_directory() . '/CoreTheme/AdminPanel/TwitterBootStrap/');
 
+if(is_multisite()){
+	define('CUSTOM', get_template_directory() . '/' . $blog_id . '-custom/');
+}else{
+	define('CUSTOM', get_template_directory() . '/custom/');
+}
+
 //require the setup file.
 require_once(CORETHEME . 'Setup.php');

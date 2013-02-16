@@ -62,9 +62,7 @@ class AisisCore_Form_SubSection {
 	 * @param array $sub_section
 	 */
 	public function _open_sub_section($sub_section){
-		if(isset($sub_section['sub_content_options'])){
-			$this->_html .= '<div ';
-		}
+		$this->_html .= '<div ';
 		
 		if(isset($sub_section['sub_content_options']['class'])){
 			$this->_html .= 'class="'.$sub_section['sub_content_options']['class'].'"';
@@ -74,9 +72,7 @@ class AisisCore_Form_SubSection {
 			$this->_html .= 'id="'.$sub_section['sub_content_options']['id'].'"';
 		}
 		
-		if(isset($sub_section['sub_content_options'])){
-			$this->_html .= ' >';
-		}
+		$this->_html .= '>';
 	}
 	
 	/**
@@ -116,9 +112,7 @@ class AisisCore_Form_SubSection {
 	 * Close the sub section div.
 	 */
 	public function _close_sub_section(){
-		if(isset($sub_section['sub_content_options'])){
-			$this->_html .= '</div>';
-		}
+		$this->_html .= '</div>';
 	}
 
 	/**
