@@ -3,4 +3,4 @@
 require_once(CORETHEME_ADMIN_TWITTER . 'Setup.php');
 
 // Setup the admin panel
-new CoreTheme_AdminPanel_Admin();
+$object = new CoreTheme_AdminPanel_Admin();

@@ -92,9 +92,8 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	 * <p>Based on the options you pass into the constructor of
 	 * this class, we will open the form tag with those options.</p>
 	 * 
-	 * <p>We will then echo this html form tag after all is said and done.</p>
 	 */
-	protected function _open_form(){
+	public function open_form($return = false){
 		$this->_html .= '<form ';
 		
 		$this->_html .= 'action="'.$this->get_action().'" ';
@@ -109,15 +108,13 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 		}
 		
 		$this->_html .= ' >';
-		
-		echo $this->_html;
 	}
 
 	/**
 	 * This will display a series of elements that belong to the form.
 	 * This includes the sub_section of the form.
 	 */
-	protected function _elements($elements, $sub_section){	
+	public function elements($elements, $sub_section = array()){	
 		$count = count($elements);
 		$loop = 0;
 		
@@ -135,11 +132,10 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	}
 	
 	/**
-	 * This will close the form. from here all we do is echo the html.
+	 * This will close the form.
 	 */
-	protected function _close_form(){
+	public function close_form(){
 		$this->_html .= ' </form>';
-		echo $this->_html;
 	}
 	
 	/**
@@ -156,19 +152,34 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	 */
 	public function create_form(array $elements, $sub_section = array(), $settings = ''){
 	 		
-		$this->_open_form();
+		$this->open_form();
 		
-		if(is_admin()){
-			settings_fields($settings);	
+		if(is_admin() && $settings != ''){
+			$this->aisis_sesttings_fields($settings);
 		}
 		
-		$this->_elements($elements, $sub_section);
+		$this->elements($elements, $sub_section);
 		
-		$this->_close_form();
+		$this->close_form();
 	}
 	
 	/**
-	 * Return the $_html as a string.
+	 * This function is identicle to the settings_fields in WordPress.
+	 * 
+	 * <p>The main key difference between this version and the WordPress version of this function is that
+	 * instead of echoing out the hidden fields, we are concatenating them to $_html so that we can
+	 * then print them out inside the form tags.</p>
+	 * 
+	 * @link http://codex.wordpress.org/Function_Reference/settings_fields
+	 */
+	public function aisis_sesttings_fields($setting){	
+		$this->_html .= '<input type="hidden" name="option_page" value="' . esc_attr($setting) . '" />';
+		$this->_html .= '<input type="hidden" name="action" value="update" />';
+	 	$this->_html .= wp_nonce_field("$setting-options", "_wpnonce", true, false);
+	}
+	
+	/**
+	 * @return html
 	 */
 	public function __toString(){
 		return $this->_html;

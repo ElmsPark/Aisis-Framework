@@ -1,8 +1,8 @@
 <?php
 
-class CoreTheme_Form_Form extends AisisCore_Form_Form {	
+class CoreTheme_Form_Form extends AisisCore_Form_Form {
 	
-	protected function _elements($elements, $sub_section){		
+	public function elements($elements, $sub_section = array(), $return = false){		
 		$this->_html .= '<fieldset>';
 		
 		$count = count($elements);
@@ -22,5 +22,9 @@ class CoreTheme_Form_Form extends AisisCore_Form_Form {
 		}
 
 		$this->_html .= '</fieldset>';	
+		
+		if($return){
+			return $this->_html;
+		}
 	}	
 }

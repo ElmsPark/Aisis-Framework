@@ -25,7 +25,7 @@ interface AisisCore_Interfaces_Admin{
 	 * 
 	 * @link http://codex.wordpress.org/Function_Reference/register_setting
 	 */
-	public function register_settings();
+	public function settings();
 	
 	/**
 	 * Allows you to register a template or set one up for use as your template

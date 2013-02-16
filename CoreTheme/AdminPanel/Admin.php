@@ -4,7 +4,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	
 	public function __construct(){
 		add_action('admin_menu', array($this, 'menu_setup'));
-		add_action('admin_init', array($this, 'register_settings'));
+		add_action('admin_init', array($this, 'settings'));
 
 		add_option('success_message', false);
 	}
@@ -61,19 +61,10 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		);
 	}
 	
-	public function register_settings(){
+	public function settings(){
 		register_setting(
 			'aisis_options', 
-			'aisis_sitedesign', 
-			array(
-				$this, 
-				'option_validator'
-			)
-		);
-
-		register_setting(
 			'aisis_options', 
-			'aisis_sidebar', 
 			array(
 				$this, 
 				'option_validator'
@@ -87,9 +78,8 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	}
 	
 	public function option_validator($input){
-		$option = get_option('aisis_core');
+		$option = get_option('aisis_options');
 		$option = $input;
-		update_option('success_message', true);
 		return $option;
 	}
 }
