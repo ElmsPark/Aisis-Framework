@@ -127,6 +127,8 @@ class AisisCore_Template_Helpers_Loop{
 				
 				the_excerpt();
 			}
+		}else{
+			$this->_error_page($this->_options);
 		}
 		
 		next_posts_link('&laquo; Older Entries'); 
@@ -162,6 +164,8 @@ class AisisCore_Template_Helpers_Loop{
 			
 			next_posts_link('&laquo; Older Entries');
 			previous_posts_link('Newer Entries &raquo;');
+		}else{
+			$this->_error_page($this->_options);
 		}
 		
 		$wp_query = $original;	
@@ -191,6 +195,8 @@ class AisisCore_Template_Helpers_Loop{
 				
 				the_content();
 			}
+		}else{
+			$this->_error_page($this->_options);
 		}
 	}
 	
@@ -215,6 +221,24 @@ class AisisCore_Template_Helpers_Loop{
 			);
 		}else{
 			the_title('<a href="'.get_permalink().'">', '</a>');
+		}
+	}
+	
+	/**
+	 * Rendered a 404 template if you have created one or renders out a message.
+	 * 
+	 * <p>If you have created a 404 phtml file in your theme or even a 404.php then you can
+	 * place the path in $options[404_template] and we will render that view for when no posts are
+	 * found on either a queried loop, regular loop or a single loop.</p>
+	 * 
+	 * @param array $options
+	 */
+	protected function _error_page($options){
+		if(isset($this->_options['404_template'])){
+			$template = new AisisCore_Template_Builder();
+			$template->render_template($this->_options['404_template']);
+		}else{
+			echo "Sorry. No posts were found.";
 		}
 	}
 	

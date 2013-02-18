@@ -73,7 +73,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	}
 	
 	public function build_template(){
-		$template = AisisCore_Factory_Pattern::create('CoreTheme_Templates_Builder');
+		$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 		$template->render_template(CORETHEME_ADMIN_TEMPLATES . 'coretheme.phtml');
 	}
 	

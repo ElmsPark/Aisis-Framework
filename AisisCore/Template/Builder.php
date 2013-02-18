@@ -28,7 +28,7 @@ class AisisCore_Template_Builder {
 	/**
 	 * @var array $_option
 	 */
-	protected $_option;
+	protected $_theme_option;
 	
 	/**
 	 * Set all the values and take in any options or pages we have set.
@@ -45,15 +45,16 @@ class AisisCore_Template_Builder {
 	 * @param array $page - optional parameter
 	 * @package AisisCore_Template
 	 */
-	public function __construct($options, $page = array()) {
+	public function __construct($options = array(), $page = array()) {
 		
 		if(isset($page) or !empty($page)){
 			$this->_page = $page;
 		}
 		
-		$this->_options = $options;
-		
-		$this->_set_options();
+		if(isset($options)){
+			$this->_options = $options;
+			$this->_set_options();
+		}
 		
 		$this->init ();
 	}
@@ -70,10 +71,10 @@ class AisisCore_Template_Builder {
 	 */
 	protected function _set_options(){
 		if (is_string ( $this->_options )) {
-			$this->_option = get_option ( $this->_options );
+			$this->_theme_option = get_option ( $this->_options );
 		} elseif (is_array ( $this->_options )) {
 			foreach ( $this->_options as $value ) {
-				$this->_option [$value] = get_option ( $value );
+				$this->_theme_option [$value] = get_option ( $value );
 			}
 		}
 	}
@@ -97,34 +98,35 @@ class AisisCore_Template_Builder {
 	 * @throws AisisCore_Template_TemplateException
 	 */
 	public function get_option_by_name($name) {
-		if (! is_array ( $this->_options )) {
+		if (! is_array ( $this->_theme_option )) {
 			throw new AisisCore_Template_TemplateException( "<div class='error'>Trying to get a property from a non array.</div>" );
 		}
 		
-		return $this->_options [$name];
+		return $this->_theme_option [$name];
 	}
 	
 	/**
-	 * Get the name of a specific option and a key returned for that option.
+	 * Get the name of a specific option and (or) a key returned for that option.
 	 * 
-	 * <p>If you have more options set, such as: 'aisis_core' and 'aisis_options'
-	 * and then search for the name of 'aisis_core' with the key of 'sidebar' that will mean
-	 * we will check for the option name and then the key of that option.</p>
+	 * <p>If we have set the name of the option and the key of that option is also set
+	 * we will return that value, that is, for example, we might return something like: aisis_core[test].</p>
 	 * 
-	 * <p>We will then return that specific option for your convience so you can easily check
-	 * it.</p>
+	 * <p>How ever if the theme options is not an array and you only have one option and its keys stored,
+	 * such as aisis_core, we will return the value of test.</p>
 	 * 
 	 * @param string $name
 	 * @param string $key
 	 * @return string
 	 * @throws AisisCore_Template_TemplateException
 	 */
-	public function get_specific_option($name, $key) {
-		if (! is_array ( $this->_options )) {
-			throw new AisisCore_Template_TemplateException ( "<div class='error'>Trying to get a property from a non array.</div>" );
+	public function get_specific_option($key, $name = '') {
+		if($name != '' && is_array($this->_theme_option) && isset($this->$_theme_option[$name][$key])){
+			return $this->$_theme_option[$name][$key];
 		}
 		
-		return $this->_options [$name] [$key];
+		if(isset($this->$_theme_option[$key])){
+			return $this->$_theme_option[$key];	
+		}
 	}
 	
 	/**
@@ -155,6 +157,8 @@ class AisisCore_Template_Builder {
 	/**
 	 * Check if a template exists based on the file passed in.
 	 * 
+	 * <p>Requires the path as well: path/to/$file.php</p>
+	 * 
 	 * @param string $file
 	 * @return bool
 	 * @see Aisis_File_Handling
@@ -171,10 +175,12 @@ class AisisCore_Template_Builder {
 	/**
 	 * Load a specified file assuming that file exists.
 	 * 
+	 * <p>Requires the path as well: path/to/$file.php</p>
+	 * 
 	 * @param string $file
 	 * @throws AisisCore_Template_TemplateException
 	 */
-	public function register_template($file) {
+	public function render_template($file) {
 		
 		if ($file != '') {
 			if (! $this->does_template_exist ( $file )) {

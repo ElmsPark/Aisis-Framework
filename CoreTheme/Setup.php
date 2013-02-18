@@ -95,9 +95,9 @@ $theme = new AisisCore_Theme($theme_setup);
 function dependencies(){
 	
 	$dependencies = array(
-		'CoreTheme_Templates_Builder' => array(
+		'AisisCore_Template_Builder' => array(
 			'params' => array(
-				'aisis_core'
+				'aisis_options'
 			),
 		),		
 	);
