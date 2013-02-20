@@ -63,7 +63,7 @@ class AisisCore_Factory_Pattern {
 		}
 		
 		if(!isset(self::$_dependencies)){
-			throw new AisisCore_Exceptions_Exception('There is no dependencies arraty created. 
+			throw new AisisCore_Exceptions_Exception('There is no dependencies array created. 
 				Please create one and register it.');	
 		}
 		
@@ -72,8 +72,8 @@ class AisisCore_Factory_Pattern {
 		}
 		
 		if(isset(self::$_dependencies[$class]['params'])){
-			$new_class =  new $class(implode(', ', self::$_dependencies[$class]['params']));
-			return $new_class;
+			$new_class = new ReflectionClass($class);
+			return $new_class->newInstanceArgs(self::$_dependencies[$class]['params']);
 		}else{
 			$new_class = new $class();
 			return $new_class;

@@ -131,8 +131,7 @@ class AisisCore_Template_Helpers_Loop{
 			$this->_error_page($this->_options);
 		}
 		
-		next_posts_link('&laquo; Older Entries'); 
-		previous_posts_link('Newer Entries &raquo;');
+		$this->loop_navigation();
 	}
 	
 	/**
@@ -162,8 +161,7 @@ class AisisCore_Template_Helpers_Loop{
 				the_excerpt();
 			}
 			
-			next_posts_link('&laquo; Older Entries');
-			previous_posts_link('Newer Entries &raquo;');
+			$this->loop_navigation();
 		}else{
 			$this->_error_page($this->_options);
 		}
@@ -195,9 +193,32 @@ class AisisCore_Template_Helpers_Loop{
 				
 				the_content();
 			}
+			$this->single_navigation();
 		}else{
 			$this->_error_page($this->_options);
 		}
+	}
+	
+	/**
+	 * Builds loop navigation for the general and the queried loop.
+	 * 
+	 * @link http://codex.wordpress.org/Function_Reference/get_next_posts_link
+	 * @link http://codex.wordpress.org/Function_Reference/get_previous_posts_link 
+	 */
+	public function loop_navigation(){
+		echo get_next_posts_link('&laquo; Older Entries'); 
+		echo get_previous_posts_link('Newer Entries &raquo;');
+	}
+	
+	/**
+	 * Builds Navigation for single posts.
+	 * 
+	 * @see _single_navigation_previous
+	 * @see _single_navigation_next
+	 */
+	public function single_navigation(){
+		echo $this->_single_navigation_previous();
+		echo $this->_single_navigation_next();
 	}
 	
 	/**
@@ -222,6 +243,34 @@ class AisisCore_Template_Helpers_Loop{
 		}else{
 			the_title('<a href="'.get_permalink().'">', '</a>');
 		}
+	}
+	
+	/**
+	 * Builds a previous link.
+	 * 
+	 * @link http://codex.wordpress.org/Function_Reference/get_previous_post
+	 */
+	protected function _single_navigation_previous(){
+		$previous = get_previous_post();
+		
+		if(isset($previous) && !empty($previous)){	
+			$link = '<a href="'.get_permalink( $previous->ID ).'">'.$previous->post_title.'</a>';
+			return $link;
+		}
+	}
+	
+	/**
+	 * Builds a next link.
+	 * 
+	 * @link http://codex.wordpress.org/Function_Reference/get_next_post
+	 */
+	protected function _single_navigation_next(){
+		$next = get_next_post();
+		
+		if(isset($next) && !empty($next)){	
+			$link = '<a href="'.get_permalink( $next->ID ).'">'.$next->post_title.'</a>';
+			return $link;
+		}		
 	}
 	
 	/**

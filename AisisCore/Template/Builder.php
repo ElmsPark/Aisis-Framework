@@ -2,14 +2,27 @@
 /**
  * This class is used to build templates or to register the templates based on options.
  * 
- * <p>We take in two core peices of information. Any options, this would be wordpress options,
- * and any pages. The pages are optional while you must pass the array of options.</p>
+ * <p>We take in two core peices of information. Any options, this would be wordpress options.</p>
  * 
  * <p>These options come from the admin panel that you would create with the options
  * you would set.</p>
  * 
- * <p>Based on this, if the options are set we return an array of options that we can then use.
- * we then will return the page for this particular template.</p>
+ * <p>Based on this, if the options are set we return an array of options that we can then use.</p>
+ * 
+ * <p>The array datastructure we accept for this class is:</p>
+ * 
+ * <p>
+ * <code>
+ * $array = array(
+ *     'admin_option_2', 'admin_option_2' // Where admin option is the name of the theme options.
+ * );
+ * 
+ * // Or:
+ * 
+ * 'admin_option_1' // If you only have one set of theme options.
+ * </code>
+ * </p>
+ * 
  * 
  * @package AisisCore_Template
  */
@@ -19,11 +32,6 @@ class AisisCore_Template_Builder {
 	 * @var array $_options
 	 */
 	protected static $_options;
-	
-	/**
-	 * @var array $_page
-	 */
-	protected $_page;
 	
 	/**
 	 * @var array $_option
@@ -37,20 +45,11 @@ class AisisCore_Template_Builder {
 	 * such as 'aisis_core' for example, which in this case would be a set of options
 	 * that were saved from the admin panel.</p>
 	 * 
-	 * <p>Page, being an array is simple a set of pages we can check for, that is we can check if
-	 * an option in aisis_core is set and then check if a page exists in the pages array and from
-	 * there do something if were on said page with said option being set.</p>
 	 * 
 	 * @param array $options
-	 * @param array $page - optional parameter
 	 * @package AisisCore_Template
 	 */
-	public function __construct($options = array(), $page = array()) {
-		
-		if(isset($page) or !empty($page)){
-			$this->_page = $page;
-		}
-		
+	public function __construct($options = array()) {
 		if(isset($options)){
 			$this->_options = $options;
 			$this->_set_options();
@@ -70,22 +69,13 @@ class AisisCore_Template_Builder {
 	 * Set all options into an array of key=>value.
 	 */
 	protected function _set_options(){
-		if (is_string ( $this->_options )) {
-			$this->_theme_option = get_option ( $this->_options );
-		} elseif (is_array ( $this->_options )) {
-			foreach ( $this->_options as $value ) {
+		if (is_string ( $this->_options['admin_options'] )) {
+			$this->_theme_option = get_option ( $this->_options['admin_options'] );
+		} elseif (is_array ( $this->_options['admin_options'] )) {
+			foreach ( $this->_options['admin_options'] as $value ) {
 				$this->_theme_option [$value] = get_option ( $value );
 			}
 		}
-	}
-	
-	/**
-	 * Return the array of pages.
-	 * 
-	 * @return array $_page
-	 */
-	public function get_pages(){
-		return $this->_page;
 	}
 	
 	/**
@@ -99,7 +89,7 @@ class AisisCore_Template_Builder {
 	 */
 	public function get_option_by_name($name) {
 		if (! is_array ( $this->_theme_option )) {
-			throw new AisisCore_Template_TemplateException( "<div class='error'>Trying to get a property from a non array.</div>" );
+			throw new AisisCore_Template_TemplateException( 'Trying to get a property from a non array.' );
 		}
 		
 		return $this->_theme_option [$name];
@@ -132,44 +122,10 @@ class AisisCore_Template_Builder {
 	/**
 	 * Return all options.
 	 * 
-	 * @return array $_options
+	 * @return array $_theme_option
 	 */
 	public function get_options() {
-		return $this->_options;
-	}
-	
-	/**
-	 * Throw an error if $_page is not an array, else what we do is return a specific
-	 * page from the array of pages.
-	 * 
-	 * @param string $page
-	 * @return string $page
-	 * @throws AisisCore_Template_TemplateException
-	 */
-	public function get_specific_page($page) {
-		if (!is_array( $this->_page )){
-			throw new AisisCore_Template_TemplateException( "<div class='error'>Trying to get a property from a non array.</div>" );
-		}
-		
-		return $this->_page[$page];
-	}
-	
-	/**
-	 * Check if a template exists based on the file passed in.
-	 * 
-	 * <p>Requires the path as well: path/to/$file.php</p>
-	 * 
-	 * @param string $file
-	 * @return bool
-	 * @see Aisis_File_Handling
-	 */
-	public function does_template_exist($file) {
-		$file_system = new AisisCore_FileHandling_File();
-		if ($file_system->check_exists ( $file )) {
-			return true;
-		}
-		
-		return false;
+		return $this->$_theme_option;
 	}
 	
 	/**
@@ -177,19 +133,52 @@ class AisisCore_Template_Builder {
 	 * 
 	 * <p>Requires the path as well: path/to/$file.php</p>
 	 * 
-	 * @param string $file
+	 * <p>You can also pass in a array of key=>value, where key is what ever name,
+	 * and value is the path to the template. We will then render each peice.</p>
+	 * 
+	 * @param string | array $path
 	 * @throws AisisCore_Template_TemplateException
 	 */
-	public function render_template($file) {
+	public function render_template($path) {
+		if ($path == '') {
+			throw new AisisCore_Template_TemplateException ( $path.' param left blank.' );
+		}
 		
-		if ($file != '') {
-			if (! $this->does_template_exist ( $file )) {
-				throw new AisisCore_Template_TemplateException ( '<p>Failed to find: ' . $file . '</p>' );
+		if(is_array($path)){
+			foreach($path as $name=>$path_to_file){
+				if(!$this->does_template_exist($path_to_file)){
+					throw new AisisCore_Template_TemplateException('Failed to find: ' . $path);
+				}	
+				require_once($path_to_file);
 			}
 			
-			require_once ($file);
-		}else{
-			throw new AisisCore_Template_TemplateException ( '<p>'.$file.' param left blank.</p>' );
+			return;
 		}
+		
+		if (!$this->does_template_exist ($path)) {
+			throw new AisisCore_Template_TemplateException ( 'Failed to find: ' . $path );
+		}else{
+			require_once ($path);
+		}
+			
+		
+	}
+	
+	/**
+	 * Check if a template exists based on the file passed in.
+	 * 
+	 * <p>Requires the path as well: path/to/$file.php</p>
+	 * 
+	 * @param string $path
+	 * @return bool
+	 * @see Aisis_File_Handling
+	 */
+	public function does_template_exist($path) {
+		$file_system = new AisisCore_FileHandling_File();
+		if ($file_system->check_exists ( $path )) {
+			return true;
+		}
+		
+		return false;
 	}
 }
