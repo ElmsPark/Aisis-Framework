@@ -14,6 +14,10 @@
  *    'value' => 'value to fill the input with',
  *    'aria-required' => true ,// WordPress validation
  * 	  'disabled' => true //disable the element
+ * 	  'label' => array(
+ *        'class' => 'css_class'
+ *        'value' => 'label value'
+ *    )
  * );
  * </code>
  * </p>

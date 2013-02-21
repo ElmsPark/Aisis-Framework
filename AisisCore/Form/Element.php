@@ -86,13 +86,10 @@ class AisisCore_Form_Element extends AisisCore_Form_SubSection {
 	}
 	
 	/**
-	 * Sets the label of that element.
+	 * Set the label for that element.
 	 * 
-	 * <p>check boxes and radio boxes have a label option built in,
-	 * but for other elements you would do:</p>
-	 * 
-	 * <p><code>$element = new AisisCore_Form_Element_ElementName($options);
-	 * $element->set_label('label', 'some css class')</code></p>
+	 * <p>requires that you set the label attribute in an element in order for the element
+	 * to be given a label.</p>
 	 * 
 	 * @param string $label
 	 * @param string $class

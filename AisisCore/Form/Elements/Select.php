@@ -19,6 +19,10 @@
  *            'key' => 'key' // $option['key'] - the key for the option
  *        ),
  *        // Add other options for the select here.
+ *    ),
+ * 	  'label' => array(
+ *        'class' => 'css_class'
+ *        'value' => 'label value'
  *    )
  * );
  * </code>

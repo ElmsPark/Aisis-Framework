@@ -10,7 +10,11 @@
  *     'class' => 'css class',
  *     'value' => 'string',
  *     'placeholder' => 'string',
- *     'required' => true
+ *     'required' => true,
+ * 	  'label' => array(
+ *        'class' => 'css_class'
+ *        'value' => 'label value'
+ *    )
  * );
  * </code></p>
  * 
