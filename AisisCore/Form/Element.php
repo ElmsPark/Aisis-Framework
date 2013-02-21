@@ -99,19 +99,20 @@ class AisisCore_Form_Element extends AisisCore_Form_SubSection {
 	 * 
 	 * @see AisisCore_Form_Elements_Label
 	 */
-	public function set_label($label, $class = ''){
-		if($class != ''){
-			$value = array (
-				'value' => $label,
-				'class' => $class
-			);
-		}else{
-			$value = array (
-				'value' => $label,
-			);
-		}
+	public function set_label($options){
+		$value = array();
 		
-		$this->_label = new AisisCore_Form_Elements_Label($value);
+		if(isset($options['label'])){
+			if(isset($options['label']['class'])){
+				$value['class'] = $options['label']['class'];
+			}
+			
+			if(isset($options['label']['value'])){
+				$value['value'] = $options['label']['value'];
+			}
+			
+			return new AisisCore_Form_Elements_Label($value);
+		}
 	}
 	
 	/**

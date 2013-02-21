@@ -14,15 +14,12 @@
  * <p>
  * <code>
  * $array = array(
- *     'admin_option_2', 'admin_option_2' // Where admin option is the name of the theme options.
- * );
+ *     admin_options => 'admin_option'
+ *     template_view_path => 'path'
+ * )
  * 
- * // Or:
- * 
- * 'admin_option_1' // If you only have one set of theme options.
  * </code>
  * </p>
- * 
  * 
  * @package AisisCore_Template
  */
@@ -129,56 +126,41 @@ class AisisCore_Template_Builder {
 	}
 	
 	/**
-	 * Load a specified file assuming that file exists.
+	 * Renders a template from a registered template_view_path or an array of paths.
 	 * 
-	 * <p>Requires the path as well: path/to/$file.php</p>
+	 * <p>This function requires that you have set either the value of template_view_path to that
+	 * of a path or an array of paths inside of $_options.</p>
 	 * 
-	 * <p>You can also pass in a array of key=>value, where key is what ever name,
-	 * and value is the path to the template. We will then render each peice.</p>
+	 * <p>We will render the template name passed in. no need to pass in the template+extension as
+	 * all templates need to be .phtml based. We will append the extension on to the file name.</p>
 	 * 
-	 * @param string | array $path
+	 * @param string $template_name
 	 * @throws AisisCore_Template_TemplateException
 	 */
-	public function render_template($path) {
-		if ($path == '') {
-			throw new AisisCore_Template_TemplateException ( $path.' param left blank.' );
+	public function render_view($template_name){
+		if(!isset($this->_options['template_view_path'])){
+			throw new AisisCore_Template_TemplateException('Not view path was set.');
 		}
 		
-		if(is_array($path)){
-			foreach($path as $name=>$path_to_file){
-				if(!$this->does_template_exist($path_to_file)){
-					throw new AisisCore_Template_TemplateException('Failed to find: ' . $path);
-				}	
-				require_once($path_to_file);
+		if(is_array($this->_options['template_view_path'])){
+			$this->_render_template_array($this->_options['template_view_path'], $template_name);
+		}else{
+			if(!file_exists($this->_options['template_view_path'] . $template_name . '.phtml')){
+				throw new AisisCore_Template_TemplateException('Could not find: ' . $template_name . '.phtml at ' . $path);
 			}
 			
-			return;
+			require_once ($this->_options['template_view_path'] . $template_name . '.phtml');
 		}
-		
-		if (!$this->does_template_exist ($path)) {
-			throw new AisisCore_Template_TemplateException ( 'Failed to find: ' . $path );
-		}else{
-			require_once ($path);
-		}
-			
-		
 	}
 	
-	/**
-	 * Check if a template exists based on the file passed in.
-	 * 
-	 * <p>Requires the path as well: path/to/$file.php</p>
-	 * 
-	 * @param string $path
-	 * @return bool
-	 * @see Aisis_File_Handling
-	 */
-	public function does_template_exist($path) {
-		$file_system = new AisisCore_FileHandling_File();
-		if ($file_system->check_exists ( $path )) {
-			return true;
+	protected function _render_template_array($templates, $template_name){
+		foreach($templates as $template=>$path){
+			if(file_exists($path . $template_name . '.phtml')){
+				require_once($path . $template_name . '.phtml');
+				return;
+			}
 		}
-		
-		return false;
+			
+		throw new AisisCore_Template_TemplateException('Could not find: ' . $template_name . ' in any path specified');
 	}
 }

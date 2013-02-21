@@ -7,7 +7,7 @@ $auto_loader = AisisCore_Loader_AutoLoader::get_instance();
 $auto_loader->register_auto_loader();
 
 // Set up the exception handler.
-new AisisCore_Exceptions_ExceptionHandler();
+new CoreTheme_Exceptions_ExceptionHandler();
 
 // Load the hooks
 new CoreTheme_Hooks();
@@ -33,7 +33,7 @@ $scripts_to_load  = array(
         ),
         array(
             'name'=>'font-awesome',
-            'path'=>get_template_directory_uri() . '/lib/font-awesome.min.css'
+            'path'=>get_template_directory_uri() . '/lib/FontAwesome/css/font-awesome.min.css'
         )
     ),
    'js_jquery' => array(
@@ -100,8 +100,15 @@ function dependencies(){
 	$dependencies = array(
 		'AisisCore_Template_Builder' => array(
 			'params' => array(
-				'aisis_options'
-			)
+				array(
+					'admin_options' => 'aisis_options',
+					'template_view_path' => array(
+						'general' => CORETHEME_TEMPLATES_VIEW,
+						'meta' => CORETHEME_META_TEMPLATES,
+						'admin' => CORETHEME_ADMIN_TEMPLATES,
+					),
+				),
+			),
 		),		
 	);
 	

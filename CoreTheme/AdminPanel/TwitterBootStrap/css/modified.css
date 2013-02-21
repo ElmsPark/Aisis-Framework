@@ -72,6 +72,33 @@
 	padding-bottom:5px;
 }
 
+.marginRight10px{
+	margin-right:10px;
+}
+
+.icon16, div.wp-menu-image {
+	margin-top: -4px !important;
+	margin-right: 6px !important;
+	margin: -3px 10px 0 -3px !important;
+	color: rgb(90, 161, 201)!important;
+}
+
+.popover-title {
+  background-color: #F7F7F7;
+  border-bottom: 1px solid #EBEBEB;
+  border-radius: 5px 5px 0 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
+  margin: 0;
+  padding: 8px 14px;
+  text-align: center;
+}
+
+#adminmenu h3.popover-title .wp-menu-name {
+  margin-top:3px !important;
+}
+
 #push,#footer {
 	margin-top:60px;;
 }

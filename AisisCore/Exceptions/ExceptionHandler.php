@@ -22,6 +22,8 @@ class AisisCore_Exceptions_ExceptionHandler{
 	 * Create our exception handler.
 	 */
 	public function exception_handler($exception){
-		echo $exception->getMessage;
+		echo $exception->getMessage();
+		echo '<br />';
+		echo '<pre>' . $exception->getTraceAsString() . '</pre>';
 	}
 }

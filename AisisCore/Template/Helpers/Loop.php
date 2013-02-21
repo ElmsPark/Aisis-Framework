@@ -20,6 +20,10 @@
  * 			'size' => 'medium', // The size given by WordPress.
  * 			'args' => array(), // Image arguments given by WordPress. 
  * 		),
+ * 		'single' => array(
+ * 			'show_categories' => true // Or false
+ * 			'show_tags' => true // Or false
+ * 		)
  * 		'query' => array(), // The main query given by WordPress.
  * 		'404_template' => '' // Wither the path to said template or a message.
  * );
@@ -192,6 +196,14 @@ class AisisCore_Template_Helpers_Loop{
 				}
 				
 				the_content();
+				
+				if(isset($this->_options['single']['show_categories']) && $this->_options['single']['show_categories']){
+					echo 'Categories:' . $this->_get_categories_for_post();
+				}
+				
+				if(isset($this->_options['single']['show_tags']) && $this->_options['single']['show_tags']){
+					echo 'Tags:' . $this->get_tags();
+				}				
 			}
 			$this->single_navigation();
 		}else{
@@ -288,6 +300,15 @@ class AisisCore_Template_Helpers_Loop{
 			$template->render_template($this->_options['404_template']);
 		}else{
 			echo "Sorry. No posts were found.";
+		}
+	}
+
+	protected function _get_categories_for_post(){
+		global $post;
+		$catgeories = get_the_category($post->ID);
+
+		foreach($catgeories as $cat){
+			echo '<a href="'.get_category_link($cat->term_id).'">'.$cat->cat_name.'</a>, ';
 		}
 	}
 	

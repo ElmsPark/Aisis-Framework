@@ -6,39 +6,6 @@ $post = array(
 	'class' => 'form-horizontal'
 );
 	
-new CoreTheme_CustomPostTypes_Form_MiniFeed($post);
+$form = new CoreTheme_CustomPostTypes_Form_MiniFeed($post);
+echo $form;
 ?>
-
-<div class="modal hide" id="myModal">
-	<div class="modal-header">
-		<a class="close" data-dismiss="modal">×</a>
-		<h2>Upload an Image</h2>
-	</div>
-	<div class="modal-body">
-		<p>You can click the upload an image button bellow to upload an image using the
-		power of wordpress!</p>
-		<p class="text-info">Please be aware that you have to click "insert into post" in order to insert
-		the image into the text field.</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#"class="btn" data-dismiss="modal">Close</a>
-	</div>
-</div>
-​
-
-<script language="JavaScript">
-	//Upload the image and populate the text box
-	jQuery(document).ready(function() {
-		jQuery('#upload_image_button').click(function() {
-			formfield = jQuery('#aisis_content_img').attr('name');
-			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
-			return false;
-		});
-		
-		window.send_to_editor = function(html) {
-			imgurl = jQuery('img',html).attr('src');
-			jQuery('#aisis_content_img').val(imgurl);
-			tb_remove();
-		}
-	});
-</script>
