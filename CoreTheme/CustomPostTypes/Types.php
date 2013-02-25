@@ -19,7 +19,7 @@ class CoreTheme_CustomPostTypes_Types {
 			'menu_name'           => __( 'Mini-Feed', 'text_domain' ),
 			'parent_item_colon'   => __( 'Parent Mini-Feed:', 'text_domain' ),
 			'all_items'           => __( 'All Mini-Feeds', 'text_domain' ),
-			'view_item'           => __( 'View Mini-Feed', 'text_domain' ),
+			'view_item'           => __( 'View Mini-Feeds', 'text_domain' ),
 			'add_new_item'        => __( 'Add New Mini-Feed', 'text_domain' ),
 			'add_new'             => __( 'New Mini-Feed', 'text_domain' ),
 			'edit_item'           => __( 'Edit Mini-Feed', 'text_domain' ),
@@ -28,7 +28,7 @@ class CoreTheme_CustomPostTypes_Types {
 			'not_found'           => __( 'No mini-feeds found', 'text_domain' ),
 			'not_found_in_trash'  => __( 'No mini-feeds found in Trash', 'text_domain' ),
 		);
-	
+		
 		$rewrite = array(
 			'slug'                => 'mini-feed',
 			'with_front'          => true,
@@ -38,7 +38,7 @@ class CoreTheme_CustomPostTypes_Types {
 	
 		$args = array(
 			'label'               => __( 'mini-feed', 'text_domain' ),
-			'description'         => __( 'Mini-Feed custom post type', 'text_domain' ),
+			'description'         => __( 'Mini-Feeds custom post type', 'text_domain' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'revisions', ),
 			'hierarchical'        => false,
@@ -47,12 +47,13 @@ class CoreTheme_CustomPostTypes_Types {
 			'show_in_menu'        => true,
 			'show_in_nav_menus'   => true,
 			'show_in_admin_bar'   => true,
-			'menu_icon'           => 'http://icons.iconarchive.com/icons/fatcow/farm-fresh/32/folders-icon.png',
+			'menu_icon'           => '',
 			'can_export'          => true,
 			'has_archive'         => true,
 			'exclude_from_search' => true,
 			'publicly_queryable'  => true,
 			'query_var'           => 'mini-feed',
+			'rewrite'             => $rewrite,
 			'capability_type'     => 'post',
 		);
 	
@@ -77,7 +78,7 @@ class CoreTheme_CustomPostTypes_Types {
 		);
 		
 		$rewrite = array(
-			'slug'                => 'mini-feed',
+			'slug'                => 'carousel',
 			'with_front'          => true,
 			'pages'               => false,
 			'feeds'               => true,

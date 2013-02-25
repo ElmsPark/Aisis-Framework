@@ -134,26 +134,88 @@ class AisisCore_Template_Builder {
 	 * <p>We will render the template name passed in. no need to pass in the template+extension as
 	 * all templates need to be .phtml based. We will append the extension on to the file name.</p>
 	 * 
-	 * @param string $template_name
+	 * <p>We also allow you to pass in an array of templat names in the fashion of $type=>$name.</p>
+	 * 
+	 * @param string|array $template_name
 	 * @throws AisisCore_Template_TemplateException
 	 */
-	public function render_view($template_name){
+	public function render_view($template_name = array()){
 		if(!isset($this->_options['template_view_path'])){
 			throw new AisisCore_Template_TemplateException('Not view path was set.');
+		}
+		
+		if(is_array($template_name)){
+			if(is_array($this->_options['template_view_path'])){
+				if($this->_render_templates_array($this->_options['template_view_path'], $template_name)){
+					return;	
+				}
+			}else{
+				foreach($template_name as $type=>$name){
+					if(!file_exists($this->_options['template_view_path'] . $name . '.phtml')){
+						throw new AisisCore_Template_TemplateException('Could not find: ' . $name . '.phtml at ' . $this->_options['template_view_path']);
+					}
+					
+					require_once($this->_options['template_view_path'] . $name . '.phtml');
+				}
+				
+				return;
+			}
 		}
 		
 		if(is_array($this->_options['template_view_path'])){
 			$this->_render_template_array($this->_options['template_view_path'], $template_name);
 		}else{
 			if(!file_exists($this->_options['template_view_path'] . $template_name . '.phtml')){
-				throw new AisisCore_Template_TemplateException('Could not find: ' . $template_name . '.phtml at ' . $path);
+				throw new AisisCore_Template_TemplateException('Could not find: ' . $template_name . '.phtml at ' . $this->_options['template_view_path']);
 			}
 			
 			require_once ($this->_options['template_view_path'] . $template_name . '.phtml');
 		}
 	}
 	
-	protected function _render_template_array($templates, $template_name){
+	/**
+	 * Check every path for every file in the array of templates and files.
+	 * 
+	 * <p>We take an array of template in $type=>$name format and an array of template paths as $template=>$path
+	 * and then we search each path for each file and load them. We make sure to throw appropriate errors if
+	 * we cannot find said file at any path.</p>
+	 * 
+	 * <p>We load only .phtml files. You only need to pass in the name of the file and not its extension.</p>
+	 * 
+	 * @param array $templates - template paths $template=>$path
+	 * @param array $template_name - template names with out extension $type=>$name
+	 */
+	protected function _render_templates_array(array $templates, array $template_name){
+		$found_file = false;
+		foreach($template_name as $type=>$name){
+			foreach($templates as $template=>$path){
+				if(file_exists($path . $name . '.phtml')){
+					require_once($path . $name . '.phtml');
+					$found_file = true;
+				}
+			}
+			
+			if(!$found_file){
+				throw new AisisCore_Template_TemplateException('Could not find any of the files specified in any of the paths given.');
+			}
+		}
+			
+		return true;
+	}
+	
+	/**
+	 * look in an array of paths for a particular file based on the name.
+	 * 
+	 * <p>We take in an array of template paths and a single name (with out exteension). We then attempt
+	 * to find that file in those paths, making sure to throw an error if the template is not found.</p>
+	 * 
+	 * <p>All templates have a .phtml extension.</p>
+	 * 
+	 * @param array $templates
+	 * @param string $template_name
+	 * @throws AisisCore_Template_TemplateException
+	 */
+	protected function _render_template_array(array $templates, $template_name){
 		foreach($templates as $template=>$path){
 			if(file_exists($path . $template_name . '.phtml')){
 				require_once($path . $template_name . '.phtml');

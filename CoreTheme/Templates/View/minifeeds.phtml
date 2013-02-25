@@ -1,24 +1,3 @@
 <?php
-global $post;
-
-$mini = array('post_type' => 'mini', 'posts_per_page' => 3);
-$mini_loop = new WP_Query($mini);
-
-?>
-<div class="row marginBottom20">
-	<?php
-	if($mini_loop->have_posts()){
-		while($mini_loop->have_posts()) : $mini_loop->the_post();
-			?>
-			<div class="span4">
-				<img src="<?php echo  get_post_meta($post->ID, 'image', true); ?>" class="img-rounded" />
-				<h4><?php the_title() ?></h4>
-				<p><?php the_content(); ?></p>
-				<a href="<?php echo get_post_meta($post->ID, 'link', true); ?>" class="btn">
-					<?php echo get_post_meta($post->ID, 'link_text', true)?></a>
-			</div>
-			<?php 
-		endwhile;
-	}
-	?>
-</div>
+$loop = new CoreTheme_Templates_View_Helpers_Loop();
+$loop->custom_post_types_loop('mini');

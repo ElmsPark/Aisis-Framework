@@ -107,7 +107,7 @@ class AisisCore_Template_Helpers_Loop{
 		if($this->_options){
 			if(is_single()){
 				$this->_single_post();
-			}elseif($this->_options['query']){
+			}elseif(isset($this->_options['query'])){
 				$this->_query_post($this->_options['query']);
 			}else{
 				$this->_general_wordpress_loop();
@@ -116,6 +116,7 @@ class AisisCore_Template_Helpers_Loop{
 			$this->_single_post();
 		}else{
 			$this->_general_wordpress_loop();
+			
 		}
 	}
 	
@@ -123,6 +124,7 @@ class AisisCore_Template_Helpers_Loop{
 	 * This is the most basic loop. All were doing is returning a list of posts.
 	 */	
 	protected function _general_wordpress_loop(){
+		query_posts("post_type=post");
 		if($this->_wp_query->have_posts()){
 			while($this->_wp_query->have_posts()){
 				$this->_wp_query->the_post();

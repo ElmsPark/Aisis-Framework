@@ -26,7 +26,14 @@ wp_head();
 </head>
 <body>
 <?php
+$templates = array(
+	'nav' => 'navigation',
+	'carousel' => 'carousel',
+	'mini-feed' => 'minifeeds'
+);
+
 $template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
-$template->render_view('navigation');
+$template->render_view($templates);
+
 ?>
 <div class="span-12 marginTop60">

@@ -30,8 +30,11 @@
       		<a href="#"><i class="icon-github iconSeperator"></i></a>
       		<a href="#"><i class="icon-likedin iconSeperator"></i></a>
       	</div>
-		<?php wp_nav_menu($menu_options); 
-      	new CoreTheme_Templates_View_Form_NavSearch($search_form);
+		<?php 
+		wp_nav_menu($menu_options); 
+      	
+      	$search = new CoreTheme_Templates_View_Form_NavSearch($search_form);
+		echo $search;
       	?>
       </div>
     </div>

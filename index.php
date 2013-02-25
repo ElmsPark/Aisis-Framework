@@ -7,7 +7,7 @@ $options = array(
 	),
 );
 
-$loop = new CoreTheme_Templates_View_Helpers_Loop($options);
+$loop = new CoreTheme_Templates_View_Helpers_Loop();
 $loop->loop();
 get_footer();
 
