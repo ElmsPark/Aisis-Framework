@@ -25,7 +25,7 @@
  * 			'show_tags' => true // Or false
  * 		)
  * 		'query' => array(), // The main query given by WordPress.
- * 		'404_template' => '' // Wither the path to said template or a message.
+ * 		'404_template' => '' // The path to said template or a message.
  * );
  * </code>
  * </p>
@@ -102,18 +102,31 @@ class AisisCore_Template_Helpers_Loop{
 	 * 
 	 * <p>If we are not on the single post and the options are not set then we 
 	 * we will just call the general loop.</p>
+	 * 
+	 * <p>If the single page is rendered, we also take care of loading the comments.php file
+	 * as well.</p>
 	 */
 	public function loop(){
+		global $post;
+		
 		if($this->_options){
 			if(is_single()){
-				$this->_single_post();
+				$this->_single_post();	
+				
+				if('open' == $post->comment_status){
+					comments_template();
+				}
 			}elseif(isset($this->_options['query'])){
 				$this->_query_post($this->_options['query']);
 			}else{
 				$this->_general_wordpress_loop();
 			}
-		}elseif(is_single()){
-			$this->_single_post();
+		}elseif(is_single()){			
+			$this->_single_post();	
+			
+			if('open' == $post->comment_status){
+				comments_template();
+			}
 		}else{
 			$this->_general_wordpress_loop();
 			
@@ -200,11 +213,11 @@ class AisisCore_Template_Helpers_Loop{
 				the_content();
 				
 				if(isset($this->_options['single']['show_categories']) && $this->_options['single']['show_categories']){
-					echo 'Categories:' . $this->_get_categories_for_post();
+					$this->_get_categories_for_post();
 				}
 				
 				if(isset($this->_options['single']['show_tags']) && $this->_options['single']['show_tags']){
-					echo 'Tags:' . $this->get_tags();
+					echo 'Tags:' . $this->_get_tags();
 				}				
 			}
 			$this->single_navigation();
@@ -307,11 +320,31 @@ class AisisCore_Template_Helpers_Loop{
 
 	protected function _get_categories_for_post(){
 		global $post;
-		$catgeories = get_the_category($post->ID);
+		
+		$catgeories = get_the_category($post->ID);		
+		$html = '';
 
+		$html .= 'Categories: ';
+		
 		foreach($catgeories as $cat){
-			echo '<a href="'.get_category_link($cat->term_id).'">'.$cat->cat_name.'</a>, ';
+			$html .= '<a href="'.get_category_link($cat->term_id).'">'.$cat->cat_name.'</a>, ';
 		}
+		
+		echo $html;
+	}
+	
+	protected function _get_tags(){
+		$tags = get_tags();
+		$html = '';
+		
+		$html .= 'Tags: ';
+		
+		foreach ( $tags as $tag ) {
+			$tag_link = get_tag_link( $tag->term_id );		
+			$html .= '<a href='.$tag_link.'>'.$tag->name.'</a>';
+		}
+			
+		echo $html;
 	}
 	
 	/**

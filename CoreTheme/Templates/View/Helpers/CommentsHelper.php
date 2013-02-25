@@ -1,10 +1,8 @@
 <?php
 
-class CoreTheme__Templates_View_Helpers_CommentsHelper extends AisisCore_Template_Helpers_Content {
+class CoreTheme_Templates_View_Helpers_CommentsHelper {
 
-	public function init(){
-		parent::init();
-	}
+	public function __construct(){}
 	
 	public function get_comments(){
 		$args = array(
