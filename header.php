@@ -29,11 +29,12 @@ wp_head();
 $templates = array(
 	'nav' => 'navigation',
 	'carousel' => 'carousel',
-	'mini-feed' => 'minifeeds'
 );
 
 $template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 $template->render_view($templates);
 
 ?>
-<div class="span-12 marginTop60">
+<div class="container marginTop20">
+<?php
+$template->render_view('minifeeds');
