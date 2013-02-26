@@ -217,7 +217,7 @@ class AisisCore_Template_Helpers_Loop{
 				}
 				
 				if(isset($this->_options['single']['show_tags']) && $this->_options['single']['show_tags']){
-					echo 'Tags:' . $this->_get_tags();
+					$this->_get_tags();
 				}				
 			}
 			$this->single_navigation();

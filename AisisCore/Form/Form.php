@@ -144,21 +144,24 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	 * <p>We take in an array of elements for the form, the forms subsection and if
 	 * we are dealing with an admin panel, the settings for that form.</p>
 	 * 
+	 * <p>We also display content for comment forms as well.</p>
+	 * 
 	 * @param array $elements
 	 * @param array $sub_section
 	 * @param string $settings
+	 * @param bool $comment_form
 	 * 
 	 * @see http://codex.wordpress.org/Function_Reference/settings_fields
 	 */
 	public function create_form(array $elements, $sub_section = array(), $settings = ''){
-	 		
+	 	
 		$this->open_form();
 		
 		if(is_admin() && $settings != ''){
 			$this->aisis_sesttings_fields($settings);
 		}
 		
-		$this->elements($elements, $sub_section);
+		$this->elements($elements, $sub_section);	
 		
 		$this->close_form();
 	}

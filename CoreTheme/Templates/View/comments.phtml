@@ -44,9 +44,9 @@ if(have_comments()){?>
 <?php } ?>
  
 <?php if ('open' == $post->comment_status){ ?>
- 
+<div id="respond">
 <div class="well generalPadding">
-	<h3><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
+	<h3><?php comment_form_title('Whats on your mind?'); ?></h3>
 	<div class="cancel-comment-reply">
 		<small><?php cancel_comment_reply_link(); ?></small>
 	</div>	 
@@ -123,5 +123,6 @@ if(have_comments()){?>
  
 	</form>
 <?php }?>
+</div>
 </div>
 <?php }

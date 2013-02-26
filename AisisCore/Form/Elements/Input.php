@@ -9,6 +9,7 @@
  * $array = array(
  *    'id' => 'css id',
  *    'class' => 'css class',
+ * 	  'name' => 'name'
  *    'placeholder' => 'html5 place holder',
  *    'required' => true // html5 required validation
  *    'value' => 'value to fill the input with',
