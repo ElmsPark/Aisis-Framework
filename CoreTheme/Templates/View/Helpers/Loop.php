@@ -99,20 +99,23 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 		
 		$mini = '';
 		
-		$mini .= '<div class="row marginBottom20">';
+		$mini .= '<ul class="thumbnails">';
 		if($mini_loop->have_posts()){
 			while($mini_loop->have_posts()){
 				$mini_loop->the_post();
-				$mini .= '<div class="span4">'; 
-				$mini .= get_the_post_thumbnail();
-				$mini .= '<h4>'.the_title('','',false).'</h4>';
-				$mini .= '<p>'.get_the_content().'</p>';
-				$mini .= '<a href="'.get_post_meta($post->ID, 'link', true).'" class="btn">'.get_post_meta($post->ID, 'link_text', true).'</a>';
-				$mini .= '</div>';
+       		 	
+       		 	$mini .= '<li class="span4">';
+        		$mini .= '<div class="thumbnail">';
+				$mini .= get_the_post_thumbnail($post->ID, array('400', '200'));
+                $mini .= '<div class="caption">';
+                $mini .= '<h3>'.the_title('','',false).'</h3>';
+                $mini .= '<p>'.get_the_content().'</p>';
+                $mini .= '<a href="'.get_post_meta($post->ID, 'link', true).'" class="btn">'.get_post_meta($post->ID, 'link_text', true).'</a>';
+                $mini .= '</div></div></li>';
 			}
 		}
 		
-		$mini .= '</div>';
+		$mini .= '</ul>';		
 		
 		echo $mini;
 	}

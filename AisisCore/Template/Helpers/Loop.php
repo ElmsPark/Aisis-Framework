@@ -16,13 +16,18 @@
  * 			'length' => 60, // # of words
  * 			'content' => 'More...' // The title of the link for the read more.
  * 		),
+ * 		// Used for the general index.
  * 		'image' => array(
  * 			'size' => 'medium', // The size given by WordPress.
  * 			'args' => array(), // Image arguments given by WordPress. 
  * 		),
  * 		'single' => array(
- * 			'show_categories' => true // Or false
- * 			'show_tags' => true // Or false
+ * 			'show_categories' => true, // Or false
+ * 			'show_tags' => true, // Or false
+ * 		    'image' => array(
+ * 			    'size' => 'medium', // The size given by WordPress.
+ * 			    'args' => array(), // Image arguments given by WordPress. 
+ * 		    ),
  * 		)
  * 		'query' => array(), // The main query given by WordPress.
  * 		'404_template' => '' // The path to said template or a message.
@@ -116,10 +121,13 @@ class AisisCore_Template_Helpers_Loop{
 				if('open' == $post->comment_status){
 					comments_template();
 				}
+					
 			}elseif(isset($this->_options['query'])){
 				$this->_query_post($this->_options['query']);
+
 			}else{
 				$this->_general_wordpress_loop();
+
 			}
 		}elseif(is_single()){			
 			$this->_single_post();	
@@ -127,9 +135,9 @@ class AisisCore_Template_Helpers_Loop{
 			if('open' == $post->comment_status){
 				comments_template();
 			}
+			
 		}else{
 			$this->_general_wordpress_loop();
-			
 		}
 	}
 	
@@ -141,7 +149,13 @@ class AisisCore_Template_Helpers_Loop{
 		if($this->_wp_query->have_posts()){
 			while($this->_wp_query->have_posts()){
 				$this->_wp_query->the_post();
-				
+					
+				if(isset($this->_options['image']['size'])){
+					the_post_thumbnail($this->_options['image']['size'], $this->_options['single']['image']['args']);
+				}else{
+					the_post_thumbnail($this->_options['image']['args']);
+				}
+					
 				$this->_title($this->_options);
 				
 				the_excerpt();
@@ -192,6 +206,7 @@ class AisisCore_Template_Helpers_Loop{
 	 * This function will supply the single template with the post and it's contents.
 	 */
 	protected function _single_post(){
+		
 		if($this->_wp_query->have_posts()){
 			while($this->_wp_query->have_posts()){
 				$this->_wp_query->the_post();
@@ -204,10 +219,14 @@ class AisisCore_Template_Helpers_Loop{
 				
 				the_date('F j, Y', ' on: <em>', '</em>');
 				
-				if(isset($this->_options['image'])){
-					the_post_thumbnail($this->_options['image']['size'], $this->_options['image']['args']);
+				if(isset($this->_options['single']['image'])){
+					if(isset($this->_options['single']['image']['size'])){
+						the_post_thumbnail($this->_options['single']['image']['size'], $this->_options['single']['image']['args']);
+					}else{
+						the_post_thumbnail('full', $this->_options['single']['image']['args']);
+					}
 				}else{
-					the_post_thumbnail('medium', array('align' => 'centered'));
+					the_post_thumbnail(array('align' => 'centered'));
 				}
 				
 				the_content();
@@ -246,6 +265,51 @@ class AisisCore_Template_Helpers_Loop{
 	public function single_navigation(){
 		echo $this->_single_navigation_previous();
 		echo $this->_single_navigation_next();
+	}
+	
+	/**
+	 * This function will NOT display a sidebar if the params are set.
+	 * 
+	 * <p>We take in the option name, the name where all your admin options are stored, and the key value foor the sidebar.
+	 * For example: aisis_core['sidebar'] would be 'aisis_core' and 'sidebar'.</p>
+	 * 
+	 * <p>The next value we accept is either a string or array of pages which the sidebar should not display on.</p>
+	 * 
+	 * <p>If all three are set we will NOT show a sidebar on any page if the key of that option is set.<p>
+	 * 
+	 * <p><code>
+	 * // example
+	 * sidebar('aisis_core', 'sidebar', array(is_home(), is_page()));
+	 * </code></p>
+	 * 
+	 * <p>The above will NOT show a sidebar if the sidebar value is set on the home inde page and any pages.</p>
+	 * 
+	 * <p><strong>Note:</strong> All pages need to be put in as WordPress conditionals.</p>
+	 * 
+	 * @param string $option_name
+	 * @param string $key
+	 * @param string | array $pages
+	 */
+	public function sidebar($option_name = '', $key = '', $pages = array()){
+		$option = get_option($option_name);
+		
+		if(!isset($option[$key])){
+			get_sidebar();
+		}elseif(isset($pages) && !empty($pages)){
+			foreach($pages as $page){
+				if(!$page){
+					get_sidebar();
+				}
+			}
+		}elseif(!isset($option[$key]) && $pages != '' && !$pages){
+			get_sidebar();
+		}elseif(!isset($option[$key]) && isset($pages) && !empty($pages)){
+			foreach($pages as $page){
+				if(!$page){
+					get_sidebar();
+				}
+			}
+		}
 	}
 	
 	/**

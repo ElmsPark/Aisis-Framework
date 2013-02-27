@@ -68,6 +68,15 @@ p {
 	margin-left:100px;
 }
 
+.marginPullRight50{
+	float:right !important;
+	margin-right:-50px;
+}
+
+.marginLeft50{
+	margin-left:50px !important;
+}
+
 .paddingBottom20{
 	padding:20px;
 }
@@ -252,6 +261,7 @@ body.customize-support .navbar-fixed-top{
 
 /* SIDEBAR
     -------------------------------------------------- */
+   
 .widget{
 	width: 60%;
 	padding: 5px 10px 0 10px;

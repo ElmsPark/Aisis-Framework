@@ -15,7 +15,7 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 	}
 
 	public function aisis_add_meta_boxes() {
-		add_meta_box ( 'aisis-meta-id', 'Mini Feeds Information', array(&$this, 'aisis_mini_feeds_info'), 'mini', 'normal', 'high' );
+		add_meta_box ( 'aisis-meta-id', 'Mini Feeds Information', array(&$this, 'aisis_mini_feeds_info'), 'mini-feed', 'normal', 'high' );
 		add_meta_box ( 'aisis-carousel-id', 'Carousel Image', array(&$this, 'aisis_carousel_info'), 'carousel', 'normal', 'high' );
 	}
 
