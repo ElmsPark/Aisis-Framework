@@ -30,15 +30,21 @@ wp_head();
 </head>
 <body>
 <?php
-$templates = array(
-	'nav' => 'navigation',
-	'carousel' => 'carousel',
-);
-
-$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
-$template->render_view($templates);
+if(is_home()){
+	$templates = array(
+		'nav' => 'navigation',
+		'carousel' => 'carousel',
+	);
+	
+	$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+	$template->render_view($templates);
+}
 
 ?>
 <div class="container marginTop20">
 <?php
-$template->render_view('minifeeds');
+if(is_home()){
+	$template->render_view('minifeeds');
+}
+?>
+<div class="row-fluid">

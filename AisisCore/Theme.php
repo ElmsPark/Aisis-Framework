@@ -76,7 +76,7 @@ class AisisCore_Theme{
 	 * 
 	 *  @see http://codex.wordpress.org/Function_Reference/register_sidebar
 	 */
-	public function setup_sidebar($opions){
+	public function setup_sidebar($options){
 		if(isset($options['sidebar'])){
 			register_sidebar($options['sidebar']);
 		}
