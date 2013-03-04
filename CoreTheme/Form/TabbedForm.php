@@ -1,6 +1,6 @@
 <?php
 
-class CoreTheme_Form_TabbedForm extends AisisCore_Form_Form{
+class CoreTheme_Form_TabbedForm extends CoreTheme_Form_Form{
 	
 	protected $_html = '';
 	

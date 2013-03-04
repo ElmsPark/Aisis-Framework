@@ -16,9 +16,18 @@ class CoreTheme_Form_Form extends AisisCore_Form_Form {
 				$this->_close_sub_section();
 			}
 			
-			$this->_html .= '<div class="control-group">';
-			$this->_html .= $element;
-			$this->_html .= '</div>';
+			if(is_array($element)){
+				foreach($element as $e){
+					$this->_html .= '<div class="control-group">';
+					$this->_html .= $e;
+					$this->_html .= '</div>';
+				}
+			}else{
+				$this->_html .= '<div class="control-group">';
+				$this->_html .= $element;	
+				$this->_html .= '</div>';
+			}
+			
 		}
 
 		$this->_html .= '</fieldset>';	

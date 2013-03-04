@@ -1,67 +1,16 @@
 <?php
 
-function sub_section(){
-	$section = array(
-		'sub_elements' => array(
-			test_element_sub_section()
-		),
-		'sub_content_options' => array(
-			'class' => 'sectionSidebar borderBottom',
-			'sub_elements_div' => array(
-				'class' => 'control-group'
-			),
-		),
-	);
-
-	return $section;
-}
-
-function url_element(){
-
-	$checkbox = array(
-		'name' => 'aisis_options[disable_sidebar]',
-		'value' => 'disable_sidebar',
-		'class' => 'disableSidebar',
-		'id' => 'sidebar',
-		'label' => ' Disable all sidebars from the site.',
-		'option' => 'aisis_options',
-		'key' => 'disable_sidebar'		
-	);
-
-	$radio = new CoreTheme_Form_Elements_Checkbox($checkbox, sub_section());
-	return $radio;
-}
-
-function test_element_sub_section(){
-	$url = array(
-		'name' => 'aisis_options[index_more_posts]',
-		'placeholder' => 'Url'	
-	);
-
-	$url_element = new CoreTheme_Form_Elements_Url($url);
-	$url_element->set_label('Url of the content', 'control-label');
-
-	return $url_element;
-}
-
-function submit_element(){
-	$submit = array(
-		'value'=> 'Submit',
-	);
-
-	$submit_element = new CoreTheme_Form_Elements_Submit($submit);
-	return $submit_element;
-}
+$posts = new CoreTheme_AdminPanel_Form_Posts();
 
 $array = array(
 	'method' => 'post',
 	'action' => 'options.php',
+	'class' => 'form-vertical',
 	'settings' => 'aisis_options',
 	array(
-		'tab' => 'content',
+		'tab' => 'Posts',
 		'elements' => array(
-			url_element(),
-			submit_element()
+			$posts->elements()
 		),
 	),
 	array(
@@ -71,6 +20,104 @@ $array = array(
 );
 
 $tabbed_form = new CoreTheme_Form_TabbedForm($array);
-echo $tabbed_form;
+?>
 
-var_dump(get_option('aisis_options'));
+<div class="container">
+	<div class="jumbotron subhead">
+		<h1>Aisis - <small>Version 1.2</small></h1>
+		<p class="lead">A revolution in WordPress theme design!!</p>
+	</div>	
+	<div class="alert"><strong>UPDATE!!!!!</strong> OMG! Aisis 1.x is out! <a href="#">Upgrade now!</a></div>
+	<div class="alert alert-success"><strong>SUCCESS!!!!</strong> You have made some killer chnages to Aisis! <a href="#">Check it out now!</a></div>
+	<div class="alert alert-error"><strong>UH-OH</strong> Either we....Or you....Or some one did something wrong!!!!</div>
+	<?php echo $tabbed_form; ?>
+</div>
+
+<script>
+$(document).ready(function(){     
+	$('.posts').click(function(){
+		if ($(this).attr("id") == "list"){
+	   		$('.sectionLists').show();
+	    } else {
+	    	$('.sectionLists').hide();
+	    }
+	});
+	
+	$('.posts').click(function(){
+		if ($(this).attr("id") == "row"){
+	   		$('.sectionRows').show();
+	    } else {
+	    	$('.sectionRows').hide();
+	    }
+	});	
+	
+	$('.posts').click(function(){
+		if ($(this).attr("id") == "row"){
+	   		$('.sectionRows').show();
+	    } else {
+	    	$('.sectionRows').hide();
+	    }
+	});	
+	
+	$('.category_header').click(function(){
+		if ($(this).attr("id") == "category"){
+	   		$('.sectionCategory').show();
+	    } else {
+	    	$('.sectionCategory').hide();
+	    }
+	});	
+	
+	$('.author_posts').click(function(){
+		if ($(this).attr("id") == "author"){
+	   		$('.sectionAuthor').show();
+	    } else {
+	    	$('.sectionAuthor').hide();
+	    }
+	});
+	
+	$('.tag_header').click(function(){
+		if ($(this).attr("id") == "tag"){
+	   		$('.sectionTag').show();
+	    } else {
+	    	$('.sectionTag').hide();
+	    }
+	});					
+	
+	if ($('input[value=lists]:radio:checked').attr('id') === "list") {
+        $('.sectionLists').show();
+    }
+
+	if ($('input[value=rows]:radio:checked').attr('id') === "row") {
+        $('.sectionRows').show();
+    }	
+    
+    if ($('input[value=category_header]:checkbox:checked').attr('id') === "category") {
+        $('.sectionCategory').show();
+    }
+     
+    if ($('input[value=author_posts]:checkbox:checked').attr('id') === "author") {
+        $('.sectionAuthor').show();
+    } 
+    
+    if ($('input[value=tag_header]:checkbox:checked').attr('id') === "tag") {
+        $('.sectionTag').show();
+    }       
+    
+    $("#displayLists").popover();
+	$("#morePostsList").popover();
+	$("#displayRows").popover();
+	$("#displayMoreRows").popover();
+	$("#regularPosts").popover();
+	$("#categoryHeader").popover();
+	$("#categoryDescription").popover();
+	$("#categorySidebar").popover();
+	$("#categoryTags").popover();
+    $("#authorPosts").popover();
+	$("#authorImage").popover();
+	$("#authorBio").popover();
+	$("#authorSidebar").popover();
+	$("#tagHeader").popover();
+	$("#tagDescription").popover();
+	$("#tagSidebar").popover();
+});
+</script>

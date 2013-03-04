@@ -64,8 +64,16 @@ p {
 	margin-bottom:20px;
 }
 
+.marginBottom60{
+	margin-bottom:60px;
+}
+
 .marginLeft100{
 	margin-left:100px;
+}
+
+.marginRight20{
+	margin-right:20px;
 }
 
 .marginPullRight50{
@@ -176,8 +184,7 @@ body.customize-support .navbar-fixed-top{
 	max-width: 550px;
 	padding: 0 20px;
 	margin-bottom: 200px;
-	background: #333333 !important;
-	opacity: 0.65;
+	background: rgba(51, 51, 51, 0.65) !important;
 }
 
 .carousel-caption h1,.carousel-caption .lead {

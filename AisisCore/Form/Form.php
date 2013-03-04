@@ -117,7 +117,6 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	public function elements($elements, $sub_section = array()){	
 		$count = count($elements);
 		$loop = 0;
-		
 		foreach ($elements as $element){
 			
 			$loop++;
@@ -127,7 +126,13 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 				$this->_close_sub_section();
 			}
 			
-			$this->_html .= $element;
+			if(is_array($element)){
+				foreach($element as $e){
+					$this->_html .= $e;
+				}
+			}else{
+				$this->_html .= $element;	
+			}
 		}
 	}
 	

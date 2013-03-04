@@ -16,6 +16,8 @@
  * 			'length' => 60, // # of words
  * 			'content' => 'More...' // The title of the link for the read more.
  * 		),
+ * 		'post_before' => '', // Something before the post in an index list.
+ * 		'post_after' => '', // Something after the post in an index list,
  * 		// Used for the general index.
  * 		'image' => array(
  * 			'size' => 'medium', // The size given by WordPress.
@@ -66,6 +68,11 @@ class AisisCore_Template_Helpers_Loop{
 	protected $_wp_query;
 	
 	/**
+	 * @var array $_post;
+	 */
+	protected $_post;
+	
+	/**
 	 * Set the wp_query object as a class level object if
 	 * the class level object is empty and the options.
 	 * 
@@ -76,7 +83,7 @@ class AisisCore_Template_Helpers_Loop{
 	 * @param array $options is an optional param.
 	 */
 	public function __construct($options = array()){
-		global $wp_query;
+		global $wp_query, $post;
 		
 		if(isset($options)){
 			$this->_options = $options;	
@@ -84,6 +91,10 @@ class AisisCore_Template_Helpers_Loop{
 		
 		if(null === $this->_wp_query){
 			$this->_wp_query = $wp_query;
+		}
+		
+		if(null === $this->_post){
+			$this->_post = $post;
 		}
 		
 		add_filter('excerpt_length', array($this, 'the_excerpt_length'), 999);
@@ -112,22 +123,19 @@ class AisisCore_Template_Helpers_Loop{
 	 * as well.</p>
 	 */
 	public function loop(){
-		global $post;
-		
 		if($this->_options){
 			if(is_single()){
 				$this->_single_post();	
 				
-				if('open' == $post->comment_status){
+				if('open' == $this->_post->comment_status){
 					comments_template();
 				}
 					
 			}elseif(isset($this->_options['query'])){
-				$this->_query_post($this->_options['query']);
 
+				$this->_query_post($this->_options['query']);
 			}else{
 				$this->_general_wordpress_loop();
-
 			}
 		}elseif(is_single()){			
 			$this->_single_post();	
@@ -149,16 +157,24 @@ class AisisCore_Template_Helpers_Loop{
 		if($this->_wp_query->have_posts()){
 			while($this->_wp_query->have_posts()){
 				$this->_wp_query->the_post();
-					
+				
+				if(isset($this->_options['post_before'])){
+					echo $this->_options['post_before'];
+				}	
+				
 				if(isset($this->_options['image']['size'])){
-					the_post_thumbnail($this->_options['image']['size'], $this->_options['single']['image']['args']);
+					the_post_thumbnail($this->_options['image']['size'], $this->_options['image']['args']);
 				}else{
-					the_post_thumbnail($this->_options['image']['args']);
+					the_post_thumbnail('', $this->_options['image']['args']);
 				}
 					
 				$this->_title($this->_options);
 				
 				the_excerpt();
+				
+				if(isset($this->_options['post_after'])){
+					echo $this->_options['post_after'];
+				}
 			}
 		}else{
 			$this->_error_page($this->_options);
@@ -188,10 +204,24 @@ class AisisCore_Template_Helpers_Loop{
 		if($wp_query->have_posts()){
 			while($wp_query->have_posts()){
 				$wp_query->the_post();
+					
+				if(isset($this->_options['post_before'])){
+					echo $this->_options['post_before'];
+				}
+				
+				if(isset($this->_options['image']['size'])){
+					the_post_thumbnail($this->_options['image']['size'], $this->_options['image']['args']);
+				}else{
+					the_post_thumbnail('', $this->_options['image']['args']);
+				}
 				
 				$this->_title($this->_options);
 								
 				the_excerpt();
+				
+				if(isset($this->_options['post_after'])){
+					echo $this->_options['post_after'];
+				}				
 			}
 			
 			$this->loop_navigation();
@@ -221,12 +251,12 @@ class AisisCore_Template_Helpers_Loop{
 				
 				if(isset($this->_options['single']['image'])){
 					if(isset($this->_options['single']['image']['size'])){
-						the_post_thumbnail($this->_options['single']['image']['size'], $this->_options['single']['image']['args']);
+						the_post_thumbnail($this->_post->ID, $this->_options['single']['image']['size'], $this->_options['single']['image']['args']);
 					}else{
-						the_post_thumbnail('full', $this->_options['single']['image']['args']);
+						the_post_thumbnail($this->_post->ID, 'full', $this->_options['single']['image']['args']);
 					}
 				}else{
-					the_post_thumbnail(array('align' => 'centered'));
+					the_post_thumbnail($this->_post->ID, 'medium', array('align' => 'centered'));
 				}
 				
 				the_content();

@@ -2,11 +2,13 @@
 get_header();
 $options = array(
 	'title_header' => 'h2',
+	'post_before' => '<div class="marginBottom60">',
+	'post_after' => '</div>',
 	'image' => array(
 		'size' => 'medium',
 		'args' => array(
 			'align' => 'left',
-			'class' => 'marginBottom20 marginTop20 thumbnail'
+			'class' => 'marginBottom20 marginRight20 thumbnail'
 		)
 	),
 	'single' => array(
@@ -14,7 +16,7 @@ $options = array(
 		'show_tags' => true,
 		'image' => array(
 			'args' => array(
-				'align' => 'centered',
+				'align' => 'left',
 				'class' => 'marginBottom20 marginTop20 thumbnail'
 			)
 		),
