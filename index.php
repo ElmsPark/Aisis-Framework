@@ -25,17 +25,7 @@ $options = array(
 
 $loop = new CoreTheme_Templates_View_Helpers_Loop($options);
 
-if(is_active_sidebar('aisis-side-bar')){
-	echo '<div class="span6 marginLeft50">';
-}
-
-$loop->loop();
-
-if(is_active_sidebar('aisis-side-bar')){
-	echo '</div>';
-}
-
-$loop->sidebar();
+$loop->custom_rows_loop();
 
 get_footer();
 

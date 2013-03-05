@@ -1,10 +1,6 @@
 <?php
 class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_Loop{
 	
-	public function test(){
-		echo "I am inside this class";
-	}
-	
 	public function custom_post_types_loop($type){
 		if($type == ''){
 			throw new AisisCore_Template_TemplateException('Type cannot be empty.');
@@ -18,6 +14,110 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 			$this->_mini_posts_loop();
 		}
 		
+	}
+	
+	public function custom_rows_loop(){
+		$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+		
+		if($builder->get_specific_option('posts_display') == 'lists'){
+			$this->_build_list();
+		}
+		
+		if($builder->get_specific_option('posts_display') == 'rows'){
+			$this->_build_rows($this->_build_query_object($builder));
+		}
+		
+		if($builder->get_specific_option('posts_display') == 'regular_posts'){
+			if(is_active_sidebar('aisis-side-bar')){
+				echo '<div class="span6 marginLeft50">';
+			}
+			
+			$this->loop();
+			
+			if(is_active_sidebar('aisis-side-bar')){
+				echo '</div>';
+			}
+			
+			$this->sidebar();
+		}		
+	}
+	
+	protected function _build_list(){
+		$html = '';
+		
+		$lists = new WP_Query (array('posts_per_page'=>5));
+		$attr = array(
+			'align' => 'left',
+			'class' => 'thumbnail imageRight',
+			'width' => 350,
+			'height' => 350
+		);
+		
+		$html .= '<div class="container-narrow">';
+		
+		if($lists->have_posts()){
+			while($lists->have_posts()){
+				$lists->the_post();
+				
+				$html .= '<div class="post">';
+				$html .= get_the_post_thumbnail('medium', $attr);
+				$html .= '<h1>'.the_title('', '', false).'</h1>';
+				$html .= '<p>'.get_the_excerpt().'</p>';
+				$html .= '</div>';
+			}
+		}
+		
+		$html .= '</div>';		
+		
+		echo $html;
+	} 
+
+	protected function _build_rows(array $queries){
+		$html = '';
+		
+		foreach($queries as $query=>$value){
+			$query_object = new WP_Query($value);
+				
+			$html .= '<div class="row">';
+				
+			if($query_object->have_posts()){
+				while($query_object->have_posts()){
+					$query_object->the_post();
+						
+					$html .= '<div class="span4 centered">';
+					$html .= '<h1>'.the_title('', '', false).'</h1>';
+					$html .= '<p>'.get_the_excerpt().'</p>';
+					$html  .= '</div>';
+				}
+			}
+				
+			$html .= '</div>';
+		}
+		
+		echo $html;	
+	} 
+	
+	protected function _build_query_object(AisisCore_Template_Builder $builder){
+		$query = array();
+				
+		if($builder->get_specific_option('rows_three')){
+			$query = array(
+				'three' => array('posts_per_page' => 3)
+			);
+		}elseif($builder->get_specific_option('rows_six')){
+			$query = array(
+				'three' => array('posts_per_page' => 3),
+				'six' => array('posts_per_page' => 3, 'offset' => 3),
+			);
+		}elseif($builder->get_specific_option('rows_nine')){
+			$query = array(
+				'three' => array('posts_per_page' => 3),
+				'six' => array('posts_per_page' => 3, 'offset' => 3),
+				'nine' => array('posts_per_page' => 3, 'offset' => 6),
+			);
+		}
+		
+		return $query;
 	}
 	
 	protected function _build_carousel(){

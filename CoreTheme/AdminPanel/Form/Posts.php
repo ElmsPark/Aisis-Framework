@@ -128,6 +128,9 @@ class CoreTheme_AdminPanel_Form_Posts{
 		$section = array(
 			'sub_elements' => array(
 				$this->_content_rows_posts_header(),
+				$this->_three_posts(),
+				$this->_six_posts(),
+				$this->_nine_posts(),
 				$this->_input_more_rows_element(),
 			),
 			'sub_content_options' => array(
@@ -154,7 +157,52 @@ class CoreTheme_AdminPanel_Form_Posts{
 		
 		$content_header = new AisisCore_Form_Elements_Content($content);
 		return $content_header;
-	}	
+	}
+	
+	protected function _three_posts(){
+		$check = array(
+			'name' => 'aisis_options[rows_three]',
+			'id' => 'category',
+			'class' => 'rows_three',
+			'value' => 'rows_three',
+			'label' => 'Show up to three posts.',
+			'option' => 'aisis_options',
+			'key' => 'rows_three'			
+		);
+		
+		$check_box = new CoreTheme_Form_Elements_Checkbox($check);
+		return $check_box;
+	}
+	
+	protected function _six_posts(){
+		$check = array(
+			'name' => 'aisis_options[rows_six]',
+			'id' => 'category',
+			'class' => 'rows_six',
+			'value' => 'rows_six',
+			'label' => 'Show up to six posts.',
+			'option' => 'aisis_options',
+			'key' => 'rows_six'			
+		);
+		
+		$check_box = new CoreTheme_Form_Elements_Checkbox($check);
+		return $check_box;
+	}
+
+	protected function _nine_posts(){
+		$check = array(
+			'name' => 'aisis_options[rows_nine]',
+			'id' => 'category',
+			'class' => 'rows_nine',
+			'value' => 'rows_nine',
+			'label' => 'Show up to nine posts.',
+			'option' => 'aisis_options',
+			'key' => 'rows_nine'			
+		);
+		
+		$check_box = new CoreTheme_Form_Elements_Checkbox($check);
+		return $check_box;
+	}			
 
 	protected function _input_more_rows_element(){
 		$input = array(
@@ -180,7 +228,7 @@ class CoreTheme_AdminPanel_Form_Posts{
 		$radio = array(
 			'name' => 'aisis_options[posts_display]',
 			'class' => 'regular',
-			'value' => 'posts_display',
+			'value' => 'regular_posts',
 			'label' => 'Display normal index of posts. <a href="#" id="regularPosts" rel="popover" 
 			data-content="We will display pagination, sidebar and all posts." 
 			data-trigger="hover"

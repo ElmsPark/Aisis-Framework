@@ -108,11 +108,11 @@ class AisisCore_Template_Builder {
 	 */
 	public function get_specific_option($key, $name = '') {
 		if($name != '' && is_array($this->_theme_option) && isset($this->$_theme_option[$name][$key])){
-			return $this->$_theme_option[$name][$key];
+			return $this->_theme_option[$name][$key];
 		}
 		
-		if(isset($this->$_theme_option[$key])){
-			return $this->$_theme_option[$key];	
+		if(isset($this->_theme_option[$key])){
+			return $this->_theme_option[$key];	
 		}
 	}
 	
@@ -122,7 +122,7 @@ class AisisCore_Template_Builder {
 	 * @return array $_theme_option
 	 */
 	public function get_options() {
-		return $this->$_theme_option;
+		return $this->_theme_option;
 	}
 	
 	/**
