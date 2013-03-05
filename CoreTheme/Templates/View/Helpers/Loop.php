@@ -16,36 +16,41 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 		
 	}
 	
-	public function custom_rows_loop(){
+	public function custom_loop(){
 		$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 		
-		if($builder->get_specific_option('posts_display') == 'lists'){
-			$this->_build_list();
-			$this->create_more_button('list_more_posts', $builder);
-		}
-		
-		if($builder->get_specific_option('posts_display') == 'rows'){
-			$this->_build_rows($this->_build_query_object($builder));
-			$this->create_more_button('list_more_posts_rows', $builder);
-		}
-		
-		if($builder->get_specific_option('posts_display') == 'regular_posts'){
-			if(is_active_sidebar('aisis-side-bar')){
-				echo '<div class="span6 marginLeft50">';
+		if(!is_single()){
+			if($builder->get_specific_option('posts_display') == 'lists'){
+				$this->_build_list();
+				$this->create_more_button('lists_more_posts', $builder);
 			}
 			
+			if($builder->get_specific_option('posts_display') == 'rows'){
+				$this->_build_rows($this->_build_query_object($builder));
+				$this->create_more_button('lists_more_posts_rows', $builder);
+			}
+			
+			if($builder->get_specific_option('posts_display') == 'regular_posts'){
+				if(is_active_sidebar('aisis-side-bar')){
+					echo '<div class="span6 marginLeft50">';
+				}
+				
+				$this->loop();
+				
+				if(is_active_sidebar('aisis-side-bar')){
+					echo '</div>';
+				}
+				
+				$this->sidebar();
+			}
+		}elseif(is_single()){
 			$this->loop();
-			
-			if(is_active_sidebar('aisis-side-bar')){
-				echo '</div>';
-			}
-			
-			$this->sidebar();
 		}		
 	}
 	
 	public function create_more_button($option_key, AisisCore_Template_Builder $builder){
 		if($builder->get_specific_option('lists_more_posts_rows')){
+			var_dump($builder->get_specific_option($option_key));
 			echo '<div class="center"><a href="'.$builder->get_specific_option($option_key).'" class="btn btn-success btn-large-custom">
 				<i class="icon-white icon-align-justify"> See More Posts!</i></a></div>';
 		}

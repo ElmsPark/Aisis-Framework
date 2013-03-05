@@ -1,4 +1,8 @@
 <?php
+/*
+Template Name: Posts
+*/
+
 get_header();
 $options = array(
 	'title_header' => 'h2',
@@ -21,11 +25,26 @@ $options = array(
 			)
 		),
 	),
+	'query' => array(
+		'post_type' => 'post',
+		'paged' => get_query_var('page')
+	),
 );
 
 $loop = new CoreTheme_Templates_View_Helpers_Loop($options);
 
-$loop->custom_loop();
+if(is_active_sidebar('aisis-side-bar')){
+	echo '<div class="span6 marginLeft50 marginTop60">';
+}		
+
+$loop->loop();
+			
+if(is_active_sidebar('aisis-side-bar')){
+	echo '</div>';
+}
+
+echo '<div class="marginTop60">';			
+$loop->sidebar();
+echo '</div>';
 
 get_footer();
-

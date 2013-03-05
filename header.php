@@ -38,6 +38,7 @@ if(is_home()){
 }
 
 ?>
+<div class="wrapper">
 <div class="container marginTop20">
 <?php
 if(is_home()){

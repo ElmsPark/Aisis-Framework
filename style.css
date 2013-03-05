@@ -32,6 +32,13 @@ p {
 	line-height: 1.5em;
 }
 
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -170px; /* the bottom margin is the negative value of the footer's height */
+}
+
 /* OTHER ELEMENTS - core fixes
     -------------------------------------------------- */
 .containerSpecial {
@@ -92,6 +99,7 @@ p {
 /* Adds a default of 10 px for padding. */
 .generalPadding{
 	padding: 10px !important;
+	margin-bottom:150px !important;
 }
 
 .imageRight{

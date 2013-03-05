@@ -2,6 +2,7 @@
 wp_footer();
 ?>
 </div>
+</div>
 <div id="footer">
     <div class="container">
     	<div class="row">
