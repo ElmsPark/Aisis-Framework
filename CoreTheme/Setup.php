@@ -53,7 +53,7 @@ $load_scripts = new CoreTheme_Loader_Asset($scripts_to_load);
 
 // Set up theme support.
 $theme_setup = array(
-	'sidebar' => array(
+	'widgets' => array(
 		'name'          => 'Main Side Bar',
 		'id'            => 'aisis-side-bar',
 		'before_widget' => '<div class="widget"><div class="content">',

@@ -5,7 +5,7 @@ $options = array(
 	'post_before' => '<div class="marginBottom60">',
 	'post_after' => '</div>',
 	'image' => array(
-		'size' => 'medium',
+		//'size' => 'medium',
 		'args' => array(
 			'align' => 'left',
 			'class' => 'marginBottom20 marginRight20 thumbnail'

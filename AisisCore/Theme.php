@@ -6,7 +6,7 @@
  * <p>We take in an array that looks like:</p>
  * <p><code>
  * $options = array(
- *    'sidebar' => array(),
+ *    'widgets' => array(),
  *    'navigation' => array(),
  * 	  'theme_support' => array(
  *        'post_formats' = array(),
@@ -72,13 +72,27 @@ class AisisCore_Theme{
 	/**
 	 * Register all sidebar options.
 	 * 
-	 * <p>Depends upon $options['sidebar'] to register the sidebar.</p>
+	 * <p>Depends upon $options['widgets'] to register the widgetized areas. 
+	 * This can be an array of associative arrays that is:</p>
+	 * <p><code>
+	 * 'widgets' => array(
+	 *     'sidebar' => array(),
+	 *     'footer' => array(),
+	 * );
+	 * </code></p>
 	 * 
 	 *  @see http://codex.wordpress.org/Function_Reference/register_sidebar
 	 */
 	public function setup_sidebar($options){
-		if(isset($options['sidebar'])){
-			register_sidebar($options['sidebar']);
+		if(isset($options['widgets'])){
+			foreach($options['widgets'] as $widget=>$widget_option){
+				if(is_array($widget_option)){
+					register_sidebar($widget_option);
+				}else{
+					register_sidebar($options['widgets']);
+				}
+			
+			}
 		}
 	}
 	

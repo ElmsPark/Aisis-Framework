@@ -212,7 +212,7 @@ class AisisCore_Template_Helpers_Loop{
 				if(isset($this->_options['image']['size'])){
 					the_post_thumbnail($this->_options['image']['size'], $this->_options['image']['args']);
 				}else{
-					the_post_thumbnail('', $this->_options['image']['args']);
+					the_post_thumbnail('medium', $this->_options['image']['args']);
 				}
 				
 				$this->_title($this->_options);

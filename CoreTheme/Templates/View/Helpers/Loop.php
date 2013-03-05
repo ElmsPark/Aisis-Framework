@@ -21,10 +21,12 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 		
 		if($builder->get_specific_option('posts_display') == 'lists'){
 			$this->_build_list();
+			$this->create_more_button('list_more_posts', $builder);
 		}
 		
 		if($builder->get_specific_option('posts_display') == 'rows'){
 			$this->_build_rows($this->_build_query_object($builder));
+			$this->create_more_button('list_more_posts_rows', $builder);
 		}
 		
 		if($builder->get_specific_option('posts_display') == 'regular_posts'){
@@ -42,16 +44,17 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 		}		
 	}
 	
+	public function create_more_button($option_key, AisisCore_Template_Builder $builder){
+		if($builder->get_specific_option('lists_more_posts_rows')){
+			echo '<div class="center"><a href="'.$builder->get_specific_option($option_key).'" class="btn btn-success btn-large-custom">
+				<i class="icon-white icon-align-justify"> See More Posts!</i></a></div>';
+		}
+	}
+	
 	protected function _build_list(){
 		$html = '';
 		
 		$lists = new WP_Query (array('posts_per_page'=>5));
-		$attr = array(
-			'align' => 'left',
-			'class' => 'thumbnail imageRight',
-			'width' => 350,
-			'height' => 350
-		);
 		
 		$html .= '<div class="container-narrow">';
 		
@@ -60,8 +63,14 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 				$lists->the_post();
 				
 				$html .= '<div class="post">';
-				$html .= get_the_post_thumbnail('medium', $attr);
-				$html .= '<h1>'.the_title('', '', false).'</h1>';
+				
+				if(isset($this->_options['image']['size'])){
+					the_post_thumbnail($this->_options['image']['size'], $this->_options['image']['args']);
+				}else{
+					the_post_thumbnail('medium', $this->_options['image']['args']);
+				}
+				
+				$html .= '<h1><a href="'.get_permalink().'">'.the_title('', '', false).'</h1></a>';
 				$html .= '<p>'.get_the_excerpt().'</p>';
 				$html .= '</div>';
 			}
@@ -85,7 +94,7 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 					$query_object->the_post();
 						
 					$html .= '<div class="span4 centered">';
-					$html .= '<h1>'.the_title('', '', false).'</h1>';
+					$html .= '<h1><a href="'.get_permalink().'">'.the_title('', '', false).'</a></h1>';
 					$html .= '<p>'.get_the_excerpt().'</p>';
 					$html  .= '</div>';
 				}
@@ -100,16 +109,16 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 	protected function _build_query_object(AisisCore_Template_Builder $builder){
 		$query = array();
 				
-		if($builder->get_specific_option('rows_three')){
+		if($builder->get_specific_option('rows') == 'rows_three'){
 			$query = array(
 				'three' => array('posts_per_page' => 3)
 			);
-		}elseif($builder->get_specific_option('rows_six')){
+		}elseif($builder->get_specific_option('rows') == 'rows_six'){
 			$query = array(
 				'three' => array('posts_per_page' => 3),
 				'six' => array('posts_per_page' => 3, 'offset' => 3),
 			);
-		}elseif($builder->get_specific_option('rows_nine')){
+		}elseif($builder->get_specific_option('rows') == 'rows_nine'){
 			$query = array(
 				'three' => array('posts_per_page' => 3),
 				'six' => array('posts_per_page' => 3, 'offset' => 3),
@@ -152,7 +161,7 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 			$html .= get_the_post_thumbnail();
 			$html .= '<div class="container">
 					 <div class="carousel-caption">';
-			$html .= '<h4>'.the_title('','',false).'</h4>';
+			$html .= '<h4><a href="'.get_permalink().'">'.the_title('','',false).'</a></h4>';
 			$html .= '<p>'.get_the_content().'</p>';
 			$html .= '<a href="'.get_post_meta($post->ID, 'link', true).'"
 							class="btn btn-primary">'.get_post_meta($post->ID, 'link_text', true).'</a>';
@@ -180,7 +189,7 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 			$html .= get_the_post_thumbnail();
 			$html .= '<div class="container">
 					 <div class="carousel-caption">';
-			$html .= '<h4>'.the_title('','',false).'</h4>';
+			$html .= '<h4><a href="'.get_permalink().'">'.the_title('','',false).'</a></h4>';
 			$html .= '<p>'.get_the_content().'</p>';
 			$html .= '<a href="'.get_post_meta($post->ID, 'link', true).'"
 							class="btn btn-primary">'.get_post_meta($post->ID, 'link_text', true).'</a>';
