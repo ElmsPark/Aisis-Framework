@@ -54,12 +54,22 @@ $load_scripts = new CoreTheme_Loader_Asset($scripts_to_load);
 // Set up theme support.
 $theme_setup = array(
 	'widgets' => array(
-		'name'          => 'Main Side Bar',
-		'id'            => 'aisis-side-bar',
-		'before_widget' => '<div class="widget"><div class="content">',
-		'after_widget'  => '</div></div>',
-		'before_title'  => '<h2>',
-		'after_title'   => '</h2>'
+		'sidebar' => array(
+			'name'          => 'Main Side Bar',
+			'id'            => 'aisis-side-bar',
+			'before_widget' => '<div class="widget"><div class="content">',
+			'after_widget'  => '</div></div>',
+			'before_title'  => '<h2>',
+			'after_title'   => '</h2>'
+		),
+		'footer' => array(
+			'name' => 'Footer',
+			'id' => 'aisis-footer',
+			'before_widget' => '<div class="span4">',
+			'after_widget' => '</div>',
+			'before_title' => '<h2>',
+			'after_title' => '</h2>',
+		)
 	),
 	'navigation' => array(
 		'main_nav' => 'The Main Menu',

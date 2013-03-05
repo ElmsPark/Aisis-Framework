@@ -160,48 +160,48 @@ class CoreTheme_AdminPanel_Form_Posts{
 	}
 	
 	protected function _three_posts(){
-		$check = array(
-			'name' => 'aisis_options[rows_three]',
+		$radio = array(
+			'name' => 'aisis_options[rows]',
 			'id' => 'category',
 			'class' => 'rows_three',
 			'value' => 'rows_three',
 			'label' => 'Show up to three posts.',
 			'option' => 'aisis_options',
-			'key' => 'rows_three'			
+			'key' => 'rows'			
 		);
 		
-		$check_box = new CoreTheme_Form_Elements_Checkbox($check);
-		return $check_box;
+		$radio_box = new CoreTheme_Form_Elements_Radio($radio);
+		return $radio_box;
 	}
 	
 	protected function _six_posts(){
-		$check = array(
-			'name' => 'aisis_options[rows_six]',
+		$radio = array(
+			'name' => 'aisis_options[rows]',
 			'id' => 'category',
 			'class' => 'rows_six',
 			'value' => 'rows_six',
 			'label' => 'Show up to six posts.',
 			'option' => 'aisis_options',
-			'key' => 'rows_six'			
+			'key' => 'rows'			
 		);
 		
-		$check_box = new CoreTheme_Form_Elements_Checkbox($check);
-		return $check_box;
+		$radio_input = new CoreTheme_Form_Elements_Radio($radio);
+		return $radio_input;
 	}
 
 	protected function _nine_posts(){
-		$check = array(
-			'name' => 'aisis_options[rows_nine]',
+		$radio = array(
+			'name' => 'aisis_options[rows]',
 			'id' => 'category',
 			'class' => 'rows_nine',
 			'value' => 'rows_nine',
 			'label' => 'Show up to nine posts.',
 			'option' => 'aisis_options',
-			'key' => 'rows_nine'			
+			'key' => 'rows'			
 		);
 		
-		$check_box = new CoreTheme_Form_Elements_Checkbox($check);
-		return $check_box;
+		$radio_input = new CoreTheme_Form_Elements_Radio($radio);
+		return $radio_input;
 	}			
 
 	protected function _input_more_rows_element(){

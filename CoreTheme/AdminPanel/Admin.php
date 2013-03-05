@@ -20,7 +20,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 			array(
 				$this, 
 				'build_template'),  
-				//get_template_directory_uri() . '/images/block.png', 
+				get_template_directory_uri() . '/images/block.png', 
 				31
 			);
 
@@ -80,6 +80,16 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	public function option_validator($input){
 		$option = get_option('aisis_options');
 		$option = $input;
+		$this->_update_option();
 		return $option;
+	}
+	
+	protected function _update_option(){
+		if(get_option('aisis_success')){
+			$option = get_option('aisis_success');
+			update_option('aisis_success', 'true');
+		}else{
+			add_option('aisis_success', 'true');
+		}
 	}
 }

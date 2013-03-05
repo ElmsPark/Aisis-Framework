@@ -27,10 +27,17 @@ $tabbed_form = new CoreTheme_Form_TabbedForm($array);
 		<h1>Aisis - <small>Version 1.2</small></h1>
 		<p class="lead">A revolution in WordPress theme design!!</p>
 	</div>	
-	<div class="alert"><strong>UPDATE!!!!!</strong> OMG! Aisis 1.x is out! <a href="#">Upgrade now!</a></div>
-	<div class="alert alert-success"><strong>SUCCESS!!!!</strong> You have made some killer chnages to Aisis! <a href="#">Check it out now!</a></div>
-	<div class="alert alert-error"><strong>UH-OH</strong> Either we....Or you....Or some one did something wrong!!!!</div>
-	<?php echo $tabbed_form; ?>
+	<?php 
+	
+	$option = get_option('aisis_success');
+	if($option == 'true'){
+		echo '<div class="alert alert-success"><strong>SUCCESS!!!!</strong> You have made some killer chnages to Aisis! <a href="'.site_url().'">Check it out now!</a></div>';
+		update_option('aisis_success', 'false');
+	}
+	
+	echo $tabbed_form; 
+	
+	?>
 </div>
 
 <script>
