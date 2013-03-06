@@ -34,14 +34,14 @@ $options = array(
 $loop = new CoreTheme_Templates_View_Helpers_Loop($options);
 
 if(is_active_sidebar('aisis-side-bar')){
-	echo '<div class="span6 marginLeft50 marginTop60">';
+	echo '<div class="span6 marginLeft50 marginTop60 marginBottom120">';
+}else{
+	echo '<div class="marginTop60 marginBottom120">';
 }		
 
 $loop->loop();
 			
-if(is_active_sidebar('aisis-side-bar')){
-	echo '</div>';
-}
+echo '</div>';
 
 echo '<div class="marginTop60">';			
 $loop->sidebar();

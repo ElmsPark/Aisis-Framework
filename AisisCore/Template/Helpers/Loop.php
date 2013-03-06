@@ -251,12 +251,12 @@ class AisisCore_Template_Helpers_Loop{
 				
 				if(isset($this->_options['single']['image'])){
 					if(isset($this->_options['single']['image']['size'])){
-						the_post_thumbnail($this->_post->ID, $this->_options['single']['image']['size'], $this->_options['single']['image']['args']);
+						the_post_thumbnail($this->_options['single']['image']['size'], $this->_options['single']['image']['args']);
 					}else{
-						the_post_thumbnail($this->_post->ID, 'full', $this->_options['single']['image']['args']);
+						the_post_thumbnail('full', $this->_options['single']['image']['args']);
 					}
 				}else{
-					the_post_thumbnail($this->_post->ID, 'medium', array('align' => 'centered'));
+					the_post_thumbnail('medium', array('align' => 'centered'));
 				}
 				
 				the_content();
@@ -298,46 +298,22 @@ class AisisCore_Template_Helpers_Loop{
 	}
 	
 	/**
-	 * This function will NOT display a sidebar if the params are set.
 	 * 
-	 * <p>We take in the option name, the name where all your admin options are stored, and the key value foor the sidebar.
-	 * For example: aisis_core['sidebar'] would be 'aisis_core' and 'sidebar'.</p>
+	 * @param string | array $key
 	 * 
-	 * <p>The next value we accept is either a string or array of pages which the sidebar should not display on.</p>
-	 * 
-	 * <p>If all three are set we will NOT show a sidebar on any page if the key of that option is set.<p>
-	 * 
-	 * <p><code>
-	 * // example
-	 * sidebar('aisis_core', 'sidebar', array(is_home(), is_page()));
-	 * </code></p>
-	 * 
-	 * <p>The above will NOT show a sidebar if the sidebar value is set on the home inde page and any pages.</p>
-	 * 
-	 * <p><strong>Note:</strong> All pages need to be put in as WordPress conditionals.</p>
-	 * 
-	 * @param string $option_name
-	 * @param string $key
-	 * @param string | array $pages
 	 */
-	public function sidebar($option_name = '', $key = '', $pages = array()){
-		$option = get_option($option_name);
+	public function sidebar($keys = array()){
+		$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');		
 		
-		if(!isset($option[$key])){
-			get_sidebar();
-		}elseif(isset($pages) && !empty($pages)){
-			foreach($pages as $page){
-				if(!$page){
+		if(is_array($keys)){
+			foreach($keys as $key){
+				if(!$builder->get_specific_option($key)){
 					get_sidebar();
 				}
 			}
-		}elseif(!isset($option[$key]) && $pages != '' && !$pages){
-			get_sidebar();
-		}elseif(!isset($option[$key]) && isset($pages) && !empty($pages)){
-			foreach($pages as $page){
-				if(!$page){
-					get_sidebar();
-				}
+		}else{
+			if(!$builder->get_specific_option($keys)){
+				get_sidebar();
 			}
 		}
 	}
@@ -435,7 +411,7 @@ class AisisCore_Template_Helpers_Loop{
 		
 		foreach ( $tags as $tag ) {
 			$tag_link = get_tag_link( $tag->term_id );		
-			$html .= '<a href='.$tag_link.'>'.$tag->name.'</a>';
+			$html .= '<a href='.$tag_link.'>'.$tag->name.'</a>, ';
 		}
 			
 		echo $html;

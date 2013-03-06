@@ -1,8 +1,10 @@
 <?php
 
-class CoreTheme_Template_Helpers_ThemeUtil{
+class CoreTheme_Templates_View_Helpers_ThemeUtil{
 		
 	public function category_tags(){
+		$html = '';
+		
 		$category_id = get_query_var('cat');
 		$category_name = get_category($category_id);
 		
@@ -24,24 +26,21 @@ class CoreTheme_Template_Helpers_ThemeUtil{
 			foreach($tag_ids_unique as $tag_id) {
 				$post_tag = get_term( $tag_id, 'post_tag' );
 				if($tag_id != '' || $post_tag != ''){
-					echo '<a href="'.get_tag_link($tag_id).'">'.$post_tag->name.'</a>, ';
+					$html .= '<a href="'.get_tag_link($tag_id).'">'.$post_tag->name.'</a>, ';
 				}else{
-					echo '<br /> This category seems to have no tags.';
+					return 'This category seems to have no tags.';
 				}
 			}
 		}else{
-			echo '<br /> This category seems to have no tags.';
-		}
-	}
-	
-	public function option_check($option, $key){
-		$options = get_option($option);
-		if(isset($options[$key])){
-			if($options[$key] == $key){
-				return true;
-			}
+			return 'This category seems to have no tags.';
 		}
 		
-		return false;
+		return $html;
 	}
+	
+	function aisis_get_author_id(){
+		 if($_GET['author'] != ''){
+			 return $_GET['author'];
+		 }
+	 }
 }

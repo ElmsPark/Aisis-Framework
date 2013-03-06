@@ -60,7 +60,11 @@ p {
 }
 
 .marginTop60{
-	margin-top:60px;
+	margin-top:60px !important;
+}
+
+.marginTop80{
+	margin-top:80px;
 }
 
 .marginTop20{
@@ -73,6 +77,10 @@ p {
 
 .marginBottom60{
 	margin-bottom:60px;
+}
+
+.marginBottom120{
+	margin-bottom:120px !important;
 }
 
 .marginLeft100{

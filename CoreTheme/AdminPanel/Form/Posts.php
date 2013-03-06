@@ -277,6 +277,7 @@ class CoreTheme_AdminPanel_Form_Posts{
 		$section = array(
 			'sub_elements' => array(
 				$this->_category_description(),
+				$this->_category_tags(),
 				$this->_category_sidebar(),
 			),
 			'sub_content_options' => array(
@@ -329,8 +330,8 @@ class CoreTheme_AdminPanel_Form_Posts{
 			'name' => 'aisis_options[category_sidebar]',
 			'class' => 'category_sidebar',
 			'value' => 'category_sidebar',
-			'label' => 'Show a sidebar (if checked).<a href="#" id="categorySidebar" rel="popover" 
-			data-content="If checked we will show the sidebar on a list of posts under a category." 
+			'label' => 'Do <strong>NOT</strong> show a sidebar. (if checked).<a href="#" id="categorySidebar" rel="popover" 
+			data-content="If checked we will not show the sidebar on a list of posts under a category." 
 			data-trigger="hover"
 			data-original-title="Category Sidebar"><i class="icon-info-sign"></i></a>',
 			'option' => 'aisis_options',
@@ -430,8 +431,8 @@ class CoreTheme_AdminPanel_Form_Posts{
 			'name' => 'aisis_options[author_sidebar]',
 			'class' => 'author_sidebar',
 			'value' => 'author_sidebar',
-			'label' => 'Show a sidebar on the author page (if checked).<a href="#" id="authorSidebar" rel="popover" 
-			data-content="If checked we will show a sidebar on the list of posts belonging to the author." 
+			'label' => 'Do <strong>NOT</strong> show a sidebar. (if checked).<a href="#" id="authorSidebar" rel="popover" 
+			data-content="If checked we will not show a sidebar on the list of posts belonging to the author." 
 			data-trigger="hover"
 			data-original-title="Author Bio"><i class="icon-info-sign"></i></a>',
 			'option' => 'aisis_options',
@@ -513,8 +514,8 @@ class CoreTheme_AdminPanel_Form_Posts{
 			'name' => 'aisis_options[tag_sidebar]',
 			'class' => 'tag_sidebar',
 			'value' => 'tag_sidebar',
-			'label' => 'Show a sidebar (if checked).<a href="#" id="tagSidebar" rel="popover" 
-			data-content="If checked we will show the sidebar on a list of posts under a tag." 
+			'label' => 'Do <strong>NOT</strong> show a sidebar. (if checked).<a href="#" id="tagSidebar" rel="popover" 
+			data-content="If checked we will not show the sidebar on a list of posts under a tag." 
 			data-trigger="hover"
 			data-original-title="Tag Sidebar"><i class="icon-info-sign"></i></a>',
 			'option' => 'aisis_options',

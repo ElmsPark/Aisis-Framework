@@ -70,7 +70,7 @@ class AisisCore_Template_Builder {
 			$this->_theme_option = get_option ( $this->_options['admin_options'] );
 		} elseif (is_array ( $this->_options['admin_options'] )) {
 			foreach ( $this->_options['admin_options'] as $value ) {
-				$this->_theme_option [$value] = get_option ( $value );
+				$this->_theme_option ['admin_options'][$value] = get_option ( $value );
 			}
 		}
 	}
@@ -93,36 +93,65 @@ class AisisCore_Template_Builder {
 	}
 	
 	/**
-	 * Get the name of a specific option and (or) a key returned for that option.
+	 * Get a value from either an array of arrays or an associative array of options.
 	 * 
-	 * <p>If we have set the name of the option and the key of that option is also set
-	 * we will return that value, that is, for example, we might return something like: aisis_core[test].</p>
+	 * <p>All options are gottem back as an associtive array, or an associative array of arrays.
+	 * This function will walk through each object in the array comparing the key to that of the
+	 * key you passed in and will search for the key in the array. If found we return the value.</p>
 	 * 
-	 * <p>How ever if the theme options is not an array and you only have one option and its keys stored,
-	 * such as aisis_core, we will return the value of test.</p>
+	 * <p>Example: If you have an option such as aisis_core['sidebar'] and its balue is true. You would pass in
+	 * sidebar as your key and get back true.</p>
 	 * 
-	 * @param string $name
+	 * <p>in the set up you can set up the admin_options key to be:</p>
+	 * 
+	 * <p><code>
+	 * 'admin_options' => array('options_name', 'another_name');
+	 * 
+	 * //Looking for option_name[_name_value] with avalue of 'bob'?
+	 * 
+	 * get_specific_option('_name_value');
+	 * 
+	 * //returns bob.
+	 * </code></p>
+	 * 
 	 * @param string $key
-	 * @return string
-	 * @throws AisisCore_Template_TemplateException
+	 * @return mixed
 	 */
-	public function get_specific_option($key, $name = '') {
-		if($name != '' && is_array($this->_theme_option) && isset($this->$_theme_option[$name][$key])){
-			return $this->_theme_option[$name][$key];
-		}
-		
-		if(isset($this->_theme_option[$key])){
-			return $this->_theme_option[$key];	
+	public function get_specific_option($key) {
+		if(isset($this->_theme_option['admin_options'])){
+			foreach($this->_theme_option['admin_options'] as $option=>$value){
+				$option_group = get_option($option);
+				if(isset($option_group[$key])){
+					return $option_group[$key];
+				}
+			}
+		}else{
+			if(isset($this->_theme_option[$key])){
+				return $this->_theme_option[$key];
+			}
 		}
 	}
 	
 	/**
-	 * Return all options.
+	 * Return all theme options.
 	 * 
 	 * @return array $_theme_option
 	 */
-	public function get_options() {
+	public function get_theme_options() {
 		return $this->_theme_option;
+	}
+	
+	/**
+	 * Returns true or false if the theme options is an array or not.
+	 * 
+	 * @return bool
+	 */
+	public function is_theme_options_array(){
+		if(is_array($this->_theme_option)){
+			return true;
+		}
+		
+		return false;
 	}
 	
 	/**

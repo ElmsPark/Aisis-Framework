@@ -50,7 +50,6 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 	
 	public function create_more_button($option_key, AisisCore_Template_Builder $builder){
 		if($builder->get_specific_option('lists_more_posts_rows')){
-			var_dump($builder->get_specific_option($option_key));
 			echo '<div class="center"><a href="'.$builder->get_specific_option($option_key).'" class="btn btn-success btn-large-custom">
 				<i class="icon-white icon-align-justify"> See More Posts!</i></a></div>';
 		}
