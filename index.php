@@ -23,7 +23,7 @@ $options = array(
 	),
 );
 
-$loop = new CoreTheme_Templates_View_Helpers_Loop($options);
+$loop = new CoreTheme_Templates_View_Helpers_CustomLoop($options);
 
 $loop->custom_loop();
 
