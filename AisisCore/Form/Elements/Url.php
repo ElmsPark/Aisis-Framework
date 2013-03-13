@@ -57,7 +57,10 @@ class AisisCore_Form_Elements_Url extends AisisCore_Form_Xhtml {
 			$this->_html .= 'required';
 		}
 		
-		$this->_html .= $this->_disabled;
+		if(isset($this->_options['disabled']) && $this->_options['disabled'] == true){
+			$this->_html .= 'disabled';
+		}
+		
 		$this->_html .= ' />';
 	}
 }

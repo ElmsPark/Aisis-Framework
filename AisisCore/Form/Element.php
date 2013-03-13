@@ -25,11 +25,6 @@ class AisisCore_Form_Element extends AisisCore_Form_SubSection {
 	protected $_options;
 	
 	/**
-	 * @var bool $_disabled
-	 */
-	protected $_disabled;
-	
-	/**
 	 * @var bool $_checked
 	 */
 	protected $_checked;

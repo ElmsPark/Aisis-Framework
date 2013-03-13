@@ -33,7 +33,8 @@ h1 small{
 	color: #FFFFFF;
 }
 
-.section, .sectionLists, .sectionRows, .sectionCategory, .sectionAuthor, .sectionTag{
+.section, .sectionLists, .sectionRows, .sectionCategory, 
+.sectionAuthor, .sectionTag, .sectionCarousel{
 	display:none;
 	width: 80%;
 	margin-left: 80px;

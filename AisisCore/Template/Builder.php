@@ -154,6 +154,23 @@ class AisisCore_Template_Builder {
 		return false;
 	}
 	
+	public function reset_theme_options(){
+		if($this->is_theme_options_array()){
+			foreach($this->_theme_option['admin_options'] as $option_name=>$value){
+				if($value != false){
+					delete_option($option_name);
+					$http = new AisisCore_Http_Http();
+					wp_safe_redirect($http->get_current_url());
+				}
+			}
+			$this->_update_option();
+		}else{
+			$this->_theme_option = array();
+			$this->_update_option();
+		}
+		
+	}
+	
 	/**
 	 * Renders a template from a registered template_view_path or an array of paths.
 	 * 
@@ -199,6 +216,15 @@ class AisisCore_Template_Builder {
 			}
 			
 			require_once ($this->_options['template_view_path'] . $template_name . '.phtml');
+		}
+	}
+
+	protected function _update_option(){
+		if(get_option('aisis_reset')){
+			$option = get_option('aisis_reset');
+			update_option('aisis_reset', 'true');
+		}else{
+			add_option('aisis_reset', 'true');
 		}
 	}
 	

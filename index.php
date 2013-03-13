@@ -5,7 +5,7 @@ $options = array(
 	'post_before' => '<div class="marginBottom60">',
 	'post_after' => '</div>',
 	'image' => array(
-		'size' => 'medium',
+		'size' => 'thumbnail',
 		'args' => array(
 			'align' => 'left',
 			'class' => 'marginBottom20 marginRight20 thumbnail'
@@ -49,7 +49,7 @@ if(is_active_sidebar('aisis-side-bar') && !is_home()){
 	}elseif(!$builder->get_specific_option('author_sidebar') && is_author()){
 		echo '<div class="span6 marginLeft50 marginTop60 marginBottom120">';
 	}elseif(is_single()){
-		echo '<div class="container-narrow marginTop60 marginBottom120">';
+		echo '<div class="container-narrow post marginTop60 marginBottom120">';
 	}else{
 		echo '<div class="marginTop60 marginBottom120">';
 	}

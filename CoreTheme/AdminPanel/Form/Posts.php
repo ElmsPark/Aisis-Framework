@@ -205,7 +205,8 @@ class CoreTheme_AdminPanel_Form_Posts{
 	protected function _submit_element(){
 		$submit = array(
 			'value'=> 'Submit',
-			'class' => 'btn-primary'
+			'class' => 'btn-primary',
+			'form_actions' => true,
 		);
 
 		$submit_element = new CoreTheme_Form_Elements_Submit($submit);

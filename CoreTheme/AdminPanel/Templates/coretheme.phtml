@@ -1,6 +1,7 @@
 <?php
 
 $posts = new CoreTheme_AdminPanel_Form_Posts();
+$custom = new CoreTheme_AdminPanel_Form_CustomPost();
 
 $array = array(
 	'method' => 'post',
@@ -14,6 +15,12 @@ $array = array(
 		),
 	),
 	array(
+		'tab' => 'Custom Posts',
+		'elements' => array(
+			$custom->elements()
+		),
+	),	
+	array(
 		'tab' => 'content version 2',
 		'elements' => 'content for this tab as well',
 	)
@@ -26,6 +33,29 @@ $tabbed_form = new CoreTheme_Form_TabbedForm($array);
 	<div class="jumbotron subhead">
 		<h1>Aisis - <small>Version 1.2</small></h1>
 		<p class="lead">A revolution in WordPress theme design!!</p>
+		<p class="lead">
+			<?php
+			if(isset($_POST['aisis_reset'])){
+				$theme = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+				$theme->reset_theme_options();
+				$options = get_option('aisis_reset');
+				if($options == 'true'){
+					echo '<div class="alert alert-success"><strong>SUCCESS!!!!</strong> All Options have been reset! You can start again!</div>';
+					update_option('aisis_reset', 'false');
+				}
+			}
+			
+			$form = new CoreTheme_AdminPanel_Form_Reset(
+				array(
+					'action' => '',
+					'method' => 'post',
+					'class' => 'form-horizontal'
+				)
+			);
+			
+			echo $form;
+			?>
+		</p>
 	</div>	
 	<?php 
 	
@@ -88,7 +118,15 @@ $(document).ready(function(){
 	    } else {
 	    	$('.sectionTag').hide();
 	    }
-	});					
+	});
+	
+	$('.carouselGlobal').click(function(){
+		if ($(this).attr("id") == "carousel"){
+	   		$('.sectionCarousel').show();
+	    } else {
+	    	$('.sectionCarousel').hide();
+	    }
+	});						
 	
 	if ($('input[value=lists]:radio:checked').attr('id') === "list") {
         $('.sectionLists').show();
@@ -108,7 +146,20 @@ $(document).ready(function(){
     
     if ($('input[value=tag_header]:checkbox:checked').attr('id') === "tag") {
         $('.sectionTag').show();
-    }       
+    } 
+    
+    if ($('input[value=carousel_global]:checkbox:checked').attr('id') === "carousel") {
+        $('.sectionCarousel').show();
+    }  
+    
+	$("#jumbotron").change(function() {
+	    if (this.checked) {
+	        $("#socialbar").prop("disabled", false);
+	    }
+	    else {
+	        $("#socialbar").prop("disabled", true);
+	    }
+	});             
     
     $("#displayLists").popover();
 	$("#morePostsList").popover();
@@ -126,5 +177,30 @@ $(document).ready(function(){
 	$("#tagHeader").popover();
 	$("#tagDescription").popover();
 	$("#tagSidebar").popover();
+    $("#carouselGlobal").popover();
+	$("#carouselHome").popover();
+	$("#carouselSingle").popover();
+	$("#jumbotronPop").popover();
+	$("#socialbarPop").popover();
+	$("#miniFeedGlobal").popover();
+	$("#miniFeedHome").popover();
+	$("#miniFeedSingle").popover();
+	
+	enableCarousel();
+	$('#carousel').click(enableCarousel);
+	enableMini();
+	$('#miniFeedGlobal').click(enableMini);		
 });
+
+	function enableCarousel(){
+		if(this.checked){
+			$('input.carousel').attr("disabled", true);
+		}
+	}
+	
+	function enableMini(){
+		if(this.checked){
+			$('input.mini').attr("disabled", true);
+		}
+	}	
 </script>

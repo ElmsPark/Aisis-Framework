@@ -64,7 +64,10 @@ class AisisCore_Form_Elements_Password extends AisisCore_Form_Xhtml{
 			$this->_html .= ' aria-required="true" ';
 		}
 		
-		$this->_html .= $this->_disabled;
+		if(isset($this->_options['disabled']) && $this->_options['disabled'] == true){
+			$this->_html .= 'disabled';
+		}
+		
 		$this->_html .= ' />';
 	}
 }

@@ -45,7 +45,7 @@ $scripts_to_load  = array(
         	'name'=>'aisis-js',
             'path'=>get_template_directory_uri() . '/lib/aisis.js'
         ),       
-     ),     
+     ), 	  
 );
 
 // Load the scripts
@@ -111,7 +111,7 @@ function dependencies(){
 		'AisisCore_Template_Builder' => array(
 			'params' => array(
 				array(
-					'admin_options' => 'aisis_options',
+					'admin_options' => array('aisis_options', 'more_options'),
 					'template_view_path' => array(
 						'general' => CORETHEME_TEMPLATES_VIEW,
 						'meta' => CORETHEME_META_TEMPLATES,

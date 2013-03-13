@@ -11,7 +11,6 @@
  *   'class' => 'css class',
  *   'name' => 'name of the button',
  * 	 'value' => 'value of said button',
- *   'disabled' => true //disable the element
  * );
  * </code></p>
  * 
