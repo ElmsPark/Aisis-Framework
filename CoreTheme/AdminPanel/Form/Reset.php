@@ -15,9 +15,8 @@ class CoreTheme_AdminPanel_Form_Reset extends CoreTheme_Form_Form{
 			'value' => 'Reset All Options',
 			'name' => 'aisis_reset',
 			'data_toggle' => 'popover',
-			'data_content' => 'When you click this button we will automatically rest all options
-			to their default state. You will know this by seeing all options in all tabs as empty. 
-			Please make sure you put your site into maintance mode before doing so. There are pleanty of plugins for this.',
+			'data_content' => '<strong>Click me!</strong> and I will reset all your options! 
+			Becareful though, you may want your site in maintance mode first!',
 			'data_original_title' => 'Resetting Options'
 		);
 		

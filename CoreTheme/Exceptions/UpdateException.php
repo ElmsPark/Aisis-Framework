@@ -1,0 +1,2 @@
+<?php
+class CoreTheme_Exception_UpdateException extends AisisCore_Exceptions_Exception{}

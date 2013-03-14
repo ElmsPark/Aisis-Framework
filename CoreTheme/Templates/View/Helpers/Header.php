@@ -61,27 +61,27 @@ class CoreTheme_Templates_View_Helpers_Header{
 	}	
 	
 	public function build_author_function(){
-		
-		$util = new CoreTheme_Templates_View_Helpers_ThemeUtil();
+		global $wp_query;
+		$curauth = $wp_query->get_queried_object();
 		
 		if($this->_builder->get_specific_option('author_posts')){
 			$this->_html .= '<div class="hero-unit">';
 			
-			$this->_html .= '<h2>'.get_the_author_meta('user_login', $util->aisis_get_author_id()).'</h2>';
+			$this->_html .= '<h2>'.get_the_author_meta('user_login', $curauth->ID).'</h2>';
 			
 			if($this->_builder->get_specific_option('author_bio') && $this->_builder->get_specific_option('author_image')){
 				$this->_html .= '<div class="media">';
-	            $this->_html .= '<div class="pull-left">'. get_avatar(get_the_author_meta('user_email', $util->aisis_get_author_id(), 64)).'</div>';
+	            $this->_html .= '<div class="pull-left">'. get_avatar(get_the_author_meta('user_email', $curauth->ID, 64)).'</div>';
 	            $this->_html .= '<div class="media-body">
 	                <h4 class="media-heading">About me!</h4>'
-	                . get_the_author_meta('user_description', $util->aisis_get_author_id()).
+	                . get_the_author_meta('user_description', $curauth->ID).
 	              '</div>';
 	            $this->_html .= '</div>';
             }else{
             	if($this->_builder->get_specific_option('author_bio')){
-					$this->_html .= '<p class="lead">' . get_the_author_meta('user_description', $util->aisis_get_author_id()). '</p>';
+					$this->_html .= '<p class="lead">' . get_the_author_meta('user_description', $curauth->ID). '</p>';
 				}elseif($this->_builder->get_specific_option('author_image')){
-					$this->_html .= get_avatar(get_the_author_meta('user_email', $util->aisis_get_author_id(), 300));
+					$this->_html .= get_avatar(get_the_author_meta('user_email', $curauth->ID, 300));
 				}
             }
 			

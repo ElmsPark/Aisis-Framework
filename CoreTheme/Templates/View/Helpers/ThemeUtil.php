@@ -37,10 +37,4 @@ class CoreTheme_Templates_View_Helpers_ThemeUtil{
 		
 		return $html;
 	}
-	
-	function aisis_get_author_id(){
-		 if($_GET['author'] != ''){
-			 return $_GET['author'];
-		 }
-	 }
 }

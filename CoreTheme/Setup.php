@@ -21,7 +21,7 @@ $scripts_to_load  = array(
         ),
         array(
             'name'=>'media-query-css',
-            'path'=>get_template_directory_uri() . '/lib/media-query.css'
+            'path'=>get_template_directory_uri() . '/lib/mediaquery.css'
         ),        
         array(
             'name'=>'bootstrap-css',
@@ -44,11 +44,7 @@ $scripts_to_load  = array(
    		array(
         	'name'=>'twbs-js-min',
             'path'=>get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js'
-        ),
-   		array(
-        	'name'=>'aisis-js',
-            'path'=>get_template_directory_uri() . '/lib/aisis.js'
-        ),       
+        ),      
      ), 	  
 );
 

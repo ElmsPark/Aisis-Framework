@@ -23,20 +23,6 @@ interface AisisCore_Interfaces_Upgrade{
 	public function check_for_update();
 	
 	/**
-	 * Check if we need to delete the contents of the theme directory, if
-	 * so follow through.
-	 */
-	public function delete_contents();
-	
-	/**
-	 * Make sure we get the latest zip from some source.
-	 * 
-	 * @link http://codex.wordpress.org/Function_Reference/unzip_file
-	 * @link http://codex.wordpress.org/Function_Reference/is_wp_error
-	 */
-	public function get_latest_zip();
-	
-	/**
 	 * Upgrade, by replacing the current files with that of the new
 	 * files.
 	 * 

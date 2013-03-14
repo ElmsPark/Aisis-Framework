@@ -23,19 +23,6 @@ if(is_singular()){
 	wp_enqueue_script( 'comment-reply' );
 }
 
-?>
-<style type="text/css">
-<?php
-$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
-
-if($template->get_specific_option('jumbo_image')){?>
-.jumbotron{
-	background-image: url('<?php echo $template->get_specific_option('jumbo_image'); ?>') !important;
-}
-<?php } ?>	
-</style>
-<?php
-
 wp_head();
 
 ?>
@@ -73,3 +60,6 @@ if(is_single() && $template->get_specific_option('mini_feed_single')){
 	$template->render_view('minifeeds');
 }
 ?>
+<!--[if lt IE 8]>
+<div class="alert"><strong>Please Note:</strong>  You are running IE 7 or lower. Please consider upgrading! We do not support bellow 8!</div>
+<![endif]-->

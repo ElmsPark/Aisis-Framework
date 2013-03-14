@@ -155,7 +155,9 @@ class AisisCore_Template_Builder {
 	}
 	
 	/**
-	 * Delete options and redirect.
+	 * Delete options and redirect to the index page with a variable of reset.
+	 * 
+	 * <p>resualting url will be site.com/wp-admin/index.php?reset=true</p>
 	 * 
 	 * @see AisisCore_Http_Http
 	 * @link http://codex.wordpress.org/Function_Reference/delete_option
@@ -170,10 +172,10 @@ class AisisCore_Template_Builder {
 				}
 			}
 
-			wp_safe_redirect($http->get_current_url());
+			wp_safe_redirect($http->get_current_url(admin_url().'index.php?reset=true'));
 		}else{
 			delete_option($this->_options['admin_options']);
-			wp_safe_redirect($http->get_current_url());
+			wp_safe_redirect(admin_url().'index.php?reset=true');
 		}
 		
 	}

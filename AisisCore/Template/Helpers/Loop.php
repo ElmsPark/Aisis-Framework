@@ -134,6 +134,8 @@ class AisisCore_Template_Helpers_Loop{
 			}elseif(isset($this->_options['query'])){
 
 				$this->_query_post($this->_options['query']);
+			}elseif(is_page()){
+				$this->page_loop();
 			}else{
 				$this->_general_wordpress_loop();
 			}
@@ -144,6 +146,8 @@ class AisisCore_Template_Helpers_Loop{
 				comments_template();
 			}
 			
+		}elseif(is_page()){
+			$this->page_loop();
 		}else{
 			$this->_general_wordpress_loop();
 		}
@@ -273,6 +277,33 @@ class AisisCore_Template_Helpers_Loop{
 		}else{
 			$this->_error_page($this->_options);
 		}
+	}
+
+	/**
+	 * This loop uses the same concept of single, but with out the tags, categories and navigation.
+	 */
+	public function page_loop(){
+		if($this->_wp_query->have_posts()){
+			while($this->_wp_query->have_posts()){
+				$this->_wp_query->the_post();
+				
+				$this->_title($this->_options);
+				
+				if(isset($this->_options['single']['image'])){
+					if(isset($this->_options['single']['image']['size'])){
+						the_post_thumbnail($this->_options['single']['image']['size'], $this->_options['single']['image']['args']);
+					}else{
+						the_post_thumbnail('full', $this->_options['single']['image']['args']);
+					}
+				}else{
+					the_post_thumbnail('medium', array('align' => 'centered'));
+				}
+				
+				the_content();				
+			}
+		}else{
+			$this->_error_page($this->_options);
+		}		
 	}
 	
 	/**

@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="jumbotron subhead">
+		<h1>Aisis - <small>Version 1.2</small></h1>
+		<p class="lead">Welcome to the update page!</p>
+		<p>Best place to be if you are looking to update your version of Aisis!</p>
+	</div>	
+	<?php 
+		$update = new CoreTheme_Update();
+		$http = new AisisCore_Http_Http();
+		
+		if($update->check_for_update()){
+			if(isset($_POST['aisis_update'])){
+				$update->upgrade();
+			}
+			
+			?>
+			<div class="hero-unit">
+				<h2></h2>
+				<p class="lead"></p>
+			</div>
+			<?php
+			
+			//display form
+		}
+	?>
+</div>

@@ -50,7 +50,7 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _twitter(){
 		$url = array(
 			'name' => 'aisis_options[social][twitter]',
-			'class' => 'input-xlarge marginLeft20',
+			'class' => 'input-xlarge marginLeft40',
 			'value' => $this->_get_value('aisis_options', 'twitter'),
 			'placeholder' => 'Twitter link',
 			'label' => array(
@@ -66,7 +66,7 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _google_plus(){
 		$url = array(
 			'name' => 'aisis_options[social][google-plus]',
-			'class' => 'input-xlarge marginLeft20',
+			'class' => 'input-xlarge marginLeft30',
 			'value' => $this->_get_value('aisis_options', 'google-plus'),
 			'placeholder' => 'Google+ link',
 			'label' => array(
@@ -82,7 +82,7 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _linkedin(){
 		$url = array(
 			'name' => 'aisis_options[social][linkedin]',
-			'class' => 'input-xlarge marginLeft20',
+			'class' => 'input-xlarge marginLeft30',
 			'value' => $this->_get_value('aisis_options', 'linkedin'),
 			'placeholder' => 'Linkedin link',
 			'label' => array(
@@ -98,7 +98,7 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _git(){
 		$url = array(
 			'name' => 'aisis_options[social][github]',
-			'class' => 'input-xlarge marginLeft20',
+			'class' => 'input-xlarge marginLeft65',
 			'value' => $this->_get_value('aisis_options', 'github'),
 			'placeholder' => 'Git link',
 			'label' => array(

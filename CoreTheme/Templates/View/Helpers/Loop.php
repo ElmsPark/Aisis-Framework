@@ -47,7 +47,7 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 		}else{
 			$this->_error_page($this->_options);
 		}
-	}	
+	}
 	
 	public function single_navigation(){
 		$pagination = '';
