@@ -46,8 +46,8 @@ class AisisCore_Form_Elements_Submit extends AisisCore_Form_Xhtml {
 		}	
 		
 		if(isset($this->_options['name'])){
-			$this->_html .= 'name="'.$this->_options['name'].'" ';
-		}				
+			$this->_html .= 'name="'.esc_attr($this->_options['name']).'" ';
+		}										
 		
 		$this->_html .= ' />';
 	}

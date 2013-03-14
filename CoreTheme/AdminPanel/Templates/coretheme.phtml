@@ -1,7 +1,7 @@
 <?php
-
 $posts = new CoreTheme_AdminPanel_Form_Posts();
 $custom = new CoreTheme_AdminPanel_Form_CustomPost();
+$social = new CoreTheme_AdminPanel_Form_Social();
 
 $array = array(
 	'method' => 'post',
@@ -19,7 +19,13 @@ $array = array(
 		'elements' => array(
 			$custom->elements()
 		),
-	),	
+	),
+	array(
+		'tab' => 'Social Links',
+		'elements' => array(
+			$social->elements()
+		),
+	),		
 	array(
 		'tab' => 'content version 2',
 		'elements' => 'content for this tab as well',
@@ -35,14 +41,15 @@ $tabbed_form = new CoreTheme_Form_TabbedForm($array);
 		<p class="lead">A revolution in WordPress theme design!!</p>
 		<p class="lead">
 			<?php
+			$theme = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+			
 			if(isset($_POST['aisis_reset'])){
-				$theme = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 				$theme->reset_theme_options();
-				$options = get_option('aisis_reset');
-				if($options == 'true'){
-					echo '<div class="alert alert-success"><strong>SUCCESS!!!!</strong> All Options have been reset! You can start again!</div>';
-					update_option('aisis_reset', 'false');
-				}
+			}
+			
+			if(get_option('aisis_reset') == 'true'){
+				echo '<div class="alert alert-success"><strong>SUCCESS!!!!</strong> All Options have been reset! You can start again!</div>';
+				update_option('aisis_reset', 'false');
 			}
 			
 			$form = new CoreTheme_AdminPanel_Form_Reset(
@@ -126,8 +133,22 @@ $(document).ready(function(){
 	    } else {
 	    	$('.sectionCarousel').hide();
 	    }
-	});						
+	});	
 	
+	$('.add_jumbotron').click(function(){
+		if ($(this).attr("id") == "jumbotron"){
+	   		$('.sectionJumbotron').show();
+	    } else {
+	    	$('.sectionJumbotron').hide();
+	    }
+	});	
+	
+	$("[data-toggle=popover]").hover(function () {
+	    $(this).popover('show');
+	},function () {
+	    $(this).popover('hide');
+	}); 							
+		
 	if ($('input[value=lists]:radio:checked').attr('id') === "list") {
         $('.sectionLists').show();
     }
@@ -150,7 +171,11 @@ $(document).ready(function(){
     
     if ($('input[value=carousel_global]:checkbox:checked').attr('id') === "carousel") {
         $('.sectionCarousel').show();
-    }  
+    } 
+    
+    if ($('input[value=jumbotron]:checkbox:checked').attr('id') === "jumbotron") {
+        $('.sectionJumbotron').show();
+    }   
     
 	$("#jumbotron").change(function() {
 	    if (this.checked) {
@@ -185,11 +210,24 @@ $(document).ready(function(){
 	$("#miniFeedGlobal").popover();
 	$("#miniFeedHome").popover();
 	$("#miniFeedSingle").popover();
+	$("#imagePop").popover();
 	
 	enableCarousel();
 	$('#carousel').click(enableCarousel);
 	enableMini();
 	$('#miniFeedGlobal').click(enableMini);		
+	
+	$('#jumboImageButton').click(function() {
+		formfield = jQuery('#jumboImage').attr('name');
+		tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+		return false;
+	});
+
+	window.send_to_editor = function(html) {
+		imgurl = jQuery('img',html).attr('src');
+		jQuery('#jumboImage').val(imgurl);
+		tb_remove();
+	}
 });
 
 	function enableCarousel(){

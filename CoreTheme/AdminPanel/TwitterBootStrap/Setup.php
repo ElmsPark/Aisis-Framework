@@ -14,6 +14,8 @@ function load_core_css(){
 	wp_register_style('modified-customized-bootstrap',
 	get_template_directory_uri(). '/CoreTheme/AdminPanel/TwitterBootStrap/css/modified.css');
 	wp_enqueue_style('modified-customized-bootstrap');
+	
+	wp_enqueue_style('thickbox');
 }
 
 function load_core_js(){
@@ -23,6 +25,8 @@ function load_core_js(){
 	
 	wp_register_script('core-js', get_template_directory_uri() . '/CoreTheme/AdminPanel/TwitterBootStrap/js/script.js');
 	wp_enqueue_script('core-js');
+	
+	wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true);
 	
  	if(!class_exists('WPMUDEV_Update_Notifications')){
     	wp_register_script('bootstrap_admin_icon32', get_template_directory_uri() . '/CoreTheme/AdminPanel/TwitterBootStrap/js/icon32.js', false, null, false);

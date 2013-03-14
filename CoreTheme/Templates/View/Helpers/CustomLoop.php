@@ -98,7 +98,7 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 					$query_object->the_post();
 						
 					$html .= '<div class="span4 centered">';
-					$html .= '<h1><a href="'.get_permalink().'">'.the_title('', '', false).'</a></h1>';
+					$html .= '<h1><a href="'.get_permalink().'">'.substr(the_title('', '', false), 0, 20).'...</a></h1>';
 					$html .= '<p>'.get_the_excerpt().'</p>';
 					$html  .= '</div>';
 				}

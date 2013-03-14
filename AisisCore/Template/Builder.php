@@ -154,19 +154,26 @@ class AisisCore_Template_Builder {
 		return false;
 	}
 	
+	/**
+	 * Delete options and redirect.
+	 * 
+	 * @see AisisCore_Http_Http
+	 * @link http://codex.wordpress.org/Function_Reference/delete_option
+	 * @link http://codex.wordpress.org/Function_Reference/wp_safe_redirect
+	 */
 	public function reset_theme_options(){
-		if($this->is_theme_options_array()){
+		$http = new AisisCore_Http_Http();
+		if(isset($this->_theme_option['admin_options'])){
 			foreach($this->_theme_option['admin_options'] as $option_name=>$value){
 				if($value != false){
 					delete_option($option_name);
-					$http = new AisisCore_Http_Http();
-					wp_safe_redirect($http->get_current_url());
 				}
 			}
-			$this->_update_option();
+
+			wp_safe_redirect($http->get_current_url());
 		}else{
-			$this->_theme_option = array();
-			$this->_update_option();
+			delete_option($this->_options['admin_options']);
+			wp_safe_redirect($http->get_current_url());
 		}
 		
 	}
@@ -216,15 +223,6 @@ class AisisCore_Template_Builder {
 			}
 			
 			require_once ($this->_options['template_view_path'] . $template_name . '.phtml');
-		}
-	}
-
-	protected function _update_option(){
-		if(get_option('aisis_reset')){
-			$option = get_option('aisis_reset');
-			update_option('aisis_reset', 'true');
-		}else{
-			add_option('aisis_reset', 'true');
 		}
 	}
 	

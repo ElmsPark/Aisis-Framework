@@ -65,7 +65,8 @@ class CoreTheme_AdminPanel_Form_Posts{
 			'class' => 'posts',
 			'value' => 'rows',
 			'label' => 'Display rows of posts. <a href="#" id="displayRows" rel="popover" 
-			data-content="We allow you to display 3, 6 or 9 posts in rows of three for the most recent posts." 
+			data-content="We allow you to display 3, 6 or 9 posts in rows of three for the most recent posts. Please note that your posts
+			should have an excerpt of some kind or the rows will break. We suggest a small paragraph." 
 			data-trigger="hover"
 			data-original-title="Display as Rows"><i class="icon-info-sign"></i></a>',
 			'option' => 'aisis_options',

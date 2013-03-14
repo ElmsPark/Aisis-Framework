@@ -49,7 +49,8 @@ class CoreTheme_AdminPanel_Form_SubSection_Carousel{
 			'key' => 'jumbotron'			
 		);
 		
-		$check_box = new CoreTheme_Form_Elements_Checkbox($check);
+		$jumbo = new CoreTheme_AdminPanel_Form_SubSection_Jumbotron();
+		$check_box = new CoreTheme_Form_Elements_Checkbox($check, $jumbo->jumbo_subsection_content());
 		return $check_box;			
 	}
 	

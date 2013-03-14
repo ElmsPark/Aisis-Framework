@@ -34,7 +34,11 @@ $scripts_to_load  = array(
         array(
             'name'=>'font-awesome',
             'path'=>get_template_directory_uri() . '/lib/FontAwesome/css/font-awesome.min.css'
-        )
+        ),
+        array(
+            'name'=>'php-css',
+            'path'=>get_template_directory_uri() . '/lib/style.php'
+        )		
     ),
    'js_jquery' => array(
    		array(
@@ -111,7 +115,7 @@ function dependencies(){
 		'AisisCore_Template_Builder' => array(
 			'params' => array(
 				array(
-					'admin_options' => array('aisis_options', 'more_options'),
+					'admin_options' => 'aisis_options',
 					'template_view_path' => array(
 						'general' => CORETHEME_TEMPLATES_VIEW,
 						'meta' => CORETHEME_META_TEMPLATES,

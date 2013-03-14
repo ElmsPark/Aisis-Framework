@@ -33,5 +33,4 @@ class AisisCore_Form_Elements_Label extends AisisCore_Form_Xhtml{
 		$this->_html .= $this->_options['value'];
 		$this->_html .= ' </label>';
 	}
-	
 }
