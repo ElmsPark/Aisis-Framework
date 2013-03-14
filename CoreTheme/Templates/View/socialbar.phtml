@@ -3,13 +3,14 @@
 		<ul>
 			<?php
 			$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
-			
-			foreach($template->get_specific_option('social') as $link=>$value){
-				echo '
-				<li>
-					<a href="'.$value.'"><i class="icon-'.$link.' icon-4x"></i></a>
-				</li>
-				';
+			if($template->get_specific_option('social')){ 
+				foreach($template->get_specific_option('social') as $link=>$value){
+					echo '
+					<li>
+						<a href="'.$value.'"><i class="icon-'.$link.' icon-4x"></i></a>
+					</li>
+					';
+				}
 			}
 			?>
 		</ul>
