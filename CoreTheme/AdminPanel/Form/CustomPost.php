@@ -19,7 +19,7 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 	
 	protected function _carousel_content(){
 		$content = array(
-			'class' => 'hero-unit',
+			'class' => 'modified-hero-unit',
 			'content' => '
 				<h2>Carousel Options</h2>
 				<p>The following relate to how the carousel is displayed and where we display it.</p>
@@ -38,7 +38,7 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 			'value' => 'carousel_global',
 			'label' => 'Remove carousel from the site. <a href="#" id="carouselGlobal" rel="popover" 
 			data-content="We will remove the custom post type option (your posts will still be there.) 
-			and the carousel fom the front end of the site." 
+			and the carousel fom the front end of the site. Thus allowing you to enable Jumbotron" 
 			data-trigger="hover"
 			data-original-title="Remove Carousel"><i class="icon-info-sign"></i></a>',
 			'option' => 'aisis_options',
@@ -57,10 +57,7 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 			'id' => 'carousel_home',
 			'class' => 'carousel',
 			'value' => 'carousel_home',
-			'label' => 'Remove the carousel from the home page. <a href="#" id="carouselHome" rel="popover" 
-			data-content="We will remove the carousel from the home page only."  
-			data-trigger="hover"
-			data-original-title="Carousel Home"><i class="icon-info-sign"></i></a>',
+			'label' => 'Remove the carousel from the home page only.',
 			'option' => 'aisis_options',
 			'key' => 'carousel_home',
 			'disabled' => $this->_disabled('aisis_options', 'carousel_global'),			
@@ -76,10 +73,7 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 			'id' => 'carousel_single',
 			'class' => 'carousel',
 			'value' => 'carousel_single',
-			'label' => 'Add the carousel to every post <a href="#" id="carouselSingle" rel="popover" 
-			data-content="We will add a carousel to every post."  
-			data-trigger="hover"
-			data-original-title="Carousel Single"><i class="icon-info-sign"></i></a>',
+			'label' => 'Add the carousel to every post.',
 			'option' => 'aisis_options',
 			'key' => 'socialbar',
 			'disabled' => $this->_disabled('aisis_options', 'carousel_global'),	
@@ -92,7 +86,7 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 	
 	protected function _mini_feed_content(){
 		$content = array(
-			'class' => 'hero-unit',
+			'class' => 'modified-hero-unit',
 			'content' => '
 				<h2>Mini Feed Options</h2>
 				<p>The following options relate to how and where we show the mini feed.</p>
@@ -126,10 +120,7 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 			'id' => 'mini_feed_home',
 			'class' => 'mini',
 			'value' => 'mini_feed_home',
-			'label' => 'Remove the mini feeed from the home page. <a href="#" id="miniFeedHome" rel="popover" 
-			data-content="Remove the mini feed from the home page only."  
-			data-trigger="hover"
-			data-original-title="Mini Feed Home"><i class="icon-info-sign"></i></a>',
+			'label' => 'Remove the mini feeed from the home page only.',
 			'option' => 'aisis_options',
 			'key' => 'mini_feed_home'			
 		);
@@ -144,10 +135,7 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 			'id' => 'mini_feed_single',
 			'class' => 'mini',
 			'value' => 'mini_feed_single',
-			'label' => 'Add the mini feeds to every post. <a href="#" id="miniFeedSingle" rel="popover" 
-			data-content="We will add mini feeds to every single post."  
-			data-trigger="hover"
-			data-original-title="Mini Feed Home"><i class="icon-info-sign"></i></a>',
+			'label' => 'Add the mini feeds to every post.',
 			'option' => 'aisis_options',
 			'key' => 'mini_feed_single'			
 		);

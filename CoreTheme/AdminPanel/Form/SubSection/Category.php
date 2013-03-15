@@ -25,10 +25,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Category{
 			'name' => 'aisis_options[category_description]',
 			'class' => 'category_description',
 			'value' => 'category_description',
-			'label' => 'Show category description (if checked).<a href="#" id="categoryDescription" rel="popover" 
-			data-content="Show the default category description if set." 
-			data-trigger="hover"
-			data-original-title="Category Description"><i class="icon-info-sign"></i></a>',
+			'label' => 'Show category description (if checked).',
 			'option' => 'aisis_options',
 			'key' => 'category_description'			
 		);
@@ -42,10 +39,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Category{
 			'name' => 'aisis_options[category_tags]',
 			'class' => 'category_tags',
 			'value' => 'category_tags',
-			'label' => 'Show category tags (if checked).<a href="#" id="categoryTags" rel="popover" 
-			data-content="Show tags that belong to a category." 
-			data-trigger="hover"
-			data-original-title="Category Tags"><i class="icon-info-sign"></i></a>',
+			'label' => 'Show category tags (if checked).',
 			'option' => 'aisis_options',
 			'key' => 'category_tags'			
 		);
@@ -59,10 +53,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Category{
 			'name' => 'aisis_options[category_sidebar]',
 			'class' => 'category_sidebar',
 			'value' => 'category_sidebar',
-			'label' => 'Do <strong>NOT</strong> show a sidebar. (if checked).<a href="#" id="categorySidebar" rel="popover" 
-			data-content="If checked we will not show the sidebar on a list of posts under a category." 
-			data-trigger="hover"
-			data-original-title="Category Sidebar"><i class="icon-info-sign"></i></a>',
+			'label' => 'Do <strong>NOT</strong> Show a sidebar (if checked).',
 			'option' => 'aisis_options',
 			'key' => 'category_sidebar'			
 		);

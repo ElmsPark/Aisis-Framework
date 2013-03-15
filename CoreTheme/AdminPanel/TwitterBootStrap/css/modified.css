@@ -2,22 +2,6 @@
 	background-image: none !important;
 }
 
-.modal-header .close {
-	margin-top: 20px;
-	margin-right: 5px;
-}
-
-.modal-header {
-	padding-top: 20px;
-	border-bottom: 1px solid #EEE;
-	background: #EEE;
-	margin-top: -20px;
-}
-
-.modal-header h2 {
-	padding-left: 0px !important;
-}
-
 .input-xlarge{
 	width: 270px !important;
 }
@@ -32,6 +16,32 @@
 	-webkit-border-radius: 6px !important;
 	-moz-border-radius: 6px !important;
 	border-radius: 6px !important;
+}
+
+.modified-hero-unit{
+	padding: 20px;
+	margin-bottom: 30px;
+	font-size: 14px;
+	font-weight: 200;
+	line-height: 25px;
+	color: inherit;
+	background-color: #eee;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;	
+}
+
+.wrap{
+	padding: 20px;
+	margin-bottom: 30px;
+	font-size: 14px;
+	font-weight: 200;
+	line-height: 25px;
+	color: inherit;
+	background-color: #eee;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;		
 }
 
 /* OTHER
@@ -83,7 +93,9 @@ h1 small{
 
 /* AISIS ADMIN PANEL
     -------------------------------------------------- */
-
+.modal{
+	height:500px !important;
+}
 
 #wrap {
 	min-height: 100%;

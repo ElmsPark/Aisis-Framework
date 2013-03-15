@@ -4,12 +4,17 @@ class CoreTheme_CustomPostTypes_Types {
 	public function __construct() {
 		add_action('after_switch_theme', array ($this, 'aisis_flush_re_write'));
 		
-		//For child themes.
-		add_action('init', array($this, 'aisis_carousel'));
-		add_action('init', array($this, 'aisis_mini_feed'));
-
-		$this->aisis_mini_feed();
-		$this->aisis_carousel();
+		$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+		
+		if(!$template->get_specific_option('carousel_global')){
+			add_action('init', array($this, 'aisis_carousel'));
+			$this->aisis_carousel();
+		}
+		
+		if(!$template->get_specific_option('mini_feed_global')){
+			add_action('init', array($this, 'aisis_mini_feed'));
+			$this->aisis_mini_feed();
+		}
 	}
 	
 	public function aisis_mini_feed() {

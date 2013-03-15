@@ -23,10 +23,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Tag{
 			'name' => 'aisis_options[tag_description]',
 			'class' => 'tag_description',
 			'value' => 'tag_description',
-			'label' => 'Show tag description (if checked).<a href="#" id="tagDescription" rel="popover" 
-			data-content="Show the default tag description if set." 
-			data-trigger="hover"
-			data-original-title="Tag Description"><i class="icon-info-sign"></i></a>',
+			'label' => 'Show tag description (if checked).',
 			'option' => 'aisis_options',
 			'key' => 'tag_description'			
 		);
@@ -40,10 +37,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Tag{
 			'name' => 'aisis_options[tag_sidebar]',
 			'class' => 'tag_sidebar',
 			'value' => 'tag_sidebar',
-			'label' => 'Do <strong>NOT</strong> show a sidebar. (if checked).<a href="#" id="tagSidebar" rel="popover" 
-			data-content="If checked we will not show the sidebar on a list of posts under a tag." 
-			data-trigger="hover"
-			data-original-title="Tag Sidebar"><i class="icon-info-sign"></i></a>',
+			'label' => 'Do <strong>NOT</strong> show a sidebar (if checked).',
 			'option' => 'aisis_options',
 			'key' => 'tag_sidebar'			
 		);

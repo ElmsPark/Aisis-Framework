@@ -20,10 +20,10 @@ class CoreTheme_AdminPanel_Form_Social{
 	
 	protected function _content_links_header(){
 		$content = array(
-			'class' => 'hero-unit',
+			'class' => 'modified-hero-unit',
 			'content' => '
 				<h2>Social Links</h2>
-				<p>Save your profile links bellow for your various social media platforms and we will display them for you on the site!</p>
+				<p>Save your profile links below for your various social media platforms and we will display them for you on the site!</p>
 			'
 		);
 		

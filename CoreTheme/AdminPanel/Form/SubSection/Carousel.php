@@ -22,7 +22,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Carousel{
 	
 	protected function _carousel_subsection(){
 		$content = array(
-			'class' => 'hero-unit',
+			'class' => 'modified-hero-unit',
 			'content' => '
 				<h2>Jumbotron and Socialbar</h2>
 				<p>Have you opted to remove the carousel feature? Well we have something simmilar. Jumbotron, a single post is displayed

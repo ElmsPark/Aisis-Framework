@@ -24,7 +24,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Rows{
 	
 	protected function _content_rows_posts_header(){
 		$content = array(
-			'class' => 'hero-unit',
+			'class' => 'modified-hero-unit',
 			'content' => '
 				<h2>Row Options</h2>
 				<p>The following options will allow you to link a page that contains your posts. Simply place the link in the url box bellow and we will
@@ -91,10 +91,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Rows{
 			'placeholder' => 'Link to the page',
 			'label' => array(
 				'class' => 'control-label',
-				'value' => 'Show more posts. <a href="#" id="displayMoreRows" rel="popover" 
-			data-content="Allows you to display, on a page you link to, more posts." 
-			data-trigger="hover"
-			data-original-title="Display More Posts"><i class="icon-info-sign"></i></a> ',
+				'value' => 'Show more posts.',
 			),
 		);
 		

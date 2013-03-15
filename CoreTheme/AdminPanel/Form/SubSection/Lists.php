@@ -21,7 +21,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Lists{
 	
 	protected function _content_list_posts_header(){
 		$content = array(
-			'class' => 'hero-unit',
+			'class' => 'modified-hero-unit',
 			'content' => '
 				<h2>List Options</h2>
 				<p>The following options will allow you to link a page that contains your posts. Simply place the link in the url box bellow and we will
@@ -42,14 +42,11 @@ class CoreTheme_AdminPanel_Form_SubSection_Lists{
 			'placeholder' => 'Link to the page',
 			'label' => array(
 				'class' => 'control-label',
-				'value' => 'Show more posts. <a href="#" id="morePostsList" rel="popover" 
-			data-content="Allows you to display, on a page you link to, more posts." 
-			data-trigger="hover"
-			data-original-title="Display More Posts"><i class="icon-info-sign"></i></a> ',
+				'value' => 'Show more posts link.',
 			),
 		);
 		
-		$input_element = new CoreTheme_Form_Elements_Input($input);
+		$input_element = new CoreTheme_Form_Elements_Url($input);
 		return $input_element;	
 	}
 

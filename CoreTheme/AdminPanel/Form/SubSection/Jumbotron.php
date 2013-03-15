@@ -25,7 +25,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Jumbotron{
 	
 	protected function _content(){
 		$content = array(
-			'class' => 'hero-unit',
+			'class' => 'modified-hero-unit',
 			'content' => '
 				<h2>Jumbotron</h2>
 				<p>Bellow you can fill out the details of your Jumbotron. The Jumbotron will look identical to one pane from the carousel.

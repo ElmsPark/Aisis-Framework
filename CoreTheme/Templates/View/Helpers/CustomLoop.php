@@ -23,14 +23,10 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 			if($builder->get_specific_option('posts_display') == 'lists'){
 				$this->_build_list();
 				$this->create_more_button('lists_more_posts', $builder);
-			}
-			
-			if($builder->get_specific_option('posts_display') == 'rows'){
+			}elseif($builder->get_specific_option('posts_display') == 'rows'){
 				$this->_build_rows($this->_build_query_object($builder));
 				$this->create_more_button('lists_more_posts_rows', $builder);
-			}
-			
-			if($builder->get_specific_option('posts_display') == 'regular_posts'){
+			}elseif($builder->get_specific_option('posts_display') == 'regular_posts'){
 				if(is_active_sidebar('aisis-side-bar')){
 					echo '<div class="span6 marginLeft50">';
 				}
@@ -42,6 +38,9 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 				}
 				
 				$this->sidebar();
+			}else{
+				echo '<div class="alert">There are no options selected to display posts! Please 
+					<a href="'.admin_url('admin.php?page=aisis-core-options').'">follow me to select some options</a>';
 			}
 		}else{
 			$this->loop();
