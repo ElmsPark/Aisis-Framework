@@ -9,6 +9,8 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		add_action('admin_notices', array($this, 'update_success_message'));
 		add_action('admin_notices', array($this, 'update_message'));
 
+		add_action('wp_before_admin_bar_render', array($this, 'aisis_links'));
+		
 		add_option('success_message', false);
 	}
 	
@@ -26,18 +28,6 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 				get_template_directory_uri() . '/images/block.png', 
 				31
 			);
-
-		add_submenu_page(
-			'aisis-core-options', 
-			__('Aisis Packages', 'aisis'), 
-			__('Aisis Packages', 'aisis'), 
-			'edit_themes', 
-			'aisis-core-packages', 
-			array(
-				$this, 
-				'build_template'
-			)
-		);
 
 		add_submenu_page(
 			'aisis-core-options', 
@@ -62,6 +52,28 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 			)
 		);
 	}
+
+	public function aisis_links() {
+		global $wp_admin_bar;
+		$wp_admin_bar->add_menu( array(
+			'id' => 'aisis', 
+			'title' => 'Aisis Options', 
+			'href' => admin_url('admin.php?page=aisis-core-options'),
+			'meta' => false 
+		));
+		
+		$update = new CoreTheme_Update();
+		
+		if($update->check_for_update()){
+			$wp_admin_bar->add_menu( array(
+				'id' => 'aisis-update', 
+				'title' => 'ATTN!! You have an update!', 
+				'href' => admin_url('admin.php?page=aisis-core-update'),
+				'meta' => false 
+			));			
+		}
+	}
+	
 	
 	public function build_template(){
 		$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
@@ -93,7 +105,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		$http = new AisisCore_Http_Http();
 		$update = new CoreTheme_Update();
 		if($update->check_for_update()){
-			echo '<div class="alert"><strong>OMG!!!</strong> We have an update for you! Aisis '. $update->check_theme_version() .' is ready for you to 
+			echo '<div class="alert"><strong>ATTN!!!</strong> We have an update for you! Aisis '. $update->check_theme_version() .' is ready for you to 
 				<a href="'.admin_url('admin.php?page=aisis-core-update').'">download</a></div>';
 		}
 	}	
@@ -102,7 +114,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		$http = new AisisCore_Http_Http();
 		$update = new CoreTheme_Update();
 		if($http->get_current_url() == admin_url('index.php?aisis_upgrade=true')){
-			echo '<div class="alert alert-success"><strong>OMG!!!</strong> We have updated Aisis to Aisis '.$update->get_current_version().'! <a href="'.admin_url('admin.php?page=aisis-core-options').'">
+			echo '<div class="alert alert-success"><strong>HEY!!!</strong> We have updated Aisis to Aisis '.$update->get_current_version().'! <a href="'.admin_url('admin.php?page=aisis-core-options').'">
 				Head over to the options to check out new features</a> or <a href="'.site_url().'">Head to your site to see new changes!</a></div>';
 		}
 	}		

@@ -23,14 +23,6 @@ interface AisisCore_Interfaces_Activation{
 	public function on_activation();
 	
 	/**
-	 * Do something on deactivation of a theme, or when you switch a theme. This means
-	 * things like resetting options and clearing caches.
-	 * 
-	 * @link http://codex.wordpress.org/Function_Reference/check_theme_switched
-	 */
-	public function on_deactivation();
-	
-	/**
 	 * Check for and return any errors thrown by deactivating or activating said theme.
 	 */
 	public function check_for_errors();

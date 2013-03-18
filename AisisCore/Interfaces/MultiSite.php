@@ -18,7 +18,9 @@ interface AisisCore_Interfaces_MultiSite{
 	 * <p>Some concepts to keep in mind is that, if you are using Multisite for WordPress, you will want to check if it
 	 * is multisite, and then append the blog id to your associated custom folder.</p>
 	 * 
+	 * @param $options - should be an array of folder_type=>name_of_folder
+	 * 
 	 * @link http://codex.wordpress.org/Function_Reference/is_multisite
 	 */
-	public function ceate_components(){}
+	public function create_components($options);
 }

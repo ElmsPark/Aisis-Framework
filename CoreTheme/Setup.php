@@ -6,11 +6,10 @@ require_once(get_template_directory() . '/AisisCore/Loader/AutoLoader.php');
 $auto_loader = AisisCore_Loader_AutoLoader::get_instance();
 $auto_loader->register_auto_loader();
 
+require_once(CORETHEME . 'Hooks.php');
+
 // Set up the exception handler.
 new CoreTheme_Exceptions_ExceptionHandler();
-
-// Load the hooks
-new CoreTheme_Hooks();
 
 // Load a specific set of Css and JS scripts
 $scripts_to_load  = array(
@@ -101,6 +100,15 @@ $theme_setup = array(
 	)	
 );
 
+// Custom Folders
+$custom_folders = array(
+	'packages' => 'packages'
+);
+
+// Custom Folder MultiSite.
+$activation = new CoreTheme_Activation($custom_folders);
+$activation->on_activation();
+
 // Set up the theme.
 $theme = new AisisCore_Theme($theme_setup);
 
@@ -134,9 +142,11 @@ $package->load_package('ShortCodes', CORETHEME);
 
 if(is_admin()){
 	// Get and Load the Admin Panel	
-	$package->load_package('AdminPanel', CORETHEME);	
+	$package->load_package('AdminPanel', CORETHEME, false, true);
 	
 	// Load custom Post Types and Meta Boxes.
-	new CoreTheme_CustomPostTypes_Types();
-	new CoreTheme_CustomPostTypes_MetaBoxes();
+	if(!is_child_theme()){
+		new CoreTheme_CustomPostTypes_Types();
+		new CoreTheme_CustomPostTypes_MetaBoxes();
+	}
 }

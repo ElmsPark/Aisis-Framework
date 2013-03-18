@@ -1,37 +1,73 @@
 <?php
 
 // Define our paths
-define('THEME', get_template_directory() . '/');
-define('CORETHEME', get_template_directory() . '/CoreTheme/');
-define('CORETHEME_LOADER', get_template_directory() . '/CoreTheme/Loader/');
-define('CORETHEME_TEMPLATES_VIEW', get_template_directory() . '/CoreTheme/Templates/View/');
-define('CORETHEME_META_TEMPLATES', get_template_directory() . '/CoreTheme/CustomPostTypes/MetaTemplates/');
-define('CORETHEME_ADMIN', get_template_directory() . '/CoreTheme/AdminPanel/');
-define('CORETHEME_ADMIN_TEMPLATES', get_template_directory() . '/CoreTheme/AdminPanel/Templates/');
-define('CORETHEME_SHORTCODES', get_template_directory() . '/CoreTheme/ShortCodes/');
-define('CORETHEME_ADMIN_TWITTER', get_template_directory() . '/CoreTheme/AdminPanel/TwitterBootStrap/');
+if(!defined('THEME')){
+	define('THEME', get_template_directory() . '/');
+}
+
+if(!defined('CORETHEME')){
+	define('CORETHEME', get_template_directory() . '/CoreTheme/');
+}
+
+if(!defined('CORETHEME_LOADER')){
+	define('CORETHEME_LOADER', get_template_directory() . '/CoreTheme/Loader/');
+}
+
+if(!defined('CORETHEME_TEMPLATES_VIEW')){
+	define('CORETHEME_TEMPLATES_VIEW', get_template_directory() . '/CoreTheme/Templates/View/');
+}
+
+if(!defined('CORETHEME_META_TEMPLATES')){
+	define('CORETHEME_META_TEMPLATES', get_template_directory() . '/CoreTheme/CustomPostTypes/MetaTemplates/');
+}
+
+if(!defined('CORETHEME_ADMIN')){
+	define('CORETHEME_ADMIN', get_template_directory() . '/CoreTheme/AdminPanel/');
+}
+
+if(!defined('CORETHEME_ADMIN_TEMPLATES')){
+	define('CORETHEME_ADMIN_TEMPLATES', get_template_directory() . '/CoreTheme/AdminPanel/Templates/');
+}
+
+if(!defined('CORETHEME_SHORTCODES')){
+	define('CORETHEME_SHORTCODES', get_template_directory() . '/CoreTheme/ShortCodes/');
+}
+
+if(!defined('CORETHEME_ADMIN_TWITTER')){
+	define('CORETHEME_ADMIN_TWITTER', get_template_directory() . '/CoreTheme/AdminPanel/TwitterBootStrap/');
+}
 
 // Multi Site?
 if(is_multisite()){
-	define('CUSTOM', get_template_directory() . '/' . $blog_id . '-custom/');
+	if(!defined('CUSTOM')){
+		define('CUSTOM', get_template_directory() . '/' . $blog_id . '-custom/');
+	}
 }else{
-	define('CUSTOM', get_template_directory() . '/custom/');
+	if(!defined('CUSTOM')){
+		define('CUSTOM', get_template_directory() . '/custom/');
+	}
 }
 
 //require the setup file.
 require_once(CORETHEME . 'Setup.php');
 
 //Don't touch if you dont want "headers alread sent.." shit....
-function callback($buffer){
-    return $buffer;
+if(!function_exists('callback')){
+	function callback($buffer){
+	    return $buffer;
+	}
 }
 
-function add_ob_start(){
-	ob_start("callback");
+if(!function_exists('add_ob_start')){
+	function add_ob_start(){
+		ob_start("callback");
+	}
 }
 
-function flush_ob_end(){
-    ob_end_flush();
+if(!function_exists('flush_ob_end')){
+	function flush_ob_end(){
+	    ob_end_flush();
+	}
 }
 
 add_action('init', 'add_ob_start');

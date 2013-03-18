@@ -36,31 +36,37 @@ class AisisCore_Loader_Package {
 	public function init(){}
 	
 	/**
-	 * This function allows us to load one of two types of packages: custom or internal.
+	 * We will load a internal or custom package if you are or not a child theme.
 	 * 
-	 * <p>this function has two main goals. One is to load the custom package that
-	 * is located in theme/custom/packages/PackageName while the other is to load an internal
-	 * pacage. That is a package which is core to the themes functioanlity.</p>
+	 * <p>We give you a series of options to try and determine what type of package you are loading.
+	 * Custom packages do not need or require a dir path passed in as we have that set in stone.</p>
 	 * 
-	 * <p>If the directory is null, or not null, but custom is true, we will load the custom
-	 * package based onthe name or the name and the directory.</p>
+	 * <p>The package name is the name of the folder the Setup.php file is inside of, this is the root folder.</p>
 	 * 
-	 * <p>If the directory is null and the custom option is false, we will load the internal
-	 * package based on the directory and the package name.</p>
+	 * <p>The child option will only load a package if the current active theme is not a child theme.
+	 * For child themes who want to implement features turned off to them, they have to recall the load_package()
+	 * function with appropriate params passed in.</p>
 	 * 
-	 * <p>By default we load the custom package based on the name you pass in.</p>
-	 * 
-	 * @param string $package_name - the name of the folder.
-	 * @param string $dir
-	 * @param bool $custom
+	 * @param string $package_name - Name of the root foldr the Setup.php is inside of.
+	 * @param string | optional $dir - The path to the package, used for internal.
+	 * @param bool | optional $custom - Should we look in the custom/packages folder?
+	 * @param bool | optional $child - Load only when not achild theme?
 	 */
-	public function load_package($package_name, $dir = null, $custom = false){
-		if($dir != null && $custom == false){
-			$this->_load_internal_package($dir, $package_name);
-		}elseif($dir != null && $custom){
-			$this->_load_custom_package($package_name, $dir);
+	public function load_package($package_name, $dir = null, $custom = false, $child = false){
+		if($child == true){
+			if(!is_child_theme()){
+				if(!$custom){
+					$this->_load_internal_package($dir, $package_name);
+				}else{
+					$this->_load_custom_package($package_name);
+				}
+			}
 		}else{
-			$this->_load_custom_package($package_name);
+			if(!$custom){
+				$this->_load_internal_package($dir, $package_name);
+			}else{
+				$this->_load_custom_package($package_name);
+			}			
 		}
 	}
 	
@@ -73,29 +79,16 @@ class AisisCore_Loader_Package {
 	 * @param string $package
 	 * @throws AisisCore_Loader_LoaderException
 	 */
-	protected function _load_custom_package($package, $dir = null){
-		if($dir != null){
-			if($this->_package_exists(bloginfo('template_directory') .'/custom/'.$dir . $package)){
-				if($this->_package_empty(bloginfo('template_directory') .'/custom/'.$dir . $package)){
-					require_once(bloginfo('template_directory').'/custom/'.$dir . $package . '/Setup.php');
-				}else{
-					throw new AisisCore_Loader_LoaderException('<p>'.$package.' Is empty.</p>');
-				}
+	protected function _load_custom_package($package){
+		if($this->_package_exists(bloginfo('template_directory') .'/custom/packages/'. $package)){
+			if($this->_package_empty(bloginfo('template_directory') .'/custom/packages/'. $package)){
+				require_once(bloginfo('template_directory') .'/custom/packages/'. $package .'/Setup.php');
 			}else{
-				throw new AisisCore_Loader_LoaderException('<p>'.$package.' Could not be found.</p>');
+				throw new AisisCore_Loader_LoaderException('<p>'.$package.' Is empty.</p>');
 			}
 		}else{
-			if($this->_package_exists(bloginfo('template_directory') .'/custom/packages/'. $package)){
-				if($this->_package_empty(bloginfo('template_directory') .'/custom/packages/'. $package)){
-					require_once(bloginfo('template_directory') .'/custom/packages/'. $package .'/Setup.php');
-				}else{
-					throw new AisisCore_Loader_LoaderException('<p>'.$package.' Is empty.</p>');
-				}
-			}else{
-				throw new AisisCore_Loader_LoaderException('<p>'.$package.' Could not be found.</p>');
-			}
-		}
-			
+			throw new AisisCore_Loader_LoaderException('<p>'.$package.' Could not be found.</p>');
+		}	
 	}
 	
 	/**

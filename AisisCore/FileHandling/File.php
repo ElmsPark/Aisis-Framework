@@ -67,7 +67,7 @@ class AisisCore_FileHandling_File {
 		if (is_dir ( $dir )) {
 			return true;
 		} elseif ($create_dir == true) {
-			return mkdir ( $dir );
+			return @mkdir ( $dir );
 		}
 		
 		return false;
