@@ -1,13 +1,34 @@
 <?php
-
+/**
+ * This file is responsible for getting, checking for and physically updating Aisis.
+ *
+ * <p>To update Aisis we simply pull a zip, unzip it using WordPress and overwrite any files we need to in the update.
+ * We check and XML file for an update and pull the notes from the same location as the xml file.</p>
+ * 
+ * @see AisisCore_Interfaces_Upgrade
+ * 
+ * @package CoreTheme
+ */
 class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 	
+	/**
+	 * @var simplexml_load_file
+	 */
 	protected $_xml_object;
 	
+	/**
+	 * Grab the contents of the xml file.
+	 * 
+	 * @see simplexml_load_file
+	 */
 	public function __construct(){
 		$this->_xml_object = simplexml_load_file('http://adambalan.com/aisis/aisis_update/aisis_version.xml');
 	}
 	
+	/**
+	 * @see AisisCore_Interfaces_Upgrade::check_for_update()
+	 * @return true | nothing
+	 */
 	public function check_for_update(){
 		if($this->check_theme_version() != '' && $this->get_update_notice() == 'yes'){
 			if(version_compare($this->check_theme_version(), $this->get_current_version(), '>')){
@@ -16,6 +37,10 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 		}
 	}
 	
+	/**
+	 * @see AisisCore_Interfaces_Upgrade::upgrade()
+	 * @link http://codex.wordpress.org/Function_Reference/unzip_file
+	 */
 	public function upgrade(){
 		global $wp_filesystem;
 		
@@ -44,6 +69,9 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 		}		
 	}
 	
+	/**
+	 * Check if we need to ask for FTP creds.
+	 */
 	protected function _cred_check(){
 		$aisis_file_system_structure = WP_Filesystem();
 		if($aisis_file_system_structure == false){
@@ -54,16 +82,22 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 		return false;
 	}	
 	
+	/**
+	 * Get the version from the xml file.
+	 * 
+	 * @return string $aisis_version
+	 */
 	public function check_theme_version(){
 		$aisis_version = $this->_xml_object->version[0];
 		return trim($aisis_version);	
 	}
 	
-	public function get_update_notice(){
-		$update = $this->_xml_object->update[0];
-		return trim($update);			
-	}
-	
+	/**
+	 * Get the current version from the themes style.css
+	 * 
+	 * @link http://codex.wordpress.org/Function_Reference/wp_get_theme
+	 * @return string
+	 */
 	public function get_current_version(){
 		if(function_exists('wp_get_theme')){
 			if(wp_get_theme()->exists()){

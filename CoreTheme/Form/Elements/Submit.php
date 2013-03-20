@@ -1,6 +1,18 @@
 <?php
+/**
+ * Recreates the submit button for the use of CoreTheme.
+ *
+ * @see AisisCore_Form_Elements_Submit
+ * 
+ * @package CoreTheme_Form_Elements_Submit
+ */
 class CoreTheme_Form_Elements_Submit extends AisisCore_Form_Elements_Submit {
 
+	/**
+	 * We have recreated the submit button for CoreTheme.
+	 * 
+	 * @see AisisCore_Form_Elements_Submit::init()
+	 */
 	public function init(){
 		if(isset($this->_options['form_actions']) && $this->_options['form_actions'] == true){
 			$this->_html .= '<div class="form-actions">';

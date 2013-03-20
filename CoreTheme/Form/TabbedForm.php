@@ -1,9 +1,36 @@
 <?php
-
+/**
+ * This is a new form that allows you to create tabbed forms.
+ * 
+ * <p>This means that no matter the tab you are on with in the form you can hit submit at any time.
+ * This type of form use an array of elements to create the elemts for said tab.</p>
+ * 
+ * <p>The following is an example of how to  set up one tab in the tabbed form.</p>
+ * 
+ *	<p><code>$array = array(
+ * 		'method' => 'post',
+ *		'action' => 'options.php',
+ *		'class' => 'form-vertical',
+ *		'settings' => 'aisis_options',
+ *		array(
+ *			'tab' => 'Posts',
+ *			'elements' => array(
+ *				$posts->elements()
+ *			),
+ *		),
+ *  );</code></p>
+ *
+ */
 class CoreTheme_Form_TabbedForm extends CoreTheme_Form_Form{
 	
+	/**
+	 * @var string
+	 */
 	protected $_html = '';
 	
+	/**
+	 * @see AisisCore_Form_Form::init()
+	 */
 	public function init(){
 		parent::init();
 		
@@ -19,6 +46,9 @@ class CoreTheme_Form_TabbedForm extends CoreTheme_Form_Form{
 		$this->close_form();
 	}
 
+	/**
+	 * Create the tabs.
+	 */
 	public function create_tabs(){
 		$this->_html .= '<ul class="nav nav-tabs">';
 		
@@ -32,6 +62,9 @@ class CoreTheme_Form_TabbedForm extends CoreTheme_Form_Form{
 		$this->_html .= '</ul>';
 	}
 	
+	/**
+	 * Create the elements with in the tabs.
+	 */
 	public function create_content(){
 		$active = 'active';
 		
@@ -58,6 +91,9 @@ class CoreTheme_Form_TabbedForm extends CoreTheme_Form_Form{
 		$this->_html .= '</div>';
 	}
 
+	/**
+	 * @see AisisCore_Form_Form::__toString()
+	 */
 	public function __toString(){
 		return $this->_html;
 	}

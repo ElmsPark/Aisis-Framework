@@ -329,23 +329,28 @@ class AisisCore_Template_Helpers_Loop{
 	}
 	
 	/**
+	 * Disaply a sidebar so long as  the options key does not match. Also
+	 * to be used in conjunction with WordPress conditionals.
 	 * 
 	 * @param string | array $key
-	 * 
+	 * @link http://codex.wordpress.org/Conditional_Tags
 	 */
-	public function sidebar($keys = array()){
+	public function sidebar($keys = ''){
 		$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');		
 		
-		if(is_array($keys)){
+		if(is_array($keys) && !empty($keys)){
 			foreach($keys as $key){
 				if(!$builder->get_specific_option($key)){
 					get_sidebar();
 				}
 			}
-		}else{
+		}elseif($keys != ''){
+
 			if(!$builder->get_specific_option($keys)){
 				get_sidebar();
 			}
+		}else{
+			get_sidebar();
 		}
 	}
 	

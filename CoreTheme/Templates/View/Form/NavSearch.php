@@ -1,6 +1,17 @@
 <?php
+/**
+ * Create the search form for the navigation.
+ *
+ * @see AisisCore_Form_Form
+ * @package CoreTheme_Templates_View_Form
+ */
 class CoreTheme_Templates_View_Form_NavSearch extends AisisCore_Form_Form {
 	
+	/**
+	 * Create the form with the elements.
+	 * 
+	 * @see AisisCore_Form_Form::init()
+	 */
 	public function init(){
 		$elements = array(
 			$this->input_element()
@@ -11,6 +22,11 @@ class CoreTheme_Templates_View_Form_NavSearch extends AisisCore_Form_Form {
 		parent::init();
 	}
 	
+	/**
+	 * Create an input element.
+	 * 
+	 * @return CoreTheme_Form_Elements_Input $input
+	 */
 	public function input_element(){
 		
 		$input_options = array(

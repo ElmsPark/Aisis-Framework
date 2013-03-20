@@ -1,7 +1,19 @@
 <?php
-
+/**
+ * This is a utillity class with useful functions for the theme and for view pages.
+ * 
+ * <p>This class is meant to house utillity based functions that help the developers, designers and
+ * implementers create views with ease.</p>
+ * 
+ * @package CoreTheme_Templates_View_Helpers
+ */
 class CoreTheme_Templates_View_Helpers_ThemeUtil{
 		
+	/**
+	 * Disaplay all tags for a given category.
+	 * 
+	 * @return html.
+	 */
 	public function category_tags(){
 		$html = '';
 		

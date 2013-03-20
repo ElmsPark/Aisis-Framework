@@ -1,6 +1,14 @@
 <?php
+/**
+ * This class is used to generate and create all custom post types.
+ *
+ * @package CoreTheme_CustomPostTypes
+ */
 class CoreTheme_CustomPostTypes_Types {
 	
+	/**
+	 * Sets up the custom post types.
+	 */
 	public function __construct() {
 		add_action('after_switch_theme', array ($this, 'aisis_flush_re_write'));
 		
@@ -17,6 +25,9 @@ class CoreTheme_CustomPostTypes_Types {
 		}
 	}
 	
+	/**
+	 * Creates the Aisis Mini Feed custom post type.
+	 */
 	public function aisis_mini_feed() {
 		$labels = array(
 			'name'                => _x( 'Mini-Feeds', 'Post Type General Name', 'text_domain' ),
@@ -65,6 +76,9 @@ class CoreTheme_CustomPostTypes_Types {
 		register_post_type( 'mini-feed', $args );
 	}
 
+	/**
+	 * Creates the Aisis Carousel post type.
+	 */
 	public function aisis_carousel() {
 		$labels = array(
 			'name'                => _x( 'Carousels', 'Post Type General Name', 'text_domain' ),
@@ -113,6 +127,9 @@ class CoreTheme_CustomPostTypes_Types {
 		register_post_type( 'carousel', $args );
 	}
 	
+	/**
+	 * Set up the rewrite rules and flush them.
+	 */
 	public function aisis_flush_re_write() {
 		flush_rewrite_rules ();
 	}

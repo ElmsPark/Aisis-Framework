@@ -1,7 +1,17 @@
 <?php
-
+/**
+ * This is an extension of the AisisCore Form.
+ *
+ * @package CoreTheme_Form
+ */
 class CoreTheme_Form_Form extends AisisCore_Form_Form {
 	
+	/**
+	 * We essentially style the elements of forms with twitter bootstrap.
+	 * 
+	 * @see AisisCore_Form_Form::elements()
+	 * @return sting $_html
+	 */
 	public function elements($elements, $sub_section = array(), $return = false){		
 		$this->_html .= '<fieldset>';
 		

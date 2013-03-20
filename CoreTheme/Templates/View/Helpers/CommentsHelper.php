@@ -1,9 +1,14 @@
 <?php
-
+/**
+ * Creates Twitter boostrap comment lay out.
+ * 
+ * @package CoreTheme_Templates_View_Helpers
+ */
 class CoreTheme_Templates_View_Helpers_CommentsHelper {
 
-	public function __construct(){}
-	
+	/**
+	 * Gets a list of comments.
+	 */
 	public function get_comments(){
 		$args = array(
 			'callback' => array($this, 'aisis_comment_user')
@@ -12,6 +17,13 @@ class CoreTheme_Templates_View_Helpers_CommentsHelper {
 		wp_list_comments($args);
 	}
 	
+	/**
+	 * Displays the comment of a single user..
+	 * 
+	 * @param WordPress $comment
+	 * @param WordPress $args
+	 * @param WordPress $depth
+	 */
 	public function aisis_comment_user($comment, $args, $depth) {
 		$html = '';
 		$html .= '<li id="comment-'.get_comment_ID().'" class="media '.$this->is_admin_css().'">';
@@ -55,6 +67,11 @@ class CoreTheme_Templates_View_Helpers_CommentsHelper {
 		echo $html;
 	}
 	
+	/**
+	 * If the commenter is admin we have seperate css for that.
+	 * 
+	 * @return css class - well
+	 */
 	public function is_admin_css(){
 		global $comment;
 		if(1 == $comment->user_id){
@@ -62,6 +79,11 @@ class CoreTheme_Templates_View_Helpers_CommentsHelper {
 		}
 	}
 	
+	/**
+	 * Styles the commenter's avatar
+	 * 
+	 * @return string $avatar
+	 */
 	public function the_commenter_avatar() {
 	    global $comment;
 	    $avatar = str_replace( "class='avatar", "class='img-rounded avatar", get_avatar( $comment, "64" ) );

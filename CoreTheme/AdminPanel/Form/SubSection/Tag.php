@@ -1,6 +1,21 @@
 <?php
+/**
+ * This class is responsible for creating a sub section called Tag.
+ *
+ * <p>This sub section contains elements and options relating to the tags page and how specific
+ * content about the tag is displayed.</p>
+ *
+ * @see AisisCore_Form_SubSection
+ *
+ * @package CoreTheme_AdminPanel_Form_SubSection
+ */
 class CoreTheme_AdminPanel_Form_SubSection_Tag{
-		
+
+	/**
+	 * Set up the subsection.
+	 *
+	 * @return array $section
+	 */	
 	public function tag_header_sub_section(){
 		$section = array(
 			'sub_elements' => array(
@@ -17,7 +32,12 @@ class CoreTheme_AdminPanel_Form_SubSection_Tag{
 
 		return $section;
 	}
-
+	
+	/**
+	 * Set up the tag description option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */	
 	protected function _tag_description(){
 		$check = array(
 			'name' => 'aisis_options[tag_description]',
@@ -32,6 +52,11 @@ class CoreTheme_AdminPanel_Form_SubSection_Tag{
 		return $check_box;
 	}
 
+	/**
+	 * Set up the tag sidebar option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */	
 	protected function _tag_sidebar(){
 		$check = array(
 			'name' => 'aisis_options[tag_sidebar]',

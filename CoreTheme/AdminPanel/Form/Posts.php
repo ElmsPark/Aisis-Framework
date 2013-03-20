@@ -1,9 +1,19 @@
 <?php
-
+/**
+ * Deals mostly with posts and how some of the archive pages are displayed.
+ * 
+ * @see AisisCore_Form_Element
+ * 
+ * @package CoreTheme_AdminPanel_Form
+ */
 class CoreTheme_AdminPanel_Form_Posts{
 	
-	public function __construct(){}
-	
+	/**
+	 * Gathers all the elements together and returns an array of them to be used in
+	 * the tabbed form.
+	 *
+	 * @see CoreTheme_Form_TabbedForm
+	 */	
 	public function elements(){
 			
 		$array_elements = array(
@@ -23,6 +33,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $array_elements;
 	}
 	
+	/**
+	 * Sets up the posts content header.
+	 *
+	 * @return AisisCore_Form_Elements_Content $content_header
+	 */	
 	protected function _content_posts_header(){
 		$content = array(
 			'class' => 'modified-hero-unit',
@@ -37,6 +52,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $content_header;
 	}
 	
+	/**
+	 * Sets up the display lists option.
+	 * 
+	 * @return CoreTheme_Form_Elements_Radio $radio_element
+	 */
 	protected function _lists_posts(){
 		$radio = array(
 			'name' => 'aisis_options[posts_display]',
@@ -59,7 +79,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $radio_element;
 	}
 	
-	
+	/**
+	 * Sets up the display rows option.
+	 *
+	 * @return CoreTheme_Form_Elements_Radio $radio_element
+	 */	
 	protected function _rows_posts(){
 		$radio = array(
 			'name' => 'aisis_options[posts_display]',
@@ -81,6 +105,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $radio_element;
 	}
 	
+	/**
+	 * Sets up the display regular option.
+	 *
+	 * @return CoreTheme_Form_Elements_Radio $radio_element
+	 */	
 	protected function _regular_posts(){
 		$radio = array(
 			'name' => 'aisis_options[posts_display]',
@@ -98,6 +127,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $radio_element;
 	}	
 	
+	/**
+	 * Sets up the category content header.
+	 *
+	 * @return AisisCore_Form_Elements_Content $content_header
+	 */
 	protected function _content_category_posts_header(){
 		$content = array(
 			'class' => 'modified-hero-unit',
@@ -112,6 +146,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $content_header;
 	}	
 	
+	/**
+	 * Sets up the display category header option.
+	 * 
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */
 	protected function _category_posts_headers(){
 		$check = array(
 			'name' => 'aisis_options[category_header]',
@@ -129,8 +168,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $check_box;
 	}
 	
-	
-
+	/**
+	 * Sets up the author content header.
+	 *
+	 * @return AisisCore_Form_Elements_Content $content_header
+	 */	
 	protected function _content_author_posts_header(){
 		$content = array(
 			'class' => 'modified-hero-unit',
@@ -145,6 +187,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $content_header;
 	}
 	
+	/**
+	 * Sets up the display author header option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */	
 	protected function _author_posts(){
 		$check = array(
 			'name' => 'aisis_options[author_posts]',
@@ -162,7 +209,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $check_box;
 	}
 	
-
+	/**
+	 * Sets up the tag content header.
+	 *
+	 * @return AisisCore_Form_Elements_Content $content_header
+	 */
 	protected function _content_tag_posts_header(){
 		$content = array(
 			'class' => 'modified-hero-unit',
@@ -176,7 +227,12 @@ class CoreTheme_AdminPanel_Form_Posts{
 		$content_header = new AisisCore_Form_Elements_Content($content);
 		return $content_header;
 	}
-
+	
+	/**
+	 * Sets up the display tags header option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */
 	protected function _tag_posts_headers(){
 		$check = array(
 			'name' => 'aisis_options[tag_header]',
@@ -194,8 +250,11 @@ class CoreTheme_AdminPanel_Form_Posts{
 		return $check_box;
 	}
 	
-	
-
+	/**
+	 * Creates a submit button.
+	 * 
+	 * @return CoreTheme_Form_Elements_Submit $submit
+	 */
 	protected function _submit_element(){
 		$submit = array(
 			'value'=> 'Submit',

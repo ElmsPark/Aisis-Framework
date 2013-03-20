@@ -28,7 +28,6 @@ $builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 
 $loop = new CoreTheme_Templates_View_Helpers_CustomLoop($options);
 
-
 if(!is_home()){
 	if(is_category()){
 		$loop->sidebar('category_sidebar');

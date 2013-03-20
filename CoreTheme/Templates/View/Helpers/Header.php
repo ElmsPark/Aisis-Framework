@@ -1,11 +1,30 @@
 <?php
-
+/**
+ * This class will build the "header" that sits at the top of category, author and tag
+ * related archives.
+ *
+ * <p>The well box that is created by selecting various options for the tags, category and author "headers"
+ * are then demonstrated and built bellow.</p>
+ * 
+ * @package CoreTheme_Templates_View_Helpers
+ */
 class CoreTheme_Templates_View_Helpers_Header{
 	
+	/**
+	 * @var string
+	 */
 	protected $_html = '';
 	
+	/**
+	 * @var AisisCore_Template_Builder
+	 */	
 	protected $_builder;
 	
+	/**
+	 * All you have to do is call this class as a "new CoreTheme_Templates_View_Helpers_Header()" nd we do the rest for you.
+	 * 
+	 * <p>We will build headrs for the author, tag and category section.</p>
+	 */
 	public function __construct(){
 		$this->_builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 		
@@ -16,10 +35,21 @@ class CoreTheme_Templates_View_Helpers_Header{
 		}elseif(is_author()){
 			echo $this->build_author_function();
 		}
+		
+		$this->init();
 	}
 	
+	/**
+	 * When extending this class make sure to over ride this function
+	 * with all your constuctor logic.
+	 */
 	public function init(){}
 	
+	/**
+	 * Build the category header.
+	 * 
+	 * @return mixd $_html.
+	 */
 	public function build_category_function(){
 		$category = get_the_category(); 
 		
@@ -43,6 +73,11 @@ class CoreTheme_Templates_View_Helpers_Header{
 		return $this->_html;
 	}
 	
+	/**
+	 * Build the tag header.
+	 * 
+	 * @return mixd $_html.
+	 */
 	public function build_tag_function(){
 		
 		if($this->_builder->get_specific_option('tag_header')){
@@ -60,6 +95,11 @@ class CoreTheme_Templates_View_Helpers_Header{
 		return $this->_html;
 	}	
 	
+	/**
+	 * Build the author header.
+	 * 
+	 * @return mixd $_html.
+	 */
 	public function build_author_function(){
 		global $wp_query;
 		$curauth = $wp_query->get_queried_object();

@@ -1,7 +1,15 @@
 <?php
-
+/**
+ * Style exception messages.
+ * 
+ * @see AisisCore_Exceptions_ExceptionHandler
+ * @package CoreTheme_Exceptions
+ */
 class CoreTheme_Exceptions_ExceptionHandler extends AisisCore_Exceptions_ExceptionHandler{
 	
+	/**
+	 * @see AisisCore_Exceptions_ExceptionHandler::exception_handler()
+	 */
 	public function exception_handler($exception){
 		$html = ''; 
 		

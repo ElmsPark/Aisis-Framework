@@ -1,6 +1,17 @@
 <?php
+/**
+ * Deals with updateing the theme and createing the form to do so.
+ * 
+ * @see CoreTheme_Update
+ * @see CoreTheme_Form_Form
+ * 
+ * @package CoreTheme_AdminPanel_Form
+ */
 class CoreTheme_AdminPanel_Form_Update extends CoreTheme_Form_Form{
 	
+	/**
+	 * @see AisisCore_Form_Form::init()
+	 */
 	public function init(){
 		$elements = array(
 			$this->_update_button(),
@@ -9,6 +20,11 @@ class CoreTheme_AdminPanel_Form_Update extends CoreTheme_Form_Form{
 		$this->create_form($elements);
 	}
 	
+	/**
+	 * Creates an update button.
+	 *  
+	 * @return CoreTheme_Form_Elements_Submit $submit
+	 */
 	protected function _update_button(){
 		$button = array(
 			'class' => 'btn btn-large',

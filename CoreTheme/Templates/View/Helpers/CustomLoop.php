@@ -1,6 +1,25 @@
 <?php
+/**
+ * This class deatils and creates custom loops for Aisis.
+ * 
+ * <p>We extend the CoreTheme Loop which in turns extends the Aisis Core Loop, and then we build the various loops
+ * bellow. The way to use this class is to cll the custom_loop() function which will then build the loops for the front page.
+ * The other public function is the custom_post_types_loop which takes in either carousel or mini as the option and renders a loop
+ * based off of that.</p>
+ * 
+ * @see CoreTheme_Templates_View_Helpers_Loop
+ * @see AisisCore_Template_Helpers_Loop
+ *
+ * @package CoreTheme_Templates_View_Helpers
+ */
 class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_View_Helpers_Loop{
 	
+	/**
+	 * Renders a loop based on the type passed in.
+	 * 
+	 * @param string $type - carousel or mini
+	 * @throws AisisCore_Template_TemplateException
+	 */
 	public function custom_post_types_loop($type){
 		if($type == ''){
 			throw new AisisCore_Template_TemplateException('Type cannot be empty.');
@@ -16,6 +35,9 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 		
 	}
 	
+	/**
+	 * Renders either lis, regular or rows loop based on the options selected.
+	 */
 	public function custom_loop(){
 		$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 		
@@ -31,12 +53,17 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 					echo '<div class="span6 marginLeft50">';
 				}
 				
-				$this->loop();
+				$array = array(
+					'posts_per_page' => 3
+				);
 				
+				$this->_query_post($array);
+							
 				if(is_active_sidebar('aisis-side-bar')){
 					echo '</div>';
 				}
 				
+				//get_sidebar();
 				$this->sidebar();
 			}else{
 				echo '<div class="alert">There are no options selected to display posts! Please 
@@ -47,6 +74,12 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 		}		
 	}
 	
+	/**
+	 * Creates a "more" button based the option value passed in.
+	 * 
+	 * @param string $option_key
+	 * @param AisisCore_Template_Builder $builder
+	 */
 	public function create_more_button($option_key, AisisCore_Template_Builder $builder){
 		if($builder->get_specific_option('lists_more_posts_rows')){
 			echo '<div class="center"><a href="'.$builder->get_specific_option($option_key).'" class="btn btn-success btn-large-custom">
@@ -54,6 +87,9 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 		}
 	}
 	
+	/**
+	 * Builds the list of posts. Displays up to 5 posts - If there is a sticky post we display up to 6.
+	 */
 	protected function _build_list(){
 		$html = '';
 		
@@ -84,6 +120,24 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 		echo $html;
 	} 
 
+	/**
+	 * Builds rows based on the queries.
+	 * 
+	 * <p>
+	 * <code>
+	 * // Example of a array of queries:
+	 * $query = array(
+	 *     'three' => array('posts_per_page' => 3, 'ignore_sticky_posts' => 1),
+	 *     'six' => array('posts_per_page' => 3, 'offset' => 3, 'ignore_sticky_posts' => 1),
+	 * );
+	 * 
+	 * // key -> the name of the query
+	 * // value -> the array of query.
+	 * </code>
+	 * </p>
+	 * 
+	 * @param array $queries
+	 */
 	protected function _build_rows(array $queries){
 		$html = '';
 		
@@ -109,29 +163,37 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 		echo $html;	
 	} 
 	
+	/**
+	 * Builds the queries for the row.
+	 * 
+	 * @param AisisCore_Template_Builder $builder
+	 */
 	protected function _build_query_object(AisisCore_Template_Builder $builder){
 		$query = array();
 				
 		if($builder->get_specific_option('rows') == 'rows_three'){
 			$query = array(
-				'three' => array('posts_per_page' => 3)
+				'three' => array('posts_per_page' => 3,  'ignore_sticky_posts' => 1)
 			);
 		}elseif($builder->get_specific_option('rows') == 'rows_six'){
 			$query = array(
-				'three' => array('posts_per_page' => 3),
-				'six' => array('posts_per_page' => 3, 'offset' => 3),
+				'three' => array('posts_per_page' => 3, 'ignore_sticky_posts' => 1),
+				'six' => array('posts_per_page' => 3, 'offset' => 3, 'ignore_sticky_posts' => 1),
 			);
 		}elseif($builder->get_specific_option('rows') == 'rows_nine'){
 			$query = array(
-				'three' => array('posts_per_page' => 3),
-				'six' => array('posts_per_page' => 3, 'offset' => 3),
-				'nine' => array('posts_per_page' => 3, 'offset' => 6),
+				'three' => array('posts_per_page' => 3, 'ignore_sticky_posts' => 1),
+				'six' => array('posts_per_page' => 3, 'offset' => 3, 'ignore_sticky_posts' => 1),
+				'nine' => array('posts_per_page' => 3, 'offset' => 6, 'ignore_sticky_posts' => 1),
 			);
 		}
 		
 		return $query;
 	}
 	
+	/**
+	 * Builds the carousel.
+	 */
 	protected function _build_carousel(){
 		$carousel = '';
 
@@ -147,6 +209,9 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 		echo $carousel;
 	}
 	
+	/**
+	 * Builds the active - first pane - of the carousel.
+	 */
 	protected function _carousel_active(){
 		global $post;
 		
@@ -176,6 +241,9 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 		return $html;
 	}	
 	
+	/**
+	 * Builds the rest of the slides for the carousel.
+	 */
 	protected function _carousel_slides(){
 		global $post;
 		
@@ -203,6 +271,9 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 		return $html;	
 	}
 	
+	/**
+	 * Creates up to three mini feeds.
+	 */
 	protected function _mini_posts_loop(){
 		global $post;
 		

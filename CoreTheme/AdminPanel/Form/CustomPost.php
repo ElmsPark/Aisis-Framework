@@ -1,7 +1,19 @@
 <?php
-
+/**
+ * Deals mostly with how custom post types are displayed on the site and where to display them.
+ * 
+ * @see AisisCore_Form_Element
+ * 
+ * @package CoreTheme_AdminPanel_Form
+ */
 class CoreTheme_AdminPanel_Form_CustomPost{
 	
+	/**
+	 * Gathers all the elements together and returns an array of them to be used in
+	 * the tabbed form.
+	 * 
+	 * @see CoreTheme_Form_TabbedForm
+	 */
 	public function elements(){
 		$elements = array(
 			$this->_carousel_content(),
@@ -17,6 +29,11 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $elements;
 	}
 	
+	/**
+	 * Sets up the carousel content header.
+	 * 
+	 * @return AisisCore_Form_Elements_Content $content_header
+	 */
 	protected function _carousel_content(){
 		$content = array(
 			'class' => 'modified-hero-unit',
@@ -30,6 +47,11 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $content_header;
 	}
 	
+	/**
+	 * Set up the remove carousel option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */
 	protected function _remove_carousel_global(){
 		$check = array(
 			'name' => 'aisis_options[carousel_global]',
@@ -51,6 +73,11 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $check_box;			
 	}
 	
+	/**
+	 * Set up the remove carousel from home option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */	
 	protected function _remove_carousel_home(){
 		$check = array(
 			'name' => 'aisis_options[carousel_home]',
@@ -67,6 +94,11 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $check_box;			
 	}
 	
+	/**
+	 * Set up the add carousel to single posts option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */	
 	protected function _add_carousel_single_post(){
 		$check = array(
 			'name' => 'aisis_options[carousel_single]',
@@ -84,6 +116,11 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $check_box;			
 	}
 	
+	/**
+	 * Sets up the minifeed content header.
+	 *
+	 * @return AisisCore_Form_Elements_Content $content_header
+	 */	
 	protected function _mini_feed_content(){
 		$content = array(
 			'class' => 'modified-hero-unit',
@@ -97,6 +134,11 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $content_header;			
 	}
 	
+	/**
+	 * Set up the remove mini feed option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */	
 	protected function _remove_mini_feed_global(){
 		$check = array(
 			'name' => 'aisis_options[mini_feed_global]',
@@ -114,6 +156,11 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $check_box;				
 	}
 	
+	/**
+	 * Set up the remove mini feed from home option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */	
 	protected function _remove_mini_feed_home(){
 		$check = array(
 			'name' => 'aisis_options[mini_feed_home]',
@@ -129,6 +176,11 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $check_box;			
 	}
 	
+	/**
+	 * Set up the add mini feeds to a single post option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $check_box
+	 */	
 	protected function _add_mini_feed_single_post(){
 		$check = array(
 			'name' => 'aisis_options[mini_feed_single]',
@@ -144,6 +196,11 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $check_box;			
 	}
 
+	/**
+	 * creates a submit button
+	 *
+	 * @return CoreTheme_Form_Elements_Submit $submit_element
+	 */	
 	protected function _submit_element(){
 		$submit = array(
 			'value'=> 'Submit',
@@ -155,6 +212,15 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 		return $submit_element;
 	}
 
+	/**
+	 * The following gets an option based on the key and option passed in.
+	 *
+	 * <p>in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.</p>
+	 *
+	 * @param string $option
+	 * @param string $key
+	 * @return true
+	 */	
 	protected function _disabled($option, $key){
 		$options = get_option($option);
 		

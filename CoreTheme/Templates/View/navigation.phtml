@@ -30,13 +30,17 @@
       		if(!$template->get_specific_option('socialbar')){
       			if($template->get_specific_option('social')){ 
 					foreach($template->get_specific_option('social') as $link=>$value){
-						echo '<a href="'.$value.'"><i class="icon-'.$link.' iconSeperator"></i></a>';
+						if($link != '' && $value != ''){
+							echo '<a href="'.$value.'"><i class="icon-'.$link.' iconSeperator"></i></a>';
+						}
 					}
 				}
 			}elseif($template->get_specific_option('socialbar') && !is_home()){
 				if($template->get_specific_option('social')){ 
 					foreach($template->get_specific_option('social') as $link=>$value){
-						echo '<a href="'.$value.'"><i class="icon-'.$link.' iconSeperator"></i></a>';
+						if($link != '' && $value != ''){
+							echo '<a href="'.$value.'"><i class="icon-'.$link.' iconSeperator"></i></a>';
+						}
 					}
 				}					
 			}?>		

@@ -1,8 +1,20 @@
 <?php
+/**
+ * This class sets up and creates the appropropriate meta boxes for the custom post types.
+ * 
+ * @package CoreTheme_CustomPostTypes
+ */
 class CoreTheme_CustomPostTypes_MetaBoxes {
 	
+	/**
+	 * @var AisisCore_Template_Builder
+	 */
 	protected $_template = null;
 
+	/**
+	 * Sets up the template builder and sets up 
+	 * the meta boxes for the custom post types.
+	 */
 	public function __construct() {
 		
 		if ($this->_template === null){
@@ -14,21 +26,44 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 		add_action ( 'save_post', array (&$this, 'aisis_carousel_save' ), 10, 2 );
 	}
 
+	/**
+	 * Adds the meta boxes to the custom post types.
+	 * 
+	 * @link http://codex.wordpress.org/Function_Reference/add_meta_box
+	 */
 	public function aisis_add_meta_boxes() {
 		add_meta_box ( 'aisis-meta-id', 'Mini Feeds Information', array(&$this, 'aisis_mini_feeds_info'), 'mini-feed', 'normal', 'high' );
 		add_meta_box ( 'aisis-carousel-id', 'Carousel Image', array(&$this, 'aisis_carousel_info'), 'carousel', 'normal', 'high' );
 	}
 
+	/**
+	 * Renders the Minid Feed Meta Box Template.
+	 * 
+	 * @param WordPress $post
+	 * @link http://codex.wordpress.org/Function_Reference/wp_nonce_field
+	 */
 	public function aisis_mini_feeds_info($post) {
 		wp_nonce_field ( 'aisis_mini_meta_box_nonce', 'mini_meta_box_nonce' );
 		$this->_template->render_view('Aisis-Mini-Feeds-Meta-Template');
 	}
 
+	/**
+	 * Renders the carousel template.
+	 * 
+	 * @param WordPress $post
+	 * @link http://codex.wordpress.org/Function_Reference/wp_nonce_field
+	 */
 	public function aisis_carousel_info($post) {
 		wp_nonce_field ( 'aisis_carousel_box_nonce', 'carousel_box_nonce' );
 		$this->_template->render_view('Aisis-Carousel-Meta-Template');
 	}
 
+	/**
+	 * Save operation for mini feed save.
+	 * 
+	 * @param WordPress $post_id
+	 * @param WordPress $post
+	 */
 	public function aisis_mini_feeds_save($post_id, $post) {
 		$http = new AisisCore_Http_Http();
 
@@ -37,7 +72,6 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 		}
 
 		$link_url['link'] = $http->get_post('aisis_content_link');
-		$image_url['image'] = $http->get_post('aisis_content_img');
 		$link_text['link_text'] = $http->get_post('link_text');
 
 		foreach($link_url as $key=>$value){
@@ -68,22 +102,14 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 				delete_post_meta($post->ID, $key);
 			}
 		}
-
-		foreach($image_url as $key=>$value){
-			$img_value = implode(',', (array)$value);
-
-			if(get_post_meta($post->ID, $key, false)){
-				update_post_meta($post->ID, $key, $img_value);
-			}else{
-				add_post_meta($post->ID, $key, $img_value);
-			}
-
-			if(!$img_value){
-				delete_post_meta($post->ID, $key);
-			}
-		}
 	}
 
+	/**
+	 * Save operation for the carousel.
+	 * 
+	 * @param WordPress $post_id
+	 * @param WordPress $post
+	 */
 	public function aisis_carousel_save($post_id, $post){
 		$http = new AisisCore_Http_Http();
 
@@ -91,24 +117,8 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 			return $post->ID;
 		}
 
-		$image_url['image'] = $http->get_post('aisis_content_img');
 		$link_url['link'] = $http->get_post('link_array');
 		$link_text['link_text'] = $http->get_post('link_text');
-
-		foreach($image_url as $key=>$value){
-
-			$image_url = implode(',', (array)$value);
-
-			if(get_post_meta($post->ID, $key, false)){
-				update_post_meta($post->ID, $key, $image_url);
-			}else{
-				add_post_meta($post->ID, $key, $image_url);
-			}
-
-			if(!$image_url){
-				delete_post_meta($post->ID, $key);
-			}
-		}
 
 		foreach($link_text as $key=>$value){
 			$link_text = implode(',', (array)$value);

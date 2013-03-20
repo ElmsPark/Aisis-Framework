@@ -1,10 +1,24 @@
 <?php
-
+/**
+ * This class deals with mutlti site installation and activation of this theme.
+ * 
+ * <p>This class will create approproiate fooldrs based on the multisite, so each site is different among
+ * the rest.</p>
+ *
+ * @see AisisCore_Interfaces_MultiSite
+ * @package CoreTheme
+ */
 class CoreTheme_MultiSite implements AisisCore_Interfaces_MultiSite{
 	
-	
+	/**
+	 * Basic contructor
+	 */
 	public function __construct(){}
 	
+	/**
+	 * @see AisisCore_Interfaces_MultiSite::create_components()
+	 * @return bool $created
+	 */
 	public function create_components($options){
 		global $blog_id;
 		

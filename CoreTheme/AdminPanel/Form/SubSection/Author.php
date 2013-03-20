@@ -1,7 +1,21 @@
 <?php
-
+/**
+ * This class is responsible for creating a sub section called Author.
+ * 
+ * <p>This sub section contains elements and options relating to the author page and how specific
+ * content about the author is displayed.</p>
+ * 
+ * @see AisisCore_Form_SubSection
+ * 
+ * @package CoreTheme_AdminPanel_Form_SubSection
+ */
 class CoreTheme_AdminPanel_Form_SubSection_Author{
-		
+	
+	/**
+	 * Set up the sub section.
+	 * 
+	 * @return array $section
+	 */
 	public function author_sub_section(){
 		$section = array(
 			'sub_elements' => array(
@@ -20,6 +34,11 @@ class CoreTheme_AdminPanel_Form_SubSection_Author{
 		return $section;
 	}
 
+	/**
+	 * Set up the author image option.
+	 * 
+	 * @return CoreTheme_Form_Elements_Checkbox $checkbox
+	 */
 	protected function _author_image(){
 		$check = array(
 			'name' => 'aisis_options[author_image]',
@@ -34,6 +53,11 @@ class CoreTheme_AdminPanel_Form_SubSection_Author{
 		return $check_box;
 	}
 
+	/**
+	 * Set up the author bio option.
+	 * 
+	 * @return CoreTheme_Form_Elements_Checkbox $checkbox
+	 */
 	protected function _author_bio(){
 		$check = array(
 			'name' => 'aisis_options[author_bio]',
@@ -48,6 +72,11 @@ class CoreTheme_AdminPanel_Form_SubSection_Author{
 		return $check_box;
 	}
 
+	/**
+	 * Set up the author sidebar option.
+	 *
+	 * @return CoreTheme_Form_Elements_Checkbox $checkbox
+	 */
 	protected function _author_sidebar(){
 		$check = array(
 			'name' => 'aisis_options[author_sidebar]',

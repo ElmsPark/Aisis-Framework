@@ -1,8 +1,19 @@
 <?php
+/**
+ * Deals mostly with the social aspects and how we display the social media icons.
+ *
+ * @see AisisCore_Form_Element
+ *
+ * @package CoreTheme_AdminPanel_Form
+ */
 class CoreTheme_AdminPanel_Form_Social{
 	
-	public function __construct(){}
-	
+	/**
+	 * Gathers all the elements together and returns an array of them to be used in
+	 * the tabbed form.
+	 *
+	 * @see CoreTheme_Form_TabbedForm
+	 */
 	public function elements(){
 			
 		$array_elements = array(
@@ -18,6 +29,11 @@ class CoreTheme_AdminPanel_Form_Social{
 		return $array_elements;
 	}
 	
+	/**
+	 * Sets up the social content header.
+	 *
+	 * @return AisisCore_Form_Elements_Content $content_header
+	 */
 	protected function _content_links_header(){
 		$content = array(
 			'class' => 'modified-hero-unit',
@@ -31,6 +47,11 @@ class CoreTheme_AdminPanel_Form_Social{
 		return $content_header;
 	}	
 	
+	/**
+	 * Set up the facebook url input section.
+	 * 
+	 * @return CoreTheme_Form_Elements_Url $url_element
+	 */
 	protected function _facebook(){
 		$url = array(
 			'name' => 'aisis_options[social][facebook]',
@@ -47,6 +68,11 @@ class CoreTheme_AdminPanel_Form_Social{
 		return $url_element;
 	}
 	
+	/**
+	 * Set up the twitter url input section.
+	 *
+	 * @return CoreTheme_Form_Elements_Url $url_element
+	 */
 	protected function _twitter(){
 		$url = array(
 			'name' => 'aisis_options[social][twitter]',
@@ -62,7 +88,12 @@ class CoreTheme_AdminPanel_Form_Social{
 		$url_element = new CoreTheme_Form_Elements_Url($url);
 		return $url_element;		
 	}
-		
+
+	/**
+	 * Set up the google+ url input section.
+	 *
+	 * @return CoreTheme_Form_Elements_Url $url_element
+	 */
 	protected function _google_plus(){
 		$url = array(
 			'name' => 'aisis_options[social][google-plus]',
@@ -78,7 +109,12 @@ class CoreTheme_AdminPanel_Form_Social{
 		$url_element = new CoreTheme_Form_Elements_Url($url);
 		return $url_element;			
 	}
-			
+
+	/**
+	 * Set up the linkedin url input section.
+	 *
+	 * @return CoreTheme_Form_Elements_Url $url_element
+	 */
 	protected function _linkedin(){
 		$url = array(
 			'name' => 'aisis_options[social][linkedin]',
@@ -94,7 +130,12 @@ class CoreTheme_AdminPanel_Form_Social{
 		$url_element = new CoreTheme_Form_Elements_Url($url);
 		return $url_element;		
 	}
-				
+
+	/**
+	 * Set up the git url input section.
+	 *
+	 * @return CoreTheme_Form_Elements_Url $url_element
+	 */
 	protected function _git(){
 		$url = array(
 			'name' => 'aisis_options[social][github]',
@@ -112,7 +153,11 @@ class CoreTheme_AdminPanel_Form_Social{
 		
 	}
 	
-
+	/**
+	 * Set up the submit button
+	 *
+	 * @return CoreTheme_Form_Elements_Submit $submit
+	 */
 	protected function _submit_element(){
 		$submit = array(
 			'value'=> 'Submit',
@@ -124,6 +169,15 @@ class CoreTheme_AdminPanel_Form_Social{
 		return $submit_element;
 	}
 	
+	/**
+	 * The following gets an option based on the key and option passed in.
+	 *
+	 * <p>in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.</p>
+	 *
+	 * @param string $option
+	 * @param string $key
+	 * @return string
+	 */	
 	private function _get_value($option, $key){
 		$options = get_option($option);
 		if(isset($options['social'][$key])){

@@ -1,9 +1,23 @@
 <?php
+/**
+ * Creates a form for use in a meta box inside the mini feeds custom post type.
+ *
+ * @see CoreTheme_Form_Form
+ *
+ * @package CoreTheme_CustomPostTypes_Form
+ */
 class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 	
-	
+	/**
+	 * @var array
+	 */
 	protected $_values;
 
+	/**
+	 * Sets up the form by passing in the elements. Also gets the values based on the post id.
+	 *
+	 * @see AisisCore_Form_Form::init()
+	 */
 	public function init(){
 
 		global $post;
@@ -17,6 +31,11 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		$this->create_form($array_elemts);
 	}
 
+	/**
+	 * Create a link desscription input.
+	 *
+	 * @return CoreTheme_Form_Elements_Input $link_text_element
+	 */
 	protected function _link_text(){
 		$link_text = array(
 			'id' => 'link_text',
@@ -31,6 +50,11 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 		return $link_text_element;
 	}
 
+	/**
+	 * Create a link url input
+	 *
+	 * @return CoreTheme_Form_Elements_Url  $link
+	 */
 	protected function _link_url(){
 		$link_array = array(
 			'id' => 'link_array',
@@ -44,19 +68,23 @@ class CoreTheme_CustomPostTypes_Form_MiniFeed extends CoreTheme_Form_Form{
 
 		return $link;
 	}
-
-	private function _get_image(){
-		if(isset($this->_values['image'])){
-			return $this->_values['image'][0];
-		}
-	}
-
+	
+	/**
+	 * Gets the value of the link.
+	 *
+	 * @return string
+	 */
 	private function _get_link_value(){
 		if(isset($this->_values['link'])){
 			return $this->_values['link'][0];
 		}
 	}
 
+	/**
+	 * Gets the value of the button text.
+	 *
+	 * @return string
+	 */
 	private function _get_link_text_value(){
 		if(isset($this->_values['link_text'])){
 			return $this->_values['link_text'][0];

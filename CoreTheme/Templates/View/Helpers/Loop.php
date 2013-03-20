@@ -1,7 +1,20 @@
 <?php
+/**
+ * This class is an extension of Aisis Core Loop.
+ * 
+ * <p>This class is used to make slight to drastic modifications of Aisis Core Loop 
+ * objects which help form the loop. The same concepts applie in Aisis Core Loop as they do here,
+ * as this clas inherits all the options and methods of Aisis Core Loop</p>
+ * 
+ * @see AisisCore_Template_Helpers_Loop
+ * @package CoreTheme_Templates_View_Helpers
+ *
+ */
 class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_Loop{
 	
-	
+	/**
+	 * @see AisisCore_Template_Helpers_Loop::_single_post()
+	 */
 	protected function _single_post(){
 		
 		if($this->_wp_query->have_posts()){
@@ -49,6 +62,11 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 		}
 	}
 	
+	/**
+	 * Use twitter boostrap stylings.
+	 * 
+	 * @see AisisCore_Template_Helpers_Loop::single_navigation()
+	 */
 	public function single_navigation(){
 		$pagination = '';
 		
@@ -64,6 +82,11 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 		echo $pagination;
 	}
 	
+	/**
+	 * Use twitter boostrap stylings.
+	 * 
+	 * @see AisisCore_Template_Helpers_Loop::loop_navigation()
+	 */
 	public function loop_navigation(){
 		$pagination = '';
 		
@@ -79,6 +102,11 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 		echo $pagination;
 	}
 	
+	/**
+	 * 15 character titles at max followed by 3 dots.
+	 * 
+	 * @see AisisCore_Template_Helpers_Loop::_single_navigation_previous()
+	 */
 	protected function _single_navigation_previous(){
 		$previous = get_previous_post();
 		
@@ -88,6 +116,11 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 		}
 	}
 
+	/**
+	 * 15 character titles at max followed by 3 dots.
+	 * 
+	 * @see AisisCore_Template_Helpers_Loop::_single_navigation_next()
+	 */
 	protected function _single_navigation_next(){
 		$next = get_next_post();
 		

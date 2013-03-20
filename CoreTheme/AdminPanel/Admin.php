@@ -1,7 +1,21 @@
 <?php
-
+/**
+ * Helps set up the admin panel and organize the code better.
+ * 
+ * <p>The whole purpose for this class is to set up the admin panel and 
+ * keep the logic seperated and clead by implementing the interface.</p>
+ * 
+ * @see AisisCore_Interfaces_Admin
+ * 
+ * @package CoreTheme_AdminPanel
+ */
 class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	
+	/**
+	 * Sets up the actions, creates the menues and notices.
+	 * 
+	 * @link http://codex.wordpress.org/Function_Reference/add_action
+	 */
 	public function __construct(){
 		add_action('admin_menu', array($this, 'menu_setup'));
 		add_action('admin_init', array($this, 'settings'));
@@ -12,14 +26,22 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		add_action('wp_before_admin_bar_render', array($this, 'aisis_links'));
 		
 		add_option('success_message', false);
+		
+		$this->init();
 	}
 	
+	/**
+	 * When extending this class make sure to put your constuctor logic here.
+	 */
 	public function init(){}
 	
+	/**
+	 * @see AisisCore_Interfaces_Admin::menu_setup()
+	 */
 	public function menu_setup(){
 		add_menu_page(
 			__('Aisis', 'aisis'), 
-			__('Aisis', 'aisis'), 
+			__('Aisis Options', 'aisis'), 
 			'edit_themes', 
 			'aisis-core-options', 
 			array(
@@ -42,6 +64,9 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		);
 	}
 	
+	/**
+	 * @see AisisCore_Interfaces_Admin::settings()
+	 */
 	public function settings(){
 		register_setting(
 			'aisis_options', 
@@ -53,6 +78,9 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		);
 	}
 
+	/**
+	 * Allows you to add links to the WordPress adminbar.
+	 */
 	public function aisis_links() {
 		global $wp_admin_bar;
 		$wp_admin_bar->add_menu( array(
@@ -74,7 +102,9 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		}
 	}
 	
-	
+	/**
+	 * @see AisisCore_Interfaces_Admin::build_template()
+	 */
 	public function build_template(){
 		$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 		$http = new AisisCore_Http_Http();
@@ -86,6 +116,9 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		}
 	}
 	
+	/**
+	 * @see AisisCore_Interfaces_Admin::option_validator()
+	 */
 	public function option_validator($input){
 		$option = get_option('aisis_options');
 		$option = $input;
@@ -93,6 +126,9 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		return $option;
 	}
 
+	/**
+	 * Creates a reset message.
+	 */
 	public function reset_message(){
 		$http = new AisisCore_Http_Http();
 		if($http->get_current_url() == admin_url('index.php?reset=true')){
@@ -101,6 +137,9 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		}
 	}
 	
+	/**
+	 * Creates a update message for when you have an update.
+	 */
 	public function update_message(){
 		$http = new AisisCore_Http_Http();
 		$update = new CoreTheme_Update();
@@ -110,6 +149,9 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		}
 	}	
 	
+	/**
+	 * Creates an update success message for when we have updated your stuff.
+	 */
 	public function update_success_message(){
 		$http = new AisisCore_Http_Http();
 		$update = new CoreTheme_Update();
@@ -119,6 +161,9 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		}
 	}		
 	
+	/**
+	 * Creates a success message when you have updated the options.
+	 */
 	protected function _update_option(){
 		if(get_option('aisis_success')){
 			$option = get_option('aisis_success');
