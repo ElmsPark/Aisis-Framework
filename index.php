@@ -60,6 +60,7 @@ new CoreTheme_Templates_View_Helpers_Header();
 $loop->custom_loop();
 
 echo '</div>';
+echo '</div>';
 
 get_footer();
 

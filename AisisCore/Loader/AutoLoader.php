@@ -22,6 +22,8 @@ class AisisCore_Loader_AutoLoader{
 	 */
 	protected static $_instance;
 	
+	protected static $_directories;
+	
 	/**
 	 * Returns an instance of the of the class.
 	 * 
@@ -31,6 +33,11 @@ class AisisCore_Loader_AutoLoader{
 		if(null == self::$_instance){
 			self::$_instance = new self();
 		}
+		
+		self::$_directories = array(
+			get_template_directory(),
+			get_stylesheet_directory(),
+		);
 		
 		return self::$_instance;
 	}
@@ -48,7 +55,7 @@ class AisisCore_Loader_AutoLoader{
 	 * @see spl_autoload_register
 	 */
 	public function register_auto_loader(){
-		spl_autoload_register(array($this, 'load_class'), true, true);
+		spl_autoload_register(array($this, 'load_class'));
 	}
 	
 	/**
@@ -59,8 +66,10 @@ class AisisCore_Loader_AutoLoader{
 	 */
 	public function load_class($class){
 		$path = str_replace('_', '/', $class);
-		if(file_exists(get_template_directory() . '/' . $path . '.php')){
-			require_once(get_template_directory() . '/' . $path . '.php');
+		foreach(self::$_directories as $directories){
+			if(file_exists($directories . '/' . $path . '.php')){
+				require_once($directories . '/' . $path . '.php');
+			}
 		}
-	}
+	}	
 }

@@ -30,7 +30,7 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 	 * @return true | nothing
 	 */
 	public function check_for_update(){
-		if($this->check_theme_version() != '' && $this->get_update_notice() == 'yes'){
+		if($this->check_theme_version() != ''){
 			if(version_compare($this->check_theme_version(), $this->get_current_version(), '>')){
 				return true;
 			}		

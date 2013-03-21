@@ -5,6 +5,8 @@ require_once(get_template_directory() . '/AisisCore/Loader/AutoLoader.php');
 // Setup the autoloader.
 $auto_loader = AisisCore_Loader_AutoLoader::get_instance();
 $auto_loader->register_auto_loader();
+//var_dump(AisisCore_Loader_AutoLoader::$_directories); exit;
+
 
 require_once(CORETHEME . 'Hooks.php');
 
