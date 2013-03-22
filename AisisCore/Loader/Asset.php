@@ -5,9 +5,9 @@
  * <p>The core concept of this class is that you extend this class and implement
  * your own concept of how assets are loaded with WordPress.</p>
  * 
- * @see http://codex.wordpress.org/Function_Reference/wp_enqueue_script
- * @see http://codex.wordpress.org/Function_Reference/wp_enqueue_style
- * @see http://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts
+ * @link http://codex.wordpress.org/Function_Reference/wp_enqueue_script
+ * @link http://codex.wordpress.org/Function_Reference/wp_enqueue_style
+ * @link http://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts
  * 
  * @package AisisCore_Loader
  */
