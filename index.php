@@ -35,8 +35,6 @@ if(!is_home()){
 		$loop->sidebar('tag_sidebar');
 	}elseif(is_author()){
 		$loop->sidebar('author_sidebar');
-	}else{
-		$loop->sidebar();
 	}
 }
 
@@ -59,8 +57,7 @@ if(is_active_sidebar('aisis-side-bar') && !is_home()){
 new CoreTheme_Templates_View_Helpers_Header();
 $loop->custom_loop();
 
-echo '</div>';
-echo '</div>';
+echo '</div></div>';
 
 get_footer();
 

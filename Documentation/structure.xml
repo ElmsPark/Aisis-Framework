@@ -93,12 +93,12 @@
       <error line="0" code="50007">No page-level DocBlock was found in file footer.php</error>
     </parse_markers>
   </file>
-  <file path="header.php" hash="5fd16bbe509c58f85ab3bcbe5604227f" package="Default">
+  <file path="header.php" hash="17353041d71fa4bc22e427ed276e28fd" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file header.php</error>
     </parse_markers>
   </file>
-  <file path="sidebar.php" hash="93f630ff0d81f3d1413906f1466e97f5" package="Default">
+  <file path="sidebar.php" hash="4d1071be560eaea0bbc19cb8caef61cb" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file sidebar.php</error>
     </parse_markers>
@@ -1827,7 +1827,7 @@ and if they are set we set the heckbox or radio as checked.&lt;/p&gt;</long-desc
       <error line="119" code="50015">Argument $key is missing from the Docblock of checked()</error>
     </parse_markers>
   </file>
-  <file path="AisisCore/Template/Helpers/Loop.php" hash="060bd0f94d9194b5d9164118b30762c8" package="Default">
+  <file path="AisisCore/Template/Helpers/Loop.php" hash="b78940ef42dcd3fe9cf7fea29a769579" package="Default">
     <class final="false" abstract="false" namespace="global" line="58" package="AisisCore\Template\Helpers">
       <extends/>
       <name>AisisCore_Template_Helpers_Loop</name>
@@ -1968,10 +1968,10 @@ as well.&lt;/p&gt;</long-description>
           <long-description>&lt;p&gt;All were doing is returning a list of posts.&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="203" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="207" package="AisisCore\Template\Helpers">
         <name>_query_post</name>
         <full_name>_query_post</full_name>
-        <docblock line="190">
+        <docblock line="194">
           <description>Allows you to display a list of posts based on the query passed in.</description>
           <long-description>&lt;p&gt;Based on the query passed in we will display a list of posts.
 Pagination is dealt with as well as reseting the query.&lt;/p&gt;
@@ -1980,158 +1980,158 @@ Pagination is dealt with as well as reseting the query.&lt;/p&gt;
 that pagination works:&lt;/p&gt;
 
 &lt;p&gt;&lt;pre&gt;&lt;code&gt;$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;</long-description>
-          <tag line="190" name="param" description="" type="array" variable="$query">
+          <tag line="194" name="param" description="" type="array" variable="$query">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="203">
+        <argument line="207">
           <name>$query</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="242" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="246" package="AisisCore\Template\Helpers">
         <name>_single_post</name>
         <full_name>_single_post</full_name>
-        <docblock line="239">
+        <docblock line="243">
           <description>This function will supply the single template with the post and it's contents.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="285" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="289" package="AisisCore\Template\Helpers">
         <name>page_loop</name>
         <full_name>page_loop</full_name>
-        <docblock line="282">
+        <docblock line="286">
           <description>This loop uses the same concept of single, but with out the tags, categories and navigation.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="315" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="319" package="AisisCore\Template\Helpers">
         <name>loop_navigation</name>
         <full_name>loop_navigation</full_name>
-        <docblock line="309">
+        <docblock line="313">
           <description>Builds loop navigation for the general and the queried loop.</description>
           <long-description/>
-          <tag line="309" name="link" description="http://codex.wordpress.org/Function_Reference/get_next_posts_link" link="http://codex.wordpress.org/Function_Reference/get_next_posts_link"/>
-          <tag line="309" name="link" description="http://codex.wordpress.org/Function_Reference/get_previous_posts_link" link="http://codex.wordpress.org/Function_Reference/get_previous_posts_link"/>
+          <tag line="313" name="link" description="http://codex.wordpress.org/Function_Reference/get_next_posts_link" link="http://codex.wordpress.org/Function_Reference/get_next_posts_link"/>
+          <tag line="313" name="link" description="http://codex.wordpress.org/Function_Reference/get_previous_posts_link" link="http://codex.wordpress.org/Function_Reference/get_previous_posts_link"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="326" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="330" package="AisisCore\Template\Helpers">
         <name>single_navigation</name>
         <full_name>single_navigation</full_name>
-        <docblock line="320">
+        <docblock line="324">
           <description>Builds Navigation for single posts.</description>
           <long-description/>
-          <tag line="320" name="see" description="\_single_navigation_previous" refers="\_single_navigation_previous"/>
-          <tag line="320" name="see" description="\_single_navigation_next" refers="\_single_navigation_next"/>
+          <tag line="324" name="see" description="\_single_navigation_previous" refers="\_single_navigation_previous"/>
+          <tag line="324" name="see" description="\_single_navigation_next" refers="\_single_navigation_next"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="338" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="342" package="AisisCore\Template\Helpers">
         <name>sidebar</name>
         <full_name>sidebar</full_name>
-        <docblock line="331">
+        <docblock line="335">
           <description>Disaply a sidebar so long as  the options key does not match.</description>
           <long-description>&lt;p&gt;Also
 to be used in conjunction with WordPress conditionals.&lt;/p&gt;</long-description>
-          <tag line="331" name="param" description="| array $key" type="string" variable="$keys">
+          <tag line="335" name="param" description="| array $key" type="string" variable="$keys">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="331" name="link" description="http://codex.wordpress.org/Conditional_Tags" link="http://codex.wordpress.org/Conditional_Tags"/>
+          <tag line="335" name="link" description="http://codex.wordpress.org/Conditional_Tags" link="http://codex.wordpress.org/Conditional_Tags"/>
         </docblock>
-        <argument line="338">
+        <argument line="342">
           <name>$keys</name>
           <default>''</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="363" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="367" package="AisisCore\Template\Helpers">
         <name>_title</name>
         <full_name>_title</full_name>
-        <docblock line="357">
+        <docblock line="361">
           <description>Based on if were single, a title_header or if were an index we will then display
 the title.</description>
           <long-description/>
-          <tag line="357" name="param" description="" type="array" variable="$options">
+          <tag line="361" name="param" description="" type="array" variable="$options">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="363">
+        <argument line="367">
           <name>$options</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="386" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="390" package="AisisCore\Template\Helpers">
         <name>_single_navigation_previous</name>
         <full_name>_single_navigation_previous</full_name>
-        <docblock line="381">
+        <docblock line="385">
           <description>Builds a previous link.</description>
           <long-description/>
-          <tag line="381" name="link" description="http://codex.wordpress.org/Function_Reference/get_previous_post" link="http://codex.wordpress.org/Function_Reference/get_previous_post"/>
+          <tag line="385" name="link" description="http://codex.wordpress.org/Function_Reference/get_previous_post" link="http://codex.wordpress.org/Function_Reference/get_previous_post"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="400" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="404" package="AisisCore\Template\Helpers">
         <name>_single_navigation_next</name>
         <full_name>_single_navigation_next</full_name>
-        <docblock line="395">
+        <docblock line="399">
           <description>Builds a next link.</description>
           <long-description/>
-          <tag line="395" name="link" description="http://codex.wordpress.org/Function_Reference/get_next_post" link="http://codex.wordpress.org/Function_Reference/get_next_post"/>
+          <tag line="399" name="link" description="http://codex.wordpress.org/Function_Reference/get_next_post" link="http://codex.wordpress.org/Function_Reference/get_next_post"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="418" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="422" package="AisisCore\Template\Helpers">
         <name>_error_page</name>
         <full_name>_error_page</full_name>
-        <docblock line="409">
+        <docblock line="413">
           <description>Rendered a 404 template if you have created one or renders out a message.</description>
           <long-description>&lt;p&gt;If you have created a 404 phtml file in your theme or even a 404.php then you can
 place the path in $options[404_template] and we will render that view for when no posts are
 found on either a queried loop, regular loop or a single loop.&lt;/p&gt;</long-description>
-          <tag line="409" name="param" description="" type="array" variable="$options">
+          <tag line="413" name="param" description="" type="array" variable="$options">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="418">
+        <argument line="422">
           <name>$options</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="427" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="431" package="AisisCore\Template\Helpers">
         <name>_get_categories_for_post</name>
         <full_name>_get_categories_for_post</full_name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="442" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="446" package="AisisCore\Template\Helpers">
         <name>_get_tags</name>
         <full_name>_get_tags</full_name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="461" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="465" package="AisisCore\Template\Helpers">
         <name>the_excerpt_length</name>
         <full_name>the_excerpt_length</full_name>
-        <docblock line="456">
+        <docblock line="460">
           <description>The new excerpt_length added into action</description>
           <long-description/>
-          <tag line="456" name="param" description="" type="string" variable="$length">
+          <tag line="460" name="param" description="" type="string" variable="$length">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="461">
+        <argument line="465">
           <name>$length</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="474" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="478" package="AisisCore\Template\Helpers">
         <name>the_excerpt_content</name>
         <full_name>the_excerpt_content</full_name>
-        <docblock line="469">
+        <docblock line="473">
           <description>The new content for excerpt_more added into the action.</description>
           <long-description/>
-          <tag line="469" name="param" description="" type="string" variable="$content">
+          <tag line="473" name="param" description="" type="string" variable="$content">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="474">
+        <argument line="478">
           <name>$content</name>
           <default/>
           <type/>
@@ -2143,8 +2143,8 @@ found on either a queried loop, regular loop or a single loop.&lt;/p&gt;</long-d
       <critical line="60" code="50019">No short description for property $_options</critical>
       <critical line="65" code="50019">No short description for property $_wp_query</critical>
       <critical line="70" code="50019">No short description for property $_post</critical>
-      <error line="427" code="50010">No DocBlock was found for method _get_categories_for_post()</error>
-      <error line="442" code="50010">No DocBlock was found for method _get_tags()</error>
+      <error line="431" code="50010">No DocBlock was found for method _get_categories_for_post()</error>
+      <error line="446" code="50010">No DocBlock was found for method _get_tags()</error>
     </parse_markers>
   </file>
   <file path="AisisCore/Template/Builder.php" hash="da7764199e2d581b687aa185d432b14d" package="Default">
@@ -2658,7 +2658,7 @@ we will find the package and the file and the require it.&lt;/p&gt;</long-descri
       <error line="94" code="50015">Argument $package is missing from the Docblock of _load_internal_package()</error>
     </parse_markers>
   </file>
-  <file path="AisisCore/Loader/Asset.php" hash="93bde162146cc262936f5e77f43f0aad" package="Default">
+  <file path="AisisCore/Loader/Asset.php" hash="ff4a5eaf32a0ad336703a134e6b706ef" package="Default">
     <class final="false" abstract="true" namespace="global" line="14" package="AisisCore\Loader">
       <extends/>
       <name>AisisCore_Loader_Asset</name>
@@ -2667,9 +2667,9 @@ we will find the package and the file and the require it.&lt;/p&gt;</long-descri
         <description>This class is essentially a basic template class for asset loading.</description>
         <long-description>&lt;p&gt;The core concept of this class is that you extend this class and implement
 your own concept of how assets are loaded with WordPress.&lt;/p&gt;</long-description>
-        <tag line="2" name="see" description="\global\http://codex.wordpress.org/Function_Reference/wp_enqueue_script" refers="\global\http://codex.wordpress.org/Function_Reference/wp_enqueue_script"/>
-        <tag line="2" name="see" description="\global\http://codex.wordpress.org/Function_Reference/wp_enqueue_style" refers="\global\http://codex.wordpress.org/Function_Reference/wp_enqueue_style"/>
-        <tag line="2" name="see" description="\global\http://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts" refers="\global\http://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts"/>
+        <tag line="2" name="link" description="http://codex.wordpress.org/Function_Reference/wp_enqueue_script" link="http://codex.wordpress.org/Function_Reference/wp_enqueue_script"/>
+        <tag line="2" name="link" description="http://codex.wordpress.org/Function_Reference/wp_enqueue_style" link="http://codex.wordpress.org/Function_Reference/wp_enqueue_style"/>
+        <tag line="2" name="link" description="http://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts" link="http://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts"/>
         <tag line="2" name="package" description="AisisCore_Loader"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="19" namespace="global" package="Default">
@@ -2713,8 +2713,8 @@ your own concept of how assets are loaded with WordPress.&lt;/p&gt;</long-descri
       <critical line="16" code="50019">No short description for property $_options</critical>
     </parse_markers>
   </file>
-  <file path="AisisCore/Loader/AutoLoader.php" hash="a853566bcf7184b322840c8f64194a17" package="Default">
-    <include line="63" type="Require Once" package="Default">
+  <file path="AisisCore/Loader/AutoLoader.php" hash="bc98e35d6dfc835b64f8647366cba1c2" package="Default">
+    <include line="71" type="Require Once" package="Default">
       <name/>
     </include>
     <class final="false" abstract="false" namespace="global" line="18" package="AisisCore\Loader">
@@ -2746,43 +2746,47 @@ named: path_to_class&lt;/p&gt;
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="30" package="AisisCore\Loader">
+      <property final="false" static="true" visibility="protected" line="25" namespace="global" package="Default">
+        <name>$_directories</name>
+        <default/>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="32" package="AisisCore\Loader">
         <name>get_instance</name>
         <full_name>get_instance</full_name>
-        <docblock line="25">
+        <docblock line="27">
           <description>Returns an instance of the of the class.</description>
           <long-description/>
-          <tag line="25" name="return" description="$_instance" type="\AisisCore_Loader_AutoLoader">
+          <tag line="27" name="return" description="$_instance" type="\AisisCore_Loader_AutoLoader">
             <type by_reference="false">\AisisCore_Loader_AutoLoader</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="41" package="AisisCore\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="48" package="AisisCore\Loader">
         <name>reset_instance</name>
         <full_name>reset_instance</full_name>
-        <docblock line="38">
+        <docblock line="45">
           <description>Reset the instance of this class</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="50" package="AisisCore\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="57" package="AisisCore\Loader">
         <name>register_auto_loader</name>
         <full_name>register_auto_loader</full_name>
-        <docblock line="45">
+        <docblock line="52">
           <description>Register the load_class($class) as the php autoloader class.</description>
           <long-description/>
-          <tag line="45" name="see" description="\spl_autoload_register" refers="\spl_autoload_register"/>
+          <tag line="52" name="see" description="\spl_autoload_register" refers="\spl_autoload_register"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="60" package="AisisCore\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="67" package="AisisCore\Loader">
         <name>load_class</name>
         <full_name>load_class</full_name>
-        <docblock line="54">
+        <docblock line="61">
           <description>Load a class based on the directory gien in the class name.</description>
           <long-description>&lt;p&gt;All classes are loaded as: path/to/file.php, thus all classes must be named:
 class path_to_file{}.&lt;/p&gt;</long-description>
         </docblock>
-        <argument line="60">
+        <argument line="67">
           <name>$class</name>
           <default/>
           <type/>
@@ -2792,7 +2796,8 @@ class path_to_file{}.&lt;/p&gt;</long-description>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file AisisCore/Loader/AutoLoader.php</error>
       <critical line="20" code="50019">No short description for property $_instance</critical>
-      <error line="54" code="50015">Argument $class is missing from the Docblock of load_class()</error>
+      <error line="25" code="50018">No DocBlock was found for property $_directories</error>
+      <error line="61" code="50015">Argument $class is missing from the Docblock of load_class()</error>
     </parse_markers>
   </file>
   <file path="AisisCore/Loader/LoaderException.php" hash="c7374741b9a2c61f868c66784515ee87" package="Default">
@@ -4362,20 +4367,20 @@ implementers create views with ease.&lt;/p&gt;</long-description>
       <error line="55" code="50015">Argument $output is missing from the Docblock of display_element()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Setup.php" hash="c048ae12ae886e9df6680edf6fd8d42f" package="Default">
+  <file path="CoreTheme/Setup.php" hash="219343b580574e52fcba938858875b4d" package="Default">
     <include line="3" type="Require Once" package="Default">
       <name/>
     </include>
-    <include line="9" type="Require Once" package="Default">
+    <include line="11" type="Require Once" package="Default">
       <name/>
     </include>
-    <function namespace="global" line="116" package="Default">
+    <function namespace="global" line="118" package="Default">
       <name>dependencies</name>
       <full_name>\dependencies</full_name>
     </function>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/Setup.php</error>
-      <error line="116" code="50009">No DocBlock was found for function \dependencies()</error>
+      <error line="118" code="50009">No DocBlock was found for function \dependencies()</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/MultiSite.php" hash="5958b88fa1a3c5cc187727018cb7fa68" package="Default">
@@ -4554,7 +4559,7 @@ activation of the theme.</description>
       <critical line="19" code="50019">No short description for property $_options</critical>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Update.php" hash="00d86d9cb781078f167dee226d5a2c27" package="Default">
+  <file path="CoreTheme/Update.php" hash="8e95a31cadbca841bd0e86e702990d56" package="Default">
     <class final="false" abstract="false" namespace="global" line="12" package="CoreTheme">
       <extends/>
       <implements>\AisisCore_Interfaces_Upgrade</implements>
@@ -4931,7 +4936,7 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="94" code="50012">No short description for method __toString()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/Setup.php" hash="4b4cefe6bf119f0d7824461eee92ef77" package="Default">
+  <file path="CoreTheme/ShortCodes/Setup.php" hash="79721d0a41a5eddddf4a4fd34f3db088" package="Default">
     <include line="51" type="Require Once" package="Default">
       <name/>
     </include>
@@ -4974,12 +4979,12 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="50" code="50009">No DocBlock was found for function \aisis_require_code_display_page()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/DisplayCodes.phtml" hash="bb41c45198fb905e26d4e12a89e8b00c" package="Default">
+  <file path="CoreTheme/ShortCodes/DisplayCodes.phtml" hash="dc9ca166adb17d0bfa2584a41ba2d3b4" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/DisplayCodes.phtml</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/Codes/PostCodes.php" hash="71928cd23c7d12f7a23d7d2e67471792" package="Default">
+  <file path="CoreTheme/ShortCodes/Codes/PostCodes.php" hash="f1abfb40f12c0063db4a0cddad0f6e23" package="Default">
     <function namespace="global" line="3" package="Default">
       <name>aisis_image</name>
       <full_name>\aisis_image</full_name>
@@ -5008,43 +5013,43 @@ This type of form use an array of elements to create the elemts for said tab.&lt
         <type/>
       </argument>
     </function>
-    <function namespace="global" line="44" package="Default">
+    <function namespace="global" line="42" package="Default">
       <name>aisis_image_circle</name>
       <full_name>\aisis_image_circle</full_name>
-      <argument line="44">
+      <argument line="42">
         <name>$atts</name>
         <default/>
         <type/>
       </argument>
-      <argument line="44">
+      <argument line="42">
         <name>$content</name>
         <default>null</default>
         <type/>
       </argument>
     </function>
-    <function namespace="global" line="61" package="Default">
+    <function namespace="global" line="59" package="Default">
       <name>aisis_image_rounded</name>
       <full_name>\aisis_image_rounded</full_name>
-      <argument line="61">
+      <argument line="59">
         <name>$atts</name>
         <default/>
         <type/>
       </argument>
-      <argument line="61">
+      <argument line="59">
         <name>$content</name>
         <default>null</default>
         <type/>
       </argument>
     </function>
-    <function namespace="global" line="78" package="Default">
+    <function namespace="global" line="76" package="Default">
       <name>aisis_image_polaroid</name>
       <full_name>\aisis_image_polaroid</full_name>
-      <argument line="78">
+      <argument line="76">
         <name>$atts</name>
         <default/>
         <type/>
       </argument>
-      <argument line="78">
+      <argument line="76">
         <name>$content</name>
         <default>null</default>
         <type/>
@@ -5054,12 +5059,12 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/Codes/PostCodes.php</error>
       <error line="3" code="50009">No DocBlock was found for function \aisis_image()</error>
       <error line="33" code="50009">No DocBlock was found for function \aisis_code()</error>
-      <error line="44" code="50009">No DocBlock was found for function \aisis_image_circle()</error>
-      <error line="61" code="50009">No DocBlock was found for function \aisis_image_rounded()</error>
-      <error line="78" code="50009">No DocBlock was found for function \aisis_image_polaroid()</error>
+      <error line="42" code="50009">No DocBlock was found for function \aisis_image_circle()</error>
+      <error line="59" code="50009">No DocBlock was found for function \aisis_image_rounded()</error>
+      <error line="76" code="50009">No DocBlock was found for function \aisis_image_polaroid()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/Codes/AisisMarketingCodes.php" hash="e8efcdb960a8bb8c9a445116990deb7f" package="Default">
+  <file path="CoreTheme/ShortCodes/Codes/AisisMarketingCodes.php" hash="3d79508102cb44950cd48cce0f621cbd" package="Default">
     <function namespace="global" line="3" package="Default">
       <name>aisis_jumbotron</name>
       <full_name>\aisis_jumbotron</full_name>
@@ -5116,12 +5121,57 @@ This type of form use an array of elements to create the elemts for said tab.&lt
         <type/>
       </argument>
     </function>
+    <function namespace="global" line="66" package="Default">
+      <name>aisis_marketing_row</name>
+      <full_name>\aisis_marketing_row</full_name>
+      <argument line="66">
+        <name>$atts</name>
+        <default/>
+        <type/>
+      </argument>
+      <argument line="66">
+        <name>$content</name>
+        <default>null</default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="global" line="72" package="Default">
+      <name>aisis_marketing_collumn_one</name>
+      <full_name>\aisis_marketing_collumn_one</full_name>
+      <argument line="72">
+        <name>$atts</name>
+        <default/>
+        <type/>
+      </argument>
+      <argument line="72">
+        <name>$content</name>
+        <default>null</default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="global" line="78" package="Default">
+      <name>aisis_marketing_collumn_two</name>
+      <full_name>\aisis_marketing_collumn_two</full_name>
+      <argument line="78">
+        <name>$atts</name>
+        <default/>
+        <type/>
+      </argument>
+      <argument line="78">
+        <name>$content</name>
+        <default>null</default>
+        <type/>
+      </argument>
+    </function>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/Codes/AisisMarketingCodes.php</error>
       <error line="3" code="50009">No DocBlock was found for function \aisis_jumbotron()</error>
       <error line="11" code="50009">No DocBlock was found for function \aisis_marketing_title()</error>
       <error line="17" code="50009">No DocBlock was found for function \aisis_marketing_lead()</error>
       <error line="23" code="50009">No DocBlock was found for function \aisis_button()</error>
+      <error line="66" code="50009">No DocBlock was found for function \aisis_marketing_row()</error>
+      <error line="72" code="50009">No DocBlock was found for function \aisis_marketing_collumn_one()</error>
+      <error line="78" code="50009">No DocBlock was found for function \aisis_marketing_collumn_two()</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/Loader/Asset.php" hash="21f2978c6ae2be04e236d300c57f6aff" package="Default">
@@ -5344,6 +5394,102 @@ keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</lon
       <error line="119" code="50015">Argument $input is missing from the Docblock of option_validator()</error>
     </parse_markers>
   </file>
+  <file path="CoreTheme/AdminPanel/Widgets/Download.php" hash="388414bbaf4c1a56821ae313080f6dbd" package="Default">
+    <function namespace="global" line="91" package="Default">
+      <name>register_download</name>
+      <full_name>\register_download</full_name>
+    </function>
+    <class final="false" abstract="false" namespace="global" line="9" package="CoreTheme\Adminpanel\Widgets">
+      <extends>\WP_Widget</extends>
+      <name>CoreTheme_AdminPanel_Widgets_Download</name>
+      <full_name>\CoreTheme_AdminPanel_Widgets_Download</full_name>
+      <docblock line="2">
+        <description>This class is responsible for creating a WordPress Widget for use in the Aisis Theme.</description>
+        <long-description/>
+        <tag line="2" name="link" description="http://codex.wordpress.org/Widgets_API" link="http://codex.wordpress.org/Widgets_API"/>
+        <tag line="2" name="link" description="http://codex.wordpress.org/Function_Reference/register_widget" link="http://codex.wordpress.org/Function_Reference/register_widget"/>
+        <tag line="2" name="package" description="CoreTheme_Adminpanel_Widgets"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="14" package="CoreTheme\Adminpanel\Widgets">
+        <name>CoreTheme_AdminPanel_Widgets_Download</name>
+        <full_name>CoreTheme_AdminPanel_Widgets_Download</full_name>
+        <docblock line="11">
+          <description>Set up Widget Information</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="24" package="CoreTheme\Adminpanel\Widgets">
+        <name>widget</name>
+        <full_name>widget</full_name>
+        <docblock line="18">
+          <description>Create the widget on the front end.</description>
+          <long-description/>
+          <tag line="18" name="param" description="" type="\WordPress" variable="$args">
+            <type by_reference="false">\WordPress</type>
+          </tag>
+          <tag line="18" name="param" description="" type="\WordPress" variable="$instance">
+            <type by_reference="false">\WordPress</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$args</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$instance</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="46" package="CoreTheme\Adminpanel\Widgets">
+        <name>update</name>
+        <full_name>update</full_name>
+        <docblock line="39">
+          <description>Update the Information.</description>
+          <long-description/>
+          <tag line="39" name="param" description="" type="\WordPress" variable="$new_instance">
+            <type by_reference="false">\WordPress</type>
+          </tag>
+          <tag line="39" name="param" description="" type="\WordPress" variable="$old_instance">
+            <type by_reference="false">\WordPress</type>
+          </tag>
+          <tag line="39" name="return" description="$instance" type="\WordPress">
+            <type by_reference="false">\WordPress</type>
+          </tag>
+        </docblock>
+        <argument line="46">
+          <name>$new_instance</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="46">
+          <name>$old_instance</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="60" package="CoreTheme\Adminpanel\Widgets">
+        <name>form</name>
+        <full_name>form</full_name>
+        <docblock line="56">
+          <description>Create the form that is filled out by the user when
+setting up the widget.</description>
+          <long-description/>
+        </docblock>
+        <argument line="60">
+          <name>$instance</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Widgets/Download.php</error>
+      <error line="91" code="50009">No DocBlock was found for function \register_download()</error>
+      <error line="56" code="50015">Argument $instance is missing from the Docblock of form()</error>
+    </parse_markers>
+  </file>
   <file path="CoreTheme/AdminPanel/Templates/options.phtml" hash="e9102bf99839f9cfcf178df8c7f0eb40" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Templates/options.phtml</error>
@@ -5354,10 +5500,15 @@ keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</lon
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Templates/update.phtml</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Setup.php" hash="acc882a920e5c8219599686ed65e0eca" package="Default">
+  <file path="CoreTheme/AdminPanel/Setup.php" hash="562ad6b11381b667b4df266fc46c9501" package="Default">
     <include line="3" type="Require Once" package="Default">
       <name/>
     </include>
+    <constant namespace="global" line="10" package="Default">
+      <name>WIDGETS</name>
+      <full_name>\WIDGETS</full_name>
+      <value>get_template_directory() . '/CoreTheme/AdminPanel/Widgets/'</value>
+    </constant>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Setup.php</error>
     </parse_markers>
@@ -6464,7 +6615,7 @@ the tabbed form.</description>
       <error line="37" code="50009">No DocBlock was found for function \bootstrap_admin_wp_default_styles()</error>
     </parse_markers>
   </file>
-  <file path="index.php" hash="a06e4a65dc5454959a98540d43d5cad4" package="Default">
+  <file path="index.php" hash="3ea7653de1f05d0065ee115460d3ae63" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file index.php</error>
     </parse_markers>
@@ -6490,6 +6641,9 @@ the tabbed form.</description>
       <package name="Form" full_name="CoreTheme\AdminPanel\Form">
         <package name="SubSection" full_name="CoreTheme\AdminPanel\Form\SubSection"/>
       </package>
+    </package>
+    <package name="Adminpanel" full_name="CoreTheme\Adminpanel">
+      <package name="Widgets" full_name="CoreTheme\Adminpanel\Widgets"/>
     </package>
     <package name="CustomPostTypes" full_name="CoreTheme\CustomPostTypes">
       <package name="Form" full_name="CoreTheme\CustomPostTypes\Form"/>

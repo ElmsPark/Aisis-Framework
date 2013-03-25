@@ -6,12 +6,12 @@
  * @link http://codex.wordpress.org/Function_Reference/register_widget
  * @package CoreTheme_Adminpanel_Widgets
  */
-class CoreTheme_Adminpanel_Widgets_Download extends WP_Widget{
+class CoreTheme_AdminPanel_Widgets_Download extends WP_Widget{
 	
 	/**
 	 * Set up Widget Information
 	 */
-	function CoreTheme_Adminpanel_Widgets_Download(){
+	public function CoreTheme_AdminPanel_Widgets_Download(){
 		parent::__construct( 'aisis-downlaod', 'Aisis Download Button', array('description' => __('This widget will allow you to display a download button.', 'downlaod')) );	
 	}
 	
@@ -21,7 +21,7 @@ class CoreTheme_Adminpanel_Widgets_Download extends WP_Widget{
 	 * @param WordPress $args
 	 * @param WordPress $instance
 	 */
-	function widget($args, $instance){
+	public function widget($args, $instance){
 		extract($args);
 		
 		$url = $instance['url'];
@@ -30,8 +30,8 @@ class CoreTheme_Adminpanel_Widgets_Download extends WP_Widget{
 		
 		echo $before_widget;
 		?>
-		<a href="<?php if($url){echo $url;}?>" class="btn btn-success btn-xlarge"><?php if($title){echo $title;}?></a>
-		<div class="well"><p><?php if($show_info){echo $show_info; }?></p></div>
+		<a href="<?php if($url){echo $url;}?>" class="btn btn-success btn-large-custom"><?php if($title){echo $title;}?></a>
+		<p class="marginTop20"><?php if($show_info){echo $show_info; }?></p>
 		<?php
 		echo $after_widget;
 	}
@@ -43,7 +43,7 @@ class CoreTheme_Adminpanel_Widgets_Download extends WP_Widget{
 	 * @param WordPress $old_instance
 	 * @return WordPress $instance
 	 */
-	function update($new_instance, $old_instance){
+	public function update($new_instance, $old_instance){
 		$instance = $old_instance;
 		
 		$instance['url'] = strip_tags( $new_instance['url'] );
@@ -57,7 +57,7 @@ class CoreTheme_Adminpanel_Widgets_Download extends WP_Widget{
 	 * Create the form that is filled out by the user when
 	 * setting up the widget.
 	 */
-	function form($instance){
+	public function form($instance){
 		$instance = wp_parse_args((array) $instance);	
 
 		echo '<label>Download Url</label>';

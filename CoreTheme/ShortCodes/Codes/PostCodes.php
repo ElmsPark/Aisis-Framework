@@ -33,9 +33,7 @@ if(! function_exists ('aisis_code') ){
 	function aisis_code($atts, $content = null){
 		return '
 		<pre>
-    	<code data-language="generic">
     	'.$content.'
-    	</code>
     	</pre>';
 	}
 }

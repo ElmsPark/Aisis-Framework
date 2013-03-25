@@ -30,5 +30,5 @@ jQuery(document).ready( function() {
     jQuery('#icon-plugins.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-magnet icon-large"></i></div> ');
     jQuery('#icon-users.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-user icon-large"></i></div> ');
     jQuery('#icon-tools.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-wrench icon-large"></i></div> ');
-    jQuery('#icon-options-general.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-cogs icon-large"></i></div> ');
+    jQuery('#icon-options-general.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-cogs icon-large"></i></div> ');   
 });

@@ -102,6 +102,9 @@ $theme_setup = array(
 	)	
 );
 
+// Set up the theme.
+$theme = new AisisCore_Theme($theme_setup);
+
 // Custom Folders
 $custom_folders = array(
 	'packages' => 'packages'
@@ -110,9 +113,6 @@ $custom_folders = array(
 // Custom Folder MultiSite.
 $activation = new CoreTheme_Activation($custom_folders);
 $activation->on_activation();
-
-// Set up the theme.
-$theme = new AisisCore_Theme($theme_setup);
 
 // Create a list of dependencies that can be used in a factory class.
 function dependencies(){
@@ -142,13 +142,11 @@ AisisCore_Factory_Pattern::register_dependencies(dependencies());
 $package = new AisisCore_Loader_Package();
 $package->load_package('ShortCodes', CORETHEME);
 
-if(is_admin()){
-	// Get and Load the Admin Panel	
-	$package->load_package('AdminPanel', CORETHEME, false, true);
+// Get and Load the Admin Panel	
+$package->load_package('AdminPanel', CORETHEME, false, true);
 	
-	// Load custom Post Types and Meta Boxes.
-	if(!is_child_theme()){
-		new CoreTheme_CustomPostTypes_Types();
-		new CoreTheme_CustomPostTypes_MetaBoxes();
-	}
+// Load custom Post Types and Meta Boxes.
+if(!is_child_theme()){
+	new CoreTheme_CustomPostTypes_Types();
+	new CoreTheme_CustomPostTypes_MetaBoxes();
 }

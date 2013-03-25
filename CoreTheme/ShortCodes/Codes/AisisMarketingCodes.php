@@ -1,7 +1,7 @@
 <?php 
 if (! function_exists ( 'aisis_jumbotron' )) {
 	function aisis_jumbotron($atts, $content = null) {
-		return '<div class="jumbotron">
+		return '<div class="marketingJumbotron">
 				'.do_shortcode($content).'
 				</div>';
 	}
@@ -62,7 +62,28 @@ if (! function_exists ( 'aisis_button' )) {
 	}
 }
 
+if (! function_exists ( 'aisis_marketing_row' )) {
+	function aisis_marketing_row($atts, $content = null) {
+		return '<div class="row-fluid marketing">'.$content.'</div>';
+	}
+}
+
+if (! function_exists ( 'aisis_marketing_collumn_one' )) {
+	function aisis_marketing_collumn_one($atts, $content = null) {
+		return '<div class="span6">'.$content.'</div>';
+	}
+}
+
+if (! function_exists ( 'aisis_marketing_collumn_two' )) {
+	function aisis_marketing_collumn_two($atts, $content = null) {
+		return '<div class="span6">'.$content.'</div>';
+	}
+}
+
 add_shortcode( 'jumbotron', 'aisis_jumbotron' );
 add_shortcode( 'marketingTitle', 'aisis_marketing_title' );
 add_shortcode( 'marketingLead', 'aisis_marketing_lead' );
+add_shortcode( 'collumnOne', 'aisis_marketing_collumn_one' );
+add_shortcode( 'collumnTwo', 'aisis_marketing_collumn_two' );
+add_shortcode( 'row', 'aisis_marketing_row');
 add_shortcode( 'button', 'aisis_button' );

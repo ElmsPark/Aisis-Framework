@@ -15,12 +15,11 @@ jQuery(document).ready(function($){
 <div class="tabbable">
   <ul class="nav nav-tabs">
     <li class="active"><a href="#post" data-toggle="tab">Post Specific</a></li>
-    <li><a href="#page" data-toggle="tab">Page Specific</a></li>
     <li><a href="#general" data-toggle="tab">General</a></li>
-    <li><a href="#advanced" data-toggle="tab">Advanced</a></li>
+    <li><a href="#advanced" data-toggle="tab">Marketing Page!</a></li>
   </ul>
   <div class="tab-content">
-    <div id="post" class="tab-pane active">
+    <div class="tab-pane active">
 	    <h1>Images</h1>
 	    <p>While also a general use, as this tag can be used on pages, page templates,
 	    custom post types and more, the images tag is a pretty clean and easy way
@@ -35,10 +34,10 @@ jQuery(document).ready(function($){
 	    </code>
 	    </pre>
 	    
-	    <p class="text-info">As of the release of Aisis 1.2 You must enter your own caption
+	    <div class="alert alert-info">As of the release of Aisis 1.2 You must enter your own caption
 	    which accptes html elements, for your image. We do not bring over WordPress image captions.
-	    </p>
-	    
+	    </div>
+	    <hr>
 	    <h2>Image Rounded</h2>
 	    <p>This image will be a circle</p>
 	    
@@ -51,8 +50,8 @@ jQuery(document).ready(function($){
 	    </code>
 	    </pre>
 	    
-	    <p class="text-info">This image does not support captions. This image will not be a circle in IE7 or 8.</p>
-	    
+	    <div class="alert alert-info">This image does not support captions. This image will not be a circle in IE7 or 8.</div>
+	    <hr>
 	    <h2>Image Rounded Corner</h2>
 	    <p>We will round the corders of this image</p>
 	    
@@ -65,8 +64,8 @@ jQuery(document).ready(function($){
 	    </code>
 	    </pre>
 	    
-	    <p class="text-info">This image does not support captions. This image will not have rounded corners in IE7 or 8.</p>
-	    
+	    <div class="alert alert-info">This image does not support captions. This image will not have rounded corners in IE7 or 8.</div>
+	    <hr>
 	    <h2>Image Polaroid</h2>
 	    <p>We will place a small amount of padding around said image to create a polaroid like affect.</p>
 	    
@@ -79,10 +78,7 @@ jQuery(document).ready(function($){
 	    </code>
 	    </pre>
 	    
-	    <p class="text-info">This image does not support captions.</p>
-    </div>
-    <div id="page" class="tab-pane">
-    
+	    <div class="alert alert-info">This image does not support captions.</div>
     </div>
     <div id="general" class="tab-pane">
     	<h1>Buttons</h1>
@@ -105,11 +101,11 @@ jQuery(document).ready(function($){
     	
     	<p><h3>Allowed Options:</h3></p>
     	
-    	<p class="text-info"><strong>Please Note:</strong>
+    	<div class="alert alert-info"><strong>Please Note:</strong>
     		We only support the bellow options as they are typed.
     		if you pass nothing in, we will create a regular button
     		with no styling applied to it.
-    	</p>
+    	</div>
     	
     	<p><h3>For size:</h3></p>
     	<p><a href="#" class="btn btn-large">large</a> 
@@ -124,7 +120,7 @@ jQuery(document).ready(function($){
     	<a href="#" class="btn btn-info">light-blue</a> 
     	<a href="#" class="btn btn-warning">yellow</a> 
     	<a href="#" class="btn btn-inverse">black</a></p>   		
-    	
+    	<hr>
     	<p><h2>Code</h2></p>
     	<p>There are tons of plugins and other addons for WordPress which allow for the addition of
     	syntax highlighting with in posts. If you are some one who writes or displays snipits of code
@@ -134,68 +130,129 @@ jQuery(document).ready(function($){
     	class='btn btn-large btn-success'/></p>
     	
     	<pre>
-    	<code data-language="generic">
     	[code]public function test(){}[/code]
-    	</code>
     	</pre>
+    	<hr>
+    	<p><h2>Rows</h2></p>
     	
+    	<p>Rows are a apart of the Twitter boot strap layout process. Below we provide two ways to add collumns of content, another way is to use css span classes
+    	such as span1-12 which.</p>
+    	
+    	<p>Lets start by adding in a row.</p>
+    	
+    	<p><input type="button" onClick="marketingRow()" value="Insert This Shortcode!" 
+    	class='btn btn-large btn-success'/></p>
+    	
+     	<pre>
+    	[row]Content will go here.[/row]
+    	</pre>  
+    	<hr>
+    	<p><h2>Collumn's (One and Two)</h2></p>	
+    	
+    	<p>Now that we have said row built, we need to put in the collumns. This is easy, and we can put our content in between these
+    	tags to then have the two collumn affect we are going for.</p>
+    	
+    	<p><input type="button" onClick="marketingCollumnOne()" value="Insert Collumn One" 
+    	class='btn btn-large btn-success'/></p>
+    	
+    	<p><input type="button" onClick="marketingCollumnTwo()" value="Insert Collumn Two" 
+    	class='btn btn-large btn-success'/></p>
+    	
+    	<pre>
+    	<code data-language="generic">
+    	[row]
+    	[collumnOne]
+    	Content
+    	[/collumnOne]
+    	[collumnTwo]
+    	Content
+    	[/collumnTwo]    	
+    	[/row]
+    	</code>
+    	</pre>  
+    	
+    	<div class="alert alert-info">You can use HTML tags inside of these short codes to further enhance the use of rows and collumns.</div>   	
     	
     </div>
     <div id="advanced" class="tab-pane">
-    	<h1>Marketing Page Layout!</h1>
-    	<p>Aisis Comes with a set of short codes that are best used together and 
-    	there is no better way to illustrate that then the marketing shortcodes.</p>
+    	<h1>Making a Marketing Page!</h1>
+    	<p>Creating a marketing page is easy, we will walk you through it. All you need is a blank page - we prefer if you din't title the page, but that's up to you.
+    	Marketing pages are best used to market a set of or a single product. what you will create will be a basic marketing page.</p>
     	
-    	<p class="text-info"><strong>Note:</strong> It is highly advised that you use
-    	these short codes with eachother inconjunction with the button short code.
-    	These set of short codes are meant and intended to be used as one.</p>
+    	<h3>Jumbotron</h3>
     	
-    	<p><h2>JumboTron</h2></p>
-    	<p>The first thing to do is to center the content and to do this we have
-    	a jumbotron short code that you can insert into your post, between the tags
-    	is where the magic begins.</p>
+    	<p>The following short code <code>[jumbotron][/jumbotron]</code> will allow for you to start off with the basics. since most of
+    	the content is centered for you, you won't have to worry about any messy css to make sure everything lines up.</p>
     	
-    	<p><input type="button" onClick="jumbotron()" value="Insert This Shortcode!" 
+    	<p><input type="button" onClick="jumbotron()" value="Insert Jumbotron" 
     	class='btn btn-large btn-success'/></p>
+    	<hr>
+    	<h3>Title and content lead</h3>
+    	
+    	<p>So the next step in making a marketing page is to add the title, which should be short and consise and is done with the title short codes 
+    	<code>[marketingTitle][/marketingTitle]</code> and then directly under that add in the marketing lead content: 
+    	<code>[marketingLead][/marketingLead]</code>. These will both go in between the jumbotron tags.</p>
+    	
+    	<p>The last thing to add after the content is a button, this button can be a download button or a tell me more button or what ever you wish. To do this we 
+    	simply add the following short code <code>[button size='' color='' link=''][/button]</code></p>
     	
     	<pre>
-    	<code data-language="generic">
-    	[jumbotron]Content will go here[/jumbotron]
-    	</code>
+    	// Example:
+    	[jumbotron]
+    	[marketingTitle]I am a Sample Title[/marketingTitle]
+    	[marketingLead]I describe in a sentance or two, my product or products.[/marketingLead]
+    	[button size='large' color='green' link='http://google.ca']Wan't to learn more?[/button]
+    	[/jumbotron]
     	</pre>
     	
-    	<p><h2>Marketing Title</h2></p>
-    	
-    	<p>The marketing title is best used with the jumbotron as it really makes the
-    	title pop.</p>
-    	
-    	<p class="text-info"><strong>Note:</strong> It is suggested that your titles be
-    	short and consise and that you use the marketing lead short code for longer descriptions.
-    	</p>
-    	
-    	<p><input type="button" onClick="marketingTitle()" value="Insert This Shortcode!" 
+    	<p><input type="button" onClick="marketingTitle()" value="Insert Marketing Title" 
     	class='btn btn-large btn-success'/></p>
     	
+    	<p><input type="button" onClick="marketingLead()" value="Insert Marketing Description" 
+    	class='btn btn-large btn-success'/></p>
+    	<hr>
+    	<h3>Rows and Content</h3>
+    	
+    	<p>The next and final step is to add the row and the content, for this we suggest using the collumn short codes: <code>[collumnOne][/collumnOne]</code>
+    	and <code>[collumnTwo][/collumnTwo]</code></p>
+    	
+    	<p>These are then placed into the row short code <code>[row][/row]</code> which is all apart of <a href="#">Twitter Bootstrap's css framework</a>. All spans
+    	can be from 1-12 and should add up to 12 in a row. The row we use here is <code>.row-fluid</code> so that it scales with the rest
+    	of the site.</p>
+    	
+    	<p>Lets put it all to gether:</p>
+    	
     	<pre>
-    	<code data-language="generic">
-    	[marketingTitle]This is my Title![/marketingTitle]
-    	</code>
+    	// Example:
+    	[jumbotron]
+    	[marketingTitle]I am a Sample Title[/marketingTitle]
+    	[marketingLead]I describe in a sentance or two, my product or products.[/marketingLead]
+    	[button size='large' color='green' link='http://google.ca']Wan't to learn more?[/button]
+    	[/jumbotron]
+    	
+    	[row]
+    	[collumnOne]
+    	Content for collumn one.
+    	[/collumnOne]
+    	[collumnTwo]
+    	Content for collumn one.
+    	[/collumnTwo]
+    	[/row]
     	</pre>
     	
-    	<p><h2>Marketing Lead</h2></p>
-    	
-    	<p>The marketing lead is a small description which essentially tells the reader
-    	what it is you are trying to sell or what it is your marketing page is about.</p>
-    	
-    	<p><input type="button" onClick="marketingLead()" value="Insert This Shortcode!" 
+    	<p><input type="button" onClick="marketingRow()" value="Insert Row" 
     	class='btn btn-large btn-success'/></p>
     	
-    	<pre>
-    	<code data-language="generic">
-    	[marketingLead]This is my Title![/marketingLead]
-    	</code>
-    	</pre>
-    
+    	<p><input type="button" onClick="marketingCollumnOne()" value="Insert Collumn One" 
+    	class='btn btn-large btn-success'/></p>
+    	
+    	<p><input type="button" onClick="marketingCollumnTwo()" value="Insert Collumn Two" 
+    	class='btn btn-large btn-success'/></p>
+    	
+    	<div class="alert alert-Info">
+    	It should be noted that collumn one and two use <code>.span6</code> which add's up to twelve.
+    	</div>
+    	
     </div>
   </div>
 </div>

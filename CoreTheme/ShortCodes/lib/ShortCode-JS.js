@@ -31,6 +31,39 @@ function marketingLead() {
 
 }
 
+function marketingRow() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[row]Collumns should go here..[/row]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+
+}
+
+function marketingCollumnOne() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[collumnOne]Content Goes here.[/collumnOne]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+
+}
+
+function marketingCollumnTwo() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[collumnTwo]Content Goes here.[/collumnTwo]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+
+}
+
 function image() {
 	var debug = true;
 	try{
