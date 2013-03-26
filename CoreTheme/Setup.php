@@ -103,9 +103,7 @@ $theme_setup = array(
 );
 
 // Set up the theme.
-if(!is_child_theme()){
-	new AisisCore_Theme($theme_setup);
-}
+new AisisCore_Theme($theme_setup);
 
 // Custom Folders
 $custom_folders = array(
@@ -113,8 +111,10 @@ $custom_folders = array(
 );
 
 // Custom Folder MultiSite.
-$activation = new CoreTheme_Activation($custom_folders);
-$activation->on_activation();
+if(!is_child_theme()){
+	$activation = new CoreTheme_Activation($custom_folders);
+	$activation->on_activation();
+}
 
 // Create a list of dependencies that can be used in a factory class.
 function dependencies(){

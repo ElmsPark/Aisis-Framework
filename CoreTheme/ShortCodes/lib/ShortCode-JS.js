@@ -126,3 +126,14 @@ function button() {
 	}
 
 }
+
+function toc() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[toc]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+
+}
