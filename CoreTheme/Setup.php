@@ -35,17 +35,17 @@ $scripts_to_load  = array(
         array(
             'name'=>'font-awesome',
             'path'=>get_template_directory_uri() . '/lib/FontAwesome/css/font-awesome.min.css'
-        ),
-        array(
-            'name'=>'php-css',
-            'path'=>get_template_directory_uri() . '/lib/style.php'
-        )		
+        ),		
     ),
    'js_jquery' => array(
    		array(
         	'name'=>'twbs-js-min',
             'path'=>get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js'
-        ),      
+        ),
+        array(
+        	'name' => 'toc',
+        	'path' => get_template_directory_uri() . '/lib/jquery.tableofcontents.min.js',
+        ),              
      ), 	  
 );
 
@@ -103,7 +103,9 @@ $theme_setup = array(
 );
 
 // Set up the theme.
-$theme = new AisisCore_Theme($theme_setup);
+if(!is_child_theme()){
+	new AisisCore_Theme($theme_setup);
+}
 
 // Custom Folders
 $custom_folders = array(

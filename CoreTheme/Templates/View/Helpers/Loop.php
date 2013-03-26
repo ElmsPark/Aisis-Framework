@@ -21,8 +21,9 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 			while($this->_wp_query->have_posts()){
 				$this->_wp_query->the_post();
 				
+				echo '<div class="title">';
 				$this->_title($this->_options);
-				
+				echo '</div>';
 				$author = get_the_author();
 				
 				echo 'Written by: <a href="'.get_author_posts_url(get_the_author_meta( 'ID' )).'">'.$author.'</a>';
@@ -40,10 +41,13 @@ class CoreTheme_Templates_View_Helpers_Loop extends AisisCore_Template_Helpers_L
 				}
 				
 				if(is_sticky()){
-					echo '<p class="sticky">' . get_the_content() . '</p>';
+					echo '<div class="post sticky">';
+					the_content();
 				}else{
+					echo '<div class="post">';				
 					the_content();
 				}
+				echo '</div>';
 				
 				
 				if(!has_post_format('aside') && !has_post_format('quote') && !has_post_format('link') && !has_post_format('status')){

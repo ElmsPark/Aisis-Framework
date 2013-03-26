@@ -40,13 +40,13 @@ if(!is_home()){
 
 if(is_active_sidebar('aisis-side-bar') && !is_home()){
 	if(!$builder->get_specific_option('category_sidebar') && is_category()){
-		echo '<div class="span6 marginLeft50 marginTop60 marginBottom120">';
+		echo '<div class="span6 marginLeft50 marginTop60">';
 	}elseif(!$builder->get_specific_option('tag_sidebar') && is_tag()){
-		echo '<div class="span6 marginLeft50 marginTop60 marginBottom120">';	
+		echo '<div class="span6 marginLeft50 marginTop60">';	
 	}elseif(!$builder->get_specific_option('author_sidebar') && is_author()){
-		echo '<div class="span6 marginLeft50 marginTop60 marginBottom120">';
+		echo '<div class="span6 marginLeft50 marginTop60">';
 	}elseif(is_single() || is_page()){
-		echo '<div class="container-narrow post marginTop60 marginBottom120">';
+		echo '<div class="container-narrow marginTop60">';
 	}else{
 		echo '<div class="marginTop60 marginBottom120">';
 	}

@@ -89,10 +89,22 @@ if(! function_exists ('aisis_image_polaroid') ){
 	}
 }
 
-
+if(! function_exists ('aisis_toc') ){
+	function aisis_toc($atts, $content = null){
+		return "
+		<ul id='toc'></ul>
+		
+		<script type='text/javascript' charset='utf-8'>
+			$(function(){ 
+				$('#toc').tableOfContents($('.post')); 
+			});
+		</script>";
+	}
+}
 
 add_shortcode( 'image', 'aisis_image');
 add_shortcode( 'image-circle', 'aisis_image_circle');
 add_shortcode( 'image-rounded', 'aisis_image_rounded');
 add_shortcode( 'image-polaroid', 'aisis_image_polaroid');
 add_shortcode( 'code', 'aisis_code');
+add_shortcode( 'toc', 'aisis_toc');

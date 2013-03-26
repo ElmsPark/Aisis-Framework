@@ -428,6 +428,9 @@ class AisisCore_Template_Helpers_Loop{
 		}
 	}
 
+	/**
+	 * Gets a list of categories based on the post.
+	 */
 	protected function _get_categories_for_post(){
 		global $post;
 		
@@ -443,6 +446,9 @@ class AisisCore_Template_Helpers_Loop{
 		echo $html;
 	}
 	
+	/**
+	 * Gets a list of tags based on the post.
+	 */
 	protected function _get_tags(){
 		$tags = get_tags();
 		$html = '';

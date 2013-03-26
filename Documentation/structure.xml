@@ -1827,7 +1827,7 @@ and if they are set we set the heckbox or radio as checked.&lt;/p&gt;</long-desc
       <error line="119" code="50015">Argument $key is missing from the Docblock of checked()</error>
     </parse_markers>
   </file>
-  <file path="AisisCore/Template/Helpers/Loop.php" hash="b78940ef42dcd3fe9cf7fea29a769579" package="Default">
+  <file path="AisisCore/Template/Helpers/Loop.php" hash="61daae6f8e6b918bd43481807170ebd7" package="Default">
     <class final="false" abstract="false" namespace="global" line="58" package="AisisCore\Template\Helpers">
       <extends/>
       <name>AisisCore_Template_Helpers_Loop</name>
@@ -2097,41 +2097,49 @@ found on either a queried loop, regular loop or a single loop.&lt;/p&gt;</long-d
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="431" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="434" package="AisisCore\Template\Helpers">
         <name>_get_categories_for_post</name>
         <full_name>_get_categories_for_post</full_name>
+        <docblock line="431">
+          <description>Gets a list of categories based on the post.</description>
+          <long-description/>
+        </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="446" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="452" package="AisisCore\Template\Helpers">
         <name>_get_tags</name>
         <full_name>_get_tags</full_name>
+        <docblock line="449">
+          <description>Gets a list of tags based on the post.</description>
+          <long-description/>
+        </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="465" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="471" package="AisisCore\Template\Helpers">
         <name>the_excerpt_length</name>
         <full_name>the_excerpt_length</full_name>
-        <docblock line="460">
+        <docblock line="466">
           <description>The new excerpt_length added into action</description>
           <long-description/>
-          <tag line="460" name="param" description="" type="string" variable="$length">
+          <tag line="466" name="param" description="" type="string" variable="$length">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="465">
+        <argument line="471">
           <name>$length</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="478" package="AisisCore\Template\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="484" package="AisisCore\Template\Helpers">
         <name>the_excerpt_content</name>
         <full_name>the_excerpt_content</full_name>
-        <docblock line="473">
+        <docblock line="479">
           <description>The new content for excerpt_more added into the action.</description>
           <long-description/>
-          <tag line="473" name="param" description="" type="string" variable="$content">
+          <tag line="479" name="param" description="" type="string" variable="$content">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="478">
+        <argument line="484">
           <name>$content</name>
           <default/>
           <type/>
@@ -2143,8 +2151,6 @@ found on either a queried loop, regular loop or a single loop.&lt;/p&gt;</long-d
       <critical line="60" code="50019">No short description for property $_options</critical>
       <critical line="65" code="50019">No short description for property $_wp_query</critical>
       <critical line="70" code="50019">No short description for property $_post</critical>
-      <error line="431" code="50010">No DocBlock was found for method _get_categories_for_post()</error>
-      <error line="446" code="50010">No DocBlock was found for method _get_tags()</error>
     </parse_markers>
   </file>
   <file path="AisisCore/Template/Builder.php" hash="da7764199e2d581b687aa185d432b14d" package="Default">
@@ -3852,7 +3858,7 @@ $query = array(
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/Templates/View/Helpers/CustomLoop.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Templates/View/Helpers/Loop.php" hash="587f76f5781030cf6cb83882e83c914d" package="Default">
+  <file path="CoreTheme/Templates/View/Helpers/Loop.php" hash="595f9bbc3b159d7a717d62b58d5ba97b" package="Default">
     <class final="false" abstract="false" namespace="global" line="13" package="CoreTheme\Templates\View\Helpers">
       <extends>\AisisCore_Template_Helpers_Loop</extends>
       <name>CoreTheme_Templates_View_Helpers_Loop</name>
@@ -3874,40 +3880,40 @@ as this clas inherits all the options and methods of Aisis Core Loop&lt;/p&gt;</
           <tag line="15" name="see" description="\AisisCore_Template_Helpers_Loop::_single_post()" refers="\AisisCore_Template_Helpers_Loop::_single_post()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="70" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="74" package="CoreTheme\Templates\View\Helpers">
         <name>single_navigation</name>
         <full_name>single_navigation</full_name>
-        <docblock line="65">
+        <docblock line="69">
           <description>Use twitter boostrap stylings.</description>
           <long-description/>
-          <tag line="65" name="see" description="\AisisCore_Template_Helpers_Loop::single_navigation()" refers="\AisisCore_Template_Helpers_Loop::single_navigation()"/>
+          <tag line="69" name="see" description="\AisisCore_Template_Helpers_Loop::single_navigation()" refers="\AisisCore_Template_Helpers_Loop::single_navigation()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="90" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="94" package="CoreTheme\Templates\View\Helpers">
         <name>loop_navigation</name>
         <full_name>loop_navigation</full_name>
-        <docblock line="85">
+        <docblock line="89">
           <description>Use twitter boostrap stylings.</description>
           <long-description/>
-          <tag line="85" name="see" description="\AisisCore_Template_Helpers_Loop::loop_navigation()" refers="\AisisCore_Template_Helpers_Loop::loop_navigation()"/>
+          <tag line="89" name="see" description="\AisisCore_Template_Helpers_Loop::loop_navigation()" refers="\AisisCore_Template_Helpers_Loop::loop_navigation()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="110" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="114" package="CoreTheme\Templates\View\Helpers">
         <name>_single_navigation_previous</name>
         <full_name>_single_navigation_previous</full_name>
-        <docblock line="105">
+        <docblock line="109">
           <description>15 character titles at max followed by 3 dots.</description>
           <long-description/>
-          <tag line="105" name="see" description="\AisisCore_Template_Helpers_Loop::_single_navigation_previous()" refers="\AisisCore_Template_Helpers_Loop::_single_navigation_previous()"/>
+          <tag line="109" name="see" description="\AisisCore_Template_Helpers_Loop::_single_navigation_previous()" refers="\AisisCore_Template_Helpers_Loop::_single_navigation_previous()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="124" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="128" package="CoreTheme\Templates\View\Helpers">
         <name>_single_navigation_next</name>
         <full_name>_single_navigation_next</full_name>
-        <docblock line="119">
+        <docblock line="123">
           <description>15 character titles at max followed by 3 dots.</description>
           <long-description/>
-          <tag line="119" name="see" description="\AisisCore_Template_Helpers_Loop::_single_navigation_next()" refers="\AisisCore_Template_Helpers_Loop::_single_navigation_next()"/>
+          <tag line="123" name="see" description="\AisisCore_Template_Helpers_Loop::_single_navigation_next()" refers="\AisisCore_Template_Helpers_Loop::_single_navigation_next()"/>
         </docblock>
       </method>
     </class>
@@ -4367,20 +4373,20 @@ implementers create views with ease.&lt;/p&gt;</long-description>
       <error line="55" code="50015">Argument $output is missing from the Docblock of display_element()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Setup.php" hash="219343b580574e52fcba938858875b4d" package="Default">
+  <file path="CoreTheme/Setup.php" hash="2fcae4cc9f5444e9140cf12be341592d" package="Default">
     <include line="3" type="Require Once" package="Default">
       <name/>
     </include>
     <include line="11" type="Require Once" package="Default">
       <name/>
     </include>
-    <function namespace="global" line="118" package="Default">
+    <function namespace="global" line="120" package="Default">
       <name>dependencies</name>
       <full_name>\dependencies</full_name>
     </function>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/Setup.php</error>
-      <error line="118" code="50009">No DocBlock was found for function \dependencies()</error>
+      <error line="120" code="50009">No DocBlock was found for function \dependencies()</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/MultiSite.php" hash="5958b88fa1a3c5cc187727018cb7fa68" package="Default">
@@ -4984,7 +4990,7 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/DisplayCodes.phtml</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/Codes/PostCodes.php" hash="f1abfb40f12c0063db4a0cddad0f6e23" package="Default">
+  <file path="CoreTheme/ShortCodes/Codes/PostCodes.php" hash="c70a438289b1d01912c0c67d9009d390" package="Default">
     <function namespace="global" line="3" package="Default">
       <name>aisis_image</name>
       <full_name>\aisis_image</full_name>
@@ -5055,6 +5061,20 @@ This type of form use an array of elements to create the elemts for said tab.&lt
         <type/>
       </argument>
     </function>
+    <function namespace="global" line="93" package="Default">
+      <name>aisis_toc</name>
+      <full_name>\aisis_toc</full_name>
+      <argument line="93">
+        <name>$atts</name>
+        <default/>
+        <type/>
+      </argument>
+      <argument line="93">
+        <name>$content</name>
+        <default>null</default>
+        <type/>
+      </argument>
+    </function>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/Codes/PostCodes.php</error>
       <error line="3" code="50009">No DocBlock was found for function \aisis_image()</error>
@@ -5062,6 +5082,7 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="42" code="50009">No DocBlock was found for function \aisis_image_circle()</error>
       <error line="59" code="50009">No DocBlock was found for function \aisis_image_rounded()</error>
       <error line="76" code="50009">No DocBlock was found for function \aisis_image_polaroid()</error>
+      <error line="93" code="50009">No DocBlock was found for function \aisis_toc()</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/ShortCodes/Codes/AisisMarketingCodes.php" hash="3d79508102cb44950cd48cce0f621cbd" package="Default">
@@ -5490,7 +5511,7 @@ setting up the widget.</description>
       <error line="56" code="50015">Argument $instance is missing from the Docblock of form()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Templates/options.phtml" hash="e9102bf99839f9cfcf178df8c7f0eb40" package="Default">
+  <file path="CoreTheme/AdminPanel/Templates/options.phtml" hash="8b4fc0cebe45d80552d75254f1328b3d" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Templates/options.phtml</error>
     </parse_markers>
@@ -6615,7 +6636,7 @@ the tabbed form.</description>
       <error line="37" code="50009">No DocBlock was found for function \bootstrap_admin_wp_default_styles()</error>
     </parse_markers>
   </file>
-  <file path="index.php" hash="3ea7653de1f05d0065ee115460d3ae63" package="Default">
+  <file path="index.php" hash="c2708836754f330583001985d48b32f8" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file index.php</error>
     </parse_markers>
