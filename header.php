@@ -28,7 +28,7 @@ wp_head();
 ?>
 
 </head>
-<body>
+<body <?php body_class(); ?>>
 <?php
 $template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 $template->render_view('navigation');
@@ -38,10 +38,21 @@ if(is_home() && !$template->get_specific_option('carousel_global') && is_home() 
 }
 
 if(is_home() && $template->get_specific_option('carousel_global')){
-	$template->render_view('jumbotron');
+	if(!$template->get_specific_option('jumbotron')){
+		?>
+		<img src="<?php header_image(); ?>" 
+			height="<?php echo get_custom_header()->height; ?>" 
+			width="100%" alt="" class="marginTop40"/>
+		<?php
+	}else{
+		$template->render_view('jumbotron');
+	}
+	
 	if($template->get_specific_option('socialbar')){
 		$template->render_view('socialbar');	
 	}
+	
+
 }
 
 if(is_single() && $template->get_specific_option('carousel_single')){

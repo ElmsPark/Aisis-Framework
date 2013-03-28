@@ -23,14 +23,50 @@
  * 			'size' => 'medium', // The size given by WordPress.
  * 			'args' => array(), // Image arguments given by WordPress. 
  * 		),
+ *      'navigation_wrap' => array(
+ * 			'before' => '' // Div wrapper.
+ * 			'after' => '' // Div wrapper close.
+ *      ),
  * 		'single' => array(
- * 			'show_categories' => true, // Or false
- * 			'show_tags' => true, // Or false
+ * 			'show_categories' => true, // Or false.
+ * 			'show_tags' => true, // Or false.
  * 		    'image' => array(
  * 			    'size' => 'medium', // The size given by WordPress.
  * 			    'args' => array(), // Image arguments given by WordPress. 
  * 		    ),
- * 		)
+ * 			'title_and_date' => array(
+ * 				'before' => '' // Div wrapper.
+ * 				'after' => '' // Div wrapper close.
+ * 			),
+ * 			'content' => array(
+ * 				'before' => '' // Div wrapper.
+ *     			'after' => '' // Div wrapper close.
+ * 			),
+ * 			'post_format' => array(
+ * 				'name' => array(
+ * 					'before' => '' // Div wrapper.
+ * 					'after' => '' // Div wrapper close.
+ * 				)
+ * 			),
+ * 			'sticky_posts' => array(
+ * 				'before' => '' // Div wrapper.
+ * 				'after' => '' // Div wrapper close.
+ * 			),
+ * 			'navigation_wrap' => array(
+ * 				'before' => '' // Div wrapper.
+ * 				'after' => '' // Div wrapper close.
+ * 			),
+ * 		),
+ * 		'page' => array(
+ * 			'content' => array(
+ * 				'before' => '' // Div wrapper.
+ * 				'after' => '' // Div wrapper close.
+ * 			),
+ * 			'image' => array(
+ * 				'size' => 'medium', // The size given by WordPress.
+ * 				'args' => array(), // Image arguments given by WordPress. 
+ * 			),
+ * 		),
  * 		'query' => array(), // The main query given by WordPress.
  * 		'404_template' => '' // The path to said template or a message.
  * );
@@ -53,9 +89,9 @@
  * 
  * @link http://codex.wordpress.org/The_Loop
  * 
- * @package AisisCore_Template_Helpers
+ * @package AisisCore_Template_Helpers_Loop
  */
-class AisisCore_Template_Helpers_Loop{
+class AisisCore_Template_Helpers_Loop_Loop{
 	
 	/**
 	 * @var array $_options
@@ -71,6 +107,11 @@ class AisisCore_Template_Helpers_Loop{
 	 * @var array $_post;
 	 */
 	protected $_post;
+	
+	/**
+	 * @var AisisCore_Template_Helpers_Loop_LoopComponents $_components
+	 */
+	protected $_components = null;
 	
 	/**
 	 * Set the wp_query object as a class level object if
@@ -95,6 +136,10 @@ class AisisCore_Template_Helpers_Loop{
 		
 		if(null === $this->_post){
 			$this->_post = $post;
+		}
+		
+		if(null === $this->_components){
+			$this->_components = new AisisCore_Template_Helpers_Loop_LoopComponents($this->_options);
 		}
 		
 		add_filter('excerpt_length', array($this, 'the_excerpt_length'), 999);
@@ -166,17 +211,9 @@ class AisisCore_Template_Helpers_Loop{
 					echo $this->_options['post_before'];
 				}	
 				
-				if(isset($this->_options['image'])){
-					if(isset($this->_options['image']['size'])){
-						the_post_thumbnail($this->_options['image']['size'], $this->_options['image']['args']);
-					}else{
-						the_post_thumbnail('thumbnail', $this->_options['image']['args']);
-					}
-				}else{
-					the_post_thumbnail('medium');
-				}
+				$this->_components->thumbnail($this->_options);
 					
-				$this->_title($this->_options);
+				$this->_components->title($this->_options);
 				
 				the_excerpt();
 				
@@ -185,10 +222,14 @@ class AisisCore_Template_Helpers_Loop{
 				}
 			}
 		}else{
-			$this->_error_page($this->_options);
+			$this->_components->error_page($this->_options);
 		}
 		
-		$this->loop_navigation();
+		if(isset($this->_options['navigation_wrap'])){
+			$this->_components->loop_navigation($this->_options['navigation_wrap']);
+		}else{
+			$this->_components->loop_navigation();
+		}
 	}
 	
 	/**
@@ -217,13 +258,9 @@ class AisisCore_Template_Helpers_Loop{
 					echo $this->_options['post_before'];
 				}
 				
-				if(isset($this->_options['image']['size'])){
-					the_post_thumbnail($this->_options['image']['size'], $this->_options['image']['args']);
-				}else{
-					the_post_thumbnail('thumbnail', $this->_options['image']['args']);
-				}
+				$this->_components->thumbnail($this->_options);
 				
-				$this->_title($this->_options);
+				$this->_components->title($this->_options);
 								
 				the_excerpt();
 				
@@ -232,9 +269,13 @@ class AisisCore_Template_Helpers_Loop{
 				}				
 			}
 			
-			$this->loop_navigation();
+			if(isset($this->_options['navigation_wrap'])){
+				$this->_components->loop_navigation($this->_options['navigation_wrap']);
+			}else{
+				$this->_components->loop_navigation();
+			}
 		}else{
-			$this->_error_page($this->_options);
+			$this->_components->error_page($this->_options);
 		}
 		
 		$wp_query = $original;	
@@ -244,42 +285,23 @@ class AisisCore_Template_Helpers_Loop{
 	 * This function will supply the single template with the post and it's contents.
 	 */
 	protected function _single_post(){
+		$post_type = new AisisCore_Template_Helpers_Loop_PostTypes($this->_options);
 		
 		if($this->_wp_query->have_posts()){
 			while($this->_wp_query->have_posts()){
 				$this->_wp_query->the_post();
 				
-				$this->_title($this->_options);
-				
-				$author = get_the_author();
-				
-				echo 'Written by: <a href="'.get_author_posts_url(get_the_author_meta( 'ID' )).'">'.$author.'</a>';
-				
-				the_date('F j, Y', ' on: <em>', '</em>');
-				
-				if(isset($this->_options['single']['image'])){
-					if(isset($this->_options['single']['image']['size'])){
-						the_post_thumbnail($this->_options['single']['image']['size'], $this->_options['single']['image']['args']);
-					}else{
-						the_post_thumbnail('full', $this->_options['single']['image']['args']);
-					}
-				}else{
-					the_post_thumbnail('medium', array('align' => 'centered'));
-				}
-				
-				the_content();
-				
-				if(isset($this->_options['single']['show_categories']) && $this->_options['single']['show_categories']){
-					$this->_get_categories_for_post();
-				}
-				
-				if(isset($this->_options['single']['show_tags']) && $this->_options['single']['show_tags']){
-					$this->_get_tags();
-				}				
+				$this->_single_loop_content($post_type);				
 			}
-			$this->single_navigation();
+			
+			if(isset($this->_options['single']['navigation_wrap'])){
+				$this->_components->single_navigation($this->_options['single']['navigation_wrap']);
+			}else{
+				$this->_components->single_navigation();
+			}
+			
 		}else{
-			$this->_error_page($this->_options);
+			$this->_components->error_page($this->_options);
 		}
 	}
 
@@ -291,57 +313,35 @@ class AisisCore_Template_Helpers_Loop{
 			while($this->_wp_query->have_posts()){
 				$this->_wp_query->the_post();
 				
-				$this->_title($this->_options);
+				$this->_components->title($this->_options);
 				
-				if(isset($this->_options['single']['image'])){
-					if(isset($this->_options['single']['image']['size'])){
-						the_post_thumbnail($this->_options['single']['image']['size'], $this->_options['single']['image']['args']);
-					}else{
-						the_post_thumbnail('full', $this->_options['single']['image']['args']);
-					}
+				if(isset($this->_options['page']) && isset($this->_options['page']['image'])){
+					$this->_components->thumbnail($this->_options['page']);
 				}else{
-					the_post_thumbnail('medium', array('align' => 'centered'));
+					$this->_components->thumbnail();
 				}
 				
-				the_content();				
+				if(isset($this->_options['page']) && isset($this->_options['page']['content'])){
+					$this->_components->content_wrapper($this->_options['page']['content']);
+				}else{
+					the_content();
+				}				
 			}
 		}else{
-			$this->_error_page($this->_options);
+			$this->_components->error_page($this->_options);
 		}		
-	}
-	
-	/**
-	 * Builds loop navigation for the general and the queried loop.
-	 * 
-	 * @link http://codex.wordpress.org/Function_Reference/get_next_posts_link
-	 * @link http://codex.wordpress.org/Function_Reference/get_previous_posts_link 
-	 */
-	public function loop_navigation(){
-		echo get_next_posts_link('&laquo; Older Entries'); 
-		echo get_previous_posts_link('Newer Entries &raquo;');
-	}
-	
-	/**
-	 * Builds Navigation for single posts.
-	 * 
-	 * @see _single_navigation_previous
-	 * @see _single_navigation_next
-	 */
-	public function single_navigation(){
-		echo $this->_single_navigation_previous();
-		echo $this->_single_navigation_next();
 	}
 	
 	/**
 	 * Disaply a sidebar so long as  the options key does not match. Also
 	 * to be used in conjunction with WordPress conditionals.
-	 * 
+	 *
 	 * @param string | array $key
 	 * @link http://codex.wordpress.org/Conditional_Tags
 	 */
 	public function sidebar($keys = ''){
-		$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');		
-		
+		$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+	
 		if(is_array($keys) && !empty($keys)){
 			foreach($keys as $key){
 				if(!$builder->get_specific_option($key)){
@@ -349,123 +349,82 @@ class AisisCore_Template_Helpers_Loop{
 				}
 			}
 		}elseif($keys != ''){
-
+	
 			if(!$builder->get_specific_option($keys)){
 				get_sidebar();
 			}
 		}else{
 			get_sidebar();
 		}
-	}
+	}	
 	
 	/**
-	 * Based on if were single, a title_header or if were an index we will then display
-	 * the title.
-	 * 
-	 * @param array $options
+	 * This method deals with the content in side the single loop.
+	 *
+	 * <p>That is to say it deals with wrapping the content in divs that are supplied
+	 * by the array of options.<p>
+	 *
+	 * <p>This loop also checks for specific post formats, including sticky.</p>
+	 *
+	 * TODO: Find away to clean up this code. The method is too large.
+	 *
+	 * @param AisisCore_Template_Helpers_PostTypes $post_type
 	 */
-	protected function _title($options){
-		if(is_single() && isset($options)){
-			if(isset($options['title_header'])){
-				the_title('<'.$options['title_header'].'>','</'.$options['title_header'].'>');
+	protected function _single_loop_content(AisisCore_Template_Helpers_Loop_PostTypes $post_type){
+		if(has_post_format('aside')){
+			$post_type->aside(get_the_content());
+		}elseif(has_post_format('status')){
+			$post_type->status(get_the_content());
+		}elseif(has_post_format('quote')){
+			$post_type->quote(get_the_content());
+		}elseif(has_post_format('link')){
+			$post_type->link(get_the_content());
+		}elseif(has_post_format('chat')){
+			$post_type->chat(get_the_content());
+		}elseif(has_post_format('gallery')){
+			$post_type->gallery($this->_components->title_and_date_wrapper($this->_options['single']['title_and_date']), get_the_content());
+		}elseif(has_post_format('image')){
+			$post_type->image($this->_components->title_and_date_wrapper($this->_options['single']['title_and_date']), get_the_content());
+		}elseif(has_post_format('video')){
+			$post_type->video($this->_components->title_and_date_wrapper($this->_options['single']['title_and_date']), get_the_content());
+		}elseif(has_post_format('audio')){
+			$post_type->audio($this->_components->title_and_date_wrapper($this->_options['single']['title_and_date']), get_the_content());
+		}else{
+			if(isset($this->_options['single']['title_and_date'])){
+				$this->_components->title_and_date_wrapper($this->_options['single']['title_and_date']);
 			}else{
-				the_title();
+				$this->_components->title($this->_options);
+				$this->_components->author_and_date();
 			}
-		}elseif(isset($options) && isset($options['title_header'])){
-			the_title(
-				'<'.$this->_options['title_header'].'>
-				<a href="'.get_permalink().'">', '</a>
-				</'.$this->_options['title_header'].'>'
-			);
-		}else{
-			the_title('<a href="'.get_permalink().'">', '</a>');
-		}
-	}
 	
-	/**
-	 * Builds a previous link.
-	 * 
-	 * @link http://codex.wordpress.org/Function_Reference/get_previous_post
-	 */
-	protected function _single_navigation_previous(){
-		$previous = get_previous_post();
-		
-		if(isset($previous) && !empty($previous)){	
-			$link = '<a href="'.get_permalink( $previous->ID ).'">'.$previous->post_title.'</a>';
-			return $link;
-		}
-	}
+			if(isset($this->_options['single'])){
+				$this->_components->thumbnail($this->_options['single']);
+			}else{
+				$this->_components->thumbnail();
+			}
+				
+			if(is_sticky()){
+				if(isset($this->_options['single']['sticky_post'])){
+					$this->_components->content_wrapper($this->_options['single']['sticky_post']);
+				}else{
+					the_content();
+					$this->_components->categories_and_tags();
+				}
+			}else{
+				if(isset($this->_options['single']['content'])){
+					$this->_components->content_wrapper($this->_options['single']['content']);
+				}else{
+					the_content();
+					$this->_components->categories_and_tags();
+				}
+			}
 	
-	/**
-	 * Builds a next link.
-	 * 
-	 * @link http://codex.wordpress.org/Function_Reference/get_next_post
-	 */
-	protected function _single_navigation_next(){
-		$next = get_next_post();
-		
-		if(isset($next) && !empty($next)){	
-			$link = '<a href="'.get_permalink( $next->ID ).'">'.$next->post_title.'</a>';
-			return $link;
-		}		
-	}
-	
-	/**
-	 * Rendered a 404 template if you have created one or renders out a message.
-	 * 
-	 * <p>If you have created a 404 phtml file in your theme or even a 404.php then you can
-	 * place the path in $options[404_template] and we will render that view for when no posts are
-	 * found on either a queried loop, regular loop or a single loop.</p>
-	 * 
-	 * @param array $options
-	 */
-	protected function _error_page($options){
-		if(isset($this->_options['404_template'])){
-			$template = new AisisCore_Template_Builder();
-			$template->render_template($this->_options['404_template']);
-		}else{
-			echo "Sorry. No posts were found.";
 		}
 	}
 
-	/**
-	 * Gets a list of categories based on the post.
-	 */
-	protected function _get_categories_for_post(){
-		global $post;
-		
-		$catgeories = get_the_category($post->ID);		
-		$html = '';
-
-		$html .= 'Categories: ';
-		
-		foreach($catgeories as $cat){
-			$html .= '<a href="'.get_category_link($cat->term_id).'">'.$cat->cat_name.'</a>, ';
-		}
-		
-		echo $html;
-	}
-	
-	/**
-	 * Gets a list of tags based on the post.
-	 */
-	protected function _get_tags(){
-		$tags = get_tags();
-		$html = '';
-		
-		$html .= 'Tags: ';
-		
-		foreach ( $tags as $tag ) {
-			$tag_link = get_tag_link( $tag->term_id );		
-			$html .= '<a href='.$tag_link.'>'.$tag->name.'</a>, ';
-		}
-			
-		echo $html;
-	}
-	
 	/**
 	 * The new excerpt_length added into action
-	 * 
+	 *
 	 * @param string $length
 	 */
 	public function the_excerpt_length($length){
@@ -478,7 +437,7 @@ class AisisCore_Template_Helpers_Loop{
 	
 	/**
 	 * The new content for excerpt_more added into the action.
-	 * 
+	 *
 	 * @param string $content
 	 */
 	public function the_excerpt_content($content){

@@ -1,18 +1,23 @@
 <?php
 /**
- * This class deatils and creates custom loops for Aisis.
+ * This class extends Aisis Core Loop to create a series of custom loops.
  * 
- * <p>We extend the CoreTheme Loop which in turns extends the Aisis Core Loop, and then we build the various loops
- * bellow. The way to use this class is to cll the custom_loop() function which will then build the loops for the front page.
- * The other public function is the custom_post_types_loop which takes in either carousel or mini as the option and renders a loop
- * based off of that.</p>
- * 
- * @see CoreTheme_Templates_View_Helpers_Loop
- * @see AisisCore_Template_Helpers_Loop
+ * <p>This class relies on AisisCore_Template_Helpers_Loop_Loop to allow for us to create a 
+ * series of custom loops for the custom post types that Aisis Theme Supports.</p>
  *
+ * @see AisisCore_Template_Helpers_Loop_Loop
  * @package CoreTheme_Templates_View_Helpers
  */
-class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_View_Helpers_Loop{
+class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Helpers_Loop_Loop{
+	
+	/**
+	 * Override the $_componets with the custom loop components class.
+	 * 
+	 * @see AisisCore_Template_Helpers_Loop_Loop::init()
+	 */
+	public function init(){
+		$this->_components = new CoreTheme_Templates_View_Helpers_LoopComponents($this->_options);
+	}
 	
 	/**
 	 * Renders a loop based on the type passed in.
@@ -63,7 +68,6 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends CoreTheme_Templates_Vi
 					echo '</div>';
 				}
 				
-				//get_sidebar();
 				$this->sidebar();
 			}else{
 				echo '<div class="alert">There are no options selected to display posts! Please 

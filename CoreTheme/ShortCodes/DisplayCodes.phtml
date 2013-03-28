@@ -85,9 +85,15 @@ jQuery(document).ready(function($){
 	    <p>Ever needed to insert a table of contents into your post? This short code below, <code>[toc]</code> will allow you to do
 	    just that. It will create the table of contents using <code>h1-h6</code> tags in your post.</p>
 	    
+	    <p>We accept two values, one is the container which the table of contents will appear in, <code>css_container=""</code> this takes in either
+	    a <code>.class</code> or a <code>#id</code>, we much prefer you use an id.</p>
+	    
+	    <p>The second option we allow is the section we should look in to create you table of contents. This is useually the id or class that surrounds your post.
+	    This is set up as such: <code>css_prop=""</code>, which takes in as </code>.class</code> or a <code>#id</code>. Again we prefer if you used a class here.</p>
+	    
 	   	<pre>
 	    <code data-language="generic">
-	    [toc]
+	    [toc css_container="" css_prop=""]
 	    </code>
 	    </pre>	
 	    

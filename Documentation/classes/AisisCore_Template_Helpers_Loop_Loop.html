@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \AisisCore_Template_Helpers_Loop</title>
+<title>phpDocumentor » \AisisCore_Template_Helpers_Loop_Loop</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -34,7 +34,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">228</span></a></li>
+                <span class="label label-info">237</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -64,27 +64,18 @@ the class level object is empty and the options."><span class="description">Set 
 the class level object is empty and the options.</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#method_init" title="init :: Use this to make any overrides to class."><span class="description">Use this to make any overrides to class.</span><pre>init()</pre></a></li>
 <li class="method public "><a href="#method_loop" title="loop :: Sets up the loop for the WordPress Theme."><span class="description">Sets up the loop for the WordPress Theme.</span><pre>loop()</pre></a></li>
-<li class="method public "><a href="#method_loop_navigation" title="loop_navigation :: Builds loop navigation for the general and the queried loop."><span class="description">Builds loop navigation for the general and the queried loop.</span><pre>loop_navigation()</pre></a></li>
 <li class="method public "><a href="#method_page_loop" title="page_loop :: This loop uses the same concept of single, but with out the tags, categories and navigation."><span class="description">This loop uses the same concept of single, but with out the tags, categories and navigation.</span><pre>page_loop()</pre></a></li>
 <li class="method public "><a href="#method_sidebar" title="sidebar :: Disaply a sidebar so long as  the options key does not match."><span class="description">Disaply a sidebar so long as  the options key does not match.</span><pre>sidebar()</pre></a></li>
-<li class="method public "><a href="#method_single_navigation" title="single_navigation :: Builds Navigation for single posts."><span class="description">Builds Navigation for single posts.</span><pre>single_navigation()</pre></a></li>
 <li class="method public "><a href="#method_the_excerpt_content" title="the_excerpt_content :: The new content for excerpt_more added into the action."><span class="description">The new content for excerpt_more added into the action.</span><pre>the_excerpt_content()</pre></a></li>
 <li class="method public "><a href="#method_the_excerpt_length" title="the_excerpt_length :: The new excerpt_length added into action"><span class="description">The new excerpt_length added into action</span><pre>the_excerpt_length()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header protected">» Protected
                     <ul>
-<li class="method protected "><a href="#method__error_page" title="_error_page :: Rendered a 404 template if you have created one or renders out a message."><span class="description">Rendered a 404 template if you have created one or renders out a message.</span><pre>_error_page()</pre></a></li>
 <li class="method protected "><a href="#method__general_wordpress_loop" title="_general_wordpress_loop :: This is the most basic loop."><span class="description">This is the most basic loop.</span><pre>_general_wordpress_loop()</pre></a></li>
-<li class="method protected "><a href="#method__get_categories_for_post" title="_get_categories_for_post :: Gets a list of categories based on the post."><span class="description">Gets a list of categories based on the post.</span><pre>_get_categories_for_post()</pre></a></li>
-<li class="method protected "><a href="#method__get_tags" title="_get_tags :: Gets a list of tags based on the post."><span class="description">Gets a list of tags based on the post.</span><pre>_get_tags()</pre></a></li>
 <li class="method protected "><a href="#method__query_post" title="_query_post :: Allows you to display a list of posts based on the query passed in."><span class="description">Allows you to display a list of posts based on the query passed in.</span><pre>_query_post()</pre></a></li>
-<li class="method protected "><a href="#method__single_navigation_next" title="_single_navigation_next :: Builds a next link."><span class="description">Builds a next link.</span><pre>_single_navigation_next()</pre></a></li>
-<li class="method protected "><a href="#method__single_navigation_previous" title="_single_navigation_previous :: Builds a previous link."><span class="description">Builds a previous link.</span><pre>_single_navigation_previous()</pre></a></li>
+<li class="method protected "><a href="#method__single_loop_content" title="_single_loop_content :: This method deals with the content in side the single loop."><span class="description">This method deals with the content in side the single loop.</span><pre>_single_loop_content()</pre></a></li>
 <li class="method protected "><a href="#method__single_post" title="_single_post :: This function will supply the single template with the post and it's contents."><span class="description">This function will supply the single template with the post and it's contents.</span><pre>_single_post()</pre></a></li>
-<li class="method protected "><a href="#method__title" title="_title :: Based on if were single, a title_header or if were an index we will then display
-the title."><span class="description">Based on if were single, a title_header or if were an index we will then display
-the title.</span><pre>_title()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -93,6 +84,7 @@ the title.</span><pre>_title()</pre></a></li>
 </li>
 <li class="nav-header protected">» Protected
                     <ul>
+<li class="property protected "><a href="#property__components" title="$_components :: "><span class="description"></span><pre>$_components</pre></a></li>
 <li class="property protected "><a href="#property__options" title="$_options :: "><span class="description"></span><pre>$_options</pre></a></li>
 <li class="property protected "><a href="#property__post" title="$_post :: "><span class="description"></span><pre>$_post</pre></a></li>
 <li class="property protected "><a href="#property__wp_query" title="$_wp_query :: "><span class="description"></span><pre>$_wp_query</pre></a></li>
@@ -101,13 +93,13 @@ the title.</span><pre>_title()</pre></a></li>
 </ul>
 </div>
 <div class="span8">
-<a id="\AisisCore_Template_Helpers_Loop"></a><ul class="breadcrumb">
+<a id="\AisisCore_Template_Helpers_Loop_Loop"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/global.html">global</a></li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/AisisCore_Template_Helpers_Loop.html">AisisCore_Template_Helpers_Loop</a>
+<span class="divider">\</span><a href="../classes/AisisCore_Template_Helpers_Loop_Loop.html">AisisCore_Template_Helpers_Loop_Loop</a>
 </li>
 </ul>
 <div class="element class">
@@ -133,14 +125,50 @@ you can pass to the constructor of this class.</p>
             'size' => 'medium', // The size given by WordPress.
             'args' => array(), // Image arguments given by WordPress.
         ),
+     'navigation_wrap' => array(
+            'before' => '' // Div wrapper.
+            'after' => '' // Div wrapper close.
+     ),
         'single' => array(
-            'show_categories' => true, // Or false
-            'show_tags' => true, // Or false
+            'show_categories' => true, // Or false.
+            'show_tags' => true, // Or false.
             'image' => array(
                 'size' => 'medium', // The size given by WordPress.
                 'args' => array(), // Image arguments given by WordPress.
             ),
-        )
+            'title_and_date' => array(
+                'before' => '' // Div wrapper.
+                'after' => '' // Div wrapper close.
+            ),
+            'content' => array(
+                'before' => '' // Div wrapper.
+                'after' => '' // Div wrapper close.
+            ),
+            'post_format' => array(
+                'name' => array(
+                    'before' => '' // Div wrapper.
+                    'after' => '' // Div wrapper close.
+                )
+            ),
+            'sticky_posts' => array(
+                'before' => '' // Div wrapper.
+                'after' => '' // Div wrapper close.
+            ),
+            'navigation_wrap' => array(
+                'before' => '' // Div wrapper.
+                'after' => '' // Div wrapper close.
+            ),
+        ),
+        'page' => array(
+            'content' => array(
+                'before' => '' // Div wrapper.
+                'after' => '' // Div wrapper close.
+            ),
+            'image' => array(
+                'size' => 'medium', // The size given by WordPress.
+                'args' => array(), // Image arguments given by WordPress.
+            ),
+        ),
         'query' => array(), // The main query given by WordPress.
         '404_template' => '' // The path to said template or a message.
 );
@@ -166,7 +194,7 @@ you are on a single page or. All you need is to call the class and the function.
 </tr>
 <tr>
 <th>package</th>
-<td><a href="../packages/AisisCore.Template.Helpers.html">AisisCore_Template_Helpers</a></td>
+<td><a href="../packages/AisisCore.Template.Helpers.Loop.html">AisisCore_Template_Helpers_Loop</a></td>
 </tr>
 </table>
 <h3>
@@ -207,24 +235,6 @@ we will just call the general loop.</p>
 <p>If the single page is rendered, we also take care of loading the comments.php file
 as well.</p></div></div></div>
 </div>
-<a id="method_loop_navigation"></a><div class="element clickable method public method_loop_navigation" data-toggle="collapse" data-target=".method_loop_navigation .collapse">
-<h2>Builds loop navigation for the general and the queried loop.</h2>
-<pre>loop_navigation() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>link</th>
-<td><a href="http://codex.wordpress.org/Function_Reference/get_next_posts_link">http://codex.wordpress.org/Function_Reference/get_next_posts_link</a></td>
-</tr>
-<tr>
-<th>link</th>
-<td><a href="http://codex.wordpress.org/Function_Reference/get_previous_posts_link">http://codex.wordpress.org/Function_Reference/get_previous_posts_link</a></td>
-</tr>
-</table>
-</div></div>
-</div>
 <a id="method_page_loop"></a><div class="element clickable method public method_page_loop" data-toggle="collapse" data-target=".method_page_loop .collapse">
 <h2>This loop uses the same concept of single, but with out the tags, categories and navigation.</h2>
 <pre>page_loop() </pre>
@@ -247,24 +257,6 @@ to be used in conjunction with WordPress conditionals.</p></div>
 <h4>$keys</h4>
 <code>string</code><p>| array $key</p>
 </div>
-</div></div>
-</div>
-<a id="method_single_navigation"></a><div class="element clickable method public method_single_navigation" data-toggle="collapse" data-target=".method_single_navigation .collapse">
-<h2>Builds Navigation for single posts.</h2>
-<pre>single_navigation() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>see</th>
-<td><a href="">\_single_navigation_previous</a></td>
-</tr>
-<tr>
-<th>see</th>
-<td><a href="">\_single_navigation_next</a></td>
-</tr>
-</table>
 </div></div>
 </div>
 <a id="method_the_excerpt_content"></a><div class="element clickable method public method_the_excerpt_content" data-toggle="collapse" data-target=".method_the_excerpt_content .collapse">
@@ -293,38 +285,11 @@ to be used in conjunction with WordPress conditionals.</p></div>
 </div>
 </div></div>
 </div>
-<a id="method__error_page"></a><div class="element clickable method protected method__error_page" data-toggle="collapse" data-target=".method__error_page .collapse">
-<h2>Rendered a 404 template if you have created one or renders out a message.</h2>
-<pre>_error_page(array $options) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>If you have created a 404 phtml file in your theme or even a 404.php then you can
-place the path in $options[404_template] and we will render that view for when no posts are
-found on either a queried loop, regular loop or a single loop.</p></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$options</h4>
-<code>array</code>
-</div>
-</div></div>
-</div>
 <a id="method__general_wordpress_loop"></a><div class="element clickable method protected method__general_wordpress_loop" data-toggle="collapse" data-target=".method__general_wordpress_loop .collapse">
 <h2>This is the most basic loop.</h2>
 <pre>_general_wordpress_loop() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>All were doing is returning a list of posts.</p></div></div></div>
-</div>
-<a id="method__get_categories_for_post"></a><div class="element clickable method protected method__get_categories_for_post" data-toggle="collapse" data-target=".method__get_categories_for_post .collapse">
-<h2>Gets a list of categories based on the post.</h2>
-<pre>_get_categories_for_post() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="method__get_tags"></a><div class="element clickable method protected method__get_tags" data-toggle="collapse" data-target=".method__get_tags .collapse">
-<h2>Gets a list of tags based on the post.</h2>
-<pre>_get_tags() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="method__query_post"></a><div class="element clickable method protected method__query_post" data-toggle="collapse" data-target=".method__query_post .collapse">
 <h2>Allows you to display a list of posts based on the query passed in.</h2>
@@ -345,28 +310,28 @@ that pagination works:</p>
 </div>
 </div></div>
 </div>
-<a id="method__single_navigation_next"></a><div class="element clickable method protected method__single_navigation_next" data-toggle="collapse" data-target=".method__single_navigation_next .collapse">
-<h2>Builds a next link.</h2>
-<pre>_single_navigation_next() </pre>
+<a id="method__single_loop_content"></a><div class="element clickable method protected method__single_loop_content" data-toggle="collapse" data-target=".method__single_loop_content .collapse">
+<h2>This method deals with the content in side the single loop.</h2>
+<pre>_single_loop_content(\AisisCore_Template_Helpers_Loop_PostTypes $post_type) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered"><tr>
-<th>link</th>
-<td><a href="http://codex.wordpress.org/Function_Reference/get_next_post">http://codex.wordpress.org/Function_Reference/get_next_post</a></td>
-</tr></table>
-</div></div>
+<div class="long_description"><p>&lt;</p>
+
+<p>p>That is to say it deals with wrapping the content in divs that are supplied
+by the array of options.</p>
+
+<p>&lt;</p>
+
+<p>p></p>
+
+<p>This loop also checks for specific post formats, including sticky.</p>
+
+<p>TODO: Find away to clean up this code. The method is too large.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$post_type</h4>
+<code>\AisisCore_Template_Helpers_PostTypes</code>
 </div>
-<a id="method__single_navigation_previous"></a><div class="element clickable method protected method__single_navigation_previous" data-toggle="collapse" data-target=".method__single_navigation_previous .collapse">
-<h2>Builds a previous link.</h2>
-<pre>_single_navigation_previous() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered"><tr>
-<th>link</th>
-<td><a href="http://codex.wordpress.org/Function_Reference/get_previous_post">http://codex.wordpress.org/Function_Reference/get_previous_post</a></td>
-</tr></table>
 </div></div>
 </div>
 <a id="method__single_post"></a><div class="element clickable method protected method__single_post" data-toggle="collapse" data-target=".method__single_post .collapse">
@@ -375,22 +340,14 @@ that pagination works:</p>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__title"></a><div class="element clickable method protected method__title" data-toggle="collapse" data-target=".method__title .collapse">
-<h2>Based on if were single, a title_header or if were an index we will then display
-the title.</h2>
-<pre>_title(array $options) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$options</h4>
-<code>array</code>
-</div>
-</div></div>
-</div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__components"> </a><div class="element clickable property protected property__components" data-toggle="collapse" data-target=".property__components .collapse">
+<h2></h2>
+<pre>$_components : <a href="../classes/AisisCore_Template_Helpers_Loop_LoopComponents.html">\AisisCore_Template_Helpers_Loop_LoopComponents</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="property__options"> </a><div class="element clickable property protected property__options" data-toggle="collapse" data-target=".property__options .collapse">
 <h2></h2>
 <pre>$_options : array</pre>
@@ -416,7 +373,7 @@ the title.</h2>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-03-26T16:37:21-06:00.<br></footer></div>
+            generated on 2013-03-28T16:01:21-06:00.<br></footer></div>
 </div>
 </body>
 </html>

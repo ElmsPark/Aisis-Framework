@@ -91,14 +91,41 @@ if(! function_exists ('aisis_image_polaroid') ){
 
 if(! function_exists ('aisis_toc') ){
 	function aisis_toc($atts, $content = null){
-		return "
-		<ul id='toc'></ul>
+		extract(
+			shortcode_atts(
+				array(
+				'css_prop' => 'css_prop',
+				'css_container' => 'css_container'
+				),
+				$atts
+			)
+		);
 		
-		<script type='text/javascript' charset='utf-8'>
-			$(function(){ 
-				$('#toc').tableOfContents($('.post')); 
+		//var_dump(ltrim($css_container, '#')); exit;
+		
+		if(strpos($css_container, '.')){
+			return "
+			<ul class='".ltrim($css_container, '.')."'></ul>
+			
+			<script type='text/javascript' charset='utf-8'>
+			$(document).ready(function(){
+				$('".$css_container."').tableOfContents($('".$css_prop."'));
+				console.log('test');
 			});
-		</script>";
+			</script>";
+		}else{
+			return "
+			<ul id='".ltrim($css_container, '#')."'></ul>
+			
+			<script type='text/javascript' charset='utf-8'>
+			$(document).ready(function(){
+				$('".$css_container."').tableOfContents($('".$css_prop."'));
+				console.log('test');
+			});
+			</script>";
+		}
+		
+
 	}
 }
 

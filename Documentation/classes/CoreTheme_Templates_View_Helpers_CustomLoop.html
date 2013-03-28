@@ -34,7 +34,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">228</span></a></li>
+                <span class="label label-info">237</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -65,12 +65,10 @@ the class level object is empty and the options.</span><pre>__construct()</pre><
 <li class="method public "><a href="#method_create_more_button" title='create_more_button :: Creates a "more" button based the option value passed in.'><span class="description">Creates a "more" button based the option value passed in.</span><pre>create_more_button()</pre></a></li>
 <li class="method public "><a href="#method_custom_loop" title="custom_loop :: Renders either lis, regular or rows loop based on the options selected."><span class="description">Renders either lis, regular or rows loop based on the options selected.</span><pre>custom_loop()</pre></a></li>
 <li class="method public "><a href="#method_custom_post_types_loop" title="custom_post_types_loop :: Renders a loop based on the type passed in."><span class="description">Renders a loop based on the type passed in.</span><pre>custom_post_types_loop()</pre></a></li>
-<li class="method public inherited"><a href="#method_init" title="init :: Use this to make any overrides to class."><span class="description">Use this to make any overrides to class.</span><pre>init()</pre></a></li>
+<li class="method public "><a href="#method_init" title="init :: Override the $_componets with the custom loop components class."><span class="description">Override the $_componets with the custom loop components class.</span><pre>init()</pre></a></li>
 <li class="method public inherited"><a href="#method_loop" title="loop :: Sets up the loop for the WordPress Theme."><span class="description">Sets up the loop for the WordPress Theme.</span><pre>loop()</pre></a></li>
-<li class="method public inherited"><a href="#method_loop_navigation" title="loop_navigation :: Use twitter boostrap stylings."><span class="description">Use twitter boostrap stylings.</span><pre>loop_navigation()</pre></a></li>
 <li class="method public inherited"><a href="#method_page_loop" title="page_loop :: This loop uses the same concept of single, but with out the tags, categories and navigation."><span class="description">This loop uses the same concept of single, but with out the tags, categories and navigation.</span><pre>page_loop()</pre></a></li>
 <li class="method public inherited"><a href="#method_sidebar" title="sidebar :: Disaply a sidebar so long as  the options key does not match."><span class="description">Disaply a sidebar so long as  the options key does not match.</span><pre>sidebar()</pre></a></li>
-<li class="method public inherited"><a href="#method_single_navigation" title="single_navigation :: Use twitter boostrap stylings."><span class="description">Use twitter boostrap stylings.</span><pre>single_navigation()</pre></a></li>
 <li class="method public inherited"><a href="#method_the_excerpt_content" title="the_excerpt_content :: The new content for excerpt_more added into the action."><span class="description">The new content for excerpt_more added into the action.</span><pre>the_excerpt_content()</pre></a></li>
 <li class="method public inherited"><a href="#method_the_excerpt_length" title="the_excerpt_length :: The new excerpt_length added into action"><span class="description">The new excerpt_length added into action</span><pre>the_excerpt_length()</pre></a></li>
 </ul>
@@ -83,18 +81,11 @@ the class level object is empty and the options.</span><pre>__construct()</pre><
 <li class="method protected "><a href="#method__build_rows" title="_build_rows :: Builds rows based on the queries."><span class="description">Builds rows based on the queries.</span><pre>_build_rows()</pre></a></li>
 <li class="method protected "><a href="#method__carousel_active" title="_carousel_active :: Builds the active - first pane - of the carousel."><span class="description">Builds the active - first pane - of the carousel.</span><pre>_carousel_active()</pre></a></li>
 <li class="method protected "><a href="#method__carousel_slides" title="_carousel_slides :: Builds the rest of the slides for the carousel."><span class="description">Builds the rest of the slides for the carousel.</span><pre>_carousel_slides()</pre></a></li>
-<li class="method protected inherited"><a href="#method__error_page" title="_error_page :: Rendered a 404 template if you have created one or renders out a message."><span class="description">Rendered a 404 template if you have created one or renders out a message.</span><pre>_error_page()</pre></a></li>
 <li class="method protected inherited"><a href="#method__general_wordpress_loop" title="_general_wordpress_loop :: This is the most basic loop."><span class="description">This is the most basic loop.</span><pre>_general_wordpress_loop()</pre></a></li>
-<li class="method protected inherited"><a href="#method__get_categories_for_post" title="_get_categories_for_post :: Gets a list of categories based on the post."><span class="description">Gets a list of categories based on the post.</span><pre>_get_categories_for_post()</pre></a></li>
-<li class="method protected inherited"><a href="#method__get_tags" title="_get_tags :: Gets a list of tags based on the post."><span class="description">Gets a list of tags based on the post.</span><pre>_get_tags()</pre></a></li>
 <li class="method protected "><a href="#method__mini_posts_loop" title="_mini_posts_loop :: Creates up to three mini feeds."><span class="description">Creates up to three mini feeds.</span><pre>_mini_posts_loop()</pre></a></li>
 <li class="method protected inherited"><a href="#method__query_post" title="_query_post :: Allows you to display a list of posts based on the query passed in."><span class="description">Allows you to display a list of posts based on the query passed in.</span><pre>_query_post()</pre></a></li>
-<li class="method protected inherited"><a href="#method__single_navigation_next" title="_single_navigation_next :: 15 character titles at max followed by 3 dots."><span class="description">15 character titles at max followed by 3 dots.</span><pre>_single_navigation_next()</pre></a></li>
-<li class="method protected inherited"><a href="#method__single_navigation_previous" title="_single_navigation_previous :: 15 character titles at max followed by 3 dots."><span class="description">15 character titles at max followed by 3 dots.</span><pre>_single_navigation_previous()</pre></a></li>
+<li class="method protected inherited"><a href="#method__single_loop_content" title="_single_loop_content :: This method deals with the content in side the single loop."><span class="description">This method deals with the content in side the single loop.</span><pre>_single_loop_content()</pre></a></li>
 <li class="method protected inherited"><a href="#method__single_post" title="_single_post :: This function will supply the single template with the post and it's contents."><span class="description">This function will supply the single template with the post and it's contents.</span><pre>_single_post()</pre></a></li>
-<li class="method protected inherited"><a href="#method__title" title="_title :: Based on if were single, a title_header or if were an index we will then display
-the title."><span class="description">Based on if were single, a title_header or if were an index we will then display
-the title.</span><pre>_title()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -103,6 +94,7 @@ the title.</span><pre>_title()</pre></a></li>
 </li>
 <li class="nav-header protected">» Protected
                     <ul>
+<li class="property protected inherited"><a href="#property__components" title="$_components :: "><span class="description"></span><pre>$_components</pre></a></li>
 <li class="property protected inherited"><a href="#property__options" title="$_options :: "><span class="description"></span><pre>$_options</pre></a></li>
 <li class="property protected inherited"><a href="#property__post" title="$_post :: "><span class="description"></span><pre>$_post</pre></a></li>
 <li class="property protected inherited"><a href="#property__wp_query" title="$_wp_query :: "><span class="description"></span><pre>$_wp_query</pre></a></li>
@@ -121,20 +113,14 @@ the title.</span><pre>_title()</pre></a></li>
 </li>
 </ul>
 <div class="element class">
-<p class="short_description">This class deatils and creates custom loops for Aisis.</p>
+<p class="short_description">This class extends Aisis Core Loop to create a series of custom loops.</p>
 <div class="details">
-<div class="long_description"><p>We extend the CoreTheme Loop which in turns extends the Aisis Core Loop, and then we build the various loops
-bellow. The way to use this class is to cll the custom_loop() function which will then build the loops for the front page.
-The other public function is the custom_post_types_loop which takes in either carousel or mini as the option and renders a loop
-based off of that.</p></div>
+<div class="long_description"><p>This class relies on AisisCore_Template_Helpers_Loop_Loop to allow for us to create a
+series of custom loops for the custom post types that Aisis Theme Supports.</p></div>
 <table class="table table-bordered">
 <tr>
 <th>see</th>
-<td><a href="">\global\CoreTheme_Templates_View_Helpers_Loop</a></td>
-</tr>
-<tr>
-<th>see</th>
-<td><a href="">\global\AisisCore_Template_Helpers_Loop</a></td>
+<td><a href="">\global\AisisCore_Template_Helpers_Loop_Loop</a></td>
 </tr>
 <tr>
 <th>package</th>
@@ -152,16 +138,10 @@ the class level object is empty and the options.</h2>
 <div class="long_description"><p>Set the options and the wp_query object.</p>
 
 <p>Add new actions to excerpt_length and excerpt_more.</p></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::__construct()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::__construct()</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::__construct()</td>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$options</h4>
@@ -212,21 +192,15 @@ the class level object is empty and the options.</h2>
 </div></div>
 </div>
 <a id="method_init"></a><div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
-<h2>Use this to make any overrides to class.</h2>
+<h2>Override the $_componets with the custom loop components class.</h2>
 <pre>init() </pre>
-<div class="labels"><span class="label">Inherited</span></div>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::init()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::init()</td>
-</tr>
-</table>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="AisisCore.Template.Helpers.Loop.Loop.html#%5CAisisCore_Template_Helpers_Loop_Loop::init()">\AisisCore_Template_Helpers_Loop_Loop::init()</a></td>
+</tr></table>
 </div></div>
 </div>
 <a id="method_loop"></a><div class="element clickable method public method_loop" data-toggle="collapse" data-target=".method_loop .collapse">
@@ -244,34 +218,10 @@ we will just call the general loop.</p>
 
 <p>If the single page is rendered, we also take care of loading the comments.php file
 as well.</p></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::loop()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::loop()</td>
-</tr>
-</table>
-</div></div>
-</div>
-<a id="method_loop_navigation"></a><div class="element clickable method public method_loop_navigation" data-toggle="collapse" data-target=".method_loop_navigation .collapse">
-<h2>Use twitter boostrap stylings.</h2>
-<pre>loop_navigation() </pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>see</th>
-<td><a href="AisisCore.Template.Helpers.Loop.html#%5CAisisCore_Template_Helpers_Loop::loop_navigation()">\AisisCore_Template_Helpers_Loop::loop_navigation()</a></td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::loop_navigation()</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::loop()</td>
+</tr></table>
 </div></div>
 </div>
 <a id="method_page_loop"></a><div class="element clickable method public method_page_loop" data-toggle="collapse" data-target=".method_page_loop .collapse">
@@ -280,16 +230,10 @@ as well.</p></div>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::page_loop()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::page_loop()</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::page_loop()</td>
+</tr></table>
 </div></div>
 </div>
 <a id="method_sidebar"></a><div class="element clickable method public method_sidebar" data-toggle="collapse" data-target=".method_sidebar .collapse">
@@ -306,11 +250,7 @@ to be used in conjunction with WordPress conditionals.</p></div>
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::sidebar()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::sidebar()</td>
+<td>\AisisCore_Template_Helpers_Loop_Loop::sidebar()</td>
 </tr>
 </table>
 <h3>Parameters</h3>
@@ -320,40 +260,16 @@ to be used in conjunction with WordPress conditionals.</p></div>
 </div>
 </div></div>
 </div>
-<a id="method_single_navigation"></a><div class="element clickable method public method_single_navigation" data-toggle="collapse" data-target=".method_single_navigation .collapse">
-<h2>Use twitter boostrap stylings.</h2>
-<pre>single_navigation() </pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>see</th>
-<td><a href="AisisCore.Template.Helpers.Loop.html#%5CAisisCore_Template_Helpers_Loop::single_navigation()">\AisisCore_Template_Helpers_Loop::single_navigation()</a></td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::single_navigation()</td>
-</tr>
-</table>
-</div></div>
-</div>
 <a id="method_the_excerpt_content"></a><div class="element clickable method public method_the_excerpt_content" data-toggle="collapse" data-target=".method_the_excerpt_content .collapse">
 <h2>The new content for excerpt_more added into the action.</h2>
 <pre>the_excerpt_content(string $content) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::the_excerpt_content()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::the_excerpt_content()</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::the_excerpt_content()</td>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$content</h4>
@@ -367,16 +283,10 @@ to be used in conjunction with WordPress conditionals.</p></div>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::the_excerpt_length()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::the_excerpt_length()</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::the_excerpt_length()</td>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$length</h4>
@@ -444,83 +354,16 @@ $query = array(
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__error_page"></a><div class="element clickable method protected method__error_page" data-toggle="collapse" data-target=".method__error_page .collapse">
-<h2>Rendered a 404 template if you have created one or renders out a message.</h2>
-<pre>_error_page(array $options) </pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>If you have created a 404 phtml file in your theme or even a 404.php then you can
-place the path in $options[404_template] and we will render that view for when no posts are
-found on either a queried loop, regular loop or a single loop.</p></div>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::_error_page()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::_error_page()</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$options</h4>
-<code>array</code>
-</div>
-</div></div>
-</div>
 <a id="method__general_wordpress_loop"></a><div class="element clickable method protected method__general_wordpress_loop" data-toggle="collapse" data-target=".method__general_wordpress_loop .collapse">
 <h2>This is the most basic loop.</h2>
 <pre>_general_wordpress_loop() </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>All were doing is returning a list of posts.</p></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::_general_wordpress_loop()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::_general_wordpress_loop()</td>
-</tr>
-</table>
-</div></div>
-</div>
-<a id="method__get_categories_for_post"></a><div class="element clickable method protected method__get_categories_for_post" data-toggle="collapse" data-target=".method__get_categories_for_post .collapse">
-<h2>Gets a list of categories based on the post.</h2>
-<pre>_get_categories_for_post() </pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::_get_categories_for_post()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::_get_categories_for_post()</td>
-</tr>
-</table>
-</div></div>
-</div>
-<a id="method__get_tags"></a><div class="element clickable method protected method__get_tags" data-toggle="collapse" data-target=".method__get_tags .collapse">
-<h2>Gets a list of tags based on the post.</h2>
-<pre>_get_tags() </pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::_get_tags()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::_get_tags()</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::_general_wordpress_loop()</td>
+</tr></table>
 </div></div>
 </div>
 <a id="method__mini_posts_loop"></a><div class="element clickable method protected method__mini_posts_loop" data-toggle="collapse" data-target=".method__mini_posts_loop .collapse">
@@ -541,16 +384,10 @@ Pagination is dealt with as well as reseting the query.</p>
 that pagination works:</p>
 
 <p><pre><code>$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;</code></pre></p></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::_query_post()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::_query_post()</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::_query_post()</td>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$query</h4>
@@ -558,40 +395,32 @@ that pagination works:</p>
 </div>
 </div></div>
 </div>
-<a id="method__single_navigation_next"></a><div class="element clickable method protected method__single_navigation_next" data-toggle="collapse" data-target=".method__single_navigation_next .collapse">
-<h2>15 character titles at max followed by 3 dots.</h2>
-<pre>_single_navigation_next() </pre>
+<a id="method__single_loop_content"></a><div class="element clickable method protected method__single_loop_content" data-toggle="collapse" data-target=".method__single_loop_content .collapse">
+<h2>This method deals with the content in side the single loop.</h2>
+<pre>_single_loop_content(\AisisCore_Template_Helpers_Loop_PostTypes $post_type) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>see</th>
-<td><a href="AisisCore.Template.Helpers.Loop.html#%5CAisisCore_Template_Helpers_Loop::_single_navigation_next()">\AisisCore_Template_Helpers_Loop::_single_navigation_next()</a></td>
-</tr>
-<tr>
+<div class="long_description"><p>&lt;</p>
+
+<p>p>That is to say it deals with wrapping the content in divs that are supplied
+by the array of options.</p>
+
+<p>&lt;</p>
+
+<p>p></p>
+
+<p>This loop also checks for specific post formats, including sticky.</p>
+
+<p>TODO: Find away to clean up this code. The method is too large.</p></div>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::_single_navigation_next()</td>
-</tr>
-</table>
-</div></div>
+<td>\AisisCore_Template_Helpers_Loop_Loop::_single_loop_content()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$post_type</h4>
+<code>\AisisCore_Template_Helpers_PostTypes</code>
 </div>
-<a id="method__single_navigation_previous"></a><div class="element clickable method protected method__single_navigation_previous" data-toggle="collapse" data-target=".method__single_navigation_previous .collapse">
-<h2>15 character titles at max followed by 3 dots.</h2>
-<pre>_single_navigation_previous() </pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>see</th>
-<td><a href="AisisCore.Template.Helpers.Loop.html#%5CAisisCore_Template_Helpers_Loop::_single_navigation_previous()">\AisisCore_Template_Helpers_Loop::_single_navigation_previous()</a></td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::_single_navigation_previous()</td>
-</tr>
-</table>
 </div></div>
 </div>
 <a id="method__single_post"></a><div class="element clickable method protected method__single_post" data-toggle="collapse" data-target=".method__single_post .collapse">
@@ -600,60 +429,36 @@ that pagination works:</p>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>see</th>
-<td><a href="AisisCore.Template.Helpers.Loop.html#%5CAisisCore_Template_Helpers_Loop::_single_post()">\AisisCore_Template_Helpers_Loop::_single_post()</a></td>
-</tr>
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::_single_post()</td>
-</tr>
-</table>
-</div></div>
-</div>
-<a id="method__title"></a><div class="element clickable method protected method__title" data-toggle="collapse" data-target=".method__title .collapse">
-<h2>Based on if were single, a title_header or if were an index we will then display
-the title.</h2>
-<pre>_title(array $options) </pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::_title()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::_title()</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$options</h4>
-<code>array</code>
-</div>
+<td>\AisisCore_Template_Helpers_Loop_Loop::_single_post()</td>
+</tr></table>
 </div></div>
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__components"> </a><div class="element clickable property protected property__components" data-toggle="collapse" data-target=".property__components .collapse">
+<h2></h2>
+<pre>$_components : <a href="../classes/AisisCore_Template_Helpers_Loop_LoopComponents.html">\AisisCore_Template_Helpers_Loop_LoopComponents</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AisisCore_Template_Helpers_Loop_Loop::$$_components</td>
+</tr></table>
+</div></div>
+</div>
 <a id="property__options"> </a><div class="element clickable property protected property__options" data-toggle="collapse" data-target=".property__options .collapse">
 <h2></h2>
 <pre>$_options : array</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::$$_options</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::$$_options</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::$$_options</td>
+</tr></table>
 </div></div>
 </div>
 <a id="property__post"> </a><div class="element clickable property protected property__post" data-toggle="collapse" data-target=".property__post .collapse">
@@ -662,16 +467,10 @@ the title.</h2>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::$$_post</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::$$_post</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::$$_post</td>
+</tr></table>
 </div></div>
 </div>
 <a id="property__wp_query"> </a><div class="element clickable property protected property__wp_query" data-toggle="collapse" data-target=".property__wp_query .collapse">
@@ -680,16 +479,10 @@ the title.</h2>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\AisisCore_Template_Helpers_Loop::$$_wp_query</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\CoreTheme_Templates_View_Helpers_Loop::$$_wp_query</td>
-</tr>
-</table>
+<td>\AisisCore_Template_Helpers_Loop_Loop::$$_wp_query</td>
+</tr></table>
 </div></div>
 </div>
 </div>
@@ -699,7 +492,7 @@ the title.</h2>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-03-26T16:37:21-06:00.<br></footer></div>
+            generated on 2013-03-28T16:01:21-06:00.<br></footer></div>
 </div>
 </body>
 </html>
