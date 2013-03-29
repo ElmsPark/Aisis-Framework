@@ -139,8 +139,7 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 		if(isset($options['before'])){
 			echo $options['before'];
 		}
-	
-		$this->thumbnail($this->_options);
+		
 		the_content();
 		$this->categories_and_tags();
 	
