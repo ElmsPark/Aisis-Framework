@@ -35,8 +35,9 @@ class CoreTheme_Loader_Asset extends AisisCore_Loader_Asset {
 		
 		$http = new AisisCore_Http_Http();
 		
-		add_action ('wp_enqueue_scripts', array($this, 'load_jquery_front'));
-		add_action ('wp_enqueue_scripts', array ($this, 'load_script' ) );
+		add_action ('wp_footer', array($this, 'load_jquery_front'));
+		add_action ('wp_enqueue_scripts', array ($this, 'load_style' ));
+		add_action ('wp_footer', array ($this, 'load_js' ));
 		
 		add_action ( 'wp_head', array ($this, 'apply_ie_tags' ) );
 		add_action ( 'wp_head', array ($this, 'apply_view_port_tag' ) );
@@ -58,9 +59,9 @@ class CoreTheme_Loader_Asset extends AisisCore_Loader_Asset {
 	}
 	
 	/**
-	 * We load only the font end java script.
+	 * We load only the font end css
 	 */
-	public function load_script() {
+	public function load_style() {
 
 		/*
 		 * Walk through the options passed in.
@@ -72,17 +73,24 @@ class CoreTheme_Loader_Asset extends AisisCore_Loader_Asset {
 		             wp_enqueue_style ( $v['name'], $v['path'] );
 		        }
 		    }
-		    
+		}
+	}
+	
+	/**
+	 * We load only the font end js
+	 */	
+	public function load_js(){
+		foreach ( $this->_options as $key => $value ){
 			if (isset ( $this->_options ['js'] )) {
-		        foreach($this->_options ['js'] as $k=>$v){
-		             wp_enqueue_script ( $v['name'], $v['path'] );
-		        }
-		    }
+				foreach($this->_options ['js'] as $k=>$v){
+					wp_enqueue_script ( $v['name'], $v['path'] );
+				}
+			}
 			if (isset ( $this->_options ['js_jquery'] )) {
-		        foreach($this->_options ['js_jquery'] as $k=>$v){
-		             wp_enqueue_script ( $v['name'], $v['path'] );
-		        }
-		    }
+				foreach($this->_options ['js_jquery'] as $k=>$v){
+					wp_enqueue_script ( $v['name'], $v['path'] );
+				}
+			}			
 		}
 	}
 	

@@ -88,12 +88,12 @@
       <error line="68" code="50009">No DocBlock was found for function \flush_ob_end()</error>
     </parse_markers>
   </file>
-  <file path="footer.php" hash="aa1c45a2a198d26c56b18bb428dd1312" package="Default">
+  <file path="footer.php" hash="075dcdb362e76460d43d040c9b4049f7" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file footer.php</error>
     </parse_markers>
   </file>
-  <file path="header.php" hash="9bff4b00730a1a1ea9d9240f473572c5" package="Default">
+  <file path="header.php" hash="a11a079da87c09522e276efb4e34aa97" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file header.php</error>
     </parse_markers>
@@ -103,7 +103,7 @@
       <error line="0" code="50007">No page-level DocBlock was found in file sidebar.php</error>
     </parse_markers>
   </file>
-  <file path="posts-page-template.php" hash="1927ba00c58faa474baca14ce2d9159f" package="Default">
+  <file path="posts-page-template.php" hash="95ec5ff64b2ebe3184460cefe4356059" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file posts-page-template.php</error>
     </parse_markers>
@@ -1827,7 +1827,7 @@ and if they are set we set the heckbox or radio as checked.&lt;/p&gt;</long-desc
       <error line="119" code="50015">Argument $key is missing from the Docblock of checked()</error>
     </parse_markers>
   </file>
-  <file path="AisisCore/Template/Helpers/Loop/LoopComponents.php" hash="93806401853f22e0d18ce2ddbcbcb3ac" package="Default">
+  <file path="AisisCore/Template/Helpers/Loop/LoopComponents.php" hash="0bd841ff61ed150d30bf4a1d5c3c5da0" package="Default">
     <class final="false" abstract="false" namespace="global" line="17" package="AisisCore\Template\Helpers\Loop">
       <extends/>
       <name>AisisCore_Template_Helpers_Loop_LoopComponents</name>
@@ -1970,89 +1970,89 @@ These take in an option in the form of a specifically designed array which can b
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="157" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="156" package="AisisCore\Template\Helpers\Loop">
         <name>categories_and_tags</name>
         <full_name>categories_and_tags</full_name>
-        <docblock line="152">
+        <docblock line="151">
           <description>Wrapper function for categories and tags.</description>
           <long-description>&lt;p&gt;Only shows up if we are not on a page.&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="178" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="177" package="AisisCore\Template\Helpers\Loop">
         <name>error_page</name>
         <full_name>error_page</full_name>
-        <docblock line="169">
+        <docblock line="168">
           <description>Rendered a 404 template if you have created one or renders out a message.</description>
           <long-description>&lt;p&gt;If you have created a 404 phtml file in your theme or even a 404.php then you can
 place the path in $options[404_template] and we will render that view for when no posts are
 found on either a queried loop, regular loop or a single loop.&lt;/p&gt;</long-description>
-          <tag line="169" name="param" description="" type="array" variable="$options">
+          <tag line="168" name="param" description="" type="array" variable="$options">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="178">
+        <argument line="177">
           <name>$options</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="193" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="192" package="AisisCore\Template\Helpers\Loop">
         <name>title</name>
         <full_name>title</full_name>
-        <docblock line="187">
+        <docblock line="186">
           <description>Based on if were single, a title_header or if were an index we will then display
 the title.</description>
           <long-description/>
-          <tag line="187" name="param" description="" type="array" variable="$options">
+          <tag line="186" name="param" description="" type="array" variable="$options">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="193">
+        <argument line="192">
           <name>$options</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="214" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="213" package="AisisCore\Template\Helpers\Loop">
         <name>_author_and_date</name>
         <full_name>_author_and_date</full_name>
-        <docblock line="211">
+        <docblock line="210">
           <description>Deals with the author and date, and how we should display them.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="225" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="224" package="AisisCore\Template\Helpers\Loop">
         <name>_get_categories_for_post</name>
         <full_name>_get_categories_for_post</full_name>
-        <docblock line="222">
+        <docblock line="221">
           <description>Gets a list of categories based on the post.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="243" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="242" package="AisisCore\Template\Helpers\Loop">
         <name>_get_tags</name>
         <full_name>_get_tags</full_name>
-        <docblock line="240">
+        <docblock line="239">
           <description>Gets a list of tags based on the post.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="262" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="261" package="AisisCore\Template\Helpers\Loop">
         <name>_single_navigation_previous</name>
         <full_name>_single_navigation_previous</full_name>
-        <docblock line="257">
+        <docblock line="256">
           <description>Builds a previous link.</description>
           <long-description/>
-          <tag line="257" name="link" description="http://codex.wordpress.org/Function_Reference/get_previous_post" link="http://codex.wordpress.org/Function_Reference/get_previous_post"/>
+          <tag line="256" name="link" description="http://codex.wordpress.org/Function_Reference/get_previous_post" link="http://codex.wordpress.org/Function_Reference/get_previous_post"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="276" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="275" package="AisisCore\Template\Helpers\Loop">
         <name>_single_navigation_next</name>
         <full_name>_single_navigation_next</full_name>
-        <docblock line="271">
+        <docblock line="270">
           <description>Builds a next link.</description>
           <long-description/>
-          <tag line="271" name="link" description="http://codex.wordpress.org/Function_Reference/get_next_post" link="http://codex.wordpress.org/Function_Reference/get_next_post"/>
+          <tag line="270" name="link" description="http://codex.wordpress.org/Function_Reference/get_next_post" link="http://codex.wordpress.org/Function_Reference/get_next_post"/>
         </docblock>
       </method>
     </class>
@@ -4899,20 +4899,20 @@ implementers create views with ease.&lt;/p&gt;</long-description>
       <error line="55" code="50015">Argument $output is missing from the Docblock of display_element()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Setup.php" hash="8a77ef863dead8f01d55a6fe19c348b8" package="Default">
+  <file path="CoreTheme/Setup.php" hash="3fb7e0f27e96ec60dc1c4eb1c3b6fedc" package="Default">
     <include line="3" type="Require Once" package="Default">
       <name/>
     </include>
     <include line="11" type="Require Once" package="Default">
       <name/>
     </include>
-    <function namespace="global" line="120" package="Default">
+    <function namespace="global" line="128" package="Default">
       <name>dependencies</name>
       <full_name>\dependencies</full_name>
     </function>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/Setup.php</error>
-      <error line="120" code="50009">No DocBlock was found for function \dependencies()</error>
+      <error line="128" code="50009">No DocBlock was found for function \dependencies()</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/MultiSite.php" hash="5958b88fa1a3c5cc187727018cb7fa68" package="Default">
@@ -5511,12 +5511,12 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="50" code="50009">No DocBlock was found for function \aisis_require_code_display_page()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/DisplayCodes.phtml" hash="5078bea71c2b9cc70b7c690099673ff2" package="Default">
+  <file path="CoreTheme/ShortCodes/DisplayCodes.phtml" hash="928ebf10f908943feba295bc8fddeb22" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/DisplayCodes.phtml</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/Codes/PostCodes.php" hash="d5ce1c2c8d0e98087435a402765c2b17" package="Default">
+  <file path="CoreTheme/ShortCodes/Codes/PostCodes.php" hash="0c72e4cdff5c9482869f4e339ab63da4" package="Default">
     <function namespace="global" line="3" package="Default">
       <name>aisis_image</name>
       <full_name>\aisis_image</full_name>
@@ -5721,7 +5721,7 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="78" code="50009">No DocBlock was found for function \aisis_marketing_collumn_two()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Loader/Asset.php" hash="21f2978c6ae2be04e236d300c57f6aff" package="Default">
+  <file path="CoreTheme/Loader/Asset.php" hash="12a1cce971e9d3facdc45d8c2aa9effe" package="Default">
     <class final="false" abstract="false" namespace="global" line="29" package="CoreTheme\Loader">
       <extends>\AisisCore_Loader_Asset</extends>
       <name>CoreTheme_Loader_Asset</name>
@@ -5758,58 +5758,66 @@ $scripts_to_load  = array(
           <tag line="31" name="see" description="\AisisCore_Loader_Asset::init()" refers="\AisisCore_Loader_Asset::init()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="63" package="CoreTheme\Loader">
-        <name>load_script</name>
-        <full_name>load_script</full_name>
-        <docblock line="60">
-          <description>We load only the font end java script.</description>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="64" package="CoreTheme\Loader">
+        <name>load_style</name>
+        <full_name>load_style</full_name>
+        <docblock line="61">
+          <description>We load only the font end css</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="92" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="82" package="CoreTheme\Loader">
+        <name>load_js</name>
+        <full_name>load_js</full_name>
+        <docblock line="79">
+          <description>We load only the font end js</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="100" package="CoreTheme\Loader">
         <name>load_admin_script</name>
         <full_name>load_admin_script</full_name>
-        <docblock line="89">
+        <docblock line="97">
           <description>We load only the admin css</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="119" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="127" package="CoreTheme\Loader">
         <name>aisis_register_admin_jquery</name>
         <full_name>aisis_register_admin_jquery</full_name>
-        <docblock line="116">
+        <docblock line="124">
           <description>We load the jquery - at this time we load 1.8.1 for the admin.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="128" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="136" package="CoreTheme\Loader">
         <name>load_jquery_front</name>
         <full_name>load_jquery_front</full_name>
-        <docblock line="125">
+        <docblock line="133">
           <description>We load the jquery - at this time we load the 1.8.3 for the front end.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="137" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="145" package="CoreTheme\Loader">
         <name>apply_ie_tags</name>
         <full_name>apply_ie_tags</full_name>
-        <docblock line="134">
+        <docblock line="142">
           <description>Apply html5.js and css media queries js for browsers older then IE 9</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="148" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="156" package="CoreTheme\Loader">
         <name>apply_view_port_tag</name>
         <full_name>apply_view_port_tag</full_name>
-        <docblock line="145">
+        <docblock line="153">
           <description>Set the view port tag.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="155" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="163" package="CoreTheme\Loader">
         <name>apply_open_sans</name>
         <full_name>apply_open_sans</full_name>
-        <docblock line="152">
+        <docblock line="160">
           <description>Apply Google font Open Sans</description>
           <long-description/>
         </docblock>
@@ -6037,7 +6045,7 @@ setting up the widget.</description>
       <error line="56" code="50015">Argument $instance is missing from the Docblock of form()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Templates/options.phtml" hash="8b4fc0cebe45d80552d75254f1328b3d" package="Default">
+  <file path="CoreTheme/AdminPanel/Templates/options.phtml" hash="67cebd4ec8431aab3fe775dd1dbe4f34" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Templates/options.phtml</error>
     </parse_markers>
@@ -6058,6 +6066,91 @@ setting up the widget.</description>
     </constant>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Setup.php</error>
+    </parse_markers>
+  </file>
+  <file path="CoreTheme/AdminPanel/Form/Footer.php" hash="b7e7c3cccfecdd8dbad06cea92bbe9e1" package="Default">
+    <class final="false" abstract="false" namespace="global" line="7" package="CoreTheme\AdminPanel\Form">
+      <extends/>
+      <name>CoreTheme_AdminPanel_Form_Footer</name>
+      <full_name>\CoreTheme_AdminPanel_Form_Footer</full_name>
+      <docblock line="2">
+        <description>Creates a form for you to use for the creation of the footer content.</description>
+        <long-description/>
+        <tag line="2" name="package" description="CoreTheme_AdminPanel_Form"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="15" package="CoreTheme\AdminPanel\Form">
+        <name>elements</name>
+        <full_name>elements</full_name>
+        <docblock line="9">
+          <description>Gathers all the elements together and returns an array of them to be used in
+the tabbed form.</description>
+          <long-description/>
+          <tag line="9" name="see" description="\CoreTheme_Form_TabbedForm" refers="\CoreTheme_Form_TabbedForm"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="29" package="CoreTheme\AdminPanel\Form">
+        <name>_content_footer_header</name>
+        <full_name>_content_footer_header</full_name>
+        <docblock line="24">
+          <description>Sets up the footer content header.</description>
+          <long-description/>
+          <tag line="24" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
+            <type by_reference="false">\AisisCore_Form_Elements_Content</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="47" package="CoreTheme\AdminPanel\Form">
+        <name>_text_area</name>
+        <full_name>_text_area</full_name>
+        <docblock line="42">
+          <description>Create a text area.</description>
+          <long-description/>
+          <tag line="42" name="return" description="$text" type="\CoreTheme_Form_Elements_TextArea">
+            <type by_reference="false">\CoreTheme_Form_Elements_TextArea</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="65" package="CoreTheme\AdminPanel\Form">
+        <name>_submit_element</name>
+        <full_name>_submit_element</full_name>
+        <docblock line="60">
+          <description>Creates a submit button.</description>
+          <long-description/>
+          <tag line="60" name="return" description="$submit" type="\CoreTheme_Form_Elements_Submit">
+            <type by_reference="false">\CoreTheme_Form_Elements_Submit</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="85" package="CoreTheme\AdminPanel\Form">
+        <name>_get_value</name>
+        <full_name>_get_value</full_name>
+        <docblock line="76">
+          <description>The following gets an option based on the key and option passed in.</description>
+          <long-description>&lt;p&gt;in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.&lt;/p&gt;</long-description>
+          <tag line="76" name="param" description="" type="string" variable="$option">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="76" name="param" description="" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="76" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="85">
+          <name>$option</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="85">
+          <name>$key</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/Footer.php</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/AdminPanel/Form/Posts.php" hash="25da36d966d141aadf5a42b0eed51de6" package="Default">

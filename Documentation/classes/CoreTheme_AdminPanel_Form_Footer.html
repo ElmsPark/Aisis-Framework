@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \AisisCore_Loader_LoaderException</title>
+<title>phpDocumentor » \CoreTheme_AdminPanel_Form_Footer</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -55,74 +55,108 @@
 <span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
 </div>
-<ul class="side-nav nav nav-list"><li class="nav-header">
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods
+                    <ul><li class="method public "><a href="#method_elements" title="elements :: Gathers all the elements together and returns an array of them to be used in
+the tabbed form."><span class="description">Gathers all the elements together and returns an array of them to be used in
+the tabbed form.</span><pre>elements()</pre></a></li></ul>
+</li>
+<li class="nav-header protected">» Protected
                     <ul>
-<li class="method public inherited"><a href="#method___construct" title="__construct :: Message plus any code if given."><span class="description">Message plus any code if given.</span><pre>__construct()</pre></a></li>
-<li class="method public inherited"><a href="#method___toString" title="__toString :: Returns the message for reading on screen."><span class="description">Returns the message for reading on screen.</span><pre>__toString()</pre></a></li>
+<li class="method protected "><a href="#method__content_footer_header" title="_content_footer_header :: Sets up the footer content header."><span class="description">Sets up the footer content header.</span><pre>_content_footer_header()</pre></a></li>
+<li class="method protected "><a href="#method__submit_element" title="_submit_element :: Creates a submit button."><span class="description">Creates a submit button.</span><pre>_submit_element()</pre></a></li>
+<li class="method protected "><a href="#method__text_area" title="_text_area :: Create a text area."><span class="description">Create a text area.</span><pre>_text_area()</pre></a></li>
 </ul>
-</li></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="method private "><a href="#method__get_value" title="_get_value :: The following gets an option based on the key and option passed in."><span class="description">The following gets an option based on the key and option passed in.</span><pre>_get_value()</pre></a></li></ul>
+</li>
+</ul>
 </div>
 <div class="span8">
-<a id="\AisisCore_Loader_LoaderException"></a><ul class="breadcrumb">
+<a id="\CoreTheme_AdminPanel_Form_Footer"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/global.html">global</a></li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/AisisCore_Loader_LoaderException.html">AisisCore_Loader_LoaderException</a>
+<span class="divider">\</span><a href="../classes/CoreTheme_AdminPanel_Form_Footer.html">CoreTheme_AdminPanel_Form_Footer</a>
 </li>
 </ul>
 <div class="element class">
-<p class="short_description">Class for deailing with loader specific issues and exceptions.</p>
+<p class="short_description">Creates a form for you to use for the creation of the footer content.</p>
 <div class="details">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>see</th>
-<td><a href="">\global\AisisCore_Exceptions_Exception</a></td>
-</tr>
-<tr>
+<table class="table table-bordered"><tr>
 <th>package</th>
-<td><a href="../packages/AisisCore.Loader.html">AisisCore_Loader</a></td>
-</tr>
-</table>
+<td><a href="../packages/CoreTheme.AdminPanel.Form.html">CoreTheme_AdminPanel_Form</a></td>
+</tr></table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
-<h2>Message plus any code if given.</h2>
-<pre>__construct(string $message, int $code) </pre>
-<div class="labels"><span class="label">Inherited</span></div>
+<a id="method_elements"></a><div class="element clickable method public method_elements" data-toggle="collapse" data-target=".method_elements .collapse">
+<h2>Gathers all the elements together and returns an array of them to be used in
+the tabbed form.</h2>
+<pre>elements() </pre>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\AisisCore_Exceptions_Exception::__construct()</td>
+<th>see</th>
+<td><a href="CoreTheme.Form.TabbedForm.html#%5CCoreTheme_Form_TabbedForm">\CoreTheme_Form_TabbedForm</a></td>
 </tr></table>
+</div></div>
+</div>
+<a id="method__content_footer_header"></a><div class="element clickable method protected method__content_footer_header" data-toggle="collapse" data-target=".method__content_footer_header .collapse">
+<h2>Sets up the footer content header.</h2>
+<pre>_content_footer_header() : <a href="../classes/AisisCore_Form_Elements_Content.html">\AisisCore_Form_Elements_Content</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/AisisCore_Form_Elements_Content.html">\AisisCore_Form_Elements_Content</a></code>$content_header</div>
+</div></div>
+</div>
+<a id="method__submit_element"></a><div class="element clickable method protected method__submit_element" data-toggle="collapse" data-target=".method__submit_element .collapse">
+<h2>Creates a submit button.</h2>
+<pre>_submit_element() : <a href="../classes/CoreTheme_Form_Elements_Submit.html">\CoreTheme_Form_Elements_Submit</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/CoreTheme_Form_Elements_Submit.html">\CoreTheme_Form_Elements_Submit</a></code>$submit</div>
+</div></div>
+</div>
+<a id="method__text_area"></a><div class="element clickable method protected method__text_area" data-toggle="collapse" data-target=".method__text_area .collapse">
+<h2>Create a text area.</h2>
+<pre>_text_area() : <a href="../classes/CoreTheme_Form_Elements_TextArea.html">\CoreTheme_Form_Elements_TextArea</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/CoreTheme_Form_Elements_TextArea.html">\CoreTheme_Form_Elements_TextArea</a></code>$text</div>
+</div></div>
+</div>
+<a id="method__get_value"></a><div class="element clickable method private method__get_value" data-toggle="collapse" data-target=".method__get_value .collapse">
+<h2>The following gets an option based on the key and option passed in.</h2>
+<pre>_get_value(string $option, string $key) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.</p></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$message</h4>
+<h4>$option</h4>
 <code>string</code>
 </div>
 <div class="subelement argument">
-<h4>$code</h4>
-<code>int</code>
+<h4>$key</h4>
+<code>string</code>
 </div>
-</div></div>
-</div>
-<a id="method___toString"></a><div class="element clickable method public method___toString" data-toggle="collapse" data-target=".method___toString .collapse">
-<h2>Returns the message for reading on screen.</h2>
-<pre>__toString() : string</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\AisisCore_Exceptions_Exception::__toString()</td>
-</tr></table>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>string</code>message.</div>
+<div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
 </div>
