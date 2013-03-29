@@ -32,7 +32,7 @@ if (! function_exists ( 'aisis_image' )) {
 if(! function_exists ('aisis_code') ){
 	function aisis_code($atts, $content = null){
 		return '
-		<pre>
+		<pre class="prettyprint linenums languague-css">
     	'.$content.'
     	</pre>';
 	}

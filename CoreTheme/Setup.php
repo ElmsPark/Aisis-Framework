@@ -35,7 +35,11 @@ $scripts_to_load  = array(
         array(
             'name'=>'font-awesome',
             'path'=>get_template_directory_uri() . '/lib/FontAwesome/css/font-awesome.min.css'
-        ),		
+        ),	
+    	array(
+    		'name' => 'prettyfy-css',
+    		'path' => 'http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css'
+    	),
     ),
    'js_jquery' => array(
    		array(
@@ -45,7 +49,11 @@ $scripts_to_load  = array(
         array(
         	'name' => 'toc',
         	'path' => get_template_directory_uri() . '/lib/jquery.tableofcontents.min.js',
-        ),              
+        ), 
+        array(
+        	'name' => 'prettyfy-js',
+        	'path' => 'http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js'
+        ),            
      ), 	  
 );
 

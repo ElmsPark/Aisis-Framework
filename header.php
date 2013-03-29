@@ -28,7 +28,7 @@ wp_head();
 ?>
 
 </head>
-<body <?php body_class(); ?>>
+<body onload="prettyPrint()" <?php body_class(); ?>>
 <?php
 $template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 $template->render_view('navigation');

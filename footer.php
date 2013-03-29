@@ -9,7 +9,13 @@ wp_footer();
     		<?php dynamic_sidebar('aisis-footer'); ?>
 		</div>
 	</div>
-	<p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+	<?php 
+	$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+	if($template->get_specific_option('footer_text')){
+		echo '<p class="muted credit">' . $template->get_specific_option('footer_text') . '</p>';
+	}else{?>
+	<p class="muted credit">Aisis Core and Aisis Theme are Designed by <a href="http://adambalan.com">Adam Balan</a>.</p>
+	<?php }?>
 </div>
 </body>
 </html>
