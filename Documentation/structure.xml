@@ -1384,127 +1384,6 @@ value would be check.&lt;/p&gt;
       <error line="0" code="50007">No page-level DocBlock was found in file AisisCore/Form/Elements/Checkbox.php</error>
     </parse_markers>
   </file>
-  <file path="AisisCore/Form/Helpers/Content.php" hash="bc5883f71af3964ff8bc2bcf809d2f97" package="Default">
-    <class final="false" abstract="false" namespace="global" line="39" package="AisisCore\Form\Helpers">
-      <extends/>
-      <name>AisisCore_Form_Helpers_Content</name>
-      <full_name>\AisisCore_Form_Helpers_Content</full_name>
-      <docblock line="2">
-        <description>This class is meant to be extended to create view helpers essentially.</description>
-        <long-description>&lt;p&gt;these view helpers are things like containers with content inside of them, or
-headers above form sections and so on.&lt;/p&gt;
-
-&lt;p&gt;The following is a good example of a for helper:&lt;/p&gt;
-
-&lt;p&gt;
-&lt;pre&gt;&lt;code&gt; public function sub_form_content(){
-    $options = array(
-        'class' =&gt; 'well',
-        'content' =&gt; '&lt;p&gt;Choose from one of the following to display your posts
-        on on the front page.&lt;/p&gt;'
-    );
-
-    $content = new AisisCore_Form_Helpers_DisplayContent($options);
-
-    return $content;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;
-
-&lt;p&gt;This will create the following:&lt;/p&gt;
-
-&lt;p&gt;&lt;pre&gt;&lt;code&gt;&lt;div class='well'&gt;
-    &lt;p&gt;Choose from one of the following to display your posts
-       on on the front page.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-
-&lt;p&gt;Helpers are used to create quick html elements for forms, they are then used
-with the form to display some kind of content.&lt;/p&gt;</long-description>
-        <tag line="2" name="package" description="AisisCore_Form_Helpers"/>
-      </docblock>
-      <property final="false" static="false" visibility="protected" line="44" namespace="global" package="Default">
-        <name>$_options</name>
-        <default/>
-        <docblock line="41">
-          <description/>
-          <long-description/>
-          <tag line="41" name="var" description="" type="array">
-            <type by_reference="false">array</type>
-          </tag>
-        </docblock>
-      </property>
-      <property final="false" static="false" visibility="protected" line="49" namespace="global" package="Default">
-        <name>$_content</name>
-        <default/>
-        <docblock line="46">
-          <description/>
-          <long-description/>
-          <tag line="46" name="var" description="" type="mixed">
-            <type by_reference="false">mixed</type>
-          </tag>
-        </docblock>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="57" package="AisisCore\Form\Helpers">
-        <name>__construct</name>
-        <full_name>__construct</full_name>
-        <docblock line="51">
-          <description>We take in an array of options that can then be processed by the child class
-to construct the helper.</description>
-          <long-description/>
-          <tag line="51" name="param" description="" type="array" variable="$options">
-            <type by_reference="false">array</type>
-          </tag>
-        </docblock>
-        <argument line="57">
-          <name>$options</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="67" package="AisisCore\Form\Helpers">
-        <name>init</name>
-        <full_name>init</full_name>
-        <docblock line="63">
-          <description>Over ride me with constructor like variables and methods as I get called in the constructor.</description>
-          <long-description>&lt;p&gt;Never over ride the constructor of this class.&lt;/p&gt;</long-description>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="75" package="AisisCore\Form\Helpers">
-        <name>set_content</name>
-        <full_name>set_content</full_name>
-        <docblock line="69">
-          <description>This is the content we set for the helper.</description>
-          <long-description>&lt;p&gt;This can be things like the object, elements, text
-or what ever. You can use html based elements.&lt;/p&gt;</long-description>
-          <tag line="69" name="param" description="" type="mixed" variable="$content">
-            <type by_reference="false">mixed</type>
-          </tag>
-        </docblock>
-        <argument line="75">
-          <name>$content</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="84" package="AisisCore\Form\Helpers">
-        <name>get_content</name>
-        <full_name>get_content</full_name>
-        <docblock line="79">
-          <description>Return what ever content is that you set.</description>
-          <long-description/>
-          <tag line="79" name="return" description="" type="\$_content">
-            <type by_reference="false">\$_content</type>
-          </tag>
-        </docblock>
-      </method>
-    </class>
-    <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file AisisCore/Form/Helpers/Content.php</error>
-      <critical line="41" code="50019">No short description for property $_options</critical>
-      <critical line="46" code="50019">No short description for property $_content</critical>
-    </parse_markers>
-  </file>
   <file path="AisisCore/Form/SubSection.php" hash="f76f91032e25dd71564412d9b385ba88" package="Default">
     <class final="false" abstract="false" namespace="global" line="35" package="AisisCore\Form">
       <extends/>
@@ -7267,7 +7146,6 @@ the tabbed form.</description>
     <package name="FileHandling" full_name="AisisCore\FileHandling"/>
     <package name="Form" full_name="AisisCore\Form">
       <package name="Elements" full_name="AisisCore\Form\Elements"/>
-      <package name="Helpers" full_name="AisisCore\Form\Helpers"/>
     </package>
     <package name="Http" full_name="AisisCore\Http"/>
     <package name="Interfaces" full_name="AisisCore\Interfaces"/>
