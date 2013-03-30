@@ -121,7 +121,20 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	 */
 	public function option_validator($input){
 		$option = get_option('aisis_options');
-		$option = $input;
+		foreach($input as $key=>$value){
+			if(is_array($value)){
+				foreach($value as $k=>$v){
+					if(isset($input[$k])){
+						$option[$key][$k] = strip_tags(stripslashes($input[$k]), '<a><p><h1><h2><h3><h4><h5><h6><blockquote><img><hr><br>');
+					}
+				}
+			}else{
+				if(isset($input[$key])){
+					$option[$key] = strip_tags(stripslashes($input[$key]), '<a><p><h1><h2><h3><h4><h5><h6><blockquote><img><hr><br>');
+				}
+			}
+		}
+		
 		$this->_update_option();
 		return $option;
 	}
