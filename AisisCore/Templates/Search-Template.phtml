@@ -1,0 +1,60 @@
+<?php
+	/**
+	 *
+	 * ==================== [DONT TOUCH THIS FILE!] ====================
+	 *
+	 *		This is essentially what displays your search resaults. So
+	 *		this is essentially your search.php
+	 *
+	 *		This file is loaded via the BuildAisisTheme file as
+	 *		is loaded into a pluggable. This allows you to over
+	 *		ride that function (which loads this file) in your custom
+	 *		-functions.php Thus allowing you to change the way this page
+	 *		looks by telling the function to load a different phtml file.
+	 *
+	 *		The same goal can be achieved in over writing this file
+	 *		in a child theme or through Aisis Packages.
+	 *
+	 *		@see AisisCore->Templates->BuildAisisTheme
+	 *		
+	 *		@author:  Adam Balan
+	 *		@version: 1.0
+	 *		@package: AisisCore->Templates
+	 *
+	 * =================================================================
+	 */
+	 global $post_id;
+	 
+	 $options = get_option('aisis_core_theme_setting_sidebar_search');
+	 $option_global = get_option('aisis_core_theme_setting_sidebar_global');
+	 if(have_posts()){
+	?>
+	<div id="<?php if($options['no_sidebar_search'] != 1 && $option_global['no_sidebar_global'] != 1){ echo 'content'; }else{ echo 'contentFull'; }?>">
+   	<?php while (have_posts()) : the_post();?>
+		<article class="post clearfix">
+			<header>
+				<h1 class="postTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+				<div class="authorInfo">Author of this post:  <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php the_author_meta('display_name'); ?></a></div>
+			</header>
+			<?php if(get_the_post_thumbnail($post_id) != ''){?>
+                <figure class="soft-embossed post-image">
+                    <?php the_post_thumbnail(); ?>
+                </figure>
+            <?php } ?>
+			<p><?php the_excerpt(); ?></p>
+		</article>
+        <?php
+		endwhile;
+		?>
+	</div>
+    <?php 
+	if($options['no_sidebar_search'] != 1 && $option_global['no_sidebar_global'] != 1){
+		get_sidebar();
+	}
+	aisis_footer();
+	?>
+    <?php
+	 }else{
+		 aisis_404();
+	 }
+	?>
