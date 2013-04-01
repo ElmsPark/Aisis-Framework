@@ -40,10 +40,12 @@ if(is_home() && !$template->get_specific_option('carousel_global') && is_home() 
 if(is_home() && $template->get_specific_option('carousel_global')){
 	if(!$template->get_specific_option('jumbotron')){
 		?>
-		<a href="<?php echo home_url('/'); ?>">
-			<img src="<?php header_image(); ?>"  height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width;?>"
-	 			alt="" class="marginTop40 marginBottom20" align="center"/>
-	 	</a>
+		<div class="container-narrow marginTop60">
+			<a href="<?php echo home_url('/'); ?>"><img src="<?php header_image(); ?>"  height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width;?>"
+			 	alt="" class="marginTop40 marginBottom20" align="center"/></a>
+			<p class="centerText"><?php echo bloginfo('description'); ?></p>
+			<hr class="marginBottom20 width50">
+		</div>
 		<?php
 	}else{
 		$template->render_view('jumbotron');
