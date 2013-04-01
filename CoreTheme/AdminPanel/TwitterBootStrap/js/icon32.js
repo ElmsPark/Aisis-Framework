@@ -1,0 +1,34 @@
+jQuery(document).ready( function() {
+	jQuery('#menu-dashboard .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-dashboard"></i></div> ');
+	jQuery('#menu-posts .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-edit"></i></div> ');
+	jQuery('#menu-media .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-film"></i></div> ');
+	jQuery('#menu-links .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-share"></i></div> ');
+	jQuery('#menu-pages .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-file"></i></div> ');
+	jQuery('#menu-comments .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-comment"></i></div> ');
+	jQuery('#menu-appearance .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-cog"></i></div> ');
+	jQuery('#menu-plugins .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-magnet"></i></div> ');
+	jQuery('#menu-users .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-user"></i></div> ');
+	jQuery('#menu-tools .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-wrench"></i></div> ');
+	jQuery('#menu-settings .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-cogs"></i></div> ');
+	jQuery('#toplevel_page_aisis-core-options .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-font"></i></div> ');
+	jQuery('#menu-posts-mini-feed .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-th-large"></i></div> ');
+	jQuery('#menu-posts-carousel .wp-menu-image').replaceWith('<div style="font-size:18px;" class="icon16 fonticon"><i class="icon-play-circle"></i></div> ');
+	
+    jQuery('#icon-index.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-dashboard icon-large"></i></div> ');
+    jQuery('#icon-edit.icon32-posts-post').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-edit icon-large"></i></div> ');
+    jQuery('#icon-upload.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-film icon-large"></i></div> ');
+    jQuery('#icon-link-manager.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-share icon-large"></i></div> ');
+    jQuery('#icon-edit-pages.icon32-posts-page').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-file icon-large"></i></div> ');
+    jQuery('#icon-edit-comments.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-comment icon-large"></i></div> ');
+    jQuery('#icon-edit.icon32-posts-portfolio').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-th-large icon-large"></i></div> ');
+    jQuery('#icon-wpcf7.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-edit icon-large"></i></div> ');
+    jQuery('#icon-edit-news.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-envelope-alt icon-large"></i></div> ');
+    jQuery('#icon-edit.icon32.icon32-posts-forum').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-group icon-large"></i></div> ');
+    jQuery('#icon-edit.icon32.icon32-posts-topic').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-comments icon-large"></i></div> ');
+    jQuery('#icon-edit.icon32.icon32-posts-reply').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-comments-alt icon-large"></i></div> ');
+    jQuery('#icon-themes.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-cog icon-large"></i></div> ');
+    jQuery('#icon-plugins.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-magnet icon-large"></i></div> ');
+    jQuery('#icon-users.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-user icon-large"></i></div> ');
+    jQuery('#icon-tools.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-wrench icon-large"></i></div> ');
+    jQuery('#icon-options-general.icon32').replaceWith('<div style="font-size:18px;" class="icon32 fonticon"><i class="icon-cogs icon-large"></i></div> ');   
+});

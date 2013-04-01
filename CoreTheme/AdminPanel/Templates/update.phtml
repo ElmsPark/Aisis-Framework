@@ -1,0 +1,61 @@
+<?php $update = new CoreTheme_Update(); ?>
+
+<div class="container">
+	<div class="jumbotron subhead">
+		<h1>Aisis - <small>Version <?php echo $update->get_current_version(); ?></small></h1>
+		<p class="lead">Welcome to the update page!</p>
+		<p>Best place to be if you are looking to update your version of Aisis!</p>
+	</div>	
+	<?php 
+		if($update->check_for_update()){
+			
+			?>
+			<div class="modified-hero-unit">
+				<h2>OMG!! AISIS <?php echo $update->check_theme_version(); ?> IS HERE!!!!!</h2>
+				<p class="lead">Get ready to be blown away by the epice sauce that we have cooked up for you!
+				Aisis <?php echo $update->check_theme_version(); ?> packs a whole new punch with all kinds of new goodies and 
+				features and fixes and so on! We are so exicted!</p>
+				<p><a data-toggle="modal" class="updateNotes" href="http://adambalan.com/aisis/aisis_update/UpdateNotes/index.html" data-target="#modal">READ MORE ABOUT IT!</a></p>
+			</div>
+			
+			<div class="alert"><strong>Note:</strong> Please back up up your theme and put your self into maintance mode if possible!</div>
+			
+			<?php
+			
+			if(isset($_POST['aisis_update'])){
+				$update->upgrade();
+			}
+			
+			$form = new CoreTheme_AdminPanel_Form_Update(array(
+				'action' => '',
+				'method' => 'post',
+			));
+			
+			echo $form;
+		}else{
+			echo '<div class="alert alert-succes"><strong>Woot!!!</strong>You have the latest and the greates and the sexiest version of Aisis!</div>';
+		}
+	?>
+	
+	<div class="modal hide fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">Latest Updates!</h3>
+	  </div>
+	  <div class="modal-body">
+	  </div>
+	 <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	 </div>	  
+	</div>	
+	
+	<script>
+	$(document).ready(function(){  
+		$('a.updateNotes').on('click', function(e) {
+		    e.preventDefault();
+		    var url = $(this).attr('href');
+		    $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="'+url+'"></iframe>');
+		});
+	});
+	</script>	
+</div>
