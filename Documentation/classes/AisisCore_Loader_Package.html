@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \AisisCore_Loader_Package</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/AisisCore.html"><i class="icon-folder-open"></i> AisisCore</a></li>
+<li><a href="../packages/CoreTheme.html"><i class="icon-folder-open"></i> CoreTheme</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/The%20Bootstrap.html"><i class="icon-folder-open"></i> The Bootstrap</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">235</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Simple constructor."><span class="description">Simple constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_init" title="init :: Use this when overriding the class."><span class="description">Use this when overriding the class.</span><pre>init()</pre></a></li>
+<li class="method public "><a href="#method_load_file_from_package" title="load_file_from_package :: Allows you to load a single file from a package."><span class="description">Allows you to load a single file from a package.</span><pre>load_file_from_package()</pre></a></li>
+<li class="method public "><a href="#method_load_package" title="load_package :: We will load a internal or custom package if you are or not a child theme."><span class="description">We will load a internal or custom package if you are or not a child theme.</span><pre>load_package()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected "><a href="#method__load_custom_package" title="_load_custom_package :: This function takes only the name of the package."><span class="description">This function takes only the name of the package.</span><pre>_load_custom_package()</pre></a></li>
+<li class="method protected "><a href="#method__load_internal_package" title="_load_internal_package :: This function is meant to load internal packages."><span class="description">This function is meant to load internal packages.</span><pre>_load_internal_package()</pre></a></li>
+<li class="method protected "><a href="#method__package_empty" title="_package_empty :: Checks if a package is empty or not."><span class="description">Checks if a package is empty or not.</span><pre>_package_empty()</pre></a></li>
+<li class="method protected "><a href="#method__package_exists" title="_package_exists :: Checks if a package exists or not."><span class="description">Checks if a package exists or not.</span><pre>_package_exists()</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\AisisCore_Loader_Package"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/AisisCore_Loader_Package.html">AisisCore_Loader_Package</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">This class is used to load a package of code.</p>
+<div class="details">
+<div class="long_description"><p>The core purpose of this class is to load two types of packages, custom and internal.</p>
+
+<p>Custom packages live in the custom/packages folder and are custom to each theme. This allows
+the theme some flexabillity. All custom packages need to contain a Setup.php which is then loaded
+by the theme.</p>
+
+<p>Internal packages are packages that are internal to the theme. That is, packages which help
+the theme run or are dependant to the theme.</p>
+
+<p>&lt;</p>
+
+<p>p>The basic structure of a package is such that:</p>
+
+<p>&lt;</p>
+
+<p>p></p>
+
+<p>
+PackageName
+|-- Files, Folders, Assets ...
+|-- Setup.php
+</p></div>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="../packages/AisisCore.Loader.html">AisisCore_Loader</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Simple constructor.</h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_init"></a><div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
+<h2>Use this when overriding the class.</h2>
+<pre>init() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_load_file_from_package"></a><div class="element clickable method public method_load_file_from_package" data-toggle="collapse" data-target=".method_load_file_from_package .collapse">
+<h2>Allows you to load a single file from a package.</h2>
+<pre>load_file_from_package(string $filename, string $package) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>When passing in the package all you need to do is pass in the name.
+we will find the package and the file and the require it.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$filename</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$package</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/AisisCore_Loader_LoaderException.html">\AisisCore_Loader_LoaderException</a></code></th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_load_package"></a><div class="element clickable method public method_load_package" data-toggle="collapse" data-target=".method_load_package .collapse">
+<h2>We will load a internal or custom package if you are or not a child theme.</h2>
+<pre>load_package(string $package_name, string $dir, bool $custom, bool $child) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>We give you a series of options to try and determine what type of package you are loading.
+Custom packages do not need or require a dir path passed in as we have that set in stone.</p>
+
+<p>The package name is the name of the folder the Setup.php file is inside of, this is the root folder.</p>
+
+<p>The child option will only load a package if the current active theme is not a child theme.
+For child themes who want to implement features turned off to them, they have to recall the load_package()
+function with appropriate params passed in.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$package_name</h4>
+<code>string</code><ul>
+<li>Name of the root foldr the Setup.php is inside of.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$dir</h4>
+<code>string</code><p>| optional $dir - The path to the package, used for internal.</p>
+</div>
+<div class="subelement argument">
+<h4>$custom</h4>
+<code>bool</code><p>| optional $custom - Should we look in the custom/packages folder?</p>
+</div>
+<div class="subelement argument">
+<h4>$child</h4>
+<code>bool</code><p>| optional $child - Load only when not achild theme?</p>
+</div>
+</div></div>
+</div>
+<a id="method__load_custom_package"></a><div class="element clickable method protected method__load_custom_package" data-toggle="collapse" data-target=".method__load_custom_package .collapse">
+<h2>This function takes only the name of the package.</h2>
+<pre>_load_custom_package(string $package) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This function is responsible for loading the package
+assuming that package is not empty or that it exists.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$package</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/AisisCore_Loader_LoaderException.html">\AisisCore_Loader_LoaderException</a></code></th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
+<a id="method__load_internal_package"></a><div class="element clickable method protected method__load_internal_package" data-toggle="collapse" data-target=".method__load_internal_package .collapse">
+<h2>This function is meant to load internal packages.</h2>
+<pre>_load_internal_package($dir, $package) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Any package you create that contains a Setup.php file will be loaded if you pass in
+the directory of package and its name.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$dir</h4></div>
+<div class="subelement argument"><h4>$package</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/AisisCore_Loader_LoaderException.html">\AisisCore_Loader_LoaderException</a></code></th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
+<a id="method__package_empty"></a><div class="element clickable method protected method__package_empty" data-toggle="collapse" data-target=".method__package_empty .collapse">
+<h2>Checks if a package is empty or not.</h2>
+<pre>_package_empty(string $package) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="AisisCore.FileHandling.File.html#%5CAisisCore_FileHandling_File">\AisisCore_FileHandling_File</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$package</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method__package_exists"></a><div class="element clickable method protected method__package_exists" data-toggle="collapse" data-target=".method__package_exists .collapse">
+<h2>Checks if a package exists or not.</h2>
+<pre>_package_exists(string $package) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$package</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-01T09:29:58-06:00.<br></footer></div>
+</div>
+</body>
+</html>
