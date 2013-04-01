@@ -103,6 +103,7 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	
 		$this->title($this->_options);
 		$this->_author_and_date();
+		$this->_after_the_title_content();
 	
 		if(isset($options['after'])){
 			echo $options['after'];
@@ -146,6 +147,8 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 		if(isset($options['after'])){
 			echo $options['after'];
 		}
+		
+		$this->_after_the_content();
 	}
 	
 	/**
@@ -217,6 +220,33 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 			
 		the_date('F j, Y', ' on: <em>', '</em>');
 	}
+	
+	/**
+	 * All we do here is take each function you pass in that returns or echo's content and echo it out.
+	 * 
+	 * <p>It is common practice to return your value in your functions that you pass in.</p>
+	 */
+	protected function _after_the_title_content(){
+		if(isset($this->_options['single']['after_the_title_additions']) && !empty($this->_options['single']['after_the_title_additions'])){
+			foreach($this->_options['single']['after_the_title_additions'] as $key=>$value){
+				echo $value;
+			}
+		}
+	}
+	
+
+	/**
+	 * All we do here is take each function you pass in that returns or echo's content and echo it out.
+	 *
+	 * <p>It is common practice to return your value in your functions that you pass in.</p>
+	 */	
+	protected function _after_the_content(){
+		if(isset($this->_options['single']['after_the_content_additions']) && !empty($this->_options['single']['after_the_content_additions'])){
+			foreach($this->_options['single']['after_the_content_additions'] as $key=>$value){
+				echo $value;
+			}
+		}
+	}	
 	
 	/**
 	 * Gets a list of categories based on the post.

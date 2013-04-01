@@ -1706,7 +1706,7 @@ and if they are set we set the heckbox or radio as checked.&lt;/p&gt;</long-desc
       <error line="119" code="50015">Argument $key is missing from the Docblock of checked()</error>
     </parse_markers>
   </file>
-  <file path="AisisCore/Template/Helpers/Loop/LoopComponents.php" hash="0bd841ff61ed150d30bf4a1d5c3c5da0" package="Default">
+  <file path="AisisCore/Template/Helpers/Loop/LoopComponents.php" hash="20a5502e933c740d261944ee417a8308" package="Default">
     <class final="false" abstract="false" namespace="global" line="17" package="AisisCore\Template\Helpers\Loop">
       <extends/>
       <name>AisisCore_Template_Helpers_Loop_LoopComponents</name>
@@ -1815,134 +1815,150 @@ These take in an option in the form of a specifically designed array which can b
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="117" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="118" package="AisisCore\Template\Helpers\Loop">
         <name>thumbnail</name>
         <full_name>thumbnail</full_name>
-        <docblock line="112">
+        <docblock line="113">
           <description>Deals with the thumb nail and how we should display it.</description>
           <long-description/>
-          <tag line="112" name="param" description="- default null." type="array" variable="$options">
+          <tag line="113" name="param" description="- default null." type="array" variable="$options">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="117">
+        <argument line="118">
           <name>$options</name>
           <default>null</default>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="138" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="139" package="AisisCore\Template\Helpers\Loop">
         <name>content_wrapper</name>
         <full_name>content_wrapper</full_name>
-        <docblock line="129">
+        <docblock line="130">
           <description>This will wrap the content in div tags.</description>
           <long-description>&lt;p&gt;Depends on $array['single']['content'] with before and after key=&gt;values.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This will also wrap the post image as well.&lt;/p&gt;</long-description>
-          <tag line="129" name="param" description="" type="\aray" variable="$options">
+          <tag line="130" name="param" description="" type="\aray" variable="$options">
             <type by_reference="false">\aray</type>
           </tag>
         </docblock>
-        <argument line="138">
+        <argument line="139">
           <name>$options</name>
           <default/>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="156" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="159" package="AisisCore\Template\Helpers\Loop">
         <name>categories_and_tags</name>
         <full_name>categories_and_tags</full_name>
-        <docblock line="151">
+        <docblock line="154">
           <description>Wrapper function for categories and tags.</description>
           <long-description>&lt;p&gt;Only shows up if we are not on a page.&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="177" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="180" package="AisisCore\Template\Helpers\Loop">
         <name>error_page</name>
         <full_name>error_page</full_name>
-        <docblock line="168">
+        <docblock line="171">
           <description>Rendered a 404 template if you have created one or renders out a message.</description>
           <long-description>&lt;p&gt;If you have created a 404 phtml file in your theme or even a 404.php then you can
 place the path in $options[404_template] and we will render that view for when no posts are
 found on either a queried loop, regular loop or a single loop.&lt;/p&gt;</long-description>
-          <tag line="168" name="param" description="" type="array" variable="$options">
+          <tag line="171" name="param" description="" type="array" variable="$options">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="177">
+        <argument line="180">
           <name>$options</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="192" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="195" package="AisisCore\Template\Helpers\Loop">
         <name>title</name>
         <full_name>title</full_name>
-        <docblock line="186">
+        <docblock line="189">
           <description>Based on if were single, a title_header or if were an index we will then display
 the title.</description>
           <long-description/>
-          <tag line="186" name="param" description="" type="array" variable="$options">
+          <tag line="189" name="param" description="" type="array" variable="$options">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="192">
+        <argument line="195">
           <name>$options</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="213" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="216" package="AisisCore\Template\Helpers\Loop">
         <name>_author_and_date</name>
         <full_name>_author_and_date</full_name>
-        <docblock line="210">
+        <docblock line="213">
           <description>Deals with the author and date, and how we should display them.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="224" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="229" package="AisisCore\Template\Helpers\Loop">
+        <name>_after_the_title_content</name>
+        <full_name>_after_the_title_content</full_name>
+        <docblock line="224">
+          <description>All we do here is take each function you pass in that returns or echo's content and echo it out.</description>
+          <long-description>&lt;p&gt;It is common practice to return your value in your functions that you pass in.&lt;/p&gt;</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="243" package="AisisCore\Template\Helpers\Loop">
+        <name>_after_the_content</name>
+        <full_name>_after_the_content</full_name>
+        <docblock line="238">
+          <description>All we do here is take each function you pass in that returns or echo's content and echo it out.</description>
+          <long-description>&lt;p&gt;It is common practice to return your value in your functions that you pass in.&lt;/p&gt;</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="254" package="AisisCore\Template\Helpers\Loop">
         <name>_get_categories_for_post</name>
         <full_name>_get_categories_for_post</full_name>
-        <docblock line="221">
+        <docblock line="251">
           <description>Gets a list of categories based on the post.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="242" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="272" package="AisisCore\Template\Helpers\Loop">
         <name>_get_tags</name>
         <full_name>_get_tags</full_name>
-        <docblock line="239">
+        <docblock line="269">
           <description>Gets a list of tags based on the post.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="261" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="291" package="AisisCore\Template\Helpers\Loop">
         <name>_single_navigation_previous</name>
         <full_name>_single_navigation_previous</full_name>
-        <docblock line="256">
+        <docblock line="286">
           <description>Builds a previous link.</description>
           <long-description/>
-          <tag line="256" name="link" description="http://codex.wordpress.org/Function_Reference/get_previous_post" link="http://codex.wordpress.org/Function_Reference/get_previous_post"/>
+          <tag line="286" name="link" description="http://codex.wordpress.org/Function_Reference/get_previous_post" link="http://codex.wordpress.org/Function_Reference/get_previous_post"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="275" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="305" package="AisisCore\Template\Helpers\Loop">
         <name>_single_navigation_next</name>
         <full_name>_single_navigation_next</full_name>
-        <docblock line="270">
+        <docblock line="300">
           <description>Builds a next link.</description>
           <long-description/>
-          <tag line="270" name="link" description="http://codex.wordpress.org/Function_Reference/get_next_post" link="http://codex.wordpress.org/Function_Reference/get_next_post"/>
+          <tag line="300" name="link" description="http://codex.wordpress.org/Function_Reference/get_next_post" link="http://codex.wordpress.org/Function_Reference/get_next_post"/>
         </docblock>
       </method>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file AisisCore/Template/Helpers/Loop/LoopComponents.php</error>
       <critical line="19" code="50019">No short description for property $_options</critical>
-      <error line="129" code="50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $options in content_wrapper()</error>
+      <error line="130" code="50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $options in content_wrapper()</error>
     </parse_markers>
   </file>
-  <file path="AisisCore/Template/Helpers/Loop/Loop.php" hash="3e4c4eb5aef4793e0ca9125a6ddf337c" package="Default">
-    <class final="false" abstract="false" namespace="global" line="94" package="AisisCore\Template\Helpers\Loop">
+  <file path="AisisCore/Template/Helpers/Loop/Loop.php" hash="e0506fb8734e45309e3b146423f2edc0" package="Default">
+    <class final="false" abstract="false" namespace="global" line="100" package="AisisCore\Template\Helpers\Loop">
       <extends/>
       <name>AisisCore_Template_Helpers_Loop_Loop</name>
       <full_name>\AisisCore_Template_Helpers_Loop_Loop</full_name>
@@ -2001,6 +2017,12 @@ you can pass to the constructor of this class.&lt;/p&gt;
                 'before' =&gt; '' // Div wrapper.
                 'after' =&gt; '' // Div wrapper close.
             ),
+            'after_the_title_additions' =&gt; array(
+                'name'=&gt;$function(), // Names should be unique.
+            ), // Houses a series of functions that will echo content after the title (after the date and author).
+            'after_the_title_additions' =&gt; array(
+                'name'=&gt;$function(), // Names should be unique.
+            ) // Houses a series of functions that will echo content after the content (before the navigation).
         ),
         'page' =&gt; array(
             'content' =&gt; array(
@@ -2033,81 +2055,81 @@ you are on a single page or. All you need is to call the class and the function.
         <tag line="2" name="link" description="http://codex.wordpress.org/The_Loop" link="http://codex.wordpress.org/The_Loop"/>
         <tag line="2" name="package" description="AisisCore_Template_Helpers_Loop"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="99" namespace="global" package="Default">
+      <property final="false" static="false" visibility="protected" line="105" namespace="global" package="Default">
         <name>$_options</name>
         <default/>
-        <docblock line="96">
+        <docblock line="102">
           <description/>
           <long-description/>
-          <tag line="96" name="var" description="" type="array">
+          <tag line="102" name="var" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="104" namespace="global" package="Default">
+      <property final="false" static="false" visibility="protected" line="110" namespace="global" package="Default">
         <name>$_wp_query</name>
         <default/>
-        <docblock line="101">
+        <docblock line="107">
           <description/>
           <long-description/>
-          <tag line="101" name="var" description="" type="array">
+          <tag line="107" name="var" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="109" namespace="global" package="Default">
+      <property final="false" static="false" visibility="protected" line="115" namespace="global" package="Default">
         <name>$_post</name>
         <default/>
-        <docblock line="106">
+        <docblock line="112">
           <description/>
           <long-description/>
-          <tag line="106" name="var" description="" type="array">
+          <tag line="112" name="var" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="114" namespace="global" package="Default">
+      <property final="false" static="false" visibility="protected" line="120" namespace="global" package="Default">
         <name>$_components</name>
         <default>null</default>
-        <docblock line="111">
+        <docblock line="117">
           <description/>
           <long-description/>
-          <tag line="111" name="var" description="" type="\AisisCore_Template_Helpers_Loop_LoopComponents">
+          <tag line="117" name="var" description="" type="\AisisCore_Template_Helpers_Loop_LoopComponents">
             <type by_reference="false">\AisisCore_Template_Helpers_Loop_LoopComponents</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="126" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="132" package="AisisCore\Template\Helpers\Loop">
         <name>__construct</name>
         <full_name>__construct</full_name>
-        <docblock line="116">
+        <docblock line="122">
           <description>Set the wp_query object as a class level object if
 the class level object is empty and the options.</description>
           <long-description>&lt;p&gt;Set the options and the wp_query object.&lt;/p&gt;
 
 &lt;p&gt;Add new actions to excerpt_length and excerpt_more.&lt;/p&gt;</long-description>
-          <tag line="116" name="param" description="is an optional param." type="array" variable="$options">
+          <tag line="122" name="param" description="is an optional param." type="array" variable="$options">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="126">
+        <argument line="132">
           <name>$options</name>
           <default>array()</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="154" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="160" package="AisisCore\Template\Helpers\Loop">
         <name>init</name>
         <full_name>init</full_name>
-        <docblock line="151">
+        <docblock line="157">
           <description>Use this to make any overrides to class.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="170" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="176" package="AisisCore\Template\Helpers\Loop">
         <name>loop</name>
         <full_name>loop</full_name>
-        <docblock line="156">
+        <docblock line="162">
           <description>Sets up the loop for the WordPress Theme.</description>
           <long-description>&lt;p&gt;If we have options, then we check if were a single. If not do we have
 a query? if not then we just do the general loop.&lt;/p&gt;
@@ -2121,18 +2143,18 @@ we will just call the general loop.&lt;/p&gt;
 as well.&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="204" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="210" package="AisisCore\Template\Helpers\Loop">
         <name>_general_wordpress_loop</name>
         <full_name>_general_wordpress_loop</full_name>
-        <docblock line="201">
+        <docblock line="207">
           <description>This is the most basic loop.</description>
           <long-description>&lt;p&gt;All were doing is returning a list of posts.&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="248" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="254" package="AisisCore\Template\Helpers\Loop">
         <name>_query_post</name>
         <full_name>_query_post</full_name>
-        <docblock line="235">
+        <docblock line="241">
           <description>Allows you to display a list of posts based on the query passed in.</description>
           <long-description>&lt;p&gt;Based on the query passed in we will display a list of posts.
 Pagination is dealt with as well as reseting the query.&lt;/p&gt;
@@ -2141,54 +2163,54 @@ Pagination is dealt with as well as reseting the query.&lt;/p&gt;
 that pagination works:&lt;/p&gt;
 
 &lt;p&gt;&lt;pre&gt;&lt;code&gt;$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;</long-description>
-          <tag line="235" name="param" description="" type="array" variable="$query">
+          <tag line="241" name="param" description="" type="array" variable="$query">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="248">
+        <argument line="254">
           <name>$query</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="287" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="293" package="AisisCore\Template\Helpers\Loop">
         <name>_single_post</name>
         <full_name>_single_post</full_name>
-        <docblock line="284">
+        <docblock line="290">
           <description>This function will supply the single template with the post and it's contents.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="311" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="317" package="AisisCore\Template\Helpers\Loop">
         <name>page_loop</name>
         <full_name>page_loop</full_name>
-        <docblock line="308">
+        <docblock line="314">
           <description>This loop uses the same concept of single, but with out the tags, categories and navigation.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="342" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="348" package="AisisCore\Template\Helpers\Loop">
         <name>sidebar</name>
         <full_name>sidebar</full_name>
-        <docblock line="335">
+        <docblock line="341">
           <description>Disaply a sidebar so long as  the options key does not match.</description>
           <long-description>&lt;p&gt;Also
 to be used in conjunction with WordPress conditionals.&lt;/p&gt;</long-description>
-          <tag line="335" name="param" description="| array $key" type="string" variable="$keys">
+          <tag line="341" name="param" description="| array $key" type="string" variable="$keys">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="335" name="link" description="http://codex.wordpress.org/Conditional_Tags" link="http://codex.wordpress.org/Conditional_Tags"/>
+          <tag line="341" name="link" description="http://codex.wordpress.org/Conditional_Tags" link="http://codex.wordpress.org/Conditional_Tags"/>
         </docblock>
-        <argument line="342">
+        <argument line="348">
           <name>$keys</name>
           <default>''</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="373" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="379" package="AisisCore\Template\Helpers\Loop">
         <name>_single_loop_content</name>
         <full_name>_single_loop_content</full_name>
-        <docblock line="361">
+        <docblock line="367">
           <description>This method deals with the content in side the single loop.</description>
           <long-description>&lt;p&gt;&amp;lt;&lt;/p&gt;
 
@@ -2202,43 +2224,43 @@ by the array of options.&lt;/p&gt;
 &lt;p&gt;This loop also checks for specific post formats, including sticky.&lt;/p&gt;
 
 &lt;p&gt;TODO: Find away to clean up this code. The method is too large.&lt;/p&gt;</long-description>
-          <tag line="361" name="param" description="" type="\AisisCore_Template_Helpers_PostTypes" variable="$post_type">
+          <tag line="367" name="param" description="" type="\AisisCore_Template_Helpers_PostTypes" variable="$post_type">
             <type by_reference="false">\AisisCore_Template_Helpers_PostTypes</type>
           </tag>
         </docblock>
-        <argument line="373">
+        <argument line="379">
           <name>$post_type</name>
           <default/>
           <type>\AisisCore_Template_Helpers_Loop_PostTypes</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="430" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="436" package="AisisCore\Template\Helpers\Loop">
         <name>the_excerpt_length</name>
         <full_name>the_excerpt_length</full_name>
-        <docblock line="425">
+        <docblock line="431">
           <description>The new excerpt_length added into action</description>
           <long-description/>
-          <tag line="425" name="param" description="" type="string" variable="$length">
+          <tag line="431" name="param" description="" type="string" variable="$length">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="430">
+        <argument line="436">
           <name>$length</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="443" package="AisisCore\Template\Helpers\Loop">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="449" package="AisisCore\Template\Helpers\Loop">
         <name>the_excerpt_content</name>
         <full_name>the_excerpt_content</full_name>
-        <docblock line="438">
+        <docblock line="444">
           <description>The new content for excerpt_more added into the action.</description>
           <long-description/>
-          <tag line="438" name="param" description="" type="string" variable="$content">
+          <tag line="444" name="param" description="" type="string" variable="$content">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="443">
+        <argument line="449">
           <name>$content</name>
           <default/>
           <type/>
@@ -2247,11 +2269,11 @@ by the array of options.&lt;/p&gt;
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file AisisCore/Template/Helpers/Loop/Loop.php</error>
-      <critical line="96" code="50019">No short description for property $_options</critical>
-      <critical line="101" code="50019">No short description for property $_wp_query</critical>
-      <critical line="106" code="50019">No short description for property $_post</critical>
-      <critical line="111" code="50019">No short description for property $_components</critical>
-      <error line="361" code="50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $post_type in _single_loop_content()</error>
+      <critical line="102" code="50019">No short description for property $_options</critical>
+      <critical line="107" code="50019">No short description for property $_wp_query</critical>
+      <critical line="112" code="50019">No short description for property $_post</critical>
+      <critical line="117" code="50019">No short description for property $_components</critical>
+      <error line="367" code="50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $post_type in _single_loop_content()</error>
     </parse_markers>
   </file>
   <file path="AisisCore/Template/Helpers/Loop/PostTypes.php" hash="b3be7583ecd4c867a67eb4e18f90e43d" package="Default">
@@ -5600,7 +5622,7 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="78" code="50009">No DocBlock was found for function \aisis_marketing_collumn_two()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Loader/Asset.php" hash="12a1cce971e9d3facdc45d8c2aa9effe" package="Default">
+  <file path="CoreTheme/Loader/Asset.php" hash="9b04969b5ec758985e502a9a20ab5a81" package="Default">
     <class final="false" abstract="false" namespace="global" line="29" package="CoreTheme\Loader">
       <extends>\AisisCore_Loader_Asset</extends>
       <name>CoreTheme_Loader_Asset</name>
@@ -5707,7 +5729,7 @@ $scripts_to_load  = array(
       <error line="31" code="50012">No short description for method init()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Admin.php" hash="0aba267f1c823c3dd915dc537a984e55" package="Default">
+  <file path="CoreTheme/AdminPanel/Admin.php" hash="01c8fec10e5105a7ab0220d3bbbef5ae" package="Default">
     <class final="false" abstract="false" namespace="global" line="12" package="CoreTheme\AdminPanel">
       <extends/>
       <implements>\AisisCore_Interfaces_Admin</implements>
@@ -5786,34 +5808,34 @@ keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</lon
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="132" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="145" package="CoreTheme\AdminPanel">
         <name>reset_message</name>
         <full_name>reset_message</full_name>
-        <docblock line="129">
+        <docblock line="142">
           <description>Creates a reset message.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="143" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="156" package="CoreTheme\AdminPanel">
         <name>update_message</name>
         <full_name>update_message</full_name>
-        <docblock line="140">
+        <docblock line="153">
           <description>Creates a update message for when you have an update.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="155" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="168" package="CoreTheme\AdminPanel">
         <name>update_success_message</name>
         <full_name>update_success_message</full_name>
-        <docblock line="152">
+        <docblock line="165">
           <description>Creates an update success message for when we have updated your stuff.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="167" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="180" package="CoreTheme\AdminPanel">
         <name>_update_option</name>
         <full_name>_update_option</full_name>
-        <docblock line="164">
+        <docblock line="177">
           <description>Creates a success message when you have updated the options.</description>
           <long-description/>
         </docblock>

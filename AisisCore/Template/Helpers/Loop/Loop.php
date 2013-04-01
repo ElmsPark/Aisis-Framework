@@ -56,6 +56,12 @@
  * 				'before' => '' // Div wrapper.
  * 				'after' => '' // Div wrapper close.
  * 			),
+ * 			'after_the_title_additions' => array(
+ * 				'name'=>$function(), // Names should be unique.
+ * 			), // Houses a series of functions that will echo content after the title (after the date and author).
+ * 			'after_the_title_additions' => array(
+ * 				'name'=>$function(), // Names should be unique.
+ * 			) // Houses a series of functions that will echo content after the content (before the navigation).
  * 		),
  * 		'page' => array(
  * 			'content' => array(

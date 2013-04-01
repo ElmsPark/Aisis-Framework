@@ -35,7 +35,7 @@ class CoreTheme_Loader_Asset extends AisisCore_Loader_Asset {
 		
 		$http = new AisisCore_Http_Http();
 		
-		add_action ('wp_footer', array($this, 'load_jquery_front'));
+		add_action ('wp_enqueue_scripts', array($this, 'load_jquery_front'));
 		add_action ('wp_enqueue_scripts', array ($this, 'load_style' ));
 		add_action ('wp_footer', array ($this, 'load_js' ));
 		
