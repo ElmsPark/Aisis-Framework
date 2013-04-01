@@ -1,0 +1,19 @@
+/**
+ * Basic Css Styles for the Popup.
+ *
+ * @author Adam Balan
+ */
+
+ul {
+	list-style: none;
+}
+
+ul li.space{
+	line-height: 3em;
+}
+
+#post{
+	background: rgb(236, 236, 236);
+	padding: 10px;
+	border: 1px solid rgb(228, 228, 228);
+}
