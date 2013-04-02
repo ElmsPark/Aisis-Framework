@@ -137,3 +137,25 @@ function toc() {
 	}
 
 }
+
+function info() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[info]content[/info]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+
+}
+
+function update() {
+	var debug = true;
+	try{
+		var win = window.dialogArguments || opener || parent || top;
+		win.send_to_editor('[update]content[/update]');
+	}catch(e){
+		console.log("Could not send to window: " + e);
+	}
+
+}

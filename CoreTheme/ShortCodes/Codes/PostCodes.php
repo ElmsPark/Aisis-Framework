@@ -129,9 +129,25 @@ if(! function_exists ('aisis_toc') ){
 	}
 }
 
+if(! function_exists ('aisis_info') ){
+	function aisis_info($atts, $content = null){
+		return '
+		<div class="alert">'.$content.'</div>';
+	}
+}
+
+if(! function_exists ('aisis_update') ){
+	function aisis_update($atts, $content = null){
+		return '
+		<div class="alert info">'.$content.'</div>';
+	}
+}
+
 add_shortcode( 'image', 'aisis_image');
 add_shortcode( 'image-circle', 'aisis_image_circle');
 add_shortcode( 'image-rounded', 'aisis_image_rounded');
 add_shortcode( 'image-polaroid', 'aisis_image_polaroid');
 add_shortcode( 'code', 'aisis_code');
 add_shortcode( 'toc', 'aisis_toc');
+add_shortcode( 'update', 'aisis_info');
+add_shortcode( 'info', 'aisis_update');

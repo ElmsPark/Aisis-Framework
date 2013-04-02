@@ -93,7 +93,7 @@
       <error line="0" code="50007">No page-level DocBlock was found in file footer.php</error>
     </parse_markers>
   </file>
-  <file path="header.php" hash="a11a079da87c09522e276efb4e34aa97" package="Default">
+  <file path="header.php" hash="46053e1cb1b3ec5063f28acc6918358d" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file header.php</error>
     </parse_markers>
@@ -4660,121 +4660,121 @@ implementers create views with ease.&lt;/p&gt;</long-description>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/Hooks.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/NavWalker.php" hash="5d427c26eac0be9f257dba886a4844ee" package="Default">
-    <function namespace="global" line="115" package="Default">
+  <file path="CoreTheme/NavWalker.php" hash="fa341b5b084c1772575bec5cf9019184" package="Default">
+    <function namespace="global" line="116" package="Default">
       <name>the_bootstrap_nav_menu_css_class</name>
       <full_name>\the_bootstrap_nav_menu_css_class</full_name>
-      <docblock line="105">
+      <docblock line="106">
         <description>Adds the active CSS class</description>
         <long-description/>
-        <tag line="105" name="author" description="Konstantin Obenland"/>
-        <tag line="105" name="since" description="1.5.0 - 15.05.2012"/>
-        <tag line="105" name="param" description="Default class names" type="array" variable="$classes">
+        <tag line="106" name="author" description="Konstantin Obenland"/>
+        <tag line="106" name="since" description="1.5.0 - 15.05.2012"/>
+        <tag line="106" name="param" description="Default class names" type="array" variable="$classes">
           <type by_reference="false">array</type>
         </tag>
-        <tag line="105" name="return" description="" type="array">
+        <tag line="106" name="return" description="" type="array">
           <type by_reference="false">array</type>
         </tag>
       </docblock>
-      <argument line="115">
+      <argument line="116">
         <name>$classes</name>
         <default/>
         <type/>
       </argument>
     </function>
-    <class final="false" abstract="false" namespace="global" line="8" package="The Bootstrap">
+    <class final="false" abstract="false" namespace="global" line="9" package="CoreTheme">
       <extends>\Walker_Nav_Menu</extends>
       <name>CoreTheme_NavWalker</name>
       <full_name>\CoreTheme_NavWalker</full_name>
       <docblock line="2">
         <description>nav-menu-walker.php</description>
         <long-description/>
-        <tag line="2" name="author" description="Konstantin Obenland"/>
-        <tag line="2" name="package" description="The Bootstrap"/>
-        <tag line="2" name="since" description="1.5.0 - 15.05.2012"/>
+        <tag line="2" name="author" description="Konstantin Obenland | Adam Balan"/>
+        <tag line="2" name="package" description="CoreTheme"/>
+        <tag line="2" name="since" description="1.5.0 - 15.05.2012 | 1.6.0 - 1-04-2013"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="13" package="The Bootstrap">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="14" package="CoreTheme">
         <name>start_lvl</name>
         <full_name>start_lvl</full_name>
-        <docblock line="10">
+        <docblock line="11">
           <description/>
           <long-description/>
-          <tag line="10" name="see" description="\Walker_Nav_Menu::start_lvl()" refers="\Walker_Nav_Menu::start_lvl()"/>
+          <tag line="11" name="see" description="\Walker_Nav_Menu::start_lvl()" refers="\Walker_Nav_Menu::start_lvl()"/>
         </docblock>
-        <argument line="13">
+        <argument line="14">
           <name>$output</name>
           <default/>
           <type/>
         </argument>
-        <argument line="13">
+        <argument line="14">
           <name>$depth</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="20" package="The Bootstrap">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="21" package="CoreTheme">
         <name>start_el</name>
         <full_name>start_el</full_name>
-        <docblock line="17">
+        <docblock line="18">
           <description/>
           <long-description/>
-          <tag line="17" name="see" description="\Walker_Nav_Menu::start_el()" refers="\Walker_Nav_Menu::start_el()"/>
+          <tag line="18" name="see" description="\Walker_Nav_Menu::start_el()" refers="\Walker_Nav_Menu::start_el()"/>
         </docblock>
-        <argument line="20">
+        <argument line="21">
           <name>$output</name>
           <default/>
           <type/>
         </argument>
-        <argument line="20">
+        <argument line="21">
           <name>$item</name>
           <default/>
           <type/>
         </argument>
-        <argument line="20">
+        <argument line="21">
           <name>$depth</name>
           <default/>
           <type/>
         </argument>
-        <argument line="20">
+        <argument line="21">
           <name>$args</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="58" package="The Bootstrap">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="59" package="CoreTheme">
         <name>display_element</name>
         <full_name>display_element</full_name>
-        <docblock line="55">
+        <docblock line="56">
           <description/>
           <long-description/>
-          <tag line="55" name="see" description="\Walker::display_element()" refers="\Walker::display_element()"/>
+          <tag line="56" name="see" description="\Walker::display_element()" refers="\Walker::display_element()"/>
         </docblock>
-        <argument line="58">
+        <argument line="59">
           <name>$element</name>
           <default/>
           <type/>
         </argument>
-        <argument line="58">
+        <argument line="59">
           <name>$children_elements</name>
           <default/>
           <type/>
         </argument>
-        <argument line="58">
+        <argument line="59">
           <name>$max_depth</name>
           <default/>
           <type/>
         </argument>
-        <argument line="58">
+        <argument line="59">
           <name>$depth</name>
           <default>0</default>
           <type/>
         </argument>
-        <argument line="58">
+        <argument line="59">
           <name>$args</name>
           <default/>
           <type/>
         </argument>
-        <argument line="58">
+        <argument line="59">
           <name>$output</name>
           <default/>
           <type/>
@@ -4783,21 +4783,21 @@ implementers create views with ease.&lt;/p&gt;</long-description>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/NavWalker.php</error>
-      <error line="10" code="50012">No short description for method start_lvl()</error>
-      <error line="10" code="50015">Argument $output is missing from the Docblock of start_lvl()</error>
-      <error line="10" code="50015">Argument $depth is missing from the Docblock of start_lvl()</error>
-      <error line="17" code="50012">No short description for method start_el()</error>
-      <error line="17" code="50015">Argument $output is missing from the Docblock of start_el()</error>
-      <error line="17" code="50015">Argument $item is missing from the Docblock of start_el()</error>
-      <error line="17" code="50015">Argument $depth is missing from the Docblock of start_el()</error>
-      <error line="17" code="50015">Argument $args is missing from the Docblock of start_el()</error>
-      <error line="55" code="50012">No short description for method display_element()</error>
-      <error line="55" code="50015">Argument $element is missing from the Docblock of display_element()</error>
-      <error line="55" code="50015">Argument $children_elements is missing from the Docblock of display_element()</error>
-      <error line="55" code="50015">Argument $max_depth is missing from the Docblock of display_element()</error>
-      <error line="55" code="50015">Argument $depth is missing from the Docblock of display_element()</error>
-      <error line="55" code="50015">Argument $args is missing from the Docblock of display_element()</error>
-      <error line="55" code="50015">Argument $output is missing from the Docblock of display_element()</error>
+      <error line="11" code="50012">No short description for method start_lvl()</error>
+      <error line="11" code="50015">Argument $output is missing from the Docblock of start_lvl()</error>
+      <error line="11" code="50015">Argument $depth is missing from the Docblock of start_lvl()</error>
+      <error line="18" code="50012">No short description for method start_el()</error>
+      <error line="18" code="50015">Argument $output is missing from the Docblock of start_el()</error>
+      <error line="18" code="50015">Argument $item is missing from the Docblock of start_el()</error>
+      <error line="18" code="50015">Argument $depth is missing from the Docblock of start_el()</error>
+      <error line="18" code="50015">Argument $args is missing from the Docblock of start_el()</error>
+      <error line="56" code="50012">No short description for method display_element()</error>
+      <error line="56" code="50015">Argument $element is missing from the Docblock of display_element()</error>
+      <error line="56" code="50015">Argument $children_elements is missing from the Docblock of display_element()</error>
+      <error line="56" code="50015">Argument $max_depth is missing from the Docblock of display_element()</error>
+      <error line="56" code="50015">Argument $depth is missing from the Docblock of display_element()</error>
+      <error line="56" code="50015">Argument $args is missing from the Docblock of display_element()</error>
+      <error line="56" code="50015">Argument $output is missing from the Docblock of display_element()</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/Setup.php" hash="3fb7e0f27e96ec60dc1c4eb1c3b6fedc" package="Default">
@@ -4907,7 +4907,7 @@ the rest.&lt;/p&gt;</long-description>
       <error line="10" code="50015">Argument $exception is missing from the Docblock of exception_handler()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Activation.php" hash="f4fd2d2a96309c352257ca6b70561db5" package="Default">
+  <file path="CoreTheme/Activation.php" hash="95ff45bc24e3ef8839d6f5deed93d6c9" package="Default">
     <class final="false" abstract="false" namespace="global" line="12" package="CoreTheme">
       <extends>\CoreTheme_MultiSite</extends>
       <implements>\AisisCore_Interfaces_Activation</implements>
@@ -4933,7 +4933,7 @@ activation of the theme.</description>
         </docblock>
       </property>
       <property final="false" static="false" visibility="protected" line="22" namespace="global" package="Default">
-        <name>$_options</name>
+        <name>$_notices</name>
         <default>array()</default>
         <docblock line="19">
           <description/>
@@ -4943,53 +4943,73 @@ activation of the theme.</description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="31" package="CoreTheme">
-        <name>__constuct</name>
-        <full_name>__constuct</full_name>
+      <property final="false" static="false" visibility="protected" line="27" namespace="global" package="Default">
+        <name>$_options</name>
+        <default>array()</default>
         <docblock line="24">
-          <description>Takes in a series of options in relation to any custom folders to make.</description>
-          <long-description>&lt;p&gt;custom/ is made upon activation of the theme, assuming you have file permission to do so.&lt;/p&gt;</long-description>
-          <tag line="24" name="param" description="" type="array" variable="$options">
+          <description/>
+          <long-description/>
+          <tag line="24" name="var" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="31">
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="36" package="CoreTheme">
+        <name>__constuct</name>
+        <full_name>__constuct</full_name>
+        <docblock line="29">
+          <description>Takes in a series of options in relation to any custom folders to make.</description>
+          <long-description>&lt;p&gt;custom/ is made upon activation of the theme, assuming you have file permission to do so.&lt;/p&gt;</long-description>
+          <tag line="29" name="param" description="" type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="36">
           <name>$options</name>
           <default/>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="42" package="CoreTheme">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="47" package="CoreTheme">
         <name>init</name>
         <full_name>init</full_name>
-        <docblock line="37">
+        <docblock line="42">
           <description>Over ride me when extending this class.</description>
           <long-description>&lt;p&gt;All your constuctor logic should go here.&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="49" package="CoreTheme">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="54" package="CoreTheme">
         <name>on_activation</name>
         <full_name>on_activation</full_name>
-        <docblock line="44">
+        <docblock line="49">
           <description>Sets up multi site as well.</description>
           <long-description/>
-          <tag line="44" name="see" description="\AisisCore_Interfaces_Activation::on_activation()" refers="\AisisCore_Interfaces_Activation::on_activation()"/>
+          <tag line="49" name="see" description="\AisisCore_Interfaces_Activation::on_activation()" refers="\AisisCore_Interfaces_Activation::on_activation()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="64" package="CoreTheme">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="70" package="CoreTheme">
         <name>check_for_errors</name>
         <full_name>check_for_errors</full_name>
-        <docblock line="59">
+        <docblock line="65">
           <description>Errors are kepts as $key=&gt;$value, or $error_type=&gt;$message.</description>
           <long-description/>
-          <tag line="59" name="see" description="\AisisCore_Interfaces_Activation::check_for_errors()" refers="\AisisCore_Interfaces_Activation::check_for_errors()"/>
+          <tag line="65" name="see" description="\AisisCore_Interfaces_Activation::check_for_errors()" refers="\AisisCore_Interfaces_Activation::check_for_errors()"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="81" package="CoreTheme">
+        <name>check_for_notices</name>
+        <full_name>check_for_notices</full_name>
+        <docblock line="78">
+          <description>Notices are kepts as $key=&gt;$value, or $error_type=&gt;$message.</description>
+          <long-description/>
         </docblock>
       </method>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/Activation.php</error>
       <critical line="14" code="50019">No short description for property $_errors</critical>
-      <critical line="19" code="50019">No short description for property $_options</critical>
+      <critical line="19" code="50019">No short description for property $_notices</critical>
+      <critical line="24" code="50019">No short description for property $_options</critical>
     </parse_markers>
   </file>
   <file path="CoreTheme/Update.php" hash="8e95a31cadbca841bd0e86e702990d56" package="Default">
@@ -5412,12 +5432,12 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="50" code="50009">No DocBlock was found for function \aisis_require_code_display_page()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/DisplayCodes.phtml" hash="928ebf10f908943feba295bc8fddeb22" package="Default">
+  <file path="CoreTheme/ShortCodes/DisplayCodes.phtml" hash="a0acb410d66de5684321c9c491124b30" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/DisplayCodes.phtml</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/Codes/PostCodes.php" hash="0c72e4cdff5c9482869f4e339ab63da4" package="Default">
+  <file path="CoreTheme/ShortCodes/Codes/PostCodes.php" hash="e8c6b6653083f7c968edbcb87d50ffdd" package="Default">
     <function namespace="global" line="3" package="Default">
       <name>aisis_image</name>
       <full_name>\aisis_image</full_name>
@@ -5502,6 +5522,34 @@ This type of form use an array of elements to create the elemts for said tab.&lt
         <type/>
       </argument>
     </function>
+    <function namespace="global" line="133" package="Default">
+      <name>aisis_info</name>
+      <full_name>\aisis_info</full_name>
+      <argument line="133">
+        <name>$atts</name>
+        <default/>
+        <type/>
+      </argument>
+      <argument line="133">
+        <name>$content</name>
+        <default>null</default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="global" line="140" package="Default">
+      <name>aisis_update</name>
+      <full_name>\aisis_update</full_name>
+      <argument line="140">
+        <name>$atts</name>
+        <default/>
+        <type/>
+      </argument>
+      <argument line="140">
+        <name>$content</name>
+        <default>null</default>
+        <type/>
+      </argument>
+    </function>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/Codes/PostCodes.php</error>
       <error line="3" code="50009">No DocBlock was found for function \aisis_image()</error>
@@ -5510,9 +5558,11 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="59" code="50009">No DocBlock was found for function \aisis_image_rounded()</error>
       <error line="76" code="50009">No DocBlock was found for function \aisis_image_polaroid()</error>
       <error line="93" code="50009">No DocBlock was found for function \aisis_toc()</error>
+      <error line="133" code="50009">No DocBlock was found for function \aisis_info()</error>
+      <error line="140" code="50009">No DocBlock was found for function \aisis_update()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/Codes/AisisMarketingCodes.php" hash="3d79508102cb44950cd48cce0f621cbd" package="Default">
+  <file path="CoreTheme/ShortCodes/Codes/AisisMarketingCodes.php" hash="45e57441cffe6d4f3e838667c982f61b" package="Default">
     <function namespace="global" line="3" package="Default">
       <name>aisis_jumbotron</name>
       <full_name>\aisis_jumbotron</full_name>
@@ -5622,7 +5672,7 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="78" code="50009">No DocBlock was found for function \aisis_marketing_collumn_two()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Loader/Asset.php" hash="9b04969b5ec758985e502a9a20ab5a81" package="Default">
+  <file path="CoreTheme/Loader/Asset.php" hash="52218606b99c59db40895ecbb302ed8e" package="Default">
     <class final="false" abstract="false" namespace="global" line="29" package="CoreTheme\Loader">
       <extends>\AisisCore_Loader_Asset</extends>
       <name>CoreTheme_Loader_Asset</name>
@@ -5659,67 +5709,59 @@ $scripts_to_load  = array(
           <tag line="31" name="see" description="\AisisCore_Loader_Asset::init()" refers="\AisisCore_Loader_Asset::init()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="64" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="63" package="CoreTheme\Loader">
         <name>load_style</name>
         <full_name>load_style</full_name>
-        <docblock line="61">
+        <docblock line="60">
           <description>We load only the font end css</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="82" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="81" package="CoreTheme\Loader">
         <name>load_js</name>
         <full_name>load_js</full_name>
-        <docblock line="79">
+        <docblock line="78">
           <description>We load only the font end js</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="100" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="99" package="CoreTheme\Loader">
         <name>load_admin_script</name>
         <full_name>load_admin_script</full_name>
-        <docblock line="97">
+        <docblock line="96">
           <description>We load only the admin css</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="127" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="126" package="CoreTheme\Loader">
         <name>aisis_register_admin_jquery</name>
         <full_name>aisis_register_admin_jquery</full_name>
-        <docblock line="124">
+        <docblock line="123">
           <description>We load the jquery - at this time we load 1.8.1 for the admin.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="136" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="135" package="CoreTheme\Loader">
         <name>load_jquery_front</name>
         <full_name>load_jquery_front</full_name>
-        <docblock line="133">
+        <docblock line="132">
           <description>We load the jquery - at this time we load the 1.8.3 for the front end.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="145" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="144" package="CoreTheme\Loader">
         <name>apply_ie_tags</name>
         <full_name>apply_ie_tags</full_name>
-        <docblock line="142">
+        <docblock line="141">
           <description>Apply html5.js and css media queries js for browsers older then IE 9</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="156" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="155" package="CoreTheme\Loader">
         <name>apply_view_port_tag</name>
         <full_name>apply_view_port_tag</full_name>
-        <docblock line="153">
+        <docblock line="152">
           <description>Set the view port tag.</description>
-          <long-description/>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="163" package="CoreTheme\Loader">
-        <name>apply_open_sans</name>
-        <full_name>apply_open_sans</full_name>
-        <docblock line="160">
-          <description>Apply Google font Open Sans</description>
           <long-description/>
         </docblock>
       </method>
@@ -5729,7 +5771,7 @@ $scripts_to_load  = array(
       <error line="31" code="50012">No short description for method init()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Admin.php" hash="01c8fec10e5105a7ab0220d3bbbef5ae" package="Default">
+  <file path="CoreTheme/AdminPanel/Admin.php" hash="255405e01a9e69c1e9fcae08aa4c22df" package="Default">
     <class final="false" abstract="false" namespace="global" line="12" package="CoreTheme\AdminPanel">
       <extends/>
       <implements>\AisisCore_Interfaces_Admin</implements>
@@ -5808,34 +5850,34 @@ keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</lon
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="145" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="146" package="CoreTheme\AdminPanel">
         <name>reset_message</name>
         <full_name>reset_message</full_name>
-        <docblock line="142">
+        <docblock line="143">
           <description>Creates a reset message.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="156" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="157" package="CoreTheme\AdminPanel">
         <name>update_message</name>
         <full_name>update_message</full_name>
-        <docblock line="153">
+        <docblock line="154">
           <description>Creates a update message for when you have an update.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="168" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="169" package="CoreTheme\AdminPanel">
         <name>update_success_message</name>
         <full_name>update_success_message</full_name>
-        <docblock line="165">
+        <docblock line="166">
           <description>Creates an update success message for when we have updated your stuff.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="180" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="181" package="CoreTheme\AdminPanel">
         <name>_update_option</name>
         <full_name>_update_option</full_name>
-        <docblock line="177">
+        <docblock line="178">
           <description>Creates a success message when you have updated the options.</description>
           <long-description/>
         </docblock>
@@ -7156,7 +7198,7 @@ the tabbed form.</description>
       <error line="37" code="50009">No DocBlock was found for function \bootstrap_admin_wp_default_styles()</error>
     </parse_markers>
   </file>
-  <file path="index.php" hash="3d8b3e78e50534daa56437d82a4176d3" package="Default">
+  <file path="index.php" hash="1f968a1e006788eabcaaf0f632f6028b" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file index.php</error>
     </parse_markers>
@@ -7205,7 +7247,6 @@ the tabbed form.</description>
     </package>
   </package>
   <package name="Default" full_name="Default"/>
-  <package name="The Bootstrap" full_name="The Bootstrap"/>
   <namespace name="global" full_name="global"/>
   <marker count="0">todo</marker>
   <marker count="0">fixme</marker>
