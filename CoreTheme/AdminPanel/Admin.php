@@ -124,9 +124,10 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		foreach($input as $key=>$value){
 			if(is_array($value)){
 				foreach($value as $k=>$v){
-					if(isset($input[$k])){
-						$option[$key][$k] = strip_tags(stripslashes($input[$k]), '<a><p><h1><h2><h3><h4><h5><h6><blockquote><img><hr><br>');
+					if(isset($input[$key][$k])){
+						$option[$key][$k] = strip_tags(stripslashes($input[$key][$k]), '<a><p><h1><h2><h3><h4><h5><h6><blockquote><img><hr><br>');
 					}
+					
 				}
 			}else{
 				if(isset($input[$key])){
