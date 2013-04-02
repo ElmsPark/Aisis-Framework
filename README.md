@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Aisis Beta
 --------------
 
@@ -11,3 +12,9 @@ If you want the latest and greatest of Aisis I would take the devX.X version whi
 ##Bleeding Edge For devX.X
 
 If you are on the 1.x branch and you want the latest for the 1.1 series you can follow [twitter](https://twitter.com/search?q=%23AisisTheme&src=typd) to get the latest news or the [news](http://aisis.adambalan.com/category/news/) posts to make sure you always have the latest of that branch before we push updates out.
+=======
+#Aisis Theme 1.2
+----------------
+
+Aisis Theme 1.2 is the the second iteration of Aisis Theme. This is currently in development. You can follow the [blog posts](http://aisis.adambalan.com/tag/1-2/) to find out more.
+>>>>>>> development

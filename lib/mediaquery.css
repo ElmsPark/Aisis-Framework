@@ -1,0 +1,58 @@
+@media ( max-width : 979px) {
+	.dropdown ul.dropdown-menu {
+		display: block;
+	}
+	.header-title {
+		margin-top: -20px;
+		height: 40px;
+	}
+	.carousel .item {
+		height: 500px;
+	}
+	.carousel img {
+		width: auto;
+		height: 500px;
+	}
+}
+
+@media ( max-width : 767px) {
+	.header-title {
+		height: 120px;
+	}
+	.carousel {
+		margin-left: -20px;
+		margin-right: -20px;
+		margin-top: -20px;
+	}
+	.carousel .container {
+
+	}
+	.carousel .item {
+		height: 300px;
+	}
+	.carousel img {
+		height: 300px;
+	}
+	.carousel-caption {
+		width: 65%;
+		padding: 0 70px !important;
+		margin-bottom: 6px;
+	}
+	.carousel-caption h1 {
+		font-size: 30px;
+	}
+	.carousel-caption .lead,.carousel-caption .btn {
+		font-size: 18px;
+	}
+	
+	.icon-4x{
+		font-size:2em;
+	}
+	
+	.custom-well .container ul li {
+	    margin-left:10px;
+	}	
+	.btn-large-custom {
+		padding: 11px 75px !important;
+	}	
+}
