@@ -1,9 +1,10 @@
 <?php
-/** nav-menu-walker.php
+/** 
+ * nav-menu-walker.php
  *
- * @author		Konstantin Obenland
- * @package		The Bootstrap
- * @since		1.5.0 - 15.05.2012
+ * @author		Konstantin Obenland | Adam Balan
+ * @package		CoreTheme
+ * @since		1.5.0 - 15.05.2012 | 1.6.0 - 1-04-2013
  */
 class CoreTheme_NavWalker extends Walker_Nav_Menu {
 

@@ -44,16 +44,16 @@ if (! function_exists ( 'aisis_button' )) {
 			$size_of_button = 'btn-mini';
 		}
 		
-		if($color = 'red'){
-			$color_of_button = 'btn-danger';
-		}elseif($color = 'green'){
-			$color_of_button = 'btn-success';
-		}elseif($color = 'yellow'){
+		if($color == 'red'){
+			$color_of_button == 'btn-danger';
+		}elseif($color == 'green'){
+			$color_of_button == 'btn-success';
+		}elseif($color == 'yellow'){
 			$color_of_button = 'btn-warning';
-		}elseif($color = 'blue'){
-			$color_of_button = 'primary';
-		}elseif($color = 'light-blue'){
-			$color_of_button = 'info';
+		}elseif($color == 'blue'){
+			$color_of_button = 'btn-primary';
+		}elseif($color == 'light-blue'){
+			$color_of_button = 'btn-info';
 		}
 		
 		return '<a href="' . esc_attr ( $link ) . '" class="btn '. 

@@ -116,8 +116,10 @@ if(is_active_sidebar('aisis-side-bar') && !is_home()){
 		echo '<div class="span6 marginLeft50 marginTop60">';	
 	}elseif(!$builder->get_specific_option('author_sidebar') && is_author()){
 		echo '<div class="span6 marginLeft50 marginTop60">';
-	}elseif(is_single() || is_page()){
+	}elseif(is_single()){
 		echo '<div class="container-narrow marginTop60">';
+	}elseif(is_page()){
+		echo '<div class="container marginTop60">';
 	}else{
 		echo '<div class="marginTop60 marginBottom120">';
 	}

@@ -17,6 +17,11 @@ class CoreTheme_Activation extends CoreTheme_MultiSite implements AisisCore_Inte
 	protected $_errors = array();
 	
 	/**
+     * @var array
+	 */
+	protected $_notices = array();
+	
+	/**
 	 * @var array
 	 */	
 	protected $_options = array();
@@ -50,9 +55,10 @@ class CoreTheme_Activation extends CoreTheme_MultiSite implements AisisCore_Inte
 		$http = new AisisCore_Http_Http();
 		if(is_admin() && $http->get_current_url() == admin_url('themes.php?activated=true')){
 			if(!$this->create_components($this->_options)){
-				$this->_errors['mk_dir'] = 'Could not create the custom folder or appropriate sub folders. Please check your permissions.';
+				$this->_notices['mk_dir'] = 'Could not create the custom folder or appropriate sub folders. Please check your permissions.';
 			}
 			add_action('admin_notices', array($this, 'check_for_errors'));
+			add_action('admin_notices', array($this, 'check_for_notices'));
 		}
 	}
 
@@ -68,4 +74,15 @@ class CoreTheme_Activation extends CoreTheme_MultiSite implements AisisCore_Inte
 			}
 		}
 	}
+	
+	/**
+	 * Notices are kepts as $key=>$value, or $error_type=>$message.
+	 */	
+	public function check_for_notices(){
+		if(isset($this->_notices) && !empty($this->_notices)){
+			foreach($this->_notices as $type=>$message){
+				echo '<div class="alert">'.$message.'</div>';
+			}
+		}
+	}	
 }
