@@ -2,7 +2,7 @@
 $posts = new CoreTheme_AdminPanel_Form_Posts();
 $custom = new CoreTheme_AdminPanel_Form_CustomPost();
 $social = new CoreTheme_AdminPanel_Form_Social();
-$footer = new CoreTheme_AdminPanel_Form_Footer();
+$other = new CoreTheme_AdminPanel_Form_Other();
 
 $array = array(
 	'method' => 'post',
@@ -20,17 +20,17 @@ $array = array(
 		'elements' => array(
 			$custom->elements()
 		),
-	),
+	),	
 	array(
 		'tab' => 'Social Links',
 		'elements' => array(
 			$social->elements()
 		),
-	),	
+	),			
 	array(
-		'tab' => 'Footer Text',
+		'tab' => 'Misc. Options',
 		'elements' => array(
-			$footer->elements()
+			$other->elements()
 		),
 	),				
 );

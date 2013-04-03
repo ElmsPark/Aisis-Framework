@@ -144,7 +144,7 @@ class CoreTheme_AdminPanel_Form_CustomPost{
 			'name' => 'aisis_options[mini_feed_global]',
 			'id' => 'miniFeedGlobal',
 			'value' => 'mini_feed_global',
-			'label' => 'Remove the mini feed from the site. <a href="#" id="miniFeedGlobal" rel="popover" 
+			'label' => 'Remove the mini feed from the site. <a href="#" id="miniFeedGlobalPop" rel="popover" 
 			data-content="Remove the mini feed from the site, this includes the custom post type (your posts are safe!)."  
 			data-trigger="hover"
 			data-original-title="Mini Feed Global"><i class="icon-info-sign"></i></a>',

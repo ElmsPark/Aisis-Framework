@@ -27,7 +27,7 @@ class CoreTheme_AdminPanel_Form_Reset extends CoreTheme_Form_Form{
 	 */
 	protected function _reset_button(){
 		$button = array(
-			'class' => 'btn btn-large',
+			'class' => 'btn btn-large btn-primary',
 			'value' => 'Reset All Options',
 			'name' => 'aisis_reset',
 			'data_toggle' => 'popover',

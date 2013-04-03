@@ -47,7 +47,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 			array(
 				$this, 
 				'build_template'),  
-				get_template_directory_uri() . '/images/block.png', 
+				get_template_directory_uri() . '/lib/images/addition.png', 
 				31
 			);
 
@@ -130,12 +130,22 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 					
 				}
 			}else{
-				if(isset($input[$key])){
-					$option[$key] = strip_tags(stripslashes($input[$key]), '<a><p><h1><h2><h3><h4><h5><h6><blockquote><img><hr><br>');
+				// Only contains checkboxs. Nothing else.
+				$array_of_option_names = array(
+					'category_header', 'author_posts', 	'tag_header', 'carousel_global',
+					'carousel_home', 'carousel_single', 'mini_feed_global', 'mini_feed_home',
+					'mini_feed_single', 'author_image', 'author_bio', 'author_sidebar', 'jumbotron',
+					'socialbar', 'category_description', 'category_tags', 'category_sidebar',
+					'tag_description', 'tag_sidebar', 'twitter_admin'
+				);
+				
+				foreach($array_of_option_names as $name){
+					$option[$name] = $input[$name];
 				}
+				
+				$option[$key] = strip_tags(stripslashes($input[$key]), '<a><p><h1><h2><h3><h4><h5><h6><blockquote><img><hr><br>');
 			}
 		}
-		
 		$this->_update_option();
 		return $option;
 	}

@@ -44,12 +44,9 @@ class CoreTheme_Loader_Asset extends AisisCore_Loader_Asset {
 		
 		if (is_admin ()) {
 			// Check what pages were on so we only load on specific pages.
-			if ($http->check_get_for_page ( 'page', 'aisis-core-options' ) || 
-				$http->check_get_for_page ( 'page', 'aisis-css-editor' ) || $http->check_get_for_page('page', 'aisis-core-bbpress') || 
-				$http->check_get_for_page('page', 'aisis-core-update')
+			add_action ( 'admin_init', array ($this, 'load_admin_script' ) );
+			if ($http->check_get_for_page ( 'page', 'aisis-core-options' ) || $http->check_get_for_page('page', 'aisis-core-update')
 			){
-				
-				add_action ( 'admin_init', array ($this, 'load_admin_script' ) );
 				add_action ( 'admin_enqueue_scripts', array ($this, 'aisis_register_admin_jquery' ) );
 			}
 		}

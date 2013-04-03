@@ -34,7 +34,7 @@ if(!defined('CORETHEME_SHORTCODES')){
 }
 
 if(!defined('CORETHEME_ADMIN_TWITTER')){
-	define('CORETHEME_ADMIN_TWITTER', get_template_directory() . '/CoreTheme/AdminPanel/TwitterBootStrap/');
+	define('CORETHEME_ADMIN_TWITTER', get_template_directory() . '/CoreTheme/AdminPanel/assets/TwitterBootStrap/');
 }
 
 // Multi Site?

@@ -1,3 +1,7 @@
+body{
+	background-color: transparent !important;
+}
+
 [class^="icon-"], [class*=" icon-"]{
 	background-image: none !important;
 }

@@ -1,6 +1,39 @@
 <?php
-// Set up the theme of the admin pannel
-require_once(CORETHEME_ADMIN_TWITTER . 'Setup.php');
+$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+if(!$template->get_specific_option('twitter_admin')){
+	// Set up the theme of the admin pannel
+	require_once(CORETHEME_ADMIN_TWITTER . 'Setup.php');
+}else{
+	$scripts_to_load  = array(
+		'admin_css' => array(
+			array(
+				'name'=>'bootstrap-css',
+				'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css'
+			),
+			array(
+				'name'=>'bootstrap-responsive-css',
+				'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap-responsive.min.css'
+			),
+			array(
+				'name'=>'font-awesome',
+				'path'=>get_template_directory_uri() . '/lib/FontAwesome/css/font-awesome.min.css'
+			),
+			array(
+				'name'=>'modified-css',
+				'path'=>get_template_directory_uri() . '/CoreTheme/AdminPanel/assets/modified.css'
+			),				
+		),
+		'admin_js_jquery' => array(
+			array(
+				'name'=>'twbs-js-min',
+				'path'=>get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js'
+			),
+		),
+	);
+	
+	// Load the scripts
+	$load_scripts = new CoreTheme_Loader_Asset($scripts_to_load);
+}
 
 // Setup the admin panel
 new CoreTheme_AdminPanel_Admin();

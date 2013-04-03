@@ -5,7 +5,7 @@
       <error line="0" code="50007">No page-level DocBlock was found in file comments.php</error>
     </parse_markers>
   </file>
-  <file path="functions.php" hash="34e08cfb710600ae29b93d3d429e0d16" package="Default">
+  <file path="functions.php" hash="644bebeb6e07c16d34e586dbf3d06ecb" package="Default">
     <include line="52" type="Require Once" package="Default">
       <name/>
     </include>
@@ -52,7 +52,7 @@
     <constant namespace="global" line="37" package="Default">
       <name>CORETHEME_ADMIN_TWITTER</name>
       <full_name>\CORETHEME_ADMIN_TWITTER</full_name>
-      <value>get_template_directory() . '/CoreTheme/AdminPanel/TwitterBootStrap/'</value>
+      <value>get_template_directory() . '/CoreTheme/AdminPanel/assets/TwitterBootStrap/'</value>
     </constant>
     <constant namespace="global" line="43" package="Default">
       <name>CUSTOM</name>
@@ -3897,7 +3897,7 @@ the meta boxes for the custom post types.</description>
       <critical line="9" code="50019">No short description for property $_template</critical>
     </parse_markers>
   </file>
-  <file path="CoreTheme/CustomPostTypes/Types.php" hash="c88bfd6120932c528fe385ad13fa3887" package="Default">
+  <file path="CoreTheme/CustomPostTypes/Types.php" hash="de46fc5b5e4cf988237f496d7f1f8513" package="Default">
     <class final="false" abstract="false" namespace="global" line="7" package="CoreTheme\CustomPostTypes">
       <extends/>
       <name>CoreTheme_CustomPostTypes_Types</name>
@@ -5311,7 +5311,7 @@ We check and XML file for an update and pull the notes from the same location as
       <error line="13" code="50012">No short description for method init()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Form/TabbedForm.php" hash="e53724e027b436854c30cb8d49130395" package="Default">
+  <file path="CoreTheme/Form/TabbedForm.php" hash="d6e65688c3161ae5b9804ebccf4b9f23" package="Default">
     <class final="false" abstract="false" namespace="global" line="24" package="Default">
       <extends>\CoreTheme_Form_Form</extends>
       <name>CoreTheme_Form_TabbedForm</name>
@@ -5672,7 +5672,7 @@ This type of form use an array of elements to create the elemts for said tab.&lt
       <error line="78" code="50009">No DocBlock was found for function \aisis_marketing_collumn_two()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Loader/Asset.php" hash="52218606b99c59db40895ecbb302ed8e" package="Default">
+  <file path="CoreTheme/Loader/Asset.php" hash="01c8931d5e641596ab7f9cb7486461cb" package="Default">
     <class final="false" abstract="false" namespace="global" line="29" package="CoreTheme\Loader">
       <extends>\AisisCore_Loader_Asset</extends>
       <name>CoreTheme_Loader_Asset</name>
@@ -5709,58 +5709,58 @@ $scripts_to_load  = array(
           <tag line="31" name="see" description="\AisisCore_Loader_Asset::init()" refers="\AisisCore_Loader_Asset::init()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="63" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="60" package="CoreTheme\Loader">
         <name>load_style</name>
         <full_name>load_style</full_name>
-        <docblock line="60">
+        <docblock line="57">
           <description>We load only the font end css</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="81" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="78" package="CoreTheme\Loader">
         <name>load_js</name>
         <full_name>load_js</full_name>
-        <docblock line="78">
+        <docblock line="75">
           <description>We load only the font end js</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="99" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="96" package="CoreTheme\Loader">
         <name>load_admin_script</name>
         <full_name>load_admin_script</full_name>
-        <docblock line="96">
+        <docblock line="93">
           <description>We load only the admin css</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="126" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="123" package="CoreTheme\Loader">
         <name>aisis_register_admin_jquery</name>
         <full_name>aisis_register_admin_jquery</full_name>
-        <docblock line="123">
+        <docblock line="120">
           <description>We load the jquery - at this time we load 1.8.1 for the admin.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="135" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="132" package="CoreTheme\Loader">
         <name>load_jquery_front</name>
         <full_name>load_jquery_front</full_name>
-        <docblock line="132">
+        <docblock line="129">
           <description>We load the jquery - at this time we load the 1.8.3 for the front end.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="144" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="141" package="CoreTheme\Loader">
         <name>apply_ie_tags</name>
         <full_name>apply_ie_tags</full_name>
-        <docblock line="141">
+        <docblock line="138">
           <description>Apply html5.js and css media queries js for browsers older then IE 9</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="155" package="CoreTheme\Loader">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="152" package="CoreTheme\Loader">
         <name>apply_view_port_tag</name>
         <full_name>apply_view_port_tag</full_name>
-        <docblock line="152">
+        <docblock line="149">
           <description>Set the view port tag.</description>
           <long-description/>
         </docblock>
@@ -5771,7 +5771,7 @@ $scripts_to_load  = array(
       <error line="31" code="50012">No short description for method init()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Admin.php" hash="255405e01a9e69c1e9fcae08aa4c22df" package="Default">
+  <file path="CoreTheme/AdminPanel/Admin.php" hash="5ade0cd87bd67a8270d4364f4d6b9f0e" package="Default">
     <class final="false" abstract="false" namespace="global" line="12" package="CoreTheme\AdminPanel">
       <extends/>
       <implements>\AisisCore_Interfaces_Admin</implements>
@@ -5850,34 +5850,34 @@ keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</lon
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="146" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="156" package="CoreTheme\AdminPanel">
         <name>reset_message</name>
         <full_name>reset_message</full_name>
-        <docblock line="143">
+        <docblock line="153">
           <description>Creates a reset message.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="157" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="167" package="CoreTheme\AdminPanel">
         <name>update_message</name>
         <full_name>update_message</full_name>
-        <docblock line="154">
+        <docblock line="164">
           <description>Creates a update message for when you have an update.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="169" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="179" package="CoreTheme\AdminPanel">
         <name>update_success_message</name>
         <full_name>update_success_message</full_name>
-        <docblock line="166">
+        <docblock line="176">
           <description>Creates an update success message for when we have updated your stuff.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="181" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="191" package="CoreTheme\AdminPanel">
         <name>_update_option</name>
         <full_name>_update_option</full_name>
-        <docblock line="178">
+        <docblock line="188">
           <description>Creates a success message when you have updated the options.</description>
           <long-description/>
         </docblock>
@@ -5988,21 +5988,21 @@ setting up the widget.</description>
       <error line="56" code="50015">Argument $instance is missing from the Docblock of form()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Templates/options.phtml" hash="67cebd4ec8431aab3fe775dd1dbe4f34" package="Default">
+  <file path="CoreTheme/AdminPanel/Templates/options.phtml" hash="26c93defd464256bd9c3cf9f1992dd80" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Templates/options.phtml</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Templates/update.phtml" hash="47d9d104797b56498dd462635f259f4e" package="Default">
+  <file path="CoreTheme/AdminPanel/Templates/update.phtml" hash="86d633807c426cefb8e17212e634fdeb" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Templates/update.phtml</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Setup.php" hash="562ad6b11381b667b4df266fc46c9501" package="Default">
-    <include line="3" type="Require Once" package="Default">
+  <file path="CoreTheme/AdminPanel/Setup.php" hash="60c44357d23d8b5b669153155f3111d2" package="Default">
+    <include line="5" type="Require Once" package="Default">
       <name/>
     </include>
-    <constant namespace="global" line="10" package="Default">
+    <constant namespace="global" line="43" package="Default">
       <name>WIDGETS</name>
       <full_name>\WIDGETS</full_name>
       <value>get_template_directory() . '/CoreTheme/AdminPanel/Widgets/'</value>
@@ -6011,11 +6011,11 @@ setting up the widget.</description>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Setup.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/Footer.php" hash="b7e7c3cccfecdd8dbad06cea92bbe9e1" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/Other.php" hash="71f9c6fb5cab6e16c71ca4c71da9e5f4" package="Default">
     <class final="false" abstract="false" namespace="global" line="7" package="CoreTheme\AdminPanel\Form">
       <extends/>
-      <name>CoreTheme_AdminPanel_Form_Footer</name>
-      <full_name>\CoreTheme_AdminPanel_Form_Footer</full_name>
+      <name>CoreTheme_AdminPanel_Form_Other</name>
+      <full_name>\CoreTheme_AdminPanel_Form_Other</full_name>
       <docblock line="2">
         <description>Creates a form for you to use for the creation of the footer content.</description>
         <long-description/>
@@ -6031,61 +6031,83 @@ the tabbed form.</description>
           <tag line="9" name="see" description="\CoreTheme_Form_TabbedForm" refers="\CoreTheme_Form_TabbedForm"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="29" package="CoreTheme\AdminPanel\Form">
-        <name>_content_footer_header</name>
-        <full_name>_content_footer_header</full_name>
-        <docblock line="24">
-          <description>Sets up the footer content header.</description>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="32" package="CoreTheme\AdminPanel\Form">
+        <name>_content_twitter_header</name>
+        <full_name>_content_twitter_header</full_name>
+        <docblock line="27">
+          <description>Sets up the twitter bootstrap content header.</description>
           <long-description/>
-          <tag line="24" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
+          <tag line="27" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
             <type by_reference="false">\AisisCore_Form_Elements_Content</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="47" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="50" package="CoreTheme\AdminPanel\Form">
+        <name>_remove_mini_feed_global</name>
+        <full_name>_remove_mini_feed_global</full_name>
+        <docblock line="45">
+          <description>Set up the remove twitter bootstrap admin panel theme option.</description>
+          <long-description/>
+          <tag line="45" name="return" description="$check_box" type="\CoreTheme_Form_Elements_Checkbox">
+            <type by_reference="false">\CoreTheme_Form_Elements_Checkbox</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="72" package="CoreTheme\AdminPanel\Form">
+        <name>_content_footer_header</name>
+        <full_name>_content_footer_header</full_name>
+        <docblock line="67">
+          <description>Sets up the footer content header.</description>
+          <long-description/>
+          <tag line="67" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
+            <type by_reference="false">\AisisCore_Form_Elements_Content</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="90" package="CoreTheme\AdminPanel\Form">
         <name>_text_area</name>
         <full_name>_text_area</full_name>
-        <docblock line="42">
+        <docblock line="85">
           <description>Create a text area.</description>
           <long-description/>
-          <tag line="42" name="return" description="$text" type="\CoreTheme_Form_Elements_TextArea">
+          <tag line="85" name="return" description="$text" type="\CoreTheme_Form_Elements_TextArea">
             <type by_reference="false">\CoreTheme_Form_Elements_TextArea</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="65" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="108" package="CoreTheme\AdminPanel\Form">
         <name>_submit_element</name>
         <full_name>_submit_element</full_name>
-        <docblock line="60">
+        <docblock line="103">
           <description>Creates a submit button.</description>
           <long-description/>
-          <tag line="60" name="return" description="$submit" type="\CoreTheme_Form_Elements_Submit">
+          <tag line="103" name="return" description="$submit" type="\CoreTheme_Form_Elements_Submit">
             <type by_reference="false">\CoreTheme_Form_Elements_Submit</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="85" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="128" package="CoreTheme\AdminPanel\Form">
         <name>_get_value</name>
         <full_name>_get_value</full_name>
-        <docblock line="76">
+        <docblock line="119">
           <description>The following gets an option based on the key and option passed in.</description>
           <long-description>&lt;p&gt;in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.&lt;/p&gt;</long-description>
-          <tag line="76" name="param" description="" type="string" variable="$option">
+          <tag line="119" name="param" description="" type="string" variable="$option">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="76" name="param" description="" type="string" variable="$key">
+          <tag line="119" name="param" description="" type="string" variable="$key">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="76" name="return" description="" type="string">
+          <tag line="119" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="85">
+        <argument line="128">
           <name>$option</name>
           <default/>
           <type/>
         </argument>
-        <argument line="85">
+        <argument line="128">
           <name>$key</name>
           <default/>
           <type/>
@@ -6093,7 +6115,7 @@ the tabbed form.</description>
       </method>
     </class>
     <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/Footer.php</error>
+      <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/Other.php</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/AdminPanel/Form/Posts.php" hash="25da36d966d141aadf5a42b0eed51de6" package="Default">
@@ -6243,7 +6265,7 @@ the tabbed form.</description>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/Posts.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/Reset.php" hash="828a5e7bd35eb555808609d90b0d671b" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/Reset.php" hash="a2e9244d00e5736bbfffdac5a5a3d402" package="Default">
     <class final="false" abstract="false" namespace="global" line="10" package="CoreTheme\AdminPanel\Form">
       <extends>\CoreTheme_Form_Form</extends>
       <name>CoreTheme_AdminPanel_Form_Reset</name>
@@ -7021,7 +7043,7 @@ the tabbed form.</description>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/Social.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/CustomPost.php" hash="ae7d87576b95b5263a2aeea19099d254" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/CustomPost.php" hash="e0363dc228377ff6fe7e4fa8057c7d0e" package="Default">
     <class final="false" abstract="false" namespace="global" line="9" package="CoreTheme\AdminPanel\Form">
       <extends/>
       <name>CoreTheme_AdminPanel_Form_CustomPost</name>
@@ -7173,7 +7195,7 @@ the tabbed form.</description>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/CustomPost.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/TwitterBootStrap/Setup.php" hash="0237236e0f9d01e62bacc09818fecb1d" package="Default">
+  <file path="CoreTheme/AdminPanel/assets/TwitterBootStrap/Setup.php" hash="5b7e9ddbcb357a4c3175ab7afacbe2d9" package="Default">
     <function namespace="global" line="3" package="Default">
       <name>load_core_css</name>
       <full_name>\load_core_css</full_name>
@@ -7192,7 +7214,7 @@ the tabbed form.</description>
       </argument>
     </function>
     <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/TwitterBootStrap/Setup.php</error>
+      <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/assets/TwitterBootStrap/Setup.php</error>
       <error line="3" code="50009">No DocBlock was found for function \load_core_css()</error>
       <error line="21" code="50009">No DocBlock was found for function \load_core_js()</error>
       <error line="37" code="50009">No DocBlock was found for function \bootstrap_admin_wp_default_styles()</error>

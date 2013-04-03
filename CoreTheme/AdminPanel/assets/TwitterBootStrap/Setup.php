@@ -7,12 +7,12 @@ function load_core_css(){
 	
 	// register the css
 	wp_register_style('customized-bootstrap', 
-		get_template_directory_uri(). '/CoreTheme/AdminPanel/TwitterBootStrap/css/compiled-style.css');
+		get_template_directory_uri(). '/CoreTheme/AdminPanel/assets/TwitterBootStrap/css/compiled-style.css');
 	wp_enqueue_style('customized-bootstrap');
 	
 	// register the css
 	wp_register_style('modified-customized-bootstrap',
-	get_template_directory_uri(). '/CoreTheme/AdminPanel/TwitterBootStrap/css/modified.css');
+	get_template_directory_uri(). '/CoreTheme/AdminPanel/assets/modified.css');
 	wp_enqueue_style('modified-customized-bootstrap');
 	
 	wp_enqueue_style('thickbox');
@@ -20,16 +20,16 @@ function load_core_css(){
 
 function load_core_js(){
 	// register the js
-	wp_register_script('bootstrap-js', get_template_directory_uri() . '/CoreTheme/AdminPanel/TwitterBootStrap/js/bootstrap.min.js');
+	wp_register_script('bootstrap-js', get_template_directory_uri() . '/CoreTheme/AdminPanel/assets/TwitterBootStrap/js/bootstrap.min.js');
 	wp_enqueue_script('bootstrap-js');
 	
-	wp_register_script('core-js', get_template_directory_uri() . '/CoreTheme/AdminPanel/TwitterBootStrap/js/script.js');
+	wp_register_script('core-js', get_template_directory_uri() . '/CoreTheme/AdminPanel/assets/TwitterBootStrap/js/script.js');
 	wp_enqueue_script('core-js');
 	
 	wp_enqueue_script( 'thickbox', WPINC . '/js/thickbox/thickbox.js', array('jquery'), false, true);
 	
  	if(!class_exists('WPMUDEV_Update_Notifications')){
-    	wp_register_script('bootstrap_admin_icon32', get_template_directory_uri() . '/CoreTheme/AdminPanel/TwitterBootStrap/js/icon32.js', false, null, false);
+    	wp_register_script('bootstrap_admin_icon32', get_template_directory_uri() . '/CoreTheme/AdminPanel/assets/TwitterBootStrap/js/icon32.js', false, null, false);
     	wp_enqueue_script('bootstrap_admin_icon32');
   	}
 }
@@ -73,7 +73,7 @@ function bootstrap_admin_wp_default_styles( &$styles ) {
   $styles->add( 'customize-controls', "/wp-admin/css/customize-controls$suffix.css", array( 'wp-admin', 'colors', 'ie' ) );
   $styles->add( 'media-views', "/wp-includes/css/media-views$suffix.css", array( 'buttons' ) );
   
-  $styles->add( 'buttons', get_template_directory_uri(). '/CoreTheme/AdminPanel/TwitterBootStrap/css/buttons.css');
+  $styles->add( 'buttons', get_template_directory_uri(). '/CoreTheme/AdminPanel/assets/TwitterBootStrap/css/buttons.css');
 
   foreach ( $rtl_styles as $rtl_style ) {
     $styles->add_data( $rtl_style, 'rtl', true );

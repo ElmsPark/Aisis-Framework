@@ -705,11 +705,11 @@
 <path fill="none" stroke="black" d="M1297.85,-713.388C1285.17,-708.235 1273.52,-700.998 1264,-691 1064.82,-481.753 1390.88,-254.534 1192,-45 1170.14,-21.9656 1136.76,-13.7466 1105.81,-11.8616"/>
 <polygon fill="none" stroke="black" points="1105.56,-8.34904 1095.43,-11.4529 1105.28,-15.3436 1105.56,-8.34904"/>
 </g>
-<!-- \\CoreTheme_AdminPanel_Form_Footer -->
-<g id="node66" class="node"><title>\\CoreTheme_AdminPanel_Form_Footer</title>
-<a xlink:href="CoreTheme.AdminPanel.Form.Footer.html" xlink:title="CoreTheme_AdminPanel_Form_Footer" target="_parent">
-<polygon fill="none" stroke="black" points="1547,-682 1315,-682 1315,-646 1547,-646 1547,-682"/>
-<text text-anchor="middle" x="1431" y="-661.1" font-family="Courier,monospace" font-size="11.00">CoreTheme_AdminPanel_Form_Footer</text>
+<!-- \\CoreTheme_AdminPanel_Form_Other -->
+<g id="node66" class="node"><title>\\CoreTheme_AdminPanel_Form_Other</title>
+<a xlink:href="CoreTheme.AdminPanel.Form.Other.html" xlink:title="CoreTheme_AdminPanel_Form_Other" target="_parent">
+<polygon fill="none" stroke="black" points="1544,-682 1318,-682 1318,-646 1544,-646 1544,-682"/>
+<text text-anchor="middle" x="1431" y="-661.1" font-family="Courier,monospace" font-size="11.00">CoreTheme_AdminPanel_Form_Other</text>
 </a>
 </g>
 <!-- \\CoreTheme_AdminPanel_Form_Posts -->
