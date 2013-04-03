@@ -28,7 +28,8 @@ if(!$template->get_specific_option('twitter_admin')){
 	);
 	
 	$http = new AisisCore_Http_Http();
-	if($http->get_current_url() == admin_url('admin.php?page=aisis-core-options') || $http->get_current_url() == admin_url('admin.php?page=aisis-core-update')){
+	if($http->get_current_url() == admin_url('admin.php?page=aisis-core-options') || $http->get_current_url() == admin_url('admin.php?page=aisis-core-update') ||
+			$http->get_current_url() == admin_url('admin.php?page=aisis-core-options&settings-updated=true')){
 		add_action ( 'admin_init', 'register_bootstrap');
 	}
 	
