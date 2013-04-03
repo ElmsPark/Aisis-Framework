@@ -85,7 +85,7 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 	 * @param AisisCore_Template_Builder $builder
 	 */
 	public function create_more_button($option_key, AisisCore_Template_Builder $builder){
-		if($builder->get_specific_option('lists_more_posts_rows')){
+		if($builder->get_specific_option($option_key)){
 			echo '<div class="center"><a href="'.$builder->get_specific_option($option_key).'" class="btn btn-success btn-large-custom">
 				<i class="icon-white icon-align-justify"> See More Posts!</i></a></div>';
 		}
@@ -99,7 +99,7 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 		
 		echo '<div class="container-narrow">';
 		
-		$this->_query_post($lists);
+		$this->_query_post($lists, true);
 		
 		echo '</div>';
 	} 

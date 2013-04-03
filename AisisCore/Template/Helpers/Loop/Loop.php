@@ -74,6 +74,7 @@
  * 			),
  * 		),
  * 		'query' => array(), // The main query given by WordPress.
+ * 		'remove_nav_from_query' => true/false // Should we remove the nav from the query posts index?
  * 		'404_template' => '' // The path to said template or a message.
  * );
  * </code>
@@ -183,8 +184,11 @@ class AisisCore_Template_Helpers_Loop_Loop{
 				}
 					
 			}elseif(isset($this->_options['query'])){
-
-				$this->_query_post($this->_options['query']);
+				if(isset($this->_options['remove_nav_from_query'])){
+					$this->_query_post($this->_options['query'], $this->_options['remove_nav_from_query']);
+				}else{
+					$this->_query_post($this->_options['query']);
+				}
 			}elseif(is_page()){
 				$this->page_loop();
 			}else{
@@ -251,7 +255,7 @@ class AisisCore_Template_Helpers_Loop_Loop{
 	 * 
 	 * @param array $query
 	 */
-	protected function _query_post($query){
+	protected function _query_post($query, $remove_nav = false){
 		global $wp_query;
 		$original = $wp_query;
 		$wp_query = new WP_Query($query);
@@ -274,11 +278,12 @@ class AisisCore_Template_Helpers_Loop_Loop{
 					echo $this->_options['post_after'];
 				}				
 			}
-			
-			if(isset($this->_options['navigation_wrap'])){
-				$this->_components->loop_navigation($this->_options['navigation_wrap']);
-			}else{
-				$this->_components->loop_navigation();
+			if($remove_nav != true){
+				if(isset($this->_options['navigation_wrap'])){
+					$this->_components->loop_navigation($this->_options['navigation_wrap']);
+				}else{
+					$this->_components->loop_navigation();
+				}
 			}
 		}else{
 			$this->_components->error_page($this->_options);
