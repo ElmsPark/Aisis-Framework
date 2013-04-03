@@ -161,7 +161,7 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _submit_element(){
 		$submit = array(
 			'value'=> 'Submit',
-			'class' => 'btn-primary',
+			'class' => 'btn btn-primary',
 			'form_actions' => true,
 		);
 

@@ -321,12 +321,6 @@ class AisisCore_Template_Helpers_Loop_Loop{
 				
 				$this->_components->title($this->_options);
 				
-				if(isset($this->_options['page']) && isset($this->_options['page']['image'])){
-					$this->_components->thumbnail($this->_options['page']);
-				}else{
-					$this->_components->thumbnail();
-				}
-				
 				if(isset($this->_options['page']) && isset($this->_options['page']['content'])){
 					$this->_components->content_wrapper($this->_options['page']['content']);
 				}else{
@@ -401,12 +395,6 @@ class AisisCore_Template_Helpers_Loop_Loop{
 			}else{
 				$this->_components->title($this->_options);
 				$this->_components->author_and_date();
-			}
-	
-			if(isset($this->_options['single'])){
-				$this->_components->thumbnail($this->_options['single']);
-			}else{
-				$this->_components->thumbnail();
 			}
 				
 			if(is_sticky()){

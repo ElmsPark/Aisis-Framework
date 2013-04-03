@@ -1,9 +1,13 @@
 <?php
 $template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
-?>
 
-<div class="jumbotron">
-	<?php if($template->get_specific_option('jumbo_image')){ ?>
+if(!$template->get_specific_option('socialbar')){
+	echo '<div class="jumbotron marginBottom20">';
+}else{
+	echo '<div class="jumbotron">';
+}
+
+if($template->get_specific_option('jumbo_image')){ ?>
 		<img src="<?php echo $template->get_specific_option('jumbo_image'); ?>" />
 	<?php } ?>
 	<div class="container">

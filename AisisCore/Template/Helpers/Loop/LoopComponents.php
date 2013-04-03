@@ -92,7 +92,8 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	 *
 	 * <p>Depends on $array['single']['title_and_date'] with before and after key=>values.</p>
 	 *
-	 * <p><strong>Note:</strong> This will also wrap the author content as well.</p>
+	 * <p><strong>Note:</strong> This will also wrap the author content as well as well as the thumbnail.
+	 * We depend on single conditionals. We aslo depend on $array['single']['image']</p>
 	 *
 	 * @param array $options
 	 */
@@ -103,6 +104,13 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	
 		$this->title($this->_options);
 		$this->_author_and_date();
+
+		if(isset($this->_options['single']) && isset($this->_options['single']['image']) && is_single()){
+			$this->thumbnail($this->_options['single']);
+		}else{
+			$this->thumbnail();
+		}
+		
 		$this->_after_the_title_content();
 	
 		if(isset($options['after'])){
@@ -189,11 +197,14 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	/**
 	 * Based on if were single, a title_header or if were an index we will then display
 	 * the title.
+	 * 
+	 * <p>If were on the page (is_page()) and we have set the page thumbnail options $array['page']['image']
+	 * we will then set the thumbnail for the page.</p>
 	 *
 	 * @param array $options
 	 */
 	public function title($options){
-		if(is_single() && isset($options)){
+		if(is_single() && isset($options) || is_page() && isset($options)){
 			if(isset($options['title_header'])){
 				the_title('<'.$options['title_header'].'>','</'.$options['title_header'].'>');
 			}else{
@@ -207,6 +218,10 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 			);
 		}else{
 			the_title('<a href="'.get_permalink().'">', '</a>');
+		}
+		
+		if(isset($this->_options['page']) && isset($this->_options['page']['image']) && is_page()){
+			$this->thumbnail($this->_options['page']);
 		}
 	}
 	

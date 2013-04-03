@@ -11,7 +11,9 @@ $options = array(
 		'size' => 'thumbnail',
 		'args' => array(
 			'align' => 'left',
-			'class' => 'marginBottom20 marginRight20 thumbnail'
+			'class' => 'marginBottom20 marginRight20 thumbnail',
+			'width' => '150',
+			'height' => '76',
 		)
 	),
 	'single' => array(

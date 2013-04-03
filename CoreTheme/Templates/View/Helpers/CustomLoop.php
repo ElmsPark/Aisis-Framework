@@ -41,7 +41,7 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 	}
 	
 	/**
-	 * Renders either lis, regular or rows loop based on the options selected.
+	 * Renders either list, regular or rows loop based on the options selected.
 	 */
 	public function custom_loop(){
 		$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
@@ -200,15 +200,22 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 	 */
 	protected function _build_carousel(){
 		$carousel = '';
-
-		$carousel .= '<div id="myCarousel" class="carousel slide">';
-		$carousel .= '<div class="carousel-inner">';
-		$carousel .= $this->_carousel_active();
-		$carousel .= $this->_carousel_slides();
-		$carousel .= '</div>
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-			<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-		</div>';
+		
+		$carousel_loop = new WP_Query(array('post_type' => 'carousel'));
+		
+		if($carousel_loop->have_posts()){
+			$carousel .= '<div id="myCarousel" class="carousel slide">';
+			$carousel .= '<div class="carousel-inner">';
+			$carousel .= $this->_carousel_active();
+			$carousel .= $this->_carousel_slides();
+			$carousel .= '</div>
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			</div>';
+		}else{
+			echo '<div class="container alert marginTop60">You have not created a <a href="'.admin_url('post-new.php?post_type=carousel').'">Carousel</a>. If you do not like them,
+				<a href="'.admin_url('admin.php?page=aisis-core-options').'">you can remove them</a>.</div>';
+		}
 		
 		echo $carousel;
 	}
@@ -226,18 +233,20 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 		
 		$html = '';
 		
-		while ($carousel_first_loop->have_posts ()){
-			$carousel_first_loop->the_post();
-			
-			$html .= '<div class="item active">';
-			$html .= get_the_post_thumbnail();
-			$html .= '<div class="container">
-					 <div class="carousel-caption">';
-			$html .= '<h4><a href="'.get_permalink().'">'.the_title('','',false).'</a></h4>';
-			$html .= '<p>'.get_the_content().'</p>';
-			$html .= '<a href="'.get_post_meta($post->ID, 'link', true).'"
-							class="btn btn-primary">'.get_post_meta($post->ID, 'link_text', true).'</a>';
-			$html .= '</div></div></div>';
+		if($carousel_first_loop->have_posts()){
+			while ($carousel_first_loop->have_posts ()){
+				$carousel_first_loop->the_post();
+				
+				$html .= '<div class="item active">';
+				$html .= get_the_post_thumbnail();
+				$html .= '<div class="container">
+						 <div class="carousel-caption">';
+				$html .= '<h4><a href="'.get_permalink().'">'.the_title('','',false).'</a></h4>';
+				$html .= '<p>'.get_the_content().'</p>';
+				$html .= '<a href="'.get_post_meta($post->ID, 'link', true).'"
+								class="btn btn-primary">'.get_post_meta($post->ID, 'link_text', true).'</a>';
+				$html .= '</div></div></div>';
+			}
 		}
 		
 		wp_reset_postdata();		
@@ -258,17 +267,19 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 		
 		$html = '';
 		
-		while($carousel_images_loop->have_posts()){
-			$carousel_images_loop->the_post();
-			$html .= '<div class="item">';
-			$html .= get_the_post_thumbnail();
-			$html .= '<div class="container">
-					 <div class="carousel-caption">';
-			$html .= '<h4><a href="'.get_permalink().'">'.the_title('','',false).'</a></h4>';
-			$html .= '<p>'.get_the_content().'</p>';
-			$html .= '<a href="'.get_post_meta($post->ID, 'link', true).'"
-							class="btn btn-primary">'.get_post_meta($post->ID, 'link_text', true).'</a>';
-			$html .= '</div></div></div>';
+		if($carousel_images_loop->have_posts()){
+			while($carousel_images_loop->have_posts()){
+				$carousel_images_loop->the_post();
+				$html .= '<div class="item">';
+				$html .= get_the_post_thumbnail();
+				$html .= '<div class="container">
+						 <div class="carousel-caption">';
+				$html .= '<h4><a href="'.get_permalink().'">'.the_title('','',false).'</a></h4>';
+				$html .= '<p>'.get_the_content().'</p>';
+				$html .= '<a href="'.get_post_meta($post->ID, 'link', true).'"
+								class="btn btn-primary">'.get_post_meta($post->ID, 'link_text', true).'</a>';
+				$html .= '</div></div></div>';
+			}
 		}
 		
 		wp_reset_postdata();		
@@ -286,8 +297,8 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 		
 		$mini = '';
 		
-		$mini .= '<ul class="thumbnails">';
 		if($mini_loop->have_posts()){
+			$mini .= '<ul class="thumbnails">';
 			while($mini_loop->have_posts()){
 				$mini_loop->the_post();
        		 	
@@ -300,9 +311,11 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
                 $mini .= '<a href="'.get_post_meta($post->ID, 'link', true).'" class="btn">'.get_post_meta($post->ID, 'link_text', true).'</a>';
                 $mini .= '</div></div></li>';
 			}
-		}
-		
-		$mini .= '</ul>';		
+			$mini .= '</ul>';
+		}else{
+			echo '<div class="alert">You have not created a <a href="'.admin_url('post-new.php?post_type=mini').'">Mini Feed</a>. If you do not like them,
+				<a href="'.admin_url('admin.php?page=aisis-core-options').'">you can remove them</a>.</div>';			
+		}		
 		
 		echo $mini;
 	}
