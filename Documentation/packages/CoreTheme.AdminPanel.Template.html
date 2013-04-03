@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \CoreTheme_MultiSite</title>
+<title>phpDocumentor » CoreTheme\AdminPanel\Template</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -51,74 +51,51 @@
                         </div></noscript>
 <div class="row">
 <div class="span4">
-<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
 </div>
-<ul class="side-nav nav nav-list"><li class="nav-header">
-<i class="icon-custom icon-method"></i> Methods
-                    <ul>
-<li class="method public "><a href="#method___construct" title="__construct :: Basic contructor"><span class="description">Basic contructor</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#method_create_components" title="create_components :: This function allows you to create components your theme needs for each installation of
-your theme across a netowork in WordPress."><span class="description">This function allows you to create components your theme needs for each installation of
-your theme across a netowork in WordPress.</span><pre>create_components()</pre></a></li>
-</ul>
-</li></ul>
-</div>
-<div class="span8">
-<a id="\CoreTheme_MultiSite"></a><ul class="breadcrumb">
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
 <li>
-<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+<span class="empty-package"><i class="icon-folder-close"></i>Template</span><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/CoreTheme.AdminPanel.Template.Helper.html" title="Helper"><i class="icon-folder-open"></i>Helper</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
 </li>
-<li><a href="../namespaces/global.html">global</a></li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/CoreTheme.html">CoreTheme</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/CoreTheme.AdminPanel.html">AdminPanel</a>
+</li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/CoreTheme_MultiSite.html">CoreTheme_MultiSite</a>
+<span class="divider">\</span><a href="../packages/CoreTheme.AdminPanel.Template.html">Template</a>
 </li>
-</ul>
-<div class="element class">
-<p class="short_description">This class deals with mutlti site installation and activation of this theme.</p>
-<div class="details">
-<div class="long_description"><p>This class will create approproiate fooldrs based on the multisite, so each site is different among
-the rest.</p></div>
-<table class="table table-bordered">
-<tr>
-<th>see</th>
-<td><a href="">\global\AisisCore_Interfaces_MultiSite</a></td>
-</tr>
-<tr>
-<th>package</th>
-<td><a href="../packages/CoreTheme.html">CoreTheme</a></td>
-</tr>
-</table>
+</li></ul>
+<div class="package-indent">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/CoreTheme.html">CoreTheme</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/CoreTheme.AdminPanel.html">AdminPanel</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../packages/CoreTheme.AdminPanel.Template.html">Template</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/CoreTheme.AdminPanel.Template.Helper.html">Helper</a>
+</li>
+</li></ul>
+<div class="package-indent">
 <h3>
-<i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
-<h2>Basic contructor</h2>
-<pre>__construct() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="method_create_components"></a><div class="element clickable method public method_create_components" data-toggle="collapse" data-target=".method_create_components .collapse">
-<h2>This function allows you to create components your theme needs for each installation of
-your theme across a netowork in WordPress.</h2>
-<pre>create_components($options) : bool</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>Some concepts to keep in mind is that, if you are using Multisite for WordPress, you will want to check if it
-is multisite, and then append the blog id to your associated custom folder.</p></div>
-<table class="table table-bordered"><tr>
-<th>see</th>
-<td><a href="AisisCore.Interfaces.MultiSite.html#%5CAisisCore_Interfaces_MultiSite::create_components()">\AisisCore_Interfaces_MultiSite::create_components()</a></td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$options</h4><ul>
-<li>should be an array of folder_type=>name_of_folder</li>
-</ul>
-</div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>bool</code>$created</div>
-</div></div>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="CoreTheme_AdminPanel_Templates_Helper_FormHelper" class="element ajax clickable class">
+<h1>CoreTheme_AdminPanel_Templates_Helper_FormHelper<a href="../classes/CoreTheme_AdminPanel_Templates_Helper_FormHelper.html">¶</a>
+</h1>
+<p class="short_description">This class is designed to give helper functions for repeated functions, which are commonly used.</p>
+<div class="details collapse"></div>
+<a href="../classes/CoreTheme_AdminPanel_Templates_Helper_FormHelper.html" class="more">« More »</a>
 </div>
 </div>
 </div>
@@ -127,7 +104,7 @@ is multisite, and then append the blog id to your associated custom folder.</p><
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-04-03T14:31:27-06:00.<br></footer></div>
+            generated on 2013-04-03T14:31:26-06:00.<br></footer></div>
 </div>
 </body>
 </html>

@@ -2,6 +2,10 @@ body{
 	background-color: transparent !important;
 }
 
+h4 {
+	font-size: 1em !important;
+}
+
 [class^="icon-"], [class*=" icon-"]{
 	background-image: none !important;
 }
@@ -12,6 +16,10 @@ body{
 
 .radio, .checkbox{
 	width: 270px;
+}
+
+.radio input[type="radio"], .checkbox input[type="checkbox"] {
+	margin-top: -5px !important;
 }
 
 .btn-large{
@@ -155,6 +163,14 @@ h1 small{
   margin: 0;
   padding: 8px 14px;
   text-align: center;
+}
+
+.popover bold{
+	font-weight: bold;
+}
+
+.blackTest{
+	color:#000;
 }
 
 #adminmenu h3.popover-title .wp-menu-name {

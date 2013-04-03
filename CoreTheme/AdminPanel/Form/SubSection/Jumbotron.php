@@ -12,6 +12,20 @@
 class CoreTheme_AdminPanel_Form_SubSection_Jumbotron{
 	
 	/**
+	 * @var CoreTheme_AdminPanel_Template_Helper_FormHelper
+	 */
+	protected $_helper = null;
+	
+	/**
+	 * Sets the $_helper to an instance of CoreTheme_AdminPanel_Template_Helper_FormHelper if null.
+	 */
+	public function __construct(){
+		if($this->_helper === null){
+			$this->_helper = new CoreTheme_AdminPanel_Templates_Helper_FormHelper();
+		}
+	}
+		
+	/**
 	 * Set up the subsection.
 	 *
 	 * @return array $section
@@ -64,9 +78,9 @@ class CoreTheme_AdminPanel_Form_SubSection_Jumbotron{
 	protected function _title_field(){
 		$text = array(
 			'name' => 'aisis_options[jumbo_title]',
-			'class' => 'input-xlarge marginLeft20',
+			'class' => 'input-xlarge '. $this->_helper->add_css_class_input('marginLeft20'),
 			'placeholder' => 'Title for Jumbotron',
-			'value' => $this->_get_value('aisis_options', 'jumbo_title'),
+			'value' => $this->_helper->get_option('aisis_options', 'jumbo_title'),
 			'label' => array(
 				'class' => 'control-label',
 				'value' => 'Title'
@@ -89,7 +103,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Jumbotron{
 			'class' => 'input-xlarge',
 			'rows' => 20,
 			'cols' => 30,
-			'content' => $this->_get_value('aisis_options', 'jumbo_text'),
+			'content' => $this->_helper->get_option('aisis_options', 'jumbo_text'),
 		);
 		
 		$text = new CoreTheme_Form_Elements_TextArea($text_area);
@@ -107,7 +121,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Jumbotron{
 			'class' => 'input-xlarge marginLeft20',
 			'id' => 'jumboImage',
 			'placeholder' => 'Image for Jumbotron',
-			'value' => $this->_get_value('aisis_options', 'jumbo_image'),
+			'value' => $this->_helper->get_option('aisis_options', 'jumbo_image'),
 			'label' => array(
 				'class' => 'control-label',
 				'value' => 'Image <a href="#" id="imagePop" rel="popover" 
@@ -149,7 +163,7 @@ class CoreTheme_AdminPanel_Form_SubSection_Jumbotron{
 			'class' => 'input-xlarge marginLeft20',
 			'id' => 'jumboImage',
 			'placeholder' => 'link for button',
-			'value' => $this->_get_value('aisis_options', 'jumbo_link'),
+			'value' => $this->_helper->get_option('aisis_options', 'jumbo_link'),
 			'label' => array(
 				'class' => 'control-label',
 				'value' => 'Link for jumbottron button',
@@ -158,21 +172,5 @@ class CoreTheme_AdminPanel_Form_SubSection_Jumbotron{
 		
 		$input = new CoreTheme_Form_Elements_Url($url);
 		return $input;
-	}	
-	
-	/**
-	 * The following gets an option based on the key and option passed in.
-	 * 
-	 * <p>in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.</p>
-	 * 
-	 * @param string $option
-	 * @param string $key
-	 * @return string
-	 */
-	private function _get_value($option, $key){
-		$options = get_option($option);
-		if(isset($options[$key])){
-			return $options[$key];
-		}
-	}	
+	}		
 }

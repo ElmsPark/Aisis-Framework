@@ -11,6 +11,20 @@
 class CoreTheme_AdminPanel_Form_SubSection_Lists{
 	
 	/**
+	 * @var CoreTheme_AdminPanel_Template_Helper_FormHelper
+	 */
+	protected $_helper = null;
+	
+	/**
+	 * Sets the $_helper to an instance of CoreTheme_AdminPanel_Template_Helper_FormHelper if null.
+	 */
+	public function __construct(){
+		if($this->_helper === null){
+			$this->_helper = new CoreTheme_AdminPanel_Templates_Helper_FormHelper();
+		}
+	}	
+	
+	/**
 	 * Set up the subsection.
 	 *
 	 * @return array $section
@@ -60,8 +74,8 @@ class CoreTheme_AdminPanel_Form_SubSection_Lists{
 		$input = array(
 			'name' => 'aisis_options[lists_more_posts]',
 			'id' => 'more_content',
-			'class' => 'input-xlarge marginLeft20',
-			'value' => $this->_get_value('aisis_options', 'lists_more_posts'),
+			'class' => 'input-xlarge '. $this->_helper->add_css_class_input('marginLeft20'),
+			'value' => $this->_helper->get_option('aisis_options', 'lists_more_posts'),
 			'placeholder' => 'Link to the page',
 			'label' => array(
 				'class' => 'control-label',
@@ -71,21 +85,5 @@ class CoreTheme_AdminPanel_Form_SubSection_Lists{
 		
 		$input_element = new CoreTheme_Form_Elements_Url($input);
 		return $input_element;	
-	}
-
-	/**
-	 * The following gets an option based on the key and option passed in.
-	 * 
-	 * <p>in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.</p>
-	 * 
-	 * @param string $option
-	 * @param string $key
-	 * @return string
-	 */
-	private function _get_value($option, $key){
-		$options = get_option($option);
-		if(isset($options[$key])){
-			return $options[$key];
-		}
 	}
 }

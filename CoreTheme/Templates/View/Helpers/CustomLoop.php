@@ -59,7 +59,7 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 				}
 				
 				$array = array(
-					'posts_per_page' => 3
+					'posts_per_page' => 3,
 				);
 				
 				$this->_query_post($array);
@@ -95,33 +95,13 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 	 * Builds the list of posts. Displays up to 5 posts - If there is a sticky post we display up to 6.
 	 */
 	protected function _build_list(){
-		$html = '';
+		$lists = array('posts_per_page'=>5, 'ignore_sticky_posts' => 1);
 		
-		$lists = new WP_Query (array('posts_per_page'=>5));
+		echo '<div class="container-narrow">';
 		
-		$html .= '<div class="container-narrow">';
+		$this->_query_post($lists);
 		
-		if($lists->have_posts()){
-			while($lists->have_posts()){
-				$lists->the_post();
-				
-				$html .= '<div class="post">';
-				
-				if(isset($this->_options['image']['size'])){
-					the_post_thumbnail($this->_options['image']['size'], $this->_options['image']['args']);
-				}else{
-					the_post_thumbnail('medium', $this->_options['image']['args']);
-				}
-				
-				$html .= '<h1><a href="'.get_permalink().'">'.the_title('', '', false).'</h1></a>';
-				$html .= '<p>'.get_the_excerpt().'</p>';
-				$html .= '</div>';
-			}
-		}
-		
-		$html .= '</div>';		
-		
-		echo $html;
+		echo '</div>';
 	} 
 
 	/**
@@ -313,7 +293,7 @@ class CoreTheme_Templates_View_Helpers_CustomLoop extends AisisCore_Template_Hel
 			}
 			$mini .= '</ul>';
 		}else{
-			echo '<div class="alert">You have not created a <a href="'.admin_url('post-new.php?post_type=mini').'">Mini Feed</a>. If you do not like them,
+			echo '<div class="alert">You have not created a <a href="'.admin_url('post-new.php?post_type=mini-feed').'">Mini Feed</a>. If you do not like them,
 				<a href="'.admin_url('admin.php?page=aisis-core-options').'">you can remove them</a>.</div>';			
 		}		
 		

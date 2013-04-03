@@ -12,17 +12,27 @@
 class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	
 	/**
+	 * @var AisisCore_Http_Http
+	 */
+	protected $_http = null;
+	
+	/**
 	 * Sets up the actions, creates the menues and notices.
 	 * 
 	 * @link http://codex.wordpress.org/Function_Reference/add_action
 	 */
 	public function __construct(){
+		if(null === $this->_http){
+			$this->_http = new AisisCore_Http_Http();
+		}
+		
 		add_action('admin_menu', array($this, 'menu_setup'));
 		add_action('admin_init', array($this, 'settings'));
 		add_action('admin_notices', array($this, 'reset_message'));
 		add_action('admin_notices', array($this, 'update_success_message'));
 		add_action('admin_notices', array($this, 'update_message'));
-
+		add_action('admin_notices', array($this, 'mini_feed_message'));
+		
 		add_action('wp_before_admin_bar_render', array($this, 'aisis_links'));
 		
 		add_option('success_message', false);
@@ -107,9 +117,8 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	 */
 	public function build_template(){
 		$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
-		$http = new AisisCore_Http_Http();
 		
-		if($http->get_request('page') == 'aisis-core-options'){
+		if($this->_http->get_request('page') == 'aisis-core-options'){
 			$template->render_view('options');
 		}elseif($http->get_request('page') == 'aisis-core-update'){
 			$template->render_view('update');
@@ -154,8 +163,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	 * Creates a reset message.
 	 */
 	public function reset_message(){
-		$http = new AisisCore_Http_Http();
-		if($http->get_current_url() == admin_url('index.php?reset=true')){
+		if($this->_http->get_current_url() == admin_url('index.php?reset=true')){
 			echo '<div class="alert alert-success">We have reset all Aisis Options! <a href="'.admin_url('admin.php?page=aisis-core-options').'">
 				Head over to make new changes!</a></div>';
 		}
@@ -165,7 +173,6 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	 * Creates a update message for when you have an update.
 	 */
 	public function update_message(){
-		$http = new AisisCore_Http_Http();
 		$update = new CoreTheme_Update();
 		if($update->check_for_update()){
 			echo '<div class="alert"><strong>ATTN!!!</strong> We have an update for you! Aisis '. $update->check_theme_version() .' is ready for you to 
@@ -177,13 +184,19 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	 * Creates an update success message for when we have updated your stuff.
 	 */
 	public function update_success_message(){
-		$http = new AisisCore_Http_Http();
 		$update = new CoreTheme_Update();
-		if($http->get_current_url() == admin_url('index.php?aisis_upgrade=true')){
+		if($this->_http->get_current_url() == admin_url('index.php?aisis_upgrade=true')){
 			echo '<div class="alert alert-success"><strong>HEY!!!</strong> We have updated Aisis to Aisis '.$update->get_current_version().'! <a href="'.admin_url('admin.php?page=aisis-core-options').'">
 				Head over to the options to check out new features</a> or <a href="'.site_url().'">Head to your site to see new changes!</a></div>';
 		}
-	}		
+	}
+
+	public function mini_feed_message(){
+		if($this->_http->get_current_url() == admin_url('post-new.php?post_type=mini-feed')){
+			echo '<div class="alert alert-info"><strong>ATTN</strong> It is important that your content, across all three mini posts, be of equal 
+			length, as the mini feed box grows and shrinks based on content length.</div>';
+		}
+	}	
 	
 	/**
 	 * Creates a success message when you have updated the options.

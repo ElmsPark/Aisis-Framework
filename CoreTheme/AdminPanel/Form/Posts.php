@@ -7,7 +7,7 @@
  * @package CoreTheme_AdminPanel_Form
  */
 class CoreTheme_AdminPanel_Form_Posts{
-	
+		
 	/**
 	 * Gathers all the elements together and returns an array of them to be used in
 	 * the tabbed form.

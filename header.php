@@ -66,7 +66,7 @@ if(is_single() && $template->get_specific_option('carousel_single')){
 <div class="wrapper">
 <?php if(is_category() && $template->get_specific_option('category_sidebar') || 
 			is_tag() && $template->get_specific_option('tag_sidebar')
-			|| is_author() && $template->get_specific_option('author_sidebar') || is_search()){?>
+			|| is_author() && $template->get_specific_option('author_sidebar') || is_search() || is_archive){?>
 <div class="container-narrow marginTop20">
 <?php }else{?>
 <div class="container marginTop20">

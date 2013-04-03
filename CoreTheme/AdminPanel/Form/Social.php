@@ -9,6 +9,20 @@
 class CoreTheme_AdminPanel_Form_Social{
 	
 	/**
+	 * @var CoreTheme_AdminPanel_Template_Helper_FormHelper
+	 */
+	protected $_helper = null;
+	
+	/**
+	 * Sets the $_helper to an instance of CoreTheme_AdminPanel_Template_Helper_FormHelper if null.
+	 */
+	public function __construct(){
+		if($this->_helper === null){
+			$this->_helper = new CoreTheme_AdminPanel_Templates_Helper_FormHelper();
+		}
+	}	
+	
+	/**
 	 * Gathers all the elements together and returns an array of them to be used in
 	 * the tabbed form.
 	 *
@@ -55,8 +69,8 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _facebook(){
 		$url = array(
 			'name' => 'aisis_options[social][facebook]',
-			'class' => 'input-xlarge marginLeft20',
-			'value' => $this->_get_value('aisis_options', 'facebook'),
+			'class' => 'input-xlarge '. $this->_helper->add_css_class_input('marginLeft20'),
+			'value' => $this->_helper->get_option('aisis_options', 'facebook'),
 			'placeholder' => 'Facebook link',
 			'label' => array(
 				'class' => 'control-label',
@@ -76,8 +90,8 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _twitter(){
 		$url = array(
 			'name' => 'aisis_options[social][twitter]',
-			'class' => 'input-xlarge marginLeft40',
-			'value' => $this->_get_value('aisis_options', 'twitter'),
+			'class' => 'input-xlarge '. $this->_helper->add_css_class_input('marginLeft40'),
+			'value' => $this->_helper->get_option('aisis_options', 'twitter'),
 			'placeholder' => 'Twitter link',
 			'label' => array(
 				'class' => 'control-label',
@@ -97,8 +111,8 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _google_plus(){
 		$url = array(
 			'name' => 'aisis_options[social][google-plus]',
-			'class' => 'input-xlarge marginLeft30',
-			'value' => $this->_get_value('aisis_options', 'google-plus'),
+			'class' => 'input-xlarge '. $this->_helper->add_css_class_input('marginLeft30'),
+			'value' => $this->_helper->get_option('aisis_options', 'google-plus'),
 			'placeholder' => 'Google+ link',
 			'label' => array(
 				'class' => 'control-label',
@@ -118,8 +132,8 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _linkedin(){
 		$url = array(
 			'name' => 'aisis_options[social][linkedin]',
-			'class' => 'input-xlarge marginLeft30',
-			'value' => $this->_get_value('aisis_options', 'linkedin'),
+			'class' => 'input-xlarge '. $this->_helper->add_css_class_input('marginLeft30'),
+			'value' => $this->_helper->get_option('aisis_options', 'linkedin'),
 			'placeholder' => 'Linkedin link',
 			'label' => array(
 				'class' => 'control-label',
@@ -139,8 +153,8 @@ class CoreTheme_AdminPanel_Form_Social{
 	protected function _git(){
 		$url = array(
 			'name' => 'aisis_options[social][github]',
-			'class' => 'input-xlarge marginLeft65',
-			'value' => $this->_get_value('aisis_options', 'github'),
+			'class' => 'input-xlarge '. $this->_helper->add_css_class_input('marginLeft65'),
+			'value' => $this->_helper->get_option('aisis_options', 'github'),
 			'placeholder' => 'Git link',
 			'label' => array(
 				'class' => 'control-label',
@@ -167,22 +181,5 @@ class CoreTheme_AdminPanel_Form_Social{
 
 		$submit_element = new CoreTheme_Form_Elements_Submit($submit);
 		return $submit_element;
-	}
-	
-	/**
-	 * The following gets an option based on the key and option passed in.
-	 *
-	 * <p>in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.</p>
-	 *
-	 * @param string $option
-	 * @param string $key
-	 * @return string
-	 */	
-	private function _get_value($option, $key){
-		$options = get_option($option);
-		if(isset($options['social'][$key])){
-			return $options['social'][$key];
-		}
-	}			
-				
+	}				
 }

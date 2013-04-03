@@ -75,6 +75,9 @@ $tabbed_form = new CoreTheme_Form_TabbedForm($array);
 		update_option('aisis_success', 'false');
 	}
 	
+	echo '<div class="alert alert-info"><strong>Note</strong>: You can make changes to the theme through all the tabs
+	and hit save on <strong>any</strong> tab. We will save all changes at once.</div>';
+	
 	echo $tabbed_form; 
 	
 	?>
@@ -144,13 +147,7 @@ $(document).ready(function(){
 	    } else {
 	    	$('.sectionJumbotron').hide();
 	    }
-	});	
-	
-	$("[data-toggle=popover]").hover(function () {
-	    $(this).popover('show');
-	},function () {
-	    $(this).popover('hide');
-	}); 							
+	});	 							
 		
 	if ($('input[value=lists]:radio:checked').attr('id') === "list") {
         $('.sectionLists').show();
@@ -189,20 +186,20 @@ $(document).ready(function(){
 	    }
 	});             
     
-    $("#displayLists").popover();
-	$("#morePostsList").popover();
-	$("#displayRows").popover();
-	$("#displayMoreRows").popover();
-	$("#regularPosts").popover();
-	$("#categoryHeader").popover();
-    $("#authorPosts").popover();
-	$("#tagHeader").popover();
-    $("#carouselGlobal").popover();
-	$("#jumbotronPop").popover();
-	$("#socialbarPop").popover();
-	$("#miniFeedGlobal").popover();
-	$("#imagePop").popover();
-	$("#twitterPopup").popover();
+    $("#displayLists").popover({ html : true });
+	$("#morePostsList").popover({ html : true });
+	$('#displayRows').popover({ html : true });
+	$("#displayMoreRows").popover({ html : true });
+	$("#regularPosts").popover({ html : true });
+	$("#categoryHeader").popover({ html : true });
+    $("#authorPosts").popover({ html : true });
+	$("#tagHeader").popover({ html : true });
+    $("#carouselGlobal").popover({ html : true });
+	$("#jumbotronPop").popover({ html : true });
+	$("#socialbarPop").popover({ html : true });
+	$("#miniFeedGlobalPop").popover({ html : true });
+	$("#imagePop").popover({ html : true });
+	$("#twitterPopup").popover({ html : true });
 	
 	enableCarousel();
 	$('#carousel').click(enableCarousel);

@@ -93,7 +93,7 @@
       <error line="0" code="50007">No page-level DocBlock was found in file footer.php</error>
     </parse_markers>
   </file>
-  <file path="header.php" hash="b40120d5031a6f77242f47407504aed7" package="Default">
+  <file path="header.php" hash="414ab2a90e86af2ac61d5c118048143f" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file header.php</error>
     </parse_markers>
@@ -4192,7 +4192,7 @@ the meta boxes for the custom post types.</description>
       <error line="38" code="50015">Argument $option is missing from the Docblock of loop_navigation()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/Templates/View/Helpers/CustomLoop.php" hash="9d97c4b5110b6da70300e6319e4ec7fb" package="Default">
+  <file path="CoreTheme/Templates/View/Helpers/CustomLoop.php" hash="735660a67da8b30259559e744cb56fe3" package="Default">
     <class final="false" abstract="false" namespace="global" line="11" package="CoreTheme\Templates\View\Helpers">
       <extends>\AisisCore_Template_Helpers_Loop_Loop</extends>
       <name>CoreTheme_Templates_View_Helpers_CustomLoop</name>
@@ -4272,10 +4272,10 @@ series of custom loops for the custom post types that Aisis Theme Supports.&lt;/
           <long-description>&lt;p&gt;Displays up to 5 posts - If there is a sticky post we display up to 6.&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="145" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="125" package="CoreTheme\Templates\View\Helpers">
         <name>_build_rows</name>
         <full_name>_build_rows</full_name>
-        <docblock line="127">
+        <docblock line="107">
           <description>Builds rows based on the queries.</description>
           <long-description>&lt;p&gt;
 &lt;pre&gt;&lt;code&gt;// Example of a array of queries:
@@ -4288,60 +4288,60 @@ $query = array(
 // value -&gt; the array of query.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/p&gt;</long-description>
-          <tag line="127" name="param" description="" type="array" variable="$queries">
+          <tag line="107" name="param" description="" type="array" variable="$queries">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
-        <argument line="145">
+        <argument line="125">
           <name>$queries</name>
           <default/>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="175" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="155" package="CoreTheme\Templates\View\Helpers">
         <name>_build_query_object</name>
         <full_name>_build_query_object</full_name>
-        <docblock line="170">
+        <docblock line="150">
           <description>Builds the queries for the row.</description>
           <long-description/>
-          <tag line="170" name="param" description="" type="\AisisCore_Template_Builder" variable="$builder">
+          <tag line="150" name="param" description="" type="\AisisCore_Template_Builder" variable="$builder">
             <type by_reference="false">\AisisCore_Template_Builder</type>
           </tag>
         </docblock>
-        <argument line="175">
+        <argument line="155">
           <name>$builder</name>
           <default/>
           <type>\AisisCore_Template_Builder</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="201" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="181" package="CoreTheme\Templates\View\Helpers">
         <name>_build_carousel</name>
         <full_name>_build_carousel</full_name>
-        <docblock line="198">
+        <docblock line="178">
           <description>Builds the carousel.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="226" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="206" package="CoreTheme\Templates\View\Helpers">
         <name>_carousel_active</name>
         <full_name>_carousel_active</full_name>
-        <docblock line="223">
+        <docblock line="203">
           <description>Builds the active - first pane - of the carousel.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="260" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="240" package="CoreTheme\Templates\View\Helpers">
         <name>_carousel_slides</name>
         <full_name>_carousel_slides</full_name>
-        <docblock line="257">
+        <docblock line="237">
           <description>Builds the rest of the slides for the carousel.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="292" package="CoreTheme\Templates\View\Helpers">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="272" package="CoreTheme\Templates\View\Helpers">
         <name>_mini_posts_loop</name>
         <full_name>_mini_posts_loop</full_name>
-        <docblock line="289">
+        <docblock line="269">
           <description>Creates up to three mini feeds.</description>
           <long-description/>
         </docblock>
@@ -5773,7 +5773,7 @@ $scripts_to_load  = array(
       <error line="31" code="50012">No short description for method init()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Admin.php" hash="5ade0cd87bd67a8270d4364f4d6b9f0e" package="Default">
+  <file path="CoreTheme/AdminPanel/Admin.php" hash="02197f312ec77d6a47471ea1bbdaad94" package="Default">
     <class final="false" abstract="false" namespace="global" line="12" package="CoreTheme\AdminPanel">
       <extends/>
       <implements>\AisisCore_Interfaces_Admin</implements>
@@ -5786,100 +5786,115 @@ keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</lon
         <tag line="2" name="see" description="\global\AisisCore_Interfaces_Admin" refers="\global\AisisCore_Interfaces_Admin"/>
         <tag line="2" name="package" description="CoreTheme_AdminPanel"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="19" package="CoreTheme\AdminPanel">
+      <property final="false" static="false" visibility="protected" line="17" namespace="global" package="Default">
+        <name>$_http</name>
+        <default>null</default>
+        <docblock line="14">
+          <description/>
+          <long-description/>
+          <tag line="14" name="var" description="" type="\AisisCore_Http_Http">
+            <type by_reference="false">\AisisCore_Http_Http</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="24" package="CoreTheme\AdminPanel">
         <name>__construct</name>
         <full_name>__construct</full_name>
-        <docblock line="14">
+        <docblock line="19">
           <description>Sets up the actions, creates the menues and notices.</description>
           <long-description/>
-          <tag line="14" name="link" description="http://codex.wordpress.org/Function_Reference/add_action" link="http://codex.wordpress.org/Function_Reference/add_action"/>
+          <tag line="19" name="link" description="http://codex.wordpress.org/Function_Reference/add_action" link="http://codex.wordpress.org/Function_Reference/add_action"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="36" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="46" package="CoreTheme\AdminPanel">
         <name>init</name>
         <full_name>init</full_name>
-        <docblock line="33">
+        <docblock line="43">
           <description>When extending this class make sure to put your constuctor logic here.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="41" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="51" package="CoreTheme\AdminPanel">
         <name>menu_setup</name>
         <full_name>menu_setup</full_name>
-        <docblock line="38">
+        <docblock line="48">
           <description/>
           <long-description/>
-          <tag line="38" name="see" description="\AisisCore_Interfaces_Admin::menu_setup()" refers="\AisisCore_Interfaces_Admin::menu_setup()"/>
+          <tag line="48" name="see" description="\AisisCore_Interfaces_Admin::menu_setup()" refers="\AisisCore_Interfaces_Admin::menu_setup()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="70" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="80" package="CoreTheme\AdminPanel">
         <name>settings</name>
         <full_name>settings</full_name>
-        <docblock line="67">
+        <docblock line="77">
           <description/>
           <long-description/>
-          <tag line="67" name="see" description="\AisisCore_Interfaces_Admin::settings()" refers="\AisisCore_Interfaces_Admin::settings()"/>
+          <tag line="77" name="see" description="\AisisCore_Interfaces_Admin::settings()" refers="\AisisCore_Interfaces_Admin::settings()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="84" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="94" package="CoreTheme\AdminPanel">
         <name>aisis_links</name>
         <full_name>aisis_links</full_name>
-        <docblock line="81">
+        <docblock line="91">
           <description>Allows you to add links to the WordPress adminbar.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="108" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="118" package="CoreTheme\AdminPanel">
         <name>build_template</name>
         <full_name>build_template</full_name>
-        <docblock line="105">
+        <docblock line="115">
           <description/>
           <long-description/>
-          <tag line="105" name="see" description="\AisisCore_Interfaces_Admin::build_template()" refers="\AisisCore_Interfaces_Admin::build_template()"/>
+          <tag line="115" name="see" description="\AisisCore_Interfaces_Admin::build_template()" refers="\AisisCore_Interfaces_Admin::build_template()"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="122" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="131" package="CoreTheme\AdminPanel">
         <name>option_validator</name>
         <full_name>option_validator</full_name>
-        <docblock line="119">
+        <docblock line="128">
           <description/>
           <long-description/>
-          <tag line="119" name="see" description="\AisisCore_Interfaces_Admin::option_validator()" refers="\AisisCore_Interfaces_Admin::option_validator()"/>
+          <tag line="128" name="see" description="\AisisCore_Interfaces_Admin::option_validator()" refers="\AisisCore_Interfaces_Admin::option_validator()"/>
         </docblock>
-        <argument line="122">
+        <argument line="131">
           <name>$input</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="156" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="165" package="CoreTheme\AdminPanel">
         <name>reset_message</name>
         <full_name>reset_message</full_name>
-        <docblock line="153">
+        <docblock line="162">
           <description>Creates a reset message.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="167" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="175" package="CoreTheme\AdminPanel">
         <name>update_message</name>
         <full_name>update_message</full_name>
-        <docblock line="164">
+        <docblock line="172">
           <description>Creates a update message for when you have an update.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="179" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="186" package="CoreTheme\AdminPanel">
         <name>update_success_message</name>
         <full_name>update_success_message</full_name>
-        <docblock line="176">
+        <docblock line="183">
           <description>Creates an update success message for when we have updated your stuff.</description>
           <long-description/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="191" package="CoreTheme\AdminPanel">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="194" package="CoreTheme\AdminPanel">
+        <name>mini_feed_message</name>
+        <full_name>mini_feed_message</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="204" package="CoreTheme\AdminPanel">
         <name>_update_option</name>
         <full_name>_update_option</full_name>
-        <docblock line="188">
+        <docblock line="201">
           <description>Creates a success message when you have updated the options.</description>
           <long-description/>
         </docblock>
@@ -5887,11 +5902,13 @@ keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</lon
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Admin.php</error>
-      <error line="38" code="50012">No short description for method menu_setup()</error>
-      <error line="67" code="50012">No short description for method settings()</error>
-      <error line="105" code="50012">No short description for method build_template()</error>
-      <error line="119" code="50012">No short description for method option_validator()</error>
-      <error line="119" code="50015">Argument $input is missing from the Docblock of option_validator()</error>
+      <critical line="14" code="50019">No short description for property $_http</critical>
+      <error line="48" code="50012">No short description for method menu_setup()</error>
+      <error line="77" code="50012">No short description for method settings()</error>
+      <error line="115" code="50012">No short description for method build_template()</error>
+      <error line="128" code="50012">No short description for method option_validator()</error>
+      <error line="128" code="50015">Argument $input is missing from the Docblock of option_validator()</error>
+      <error line="194" code="50010">No DocBlock was found for method mini_feed_message()</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/AdminPanel/Widgets/Download.php" hash="388414bbaf4c1a56821ae313080f6dbd" package="Default">
@@ -5990,12 +6007,110 @@ setting up the widget.</description>
       <error line="56" code="50015">Argument $instance is missing from the Docblock of form()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Templates/options.phtml" hash="f6df4a1954e4288b3f1845bb4b92aa95" package="Default">
+  <file path="CoreTheme/AdminPanel/Templates/Helper/FormHelper.php" hash="c0bc41343ccb34e1bea6532e07879c62" package="Default">
+    <class final="false" abstract="false" namespace="global" line="13" package="CoreTheme\AdminPanel\Template\Helper">
+      <extends/>
+      <name>CoreTheme_AdminPanel_Templates_Helper_FormHelper</name>
+      <full_name>\CoreTheme_AdminPanel_Templates_Helper_FormHelper</full_name>
+      <docblock line="2">
+        <description>This class is designed to give helper functions for repeated functions, which are commonly used.</description>
+        <long-description>&lt;p&gt;The functions with in this class are designed for forms, as they may get specific values of options,
+return classes for elements or tdo other commonly used functions.&lt;/p&gt;
+
+&lt;p&gt;Do not use these helper functions to get tivial values from the options table. instead use the factory pattern to create an instance
+of the Aisis_template_Builder class and use the get_specific_option() method.&lt;/p&gt;</long-description>
+        <tag line="2" name="package" description="CoreTheme_AdminPanel_Template_Helper"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="15" package="CoreTheme\AdminPanel\Template\Helper">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="23" package="CoreTheme\AdminPanel\Template\Helper">
+        <name>add_css_class_input</name>
+        <full_name>add_css_class_input</full_name>
+        <docblock line="17">
+          <description>Will return the css class you pass in, if the twitter admin theme is turned off.</description>
+          <long-description/>
+          <tag line="17" name="param" description="css $class" type="string" variable="$class">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="17" name="return" description="css class" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="23">
+          <name>$class</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="40" package="CoreTheme\AdminPanel\Template\Helper">
+        <name>get_social_option</name>
+        <full_name>get_social_option</full_name>
+        <docblock line="30">
+          <description>Will get an options key value based on the option group and the option name passed in.</description>
+          <long-description>&lt;p&gt;This only applies to the social option_name, as social is an array of options, you only need
+to pass in the option group and any social key, such as facebook or twitter.&lt;/p&gt;</long-description>
+          <tag line="30" name="param" description="" type="string" variable="$option">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="30" name="param" description="" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="30" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="40">
+          <name>$option</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="40">
+          <name>$key</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="55" package="CoreTheme\AdminPanel\Template\Helper">
+        <name>get_option</name>
+        <full_name>get_option</full_name>
+        <docblock line="48">
+          <description>Will get an options key value based on the option group and the option name passed in.</description>
+          <long-description/>
+          <tag line="48" name="param" description="" type="string" variable="$option">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="48" name="param" description="" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="48" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="55">
+          <name>$option</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="55">
+          <name>$key</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Templates/Helper/FormHelper.php</error>
+      <error line="15" code="50010">No DocBlock was found for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="CoreTheme/AdminPanel/Templates/options.phtml" hash="a999b19d4be50ac97d6ff2c9a21f4f1b" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Templates/options.phtml</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Templates/update.phtml" hash="86d633807c426cefb8e17212e634fdeb" package="Default">
+  <file path="CoreTheme/AdminPanel/Templates/update.phtml" hash="2e2e8bc962d14a06f7fa481c61408da7" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Templates/update.phtml</error>
     </parse_markers>
@@ -6013,7 +6128,7 @@ setting up the widget.</description>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Setup.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/Other.php" hash="87ba1ae5a48cb9f5cad0286458df8b43" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/Other.php" hash="f86a9cb0b912569a5489dbc1324f899f" package="Default">
     <class final="false" abstract="false" namespace="global" line="7" package="CoreTheme\AdminPanel\Form">
       <extends/>
       <name>CoreTheme_AdminPanel_Form_Other</name>
@@ -6023,104 +6138,97 @@ setting up the widget.</description>
         <long-description/>
         <tag line="2" name="package" description="CoreTheme_AdminPanel_Form"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="15" package="CoreTheme\AdminPanel\Form">
+      <property final="false" static="false" visibility="protected" line="12" namespace="global" package="Default">
+        <name>$_helper</name>
+        <default>null</default>
+        <docblock line="9">
+          <description/>
+          <long-description/>
+          <tag line="9" name="var" description="" type="\CoreTheme_AdminPanel_Template_Helper_FormHelper">
+            <type by_reference="false">\CoreTheme_AdminPanel_Template_Helper_FormHelper</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="17" package="CoreTheme\AdminPanel\Form">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="14">
+          <description>Sets the $_helper to an instance of CoreTheme_AdminPanel_Template_Helper_FormHelper if null.</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="29" package="CoreTheme\AdminPanel\Form">
         <name>elements</name>
         <full_name>elements</full_name>
-        <docblock line="9">
+        <docblock line="23">
           <description>Gathers all the elements together and returns an array of them to be used in
 the tabbed form.</description>
           <long-description/>
-          <tag line="9" name="see" description="\CoreTheme_Form_TabbedForm" refers="\CoreTheme_Form_TabbedForm"/>
+          <tag line="23" name="see" description="\CoreTheme_Form_TabbedForm" refers="\CoreTheme_Form_TabbedForm"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="32" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="46" package="CoreTheme\AdminPanel\Form">
         <name>_content_twitter_header</name>
         <full_name>_content_twitter_header</full_name>
-        <docblock line="27">
+        <docblock line="41">
           <description>Sets up the twitter bootstrap content header.</description>
           <long-description/>
-          <tag line="27" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
+          <tag line="41" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
             <type by_reference="false">\AisisCore_Form_Elements_Content</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="50" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="64" package="CoreTheme\AdminPanel\Form">
         <name>_remove_mini_feed_global</name>
         <full_name>_remove_mini_feed_global</full_name>
-        <docblock line="45">
+        <docblock line="59">
           <description>Set up the remove twitter bootstrap admin panel theme option.</description>
           <long-description/>
-          <tag line="45" name="return" description="$check_box" type="\CoreTheme_Form_Elements_Checkbox">
+          <tag line="59" name="return" description="$check_box" type="\CoreTheme_Form_Elements_Checkbox">
             <type by_reference="false">\CoreTheme_Form_Elements_Checkbox</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="72" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="86" package="CoreTheme\AdminPanel\Form">
         <name>_content_footer_header</name>
         <full_name>_content_footer_header</full_name>
-        <docblock line="67">
+        <docblock line="81">
           <description>Sets up the footer content header.</description>
           <long-description/>
-          <tag line="67" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
+          <tag line="81" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
             <type by_reference="false">\AisisCore_Form_Elements_Content</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="90" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="104" package="CoreTheme\AdminPanel\Form">
         <name>_text_area</name>
         <full_name>_text_area</full_name>
-        <docblock line="85">
+        <docblock line="99">
           <description>Create a text area.</description>
           <long-description/>
-          <tag line="85" name="return" description="$text" type="\CoreTheme_Form_Elements_TextArea">
+          <tag line="99" name="return" description="$text" type="\CoreTheme_Form_Elements_TextArea">
             <type by_reference="false">\CoreTheme_Form_Elements_TextArea</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="108" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="122" package="CoreTheme\AdminPanel\Form">
         <name>_submit_element</name>
         <full_name>_submit_element</full_name>
-        <docblock line="103">
+        <docblock line="117">
           <description>Creates a submit button.</description>
           <long-description/>
-          <tag line="103" name="return" description="$submit" type="\CoreTheme_Form_Elements_Submit">
+          <tag line="117" name="return" description="$submit" type="\CoreTheme_Form_Elements_Submit">
             <type by_reference="false">\CoreTheme_Form_Elements_Submit</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="128" package="CoreTheme\AdminPanel\Form">
-        <name>_get_value</name>
-        <full_name>_get_value</full_name>
-        <docblock line="119">
-          <description>The following gets an option based on the key and option passed in.</description>
-          <long-description>&lt;p&gt;in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.&lt;/p&gt;</long-description>
-          <tag line="119" name="param" description="" type="string" variable="$option">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="119" name="param" description="" type="string" variable="$key">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="119" name="return" description="" type="string">
-            <type by_reference="false">string</type>
-          </tag>
-        </docblock>
-        <argument line="128">
-          <name>$option</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="128">
-          <name>$key</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/Other.php</error>
+      <critical line="9" code="50019">No short description for property $_helper</critical>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/Posts.php" hash="1e0244929306c1481703caf63847c6d9" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/Posts.php" hash="6488711fb7e5aa81bac8d52ac39cec8f" package="Default">
     <class final="false" abstract="false" namespace="global" line="9" package="CoreTheme\AdminPanel\Form">
       <extends/>
       <name>CoreTheme_AdminPanel_Form_Posts</name>
@@ -6267,7 +6375,7 @@ the tabbed form.</description>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/Posts.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/Reset.php" hash="a2e9244d00e5736bbfffdac5a5a3d402" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/Reset.php" hash="1062ee82acfbc37762199dd53aea0e3e" package="Default">
     <class final="false" abstract="false" namespace="global" line="10" package="CoreTheme\AdminPanel\Form">
       <extends>\CoreTheme_Form_Form</extends>
       <name>CoreTheme_AdminPanel_Form_Reset</name>
@@ -6454,7 +6562,7 @@ content about the tag is displayed.&lt;/p&gt;</long-description>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/SubSection/Tag.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/SubSection/Lists.php" hash="64300a08c51c17edc8afd16e85975827" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/SubSection/Lists.php" hash="d2653963c2c52cf180db71e9a65e997a" package="Default">
     <class final="false" abstract="false" namespace="global" line="11" package="CoreTheme\AdminPanel\Form\SubSection">
       <extends/>
       <name>CoreTheme_AdminPanel_Form_SubSection_Lists</name>
@@ -6466,69 +6574,62 @@ sticky posts. You also have the option of displaying a read more button by enter
         <tag line="2" name="see" description="\global\AisisCore_Form_SubSection" refers="\global\AisisCore_Form_SubSection"/>
         <tag line="2" name="package" description="CoreTheme_AdminPanel_Form_SubSection"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="18" package="CoreTheme\AdminPanel\Form\SubSection">
+      <property final="false" static="false" visibility="protected" line="16" namespace="global" package="Default">
+        <name>$_helper</name>
+        <default>null</default>
+        <docblock line="13">
+          <description/>
+          <long-description/>
+          <tag line="13" name="var" description="" type="\CoreTheme_AdminPanel_Template_Helper_FormHelper">
+            <type by_reference="false">\CoreTheme_AdminPanel_Template_Helper_FormHelper</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="21" package="CoreTheme\AdminPanel\Form\SubSection">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="18">
+          <description>Sets the $_helper to an instance of CoreTheme_AdminPanel_Template_Helper_FormHelper if null.</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="32" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>lists_sub_section</name>
         <full_name>lists_sub_section</full_name>
-        <docblock line="13">
+        <docblock line="27">
           <description>Set up the subsection.</description>
           <long-description/>
-          <tag line="13" name="return" description="$section" type="array">
+          <tag line="27" name="return" description="$section" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="40" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="54" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_content_list_posts_header</name>
         <full_name>_content_list_posts_header</full_name>
-        <docblock line="35">
+        <docblock line="49">
           <description>Set up the lists content header.</description>
           <long-description/>
-          <tag line="35" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
+          <tag line="49" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
             <type by_reference="false">\AisisCore_Form_Elements_Content</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="59" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="73" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_input_more_lists_element</name>
         <full_name>_input_more_lists_element</full_name>
-        <docblock line="54">
+        <docblock line="68">
           <description>Sets up a "more" link for the front page.</description>
           <long-description/>
-          <tag line="54" name="return" description="$input_element" type="\CoreTheme_Form_Elements_Url">
+          <tag line="68" name="return" description="$input_element" type="\CoreTheme_Form_Elements_Url">
             <type by_reference="false">\CoreTheme_Form_Elements_Url</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="85" package="CoreTheme\AdminPanel\Form\SubSection">
-        <name>_get_value</name>
-        <full_name>_get_value</full_name>
-        <docblock line="76">
-          <description>The following gets an option based on the key and option passed in.</description>
-          <long-description>&lt;p&gt;in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.&lt;/p&gt;</long-description>
-          <tag line="76" name="param" description="" type="string" variable="$option">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="76" name="param" description="" type="string" variable="$key">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="76" name="return" description="" type="string">
-            <type by_reference="false">string</type>
-          </tag>
-        </docblock>
-        <argument line="85">
-          <name>$option</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="85">
-          <name>$key</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/SubSection/Lists.php</error>
+      <critical line="13" code="50019">No short description for property $_helper</critical>
     </parse_markers>
   </file>
   <file path="CoreTheme/AdminPanel/Form/SubSection/Author.php" hash="e1202add763654cefa34f08626843d4d" package="Default">
@@ -6592,7 +6693,7 @@ content about the author is displayed.&lt;/p&gt;</long-description>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/SubSection/Author.php</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/SubSection/Rows.php" hash="a82dc88a74eedebd02095a592f24d62c" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/SubSection/Rows.php" hash="24907f87153f48125256f0ab30093289" package="Default">
     <class final="false" abstract="false" namespace="global" line="11" package="CoreTheme\AdminPanel\Form\SubSection">
       <extends/>
       <name>CoreTheme_AdminPanel_Form_SubSection_Rows</name>
@@ -6604,105 +6705,98 @@ in rows of three. This will not display sticky posts. You also have the option o
         <tag line="2" name="see" description="\global\AisisCore_Form_SubSection" refers="\global\AisisCore_Form_SubSection"/>
         <tag line="2" name="package" description="CoreTheme_AdminPanel_Form_SubSection"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="18" package="CoreTheme\AdminPanel\Form\SubSection">
+      <property final="false" static="false" visibility="protected" line="16" namespace="global" package="Default">
+        <name>$_helper</name>
+        <default>null</default>
+        <docblock line="13">
+          <description/>
+          <long-description/>
+          <tag line="13" name="var" description="" type="\CoreTheme_AdminPanel_Template_Helper_FormHelper">
+            <type by_reference="false">\CoreTheme_AdminPanel_Template_Helper_FormHelper</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="21" package="CoreTheme\AdminPanel\Form\SubSection">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="18">
+          <description>Sets the $_helper to an instance of CoreTheme_AdminPanel_Template_Helper_FormHelper if null.</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="32" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>rows_sub_section</name>
         <full_name>rows_sub_section</full_name>
-        <docblock line="13">
+        <docblock line="27">
           <description>Set up the subsection.</description>
           <long-description/>
-          <tag line="13" name="return" description="$section" type="array">
+          <tag line="27" name="return" description="$section" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="43" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="57" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_content_rows_posts_header</name>
         <full_name>_content_rows_posts_header</full_name>
-        <docblock line="38">
+        <docblock line="52">
           <description>Set up the rows content header.</description>
           <long-description/>
-          <tag line="38" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
+          <tag line="52" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
             <type by_reference="false">\AisisCore_Form_Elements_Content</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="63" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="77" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_three_posts</name>
         <full_name>_three_posts</full_name>
-        <docblock line="58">
+        <docblock line="72">
           <description>Set up the three rows section.</description>
           <long-description/>
-          <tag line="58" name="return" description="$radio" type="\CoreTheme_Form_Elements_Radio">
+          <tag line="72" name="return" description="$radio" type="\CoreTheme_Form_Elements_Radio">
             <type by_reference="false">\CoreTheme_Form_Elements_Radio</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="83" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="97" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_six_posts</name>
         <full_name>_six_posts</full_name>
-        <docblock line="78">
+        <docblock line="92">
           <description>Set up the six rows section.</description>
           <long-description/>
-          <tag line="78" name="return" description="$radio" type="\CoreTheme_Form_Elements_Radio">
+          <tag line="92" name="return" description="$radio" type="\CoreTheme_Form_Elements_Radio">
             <type by_reference="false">\CoreTheme_Form_Elements_Radio</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="103" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="117" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_nine_posts</name>
         <full_name>_nine_posts</full_name>
-        <docblock line="98">
+        <docblock line="112">
           <description>Set up the nine rows section.</description>
           <long-description/>
-          <tag line="98" name="return" description="$radio" type="\CoreTheme_Form_Elements_Radio">
+          <tag line="112" name="return" description="$radio" type="\CoreTheme_Form_Elements_Radio">
             <type by_reference="false">\CoreTheme_Form_Elements_Radio</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="123" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="137" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_input_more_rows_element</name>
         <full_name>_input_more_rows_element</full_name>
-        <docblock line="118">
+        <docblock line="132">
           <description>Sets up a "more" link for the front page.</description>
           <long-description/>
-          <tag line="118" name="return" description="$input_element" type="\CoreTheme_Form_Elements_Url">
+          <tag line="132" name="return" description="$input_element" type="\CoreTheme_Form_Elements_Url">
             <type by_reference="false">\CoreTheme_Form_Elements_Url</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="149" package="CoreTheme\AdminPanel\Form\SubSection">
-        <name>_get_value</name>
-        <full_name>_get_value</full_name>
-        <docblock line="140">
-          <description>The following gets an option based on the key and option passed in.</description>
-          <long-description>&lt;p&gt;in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.&lt;/p&gt;</long-description>
-          <tag line="140" name="param" description="" type="string" variable="$option">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="140" name="param" description="" type="string" variable="$key">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="140" name="return" description="" type="string">
-            <type by_reference="false">string</type>
-          </tag>
-        </docblock>
-        <argument line="149">
-          <name>$option</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="149">
-          <name>$key</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/SubSection/Rows.php</error>
+      <critical line="13" code="50019">No short description for property $_helper</critical>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/SubSection/Jumbotron.php" hash="893787ae89d23fbeb050429610a413f3" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/SubSection/Jumbotron.php" hash="84ca1a14d306875fc5e60a491f84106b" package="Default">
     <class final="false" abstract="false" namespace="global" line="12" package="CoreTheme\AdminPanel\Form\SubSection">
       <extends/>
       <name>CoreTheme_AdminPanel_Form_SubSection_Jumbotron</name>
@@ -6714,113 +6808,106 @@ as the front page.&lt;/p&gt;</long-description>
         <tag line="2" name="see" description="\global\AisisCore_Form_SubSection" refers="\global\AisisCore_Form_SubSection"/>
         <tag line="2" name="package" description="CoreTheme_AdminPanel_Form_SubSection"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="19" package="CoreTheme\AdminPanel\Form\SubSection">
+      <property final="false" static="false" visibility="protected" line="17" namespace="global" package="Default">
+        <name>$_helper</name>
+        <default>null</default>
+        <docblock line="14">
+          <description/>
+          <long-description/>
+          <tag line="14" name="var" description="" type="\CoreTheme_AdminPanel_Template_Helper_FormHelper">
+            <type by_reference="false">\CoreTheme_AdminPanel_Template_Helper_FormHelper</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="22" package="CoreTheme\AdminPanel\Form\SubSection">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="19">
+          <description>Sets the $_helper to an instance of CoreTheme_AdminPanel_Template_Helper_FormHelper if null.</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="33" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>jumbo_subsection_content</name>
         <full_name>jumbo_subsection_content</full_name>
-        <docblock line="14">
+        <docblock line="28">
           <description>Set up the subsection.</description>
           <long-description/>
-          <tag line="14" name="return" description="$section" type="array">
+          <tag line="28" name="return" description="$section" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="45" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="59" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_content</name>
         <full_name>_content</full_name>
-        <docblock line="40">
+        <docblock line="54">
           <description>Set up the Jumbotron content header.</description>
           <long-description/>
-          <tag line="40" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
+          <tag line="54" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
             <type by_reference="false">\AisisCore_Form_Elements_Content</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="64" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="78" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_title_field</name>
         <full_name>_title_field</full_name>
-        <docblock line="59">
+        <docblock line="73">
           <description>Set up the title field section</description>
           <long-description/>
-          <tag line="59" name="return" description="$input" type="\CoreTheme_Form_Elements_Input">
+          <tag line="73" name="return" description="$input" type="\CoreTheme_Form_Elements_Input">
             <type by_reference="false">\CoreTheme_Form_Elements_Input</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="86" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="100" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_text_area</name>
         <full_name>_text_area</full_name>
-        <docblock line="81">
+        <docblock line="95">
           <description>Set up the text field section.</description>
           <long-description/>
-          <tag line="81" name="return" description="$text" type="\CoreTheme_Form_Elements_TextArea">
+          <tag line="95" name="return" description="$text" type="\CoreTheme_Form_Elements_TextArea">
             <type by_reference="false">\CoreTheme_Form_Elements_TextArea</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="104" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="118" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_image_upload</name>
         <full_name>_image_upload</full_name>
-        <docblock line="99">
+        <docblock line="113">
           <description>Set up the image upload field.</description>
           <long-description/>
-          <tag line="99" name="return" description="$url" type="\CoreTheme_Form_Elements_Url">
+          <tag line="113" name="return" description="$url" type="\CoreTheme_Form_Elements_Url">
             <type by_reference="false">\CoreTheme_Form_Elements_Url</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="130" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="144" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_image_upload_button</name>
         <full_name>_image_upload_button</full_name>
-        <docblock line="125">
+        <docblock line="139">
           <description>Set up the image upload button.</description>
           <long-description/>
-          <tag line="125" name="return" description="$button" type="\AisisCore_Form_Elements_Button">
+          <tag line="139" name="return" description="$button" type="\AisisCore_Form_Elements_Button">
             <type by_reference="false">\AisisCore_Form_Elements_Button</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="146" package="CoreTheme\AdminPanel\Form\SubSection">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="160" package="CoreTheme\AdminPanel\Form\SubSection">
         <name>_jumbo_link</name>
         <full_name>_jumbo_link</full_name>
-        <docblock line="141">
+        <docblock line="155">
           <description>Set up the jumbo link section.</description>
           <long-description/>
-          <tag line="141" name="return" description="$input" type="\CoreTheme_Form_Elements_Url">
+          <tag line="155" name="return" description="$input" type="\CoreTheme_Form_Elements_Url">
             <type by_reference="false">\CoreTheme_Form_Elements_Url</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="172" package="CoreTheme\AdminPanel\Form\SubSection">
-        <name>_get_value</name>
-        <full_name>_get_value</full_name>
-        <docblock line="163">
-          <description>The following gets an option based on the key and option passed in.</description>
-          <long-description>&lt;p&gt;in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.&lt;/p&gt;</long-description>
-          <tag line="163" name="param" description="" type="string" variable="$option">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="163" name="param" description="" type="string" variable="$key">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="163" name="return" description="" type="string">
-            <type by_reference="false">string</type>
-          </tag>
-        </docblock>
-        <argument line="172">
-          <name>$option</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="172">
-          <name>$key</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/SubSection/Jumbotron.php</error>
+      <critical line="14" code="50019">No short description for property $_helper</critical>
     </parse_markers>
   </file>
   <file path="CoreTheme/AdminPanel/Form/SubSection/Carousel.php" hash="4f381dd01eba53f415031644e819dbdd" package="Default">
@@ -6915,7 +7002,7 @@ where aisis_core is the option and 'option_name' is the key.&lt;/p&gt;</long-des
       <error line="107" code="50014">Name of argument $key does not match with the DocBlock's name $option in _enabled()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/AdminPanel/Form/Social.php" hash="5e958d1345c965fe0a56ea4db3f3a763" package="Default">
+  <file path="CoreTheme/AdminPanel/Form/Social.php" hash="2f8f47c3a50885f54a2474b15889d774" package="Default">
     <class final="false" abstract="false" namespace="global" line="9" package="CoreTheme\AdminPanel\Form">
       <extends/>
       <name>CoreTheme_AdminPanel_Form_Social</name>
@@ -6926,123 +7013,116 @@ where aisis_core is the option and 'option_name' is the key.&lt;/p&gt;</long-des
         <tag line="2" name="see" description="\global\AisisCore_Form_Element" refers="\global\AisisCore_Form_Element"/>
         <tag line="2" name="package" description="CoreTheme_AdminPanel_Form"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="17" package="CoreTheme\AdminPanel\Form">
+      <property final="false" static="false" visibility="protected" line="14" namespace="global" package="Default">
+        <name>$_helper</name>
+        <default>null</default>
+        <docblock line="11">
+          <description/>
+          <long-description/>
+          <tag line="11" name="var" description="" type="\CoreTheme_AdminPanel_Template_Helper_FormHelper">
+            <type by_reference="false">\CoreTheme_AdminPanel_Template_Helper_FormHelper</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="19" package="CoreTheme\AdminPanel\Form">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="16">
+          <description>Sets the $_helper to an instance of CoreTheme_AdminPanel_Template_Helper_FormHelper if null.</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="31" package="CoreTheme\AdminPanel\Form">
         <name>elements</name>
         <full_name>elements</full_name>
-        <docblock line="11">
+        <docblock line="25">
           <description>Gathers all the elements together and returns an array of them to be used in
 the tabbed form.</description>
           <long-description/>
-          <tag line="11" name="see" description="\CoreTheme_Form_TabbedForm" refers="\CoreTheme_Form_TabbedForm"/>
+          <tag line="25" name="see" description="\CoreTheme_Form_TabbedForm" refers="\CoreTheme_Form_TabbedForm"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="37" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="51" package="CoreTheme\AdminPanel\Form">
         <name>_content_links_header</name>
         <full_name>_content_links_header</full_name>
-        <docblock line="32">
+        <docblock line="46">
           <description>Sets up the social content header.</description>
           <long-description/>
-          <tag line="32" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
+          <tag line="46" name="return" description="$content_header" type="\AisisCore_Form_Elements_Content">
             <type by_reference="false">\AisisCore_Form_Elements_Content</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="55" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="69" package="CoreTheme\AdminPanel\Form">
         <name>_facebook</name>
         <full_name>_facebook</full_name>
-        <docblock line="50">
+        <docblock line="64">
           <description>Set up the facebook url input section.</description>
           <long-description/>
-          <tag line="50" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
+          <tag line="64" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
             <type by_reference="false">\CoreTheme_Form_Elements_Url</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="76" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="90" package="CoreTheme\AdminPanel\Form">
         <name>_twitter</name>
         <full_name>_twitter</full_name>
-        <docblock line="71">
+        <docblock line="85">
           <description>Set up the twitter url input section.</description>
           <long-description/>
-          <tag line="71" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
+          <tag line="85" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
             <type by_reference="false">\CoreTheme_Form_Elements_Url</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="97" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="111" package="CoreTheme\AdminPanel\Form">
         <name>_google_plus</name>
         <full_name>_google_plus</full_name>
-        <docblock line="92">
+        <docblock line="106">
           <description>Set up the google+ url input section.</description>
           <long-description/>
-          <tag line="92" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
+          <tag line="106" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
             <type by_reference="false">\CoreTheme_Form_Elements_Url</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="118" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="132" package="CoreTheme\AdminPanel\Form">
         <name>_linkedin</name>
         <full_name>_linkedin</full_name>
-        <docblock line="113">
+        <docblock line="127">
           <description>Set up the linkedin url input section.</description>
           <long-description/>
-          <tag line="113" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
+          <tag line="127" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
             <type by_reference="false">\CoreTheme_Form_Elements_Url</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="139" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="153" package="CoreTheme\AdminPanel\Form">
         <name>_git</name>
         <full_name>_git</full_name>
-        <docblock line="134">
+        <docblock line="148">
           <description>Set up the git url input section.</description>
           <long-description/>
-          <tag line="134" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
+          <tag line="148" name="return" description="$url_element" type="\CoreTheme_Form_Elements_Url">
             <type by_reference="false">\CoreTheme_Form_Elements_Url</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="161" package="CoreTheme\AdminPanel\Form">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="175" package="CoreTheme\AdminPanel\Form">
         <name>_submit_element</name>
         <full_name>_submit_element</full_name>
-        <docblock line="156">
+        <docblock line="170">
           <description>Set up the submit button</description>
           <long-description/>
-          <tag line="156" name="return" description="$submit" type="\CoreTheme_Form_Elements_Submit">
+          <tag line="170" name="return" description="$submit" type="\CoreTheme_Form_Elements_Submit">
             <type by_reference="false">\CoreTheme_Form_Elements_Submit</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="181" package="CoreTheme\AdminPanel\Form">
-        <name>_get_value</name>
-        <full_name>_get_value</full_name>
-        <docblock line="172">
-          <description>The following gets an option based on the key and option passed in.</description>
-          <long-description>&lt;p&gt;in the case of aisis_core['option'],  aisis_core is the option and 'option' is the key.&lt;/p&gt;</long-description>
-          <tag line="172" name="param" description="" type="string" variable="$option">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="172" name="param" description="" type="string" variable="$key">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="172" name="return" description="" type="string">
-            <type by_reference="false">string</type>
-          </tag>
-        </docblock>
-        <argument line="181">
-          <name>$option</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="181">
-          <name>$key</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/AdminPanel/Form/Social.php</error>
+      <critical line="11" code="50019">No short description for property $_helper</critical>
     </parse_markers>
   </file>
   <file path="CoreTheme/AdminPanel/Form/CustomPost.php" hash="fad618c8d7b482633abbc59e6bba615c" package="Default">
@@ -7248,6 +7328,9 @@ the tabbed form.</description>
     <package name="AdminPanel" full_name="CoreTheme\AdminPanel">
       <package name="Form" full_name="CoreTheme\AdminPanel\Form">
         <package name="SubSection" full_name="CoreTheme\AdminPanel\Form\SubSection"/>
+      </package>
+      <package name="Template" full_name="CoreTheme\AdminPanel\Template">
+        <package name="Helper" full_name="CoreTheme\AdminPanel\Template\Helper"/>
       </package>
     </package>
     <package name="Adminpanel" full_name="CoreTheme\Adminpanel">
