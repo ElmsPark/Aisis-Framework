@@ -120,7 +120,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		
 		if($this->_http->get_request('page') == 'aisis-core-options'){
 			$template->render_view('options');
-		}elseif($http->get_request('page') == 'aisis-core-update'){
+		}elseif($this->_http->get_request('page') == 'aisis-core-update'){
 			$template->render_view('update');
 		}
 	}

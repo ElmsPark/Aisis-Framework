@@ -7,13 +7,9 @@ if(!$template->get_specific_option('twitter_admin')){
 	$scripts_to_load  = array(
 		'admin_css' => array(
 			array(
-				'name'=>'bootstrap-css',
-				'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css'
-			),
-			array(
-				'name'=>'bootstrap-responsive-css',
-				'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap-responsive.min.css'
-			),
+				'name'=>'bootstrap-specific-css',
+				'path'=>get_template_directory_uri() . '/CoreTheme/AdminPanel/assets/Bootstrap-admin-specific-styles.css'
+			),				
 			array(
 				'name'=>'font-awesome',
 				'path'=>get_template_directory_uri() . '/lib/FontAwesome/css/font-awesome.min.css'
@@ -31,8 +27,18 @@ if(!$template->get_specific_option('twitter_admin')){
 		),
 	);
 	
+	$http = new AisisCore_Http_Http();
+	if($http->get_current_url() == admin_url('admin.php?page=aisis-core-options') || $http->get_current_url() == admin_url('admin.php?page=aisis-core-update')){
+		add_action ( 'admin_init', 'register_bootstrap');
+	}
+	
 	// Load the scripts
 	$load_scripts = new CoreTheme_Loader_Asset($scripts_to_load);
+}
+
+// Load Bootstrap on only one page.
+function register_bootstrap(){
+	wp_enqueue_style ('bootstrap-css', get_template_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css');
 }
 
 // Setup the admin panel

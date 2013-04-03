@@ -14,12 +14,12 @@ h4 {
 	width: 270px !important;
 }
 
-.radio, .checkbox{
-	width: 270px;
-}
-
 .radio input[type="radio"], .checkbox input[type="checkbox"] {
 	margin-top: -5px !important;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	margin-top: -8px !important;
 }
 
 .btn-large{
