@@ -24,6 +24,10 @@ if(!$template->get_specific_option('twitter_admin')){
 				'name'=>'twbs-js-min',
 				'path'=>get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js'
 			),
+			array(
+				'name'=>'thickbox',
+				'path'=>WPINC . '/js/thickbox/thickbox.js'
+			),				
 		),
 	);
 	
@@ -40,6 +44,7 @@ if(!$template->get_specific_option('twitter_admin')){
 // Load Bootstrap on only one page.
 function register_bootstrap(){
 	wp_enqueue_style ('bootstrap-css', get_template_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css');
+	wp_enqueue_style('thickbox');
 }
 
 // Setup the admin panel
