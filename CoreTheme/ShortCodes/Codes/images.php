@@ -68,6 +68,6 @@ function aisis_image_polaroid($atts, $content = null){
 
 // Add the codes.
 add_shortcode( 'thumbnail', 'aisis_thumbnail');
-add_shortcode( 'image-circle', 'aisis_image_circle');
-add_shortcode( 'image-rounded', 'aisis_image_rounded');
-add_shortcode( 'image-polaroid', 'aisis_image_polaroid');
+add_shortcode( 'imageCircle', 'aisis_image_circle');
+add_shortcode( 'imageRounded', 'aisis_image_rounded');
+add_shortcode( 'imagePolaroid', 'aisis_image_polaroid');
