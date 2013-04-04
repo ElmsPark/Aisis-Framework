@@ -187,8 +187,8 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	 */
 	public function error_page($options){
 		if(isset($this->_options['404_template'])){
-			$template = new AisisCore_Template_Builder();
-			$template->render_template($this->_options['404_template']);
+			$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+			$template->render_view($this->_options['404_template']);
 		}else{
 			echo "Sorry. No posts were found.";
 		}

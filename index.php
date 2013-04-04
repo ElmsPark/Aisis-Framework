@@ -89,7 +89,8 @@ $options = array(
 				'class' => 'marginBottom20 marginTop20 thumbnail'
 			)
 		),
-	)
+	),
+	'404_template' => '404',
 );
 
 

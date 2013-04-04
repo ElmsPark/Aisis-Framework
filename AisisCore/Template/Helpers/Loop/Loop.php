@@ -75,7 +75,7 @@
  * 		),
  * 		'query' => array(), // The main query given by WordPress.
  * 		'remove_nav_from_query' => true/false // Should we remove the nav from the query posts index?
- * 		'404_template' => '' // The path to said template or a message.
+ * 		'404_template' => '' // Name of the Template.
  * );
  * </code>
  * </p>
@@ -231,14 +231,15 @@ class AisisCore_Template_Helpers_Loop_Loop{
 					echo $this->_options['post_after'];
 				}
 			}
+
+			if(isset($this->_options['navigation_wrap'])){
+				$this->_components->loop_navigation($this->_options['navigation_wrap']);
+			}else{
+				$this->_components->loop_navigation();
+			}
+						
 		}else{
 			$this->_components->error_page($this->_options);
-		}
-		
-		if(isset($this->_options['navigation_wrap'])){
-			$this->_components->loop_navigation($this->_options['navigation_wrap']);
-		}else{
-			$this->_components->loop_navigation();
 		}
 	}
 	

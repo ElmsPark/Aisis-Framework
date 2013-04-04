@@ -192,9 +192,11 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 	}
 
 	public function mini_feed_message(){
-		if($this->_http->get_current_url() == admin_url('post-new.php?post_type=mini-feed')){
+		global $post_ID;
+		
+		if ('mini-feed' == get_post_type( $post_ID )){
 			echo '<div class="alert alert-info"><strong>ATTN</strong> It is important that your content, across all three mini posts, be of equal 
-			length, as the mini feed box grows and shrinks based on content length.</div>';
+				length, as the mini feed box grows and shrinks based on content length.</div>';
 		}
 	}	
 	

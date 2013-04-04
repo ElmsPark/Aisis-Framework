@@ -1,153 +1,93 @@
 <?php
-if (! function_exists ( 'aisis_image' )) {
-	function aisis_image($atts, $content = null) {
+/**
+ * Creates a table of contents.
+ * 
+ * @param WordPress $atts
+ * @param WordPress $content
+ */
+function aisis_toc($atts, $content = null){
+	
+	extract(
+		shortcode_atts(
+			array(
+			'css_prop' => 'css_prop',
+			'css_container' => 'css_container'
+			),
+			$atts
+		)
+	);
+	
+	if(strpos($css_container, '.')){
+		return "
+		<ul class='".ltrim($css_container, '.')."'></ul>
 		
-		$caption_element = '';
+		<script type='text/javascript' charset='utf-8'>
+		$(document).ready(function(){
+			$('".$css_container."').tableOfContents($('".$css_prop."'));
+		});
+		</script>";
+	}else{
+		return "
+		<ul id='".ltrim($css_container, '#')."'>
+		<h4>Content Sample</h4>
+		</ul>
 		
-		extract ( 
-			shortcode_atts ( 
-				array (
-					'width' => 'width',
-					'height' => 'height',
-					'caption' => 'caption',
-				), 
-				$atts 
-			) 
-		);
-		
-		if($caption != ''){
-			$caption_element = '
-				<div class="caption">
-					'.$caption.'
-				</div>
-			';
-		}
-		
-		return '<div class="thubnail">
-				<img src="'.$content.'" width="'.esc_attr ( $width ).'" height="'.esc_attr ( $height ).'" class="thumbnail"/>
-			'.$caption_element . '</div>';
+		<script type='text/javascript' charset='utf-8'>
+		$(document).ready(function(){
+			$('".$css_container."').tableOfContents($('".$css_prop."'));
+		});
+		</script>";
 	}
 }
 
-if(! function_exists ('aisis_code') ){
-	function aisis_code($atts, $content = null){
-		return '
-		<pre class="prettyprint linenums languague-css">
-    	'.$content.'
-    	</pre>';
+/**
+ * Creates a button.
+ *
+ * @param WordPress $atts
+ * @param WordPress $content
+ */
+function aisis_button($atts, $content = null) {
+
+	$size_of_button = '';
+	$color_of_button = '';
+
+	extract (
+		shortcode_atts (
+			array (
+				'link' => 'link',
+				'size' => 'size',
+				'color' => 'color',
+				'title'=>'title'
+			),
+			$atts
+		)
+	);
+
+	if($size = 'large'){
+		$size_of_button = 'btn-large';
+	}elseif($size = 'small'){
+		$size_of_button = 'btn-small';
+	}elseif($size = 'normal'){
+			$size_of_button = '';
+	}elseif($size = 'mini'){
+		$size_of_button = 'btn-mini';
 	}
+
+	if($color == 'red'){
+		$color_of_button == 'btn-danger';
+	}elseif($color == 'green'){
+		$color_of_button == 'btn-success';
+	}elseif($color == 'yellow'){
+		$color_of_button = 'btn-warning';
+	}elseif($color == 'blue'){
+		$color_of_button = 'btn-primary';
+	}elseif($color == 'light-blue'){
+		$color_of_button = 'btn-info';
+	}
+
+	return '<a href="' .$link. '" class="btn '.$size_of_button . ' ' .$color_of_button.'">'.$title.'</a>';
 }
 
-if(! function_exists ('aisis_image_circle') ){
-	function aisis_image_circle($atts, $content = null){
-		extract (
-			shortcode_atts (
-				array (
-					'width' => 'width',
-					'height' => 'height',
-				),
-				$atts
-			)
-		);
-		
-		return '
-		<img src="'.$content.'" class="img-circle" width="'.$width.'" height="'.$height.'"/>';
-	}
-}
-
-if(! function_exists ('aisis_image_rounded') ){
-	function aisis_image_rounded($atts, $content = null){
-		extract (
-			shortcode_atts (
-				array (
-					'width' => 'width',
-					'height' => 'height',
-				),
-				$atts
-			)
-		);
-
-		return '
-		<img src="'.$content.'" class="img-rounded" width="'.$width.'" height="'.$height.'"/>';
-	}
-}
-
-if(! function_exists ('aisis_image_polaroid') ){
-	function aisis_image_polaroid($atts, $content = null){
-		extract (
-			shortcode_atts (
-				array (
-					'width' => 'width',
-					'height' => 'height',
-				),
-				$atts
-			)
-		);
-
-		return '
-		<img src="'.$content.'" class="img-polaroid" width="'.$width.'" height="'.$height.'"/>';
-	}
-}
-
-if(! function_exists ('aisis_toc') ){
-	function aisis_toc($atts, $content = null){
-		extract(
-			shortcode_atts(
-				array(
-				'css_prop' => 'css_prop',
-				'css_container' => 'css_container'
-				),
-				$atts
-			)
-		);
-		
-		//var_dump(ltrim($css_container, '#')); exit;
-		
-		if(strpos($css_container, '.')){
-			return "
-			<ul class='".ltrim($css_container, '.')."'></ul>
-			
-			<script type='text/javascript' charset='utf-8'>
-			$(document).ready(function(){
-				$('".$css_container."').tableOfContents($('".$css_prop."'));
-				console.log('test');
-			});
-			</script>";
-		}else{
-			return "
-			<ul id='".ltrim($css_container, '#')."'></ul>
-			
-			<script type='text/javascript' charset='utf-8'>
-			$(document).ready(function(){
-				$('".$css_container."').tableOfContents($('".$css_prop."'));
-				console.log('test');
-			});
-			</script>";
-		}
-		
-
-	}
-}
-
-if(! function_exists ('aisis_info') ){
-	function aisis_info($atts, $content = null){
-		return '
-		<div class="alert">'.$content.'</div>';
-	}
-}
-
-if(! function_exists ('aisis_update') ){
-	function aisis_update($atts, $content = null){
-		return '
-		<div class="alert info">'.$content.'</div>';
-	}
-}
-
-add_shortcode( 'image', 'aisis_image');
-add_shortcode( 'image-circle', 'aisis_image_circle');
-add_shortcode( 'image-rounded', 'aisis_image_rounded');
-add_shortcode( 'image-polaroid', 'aisis_image_polaroid');
-add_shortcode( 'code', 'aisis_code');
+// Add the code.
 add_shortcode( 'toc', 'aisis_toc');
-add_shortcode( 'update', 'aisis_info');
-add_shortcode( 'info', 'aisis_update');
+add_shortcode( 'button', 'aisis_button');

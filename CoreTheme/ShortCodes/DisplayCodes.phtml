@@ -1,293 +1,172 @@
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js' ?>"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/ShortCode-JS.js' ?>"></script>
-<link href="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/Shortcode-Css.css' ?>" rel="stylesheet" type="text/css">
+<link href="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/Shortcode.css' ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo get_template_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css' ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo get_template_directory_uri() . '/lib/bootstrap/css/bootstrap-responsive.min.css' ?>" rel="stylesheet" type="text/css">
-<script type="text/javascript">
+<link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/js/ShortCode.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/js/Alerts.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/js/CodeCodes.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/js/Label.js' ?>"></script>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
 
-jQuery(document).ready(function($){
-});
-
+<script>
+! function ($) {
+    $(function () {
+        window.prettyPrint && prettyPrint()
+    })
+}(window.jQuery)
 </script>
 
 <div class="tabbable">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#post" data-toggle="tab">Post Specific</a></li>
-    <li><a href="#general" data-toggle="tab">General</a></li>
-    <li><a href="#advanced" data-toggle="tab">Marketing Page!</a></li>
+    <li class="active"><a href="#generalCodes" data-toggle="tab">General Codes</a></li>
+    <li><a href="#labelsAlerts" data-toggle="tab">Labels and Alerts</a></li>
+    <li><a href="#images" data-toggle="tab">Images</a></li>
+    <li><a href="#code" data-toggle="tab">Code</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active">
-	    <h1>Images</h1>
-	    <p>While also a general use, as this tag can be used on pages, page templates,
-	    custom post types and more, the images tag is a pretty clean and easy way
-	    to add images to your post of any size.</p>
-	    
-	    <p><input type="button" onClick="image()" value="Insert This Shortcode!" 
-	    	class='btn btn-large btn-success'/></p>
-	
-	    <pre>
-	    <code data-language="generic">
-	    [image width="" height="" caption=""]Image src[/image]
-	    </code>
-	    </pre>
-	    
-	    <div class="alert alert-info">As of the release of Aisis 1.2 You must enter your own caption
-	    which accptes html elements, for your image. We do not bring over WordPress image captions.
+    <div class="tab-pane active" id ="generalCodes">
+    	<input type="button" onClick="toc()" class="btn btn-success pull-right" value="Insert TOC"/>
+	    <h1>Table of Contents</h1>
+	    <div class="well">
+		    <p>The short code <code>[toc css_container="" css_prop=""]</code> takes in two very speciail arguments.
+		    One which will create the container for the table of contets, <code>css_container</code> and the other which will
+		    only create the table of contents based on the <code>H1-6</code> tags with in the css scope.</p>
+		    <p>Both of these css objects should be passed in with their prefix, that is <code>.className</code> or <code>#IdName</code></p>
+		    <div class="alert"><strong>ATTN!</strong> Is this the default Aisis Theme? Not a child theme? Please use <code>#toc</code> for the 
+		    <code>css_container</code> and <code>.post</code> for the <code>css_prop</code>.</div>
 	    </div>
-	    <hr>
-	    <h2>Image Rounded</h2>
-	    <p>This image will be a circle</p>
-	    
-	     <p><input type="button" onClick="image_circle()" value="Insert This Shortcode!" 
-	    	class='btn btn-large btn-success'/></p>
-	    	
-	   	<pre>
-	    <code data-language="generic">
-	    [image-circle width="" height=""Image src[/image-circle]
-	    </code>
-	    </pre>
-	    
-	    <div class="alert alert-info">This image does not support captions. This image will not be a circle in IE7 or 8.</div>
-	    <hr>
-	    <h2>Image Rounded Corner</h2>
-	    <p>We will round the corders of this image</p>
-	    
-	     <p><input type="button" onClick="image_rounded()" value="Insert This Shortcode!" 
-	    	class='btn btn-large btn-success'/></p>
-	    	
-	   	<pre>
-	    <code data-language="generic">
-	    [image-corner width="" height=""Image src[/image-corner]
-	    </code>
-	    </pre>
-	    
-	    <div class="alert alert-info">This image does not support captions. This image will not have rounded corners in IE7 or 8.</div>
-	    <hr>
-	    <h2>Image Polaroid</h2>
-	    <p>We will place a small amount of padding around said image to create a polaroid like affect.</p>
-	    
-	     <p><input type="button" onClick="image_polaroid()" value="Insert This Shortcode!" 
-	    	class='btn btn-large btn-success'/></p>
-	    	
-	   	<pre>
-	    <code data-language="generic">
-	    [image-polaroid width="" height=""Image src[/image-polaroid]
-	    </code>
-	    </pre>
-	    
-	    <div class="alert alert-info">This image does not support captions.</div>
-	    
-	    <hr>
-	    <h2>Table of Contents</h2>
-	    <p>Ever needed to insert a table of contents into your post? This short code below, <code>[toc]</code> will allow you to do
-	    just that. It will create the table of contents using <code>h1-h6</code> tags in your post.</p>
-	    
-	    <p>We accept two values, one is the container which the table of contents will appear in, <code>css_container=""</code> this takes in either
-	    a <code>.class</code> or a <code>#id</code>, we much prefer you use an id.</p>
-	    
-	    <p>The second option we allow is the section we should look in to create you table of contents. This is useually the id or class that surrounds your post.
-	    This is set up as such: <code>css_prop=""</code>, which takes in as </code>.class</code> or a <code>#id</code>. Again we prefer if you used a class here.</p>
-	    
-	    <div class="alert alert-info">For those using default or child themes of Aisis we use <code>#toc</code> as the container and <code>.post</code> as the
-	    property.</div>
-	    
-	   	<pre>
-	    <code data-language="generic">
-	    [toc css_container="" css_prop=""]
-	    </code>
-	    </pre>	
-	    
-	     <p><input type="button" onClick="toc()" value="Insert This Shortcode!" 
-	    	class='btn btn-large btn-success'/></p>   
-	    	
-	    <hr>
-	    <h2>Info and Update</h2>
-	    <p>These short codes help you give the user some guidance on the content they area reading and or processing. If you are giving code instructions
-	    or giving advice on a subject, <code>[info][/info]</code> can be used to summerize up content while <code>[update][/update]</code> can be used 
-	    to add updates to the post to state what has or has not changed.</p> 
-	    
-	    <p><input type="button" onClick="info()" value="Insert Info!" 
-	    	class='btn btn-large btn-success'/></p>
-	    	
-	    <p><input type="button" onClick="update()" value="Insert Update!" 
-	    	class='btn btn-large btn-success'/></p>   
+   	 	<pre class="prettyprint linenums">[toc css_container="#toc" css_prop=".post"]</pre>
+   	 	<hr>
+   	 	<input type="button" onClick="button()" class="btn btn-success pull-right" value="Insert Button"/>
+   	 	<h1>Buttons</h1>
+	    <div class="well">
+		    <p>We have incorpertated the <a href="http://twitter.github.com/bootstrap/base-css.html#buttons">Twitter Bootstrap</a> 
+		    button's into WordPress via a simple and easy to fill out short code. Aside from a link and a title, we acept the following
+		    custom options:</p>
+		    
+		    <h2>Colors</h2>
+		    
+		    <p>We will aloow you to enter in colors such as: <code>blue</code>, <code>red</code>, <code>yellow</code>, <code>light-blue</code>, <code>green</code></p>
+		    
+		    <p>These colors will then corespond to their counter parts and create the appropriate colored button.</p>
+		    
+		    <h2>Size</h2>
+		    
+		    <p>For sizes, we will take in: <code>large</code>, <code>normal</code>, <code>small</code>, <code>mini</code></p>
+		    
+		    <div class="alert"><strong>ATTN!</strong> The above options must be entered in as you see for the codes. 
+		    Failure to do so may resault in a broken looking button.</div>
+	    </div>
+   	 	<pre class="prettyprint linenums">[button size="normal" color="blue" link="http://google.ca" title="Take me to Google!"]</pre>
     </div>
-    <div id="general" class="tab-pane">
-    	<h1>Buttons</h1>
-    	<p>
-    	Buttons are used through out Aisis in the core theme and in the 
-    	Admin Panel. The way you can use buttons is through this very simple
-    	short code which will take a link and turn it into a button.
-    	</p>
-    	
-    	<p><input type="button" onClick="button()" value="Insert This Shortcode!" 
-    	class='btn btn-large btn-success'/></p>
-    	
-    	<p><h2>How To Use The Button:</h2></p>
-    	
-    	<pre>
-    	<code data-language="generic">
-    	[button size='' color='' link = 'link']Title[/button]
-    	</code>
-    	</pre>
-    	
-    	<p><h3>Allowed Options:</h3></p>
-    	
-    	<div class="alert alert-info"><strong>Please Note:</strong>
-    		We only support the bellow options as they are typed.
-    		if you pass nothing in, we will create a regular button
-    		with no styling applied to it.
+    <div id="labelsAlerts" class="tab-pane">
+    	<h1>Labels</h1>
+	    <div class="well">
+	    	<p>We alow you to put in various labels into your posts, which can help label new sections, inportant content or what ever you wish.</p>
+	    	<input type="button" onClick="label()" class="btn btn-success pull-right" value="Insert Label"/>
+	    	<span class="label pull-right marginRight15">Sample Label</span>
+	    	<h2>Regular Label</h2>
+	    	<p>This label allows for you to to add a regular label to any piece of content. Label titles should be short and concise.
+	    	for eaxampple: <code>[label title="short descriptive title"]</code>.</p>
+	    	<hr>
+	    	<input type="button" onClick="labelWarning()" class="btn btn-success pull-right" value="Insert Warning Label"/>
+	    	<span class="label label-warning pull-right marginRight15">Sample Label</span>
+	    	<h2>Warning Label</h2>
+	    	<p>Warning labels are used to indicate importance about a piece of content. They should be used to indicate that the user should pay attention
+	    	to the section they are readying.</p>
+	    	<hr>
+	    	<input type="button" onClick="labelError()" class="btn btn-success pull-right" value="Insert Error Label"/>
+	    	<span class="label label-important pull-right marginRight15">Sample Label</span>
+	    	<h2>Error Label Label</h2>
+	    	<p>Error Labels are much like warning labels, accept that warning labels can be used to direct users to pay attention where as these are to heed caution.
+	    	Error Llabels are not to be take lightly.</p>
+	    	<hr>
+	    	<input type="button" onClick="labelInfo()" class="btn btn-success pull-right" value="Insert Info Label"/>
+	    	<span class="label label-info pull-right marginRight15">Sample Label</span>
+	    	<h2>Info Label</h2>
+	    	<p>Information Labels are used to direct users towards useful tips, information and more about a subject or piece of content.</p>
+	    	<hr>
+	    	<input type="button" onClick="labelSuccess()" class="btn btn-success pull-right" value="Insert Success Label"/>
+	    	<span class="label label-success pull-right marginRight15">Sample Label</span>
+	    	<h2>Success Label</h2>
+	    	<p>These types of labels can be used to indicate success of some kind. They can demostrate positive messages about some piece of content or action.</p>
     	</div>
-    	
-    	<p><h3>For size:</h3></p>
-    	<p><a href="#" class="btn btn-large">large</a> 
-    	<a href="#" class="btn btn-small">small</a> 
-    	<a href="#" class="btn btn-mini">mini</a></p>
-    	
-    	<p><h3>For Colors</h3></p>
-    	
-    	<p><a href="#" class="btn btn-danger">red</a> 
-    	<a href="#" class="btn btn-success">green</a> 
-    	<a href="#" class="btn btn-primary">blue</a> 
-    	<a href="#" class="btn btn-info">light-blue</a> 
-    	<a href="#" class="btn btn-warning">yellow</a> 
-    	<a href="#" class="btn btn-inverse">black</a></p>   		
     	<hr>
-    	<p><h2>Code</h2></p>
-    	<p>There are tons of plugins and other addons for WordPress which allow for the addition of
-    	syntax highlighting with in posts. If you are some one who writes or displays snipits of code
-    	in your blog, you will really like this.</p>
-    	
-    	<p><input type="button" onClick="code()" value="Insert This Shortcode!" 
-    	class='btn btn-large btn-success'/></p>
-    	
-    	<pre>
-    	[code]public function test(){}[/code]
-    	</pre>
-    	<hr>
-    	<p><h2>Rows</h2></p>
-    	
-    	<p>Rows are a apart of the Twitter boot strap layout process. Below we provide two ways to add collumns of content, another way is to use css span classes
-    	such as span1-12 which.</p>
-    	
-    	<p>Lets start by adding in a row.</p>
-    	
-    	<p><input type="button" onClick="marketingRow()" value="Insert This Shortcode!" 
-    	class='btn btn-large btn-success'/></p>
-    	
-     	<pre>
-    	[row]Content will go here.[/row]
-    	</pre>  
-    	<hr>
-    	<p><h2>Collumn's (One and Two)</h2></p>	
-    	
-    	<p>Now that we have said row built, we need to put in the collumns. This is easy, and we can put our content in between these
-    	tags to then have the two collumn affect we are going for.</p>
-    	
-    	<p><input type="button" onClick="marketingCollumnOne()" value="Insert Collumn One" 
-    	class='btn btn-large btn-success'/></p>
-    	
-    	<p><input type="button" onClick="marketingCollumnTwo()" value="Insert Collumn Two" 
-    	class='btn btn-large btn-success'/></p>
-    	
-    	<pre>
-    	<code data-language="generic">
-    	[row]
-    	[collumnOne]
-    	Content
-    	[/collumnOne]
-    	[collumnTwo]
-    	Content
-    	[/collumnTwo]    	
-    	[/row]
-    	</code>
-    	</pre>  
-    	
-    	<div class="alert alert-info">You can use HTML tags inside of these short codes to further enhance the use of rows and collumns.</div>   	
-    	
+    	<h1>Alerts</h1>
+	    <div class="well">
+	    	<p>We alow you to put in various alerts into your posts, which can help alert users of information regarding specific pieces of content.</p>
+	    	<input type="button" onClick="info()" class="btn btn-success pull-right" value="Insert Alert"/>
+	    	<h2>Information</h2>
+	    	<p>These types of alerts are information only. That is the content inside should inform the user 
+	    	of some kind of update or extra informal piece of content regarding what they just read.</p>
+	    	<div class="alert alert-info">Sample Alert Info</div>
+	    	<hr>
+	    	<input type="button" onClick="warning()" class="btn btn-success pull-right" value="Insert Warning Alert"/>
+	    	<h2>Warning</h2>
+	    	<p>Warning Alerts help direct the user towards understanding the importance of the piece of content they just read.</p>
+	    	<div class="alert">Sample Alert Warning</div>
+	    	<hr>
+	    	<input type="button" onClick="error()" class="btn btn-success pull-right" value="Insert Error Alert"/>
+	    	<h2>Error</h2>
+	    	<p>Much like warning alerts, error alerts tell the user to pay heed to the content they read and proceede with what ever it is the content is
+	    	about, with extreme caution.</p>
+	    	<div class="alert alert-error">Sample Alert Error</div>
+	    	<hr>
+	    	<input type="button" onClick="note()" class="btn btn-success pull-right" value="Insert Info Alert"/>
+	    	<h2>Notes</h2>
+	    	<p>Provides additional, positive, information based on the content the user has just read.</p>
+	    	<div class="alert alert-success">Sample Alert Success</div>
+    	</div>    	   	
     </div>
-    <div id="advanced" class="tab-pane">
-    	<h1>Making a Marketing Page!</h1>
-    	<p>Creating a marketing page is easy, we will walk you through it. All you need is a blank page - we prefer if you din't title the page, but that's up to you.
-    	Marketing pages are best used to market a set of or a single product. what you will create will be a basic marketing page.</p>
-    	
-    	<h3>Jumbotron</h3>
-    	
-    	<p>The following short code <code>[jumbotron][/jumbotron]</code> will allow for you to start off with the basics. since most of
-    	the content is centered for you, you won't have to worry about any messy css to make sure everything lines up.</p>
-    	
-    	<p><input type="button" onClick="jumbotron()" value="Insert Jumbotron" 
-    	class='btn btn-large btn-success'/></p>
-    	<hr>
-    	<h3>Title and content lead</h3>
-    	
-    	<p>So the next step in making a marketing page is to add the title, which should be short and consise and is done with the title short codes 
-    	<code>[marketingTitle][/marketingTitle]</code> and then directly under that add in the marketing lead content: 
-    	<code>[marketingLead][/marketingLead]</code>. These will both go in between the jumbotron tags.</p>
-    	
-    	<p>The last thing to add after the content is a button, this button can be a download button or a tell me more button or what ever you wish. To do this we 
-    	simply add the following short code <code>[button size='' color='' link=''][/button]</code></p>
-    	
-    	<pre>
-    	// Example:
-    	[jumbotron]
-    	[marketingTitle]I am a Sample Title[/marketingTitle]
-    	[marketingLead]I describe in a sentance or two, my product or products.[/marketingLead]
-    	[button size='large' color='green' link='http://google.ca']Wan't to learn more?[/button]
-    	[/jumbotron]
-    	</pre>
-    	
-    	<p><input type="button" onClick="marketingTitle()" value="Insert Marketing Title" 
-    	class='btn btn-large btn-success'/></p>
-    	
-    	<p><input type="button" onClick="marketingLead()" value="Insert Marketing Description" 
-    	class='btn btn-large btn-success'/></p>
-    	<hr>
-    	<h3>Rows and Content</h3>
-    	
-    	<p>The next and final step is to add the row and the content, for this we suggest using the collumn short codes: <code>[collumnOne][/collumnOne]</code>
-    	and <code>[collumnTwo][/collumnTwo]</code></p>
-    	
-    	<p>These are then placed into the row short code <code>[row][/row]</code> which is all apart of <a href="#">Twitter Bootstrap's css framework</a>. All spans
-    	can be from 1-12 and should add up to 12 in a row. The row we use here is <code>.row-fluid</code> so that it scales with the rest
-    	of the site.</p>
-    	
-    	<p>Lets put it all to gether:</p>
-    	
-    	<pre>
-    	// Example:
-    	[jumbotron]
-    	[marketingTitle]I am a Sample Title[/marketingTitle]
-    	[marketingLead]I describe in a sentance or two, my product or products.[/marketingLead]
-    	[button size='large' color='green' link='http://google.ca']Wan't to learn more?[/button]
-    	[/jumbotron]
-    	
-    	[row]
-    	[collumnOne]
-    	Content for collumn one.
-    	[/collumnOne]
-    	[collumnTwo]
-    	Content for collumn one.
-    	[/collumnTwo]
-    	[/row]
-    	</pre>
-    	
-    	<p><input type="button" onClick="marketingRow()" value="Insert Row" 
-    	class='btn btn-large btn-success'/></p>
-    	
-    	<p><input type="button" onClick="marketingCollumnOne()" value="Insert Collumn One" 
-    	class='btn btn-large btn-success'/></p>
-    	
-    	<p><input type="button" onClick="marketingCollumnTwo()" value="Insert Collumn Two" 
-    	class='btn btn-large btn-success'/></p>
-    	
-    	<div class="alert alert-Info">
-    	It should be noted that collumn one and two use <code>.span6</code> which add's up to twelve.
+    <div id="images" class="tab-pane">
+    	<input type="button" onClick="imageCircle()" class="btn btn-success pull-right" value="Insert Image Circle"/>
+    	<h1>Image - Circle</h1>
+    	<div class="well">
+    		<p>Them image tag used here: <code>[image-circle width="" height="" align="" img_link=""]</code>
+    		will take the image you insert and create a circle (or as much of a circle as possible) based on the parameters you
+    		pass to it.</p>
+    		<div class="alert"><strong>ATTN!</strong> This will not work in older versions of IE.</div>
+    	</div> 
+    	<div class="example">
+    		<img src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/images/placeholder.jpg' ?>" class="img-circle"/>
     	</div>
-    	
+    	<hr>
+    	<input type="button" onClick="imageRounded()" class="btn btn-success pull-right" value="Insert Image Rounded"/>
+    	<h1>Image - Rounded</h1>
+    	<div class="well">
+    		<p>Them image tag used here: <code>[image-rounded width="" height="" align="" img_link=""]</code>
+    		will round the image's corners and present a slightly rounded image. THis is not as dramatic as the Image Circle tag.</p>
+    		<div class="alert"><strong>ATTN!</strong> This will not work in older versions of IE.</div>
+    	</div> 
+    	<div class="example">
+    		<img src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/images/placeholder.jpg' ?>" class="img-rounded"/>
+    	</div>
+    	<hr>
+    	<input type="button" onClick="ImagePolaroid()" class="btn btn-success pull-right" value="Insert Image Polaroid"/>
+    	<h1>Image - Polaroid</h1>
+    	<div class="well">
+    		<p>Them image tag used here: <code>[image-polaroid width="" height="" align="" img_link=""]</code> will help
+    		give the image the polaroid effect.</p>
+    	</div>   
+    	<div class="example">
+    		<img src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/lib/images/placeholder.jpg' ?>" class="img-polaroid"/>
+    	</div>    	  	    	   	
     </div>
+    <div id="code" class="tab-pane">
+    	<input type="button" onClick="code()" class="btn btn-success pull-right" value="Insert Code Tags"/>
+    	<h1>Code - Pre tags</h1>
+    	<div class="well">
+    		<p>The <code>[pre][/pre]</code> tags are meant to be used to house multiple lines of code when demonstrating the use of API's or other
+    		bits of code.</p>
+    	</div> 
+    	<hr>
+    	<input type="button" onClick="inlineCode()" class="btn btn-success pull-right" value="Insert Inline Code"/>
+    	<h1>Code - Inline Code</h1>
+    	<div class="well">
+    		<p>The <code>[code code=""]</code> tag is meant to demonstrate a small sample of code, much Like we have with this description.</p>
+    	</div>    	
+    </div>        
   </div>
 </div>
