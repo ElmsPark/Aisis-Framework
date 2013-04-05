@@ -96,6 +96,14 @@ h1 small{
 
 /* AISIS ADMIN PANEL
     -------------------------------------------------- */
+.popover-title .wp-menu-name{
+	margin-left:-30px;
+}
+
+.popover-content .wp-menu-name{
+	margin-rught:-999930px;
+}
+
 .modal{
 	height:500px !important;
 }
@@ -151,30 +159,6 @@ h1 small{
 	margin-right: 6px !important;
 	margin: -3px 10px 0 -3px !important;
 	color: rgb(0, 0, 0)!important;
-}
-
-.popover-title {
-  background-color: #F7F7F7;
-  border-bottom: 1px solid #EBEBEB;
-  border-radius: 5px 5px 0 0;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 18px;
-  margin: 0;
-  padding: 8px 14px;
-  text-align: center;
-}
-
-.popover bold{
-	font-weight: bold;
-}
-
-.blackTest{
-	color:#000;
-}
-
-#adminmenu h3.popover-title .wp-menu-name {
-  margin-top:3px !important;
 }
 
 #push,#footer {
