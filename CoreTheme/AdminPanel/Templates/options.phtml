@@ -1,3 +1,10 @@
+<script>
+if(window.chrome) {
+   $('input[type="radio"]').css('margin-top', '-5px');
+} else { 
+   // not chrome 
+}
+</script>
 <?php
 $posts = new CoreTheme_AdminPanel_Form_Posts();
 $custom = new CoreTheme_AdminPanel_Form_CustomPost();

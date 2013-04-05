@@ -41,13 +41,13 @@ class CoreTheme_Loader_Asset extends AisisCore_Loader_Asset {
 		
 		add_action ( 'wp_head', array ($this, 'apply_ie_tags' ) );
 		add_action ( 'wp_head', array ($this, 'apply_view_port_tag' ) );
+		add_action ('admin_init', array($this, 'load_thickbox_admin') );
 		
 		if (is_admin ()) {
 			// Check what pages were on so we only load on specific pages.
-			add_action ( 'admin_init', array ($this, 'load_admin_script' ) );
-			if ($http->check_get_for_page ( 'page', 'aisis-core-options' ) || $http->check_get_for_page('page', 'aisis-core-update')
-			){
-				add_action ( 'admin_enqueue_scripts', array ($this, 'aisis_register_admin_jquery' ) );
+			if ($http->check_get_for_page('page', 'aisis-core-options') || $http->check_get_for_page('page', 'aisis-core-update')){
+				add_action ('admin_init', array($this, 'load_admin_script') );
+				add_action ('admin_enqueue_scripts', array($this, 'aisis_register_admin_jquery'));
 			}
 		}
 		
@@ -124,6 +124,13 @@ class CoreTheme_Loader_Asset extends AisisCore_Loader_Asset {
 		wp_deregister_script( 'jquery' );
 		wp_register_script( 'jquery', 'http://code.jquery.com/jquery-1.8.1.min.js');
 		wp_enqueue_script( 'jquery', false, true );
+	}
+	
+	/**
+	 * Loads thickbox across the entire admin.
+	 */
+	public function load_thickbox_admin(){
+		wp_enqueue_style('thickbox');
 	}
 	
 	/**
