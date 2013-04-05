@@ -10,10 +10,10 @@ function aisis_image_circle($atts, $content = null){
 	extract (
 		shortcode_atts (
 			array (
-				'width' => 'width',
-				'height' => 'height',
-				'align' => 'align',
-				'image_link' => 'image_link'
+				'width' => '300',
+				'height' => '300',
+				'align' => 'center',
+				'image_link' => ''
 			),
 			$atts
 		)
@@ -32,10 +32,10 @@ function aisis_image_rounded($atts, $content = null){
 	extract (
 		shortcode_atts (
 			array (
-				'width' => 'width',
-				'height' => 'height',
-				'align' => 'align',
-				'image_link' => 'image_link'
+				'width' => '300',
+				'height' => '300',
+				'align' => 'center',
+				'image_link' => ''
 			),
 			$atts
 		)
@@ -54,10 +54,10 @@ function aisis_image_polaroid($atts, $content = null){
 	extract (
 		shortcode_atts (
 			array (
-				'width' => 'width',
-				'height' => 'height',
-				'align' => 'align',
-				'image_link' => 'image_link'
+				'width' => '300',
+				'height' => '300',
+				'align' => 'center',
+				'image_link' => ''
 			),
 			$atts
 		)

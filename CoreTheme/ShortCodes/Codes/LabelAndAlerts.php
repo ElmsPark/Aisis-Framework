@@ -49,7 +49,7 @@ function aisis_label($atts, $content = null){
 	extract (
 		shortcode_atts (
 			array (
-				'label' => 'label',
+				'label' => '',
 			),
 			$atts
 		)
@@ -67,7 +67,7 @@ function aisis_label_info($atts, $content = null){
 	extract (
 		shortcode_atts (
 			array (
-				'label' => 'label',
+				'label' => '',
 			),
 			$atts
 		)
@@ -85,7 +85,7 @@ function aisis_label_warning($atts, $content = null){
 	extract (
 		shortcode_atts (
 			array (
-				'label' => 'label',
+				'label' => '',
 			),
 			$atts
 		)
@@ -103,7 +103,7 @@ function aisis_label_error($atts, $content = null){
 	extract (
 		shortcode_atts (
 			array (
-				'label' => 'label',
+				'label' => '',
 			),
 			$atts
 		)
@@ -121,7 +121,7 @@ function aisis_label_success($atts, $content = null){
 	extract (
 		shortcode_atts (
 			array (
-				'label' => 'label',
+				'label' => '',
 			),
 			$atts
 		)

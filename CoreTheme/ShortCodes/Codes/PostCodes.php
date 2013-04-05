@@ -10,8 +10,8 @@ function aisis_toc($atts, $content = null){
 	extract(
 		shortcode_atts(
 			array(
-			'css_prop' => 'css_prop',
-			'css_container' => 'css_container'
+			'css_prop' => '#toc',
+			'css_container' => '.post'
 			),
 			$atts
 		)
@@ -54,10 +54,11 @@ function aisis_button($atts, $content = null) {
 	extract (
 		shortcode_atts (
 			array (
-				'link' => 'link',
-				'size' => 'size',
-				'color' => 'color',
-				'title'=>'title'
+				'link' => 'http://google.ca',
+				'size' => 'normal',
+				'color' => 'blue',
+				'title'=>'Sample',
+				'font_icon'=>''
 			),
 			$atts
 		)
@@ -85,7 +86,11 @@ function aisis_button($atts, $content = null) {
 		$color_of_button = 'btn-info';
 	}
 
-	return '<a href="' .$link. '" class="btn '.$size_of_button . ' ' .$color_of_button.'">'.$title.'</a>';
+	if($font_icon != ''){
+		return '<a href="' .$link. '" class="btn '.$size_of_button . ' ' .$color_of_button.'"> <i class="'.$font_icon.'"></i> '.$title.'</a>';
+	}else{
+		return '<a href="' .$link. '" class="btn '.$size_of_button . ' ' .$color_of_button.'">'.$title.'</a>';
+	}
 }
 
 // Add the code.
