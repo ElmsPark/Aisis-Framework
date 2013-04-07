@@ -27,7 +27,7 @@ input{
     -------------------------------------------------- */
 
 .popover .arrow{
-	left: 24px !important;
+	/*left: 24px !important; - uncomment in 3.6 Wordpress*/
 }
 
 .arrow:after {
