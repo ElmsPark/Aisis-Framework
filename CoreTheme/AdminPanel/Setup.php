@@ -42,6 +42,7 @@ new CoreTheme_Loader_Asset($scripts_to_load);
 // Load Bootstrap on only one page.
 function register_bootstrap(){
 	wp_enqueue_style ('bootstrap-specific-styles', get_template_directory_uri() . '/CoreTheme/AdminPanel/assets/Bootstrap-admin-specific-styles.css');
+	wp_enqueue_style('thickbox');
 }
 
 // Load across the entire Admin
