@@ -26,6 +26,24 @@ input{
 /* OTHER
     -------------------------------------------------- */
 
+.popover .arrow{
+	left: 24px !important;
+}
+
+.arrow:after {
+	top: -10px !important;
+	background-color: rgba(255, 255, 255, 0) !important;
+	-webkit-transform: none !important;
+	-moz-transform: none !important;
+	-ms-transform: none !important;
+	-o-transform: none !important;
+	tranform: none !important;
+}
+
+.arrow{
+	overflow:visible
+}
+
 h1 small{
 	color: #FFFFFF;
 }

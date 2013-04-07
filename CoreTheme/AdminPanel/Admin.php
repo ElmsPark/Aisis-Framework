@@ -57,7 +57,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 			array(
 				$this, 
 				'build_template'),  
-				get_template_directory_uri() . '/lib/images/addition.png', 
+				get_template_directory_uri() . '/assets/images/addition.png', 
 				31
 			);
 

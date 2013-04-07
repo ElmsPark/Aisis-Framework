@@ -95,7 +95,7 @@ $options = array(
 
 
 // initialize the loop object
-$loop = new CoreTheme_Templates_View_Helpers_CustomLoop($options);
+$loop = new CoreTheme_Template_Helpers_CustomLoop($options);
 
 // Set the sidebar
 if(!is_home()){
@@ -131,7 +131,7 @@ if(is_active_sidebar('aisis-side-bar') && !is_home()){
 }
 
 // Call appropriate headers for category, tag and author archives.
-new CoreTheme_Templates_View_Helpers_Header();
+new CoreTheme_Template_Helpers_Header();
 
 // Call the custom loop
 $loop->custom_loop();

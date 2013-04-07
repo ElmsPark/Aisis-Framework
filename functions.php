@@ -13,8 +13,8 @@ if(!defined('CORETHEME_LOADER')){
 	define('CORETHEME_LOADER', get_template_directory() . '/CoreTheme/Loader/');
 }
 
-if(!defined('CORETHEME_TEMPLATES_VIEW')){
-	define('CORETHEME_TEMPLATES_VIEW', get_template_directory() . '/CoreTheme/Templates/View/');
+if(!defined('CORETHEME_TEMPLATE_VIEW')){
+	define('CORETHEME_TEMPLATE_VIEW', get_template_directory() . '/CoreTheme/Template/View/');
 }
 
 if(!defined('CORETHEME_META_TEMPLATES')){
@@ -25,8 +25,8 @@ if(!defined('CORETHEME_ADMIN')){
 	define('CORETHEME_ADMIN', get_template_directory() . '/CoreTheme/AdminPanel/');
 }
 
-if(!defined('CORETHEME_ADMIN_TEMPLATES')){
-	define('CORETHEME_ADMIN_TEMPLATES', get_template_directory() . '/CoreTheme/AdminPanel/Templates/');
+if(!defined('CORETHEME_ADMIN_TEMPLATE')){
+	define('CORETHEME_ADMIN_TEMPLATE', get_template_directory() . '/CoreTheme/AdminPanel/Template/View/');
 }
 
 if(!defined('CORETHEME_SHORTCODES')){

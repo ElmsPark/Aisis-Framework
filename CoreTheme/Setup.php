@@ -5,10 +5,6 @@ require_once(get_template_directory() . '/AisisCore/Loader/AutoLoader.php');
 // Setup the autoloader.
 $auto_loader = AisisCore_Loader_AutoLoader::get_instance();
 $auto_loader->register_auto_loader();
-//var_dump(AisisCore_Loader_AutoLoader::$_directories); exit;
-
-
-require_once(CORETHEME . 'Hooks.php');
 
 // Set up the exception handler.
 new CoreTheme_Exceptions_ExceptionHandler();
@@ -22,43 +18,44 @@ $scripts_to_load  = array(
         ),
         array(
             'name'=>'media-query-css',
-            'path'=>get_template_directory_uri() . '/lib/mediaquery.css'
+            'path'=>get_template_directory_uri() . '/assets/mediaquery.css'
         ),        
         array(
             'name'=>'bootstrap-css',
-            'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css'
+            'path'=>get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css'
         ),
         array(
             'name'=>'bootstrap-responsive-css',
-            'path'=>get_template_directory_uri() . '/lib/bootstrap/css/bootstrap-responsive.min.css'
+            'path'=>get_template_directory_uri() . '/assets/bootstrap/css/bootstrap-responsive.min.css'
         ),
         array(
             'name'=>'font-awesome',
-            'path'=>get_template_directory_uri() . '/lib/FontAwesome/css/font-awesome.min.css'
+            'path'=>get_template_directory_uri() . '/assets/FontAwesome/css/font-awesome.min.css'
         ),	
     	array(
     		'name' => 'prettyfy-css',
     		'path' => 'http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css'
     	),
     ),
-   'js_jquery' => array(
+   'js' => array(
    		array(
         	'name'=>'twbs-js-min',
-            'path'=>get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js'
+            'path'=>get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js'
         ),
         array(
         	'name' => 'toc',
-        	'path' => get_template_directory_uri() . '/lib/jquery.tableofcontents.min.js',
+        	'path' => get_template_directory_uri() . '/assets/jquery.tableofcontents.min.js',
         ), 
         array(
         	'name' => 'prettyfy-js',
         	'path' => 'http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js'
         ),            
-     ), 	  
+     ),
+	'front_jquery_version' => '1.9.1',	  
 );
 
 // Load the scripts
-$load_scripts = new CoreTheme_Loader_Asset($scripts_to_load);
+new CoreTheme_Loader_Asset($scripts_to_load);
 
 // Set up theme support.
 $theme_setup = array(
@@ -133,9 +130,9 @@ function dependencies(){
 				array(
 					'admin_options' => 'aisis_options',
 					'template_view_path' => array(
-						'general' => CORETHEME_TEMPLATES_VIEW,
+						'general' => CORETHEME_TEMPLATE_VIEW,
 						'meta' => CORETHEME_META_TEMPLATES,
-						'admin' => CORETHEME_ADMIN_TEMPLATES,
+						'admin' => CORETHEME_ADMIN_TEMPLATE,
 					),
 				),
 			),

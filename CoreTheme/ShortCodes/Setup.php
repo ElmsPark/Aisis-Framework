@@ -51,7 +51,7 @@ function parse_aisis_request($wp){
 }
 	
 function aisis_require_code_display_page(){
-	require_once(CORETHEME_SHORTCODES . 'DisplayCodes.phtml');
+	require_once(CORETHEME_SHORTCODES . 'Template/View/DisplayCodes.phtml');
 }
 
 // Create a media button for pages
@@ -79,7 +79,7 @@ function parse_aisis_page_request($wp){
 }
 
 function aisis_require_page_code_display_page(){
-	require_once(CORETHEME_SHORTCODES . 'PageCodes.phtml');
+	require_once(CORETHEME_SHORTCODES . 'Template/View/PageCodes.phtml');
 }
 
 // Remove and add apparopriate filters.
