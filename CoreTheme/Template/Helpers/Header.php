@@ -63,7 +63,7 @@ class CoreTheme_Template_Helpers_Header{
 			}
 			
 			if($this->_builder->get_specific_option('category_tags')){
-				$util = new CoreTheme_Template_View_Helpers_ThemeUtil();
+				$util = new CoreTheme_Template_Helpers_ThemeUtil();
 				$this->_html .= '<p>' .$util->category_tags(). '</p>';
 			}
 			
