@@ -62,7 +62,6 @@ class CoreTheme_AdminPanel_Template_Form_Other{
 	protected function _text_area(){
 		$text_area = array(
 				'name' => 'aisis_options[footer_text]',
-				'class' => 'input-xlarge',
 				'rows' => 20,
 				'cols' => 30,
 				'content' => $this->_helper->get_option('aisis_options', 'footer_text'),

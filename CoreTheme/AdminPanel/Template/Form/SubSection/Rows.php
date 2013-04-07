@@ -138,7 +138,7 @@ class CoreTheme_AdminPanel_Template_Form_SubSection_Rows{
 		$input = array(
 			'name' => 'aisis_options[lists_more_posts_rows]',
 			'id' => 'more_content',
-			'class' => 'input-xlarge '. $this->_helper->add_css_class_input('marginLeft20'),
+			'class' => 'input-xlarge',
 			'value' => $this->_helper->get_option('aisis_options', 'lists_more_posts_rows'),
 			'placeholder' => 'Link to the page',
 			'label' => array(

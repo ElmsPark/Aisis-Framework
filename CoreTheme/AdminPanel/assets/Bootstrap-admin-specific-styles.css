@@ -71,3 +71,20 @@
 .alert-block p + p {
   margin-top: 5px;
 }
+
+.input-xlarge {
+  width: 270px;
+}
+
+input:focus:invalid{
+  color: #b94a48;
+  border-color: #ee5f5b;
+}
+
+.marginLeft10{
+	margin-left:10px;
+}
+
+.marginLeft3{
+	margin-left:3px;
+}

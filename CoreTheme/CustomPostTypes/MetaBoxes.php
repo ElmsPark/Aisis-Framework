@@ -22,9 +22,20 @@ class CoreTheme_CustomPostTypes_MetaBoxes {
 		}
 		
 		add_action ( 'add_meta_boxes', array (&$this, 'aisis_add_meta_boxes' ) );
-		add_action ( 'save_post', array (&$this, 'aisis_mini_feeds_save' ), 10, 2 );
-		add_action ( 'save_post', array (&$this, 'aisis_carousel_save' ), 10, 2 );
+		add_action ( 'save_post', array (&$this, 'aisis_mini_feeds_save' ), 999, 2 );
+		add_action ( 'save_post', array (&$this, 'aisis_carousel_save' ), 999, 2 );
+		add_filter('wpseo_metabox_prio', array($this, 'move_yoast_seo'));		
 	}
+	
+	/**
+	 * Sets the yoast priority to low.
+	 * 
+	 * @param Wordpress $priority
+	 * @return string low
+	 */
+	public function move_yoast_seo( $priority ) {
+		return 'low';
+	}	
 
 	/**
 	 * Adds the meta boxes to the custom post types.

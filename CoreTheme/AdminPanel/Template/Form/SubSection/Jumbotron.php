@@ -78,7 +78,7 @@ class CoreTheme_AdminPanel_Template_Form_SubSection_Jumbotron{
 	protected function _title_field(){
 		$text = array(
 			'name' => 'aisis_options[jumbo_title]',
-			'class' => 'input-xlarge '. $this->_helper->add_css_class_input('marginLeft20'),
+			'class' => 'input-xlarge',
 			'placeholder' => 'Title for Jumbotron',
 			'value' => $this->_helper->get_option('aisis_options', 'jumbo_title'),
 			'label' => array(
@@ -118,7 +118,7 @@ class CoreTheme_AdminPanel_Template_Form_SubSection_Jumbotron{
 	protected function _image_upload(){
 		$url = array(
 			'name' => 'aisis_options[jumbo_image]',
-			'class' => 'input-xlarge marginLeft20',
+			'class' => 'input-xlarge',
 			'id' => 'jumboImage',
 			'placeholder' => 'Image for Jumbotron',
 			'value' => $this->_helper->get_option('aisis_options', 'jumbo_image'),
@@ -160,7 +160,7 @@ class CoreTheme_AdminPanel_Template_Form_SubSection_Jumbotron{
 	protected function _jumbo_link(){
 		$url = array(
 			'name' => 'aisis_options[jumbo_link]',
-			'class' => 'input-xlarge marginLeft20',
+			'class' => 'input-xlarge',
 			'id' => 'jumboImage',
 			'placeholder' => 'link for button',
 			'value' => $this->_helper->get_option('aisis_options', 'jumbo_link'),
