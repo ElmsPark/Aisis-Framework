@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \CoreTheme_Templates_View_Form_NavSearch</title>
+<title>phpDocumentor » \CoreTheme_AdminPanel_Template_Form_Reset</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">242</span></a></li>
+                <span class="label label-info">235</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -67,13 +67,17 @@
 <li class="method public inherited"><a href="#method_aisis_sesttings_fields" title="aisis_sesttings_fields :: This function is identicle to the settings_fields in WordPress."><span class="description">This function is identicle to the settings_fields in WordPress.</span><pre>aisis_sesttings_fields()</pre></a></li>
 <li class="method public inherited"><a href="#method_close_form" title="close_form :: This will close the form."><span class="description">This will close the form.</span><pre>close_form()</pre></a></li>
 <li class="method public inherited"><a href="#method_create_form" title="create_form :: This will create the form based on options that you pass in."><span class="description">This will create the form based on options that you pass in.</span><pre>create_form()</pre></a></li>
-<li class="method public inherited"><a href="#method_elements" title="elements :: This will display a series of elements that belong to the form."><span class="description">This will display a series of elements that belong to the form.</span><pre>elements()</pre></a></li>
+<li class="method public inherited"><a href="#method_elements" title="elements :: We essentially style the elements of forms with twitter bootstrap."><span class="description">We essentially style the elements of forms with twitter bootstrap.</span><pre>elements()</pre></a></li>
 <li class="method public inherited"><a href="#method_get_action" title="get_action :: Returns the action or returns null."><span class="description">Returns the action or returns null.</span><pre>get_action()</pre></a></li>
 <li class="method public inherited"><a href="#method_get_method" title="get_method :: Returns the method or returns null."><span class="description">Returns the method or returns null.</span><pre>get_method()</pre></a></li>
-<li class="method public "><a href="#method_init" title="init :: Create the form with the elements."><span class="description">Create the form with the elements.</span><pre>init()</pre></a></li>
-<li class="method public "><a href="#method_input_element" title="input_element :: Create an input element."><span class="description">Create an input element.</span><pre>input_element()</pre></a></li>
+<li class="method public "><a href="#method_init" title="init :: When extending this class, this is where you create and array of elements
+and then call that array into the create_form() along with any other options."><span class="description">When extending this class, this is where you create and array of elements
+and then call that array into the create_form() along with any other options.</span><pre>init()</pre></a></li>
 <li class="method public inherited"><a href="#method_open_form" title="open_form :: Simply opens the form."><span class="description">Simply opens the form.</span><pre>open_form()</pre></a></li>
 </ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul><li class="method protected "><a href="#method__reset_button" title="_reset_button :: Creates a reset button"><span class="description">Creates a reset button</span><pre>_reset_button()</pre></a></li></ul>
 </li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties
@@ -88,17 +92,17 @@
 </ul>
 </div>
 <div class="span8">
-<a id="\CoreTheme_Templates_View_Form_NavSearch"></a><ul class="breadcrumb">
+<a id="\CoreTheme_AdminPanel_Template_Form_Reset"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/global.html">global</a></li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/CoreTheme_Templates_View_Form_NavSearch.html">CoreTheme_Templates_View_Form_NavSearch</a>
+<span class="divider">\</span><a href="../classes/CoreTheme_AdminPanel_Template_Form_Reset.html">CoreTheme_AdminPanel_Template_Form_Reset</a>
 </li>
 </ul>
 <div class="element class">
-<p class="short_description">Create the search form for the navigation.</p>
+<p class="short_description">Deals with resetting the form options.</p>
 <div class="details">
 <div class="long_description"><p>This class is to be extended by any class that creates a form.
 that class is then called into the template where you want that form to
@@ -124,11 +128,15 @@ bellow all elements.</p></div>
 <table class="table table-bordered">
 <tr>
 <th>see</th>
-<td><a href="">\global\AisisCore_Form_Form</a></td>
+<td><a href="">\global\AisisCore_Template_Builder</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="">\global\CoreTheme_Template_Form_Template_Form</a></td>
 </tr>
 <tr>
 <th>package</th>
-<td><a href="../packages/CoreTheme.Templates.View.Form.html">CoreTheme_Templates_View_Form</a></td>
+<td><a href="../packages/CoreTheme.AdminPanel.Template.Form.html">CoreTheme_AdminPanel_Template_Form</a></td>
 </tr>
 </table>
 <h3>
@@ -139,10 +147,16 @@ bellow all elements.</p></div>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::__construct()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::__construct()</td>
+</tr>
+</table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$options</h4>
@@ -156,10 +170,16 @@ bellow all elements.</p></div>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::__toString()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::__toString()</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response"><code>\html</code></div>
 </div></div>
@@ -179,6 +199,10 @@ bellow all elements.</p></div>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::_close_sub_section()</td>
 </tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::_close_sub_section()</td>
+</tr>
 </table>
 </div></div>
 </div>
@@ -196,6 +220,10 @@ bellow all elements.</p></div>
 <tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::_construct()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::_construct()</td>
 </tr>
 </table>
 </div></div>
@@ -215,6 +243,10 @@ both if both are set.</p></div>
 <tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::_open_sub_section()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::_open_sub_section()</td>
 </tr>
 </table>
 <h3>Parameters</h3>
@@ -238,6 +270,10 @@ both if both are set.</p></div>
 <tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::_sub_section_elements()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::_sub_section_elements()</td>
 </tr>
 </table>
 <h3>Parameters</h3>
@@ -264,6 +300,10 @@ then print them out inside the form tags.</p></div>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::aisis_sesttings_fields()</td>
 </tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::aisis_sesttings_fields()</td>
+</tr>
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$setting</h4></div>
@@ -275,10 +315,16 @@ then print them out inside the form tags.</p></div>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::close_form()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::close_form()</td>
+</tr>
+</table>
 </div></div>
 </div>
 <a id="method_create_form"></a><div class="element clickable method public method_create_form" data-toggle="collapse" data-target=".method_create_form .collapse">
@@ -299,6 +345,10 @@ we are dealing with an admin panel, the settings for that form.</p>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::create_form()</td>
 </tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::create_form()</td>
+</tr>
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
@@ -316,18 +366,28 @@ we are dealing with an admin panel, the settings for that form.</p>
 </div></div>
 </div>
 <a id="method_elements"></a><div class="element clickable method public method_elements" data-toggle="collapse" data-target=".method_elements .collapse">
-<h2>This will display a series of elements that belong to the form.</h2>
-<pre>elements($elements, $sub_section) </pre>
+<h2>We essentially style the elements of forms with twitter bootstrap.</h2>
+<pre>elements($elements, $sub_section, $return) : \sting</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>This includes the sub_section of the form.</p></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="AisisCore.Form.Form.html#%5CAisisCore_Form_Form::elements()">\AisisCore_Form_Form::elements()</a></td>
+</tr>
+<tr>
 <th>inherited_from</th>
-<td>\AisisCore_Form_Form::elements()</td>
-</tr></table>
+<td>\CoreTheme_Form_Form::elements()</td>
+</tr>
+</table>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$elements</h4></div>
 <div class="subelement argument"><h4>$sub_section</h4></div>
+<div class="subelement argument"><h4>$return</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\sting</code>$_html</div>
 </div></div>
 </div>
 <a id="method_get_action"></a><div class="element clickable method public method_get_action" data-toggle="collapse" data-target=".method_get_action .collapse">
@@ -336,10 +396,16 @@ we are dealing with an admin panel, the settings for that form.</p>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::get_action()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::get_action()</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>\the</code>action or null.</div>
@@ -351,36 +417,32 @@ we are dealing with an admin panel, the settings for that form.</p>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::get_method()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::get_method()</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>\the</code>method value or null.</div>
 </div></div>
 </div>
 <a id="method_init"></a><div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
-<h2>Create the form with the elements.</h2>
+<h2>When extending this class, this is where you create and array of elements
+and then call that array into the create_form() along with any other options.</h2>
 <pre>init() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>see</th>
-<td><a href="AisisCore.Form.Form.html#%5CAisisCore_Form_Form::init()">\AisisCore_Form_Form::init()</a></td>
+<td><a href="">\AisisCore_Template_Form_Template_Form::init()</a></td>
 </tr></table>
-</div></div>
-</div>
-<a id="method_input_element"></a><div class="element clickable method public method_input_element" data-toggle="collapse" data-target=".method_input_element .collapse">
-<h2>Create an input element.</h2>
-<pre>input_element() : <a href="../classes/CoreTheme_Form_Elements_Input.html">\CoreTheme_Form_Elements_Input</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/CoreTheme_Form_Elements_Input.html">\CoreTheme_Form_Elements_Input</a></code>$input</div>
 </div></div>
 </div>
 <a id="method_open_form"></a><div class="element clickable method public method_open_form" data-toggle="collapse" data-target=".method_open_form .collapse">
@@ -390,12 +452,29 @@ we are dealing with an admin panel, the settings for that form.</p>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>Based on the options you pass into the constructor of
 this class, we will open the form tag with those options.</p></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::open_form()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::open_form()</td>
+</tr>
+</table>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$return</h4></div>
+</div></div>
+</div>
+<a id="method__reset_button"></a><div class="element clickable method protected method__reset_button" data-toggle="collapse" data-target=".method__reset_button .collapse">
+<h2>Creates a reset button</h2>
+<pre>_reset_button() : <a href="../classes/CoreTheme_Form_Elements_Submit.html">\CoreTheme_Form_Elements_Submit</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/CoreTheme_Form_Elements_Submit.html">\CoreTheme_Form_Elements_Submit</a></code>$button</div>
 </div></div>
 </div>
 <h3>
@@ -406,10 +485,16 @@ this class, we will open the form tag with those options.</p></div>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::$$_html</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::$$_html</td>
+</tr>
+</table>
 </div></div>
 </div>
 <a id="property__options"> </a><div class="element clickable property protected property__options" data-toggle="collapse" data-target=".property__options .collapse">
@@ -418,10 +503,16 @@ this class, we will open the form tag with those options.</p></div>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\AisisCore_Form_Form::$$_options</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\CoreTheme_Form_Form::$$_options</td>
+</tr>
+</table>
 </div></div>
 </div>
 </div>
@@ -431,7 +522,7 @@ this class, we will open the form tag with those options.</p></div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-04-04T16:15:55-06:00.<br></footer></div>
+            generated on 2013-04-06T18:41:00-06:00.<br></footer></div>
 </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \CoreTheme_AdminPanel_Form_SubSection_Carousel</title>
+<title>phpDocumentor » \CoreTheme_Template_Helpers_Header</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">242</span></a></li>
+                <span class="label label-info">235</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -57,112 +57,109 @@
 <ul class="side-nav nav nav-list">
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods
-                    <ul><li class="method public "><a href="#method_carousel_subsection_content" title="carousel_subsection_content :: Set up the subsection."><span class="description">Set up the subsection.</span><pre>carousel_subsection_content()</pre></a></li></ul>
+                    <ul>
+<li class="method public "><a href="#method___construct" title='__construct :: All you have to do is call this class as a "new CoreTheme_Template_View_Helpers_Header()" nd we do the rest for you.'><span class="description">All you have to do is call this class as a "new CoreTheme_Template_View_Helpers_Header()" nd we do the rest for you.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_build_author_function" title="build_author_function :: Build the author header."><span class="description">Build the author header.</span><pre>build_author_function()</pre></a></li>
+<li class="method public "><a href="#method_build_category_function" title="build_category_function :: Build the category header."><span class="description">Build the category header.</span><pre>build_category_function()</pre></a></li>
+<li class="method public "><a href="#method_build_tag_function" title="build_tag_function :: Build the tag header."><span class="description">Build the tag header.</span><pre>build_tag_function()</pre></a></li>
+<li class="method public "><a href="#method_init" title="init :: When extending this class make sure to over ride this function
+with all your constuctor logic."><span class="description">When extending this class make sure to over ride this function
+with all your constuctor logic.</span><pre>init()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
 </li>
 <li class="nav-header protected">» Protected
                     <ul>
-<li class="method protected "><a href="#method__add_jumbo_tron" title="_add_jumbo_tron :: Set up the jumbottron option."><span class="description">Set up the jumbottron option.</span><pre>_add_jumbo_tron()</pre></a></li>
-<li class="method protected "><a href="#method__add_social_bar" title="_add_social_bar :: Set up the social bar option."><span class="description">Set up the social bar option.</span><pre>_add_social_bar()</pre></a></li>
-<li class="method protected "><a href="#method__carousel_subsection" title="_carousel_subsection :: Set up the carousel content header."><span class="description">Set up the carousel content header.</span><pre>_carousel_subsection()</pre></a></li>
-<li class="method protected "><a href="#method__enabled" title="_enabled :: Check if the option is enabled based on the options passed in."><span class="description">Check if the option is enabled based on the options passed in.</span><pre>_enabled()</pre></a></li>
+<li class="property protected "><a href="#property__builder" title="$_builder :: "><span class="description"></span><pre>$_builder</pre></a></li>
+<li class="property protected "><a href="#property__html" title="$_html :: "><span class="description"></span><pre>$_html</pre></a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a id="\CoreTheme_AdminPanel_Form_SubSection_Carousel"></a><ul class="breadcrumb">
+<a id="\CoreTheme_Template_Helpers_Header"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/global.html">global</a></li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/CoreTheme_AdminPanel_Form_SubSection_Carousel.html">CoreTheme_AdminPanel_Form_SubSection_Carousel</a>
+<span class="divider">\</span><a href="../classes/CoreTheme_Template_Helpers_Header.html">CoreTheme_Template_Helpers_Header</a>
 </li>
 </ul>
 <div class="element class">
-<p class="short_description">This class is responsible for creating a sub section called Carousel</p>
+<p class="short_description">This class will build the "header" that sits at the top of category, author and tag
+related archives.</p>
 <div class="details">
-<div class="long_description"><p>This sub section contains elements and options relating to the carousel.this then allows you to decide if you want to display a
-Jumbotron and/or the socialbar.</p></div>
-<table class="table table-bordered">
-<tr>
-<th>see</th>
-<td><a href="">\global\AisisCore_Form_SubSection</a></td>
-</tr>
-<tr>
-<th>see</th>
-<td><a href="">\global\CoreTheme_AdminPanel_Form_SubSection_Jumbotron</a></td>
-</tr>
-<tr>
+<div class="long_description"><p>The well box that is created by selecting various options for the tags, category and author "headers"
+are then demonstrated and built bellow.</p></div>
+<table class="table table-bordered"><tr>
 <th>package</th>
-<td><a href="../packages/CoreTheme.AdminPanel.Form.SubSection.html">CoreTheme_AdminPanel_Form_SubSection</a></td>
-</tr>
-</table>
+<td><a href="../packages/CoreTheme.Template.Helpers.html">CoreTheme_Template_Helpers</a></td>
+</tr></table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_carousel_subsection_content"></a><div class="element clickable method public method_carousel_subsection_content" data-toggle="collapse" data-target=".method_carousel_subsection_content .collapse">
-<h2>Set up the subsection.</h2>
-<pre>carousel_subsection_content() : array</pre>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>All you have to do is call this class as a "new CoreTheme_Template_View_Helpers_Header()" nd we do the rest for you.</h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>We will build headrs for the author, tag and category section.</p></div></div></div>
+</div>
+<a id="method_build_author_function"></a><div class="element clickable method public method_build_author_function" data-toggle="collapse" data-target=".method_build_author_function .collapse">
+<h2>Build the author header.</h2>
+<pre>build_author_function() : \mixd</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>array</code>$section</div>
+<code>\mixd</code>$_html.</div>
 </div></div>
 </div>
-<a id="method__add_jumbo_tron"></a><div class="element clickable method protected method__add_jumbo_tron" data-toggle="collapse" data-target=".method__add_jumbo_tron .collapse">
-<h2>Set up the jumbottron option.</h2>
-<pre>_add_jumbo_tron() : <a href="../classes/CoreTheme_Form_Elements_Checkbox.html">\CoreTheme_Form_Elements_Checkbox</a></pre>
+<a id="method_build_category_function"></a><div class="element clickable method public method_build_category_function" data-toggle="collapse" data-target=".method_build_category_function .collapse">
+<h2>Build the category header.</h2>
+<pre>build_category_function() : \mixd</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code><a href="../classes/CoreTheme_Form_Elements_Checkbox.html">\CoreTheme_Form_Elements_Checkbox</a></code>$check_box</div>
+<code>\mixd</code>$_html.</div>
 </div></div>
 </div>
-<a id="method__add_social_bar"></a><div class="element clickable method protected method__add_social_bar" data-toggle="collapse" data-target=".method__add_social_bar .collapse">
-<h2>Set up the social bar option.</h2>
-<pre>_add_social_bar() : <a href="../classes/CoreTheme_Form_Elements_Checkbox.html">\CoreTheme_Form_Elements_Checkbox</a></pre>
+<a id="method_build_tag_function"></a><div class="element clickable method public method_build_tag_function" data-toggle="collapse" data-target=".method_build_tag_function .collapse">
+<h2>Build the tag header.</h2>
+<pre>build_tag_function() : \mixd</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code><a href="../classes/CoreTheme_Form_Elements_Checkbox.html">\CoreTheme_Form_Elements_Checkbox</a></code>$check_box</div>
+<code>\mixd</code>$_html.</div>
 </div></div>
 </div>
-<a id="method__carousel_subsection"></a><div class="element clickable method protected method__carousel_subsection" data-toggle="collapse" data-target=".method__carousel_subsection .collapse">
-<h2>Set up the carousel content header.</h2>
-<pre>_carousel_subsection() : <a href="../classes/AisisCore_Form_Elements_Content.html">\AisisCore_Form_Elements_Content</a></pre>
+<a id="method_init"></a><div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
+<h2>When extending this class make sure to over ride this function
+with all your constuctor logic.</h2>
+<pre>init() </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/AisisCore_Form_Elements_Content.html">\AisisCore_Form_Elements_Content</a></code>$content_header</div>
-</div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__enabled"></a><div class="element clickable method protected method__enabled" data-toggle="collapse" data-target=".method__enabled .collapse">
-<h2>Check if the option is enabled based on the options passed in.</h2>
-<pre>_enabled(string $option, string $key) : bool</pre>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__builder"> </a><div class="element clickable property protected property__builder" data-toggle="collapse" data-target=".property__builder .collapse">
+<h2></h2>
+<pre>$_builder : <a href="../classes/AisisCore_Template_Builder.html">\AisisCore_Template_Builder</a></pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>Options passed in should be as such: aisis_core['option_name']
-where aisis_core is the option and 'option_name' is the key.</p></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$option</h4>
-<code>string</code>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<div class="subelement argument">
-<h4>$key</h4>
-<code>string</code>
-</div>
-<h3>Returns</h3>
-<div class="subelement response"><code>bool</code></div>
-</div></div>
+<a id="property__html"> </a><div class="element clickable property protected property__html" data-toggle="collapse" data-target=".property__html .collapse">
+<h2></h2>
+<pre>$_html : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
 </div>
@@ -171,7 +168,7 @@ where aisis_core is the option and 'option_name' is the key.</p></div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-04-04T16:15:55-06:00.<br></footer></div>
+            generated on 2013-04-06T18:41:01-06:00.<br></footer></div>
 </div>
 </body>
 </html>
