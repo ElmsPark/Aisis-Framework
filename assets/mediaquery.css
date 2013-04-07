@@ -57,5 +57,12 @@
 	}	
 	.btn-large-custom {
 		padding: 11px 75px !important;
+	}
+
+	.row{
+		margin-left: 70px !important;
+	}
+	.pullUp38{
+		margin-top: -18px;
 	}	
 }

@@ -79,9 +79,8 @@ $theme_setup = array(
 	),
 	'navigation' => array(
 		'main_nav' => 'The Main Menu',
-		'header_links' => 'Header Links',
 		'footer_links' => 'Footer Links'
-	),
+	),		
 	'theme_support' => array(
 		'post_formats' => array(
 			'aside',
