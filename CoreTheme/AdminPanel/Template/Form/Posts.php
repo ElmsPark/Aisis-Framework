@@ -157,6 +157,7 @@ class CoreTheme_AdminPanel_Template_Form_Posts{
 			'id' => 'category',
 			'class' => 'category_header',
 			'value' => 'category_header',
+			'data-target-selector' => '.sectionCategory',
 			'label' => 'Show a header for a list of posts under a category.',
 			'option' => 'aisis_options',
 			'key' => 'category_header'			
@@ -196,8 +197,9 @@ class CoreTheme_AdminPanel_Template_Form_Posts{
 		$check = array(
 			'name' => 'aisis_options[author_posts]',
 			'id' => 'author',
-			'class' => 'author_posts',
+			'class' => 'author_header',
 			'value' => 'author_posts',
+			'data-target-selector' => '.sectionAuthor',
 			'label' => 'Enable the author header at the top of posts by that author.',
 			'option' => 'aisis_options',
 			'key' => 'author_posts'			
@@ -239,6 +241,7 @@ class CoreTheme_AdminPanel_Template_Form_Posts{
 			'id' => 'tag',
 			'class' => 'tag_header',
 			'value' => 'tag_header',
+			'data-target-selector' => '.sectionTag',
 			'label' => 'Show a header for a list of posts under a tag.',
 			'option' => 'aisis_options',
 			'key' => 'tag_header'			

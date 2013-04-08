@@ -2,7 +2,8 @@
  * This file contains all Java script used on the options page.
  */
 (function($){	
-	$(document).ready(function(){
+	$(document).ready(function(){		
+		
 		$('.posts').click(function(){
 			if ($(this).attr("id") == "list"){
 		   		$('.sectionLists').show();
@@ -27,45 +28,57 @@
 		    }
 		});	
 		
-		$('.category_header').click(function(){
-			if ($(this).attr("id") == "category"){
-		   		$('.sectionCategory').show();
+		var setTargetState = function (checkbox) {
+		    var $this = $(checkbox);
+		    var $target = $($this.attr('data-target-selector'));
+		    
+		    
+		    if ($this.is(":checked")) {
+		        $target.show();
 		    } else {
-		    	$('.sectionCategory').hide();
+		        $target.hide();
 		    }
+		}		
+
+		$('.carouselGlobal').click(function () {
+		    setTargetState(this);
+		});
+
+		$('.carouselGlobal').each(function(){
+		    setTargetState(this);
 		});	
 		
-		$('.author_posts').click(function(){
-			if ($(this).attr("id") == "author"){
-		   		$('.sectionAuthor').show();
-		    } else {
-		    	$('.sectionAuthor').hide();
-		    }
+		$('.add_jumbotron').click(function () {
+		    setTargetState(this);
+		});
+
+		$('.add_jumbotron').each(function(){
+		    setTargetState(this);
 		});
 		
-		$('.tag_header').click(function(){
-			if ($(this).attr("id") == "tag"){
-		   		$('.sectionTag').show();
-		    } else {
-		    	$('.sectionTag').hide();
-		    }
+		$('.category_header').click(function () {
+		    setTargetState(this);
 		});
-		
-		$('.carouselGlobal').click(function(){
-			if ($(this).attr("id") == "carousel"){
-		   		$('.sectionCarousel').show();
-		    } else {
-		    	$('.sectionCarousel').hide();
-		    }
+
+		$('.category_header').each(function(){
+		    setTargetState(this);
 		});	
 		
-		$('.add_jumbotron').click(function(){
-			if ($(this).attr("id") == "jumbotron"){
-		   		$('.sectionJumbotron').show();
-		    } else {
-		    	$('.sectionJumbotron').hide();
-		    }
-		});	 							
+		$('.author_header').click(function () {
+		    setTargetState(this);
+		});
+
+		$('.author_header').each(function(){
+		    setTargetState(this);
+		});
+		
+		$('.tag_header').click(function () {
+		    setTargetState(this);
+		});
+
+		$('.tag_header').each(function(){
+		    setTargetState(this);
+		});		
 			
 		if ($('input[value=lists]:radio:checked').attr('id') === "list") {
 	        $('.sectionLists').show();
@@ -73,27 +86,7 @@
 	
 		if ($('input[value=rows]:radio:checked').attr('id') === "row") {
 	        $('.sectionRows').show();
-	    }	
-	    
-	    if ($('input[value=category_header]:checkbox:checked').attr('id') === "category") {
-	        $('.sectionCategory').show();
-	    }
-	     
-	    if ($('input[value=author_posts]:checkbox:checked').attr('id') === "author") {
-	        $('.sectionAuthor').show();
-	    } 
-	    
-	    if ($('input[value=tag_header]:checkbox:checked').attr('id') === "tag") {
-	        $('.sectionTag').show();
-	    } 
-	    
-	    if ($('input[value=carousel_global]:checkbox:checked').attr('id') === "carousel") {
-	        $('.sectionCarousel').show();
-	    } 
-	    
-	    if ($('input[value=jumbotron]:checkbox:checked').attr('id') === "jumbotron") {
-	        $('.sectionJumbotron').show();
-	    }   
+	    }	 
 	    
 		$("#jumbotron").change(function() {
 		    if (this.checked) {
@@ -136,8 +129,7 @@
 			tb_remove();
 		}
 	});
-})(jQuery);
-
+	
 	function enableCarousel(){
 		if(this.checked){
 			$('input.carousel').attr("disabled", true);
@@ -148,4 +140,5 @@
 		if(this.checked){
 			$('input.mini').attr("disabled", true);
 		}
-	}
+	}	
+})(jQuery);

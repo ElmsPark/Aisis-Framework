@@ -65,6 +65,7 @@ class CoreTheme_AdminPanel_Template_Form_SubSection_Carousel{
 			'id' => 'jumbotron',
 			'class' => 'add_jumbotron',
 			'value' => 'jumbotron',
+			'data-target-selector' => '.sectionJumbotron',
 			'label' => 'Add a jumbotron. <a href="#" id="jumbotronPop" rel="popover" 
 			data-content="we will add a full width jumbotron image to your site. This will add a new custom post type
 			called Jumbotron which will use one post (your latest) as the content. This will only be displayed on the home page." 

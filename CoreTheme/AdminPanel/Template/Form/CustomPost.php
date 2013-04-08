@@ -58,6 +58,7 @@ class CoreTheme_AdminPanel_Template_Form_CustomPost{
 			'id' => 'carousel',
 			'class' => 'carouselGlobal',
 			'value' => 'carousel_global',
+			'data-target-selector' => '.sectionCarousel',
 			'label' => 'Remove carousel from the site. <a href="#" id="carouselGlobal" rel="popover" 
 			data-content="We will remove the custom post type option (your posts will still be there.) 
 			and the carousel fom the front end of the site. Thus allowing you to enable Jumbotron" 
