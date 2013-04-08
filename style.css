@@ -514,6 +514,15 @@ body.customize-support .navbar-fixed-top{
 	margin: 0 auto 0 auto;
 }
 
+.footerCenterNav .nav{
+	text-align:center;
+}
+
+.footerCenterNav .nav li{
+	list-style: none;
+	display:inline-block;
+}
+
 .footerWidget{
 	width: 200px;
 	float: left;
