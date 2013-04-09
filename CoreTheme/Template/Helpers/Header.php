@@ -1,133 +1,117 @@
 <?php
 /**
- * This class will build the "header" that sits at the top of category, author and tag
- * related archives.
+ * This class is designed to help remove some of the complexity from the header.php
  *
- * <p>The well box that is created by selecting various options for the tags, category and author "headers"
- * are then demonstrated and built bellow.</p>
+ * <p>This class contains helper methods that help remove complexity from the helper.php
+ * file for the default WordPress template file.</p>
  * 
- * @package CoreTheme_Template_Helpers
+ * <p>This class must be passed an object of AisisCore_Template_Builder in order for us
+ * to properly build out the headr objects here.</p>
+ * 
+ * @see AisisCore_Template_Builder
+ * @package CoreTheme_Template_helpers
  */
 class CoreTheme_Template_Helpers_Header{
 	
 	/**
-	 * @var string
+	 * @var AisisCore_Template_Builder $_template_builder
 	 */
-	protected $_html = '';
+	protected $_template_builder = null;
 	
-	/**
-	 * @var AisisCore_Template_Builder
-	 */	
-	protected $_builder;
-	
-	/**
-	 * All you have to do is call this class as a "new CoreTheme_Template_View_Helpers_Header()" nd we do the rest for you.
-	 * 
-	 * <p>We will build headrs for the author, tag and category section.</p>
-	 */
-	public function __construct(){
-		$this->_builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
-		
-		if(is_category()){
-			echo $this->build_category_function();
-		}elseif(is_tag()){
-			echo $this->build_tag_function();
-		}elseif(is_author()){
-			echo $this->build_author_function();
+	public function __construct(AisisCore_Template_Builder $template){
+		if(null === $this->_template_builder){
+			$this->_template_builder = $template;
 		}
-		
-		$this->init();
 	}
 	
 	/**
-	 * When extending this class make sure to over ride this function
-	 * with all your constuctor logic.
+	 * Build the jumbotron and the social bar, or build the wordpress header section.
 	 */
-	public function init(){}
-	
-	/**
-	 * Build the category header.
-	 * 
-	 * @return mixd $_html.
-	 */
-	public function build_category_function(){
-		$category = get_the_category(); 
-		
-		if($this->_builder->get_specific_option('category_header')){
-			$this->_html .= '<div class="hero-unit">';
-			
-			$this->_html .= '<h2>'.$category[0]->cat_name.'</h2>';
-			
-			if($this->_builder->get_specific_option('category_description')){
-				$this->_html .= '<p class="lead">' .category_description(). '</p>';
+	public function wordpress_default_header(){
+		if(is_home() && $this->_template_builder->get_specific_option('carousel_global')){
+			if(!$this->_template_builder->get_specific_option('jumbotron')){
+				$this->_build_header();
+			}else{
+				$this->_template_builder->render_view('jumbotron');
 			}
 			
-			if($this->_builder->get_specific_option('category_tags')){
-				$util = new CoreTheme_Template_Helpers_ThemeUtil();
-				$this->_html .= '<p>' .$util->category_tags(). '</p>';
+			if($this->_template_builder->get_specific_option('socialbar')){
+				$this->_template_builder->render_view('socialbar');	
 			}
-			
-			$this->_html .= '</div>';
 		}
-		
-		return $this->_html;
 	}
 	
 	/**
-	 * Build the tag header.
+	 * Returns a wrapper based on the archive page we are on.
 	 * 
-	 * @return mixd $_html.
+	 * <p>We will adjust to the author, category and tag archive assuming their
+	 * is no sidebar.</p>
+	 * 
+	 * <p>Designed to be used inside of a <code>if(is_archive()){}</code> loop.</p>
+	 * 
+	 * <p><strong>Note!!!</strong> This class only echos the opening div. You must close it.</p>
 	 */
-	public function build_tag_function(){
-		
-		if($this->_builder->get_specific_option('tag_header')){
-			$this->_html .= '<div class="hero-unit">';
-			
-			$this->_html .= '<h2>'.single_term_title('', false).'</h2>';
-			
-			if($this->_builder->get_specific_option('tag_description')){
-				$this->_html .= '<p class="lead">' .tag_description(). '</p>';
-			}
-			
-			$this->_html .= '</div>';
+	public function archive_wrapper(){
+		if(is_author() && !$this->_template_builder->get_specific_option('author_sidebar')){
+			echo '<div class="container marginTop20">';
+		}elseif(is_category() && !$this->_template_builder->get_specific_option('category_sidebar')){
+			echo '<div class="container marginTop20">';
+		}elseif(is_tag() && !$this->_template_builder->get_specific_option('tag_sidebar')){
+			echo '<div class="container marginTop20">';
+		}elseif(is_search()){
+			echo '<div class="container-narrow marginTop20">';
+		}else{
+			echo '<div class="container-narrow marginTop20">';
 		}
-		
-		return $this->_html;
-	}	
+	}
 	
 	/**
-	 * Build the author header.
-	 * 
-	 * @return mixd $_html.
+	 * Render out the carousel template.
 	 */
-	public function build_author_function(){
-		global $wp_query;
-		$curauth = $wp_query->get_queried_object();
-		
-		if($this->_builder->get_specific_option('author_posts')){
-			$this->_html .= '<div class="hero-unit">';
+	public function render_carousel(){
+		if(is_home() && !$this->_template_builder->get_specific_option('carousel_global') 
+			&& !$this->_template_builder->get_specific_option('carousel_home') || 
+			is_single() && $this->_template_builder->get_specific_option('carousel_single')){
+
+			$this->_template_builder->render_view('carousel');
+		}	
+	}
+	
+	/**
+	 * Render out the minifeeds template.
+	 */
+	public function render_mini_feeds(){
+		if(is_home() && !$this->_template_builder->get_specific_option('mini_feed_global') 
+			&& !$this->_template_builder->get_specific_option('mini_feed_home') ||
+			is_single() && $this->_template_builder->get_specific_option('mini_feed_single')){
 			
-			$this->_html .= '<h2>'.get_the_author_meta('user_login', $curauth->ID).'</h2>';
+			$this->_template_builder->render_view('minifeeds');
 			
-			if($this->_builder->get_specific_option('author_bio') && $this->_builder->get_specific_option('author_image')){
-				$this->_html .= '<div class="media">';
-	            $this->_html .= '<div class="pull-left">'. get_avatar(get_the_author_meta('user_email', $curauth->ID, 64)).'</div>';
-	            $this->_html .= '<div class="media-body">
-	                <h4 class="media-heading">About me!</h4>'
-	                . get_the_author_meta('user_description', $curauth->ID).
-	              '</div>';
-	            $this->_html .= '</div>';
-            }else{
-            	if($this->_builder->get_specific_option('author_bio')){
-					$this->_html .= '<p class="lead">' . get_the_author_meta('user_description', $curauth->ID). '</p>';
-				}elseif($this->_builder->get_specific_option('author_image')){
-					$this->_html .= get_avatar(get_the_author_meta('user_email', $curauth->ID, 300));
-				}
-            }
-			
-			$this->_html .= '</div>';
 		}
+	}
+	
+	/**
+	 * Build the header object.
+	 * 
+	 * <p>This object is built using the default WordPress options for custom header. We also pull in
+	 * the "blog description".</p>
+	 * 
+	 * @return string $html
+	 */
+	protected function _build_header(){
+		$html = '';
 		
-		return $this->_html;
-	}		
+		$html .= '<div class="container-narrow marginTop60">';
+		$html .= '<a href="'.home_url('/').'">';
+		$html .= '<img src="'.header_image().'"  height="'. get_custom_header()->height .'"
+		width="'.get_custom_header()->width.'" alt="" class="marginTop40 marginBottom20"
+		align="center"/>
+		</a>';
+		$html .= '<p class="centerText">'.bloginfo('description').'</p>';
+		$html .= '<hr class="marginBottom20 width50">';
+		$html .= '</div>';
+		
+		echo $html;
+	}
+	
 }

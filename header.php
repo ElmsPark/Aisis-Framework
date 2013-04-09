@@ -31,62 +31,27 @@ wp_head();
 <body onload="prettyPrint()" <?php body_class(); ?>>
 <?php
 $template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+$header_helper = new CoreTheme_Template_Helpers_Header($template);
+
+// Build the navigation
 $template->render_view('navigation');
 
-if(is_home() && !$template->get_specific_option('carousel_global') && is_home() && !$template->get_specific_option('carousel_home')){
-	$template->render_view('carousel');
-}
+// Render the carousel.
+$header_helper->render_carousel();
 
-if(is_home() && $template->get_specific_option('carousel_global')){
-	if(!$template->get_specific_option('jumbotron')){
-		?>
-		<div class="container-narrow marginTop60">
-			<a href="<?php echo home_url('/'); ?>"><img src="<?php header_image(); ?>"  height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width;?>"
-			 	alt="" class="marginTop40 marginBottom20" align="center"/></a>
-			<p class="centerText"><?php echo bloginfo('description'); ?></p>
-			<hr class="marginBottom20 width50">
-		</div>
-		<?php
-	}else{
-		$template->render_view('jumbotron');
-	}
-	
-	if($template->get_specific_option('socialbar')){
-		$template->render_view('socialbar');	
-	}
-	
-
-}
-
-if(is_single() && $template->get_specific_option('carousel_single')){
-	$template->render_view('carousel');
-}
+// Build either the jumbo tron or the default header
+$header_helper->wordpress_default_header();
 
 ?>
 <div class="wrapper">
 <?php if(is_archive()){
-		if(is_author() && !$template->get_specific_option('author_sidebar')){
-			echo '<div class="container marginTop20">';
-		}elseif(is_category() && !$template->get_specific_option('category_sidebar')){
-			echo '<div class="container marginTop20">';
-		}elseif(is_tag() && !$template->get_specific_option('tag_sidebar')){
-			echo '<div class="container marginTop20">';
-		}elseif(is_search()){
-			echo '<div class="container-narrow marginTop20">';
-		}else{
-			echo '<div class="container-narrow marginTop20">';
-		}
+		$header_helper->archive_wrapper();
 	}else{?>
 <div class="container marginTop20">
-<?php }
+<?php } 
 
-if(is_home() && !$template->get_specific_option('mini_feed_global') && is_home() && !$template->get_specific_option('mini_feed_home')){
-	$template->render_view('minifeeds');
-}
+$header_helper->render_mini_feeds();
 
-if(is_single() && $template->get_specific_option('mini_feed_single')){
-	$template->render_view('minifeeds');
-}
 ?>
 <!--[if lt IE 8]>
 <div class="alert"><strong>Please Note:</strong>  You are running IE 7 or lower. Please consider upgrading! We do not support bellow 8!</div>

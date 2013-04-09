@@ -131,7 +131,7 @@ if(is_active_sidebar('aisis-side-bar') && !is_home()){
 }
 
 // Call appropriate headers for category, tag and author archives.
-new CoreTheme_Template_Helpers_Header();
+new CoreTheme_Template_Helpers_ArchiveHeader();
 
 // Call the custom loop
 $loop->custom_loop();

@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \CoreTheme_AdminPanel_Widgets_Download</title>
+<title>phpDocumentor » \CoreTheme_Template_Helpers_ArchiveHeader</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -54,101 +54,112 @@
 <span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
 </div>
-<ul class="side-nav nav nav-list"><li class="nav-header">
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_CoreTheme_AdminPanel_Widgets_Download" title="CoreTheme_AdminPanel_Widgets_Download :: Set up Widget Information"><span class="description">Set up Widget Information</span><pre>CoreTheme_AdminPanel_Widgets_Download()</pre></a></li>
-<li class="method public "><a href="#method_form" title="form :: Create the form that is filled out by the user when
-setting up the widget."><span class="description">Create the form that is filled out by the user when
-setting up the widget.</span><pre>form()</pre></a></li>
-<li class="method public "><a href="#method_update" title="update :: Update the Information."><span class="description">Update the Information.</span><pre>update()</pre></a></li>
-<li class="method public "><a href="#method_widget" title="widget :: Create the widget on the front end."><span class="description">Create the widget on the front end.</span><pre>widget()</pre></a></li>
+<li class="method public "><a href="#method___construct" title='__construct :: All you have to do is call this class as a "new CoreTheme_Template_View_Helpers_Header()" nd we do the rest for you.'><span class="description">All you have to do is call this class as a "new CoreTheme_Template_View_Helpers_Header()" nd we do the rest for you.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_build_author_function" title="build_author_function :: Build the author header."><span class="description">Build the author header.</span><pre>build_author_function()</pre></a></li>
+<li class="method public "><a href="#method_build_category_function" title="build_category_function :: Build the category header."><span class="description">Build the category header.</span><pre>build_category_function()</pre></a></li>
+<li class="method public "><a href="#method_build_tag_function" title="build_tag_function :: Build the tag header."><span class="description">Build the tag header.</span><pre>build_tag_function()</pre></a></li>
+<li class="method public "><a href="#method_init" title="init :: When extending this class make sure to over ride this function
+with all your constuctor logic."><span class="description">When extending this class make sure to over ride this function
+with all your constuctor logic.</span><pre>init()</pre></a></li>
 </ul>
-</li></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property__builder" title="$_builder :: "><span class="description"></span><pre>$_builder</pre></a></li>
+<li class="property protected "><a href="#property__html" title="$_html :: "><span class="description"></span><pre>$_html</pre></a></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="span8">
-<a id="\CoreTheme_AdminPanel_Widgets_Download"></a><ul class="breadcrumb">
+<a id="\CoreTheme_Template_Helpers_ArchiveHeader"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/global.html">global</a></li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/CoreTheme_AdminPanel_Widgets_Download.html">CoreTheme_AdminPanel_Widgets_Download</a>
+<span class="divider">\</span><a href="../classes/CoreTheme_Template_Helpers_ArchiveHeader.html">CoreTheme_Template_Helpers_ArchiveHeader</a>
 </li>
 </ul>
 <div class="element class">
-<p class="short_description">This class is responsible for creating a WordPress Widget for use in the Aisis Theme.</p>
+<p class="short_description">This class will build the "header" that sits at the top of category, author and tag
+related archives.</p>
 <div class="details">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>link</th>
-<td><a href="http://codex.wordpress.org/Widgets_API">http://codex.wordpress.org/Widgets_API</a></td>
-</tr>
-<tr>
-<th>link</th>
-<td><a href="http://codex.wordpress.org/Function_Reference/register_widget">http://codex.wordpress.org/Function_Reference/register_widget</a></td>
-</tr>
-<tr>
+<div class="long_description"><p>The well box that is created by selecting various options for the tags, category and author "headers"
+are then demonstrated and built bellow.</p></div>
+<table class="table table-bordered"><tr>
 <th>package</th>
-<td><a href="../packages/CoreTheme.Adminpanel.Widgets.html">CoreTheme_Adminpanel_Widgets</a></td>
-</tr>
-</table>
+<td><a href="../packages/CoreTheme.Template.Helpers.html">CoreTheme_Template_Helpers</a></td>
+</tr></table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_CoreTheme_AdminPanel_Widgets_Download"></a><div class="element clickable method public method_CoreTheme_AdminPanel_Widgets_Download" data-toggle="collapse" data-target=".method_CoreTheme_AdminPanel_Widgets_Download .collapse">
-<h2>Set up Widget Information</h2>
-<pre>CoreTheme_AdminPanel_Widgets_Download() </pre>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>All you have to do is call this class as a "new CoreTheme_Template_View_Helpers_Header()" nd we do the rest for you.</h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>We will build headrs for the author, tag and category section.</p></div></div></div>
+</div>
+<a id="method_build_author_function"></a><div class="element clickable method public method_build_author_function" data-toggle="collapse" data-target=".method_build_author_function .collapse">
+<h2>Build the author header.</h2>
+<pre>build_author_function() : \mixd</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\mixd</code>$_html.</div>
+</div></div>
+</div>
+<a id="method_build_category_function"></a><div class="element clickable method public method_build_category_function" data-toggle="collapse" data-target=".method_build_category_function .collapse">
+<h2>Build the category header.</h2>
+<pre>build_category_function() : \mixd</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\mixd</code>$_html.</div>
+</div></div>
+</div>
+<a id="method_build_tag_function"></a><div class="element clickable method public method_build_tag_function" data-toggle="collapse" data-target=".method_build_tag_function .collapse">
+<h2>Build the tag header.</h2>
+<pre>build_tag_function() : \mixd</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\mixd</code>$_html.</div>
+</div></div>
+</div>
+<a id="method_init"></a><div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
+<h2>When extending this class make sure to over ride this function
+with all your constuctor logic.</h2>
+<pre>init() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method_form"></a><div class="element clickable method public method_form" data-toggle="collapse" data-target=".method_form .collapse">
-<h2>Create the form that is filled out by the user when
-setting up the widget.</h2>
-<pre>form($instance) </pre>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__builder"> </a><div class="element clickable property protected property__builder" data-toggle="collapse" data-target=".property__builder .collapse">
+<h2></h2>
+<pre>$_builder : <a href="../classes/AisisCore_Template_Builder.html">\AisisCore_Template_Builder</a></pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument"><h4>$instance</h4></div>
-</div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method_update"></a><div class="element clickable method public method_update" data-toggle="collapse" data-target=".method_update .collapse">
-<h2>Update the Information.</h2>
-<pre>update(\WordPress $new_instance, \WordPress $old_instance) : \WordPress</pre>
+<a id="property__html"> </a><div class="element clickable property protected property__html" data-toggle="collapse" data-target=".property__html .collapse">
+<h2></h2>
+<pre>$_html : string</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$new_instance</h4>
-<code>\WordPress</code>
-</div>
-<div class="subelement argument">
-<h4>$old_instance</h4>
-<code>\WordPress</code>
-</div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>\WordPress</code>$instance</div>
-</div></div>
-</div>
-<a id="method_widget"></a><div class="element clickable method public method_widget" data-toggle="collapse" data-target=".method_widget .collapse">
-<h2>Create the widget on the front end.</h2>
-<pre>widget(\WordPress $args, \WordPress $instance) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$args</h4>
-<code>\WordPress</code>
-</div>
-<div class="subelement argument">
-<h4>$instance</h4>
-<code>\WordPress</code>
-</div>
-</div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
 </div>
