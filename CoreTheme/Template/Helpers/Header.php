@@ -103,11 +103,11 @@ class CoreTheme_Template_Helpers_Header{
 		
 		$html .= '<div class="container-narrow marginTop60">';
 		$html .= '<a href="'.home_url('/').'">';
-		$html .= '<img src="'.header_image().'"  height="'. get_custom_header()->height .'"
+		$html .= '<img src="'.get_header_image().'"  height="'.get_custom_header()->height .'"
 		width="'.get_custom_header()->width.'" alt="" class="marginTop40 marginBottom20"
 		align="center"/>
 		</a>';
-		$html .= '<p class="centerText">'.bloginfo('description').'</p>';
+		$html .= '<p class="centerText">'.get_bloginfo('description').'</p>';
 		$html .= '<hr class="marginBottom20 width50">';
 		$html .= '</div>';
 		
