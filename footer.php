@@ -23,5 +23,12 @@ wp_footer();
 		<?php }?>		
 	</div>
 </div>
+<script>
+! function ($) {
+    $(function () {
+        window.prettyPrint && prettyPrint()
+    })
+}(window.jQuery)
+</script>
 </body>
 </html>
