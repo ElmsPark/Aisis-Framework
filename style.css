@@ -205,8 +205,12 @@ body.customize-support .navbar-fixed-top{
 }
 
 
-/* CUSTOMIZE THE NAVBAR - Fix for WP
+/* CUSTOMIZE LIGHTBOX
     -------------------------------------------------- */
+
+.lightbox-content .lightbox-caption {
+	bottom: 31px !important;
+}
    
 /* CUSTOM CAROUSEL
     -------------------------------------------------- */

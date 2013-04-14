@@ -160,7 +160,25 @@
     	</div>   
     	<div class="example">
     		<img src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/images/placeholder.jpg' ?>" class="img-polaroid"/>
-    	</div>    	  	    	   	
+    	</div>  
+    	<hr>
+    	<h1>Light Box!</h1>
+    	<div class="well">
+    		<p>All of the above tags come with an extra set of features called, Light box, these provide the following options:
+    		<code>light_box = "true" // false by default</code>, <code>light_box_captian="Sample"</code> and <code>light_box_class="css-class-name"</code>
+    		</p>
+    		<h2>light_box</h2>
+    		<p>This option will either allow for the image to be used with bootstrap lightbox or not. By default this is set to <code>"false"</code>.
+    		Setting it to true will turn on the light box.</p>
+    		<h2>light_box_captian</h2>
+    		<p>Here you can enter a short captian about the image it's self.</p>
+    		<h2>light_box_class</h2>
+    		<p>Each image must have a class in order to use the lightbox. Each class should be different from the last used.</p>
+    		<div class="alert alert-error">
+    		<strong>ATTN!!</strong> All class names must be different and must follow css standard naming. that is we accept class names such as:
+    		<code>someClass</code> or <code>some-class</code>. You do not need the preceeding period for the class name. That's taken care of for you.
+    		</div>
+    	</div>  	  	    	   	
     </div>
     <div id="code" class="tab-pane">
     	<input type="button" onClick="code()" class="btn btn-success pull-right" value="Insert Code Tags"/>

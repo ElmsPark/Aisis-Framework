@@ -19,7 +19,11 @@ $scripts_to_load  = array(
         array(
             'name'=>'media-query-css',
             'path'=>get_template_directory_uri() . '/assets/mediaquery.css'
-        ),        
+        ), 
+    	array(
+    		'name'=>'bootstrap-lightbox-css',
+    		'path'=>get_template_directory_uri() . '/assets/bootstrap-lightbox.css'
+    	),    		       
         array(
             'name'=>'bootstrap-css',
             'path'=>get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css'
@@ -42,6 +46,10 @@ $scripts_to_load  = array(
         	'name'=>'twbs-js-min',
             'path'=>get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js'
         ),
+   		array(
+   			'name'=>'twbs-lightbox',
+   			'path'=>get_template_directory_uri() . '/assets/bootstrap-lightbox.js'
+   		),   		
         array(
         	'name' => 'toc',
         	'path' => get_template_directory_uri() . '/assets/jquery.tableofcontents.min.js',
