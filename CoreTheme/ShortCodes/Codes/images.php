@@ -18,7 +18,7 @@ function aisis_image_circle($atts, $content = null){
 				'image_link' => '',
 				'light_box' => 'false',
 				'light_box_captian' => '',
-				'light_box_class' => ''
+				'light_box_class' => '',
 			),
 			$atts
 		)
@@ -35,7 +35,9 @@ function aisis_image_circle($atts, $content = null){
 		$html .= '</div>';
 		$html .= '<div class="lightbox-content">';
 		$html .= '<img src="'.$image_link.'">';
-		$html .= '<div class="lightbox-caption"><p>'.$light_box_captian.'</p></div>';
+		if($light_box_caption != ""){
+			$html .= '<div class="lightbox-caption"><p>'.$light_box_captian.'</p></div>';
+		}
 		$html .= '</div>';
 		$html .= '</div>';
 		
@@ -81,7 +83,9 @@ function aisis_image_rounded($atts, $content = null){
 		$html .= '</div>';
 		$html .= '<div class="lightbox-content">';
 		$html .= '<img src="'.$image_link.'">';
-		$html .= '<div class="lightbox-caption"><p>'.$light_box_captian.'</p></div>';
+		if($light_box_caption != ""){
+			$html .= '<div class="lightbox-caption"><p>'.$light_box_captian.'</p></div>';
+		}
 		$html .= '</div>';
 		$html .= '</div>';
 	
@@ -126,7 +130,9 @@ function aisis_image_polaroid($atts, $content = null){
 		$html .= '</div>';
 		$html .= '<div class="lightbox-content">';
 		$html .= '<img src="'.$image_link.'">';
-		$html .= '<div class="lightbox-caption"><p>'.$light_box_captian.'</p></div>';
+		if($light_box_caption != ""){
+			$html .= '<div class="lightbox-caption"><p>'.$light_box_captian.'</p></div>';
+		}
 		$html .= '</div>';
 		$html .= '</div>';
 		
