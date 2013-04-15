@@ -11,7 +11,9 @@ $options = array(
 		'size' => 'thumbnail',
 		'args' => array(
 			'align' => 'left',
-			'class' => 'marginBottom20 marginRight20 thumbnail'
+			'class' => 'marginBottom20 marginRight20 thumbnail',
+			'width' => '150',
+			'height' => '76',
 		)
 	),
 	'single' => array(
@@ -87,12 +89,13 @@ $options = array(
 				'class' => 'marginBottom20 marginTop20 thumbnail'
 			)
 		),
-	)
+	),
+	'404_template' => '404',
 );
 
 
 // initialize the loop object
-$loop = new CoreTheme_Templates_View_Helpers_CustomLoop($options);
+$loop = new CoreTheme_Template_Helpers_CustomLoop($options);
 
 // Set the sidebar
 if(!is_home()){
@@ -128,7 +131,7 @@ if(is_active_sidebar('aisis-side-bar') && !is_home()){
 }
 
 // Call appropriate headers for category, tag and author archives.
-new CoreTheme_Templates_View_Helpers_Header();
+new CoreTheme_Template_Helpers_ArchiveHeader();
 
 // Call the custom loop
 $loop->custom_loop();

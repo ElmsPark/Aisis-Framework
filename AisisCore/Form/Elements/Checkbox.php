@@ -24,6 +24,8 @@
  * );
  * </code></p>
  * 
+ * <p>Optional values include: 'data-target-selector=".class or #id"'</p>
+ * 
  * @see AisisCore_Form_Xhtml
  * @package AisisCore_Form_Elements
  */
@@ -34,7 +36,6 @@ class AisisCore_Form_Elements_Checkbox extends AisisCore_Form_Xhtml {
 	 */
 	public function init(){
 		parent::init();
-		
 		$this->_html .= '<input type="checkbox" ';
 		
 		if(isset($this->_options['id'])){
@@ -60,6 +61,10 @@ class AisisCore_Form_Elements_Checkbox extends AisisCore_Form_Xhtml {
 		if(isset($this->_options['disabled']) && $this->_options['disabled'] == true){
 			$this->_html .= 'disabled';
 		}
+		
+		if(isset($this->_options['data-target-selector'])){
+			$this->_html .= 'data-target-selector="'.$this->_options['data-target-selector'].'"';
+		}		
 		
 		$this->_html .= $this->checked($this->_options['value'], $this->_options['option'], $this->_options['key']);
 		

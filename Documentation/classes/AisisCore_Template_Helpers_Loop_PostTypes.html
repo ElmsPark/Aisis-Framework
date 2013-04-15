@@ -458,7 +458,8 @@ the title.</h2>
 <pre>title(array $options) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
+<div class="long_description"><p>If were on the page (is_page()) and we have set the page thumbnail options $array['page']['image']
+we will then set the thumbnail for the page.</p></div>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\AisisCore_Template_Helpers_Loop_LoopComponents::title()</td>
@@ -477,7 +478,8 @@ the title.</h2>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>Depends on $array['single']['title_and_date'] with before and after key=>values.</p>
 
-<p><strong>Note:</strong> This will also wrap the author content as well.</p></div>
+<p><strong>Note:</strong> This will also wrap the author content as well as well as the thumbnail.
+We depend on single conditionals. We aslo depend on $array['single']['image']</p></div>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\AisisCore_Template_Helpers_Loop_LoopComponents::title_and_date_wrapper()</td>
@@ -641,7 +643,7 @@ the title.</h2>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-04-01T18:45:36-06:00.<br></footer></div>
+            generated on 2013-04-08T20:05:50-06:00.<br></footer></div>
 </div>
 </body>
 </html>

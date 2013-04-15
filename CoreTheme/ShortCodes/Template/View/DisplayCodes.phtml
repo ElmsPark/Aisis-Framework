@@ -1,0 +1,198 @@
+<link href="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/Shortcode.css' ?>" rel="stylesheet" type="text/css">
+<link href="<?php echo get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' ?>" rel="stylesheet" type="text/css">
+<link href="<?php echo get_template_directory_uri() . '/assets/bootstrap/css/bootstrap-responsive.min.css' ?>" rel="stylesheet" type="text/css">
+<link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/ShortCode.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/Alerts.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/CodeCodes.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/Label.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/ImageCodes.js' ?>"></script>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+
+<script>
+! function ($) {
+    $(function () {
+        window.prettyPrint && prettyPrint()
+    })
+}(window.jQuery)
+</script>
+
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#generalCodes" data-toggle="tab">General Codes</a></li>
+    <li><a href="#labelsAlerts" data-toggle="tab">Labels and Alerts</a></li>
+    <li><a href="#images" data-toggle="tab">Images</a></li>
+    <li><a href="#code" data-toggle="tab">Code</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id ="generalCodes">
+    	<input type="button" onClick="toc()" class="btn btn-success pull-right" value="Insert TOC"/>
+	    <h1>Table of Contents</h1>
+	    <div class="well">
+		    <p>The short code <code>[toc css_container="" css_prop=""]</code> takes in two very speciail arguments.
+		    One which will create the container for the table of contets, <code>css_container</code> and the other which will
+		    only create the table of contents based on the <code>H1-6</code> tags with in the css scope.</p>
+		    <p>Both of these css objects should be passed in with their prefix, that is <code>.className</code> or <code>#IdName</code></p>
+		    <div class="alert"><strong>ATTN!</strong> Is this the default Aisis Theme? Not a child theme? Please use <code>#toc</code> for the 
+		    <code>css_container</code> and <code>.post</code> for the <code>css_prop</code>.</div>
+	    </div>
+   	 	<pre class="prettyprint linenums">[toc css_container="#toc" css_prop=".post"]</pre>
+   	 	<hr>
+   	 	<input type="button" onClick="button()" class="btn btn-success pull-right" value="Insert Button"/>
+   	 	<h1>Buttons</h1>
+	    <div class="well">
+		    <p>We have incorpertated the <a href="http://twitter.github.com/bootstrap/base-css.html#buttons">Twitter Bootstrap</a> 
+		    button's into WordPress via a simple and easy to fill out short code. Aside from a link and a title, we acept the following
+		    custom options:</p>
+		    
+		    <h2>Colors</h2>
+		    
+		    <p>We will aloow you to enter in colors such as: <code>blue</code>, <code>red</code>, <code>yellow</code>, <code>light-blue</code>, <code>green</code></p>
+		    
+		    <p>These colors will then corespond to their counter parts and create the appropriate colored button.</p>
+		    
+		    <h2>Size</h2>
+		    
+		    <p>For sizes, we will take in: <code>large</code>, <code>normal</code>, <code>small</code>, <code>mini</code></p>
+		    
+		    <div class="alert"><strong>ATTN!</strong> The above options must be entered in as you see for the codes. 
+		    Failure to do so may resault in a broken looking button.</div>
+		    
+		    <h2>font_icon</h2>
+		    <p>We use font awesome for all front end icons, thus all you need to do is implment the class of the icon you want, and we will
+		    apply that to the button. Make sure you set the <code>font_icon</code> for the icon.</p>
+	    </div>
+	    <strong>With out font_icon</strong>
+   	 	<pre class="prettyprint linenums">[button size="normal" color="blue" link="http://google.ca" title="Take me to Google!"]</pre>
+    	<strong>With font_icon</strong>
+    	<pre class="prettyprint linenums">[button size="normal" color="blue" link="http://google.ca" font_icon="icon-wrench" title="Take me to Google!"]</pre>
+    </div>
+    <div id="labelsAlerts" class="tab-pane">
+    	<h1>Labels</h1>
+	    <div class="well">
+	    	<p>We alow you to put in various labels into your posts, which can help label new sections, inportant content or what ever you wish.</p>
+	    	<input type="button" onClick="label()" class="btn btn-success pull-right" value="Insert Label"/>
+	    	<span class="label pull-right marginRight15">Sample Label</span>
+	    	<h2>Regular Label</h2>
+	    	<p>This label allows for you to to add a regular label to any piece of content. Label titles should be short and concise.
+	    	for eaxampple: <code>[label title="short descriptive title"]</code>.</p>
+	    	<hr>
+	    	<input type="button" onClick="labelWarning()" class="btn btn-success pull-right" value="Insert Warning Label"/>
+	    	<span class="label label-warning pull-right marginRight15">Sample Label</span>
+	    	<h2>Warning Label</h2>
+	    	<p>Warning labels are used to indicate importance about a piece of content. They should be used to indicate that the user should pay attention
+	    	to the section they are readying.</p>
+	    	<hr>
+	    	<input type="button" onClick="labelError()" class="btn btn-success pull-right" value="Insert Error Label"/>
+	    	<span class="label label-important pull-right marginRight15">Sample Label</span>
+	    	<h2>Error Label Label</h2>
+	    	<p>Error Labels are much like warning labels, accept that warning labels can be used to direct users to pay attention where as these are to heed caution.
+	    	Error Llabels are not to be take lightly.</p>
+	    	<hr>
+	    	<input type="button" onClick="labelInfo()" class="btn btn-success pull-right" value="Insert Info Label"/>
+	    	<span class="label label-info pull-right marginRight15">Sample Label</span>
+	    	<h2>Info Label</h2>
+	    	<p>Information Labels are used to direct users towards useful tips, information and more about a subject or piece of content.</p>
+	    	<hr>
+	    	<input type="button" onClick="labelSuccess()" class="btn btn-success pull-right" value="Insert Success Label"/>
+	    	<span class="label label-success pull-right marginRight15">Sample Label</span>
+	    	<h2>Success Label</h2>
+	    	<p>These types of labels can be used to indicate success of some kind. They can demostrate positive messages about some piece of content or action.</p>
+    	</div>
+    	<hr>
+    	<h1>Alerts</h1>
+	    <div class="well">
+	    	<p>We alow you to put in various alerts into your posts, which can help alert users of information regarding specific pieces of content.</p>
+	    	<input type="button" onClick="info()" class="btn btn-success pull-right" value="Insert Alert"/>
+	    	<h2>Information</h2>
+	    	<p>These types of alerts are information only. That is the content inside should inform the user 
+	    	of some kind of update or extra informal piece of content regarding what they just read.</p>
+	    	<div class="alert alert-info">Sample Alert Info</div>
+	    	<hr>
+	    	<input type="button" onClick="warning()" class="btn btn-success pull-right" value="Insert Warning Alert"/>
+	    	<h2>Warning</h2>
+	    	<p>Warning Alerts help direct the user towards understanding the importance of the piece of content they just read.</p>
+	    	<div class="alert">Sample Alert Warning</div>
+	    	<hr>
+	    	<input type="button" onClick="error()" class="btn btn-success pull-right" value="Insert Error Alert"/>
+	    	<h2>Error</h2>
+	    	<p>Much like warning alerts, error alerts tell the user to pay heed to the content they read and proceede with what ever it is the content is
+	    	about, with extreme caution.</p>
+	    	<div class="alert alert-error">Sample Alert Error</div>
+	    	<hr>
+	    	<input type="button" onClick="note()" class="btn btn-success pull-right" value="Insert Info Alert"/>
+	    	<h2>Notes</h2>
+	    	<p>Provides additional, positive, information based on the content the user has just read.</p>
+	    	<div class="alert alert-success">Sample Alert Success</div>
+    	</div>    	   	
+    </div>
+    <div id="images" class="tab-pane">
+    	<input type="button" onClick="imageCircle()" class="btn btn-success pull-right" value="Insert Image Circle"/>
+    	<h1>Image - Circle</h1>
+    	<div class="well">
+    		<p>Them image tag used here: <code>[imageCircle width="" height="" align="" image_link=""]</code>
+    		will take the image you insert and create a circle (or as much of a circle as possible) based on the parameters you
+    		pass to it.</p>
+    		<div class="alert"><strong>ATTN!</strong> This will not work in older versions of IE.</div>
+    	</div> 
+    	<div class="example">
+    		<img src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/images/placeholder.jpg' ?>" class="img-circle"/>
+    	</div>
+    	<hr>
+    	<input type="button" onClick="imageRounded()" class="btn btn-success pull-right" value="Insert Image Rounded"/>
+    	<h1>Image - Rounded</h1>
+    	<div class="well">
+    		<p>Them image tag used here: <code>[imageRounded width="" height="" align="" image_link=""]</code>
+    		will round the image's corners and present a slightly rounded image. THis is not as dramatic as the Image Circle tag.</p>
+    		<div class="alert"><strong>ATTN!</strong> This will not work in older versions of IE.</div>
+    	</div> 
+    	<div class="example">
+    		<img src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/images/placeholder.jpg' ?>" class="img-rounded"/>
+    	</div>
+    	<hr>
+    	<input type="button" onClick="imagePolaroid()" class="btn btn-success pull-right" value="Insert Image Polaroid"/>
+    	<h1>Image - Polaroid</h1>
+    	<div class="well">
+    		<p>Them image tag used here: <code>[imagePolaroid width="" height="" align="" image_link=""]</code> will help
+    		give the image the polaroid effect.</p>
+    	</div>   
+    	<div class="example">
+    		<img src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/images/placeholder.jpg' ?>" class="img-polaroid"/>
+    	</div>  
+    	<hr>
+    	<h1>Light Box!</h1>
+    	<div class="well">
+    		<p>All of the above tags come with an extra set of features called, Light box, these provide the following options:
+    		<code>light_box = "true" // false by default</code>, <code>light_box_captian="Sample"</code> and <code>light_box_class="css-class-name"</code>
+    		</p>
+    		<h2>light_box</h2>
+    		<p>This option will either allow for the image to be used with bootstrap lightbox or not. By default this is set to <code>"false"</code>.
+    		Setting it to true will turn on the light box.</p>
+    		<h2>light_box_captian</h2>
+    		<p>Here you can enter a short captian about the image it's self.</p>
+    		<h2>light_box_class</h2>
+    		<p>Each image must have a class in order to use the lightbox. Each class should be different from the last used.</p>
+    		<div class="alert alert-error">
+    		<strong>ATTN!!</strong> All class names must be different and must follow css standard naming. that is we accept class names such as:
+    		<code>someClass</code> or <code>some-class</code>. You do not need the preceeding period for the class name. That's taken care of for you.
+    		</div>
+    	</div>  	  	    	   	
+    </div>
+    <div id="code" class="tab-pane">
+    	<input type="button" onClick="code()" class="btn btn-success pull-right" value="Insert Code Tags"/>
+    	<h1>Code - Pre tags</h1>
+    	<div class="well">
+    		<p>The <code>[pre][/pre]</code> tags are meant to be used to house multiple lines of code when demonstrating the use of API's or other
+    		bits of code.</p>
+    	</div> 
+    	<hr>
+    	<input type="button" onClick="inlineCode()" class="btn btn-success pull-right" value="Insert Inline Code"/>
+    	<h1>Code - Inline Code</h1>
+    	<div class="well">
+    		<p>The <code>[code code=""]</code> tag is meant to demonstrate a small sample of code, much Like we have with this description.</p>
+    	</div>    	
+    </div>        
+  </div>
+</div>

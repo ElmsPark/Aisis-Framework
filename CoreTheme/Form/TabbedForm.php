@@ -54,7 +54,7 @@ class CoreTheme_Form_TabbedForm extends CoreTheme_Form_Form{
 		
 		foreach($this->_options as $options=>$value){
 			if(is_array($value)){
-				$this->_html .= '<li><a href="#'.str_replace(" ", "", $value['tab']).'" data-toggle="tab">
+				$this->_html .= '<li><a href="#'.str_replace(array(" ", ".", "-", "_"), "", $value['tab']).'" data-toggle="tab">
 			  		'.$value['tab'].'</a></li>';
 			}		
 		}
@@ -72,7 +72,7 @@ class CoreTheme_Form_TabbedForm extends CoreTheme_Form_Form{
 		
 		foreach($this->_options as $options=>$value){
 			if(is_array($value)){
-				$this->_html .= '<div class="tab-pane '.$active.'" id="'.str_replace(" ", "", $value['tab']).'">';
+				$this->_html .= '<div class="tab-pane '.$active.'" id="'.str_replace(array(" ", ".", "-", "_"), "", $value['tab']).'">';
 				$active = '';
 					
 				if(isset($value['elements'])){

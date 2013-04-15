@@ -74,7 +74,8 @@
  * 			),
  * 		),
  * 		'query' => array(), // The main query given by WordPress.
- * 		'404_template' => '' // The path to said template or a message.
+ * 		'remove_nav_from_query' => true/false // Should we remove the nav from the query posts index?
+ * 		'404_template' => '' // Name of the Template.
  * );
  * </code>
  * </p>
@@ -183,8 +184,11 @@ class AisisCore_Template_Helpers_Loop_Loop{
 				}
 					
 			}elseif(isset($this->_options['query'])){
-
-				$this->_query_post($this->_options['query']);
+				if(isset($this->_options['remove_nav_from_query'])){
+					$this->_query_post($this->_options['query'], $this->_options['remove_nav_from_query']);
+				}else{
+					$this->_query_post($this->_options['query']);
+				}
 			}elseif(is_page()){
 				$this->page_loop();
 			}else{
@@ -227,14 +231,15 @@ class AisisCore_Template_Helpers_Loop_Loop{
 					echo $this->_options['post_after'];
 				}
 			}
+
+			if(isset($this->_options['navigation_wrap'])){
+				$this->_components->loop_navigation($this->_options['navigation_wrap']);
+			}else{
+				$this->_components->loop_navigation();
+			}
+						
 		}else{
 			$this->_components->error_page($this->_options);
-		}
-		
-		if(isset($this->_options['navigation_wrap'])){
-			$this->_components->loop_navigation($this->_options['navigation_wrap']);
-		}else{
-			$this->_components->loop_navigation();
 		}
 	}
 	
@@ -251,7 +256,7 @@ class AisisCore_Template_Helpers_Loop_Loop{
 	 * 
 	 * @param array $query
 	 */
-	protected function _query_post($query){
+	protected function _query_post($query, $remove_nav = false){
 		global $wp_query;
 		$original = $wp_query;
 		$wp_query = new WP_Query($query);
@@ -274,11 +279,12 @@ class AisisCore_Template_Helpers_Loop_Loop{
 					echo $this->_options['post_after'];
 				}				
 			}
-			
-			if(isset($this->_options['navigation_wrap'])){
-				$this->_components->loop_navigation($this->_options['navigation_wrap']);
-			}else{
-				$this->_components->loop_navigation();
+			if($remove_nav != true){
+				if(isset($this->_options['navigation_wrap'])){
+					$this->_components->loop_navigation($this->_options['navigation_wrap']);
+				}else{
+					$this->_components->loop_navigation();
+				}
 			}
 		}else{
 			$this->_components->error_page($this->_options);
@@ -320,12 +326,6 @@ class AisisCore_Template_Helpers_Loop_Loop{
 				$this->_wp_query->the_post();
 				
 				$this->_components->title($this->_options);
-				
-				if(isset($this->_options['page']) && isset($this->_options['page']['image'])){
-					$this->_components->thumbnail($this->_options['page']);
-				}else{
-					$this->_components->thumbnail();
-				}
 				
 				if(isset($this->_options['page']) && isset($this->_options['page']['content'])){
 					$this->_components->content_wrapper($this->_options['page']['content']);
@@ -401,12 +401,6 @@ class AisisCore_Template_Helpers_Loop_Loop{
 			}else{
 				$this->_components->title($this->_options);
 				$this->_components->author_and_date();
-			}
-	
-			if(isset($this->_options['single'])){
-				$this->_components->thumbnail($this->_options['single']);
-			}else{
-				$this->_components->thumbnail();
 			}
 				
 			if(is_sticky()){
