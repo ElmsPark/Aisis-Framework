@@ -71,7 +71,7 @@ class AisisCore_Http_Http {
 	 * which allow you to get the page value.</p>
 	 */
 	public function check_get_for_page($key, $value) {
-		if (isset ( $_GET [$key] ) && $_GET [$key] == $value) {
+		if (isset($_GET[$key]) && $_GET[$key] == $value) {
 			return true;
 		}
 		
