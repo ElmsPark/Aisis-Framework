@@ -70,7 +70,7 @@ class CoreTheme_AdminPanel_Template_Form_Social{
 		$url = array(
 			'name' => 'aisis_options[social][facebook]',
 			'class' => 'input-xlarge',
-			'value' => $this->_helper->get_option('aisis_options', 'facebook'),
+			'value' => $this->_helper->get_social_option('aisis_options', 'facebook'),
 			'placeholder' => 'Facebook link',
 			'label' => array(
 				'class' => 'control-label',
@@ -91,7 +91,7 @@ class CoreTheme_AdminPanel_Template_Form_Social{
 		$url = array(
 			'name' => 'aisis_options[social][twitter]',
 			'class' => 'input-xlarge',
-			'value' => $this->_helper->get_option('aisis_options', 'twitter'),
+			'value' => $this->_helper->get_social_option('aisis_options', 'twitter'),
 			'placeholder' => 'Twitter link',
 			'label' => array(
 				'class' => 'control-label',
@@ -112,7 +112,7 @@ class CoreTheme_AdminPanel_Template_Form_Social{
 		$url = array(
 			'name' => 'aisis_options[social][google-plus]',
 			'class' => 'input-xlarge',
-			'value' => $this->_helper->get_option('aisis_options', 'google-plus'),
+			'value' => $this->_helper->get_social_option('aisis_options', 'google-plus'),
 			'placeholder' => 'Google+ link',
 			'label' => array(
 				'class' => 'control-label',
@@ -133,7 +133,7 @@ class CoreTheme_AdminPanel_Template_Form_Social{
 		$url = array(
 			'name' => 'aisis_options[social][linkedin]',
 			'class' => 'input-xlarge',
-			'value' => $this->_helper->get_option('aisis_options', 'linkedin'),
+			'value' => $this->_helper->get_social_option('aisis_options', 'linkedin'),
 			'placeholder' => 'Linkedin link',
 			'label' => array(
 				'class' => 'control-label',
@@ -154,7 +154,7 @@ class CoreTheme_AdminPanel_Template_Form_Social{
 		$url = array(
 			'name' => 'aisis_options[social][github]',
 			'class' => 'input-xlarge',
-			'value' => $this->_helper->get_option('aisis_options', 'github'),
+			'value' => $this->_helper->get_social_option('aisis_options', 'github'),
 			'placeholder' => 'Git link',
 			'label' => array(
 				'class' => 'control-label',
