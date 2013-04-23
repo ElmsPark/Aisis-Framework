@@ -122,7 +122,7 @@ if(is_active_sidebar('aisis-side-bar') && !is_home()){
 	}elseif(is_single()){
 		echo '<div class="container-narrow marginTop60">';
 	}elseif(is_page()){
-		echo '<div class="container marginTop60">';
+		echo '<div class="container-narrow marginTop60">';
 	}else{
 		echo '<div class="marginTop60 marginBottom120">';
 	}
