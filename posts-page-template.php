@@ -31,7 +31,7 @@ $options = array(
 	),
 );
 
-$loop = new CoreTheme_Templates_View_Helpers_CustomLoop($options);
+$loop = new CoreTheme_Template_Helpers_CustomLoop($options);
 
 if(is_active_sidebar('aisis-side-bar')){
 	echo '<div class="span6 marginLeft50 marginTop60 marginBottom120">';
