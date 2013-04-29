@@ -218,6 +218,14 @@ body.customize-support .navbar-fixed-top{
 	margin-bottom: 60px;
 }
 
+.carousel h2, .carousel p{
+	color: #fff;
+}
+
+.carousel p{
+	font-size:16px;
+}
+
 .carousel .container {
 	position: absolute;
 	right: 0;

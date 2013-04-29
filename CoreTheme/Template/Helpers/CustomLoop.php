@@ -139,6 +139,8 @@ class CoreTheme_Template_Helpers_CustomLoop extends AisisCore_Template_Helpers_L
 					$html .= '<p>'.get_the_excerpt().'</p>';
 					$html  .= '</div>';
 				}
+			}else{
+				$this->_components->error_page($this->_options);
 			}
 				
 			$html .= '</div>';
@@ -206,7 +208,7 @@ class CoreTheme_Template_Helpers_CustomLoop extends AisisCore_Template_Helpers_L
 	protected function _carousel_active(){
 		global $post;
 		
-		$values = get_post_custom( $post->ID );
+		//$values = get_post_custom( $post->ID );
 		
 		$caoursel_first_image = array('post_type' => 'carousel', 'posts_per_page' => 1);
 		$carousel_first_loop = new WP_Query($caoursel_first_image);
@@ -221,7 +223,7 @@ class CoreTheme_Template_Helpers_CustomLoop extends AisisCore_Template_Helpers_L
 				$html .= get_the_post_thumbnail();
 				$html .= '<div class="container">
 						 <div class="carousel-caption">';
-				$html .= '<h4><a href="'.get_permalink().'">'.the_title('','',false).'</a></h4>';
+				$html .= '<h2>'.the_title('','',false).'</h2>';
 				$html .= '<p>'.get_the_content().'</p>';
 				$html .= '<a href="'.get_post_meta($post->ID, 'link', true).'"
 								class="btn btn-primary">'.get_post_meta($post->ID, 'link_text', true).'</a>';
@@ -254,7 +256,7 @@ class CoreTheme_Template_Helpers_CustomLoop extends AisisCore_Template_Helpers_L
 				$html .= get_the_post_thumbnail();
 				$html .= '<div class="container">
 						 <div class="carousel-caption">';
-				$html .= '<h4><a href="'.get_permalink().'">'.the_title('','',false).'</a></h4>';
+				$html .= '<h2>'.the_title('','',false).'</h2>';
 				$html .= '<p>'.get_the_content().'</p>';
 				$html .= '<a href="'.get_post_meta($post->ID, 'link', true).'"
 								class="btn btn-primary">'.get_post_meta($post->ID, 'link_text', true).'</a>';

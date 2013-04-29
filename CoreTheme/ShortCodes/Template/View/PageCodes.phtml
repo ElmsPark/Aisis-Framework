@@ -6,6 +6,7 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/MarketingCodes.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/ShortCode.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/PageLayout.js' ?>"></script>
 <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
 
 <script>
@@ -18,14 +19,29 @@
 
 <div class="tabbable">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#marketing" data-toggle="tab">Marketing Pages!</a></li>
+    <li class="active"><a href="#general" data-toggle="tab">General Layout</a></li>
+    <li><a href="#marketingPage" data-toggle="tab">Marketing Page</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id ="marketing">
-	    <h1>Marketing Page Layouts!</h1>
+    <div class="tab-pane active" id ="general">
+    	<h1>General Layout Options</h1
+  		<p>These options help you layout pages with out using HTML. That is the short codes that you use here, are designed to help
+  		you create pages that reflect your product, blog, personality or company.</p>
+  		<div class="alert alert-info">We are working hard over the next few releases to bring more layout codes.</div>
+  		<hr>
+  		<input type="button" onclick="containerNarrow()" class="btn btn-success pull-right" value="Insert container-narrow!" />
+  		<h2>Container Narrow</h2>
+  		<div class="well">
+  			<p>By default, all pages are using a div class of <code>.container</code> which can make pages look stretched and out of propotion.
+  			   To help with this we have made a short code called <code>[container-narrow][/codintainer-narrow]</code> which helps center the content.
+  			   You wont want to use this short code if you are <strong>not</strong> making a marketing page.</p>
+  		</div>
+    </div>
+    <div id="marketingPage" class="tab-pane">
+    <h1>Marketing Page Layouts!</h1>
 	    <p>Creating a marketing page layout is simple. We have organized a set of known short codes and a few not so known short codes
 	    to help you out when making a marketing page.</p>
-	    <p>Marketing pages are generlly pages that describe one or more products. We do this through a two collumn row, which usually houses about 3-6
+	    <p>Marketing pages are generally pages that describe one or more products. We do this through a two collumn row, which usually houses about 3-6
 	    short entries on the product, or products them seleves.</p>
 	    <div class="alert alert-info">We suggest that you do not give the page a title as that can affect the layout and look of the page it's self.</div>
 	    <hr>
@@ -34,7 +50,7 @@
 	    	<input type="button" onClick="jumbotron()" class="btn btn-success pull-right" value="Insert Jumbotron Wrapper"/>
 	    	<h3>Creating the Jumbotron</h3>
 	    	<p>The jumbotron short code <code>[jumbotron][/jumbotron]</code> is really a wrapper for the  header based content. We will need to populate the header with three other
-	    	short codes, once which adds a title and the other which adds the descriptive text. The final short code wil add a button, this button can lead people to the content4
+	    	short codes, one which adds, a title and the other which adds the descriptive text. The final short code wil add a button, this button can lead people to the content
 	    	about your product or be a download button for your software.</p>
 	    	<hr>
 	    	<h3>Title, Lead and Button</h3>
@@ -48,7 +64,7 @@
 	    	<p>This short code is the same short code used on posts to insert buttons, we take the same parameters and accept the same arguments. the only difference is that
 	    	we suggest you use the "large" option for the size param, as the button here should really stand out!</p>
 	    	<div class="alert"><strong>ATTN!</strong> We suggest that all of the above, the title, lead and button be placed inside the <code>[jumbotron]</code> tags. your page
-	    	may not look proper if you do place them in the jumbotron tags.</div>
+	    	may not look proper if you do not place them in the jumbotron tags.</div>
 	    </div>
 	    <hr>
 	    <h2>Rows and Content</h2>
@@ -65,8 +81,9 @@
 	    	as their class, and thus add up to twelve.</p>
 	    	<input type="button" onClick="marketingCollumnTwo()" class="btn btn-success pull-right" value="Insert Marketing Collumn Two"/>
 	    	<p>In bweteen the collumn tags you would use <code>h4</code> tags for the heading. 
-	    	<div class="alert alert-info">You can add your own spans in between the row tags via creating divs that contian the appropriate class class.</div>
+	    	<div class="alert alert-info">You can add your own spans in between the row tags via creating divs that contian the appropriate class name.</div>
 	    </div>
     </div>
-    </div>
+  </div>
 </div>
+

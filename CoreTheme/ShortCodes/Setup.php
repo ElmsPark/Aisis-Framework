@@ -34,7 +34,7 @@ function aisis_media_buttons_link(){
 	if ('post' == get_post_type( $post_ID )){
 		$iframe_post_id = (int) (0 == $post_ID ? $temp_ID : $post_ID);
 		$url = admin_url("/admin-ajax.php?post_id=$iframe_post_id&codes=aisis-codes&action=aisis_codes&TB_iframe=true");
-			echo "<a href='".$url."' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
+		echo "<a href='".$url."' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
 			<img src='".get_template_directory_uri() . "/assets/images/addition.png" . "' width='16' height='16'></a>";
 	}
 }
@@ -61,8 +61,11 @@ function aisis_page_button_link(){
 	if ('page' == get_post_type( $post_ID )){
 		$iframe_post_id = (int) (0 == $post_ID ? $temp_ID : $post_ID);
 		$url = admin_url("/admin-ajax.php?post_id=$iframe_post_id&codes=aisis-page-codes&action=aisis_page_codes&TB_iframe=true");
+		$url_codes = admin_url("/admin-ajax.php?post_id=$iframe_post_id&codes=aisis-codes&action=aisis_codes&TB_iframe=true");
 		echo "<a href='".$url."' class='move thickbox' title='Create amazing pages with these codes!'>
-		<img src='".get_template_directory_uri() . "/assets/images/pages.png" . "' width='16' height='16'></a>";
+			<img src='".get_template_directory_uri() . "/assets/images/pages.png" . "' width='16' height='16'></a>";
+		echo "<a href='".$url_codes."' class='move thickbox' title='Add Aisis Short Codes to Your Post!'>
+			<img src='".get_template_directory_uri() . "/assets/images/addition.png" . "' width='16' height='16'></a>";
 	}
 	
 }

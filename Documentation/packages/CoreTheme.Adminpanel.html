@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \AisisCore_Interfaces_Upgrade</title>
+<title>phpDocumentor » CoreTheme\Adminpanel</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -51,70 +51,45 @@
                         </div></noscript>
 <div class="row">
 <div class="span4">
-<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
 </div>
-<ul class="side-nav nav nav-list"><li class="nav-header">
-<i class="icon-custom icon-method"></i> Methods
-                    <ul>
-<li class="method public "><a href="#method_check_for_update" title="check_for_update :: Check if there is an update or not."><span class="description">Check if there is an update or not.</span><pre>check_for_update()</pre></a></li>
-<li class="method public "><a href="#method_upgrade" title="upgrade :: Upgrade, by replacing the current files with that of the new
-files."><span class="description">Upgrade, by replacing the current files with that of the new
-files.</span><pre>upgrade()</pre></a></li>
-</ul>
-</li></ul>
-</div>
-<div class="span8">
-<a id="\AisisCore_Interfaces_Upgrade"></a><ul class="breadcrumb">
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
 <li>
-<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
-</li>
-<li><a href="../namespaces/global.html">global</a></li>
-<li class="active">
-<span class="divider">\</span><a href="../classes/AisisCore_Interfaces_Upgrade.html">AisisCore_Interfaces_Upgrade</a>
+<span class="empty-package"><i class="icon-folder-close"></i>Adminpanel</span><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/CoreTheme.Adminpanel.Widgets.html" title="Widgets"><i class="icon-folder-open"></i>Widgets</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
 </li>
 </ul>
-<div class="element interface">
-<p class="short_description">This interface is meant to be used for doing upgrades to your theme.</p>
-<div class="details">
-<div class="long_description"><p>When implementing this class we check the current theme version against
-that of the remote version, ve it in an xml file or some where else.</p>
-
-<p>We then get the latest version of the theme and then - delete the contents,
-accept for some required files of the theme (only if we need to), and then from there
-we simply replace the current files with those in the zip.</p>
-
-<p>Note: we use the version in the style.css to compare against whats remote.</p></div>
-<table class="table table-bordered"><tr>
-<th>package</th>
-<td><a href="../packages/AisisCore.Interfaces.html">AisisCore_Interfaces</a></td>
-</tr></table>
-<h3>
-<i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_check_for_update"></a><div class="element clickable method public method_check_for_update" data-toggle="collapse" data-target=".method_check_for_update .collapse">
-<h2>Check if there is an update or not.</h2>
-<pre>check_for_update() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered"><tr>
-<th>link</th>
-<td><a href="http://codex.wordpress.org/Function_Reference/wp_get_theme">http://codex.wordpress.org/Function_Reference/wp_get_theme</a></td>
-</tr></table>
-</div></div>
 </div>
-<a id="method_upgrade"></a><div class="element clickable method public method_upgrade" data-toggle="collapse" data-target=".method_upgrade .collapse">
-<h2>Upgrade, by replacing the current files with that of the new
-files.</h2>
-<pre>upgrade() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered"><tr>
-<th>link</th>
-<td><a href="http://codex.wordpress.org/Filesystem_API">http://codex.wordpress.org/Filesystem_API</a></td>
-</tr></table>
-</div></div>
+<div class="span8 package-contents">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/CoreTheme.html">CoreTheme</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/CoreTheme.Adminpanel.html">Adminpanel</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/CoreTheme.html">CoreTheme</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/CoreTheme.Adminpanel.html">Adminpanel</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/CoreTheme.Adminpanel.Widgets.html">Widgets</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="CoreTheme_AdminPanel_Widgets_Download" class="element ajax clickable class">
+<h1>CoreTheme_AdminPanel_Widgets_Download<a href="../classes/CoreTheme_AdminPanel_Widgets_Download.html">¶</a>
+</h1>
+<p class="short_description">This class is responsible for creating a WordPress Widget for use in the Aisis Theme.</p>
+<div class="details collapse"></div>
+<a href="../classes/CoreTheme_AdminPanel_Widgets_Download.html" class="more">« More »</a>
 </div>
 </div>
 </div>
