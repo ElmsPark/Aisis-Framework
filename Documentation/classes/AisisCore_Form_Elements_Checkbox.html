@@ -1,0 +1,476 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \AisisCore_Form_Elements_Checkbox</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/AisisCore.html"><i class="icon-folder-open"></i> AisisCore</a></li>
+<li><a href="../packages/CoreTheme.html"><i class="icon-folder-open"></i> CoreTheme</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">239</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public inherited"><a href="#method___construct" title="__construct :: Constructor for creating an element."><span class="description">Constructor for creating an element.</span><pre>__construct()</pre></a></li>
+<li class="method public inherited"><a href="#method___toString" title="__toString :: Return the html as a string."><span class="description">Return the html as a string.</span><pre>__toString()</pre></a></li>
+<li class="method public inherited"><a href="#method__close_sub_section" title="_close_sub_section :: Close the sub section div."><span class="description">Close the sub section div.</span><pre>_close_sub_section()</pre></a></li>
+<li class="method public inherited"><a href="#method__construct" title="_construct :: Simple constructor that calls in the init."><span class="description">Simple constructor that calls in the init.</span><pre>_construct()</pre></a></li>
+<li class="method public inherited"><a href="#method__open_sub_section" title="_open_sub_section :: This will wrap the sub section elements in a div."><span class="description">This will wrap the sub section elements in a div.</span><pre>_open_sub_section()</pre></a></li>
+<li class="method public inherited"><a href="#method__sub_section_elements" title="_sub_section_elements :: Each element will be wrapped in a div, if that is set."><span class="description">Each element will be wrapped in a div, if that is set.</span><pre>_sub_section_elements()</pre></a></li>
+<li class="method public inherited"><a href="#method_checked" title="checked :: Returns checked for an element such as a radio or checkbox."><span class="description">Returns checked for an element such as a radio or checkbox.</span><pre>checked()</pre></a></li>
+<li class="method public inherited"><a href="#method_get_label" title="get_label :: Return the label element for the element you are creating."><span class="description">Return the label element for the element you are creating.</span><pre>get_label()</pre></a></li>
+<li class="method public "><a href="#method_init" title="init :: Based on the options being passed in, we will create the checkbox."><span class="description">Based on the options being passed in, we will create the checkbox.</span><pre>init()</pre></a></li>
+<li class="method public inherited"><a href="#method_is_disabled" title="is_disabled :: Sets 'disabled=&quot;disabled&quot;' in the html for that element."><span class="description">Sets 'disabled="disabled"' in the html for that element.</span><pre>is_disabled()</pre></a></li>
+<li class="method public inherited"><a href="#method_set_label" title="set_label :: Set the label for that element."><span class="description">Set the label for that element.</span><pre>set_label()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected inherited"><a href="#property__checked" title="$_checked :: "><span class="description"></span><pre>$_checked</pre></a></li>
+<li class="property protected inherited"><a href="#property__html" title="$_html :: "><span class="description"></span><pre>$_html</pre></a></li>
+<li class="property protected inherited"><a href="#property__label" title="$_label :: "><span class="description"></span><pre>$_label</pre></a></li>
+<li class="property protected inherited"><a href="#property__options" title="$_options :: "><span class="description"></span><pre>$_options</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\AisisCore_Form_Elements_Checkbox"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/AisisCore_Form_Elements_Checkbox.html">AisisCore_Form_Elements_Checkbox</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">This class will allow you to create a checkbox based element.</p>
+<div class="details">
+<div class="long_description"><p>This class will create you a checbox element that you can then
+use in your form. To make it checked your value should be the value
+that is coming from the options array. That is, for example 'aisis_core['check']'
+would be the name. the option would be aisis_core, then the key out be check while the
+value would be check.</p>
+
+<p>The options being passed in would look something like:</p>
+
+<p><pre><code>$checkbox = array(
+   'id' => 'css id',
+   'class' => 'css class',
+   'name' => 'options['option_name']',
+   'value' => 'option_name',
+   'option' => 'options',
+   'key' => 'option_name',
+   'required' => 'true',
+   'label' => 'string label',
+      'disabled' => true //disable the element
+);
+</code></pre></p>
+
+<p>Optional values include: 'data-target-selector=".class or #id"'</p></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\AisisCore_Form_Xhtml</a></td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/AisisCore.Form.Elements.html">AisisCore_Form_Elements</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructor for creating an element.</h2>
+<pre>__construct(array $options, array $sub_section) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Each element has a set of options, specific to that element.
+Each element can contain a sub section of elements.</p>
+
+<p>This constructor is set up a bit differently the others, we register
+any options set first, call the init and then and only then set up
+the sub sections for that element.</p>
+
+<p>This allows for the element to have the sub section appear bellow the
+element being created.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::__construct()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::__construct()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$options</h4>
+<code>array</code>
+</div>
+<div class="subelement argument">
+<h4>$sub_section</h4>
+<code>array</code>
+</div>
+</div></div>
+</div>
+<a id="method___toString"></a><div class="element clickable method public method___toString" data-toggle="collapse" data-target=".method___toString .collapse">
+<h2>Return the html as a string.</h2>
+<pre>__toString() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::__toString()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::__toString()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>html</div>
+</div></div>
+</div>
+<a id="method__close_sub_section"></a><div class="element clickable method public method__close_sub_section" data-toggle="collapse" data-target=".method__close_sub_section .collapse">
+<h2>Close the sub section div.</h2>
+<pre>_close_sub_section() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_SubSection::_close_sub_section()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::_close_sub_section()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::_close_sub_section()</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="method__construct"></a><div class="element clickable method public method__construct" data-toggle="collapse" data-target=".method__construct .collapse">
+<h2>Simple constructor that calls in the init.</h2>
+<pre>_construct() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_SubSection::_construct()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::_construct()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::_construct()</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="method__open_sub_section"></a><div class="element clickable method public method__open_sub_section" data-toggle="collapse" data-target=".method__open_sub_section .collapse">
+<h2>This will wrap the sub section elements in a div.</h2>
+<pre>_open_sub_section(array $sub_section) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This will open the div with either the clas or the id or
+both if both are set.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_SubSection::_open_sub_section()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::_open_sub_section()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::_open_sub_section()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sub_section</h4>
+<code>array</code>
+</div>
+</div></div>
+</div>
+<a id="method__sub_section_elements"></a><div class="element clickable method public method__sub_section_elements" data-toggle="collapse" data-target=".method__sub_section_elements .collapse">
+<h2>Each element will be wrapped in a div, if that is set.</h2>
+<pre>_sub_section_elements(array $sub_section) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>we will also set a label for that element.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_SubSection::_sub_section_elements()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::_sub_section_elements()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::_sub_section_elements()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sub_section</h4>
+<code>array</code>
+</div>
+</div></div>
+</div>
+<a id="method_checked"></a><div class="element clickable method public method_checked" data-toggle="collapse" data-target=".method_checked .collapse">
+<h2>Returns checked for an element such as a radio or checkbox.</h2>
+<pre>checked($value, $option, $key) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>You will need the value of that checkbox element, the option it belongs to
+and the key of that option. We will match the key of the option against the value,
+and if they are set we set the heckbox or radio as checked.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::checked()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::checked()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$value</h4></div>
+<div class="subelement argument"><h4>$option</h4></div>
+<div class="subelement argument"><h4>$key</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>'checked'</div>
+</div></div>
+</div>
+<a id="method_get_label"></a><div class="element clickable method public method_get_label" data-toggle="collapse" data-target=".method_get_label .collapse">
+<h2>Return the label element for the element you are creating.</h2>
+<pre>get_label() : \label</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::get_label()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::get_label()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\label</code>element</div>
+</div></div>
+</div>
+<a id="method_init"></a><div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
+<h2>Based on the options being passed in, we will create the checkbox.</h2>
+<pre>init() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_is_disabled"></a><div class="element clickable method public method_is_disabled" data-toggle="collapse" data-target=".method_is_disabled .collapse">
+<h2>Sets 'disabled="disabled"' in the html for that element.</h2>
+<pre>is_disabled(bool $bool) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::is_disabled()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::is_disabled()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bool</h4>
+<code>bool</code>
+</div>
+</div></div>
+</div>
+<a id="method_set_label"></a><div class="element clickable method public method_set_label" data-toggle="collapse" data-target=".method_set_label .collapse">
+<h2>Set the label for that element.</h2>
+<pre>set_label($options) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>requires that you set the label attribute in an element in order for the element
+to be given a label.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="AisisCore.Form.Elements.Label.html#%5CAisisCore_Form_Elements_Label">\AisisCore_Form_Elements_Label</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::set_label()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::set_label()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$options</h4></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__checked"> </a><div class="element clickable property protected property__checked" data-toggle="collapse" data-target=".property__checked .collapse">
+<h2></h2>
+<pre>$_checked : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::$$_checked</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::$$_checked</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property__html"> </a><div class="element clickable property protected property__html" data-toggle="collapse" data-target=".property__html .collapse">
+<h2></h2>
+<pre>$_html : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::$$_html</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::$$_html</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property__label"> </a><div class="element clickable property protected property__label" data-toggle="collapse" data-target=".property__label .collapse">
+<h2></h2>
+<pre>$_label : <a href="../classes/AisisCore_Form_Elements_Label.html">\AisisCore_Form_Elements_Label</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::$$_label</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::$$_label</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property__options"> </a><div class="element clickable property protected property__options" data-toggle="collapse" data-target=".property__options .collapse">
+<h2></h2>
+<pre>$_options : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Element::$$_options</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Xhtml::$$_options</td>
+</tr>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-28T14:48:24-06:00.<br></footer></div>
+</div>
+</body>
+</html>

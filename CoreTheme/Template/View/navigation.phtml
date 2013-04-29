@@ -1,0 +1,57 @@
+<?php 
+	$menu_options = array(
+		'theme_location' => 'main_nav',
+        'menu_class' => 'nav',
+       	'fallback_cb' => '',
+        'menu_id' => 'main-menu',
+        'walker' => new CoreTheme_NavWalker()
+	);
+	
+	$search_form = array(
+		'action' => home_url() . '/',
+		'method' => 'GET',
+		'class' => 'navbar-search pull-right'
+	);
+	
+	$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+?>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a href="<?php echo home_url('/'); ?>" class="brand"><?php bloginfo('name'); ?></a>
+      <div class="nav-collapse">
+      	<div class="moveIcons">
+      		<?php 
+      		if(!$template->get_specific_option('socialbar')){
+      			if($template->get_specific_option('social')){ 
+					foreach($template->get_specific_option('social') as $link=>$value){
+						if($link != '' && $value != ''){
+							echo '<a href="'.$value.'"><i class="icon-'.$link.' iconSeperator"></i></a>';
+						}
+					}
+				}
+			}elseif($template->get_specific_option('socialbar') && !is_home()){
+				if($template->get_specific_option('social')){ 
+					foreach($template->get_specific_option('social') as $link=>$value){
+						if($link != '' && $value != ''){
+							echo '<a href="'.$value.'"><i class="icon-'.$link.' iconSeperator"></i></a>';
+						}
+					}
+				}					
+			}?>		
+      	</div>
+		<?php 
+		wp_nav_menu($menu_options); 
+      	
+      	$search = new CoreTheme_Template_Form_NavSearch($search_form);
+		echo $search;
+      	?>
+      </div>
+    </div>
+  </div>
+</div>
