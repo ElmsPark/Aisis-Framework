@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Aisis Beta
 --------------
 
@@ -17,3 +18,15 @@ If you are on the 1.x branch and you want the latest for the 1.1 series you can 
 
 Aisis Theme 1.2 is the the second iteration of Aisis Theme. This is currently in development. You can follow the [blog posts](http://aisis.adambalan.com/tag/1-2/) to find out more.
 
+=======
+#Development Branch
+-------------------
+
+This branch is used to contain all the development code that is pushed from the individual devx.x branches to this branch before pushed
+to beta and then master.
+
+During the life cycle of a devx.x branch, changes will be made to it, pushed here and then to the beta branch before the 
+master branch.
+
+**Do not pull from this branch** pull from either the master or the appropriate devx.x branch.
+>>>>>>> 626fa87b67e393d0fa511d4ec3bc337255d096ca
