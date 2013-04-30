@@ -3882,6 +3882,11 @@ We do trimp the contents to remove any white spaces.&lt;/p&gt;</long-description
       <error line="0" code="50007">No page-level DocBlock was found in file sidebar.php</error>
     </parse_markers>
   </file>
+  <file path="narrow-page-template.php" hash="c40238e27a79977fb15e86aeb5f01b95" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file narrow-page-template.php</error>
+    </parse_markers>
+  </file>
   <file path="index.php" hash="c4d815edf4049e143abb78a70b810670" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file index.php</error>
@@ -7116,7 +7121,7 @@ keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</lon
       <error line="43" code="50009">No DocBlock was found for function \register_bootstrap()</error>
     </parse_markers>
   </file>
-  <file path="CoreTheme/ShortCodes/Template/View/PageCodes.phtml" hash="e7a3c7ce500efaabecd641fde0c17e95" package="Default">
+  <file path="CoreTheme/ShortCodes/Template/View/PageCodes.phtml" hash="88d5a520a63b348036b96ff0dd10c669" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/Template/View/PageCodes.phtml</error>
     </parse_markers>
@@ -7124,35 +7129,6 @@ keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</lon
   <file path="CoreTheme/ShortCodes/Template/View/DisplayCodes.phtml" hash="227bb4533b7dae4ee35235d2f4b6e883" package="Default">
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/Template/View/DisplayCodes.phtml</error>
-    </parse_markers>
-  </file>
-  <file path="CoreTheme/ShortCodes/Codes/PageLayout.php" hash="095c863195938c7004e19edd989c2100" package="Default">
-    <function namespace="global" line="8" package="Default">
-      <name>container_narrow</name>
-      <full_name>\container_narrow</full_name>
-      <docblock line="2">
-        <description>Wraps content in a container-narrow div for pages.</description>
-        <long-description></long-description>
-        <tag line="2" name="param" description="" type="\WordPress" variable="$atts">
-          <type by_reference="false">\WordPress</type>
-        </tag>
-        <tag line="2" name="param" description="" type="\WordPress" variable="$content">
-          <type by_reference="false">\WordPress</type>
-        </tag>
-      </docblock>
-      <argument line="8">
-        <name>$atts</name>
-        <default></default>
-        <type/>
-      </argument>
-      <argument line="8">
-        <name>$content</name>
-        <default>null</default>
-        <type/>
-      </argument>
-    </function>
-    <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file CoreTheme/ShortCodes/Codes/PageLayout.php</error>
     </parse_markers>
   </file>
   <file path="CoreTheme/ShortCodes/Codes/PostCodes.php" hash="1adbf1980d570d1a6f13b797017aeb47" package="Default">
