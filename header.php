@@ -1,66 +1,58 @@
-<?php
-	/**
-	 *
-	 * ==================== [MAY EDIT - SEE BELLOW] ====================
-	 *
-	 *		This is the core and default header for the whole theme.
-	 *		you may want to see the AisisCore package and associated
-	 *		files. This is a file you can edit if you so desire.
-	 *
-	 *		@see AisisCore (package)
-	 *		
-	 *		@author:  Adam Balan
-	 *		@version: 1.0
-	 *		@package: Aisis 
-	 * =================================================================
-	 */
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 
-	$option =  get_option('aisis_core');
-	 
-?>
-    <!doctype html>
-    <html lang="en">
-    <head>
-    <meta charset="utf-8">
-    
-    <title>
-    <?php 
-    
-        if(is_single()){
-            single_post_title();
-        }elseif(is_page() || is_front_page()){
-            bloginfo('name');
-        }elseif(is_page()){
-            single_post_title('');
-        }elseif(is_search()){
-            bloginfo('name'); print '| Search Resualts: ' . esc_html($s);
-        }elseif(is_404()){
-            bloginfo('name'); print '| Not Found - 404 ';
-        }else{
-            bloginfo('name');
-        }
-    	$option = get_option('aisis_core');
-    ?>
-    </title>
-    <?php 
-	if($option['aisis_link_color'] != '' && $option['aisis_header_colors']){?>
-		<style>
-		#content a, #sidebar a{
-			color:#<?php echo $option['aisis_link_color']; ?> !important;
-		}
-		
-		h1, h2, h3, h4{
-			color:#<?php echo $option['aisis_header_colors']; ?> !important;
-		}
-		</style>
-	<?php 
+<title><?php	
+	if(is_single()){
+		single_post_title();
+	}elseif(is_page() || is_front_page()){
+		bloginfo('name');
+	}elseif(is_page()){
+		single_post_title('');
+	}elseif(is_search()){
+		bloginfo('name'); print '| Search Resualts: ' . esc_html($s);
+	}elseif(is_404()){
+		bloginfo('name'); print '| Not Found - 404 ';
+	}else{
+		bloginfo('name');
 	}
-	
-	wp_head(); 
-	
-	?>
-    </head>
-    
-    <body <?php body_class(); ?>>
-    	<div id="pageWrap">
-         <?php aisis_header(); ?>   
+?></title><?php
+
+if(is_singular()){
+	wp_enqueue_script( 'comment-reply' );
+}
+
+wp_head();
+
+?>
+
+</head>
+<body onload="prettyPrint()" <?php body_class(); ?>>
+<?php
+$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+$header_helper = new CoreTheme_Template_Helpers_Header($template);
+
+// Build the navigation
+$template->render_view('navigation');
+
+// Render the carousel.
+$header_helper->render_carousel();
+
+// Build either the jumbo tron or the default header
+$header_helper->wordpress_default_header();
+
+?>
+<div class="wrapper">
+<?php if(is_archive()){
+		$header_helper->archive_wrapper();
+	}else{?>
+<div class="container marginTop20">
+<?php } 
+
+$header_helper->render_mini_feeds();
+
+?>
+<!--[if lt IE 8]>
+<div class="alert"><strong>Please Note:</strong>  You are running IE 7 or lower. Please consider upgrading! We do not support bellow 8!</div>
+<![endif]-->

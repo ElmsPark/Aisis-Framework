@@ -1,0 +1,35 @@
+<?php
+$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+
+if(!$template->get_specific_option('socialbar')){
+	echo '<div class="jumbotron marginBottom20">';
+}else{
+	echo '<div class="jumbotron">';
+}
+
+if($template->get_specific_option('jumbo_image')){ ?>
+		<img src="<?php echo $template->get_specific_option('jumbo_image'); ?>" />
+	<?php } ?>
+	<div class="container">
+		<div class="caption">
+			<h1>
+				<?php
+				if($template->get_specific_option('jumbo_title')){
+					echo $template->get_specific_option('jumbo_title');
+				}?>
+			</h1>
+			<p class="lead">
+				<?php
+				if($template->get_specific_option('jumbo_text')){
+					echo $template->get_specific_option('jumbo_text');
+				}?>
+			</p>
+			<p>
+				<?php
+				if($template->get_specific_option('jumbo_link')){
+					echo '<a href="'.$template->get_specific_option('jumbo_link').'" class="btn btn-success">Find out more!</a>';
+				}?>
+			</p>			
+		</div>
+	</div>
+</div>
