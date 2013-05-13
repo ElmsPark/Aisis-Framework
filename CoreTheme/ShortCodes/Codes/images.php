@@ -17,7 +17,7 @@ function aisis_image_circle($atts, $content = null){
 				'align' => 'center',
 				'image_link' => '',
 				'light_box' => 'false',
-				'light_box_captian' => '',
+				'light_box_caption' => '',
 				'light_box_class' => '',
 			),
 			$atts
@@ -26,7 +26,7 @@ function aisis_image_circle($atts, $content = null){
 	
 	if($light_box != 'false' && $light_box_class != ''){
 		$html .= '<a data-toggle="lightbox" href=".'.$light_box_class.'">';
-		$html .= '<img src="'.$image_link.'" class="img-circle" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		$html .= '<img src="'.$image_link.'" class="img-circle marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 		$html .= '</a>';
 		
 		$html .= '<div class="lightbox hide fade '.$light_box_class.'"  tabindex="-1" role="dialog" aria-hidden="true">';
@@ -36,14 +36,14 @@ function aisis_image_circle($atts, $content = null){
 		$html .= '<div class="lightbox-content">';
 		$html .= '<img src="'.$image_link.'">';
 		if($light_box_caption != ""){
-			$html .= '<div class="lightbox-caption"><p>'.$light_box_captian.'</p></div>';
+			$html .= '<div class="lightbox-caption"><p>'.$light_box_caption.'</p></div>';
 		}
 		$html .= '</div>';
 		$html .= '</div>';
 		
 		return $html;
 	}else{
-		return '<img src="'.$image_link.'" class="img-circle" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		return '<img src="'.$image_link.'" class="img-circle marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 	}
 	
 }
@@ -65,7 +65,7 @@ function aisis_image_rounded($atts, $content = null){
 				'align' => 'center',
 				'image_link' => '',
 				'light_box' => 'false',
-				'light_box_captian' => '',
+				'light_box_caption' => '',
 				'light_box_class' => ''				
 			),
 			$atts
@@ -74,7 +74,7 @@ function aisis_image_rounded($atts, $content = null){
 
 	if($light_box != 'false' && $light_box_class != ''){
 		$html .= '<a data-toggle="lightbox" href=".'.$light_box_class.'">';
-		$html .= '<img src="'.$image_link.'" class="img-rounded" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		$html .= '<img src="'.$image_link.'" class="img-rounded marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 		$html .= '</a>';
 	
 		$html .= '<div class="lightbox hide fade '.$light_box_class.'"  tabindex="-1" role="dialog" aria-hidden="true">';
@@ -84,14 +84,14 @@ function aisis_image_rounded($atts, $content = null){
 		$html .= '<div class="lightbox-content">';
 		$html .= '<img src="'.$image_link.'">';
 		if($light_box_caption != ""){
-			$html .= '<div class="lightbox-caption"><p>'.$light_box_captian.'</p></div>';
+			$html .= '<div class="lightbox-caption"><p>'.$light_box_caption.'</p></div>';
 		}
 		$html .= '</div>';
 		$html .= '</div>';
 	
 		return $html;
 	}else{
-		return '<img src="'.$image_link.'" class="img-rounded" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		return '<img src="'.$image_link.'" class="img-rounded marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 	}
 }
 
@@ -112,7 +112,7 @@ function aisis_image_polaroid($atts, $content = null){
 				'align' => 'center',
 				'image_link' => '',
 				'light_box' => 'false',
-				'light_box_captian' => '',
+				'light_box_caption' => '',
 				'light_box_class' => ''					
 			),
 			$atts
@@ -121,7 +121,7 @@ function aisis_image_polaroid($atts, $content = null){
 
 	if($light_box != 'false' && $light_box_class != ''){
 		$html .= '<a data-toggle="lightbox" href=".'.$light_box_class.'">';
-		$html .= '<img src="'.$image_link.'" class="img-polaroid" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		$html .= '<img src="'.$image_link.'" class="img-polaroid marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 		$html .= '</a>';
 		
 		$html .= '<div class="lightbox hide fade '.$light_box_class.'"  tabindex="-1" role="dialog" aria-hidden="true">';
@@ -131,14 +131,14 @@ function aisis_image_polaroid($atts, $content = null){
 		$html .= '<div class="lightbox-content">';
 		$html .= '<img src="'.$image_link.'">';
 		if($light_box_caption != ""){
-			$html .= '<div class="lightbox-caption"><p>'.$light_box_captian.'</p></div>';
+			$html .= '<div class="lightbox-caption"><p>'.$light_box_caption.'</p></div>';
 		}
 		$html .= '</div>';
 		$html .= '</div>';
 		
 		return $html;
 	}else{
-		return '<img src="'.$image_link.'" class="img-polaroid" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		return '<img src="'.$image_link.'" class="img-polaroid marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 	}
 }
 
