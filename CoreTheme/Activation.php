@@ -57,7 +57,14 @@ class CoreTheme_Activation extends CoreTheme_MultiSite implements AisisCore_Inte
 			if(!$this->create_components($this->_options)){
 				$this->_notices['mk_dir'] = 'Could not create the custom folder or appropriate sub folders. Please check your permissions.';
 			}
-			add_action('admin_notices', array($this, 'check_for_errors'));
+            //Request the custom functions.php if it exists
+            if(!file_exists(CUSTOM . 'functions.php')){
+                $this->_notice['file_not_found'] = 'Could not find the functions.php file in the custom folder. 
+                    By default we do not create this. Consider creating one for custom modifications.';
+            }else{
+               require_once(CUSTOM . 'functions.php'); 
+            }
+            add_action('admin_notices', array($this, 'check_for_errors'));
 			add_action('admin_notices', array($this, 'check_for_notices'));
 		}
 	}
