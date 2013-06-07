@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">239</span></a></li>
+                <span class="label label-info">262</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -69,6 +69,7 @@
 <li class="method public inherited"><a href="#method_create_form" title="create_form :: This will create the form based on options that you pass in."><span class="description">This will create the form based on options that you pass in.</span><pre>create_form()</pre></a></li>
 <li class="method public "><a href="#method_elements" title="elements :: We essentially style the elements of forms with twitter bootstrap."><span class="description">We essentially style the elements of forms with twitter bootstrap.</span><pre>elements()</pre></a></li>
 <li class="method public inherited"><a href="#method_get_action" title="get_action :: Returns the action or returns null."><span class="description">Returns the action or returns null.</span><pre>get_action()</pre></a></li>
+<li class="method public inherited"><a href="#method_get_enctype" title="get_enctype :: Returns the enctype or returns null."><span class="description">Returns the enctype or returns null.</span><pre>get_enctype()</pre></a></li>
 <li class="method public inherited"><a href="#method_get_method" title="get_method :: Returns the method or returns null."><span class="description">Returns the method or returns null.</span><pre>get_method()</pre></a></li>
 <li class="method public inherited"><a href="#method_init" title="init :: When extending this class, this is where you create and array of elements
 and then call that array into the create_form() along with any other options."><span class="description">When extending this class, this is where you create and array of elements
@@ -108,6 +109,7 @@ be displated. From there you pass it a data structure such as:</p>
 <p><pre><code>$array = array(
    'method' => 'post',
    'action' => 'your form action',
+   'enctype' => 'enctype'
    'class' => 'css class',
    'id' => 'css id'
 );
@@ -344,6 +346,21 @@ we are dealing with an admin panel, the settings for that form.</p>
 <code>\the</code>action or null.</div>
 </div></div>
 </div>
+<a id="method_get_enctype"></a><div class="element clickable method public method_get_enctype" data-toggle="collapse" data-target=".method_get_enctype .collapse">
+<h2>Returns the enctype or returns null.</h2>
+<pre>get_enctype() : \the</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AisisCore_Form_Form::get_enctype()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\the</code>enctype or null.</div>
+</div></div>
+</div>
 <a id="method_get_method"></a><div class="element clickable method public method_get_method" data-toggle="collapse" data-target=".method_get_method .collapse">
 <h2>Returns the method or returns null.</h2>
 <pre>get_method() : \the</pre>
@@ -420,7 +437,7 @@ this class, we will open the form tag with those options.</p></div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-04-29T17:52:48-06:00.<br></footer></div>
+            generated on 2013-06-07T07:00:18-06:00.<br></footer></div>
 </div>
 </body>
 </html>

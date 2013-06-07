@@ -9,6 +9,29 @@ $auto_loader->register_auto_loader();
 // Set up the exception handler.
 new CoreTheme_Exceptions_ExceptionHandler();
 
+// Activate Themes Selected - BootStrap Only
+$file_handling = new CoreTheme_FileHandling_FileHandling();
+$aisis_file_handling = new AisisCore_FileHandling_File();
+$options = get_option('aisis_options');
+
+if(count($file_handling->search_for_themes()) > 0){
+    foreach($file_handling->search_for_themes() as $themes){
+		$folder_contents = $aisis_file_handling->dir_tree($themes);
+		$file = basename($folder_contents[0]);
+        
+		$strip_underscore = explode('_', $options[basename($themes)]);
+        $base_name = basename($themes);
+        
+		if($strip_underscore[0] == $base_name && is_dir(CUSTOM . '/themes/' . $strip_underscore[0])){
+            $path_to_css = get_template_directory_uri() . '/custom/themes/' . $strip_underscore[0] . '/'. $file;
+        }else{
+			$path_to_css = get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css';
+		}
+    }
+}else{
+    $path_to_css = get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css';
+}
+
 // Load a specific set of Css and JS scripts
 $scripts_to_load  = array(
     'css' => array(
@@ -26,7 +49,7 @@ $scripts_to_load  = array(
     	),    		       
         array(
             'name'=>'bootstrap-css',
-            'path'=>get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css'
+            'path'=> $path_to_css,
         ),
         array(
             'name'=>'bootstrap-responsive-css',
@@ -111,7 +134,8 @@ new AisisCore_Theme($theme_setup);
 
 // Custom Folders
 $custom_folders = array(
-	'packages' => 'packages'
+	'packages' => 'packages',
+    'themes' => 'themes'
 );
 
 // Custom Folder MultiSite.
@@ -133,6 +157,9 @@ function dependencies(){
 						'meta' => CORETHEME_META_TEMPLATES,
 						'admin' => CORETHEME_ADMIN_TEMPLATE,
 					),
+                    'partial_view_path' => array(
+                        'admin_partial' => CORETHEME_ADMIN_PARTIAL_TEMPLATE,
+                    ),
 				),
 			),
 		),		
@@ -155,4 +182,18 @@ $package->load_package('AdminPanel', CORETHEME, false, true);
 if(!is_child_theme()){
 	new CoreTheme_CustomPostTypes_Types();
 	new CoreTheme_CustomPostTypes_MetaBoxes();
+}
+
+// Activate Packages Selected
+$loader = new AisisCore_Loader_Package();
+
+if(count($file_handling->search_for_packages()) > 0){
+    foreach($file_handling->search_for_packages() as $packages){
+        $strip_underscore = explode('_', $options['package_'.basename($packages)]);
+        $base_name = basename($packages);
+        
+        if($strip_underscore[1] == $base_name && is_dir(CUSTOM . '/packages/' . $strip_underscore[1])){
+           $loader->load_package($strip_underscore[1], CUSTOM . 'packages/', true, true);
+        }
+    }
 }

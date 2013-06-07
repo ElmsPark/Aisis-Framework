@@ -7,17 +7,17 @@
  * 
  * @package CoreTheme_AdminPanel_Template_Form
  */
-class CoreTheme_AdminPanel_Template_Form_Update extends CoreTheme_Template_Form_Template_Form{
+class CoreTheme_AdminPanel_Template_Form_Update extends CoreTheme_Form_Form{
 	
 	/**
-	 * @see AisisCore_Template_Form_Template_Form::init()
+	 * @see CoreTheme_Form_Form::init()
 	 */
 	public function init(){
 		$elements = array(
 			$this->_update_button(),
 		);
 		
-		$this->create_Template_Form($elements);
+		$this->create_form($elements);
 	}
 	
 	/**
@@ -27,7 +27,7 @@ class CoreTheme_AdminPanel_Template_Form_Update extends CoreTheme_Template_Form_
 	 */
 	protected function _update_button(){
 		$button = array(
-			'class' => 'btn btn-large',
+			'class' => 'btn btn-primary',
 			'value' => 'Update Aisis!',
 			'name' => 'aisis_update',
 			'data_toggle' => 'popover',

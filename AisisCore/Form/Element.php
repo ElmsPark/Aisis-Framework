@@ -127,7 +127,8 @@ class AisisCore_Form_Element extends AisisCore_Form_SubSection {
 	 */
 	public function checked($value, $option, $key){
 		$options = get_option($option);
-		if(isset($options[$key]) && $options[$key] == $value){
+        
+        if(isset($options[$key]) && $options[$key] == $value){
 			return 'checked';
 		}
 	}

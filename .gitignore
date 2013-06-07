@@ -1,1 +1,6 @@
 /.project
+/.settings
+/nbproject
+nbproject
+.settings
+nbproject/private/

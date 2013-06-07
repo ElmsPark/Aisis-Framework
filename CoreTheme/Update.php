@@ -51,10 +51,10 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 				$aisis_temp_file_download = download_url( 'http://adambalan.com/aisis/aisis_update/AisisUpdate.zip' );
 	
 				if(is_wp_error($aisis_temp_file_download)){
-					throw new CoreTheme_Exceptions_UpdateException('We encounterd an issue and could not continue: ' .$aisis_do_unzip->get_error_code());
+					throw new CoreTheme_Exceptions_UpdateException('We encounterd an issue and could not continue: ' .$aisis_temp_file_download->get_error_code());
 				}
 				
-				$aisis_unzip_to = $wp_filesystem->wp_content_dir() . "/themes/Aisis";
+				$aisis_unzip_to = $wp_filesystem->wp_content_dir() . "/themes/Aisis-Framework/";
 				$aisis_do_unzip = unzip_file($aisis_temp_file_download, $aisis_unzip_to);
 				
 				unlink($aisis_temp_file_download);
