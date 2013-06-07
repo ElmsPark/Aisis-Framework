@@ -1,0 +1,37 @@
+<?php
+    // this renders a form and all associated actions with the upload form.
+    $upload = new CoreTheme_FileHandling_Upload_Upload(); 
+    
+	if(isset($_POST['aisis_upload'])){
+        $upload->check_file($_FILES['aisis_file'], $_POST['MAX']);
+	}
+    
+    if(get_option('show_errors') == 'true'){
+		if($upload->get_all_errors() != null){
+			foreach($upload->get_all_errors() as $code=>$message){
+				echo '<div class="alert alert-error"><strong>'.$code.'</strong>: '.$message.'</div>';
+			}
+		}
+        
+        
+        $upload->reset_errors();
+        update_option('show_errors', 'false');
+        
+    }
+    
+    if(get_option('show_success') == 'true'){
+        if($upload->get_all_success() != null){
+            echo '<div class="alert alert-success">'.$upload->get_all_success().'</div>';
+            
+            $upload->reset_success();
+			update_option('show_success', 'false');
+		} 
+	}
+
+    $form = new CoreTheme_AdminPanel_Template_Form_Upload(array(
+        'action' => '',
+        'method' => 'POST',
+		'enctype' => 'multipart/form-data',
+    ));
+    
+    echo $form;

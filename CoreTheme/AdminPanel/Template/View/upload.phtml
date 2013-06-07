@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="jumbotron subhead">
+		<h1>Aisis - <small>Upload a new package or theme</small></h1>
+		<p class="lead">Welcome to the upload page</p>
+		<p>This where you can upload a new package or a new theme. Simply check the 
+        the box bellow to upload a package or a theme!</p>
+	</div>	
+    <?php
+	if(is_dir(CUSTOM) && is_dir(CUSTOM . '/themes') && is_dir(CUSTOM . '/packages')){
+		if(is_writable(CUSTOM) && is_writable(CUSTOM . '/themes') && is_writable(CUSTOM . '/packages')){
+			$option = get_option('aisis_success');
+
+			if($option == 'true'){
+				echo '<div class="alert alert-success"><strong>SUCCESS!!!!</strong> You have made some killer changes to Aisis! <a href="'.site_url().'">Check it out now!</a></div>';
+				update_option('aisis_success', 'false');
+			}
+
+			echo '<div class="alert alert-notice"><strong>Looking to reset?</strong>
+				Head over to the <a href="'.admin_url('admin.php?page=aisis-core-options').'">
+						options page</a> to reset ALL site options. <a href="#" id="infoReset" rel="popover" 
+			data-content="<strong>Please Note</strong> that when resetting site options you will be resetting
+			all of the themes and activated packages back to default." 
+			data-trigger="hover"
+			data-original-title="Resetting Themes and Packages"><i class="icon-info-sign"></i></a></div>';
+
+			$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+			$template->render_partial('uploadFormPartial');
+			$template->render_partial('pickThemePackage');
+		}else{
+			echo '<div class="alert alert-notice"><strong>Note:</strong>
+			None of your custom folders or sub folders are writable. We cannot activate this feature if the directories we require
+			are not writable.
+		</div>';
+		}
+	}else{
+		echo '<div class="alert alert-notice"><strong>Note:</strong>
+			You are missing either: <strong>custom</strong>, <strong>custom/themes</strong> or <strong>custom/packages</strong>
+			or all of the above. This can be caused by you not having permissions to create these folders on installation.
+			Please use FTP to create them if you want to use this feature.
+		</div>';
+	}
+    ?>
+	
+</div>
