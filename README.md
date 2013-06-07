@@ -1,4 +1,8 @@
-#Aisis Theme 1.2
-----------------
+#Development
+------------
 
-Aisis Theme 1.2 is the the second iteration of Aisis Theme. This is currently in development. You can follow the [blog posts](http://aisis.adambalan.com/tag/1-2/) to find out more.
+Much like the beta branch this branch is considered the development branch, that is, when a new or existing branch is ready to 
+be released we use this branch to push that new branch to, before we go to beta. From here when the changes meet our satisfaction
+we then push the changes to beta.
+
+Do not pull from this branch, pull from the appropriate X.x branch
