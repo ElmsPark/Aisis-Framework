@@ -14,7 +14,7 @@ class CoreTheme_Activation extends CoreTheme_MultiSite implements AisisCore_Inte
 	/**
 	 * @var array
 	 */
-	protected $_errors = array();
+	static $_errors = array();
 	
 	/**
      * @var array
@@ -54,7 +54,7 @@ class CoreTheme_Activation extends CoreTheme_MultiSite implements AisisCore_Inte
 	public function  on_activation(){
 		$http = new AisisCore_Http_Http();
 		if(is_admin() && $http->get_current_url() == admin_url('themes.php?activated=true')){
-			if(!$this->create_components($this->_options)){
+			if(!$this->create_components($this->_options, 0755)){
 				$this->_notices['mk_dir'] = 'Could not create the custom folder or appropriate sub folders. Please check your permissions.';
 			}
             //Request the custom functions.php if it exists

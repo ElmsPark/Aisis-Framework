@@ -9,11 +9,11 @@ function info(){
 
 }
 
-function update(){
+function warning(){
 
 	try{
 		var win = window.dialogArguments || opener || parent || top;
-		win.send_to_editor('[update]content[/update]');
+		win.send_to_editor('[warning]content[/warning]');
 	}catch(e){
 		console.log("Could not send to window: " + e);
 	}

@@ -19,6 +19,10 @@
 }
 
 @media ( max-width : 767px) {
+	#sideBar{
+		display:none;
+	}
+	
 	.header-title {
 		height: 120px;
 	}
@@ -64,5 +68,32 @@
 	}
 	.pullUp38{
 		margin-top: -18px;
-	}	
+	}		
+}
+
+@media (max-width: 480px){
+	.marginCenter{
+		margin-left:0;
+	}
+	
+	.marginLeftRight10{
+		margin: 0;
+	}
+	
+	.marginLeft50{
+		margin-left: 0 !important;
+	}
+	
+	.marginPullRight50{
+		margin-right: 0 !important;
+	}
+	
+	.widget {
+		width: 90%;
+	}
+	
+	#searchsubmit{
+		width:220px;
+		margin-top: 0;
+	}
 }

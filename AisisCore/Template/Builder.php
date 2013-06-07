@@ -14,8 +14,9 @@
  * <p>
  * <code>
  * $array = array(
- *     admin_options => 'admin_option'
- *     template_view_path => 'path'
+ *     'admin_options' => 'admin_option'
+ *     'template_view_path' => 'path'
+ *     'partial_view_path' => 'path'
  * )
  * 
  * </code>
@@ -195,38 +196,71 @@ class AisisCore_Template_Builder {
 	 * @throws AisisCore_Template_TemplateException
 	 */
 	public function render_view($template_name = array()){
-		if(!isset($this->_options['template_view_path'])){
-			throw new AisisCore_Template_TemplateException('Not view path was set.');
+        $this->_render($template_name, 'template_view_path');
+	}
+    
+	/**
+	 * Renders a template from a registered partial_view_path or an array of paths.
+	 * 
+	 * <p>This function requires that you have set either the value of partial_view_path to that
+	 * of a path or an array of paths inside of $_options.</p>
+	 * 
+	 * <p>We will render the template name passed in. no need to pass in the template+extension as
+	 * all templates need to be .phtml based. We will append the extension on to the file name.</p>
+	 * 
+	 * <p>We also allow you to pass in an array of templat names in the fashion of $type=>$name.</p>
+	 * 
+	 * @param string|array $template_name
+	 * @throws AisisCore_Template_TemplateException
+	 */    
+    public function render_partial($template_name = array()){
+         $this->_render($template_name, 'partial_view_path');
+    }
+    
+    /**
+     * This is a generic function which is used to render a template based on weather that template is a partial or not.
+     * 
+     * <p>This function is responsible for two things, one to reder a template and two to render that template
+     * in its appropriate location(s). Be it a partial or a template. We really don't care which it is, as long as it 
+     * exists and the path is valid we will render the file. </p>
+     * 
+     * @param type $template_name
+     * @param type $path
+     * @throws AisisCore_Template_TemplateException
+     */
+    protected function _render($template_name = array(), $path){
+		if(!isset($this->_options[$path])){
+			throw new AisisCore_Template_TemplateException('No view path was set.');
 		}
 		
 		if(is_array($template_name)){
-			if(is_array($this->_options['template_view_path'])){
-				if($this->_render_templates_array($this->_options['template_view_path'], $template_name)){
+			if(is_array($this->_options[$path])){
+				if($this->_render_templates_array($this->_options[$path], $template_name)){
 					return;	
 				}
 			}else{
 				foreach($template_name as $type=>$name){
-					if(!file_exists($this->_options['template_view_path'] . $name . '.phtml')){
-						throw new AisisCore_Template_TemplateException('Could not find: ' . $name . '.phtml at ' . $this->_options['template_view_path']);
+					if(!file_exists($this->_options[$path] . $name . '.phtml')){
+						throw new AisisCore_Template_TemplateException('Could not find: ' . $name . '.phtml at ' . $this->_options[$path]);
 					}
 					
-					require_once($this->_options['template_view_path'] . $name . '.phtml');
+					require_once($this->_options[$path] . $name . '.phtml');
 				}
 				
 				return;
 			}
 		}
 		
-		if(is_array($this->_options['template_view_path'])){
-			$this->_render_template_array($this->_options['template_view_path'], $template_name);
+		if(is_array($this->_options[$path])){
+			$this->_render_template_array($this->_options[$path], $template_name);
 		}else{
-			if(!file_exists($this->_options['template_view_path'] . $template_name . '.phtml')){
+			if(!file_exists($this->_options[$path] . $template_name . '.phtml')){
 				throw new AisisCore_Template_TemplateException('Could not find: ' . $template_name . '.phtml at ' . $this->_options['template_view_path']);
 			}
 			
-			require_once ($this->_options['template_view_path'] . $template_name . '.phtml');
-		}
-	}
+			require_once ($this->_options[$path] . $template_name . '.phtml');
+		}        
+    }
 	
 	/**
 	 * Check every path for every file in the array of templates and files.
@@ -256,7 +290,7 @@ class AisisCore_Template_Builder {
 		}
 			
 		return true;
-	}
+	}   
 	
 	/**
 	 * look in an array of paths for a particular file based on the name.
