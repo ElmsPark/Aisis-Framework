@@ -1,0 +1,14 @@
+/.project
+<<<<<<< HEAD
+/.buildpath
+nbproject
+nbproject/private
+/.settings
+
+=======
+/.settings
+/nbproject
+nbproject
+.settings
+nbproject/private/
+>>>>>>> dev1.2
