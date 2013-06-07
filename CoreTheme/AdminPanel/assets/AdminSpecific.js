@@ -111,6 +111,7 @@
 		$("#miniFeedGlobalPop").popover({ html : true });
 		$("#imagePop").popover({ html : true });
 		$("#twitterPopup").popover({ html : true });
+		$("#infoReset").popover({ html : true });
 		
 		enableCarousel();
 		$('#carousel').click(enableCarousel);

@@ -285,14 +285,16 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	 * Gets a list of tags based on the post.
 	 */
 	protected function _get_tags(){
-		$tags = get_tags();
+		$tags = get_the_tags();
 		$html = '';
 	
 		$html .= 'Tags: ';
-	
-		foreach ( $tags as $tag ) {
-			$tag_link = get_tag_link( $tag->term_id );
-			$html .= '<a href='.$tag_link.'>'.$tag->name.'</a>, ';
+		
+		if($tags != null){
+			foreach ( $tags as $tag ) {
+				$tag_link = get_tag_link( $tag->term_id );
+				$html .= '<a href='.$tag_link.'>'.$tag->name.'</a>, ';
+			}
 		}
 			
 		echo $html;

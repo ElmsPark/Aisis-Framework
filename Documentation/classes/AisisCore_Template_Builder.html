@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">239</span></a></li>
+                <span class="label label-info">262</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -64,12 +64,14 @@
 <li class="method public "><a href="#method_get_theme_options" title="get_theme_options :: Return all theme options."><span class="description">Return all theme options.</span><pre>get_theme_options()</pre></a></li>
 <li class="method public "><a href="#method_init" title="init :: When overriding this class, place all your constructor buisness here."><span class="description">When overriding this class, place all your constructor buisness here.</span><pre>init()</pre></a></li>
 <li class="method public "><a href="#method_is_theme_options_array" title="is_theme_options_array :: Returns true or false if the theme options is an array or not."><span class="description">Returns true or false if the theme options is an array or not.</span><pre>is_theme_options_array()</pre></a></li>
+<li class="method public "><a href="#method_render_partial" title="render_partial :: Renders a template from a registered partial_view_path or an array of paths."><span class="description">Renders a template from a registered partial_view_path or an array of paths.</span><pre>render_partial()</pre></a></li>
 <li class="method public "><a href="#method_render_view" title="render_view :: Renders a template from a registered template_view_path or an array of paths."><span class="description">Renders a template from a registered template_view_path or an array of paths.</span><pre>render_view()</pre></a></li>
 <li class="method public "><a href="#method_reset_theme_options" title="reset_theme_options :: Delete options and redirect to the index page with a variable of reset."><span class="description">Delete options and redirect to the index page with a variable of reset.</span><pre>reset_theme_options()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header protected">» Protected
                     <ul>
+<li class="method protected "><a href="#method__render" title="_render :: This is a generic function which is used to render a template based on weather that template is a partial or not."><span class="description">This is a generic function which is used to render a template based on weather that template is a partial or not.</span><pre>_render()</pre></a></li>
 <li class="method protected "><a href="#method__render_template_array" title="_render_template_array :: look in an array of paths for a particular file based on the name."><span class="description">look in an array of paths for a particular file based on the name.</span><pre>_render_template_array()</pre></a></li>
 <li class="method protected "><a href="#method__render_templates_array" title="_render_templates_array :: Check every path for every file in the array of templates and files."><span class="description">Check every path for every file in the array of templates and files.</span><pre>_render_templates_array()</pre></a></li>
 <li class="method protected "><a href="#method__set_options" title="_set_options :: Set all options into an array of key=&gt;value."><span class="description">Set all options into an array of key=&gt;value.</span><pre>_set_options()</pre></a></li>
@@ -111,8 +113,9 @@ you would set.</p>
 
 <p>
 <pre><code>$array = array(
-    admin_options => 'admin_option'
-    template_view_path => 'path'
+    'admin_options' => 'admin_option'
+    'template_view_path' => 'path'
+    'partial_view_path' => 'path'
 )
 
 </code></pre>
@@ -221,6 +224,30 @@ get_specific_option('_name_value');
 <div class="subelement response"><code>bool</code></div>
 </div></div>
 </div>
+<a id="method_render_partial"></a><div class="element clickable method public method_render_partial" data-toggle="collapse" data-target=".method_render_partial .collapse">
+<h2>Renders a template from a registered partial_view_path or an array of paths.</h2>
+<pre>render_partial(string | array $template_name) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This function requires that you have set either the value of partial_view_path to that
+of a path or an array of paths inside of $_options.</p>
+
+<p>We will render the template name passed in. no need to pass in the template+extension as
+all templates need to be .phtml based. We will append the extension on to the file name.</p>
+
+<p>We also allow you to pass in an array of templat names in the fashion of $type=>$name.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$template_name</h4>
+<code>string</code><code>array</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/AisisCore_Template_TemplateException.html">\AisisCore_Template_TemplateException</a></code></th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
 <a id="method_render_view"></a><div class="element clickable method public method_render_view" data-toggle="collapse" data-target=".method_render_view .collapse">
 <h2>Renders a template from a registered template_view_path or an array of paths.</h2>
 <pre>render_view(string | array $template_name) </pre>
@@ -265,6 +292,30 @@ all templates need to be .phtml based. We will append the extension on to the fi
 <td><a href="http://codex.wordpress.org/Function_Reference/wp_safe_redirect">http://codex.wordpress.org/Function_Reference/wp_safe_redirect</a></td>
 </tr>
 </table>
+</div></div>
+</div>
+<a id="method__render"></a><div class="element clickable method protected method__render" data-toggle="collapse" data-target=".method__render .collapse">
+<h2>This is a generic function which is used to render a template based on weather that template is a partial or not.</h2>
+<pre>_render(\type $template_name, \type $path) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This function is responsible for two things, one to reder a template and two to render that template
+in its appropriate location(s). Be it a partial or a template. We really don't care which it is, as long as it
+exists and the path is valid we will render the file. </p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$template_name</h4>
+<code>\type</code>
+</div>
+<div class="subelement argument">
+<h4>$path</h4>
+<code>\type</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/AisisCore_Template_TemplateException.html">\AisisCore_Template_TemplateException</a></code></th>
+<td></td>
+</tr></table>
 </div></div>
 </div>
 <a id="method__render_template_array"></a><div class="element clickable method protected method__render_template_array" data-toggle="collapse" data-target=".method__render_template_array .collapse">
@@ -344,7 +395,7 @@ we cannot find said file at any path.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-04-29T17:52:47-06:00.<br></footer></div>
+            generated on 2013-06-07T07:00:21-06:00.<br></footer></div>
 </div>
 </body>
 </html>

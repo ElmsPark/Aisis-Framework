@@ -6,10 +6,7 @@
  * @param WordPress $content
  */
 function aisis_code($atts, $content = null){
-	return '
-	<pre class="prettyprint linenums languague-css">
-	'.$content.'
-	</pre>';
+	return '<pre class="prettyprint linenums">'.$content.'</pre>';
 }
 
 /**
@@ -22,12 +19,12 @@ function aisis_inline_code($atts, $content = null){
 	extract (
 		shortcode_atts (
 			array (
-				'inline_code' => 'inline_code'
+				'code' => 'sample_function(){} //Replace me.'
 			),
 			$atts
 		)
 	);	
-	return '<code>'.$inline_code.'</code>';
+	return '<code>'.$code.'</code>';
 }
 
 // Add the codes.

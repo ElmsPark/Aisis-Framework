@@ -50,10 +50,6 @@ $tabbed_Form = new CoreTheme_Form_TabbedForm($array);
 				$theme->reset_theme_options();
 			}
 			
-			if(get_option('aisis_reset') == 'true'){
-				echo '<div class="alert alert-success"><strong>SUCCESS!!!!</strong> All Options have been reset! You can start again!</div>';
-				update_option('aisis_reset', 'false');
-			}
 			
 			$form = new CoreTheme_AdminPanel_Template_Form_Reset(
 				array(
