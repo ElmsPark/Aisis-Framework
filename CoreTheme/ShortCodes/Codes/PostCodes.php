@@ -64,20 +64,20 @@ function aisis_button($atts, $content = null) {
 		)
 	);
 
-	if($size = 'large'){
+	if($size =='large'){
 		$size_of_button = 'btn-large';
-	}elseif($size = 'small'){
+	}elseif($size == 'small'){
 		$size_of_button = 'btn-small';
-	}elseif($size = 'normal'){
+	}elseif($size == 'normal'){
 			$size_of_button = '';
-	}elseif($size = 'mini'){
+	}elseif($size == 'mini'){
 		$size_of_button = 'btn-mini';
 	}
 
 	if($color == 'red'){
 		$color_of_button == 'btn-danger';
 	}elseif($color == 'green'){
-		$color_of_button == 'btn-success';
+		$color_of_button = 'btn-success';
 	}elseif($color == 'yellow'){
 		$color_of_button = 'btn-warning';
 	}elseif($color == 'blue'){

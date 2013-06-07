@@ -76,14 +76,6 @@ $theme_setup = array(
 			'before_title'  => '<h2>',
 			'after_title'   => '</h2>'
 		),
-		'footer' => array(
-			'name' => 'Footer',
-			'id' => 'aisis-footer',
-			'before_widget' => '<div class="span4">',
-			'after_widget' => '</div>',
-			'before_title' => '<h2>',
-			'after_title' => '</h2>',
-		)
 	),
 	'navigation' => array(
 		'main_nav' => 'The Main Menu',
