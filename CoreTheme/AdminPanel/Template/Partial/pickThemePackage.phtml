@@ -1,0 +1,35 @@
+<?php 
+$file = new CoreTheme_FileHandling_FileHandling();
+if((count($file->search_for_themes()) == 0) && (count($file->search_for_packages())== 0)){
+	echo '<div class="alert alert-notice">You do not have any themes or packages uploaded.
+		please consider uploading some.</div>';
+}else{
+	echo '<div class="alert alert-info">Select from below themes and packages and watch your site change!</div>';
+	
+	$theme = new CoreTheme_AdminPanel_Template_Form_SelectTheme();
+	$package = new CoreTheme_AdminPanel_Template_Form_SelectPackages();
+
+	$array = array(
+		'method' => 'post',
+		'action' => 'options.php',
+		'class' => 'form-vertical',
+		'settings' => 'aisis_options',
+		array(
+			'tab' => 'Themes',
+			'elements' => array(
+				$theme->elements()
+			),
+		),
+		array(
+			'tab' => 'Packages',
+			'elements' => array(
+				$package->elements()
+			),
+		),	
+	);
+
+	$tabbed_form = new CoreTheme_Form_TabbedForm($array);
+	echo $tabbed_form;
+}
+
+
