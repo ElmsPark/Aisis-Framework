@@ -48,41 +48,48 @@ class AisisCore_Loader_Package {
 	 * function with appropriate params passed in.</p>
 	 * 
 	 * @param string $package_name - Name of the root foldr the Setup.php is inside of.
-	 * @param string | optional $dir - The path to the package, used for internal.
+	 * @param string $dir - The path to the package, used for internal.
 	 * @param bool | optional $custom - Should we look in the custom/packages folder?
 	 * @param bool | optional $child - Load only when not achild theme?
 	 */
-	public function load_package($package_name, $dir = null, $custom = false, $child = false){
+	public function load_package($package_name, $dir, $custom = false, $child = false){
 		if($child == true){
 			if(!is_child_theme()){
 				if(!$custom){
 					$this->_load_internal_package($dir, $package_name);
 				}else{
-					$this->_load_custom_package($package_name);
+					$this->_load_custom_package($package_name, $dir);
 				}
 			}
 		}else{
 			if(!$custom){
 				$this->_load_internal_package($dir, $package_name);
 			}else{
-				$this->_load_custom_package($package_name);
+				$this->_load_custom_package($package_name, $dir);
 			}			
 		}
 	}
 	
 	/**
-	 * This function takes only the name of the package.
+	 * This function takes both name and path of the package, most of the time path can be CUSTOM.
 	 * 
 	 * <p>This function is responsible for loading the package
 	 * assuming that package is not empty or that it exists.</p>
+     * 
+     * <p>When you pass CUSTOM as the path, we will check the custom folder, regardless of weather the
+     * site is multisite or not.</p>
+     * 
+     * <p>CUSTOM should be defined as your path to your custom folder. if this is not defined then you
+     * will ned the path to your custom folder with the proceeding '/'</p>
 	 * 
 	 * @param string $package
+     * @param string $path - with perceeding '/' if not using CUSTOM
 	 * @throws AisisCore_Loader_LoaderException
 	 */
-	protected function _load_custom_package($package){
-		if($this->_package_exists(bloginfo('template_directory') .'/custom/packages/'. $package)){
-			if($this->_package_empty(bloginfo('template_directory') .'/custom/packages/'. $package)){
-				require_once(bloginfo('template_directory') .'/custom/packages/'. $package .'/Setup.php');
+	protected function _load_custom_package($package, $path){
+		if($this->_package_exists($path . $package)){
+			if($this->_package_empty($path . $package)){
+				require_once($path. $package .'/Setup.php');
 			}else{
 				throw new AisisCore_Loader_LoaderException('<p>'.$package.' Is empty.</p>');
 			}
@@ -96,7 +103,11 @@ class AisisCore_Loader_Package {
 	 * 
 	 * <p>Any package you create that contains a Setup.php file will be loaded if you pass in
 	 * the directory of package and its name.</p>
+     * 
+     * <p>See the _load_custom_package for futher details on the directory and path.</p>
 	 * 
+     * @param $dir
+     * @param $package
 	 * @throws AisisCore_Loader_LoaderException
 	 */
 	protected function _load_internal_package($dir, $package){

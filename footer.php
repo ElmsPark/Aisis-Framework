@@ -5,9 +5,6 @@ wp_footer();
 </div>
 <div id="footer">
     <div class="container">
-    	<div class="row marginBottom20">
-    		<?php dynamic_sidebar('aisis-footer'); ?>
-		</div>
 		<?php 
 		$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 		if($template->get_specific_option('footer_text')){
