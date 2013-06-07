@@ -231,7 +231,7 @@ class AisisCore_FileHandling_File {
 	 */
 	public function get_directory_of_files($path, $filename, $extension) {
 		if (! is_dir ( $path )) {
-			throw new AisisCore_FileHandling_FileException ( "<div class='error'>Could not find said path: " . $path . "</div>" );
+			throw new AisisCore_FileHandling_FileException ( "Could not find said path: " . $path);
 		}
 		
 		if ($this->check_exists ( $filename, true )) {

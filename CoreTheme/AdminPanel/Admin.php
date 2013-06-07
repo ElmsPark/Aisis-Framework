@@ -72,6 +72,18 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 				'build_template'
 			)
 		);
+        
+		add_submenu_page(
+			'aisis-core-options', 
+			__('Aisis Upload', 'aisis'), 
+			__('Aisis Upload', 'aisis'), 
+			'edit_themes', 
+			'aisis-core-upload', 
+			array(
+				$this, 
+				'build_template'
+			)
+		);        
 	}
 	
 	/**
@@ -122,6 +134,8 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 			$template->render_view('options');
 		}elseif($this->_http->get_request('page') == 'aisis-core-update'){
 			$template->render_view('update');
+		}elseif($this->_http->get_request('page') == 'aisis-core-upload'){
+			$template->render_view('upload');
 		}
 	}
 	
@@ -133,7 +147,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 		foreach($input as $key=>$value){
 			if(is_array($value)){
 				foreach($value as $k=>$v){
-					if(isset($input[$key][$k])){
+                    if(isset($input[$key][$k])){
 						$option[$key][$k] = strip_tags(stripslashes($input[$key][$k]), '<a><p><h1><h2><h3><h4><h5><h6><blockquote><img><hr><br>');
 					}
 					
@@ -155,6 +169,7 @@ class CoreTheme_AdminPanel_Admin implements AisisCore_Interfaces_Admin{
 				$option[$key] = strip_tags(stripslashes($input[$key]), '<a><p><h1><h2><h3><h4><h5><h6><blockquote><img><hr><br>');
 			}
 		}
+        
 		$this->_update_option();
 		return $option;
 	}

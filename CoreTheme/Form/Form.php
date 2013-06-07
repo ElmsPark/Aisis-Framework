@@ -29,7 +29,13 @@ class CoreTheme_Form_Form extends AisisCore_Form_Form {
 			if(is_array($element)){
 				foreach($element as $e){
 					$this->_html .= '<div class="control-group">';
-					$this->_html .= $e;
+					if(is_array($e)){
+						foreach($e as $elements){
+							$this->_html .= $elements;
+						}
+					}else{
+						$this->_html .= $e;
+					}
 					$this->_html .= '</div>';
 				}
 			}else{

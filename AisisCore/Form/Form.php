@@ -11,6 +11,7 @@
  * $array = array(
  *    'method' => 'post',
  *    'action' => 'your form action',
+ *    'enctype' => 'enctype'
  *    'class' => 'css class',
  *    'id' => 'css id'
  * );
@@ -84,7 +85,20 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 		}else{
 			return null;
 		}
-	}
+	} 
+    
+   /**
+	 * Returns the enctype or returns null.
+	 * 
+	 * @return the enctype or null. 
+	 */
+	public function get_enctype(){
+		if(isset($this->_options['enctype'])){
+			return $this->_options['enctype'];
+		}else{
+			return null;
+		}
+	}    
 
 	/**
 	 * Simply opens the form.
@@ -98,6 +112,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 		
 		$this->_html .= 'action="'.$this->get_action().'" ';
 		$this->_html .= 'method="'.$this->get_method().'" ' ;
+        $this->_html .= 'enctype="'.$this->get_enctype().'" ';
 		
 		if(isset($this->_options['id'])){
 			$this->_html .= 'id="'.$this->_options['id'].'" ';	

@@ -19,16 +19,21 @@ class CoreTheme_MultiSite implements AisisCore_Interfaces_MultiSite{
 	 * @see AisisCore_Interfaces_MultiSite::create_components()
 	 * @return bool $created
 	 */
-	public function create_components($options){
+	public function create_components($options, $chmod){
 		global $blog_id;
 		
 		$created = false;
 		
 		$file = new AisisCore_FileHandling_File();
 		if($blog_id >= 1 && $file->check_dir(CUSTOM, true)){
+			chmod(CUSTOM, 0755);
 			if(is_array($this->_options) && !empty($this->_options)){
 				foreach($this->_options as $folder_type=>$name){	
-					$created = $file->check_dir(CUSTOM . $name);
+					if($chmod != null){
+						$created = chmod($file->check_dir(CUSTOM . $name), $chmod);
+					}else{
+						$created = $file->check_dir(CUSTOM . $name);
+					}
 				}
 				
 				return $created;

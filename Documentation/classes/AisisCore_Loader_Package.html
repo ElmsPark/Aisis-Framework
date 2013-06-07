@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">239</span></a></li>
+                <span class="label label-info">262</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -66,7 +66,7 @@
 </li>
 <li class="nav-header protected">» Protected
                     <ul>
-<li class="method protected "><a href="#method__load_custom_package" title="_load_custom_package :: This function takes only the name of the package."><span class="description">This function takes only the name of the package.</span><pre>_load_custom_package()</pre></a></li>
+<li class="method protected "><a href="#method__load_custom_package" title="_load_custom_package :: This function takes both name and path of the package, most of the time path can be CUSTOM."><span class="description">This function takes both name and path of the package, most of the time path can be CUSTOM.</span><pre>_load_custom_package()</pre></a></li>
 <li class="method protected "><a href="#method__load_internal_package" title="_load_internal_package :: This function is meant to load internal packages."><span class="description">This function is meant to load internal packages.</span><pre>_load_internal_package()</pre></a></li>
 <li class="method protected "><a href="#method__package_empty" title="_package_empty :: Checks if a package is empty or not."><span class="description">Checks if a package is empty or not.</span><pre>_package_empty()</pre></a></li>
 <li class="method protected "><a href="#method__package_exists" title="_package_exists :: Checks if a package exists or not."><span class="description">Checks if a package exists or not.</span><pre>_package_exists()</pre></a></li>
@@ -172,7 +172,9 @@ function with appropriate params passed in.</p></div>
 </div>
 <div class="subelement argument">
 <h4>$dir</h4>
-<code>string</code><p>| optional $dir - The path to the package, used for internal.</p>
+<code>string</code><ul>
+<li>The path to the package, used for internal.</li>
+</ul>
 </div>
 <div class="subelement argument">
 <h4>$custom</h4>
@@ -185,16 +187,28 @@ function with appropriate params passed in.</p></div>
 </div></div>
 </div>
 <a id="method__load_custom_package"></a><div class="element clickable method protected method__load_custom_package" data-toggle="collapse" data-target=".method__load_custom_package .collapse">
-<h2>This function takes only the name of the package.</h2>
-<pre>_load_custom_package(string $package) </pre>
+<h2>This function takes both name and path of the package, most of the time path can be CUSTOM.</h2>
+<pre>_load_custom_package(string $package, string $path) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>This function is responsible for loading the package
-assuming that package is not empty or that it exists.</p></div>
+assuming that package is not empty or that it exists.</p>
+
+<p>When you pass CUSTOM as the path, we will check the custom folder, regardless of weather the
+site is multisite or not.</p>
+
+<p>CUSTOM should be defined as your path to your custom folder. if this is not defined then you
+will ned the path to your custom folder with the proceeding '/'</p></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$package</h4>
 <code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$path</h4>
+<code>string</code><ul>
+<li>with perceeding '/' if not using CUSTOM</li>
+</ul>
 </div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
@@ -209,7 +223,9 @@ assuming that package is not empty or that it exists.</p></div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>Any package you create that contains a Setup.php file will be loaded if you pass in
-the directory of package and its name.</p></div>
+the directory of package and its name.</p>
+
+<p>See the _load_custom_package for futher details on the directory and path.</p></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$dir</h4></div>
 <div class="subelement argument"><h4>$package</h4></div>
@@ -261,7 +277,7 @@ the directory of package and its name.</p></div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-04-29T17:52:48-06:00.<br></footer></div>
+            generated on 2013-06-07T07:00:21-06:00.<br></footer></div>
 </div>
 </body>
 </html>

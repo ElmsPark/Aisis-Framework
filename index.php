@@ -97,6 +97,9 @@ $options = array(
 // initialize the loop object
 $loop = new CoreTheme_Template_Helpers_CustomLoop($options);
 
+// Create the builder object with all dependencies
+$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
+
 // Set the sidebar
 if(!is_home()){
 	if(is_category()){
@@ -108,13 +111,11 @@ if(!is_home()){
 	}
 }
 
-// Create the builder object with all dependencies
-$builder = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 
 // Set up the sidebar wrapper
 if(is_active_sidebar('aisis-side-bar') && !is_home()){
 	if(!$builder->get_specific_option('category_sidebar') && is_category()){
-		echo '<div class="span6 marginLeft50 marginTop60">';
+		echo '<div class="span6 marginLeft50 marginTop60" id="leaveMe">';
 	}elseif(!$builder->get_specific_option('tag_sidebar') && is_tag()){
 		echo '<div class="span6 marginLeft50 marginTop60">';	
 	}elseif(!$builder->get_specific_option('author_sidebar') && is_author()){

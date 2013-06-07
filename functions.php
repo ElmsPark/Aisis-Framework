@@ -29,6 +29,10 @@ if(!defined('CORETHEME_ADMIN_TEMPLATE')){
 	define('CORETHEME_ADMIN_TEMPLATE', get_template_directory() . '/CoreTheme/AdminPanel/Template/View/');
 }
 
+if(!defined('CORETHEME_ADMIN_PARTIAL_TEMPLATE')){
+	define('CORETHEME_ADMIN_PARTIAL_TEMPLATE', get_template_directory() . '/CoreTheme/AdminPanel/Template/Partial/');
+}
+
 if(!defined('CORETHEME_SHORTCODES')){
 	define('CORETHEME_SHORTCODES', get_template_directory() . '/CoreTheme/ShortCodes/');
 }

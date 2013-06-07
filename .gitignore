@@ -1,1 +1,6 @@
 /.project
+/.buildpath
+nbproject
+nbproject/private
+/.settings
+

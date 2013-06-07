@@ -33,6 +33,7 @@ $scripts_to_load  = array(
 	'admin_pages' => array(
 		'theme_options' => 'aisis-core-options',
 		'theme_update' => 'aisis-core-update',
+        'theme_upload' => 'aisis-core-upload',
 	),
 );
 

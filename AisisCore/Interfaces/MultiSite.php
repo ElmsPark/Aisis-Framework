@@ -18,9 +18,12 @@ interface AisisCore_Interfaces_MultiSite{
 	 * <p>Some concepts to keep in mind is that, if you are using Multisite for WordPress, you will want to check if it
 	 * is multisite, and then append the blog id to your associated custom folder.</p>
 	 * 
+	 * <p>We will also attempt to chmod the current folder created to allow people to upload files.</p>
+	 * 
 	 * @param $options - should be an array of folder_type=>name_of_folder
+	 * @param $chmod - a value, such as 0755
 	 * 
 	 * @link http://codex.wordpress.org/Function_Reference/is_multisite
 	 */
-	public function create_components($options);
+	public function create_components($options, $chmod);
 }
