@@ -26,6 +26,7 @@
       <a href="<?php echo home_url('/'); ?>" class="brand"><?php bloginfo('name'); ?></a>
       <div class="nav-collapse">
       	<div class="moveIcons">
+            <a href="<?php bloginfo('atom_url'); ?>"><i class="icon-rss iconSeperator"></i></a>
       		<?php 
       		if(!$template->get_specific_option('socialbar')){
       			if($template->get_specific_option('social')){ 

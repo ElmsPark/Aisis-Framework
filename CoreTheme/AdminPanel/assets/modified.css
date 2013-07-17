@@ -27,7 +27,7 @@ input{
     -------------------------------------------------- */
 
 .popover .arrow{
-	/*left: 24px !important; - uncomment in 3.6 Wordpress*/
+	/* left: 24px !important;*/ /*- uncomment in 3.6 Wordpress */
 }
 
 .arrow:after {
@@ -90,13 +90,6 @@ h1 small{
 
 /* AISIS ADMIN PANEL
     -------------------------------------------------- */
-.popover-title .wp-menu-name{
-	margin-left:-30px;
-}
-
-.popover-content .wp-menu-name{
-	margin-rught:-999930px;
-}
 
 #wrap {
 	min-height: 100%;

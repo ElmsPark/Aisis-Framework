@@ -1,4 +1,5 @@
 <link href="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/Shortcode.css' ?>" rel="stylesheet" type="text/css">
+<link href="<? echo get_template_directory_uri() . '/assets/FontAwesome/css/font-awesome.min.css' ?>" rel="stylesheet" type-="text/css">
 <link href="<?php echo get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo get_template_directory_uri() . '/assets/bootstrap/css/bootstrap-responsive.min.css' ?>" rel="stylesheet" type="text/css">
 <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">
@@ -6,7 +7,8 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/MarketingCodes.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/ShortCode.js' ?>"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/PageLayout.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/FeatureCodes.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/js/GeneralPageCodes.js' ?>"></script>
 <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
 
 <script>
@@ -19,15 +21,35 @@
 
 <div class="tabbable">
   <ul class="nav nav-tabs">
+    <li><a href="#generalCodes" data-toggle="tab">General</a></li>
     <li><a href="#marketingPage" data-toggle="tab">Marketing Page</a></li>
+    <li><a href="#featurePage" data-toggle="tab">Feature Page</a></li>
   </ul>
-  <div class="tab-content">
-    <div id="marketingPage" class="tab-pane active">
-    <h1>Marketing Page Layouts!</h1>
+  <div class="tab-content">  
+    <div id="generalCodes" class="tab-pane active">
+        <h1>General Page Codes</h1>
+        <p>These codes are general to the page layout, that is they do not affect the specific page layout codes
+        on other tabs. These are more like utility short codes that help you design a better looking, asethically pleasing page.</p>
+        <div class="well">
+            <input type="button" onClick="hideTitle()" class="btn btn-success pull-right" value="Hide Page Title"/>  
+            <h2>Hide Page Titles!</h2>
+          <p>every page title has a <code>h1-6</code> based wrapper that comes with a css class. For default Aisis Theme (Aisis Framework)
+              this class is <code>pageTitle</code>, which would then be inserted into the short code as such: <code>[hide_title title_class="pageTitle"]</code>
+          which will allow you to still title the page, but also allow you to hide the page title on pages like <strong>Marketing</strong> and <strong>Feature</strong>
+          pages.</p>
+          
+          <p>If you are using the Aisis Theme Narrow Page Template, please use the class <code>narrowTitle</code> for hiding the page title.</p>
+          
+          <div class="alert"><strong>ATTN!!</strong> For other child themes, when you preview the page, you can right-click on the page title, and view
+          the css class name of that element, for modern browsers.</div>
+        </div>
+    </div>      
+    <div id="marketingPage" class="tab-pane">
+        <h1>Marketing Page Layouts!</h1>
 	    <p>Creating a marketing page layout is simple. We have organized a set of known short codes and a few not so known short codes
 	    to help you out when making a marketing page.</p>
-	    <p>Marketing pages are generally pages that describe one or more products. We do this through a two collumn row, which usually houses about 3-6
-	    short entries on the product, or products them seleves.</p>
+	    <p>Marketing pages are generally pages that describe one or more products. We do this through a two column row, which usually houses about 3-6
+	    short entries on the product, or products them selves.</p>
 	    <div class="alert alert-info">We suggest that you do not give the page a title as that can affect the layout and look of the page it's self.</div>
 	    <hr>
 	    <h2>JumboTron</h2>
@@ -35,7 +57,7 @@
 	    	<input type="button" onClick="jumbotron()" class="btn btn-success pull-right" value="Insert Jumbotron Wrapper"/>
 	    	<h3>Creating the Jumbotron</h3>
 	    	<p>The jumbotron short code <code>[jumbotron][/jumbotron]</code> is really a wrapper for the  header based content. We will need to populate the header with three other
-	    	short codes, one which adds, a title and the other which adds the descriptive text. The final short code wil add a button, this button can lead people to the content
+	    	short codes, one which adds, a title and the other which adds the descriptive text. The final short code will add a button, this button can lead people to the content
 	    	about your product or be a download button for your software.</p>
 	    	<hr>
 	    	<h3>Title, Lead and Button</h3>
@@ -43,7 +65,7 @@
 	    	<p>The title <code>[marketingTitle][/marketingTitle]</code> is used inside the jumbotron tags to give the perception of a title.</p>
 	    	<div class="alert alert-info">You can also replace this with an image.</div>
 	    	<input type="button" onClick="marketingLead()" class="btn btn-success pull-right" value="Insert Marketing Headline"/>
-	    	<p>The lead <code>[marketingLead][/marketingLead]</code> is meant to be a small descriptive sentance or two about the product(s) that you are offering.
+	    	<p>The lead <code>[marketingLead][/marketingLead]</code> is meant to be a small descriptive sentence or two about the product(s) that you are offering.
 	    	This is where you can express your products tag line or your companies slogan.</p>
 	    	<input type="button" onClick="button()" class="btn btn-success pull-right" value="Insert Marketing Button"/>
 	    	<p>This short code is the same short code used on posts to insert buttons, we take the same parameters and accept the same arguments. the only difference is that
@@ -56,19 +78,52 @@
 	    <div class="well">
 	    	<h3>Creating Rows </h3>
 	    	<input type="button" onClick="marketingRow()" class="btn btn-success pull-right" value="Insert Marketing Row"/>
-	    	<p>Rows allows us to align peices of content across the page. These take in special divs with classes <code>.span1-12</code>, each row should add up
+	    	<p>Rows allows us to align pieces of content across the page. These take in special divs with classes <code>.span1-12</code>, each row should add up
 	    	to 12, any more and it will break.</p>
-	    	<p>Inserting a row uses the <code>[row]</code> tage to which you put content between the tags. row are responsive and will respond to screen size.</p>
+	    	<p>Inserting a row uses the <code>[row]</code> tag to which you put content between the tags. row are responsive and will respond to screen size.</p>
 	    	<hr>
 	    	<h3>Adding in Content</h3>
-	    	<input type="button" onClick="marketingCollumnOne()" class="btn btn-success pull-right" value="Insert Marketing Collumn One"/>
-	    	<p>In our case we have two very special short codes called <code>[collumnOne]</code> and <code>[collumnTwo]</code>. These collumns use <code>.span6</code>
+	    	<input type="button" onClick="marketingColumnOne()" class="btn btn-success pull-right" value="Insert Marketing Column One"/>
+	    	<p>In our case we have two very special short codes called <code>[columnOne]</code> and <code>[columnTwo]</code>. These columns use <code>.span6</code>
 	    	as their class, and thus add up to twelve.</p>
-	    	<input type="button" onClick="marketingCollumnTwo()" class="btn btn-success pull-right" value="Insert Marketing Collumn Two"/>
-	    	<p>In bweteen the collumn tags you would use <code>h4</code> tags for the heading. 
-	    	<div class="alert alert-info">You can add your own spans in between the row tags via creating divs that contian the appropriate class name.</div>
+	    	<input type="button" onClick="marketingColumnTwo()" class="btn btn-success pull-right" value="Insert Marketing Column Two"/>
+	    	<p>In between the column tags you would use <code>h4</code> tags for the heading. 
+	    	<div class="alert alert-info">You can add your own spans in between the row tags via creating divs that contain the appropriate class name.</div>
 	    </div>
     </div>
+    <div id="featurePage" class="tab-pane">
+          <h1>Feature Page</h1>
+          <p>The ability to create a feature page allows for the designer of the page to create what is called a Feature Page.
+          This page contains Features that describe the product you are trying to sell or alert people about.</p>
+          <div class="alert"><strong>Note:</strong> We suggest you do not give a name to your page. instead use the 
+          <code>[jumbotron][/jumbotron]</code> and associated short codes that help you design your page title. We also suggest
+          you use the narrow page template for pages. using the feature section.</div>
+          <hr>
+          <input type="button" onClick="featureDivider()" class="btn btn-success pull-right" value="Insert Feature Divider"/>
+          <h2>Feature Divider</h2>
+          <div class="well">
+              <p>This will allow you to divide the features from eachother. we suggest you place this after each feature section.</p>
+          </div>
+          <hr>
+          <input type="button" onClick="feature()" class="btn btn-success pull-right" value="Insert Feature Section"/>
+          <h2>Feature Section</h2>
+          <div class="well">
+              <p>This will allow you to create a feature. Each feature should be after a <code>[featureDivider]</code> and will
+              contain a feature header. Inside of these feature containers you can place html and other short codes.</p>
+          </div>
+          <hr>
+          <input type="button" onClick="featureHeader()" class="btn btn-success pull-right" value="Insert Feature Header"/>
+          <h2>Feature Header</h2>
+          <div class="well">
+              <p>The feature header goes inside the <code>[feature][/feature]</code> tags and is used to give the specific feature
+              a title. We ask for, at minimum, a <code>heading</code> which is <code>h1-6</code> and a <code>muted</code> set of text.
+              This text will display after the main heading and is used to give emphasis to the main heading.</p>
+              <p>
+                 It should be noted that our icons for the <code>icon=""</code> field use the font awesome icon css classes.
+                 which can be seen <a href="http://fortawesome.github.io/Font-Awesome/icons/">here</a>.
+              </p>
+          </div>
+      </div>
   </div>
 </div>
 

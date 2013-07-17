@@ -46,7 +46,8 @@ class CoreTheme_AdminPanel_Template_Form_Other{
 				'class' => 'modified-hero-unit',
 				'content' => '
 				<h2>Footer text</h2>
-				<p>The following text area will allow you to enter in details that will then go into the footer.</p>
+				<p>The following text area will allow you to enter in details that will then go into the footer. You can also
+                choose to turn off the footer links. By default you have to set up a menue or the links will look broken.</p>
 				'
 		);
 	

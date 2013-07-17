@@ -75,7 +75,7 @@ function aisis_button($atts, $content = null) {
 	}
 
 	if($color == 'red'){
-		$color_of_button == 'btn-danger';
+		$color_of_button = 'btn-danger';
 	}elseif($color == 'green'){
 		$color_of_button = 'btn-success';
 	}elseif($color == 'yellow'){

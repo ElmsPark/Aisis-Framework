@@ -7,7 +7,7 @@
  * @param WordPress $content
  */
 function aisis_info($atts, $content = null) {
-	return '<div class="alert">' . $content . '</div>';
+    return '<div class="alert">' . $content . '</div>';
 }
 
 /**
@@ -17,7 +17,7 @@ function aisis_info($atts, $content = null) {
  * @param WordPress $content
  */
 function aisis_update($atts, $content = null) {
-	return '<div class="alert alert-info">' . $content . '</div>';
+    return '<div class="alert alert-info">' . $content . '</div>';
 }
 
 /**
@@ -27,7 +27,7 @@ function aisis_update($atts, $content = null) {
  * @param WordPress $content
  */
 function aisis_error($atts, $content = null) {
-	return '<div class="alert alert-error">' . $content . '</div>';
+    return '<div class="alert alert-error">' . $content . '</div>';
 }
 
 /**
@@ -37,7 +37,7 @@ function aisis_error($atts, $content = null) {
  * @param WordPress $content
  */
 function aisis_note($atts, $content = null) {
-	return '<div class="alert alert-success">' . $content . '</div>';
+    return '<div class="alert alert-success">' . $content . '</div>';
 }
 
 /**
@@ -47,14 +47,14 @@ function aisis_note($atts, $content = null) {
  * @param WordPress $content
  */
 function aisis_label($atts, $content = null) {
-	extract(
-			shortcode_atts(
-					array(
-		'label' => '',
-					), $atts
-			)
-	);
-	return '<span class="label">' . $label . '</span>';
+    extract(
+        shortcode_atts(
+            array(
+                'label' => '',
+            ), $atts
+        )
+    );
+    return '<span class="label">' . $label . '</span>';
 }
 
 /**
@@ -64,14 +64,14 @@ function aisis_label($atts, $content = null) {
  * @param WordPress $content
  */
 function aisis_label_info($atts, $content = null) {
-	extract(
-			shortcode_atts(
-					array(
-		'label' => '',
-					), $atts
-			)
-	);
-	return '<span class="label label-info">' . $label . '</span>';
+    extract(
+        shortcode_atts(
+            array(
+                'label' => '',
+            ), $atts
+        )
+    );
+    return '<span class="label label-info">' . $label . '</span>';
 }
 
 /**
@@ -81,14 +81,14 @@ function aisis_label_info($atts, $content = null) {
  * @param WordPress $content
  */
 function aisis_label_warning($atts, $content = null) {
-	extract(
-			shortcode_atts(
-					array(
-		'label' => '',
-					), $atts
-			)
-	);
-	return '<span class="label label-warning">' . $label . '</span>';
+    extract(
+        shortcode_atts(
+            array(
+                'label' => '',
+            ), $atts
+        )
+    );
+    return '<span class="label label-warning">' . $label . '</span>';
 }
 
 /**
@@ -98,14 +98,14 @@ function aisis_label_warning($atts, $content = null) {
  * @param WordPress $content
  */
 function aisis_label_error($atts, $content = null) {
-	extract(
-			shortcode_atts(
-					array(
-		'label' => '',
-					), $atts
-			)
-	);
-	return '<span class="label label-important">' . $label . '</span>';
+    extract(
+        shortcode_atts(
+            array(
+                'label' => '',
+            ), $atts
+        )
+    );
+    return '<span class="label label-important">' . $label . '</span>';
 }
 
 /**
@@ -115,14 +115,14 @@ function aisis_label_error($atts, $content = null) {
  * @param WordPress $content
  */
 function aisis_label_success($atts, $content = null) {
-	extract(
-			shortcode_atts(
-					array(
-		'label' => '',
-					), $atts
-			)
-	);
-	return '<span class="label label-success">' . $label . '</span>';
+    extract(
+        shortcode_atts(
+            array(
+                'label' => '',
+            ), $atts
+        )
+    );
+    return '<span class="label label-success">' . $label . '</span>';
 }
 
 // Add the codes.
