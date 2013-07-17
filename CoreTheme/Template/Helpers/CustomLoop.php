@@ -62,7 +62,7 @@ class CoreTheme_Template_Helpers_CustomLoop extends AisisCore_Template_Helpers_L
 					'posts_per_page' => 3,
 				);
 				
-				$this->_query_post($array);
+				$this->_query_post($array, true);
 							
 				if(is_active_sidebar('aisis-side-bar')){
 					echo '</div>';
@@ -77,6 +77,48 @@ class CoreTheme_Template_Helpers_CustomLoop extends AisisCore_Template_Helpers_L
 			$this->loop();
 		}		
 	}
+	
+	/**
+	 * @see AisisCore_Template_Helpers_Loop_Loop::loop()
+	 */
+	public function loop(){
+		if($this->_options){
+			if(is_single()){
+				$this->_single_post();	
+				after_single_post();
+				if('open' == $this->_post->comment_status){
+					comments_template();
+				}	
+			}elseif(isset($this->_options['query'])){
+				if(isset($this->_options['remove_nav_from_query'])){
+					$this->_query_post($this->_options['query'], $this->_options['remove_nav_from_query']);
+					after_query_loop();
+				}else{
+					$this->_query_post($this->_options['query']);
+					after_query_loop();
+				}
+			}elseif(is_page()){
+				$this->page_loop();
+				after_page_loop();
+			}else{
+				$this->_general_wordpress_loop();
+				after_main_loop();
+			}
+		}elseif(is_single()){			
+			$this->_single_post();	
+			after_single_post();
+			if('open' == $post->comment_status){
+				comments_template();
+			}
+			
+		}elseif(is_page()){
+			$this->page_loop();
+			after_page_loop();
+		}else{
+			$this->_general_wordpress_loop();
+			after_main_loop();
+		}
+	}	
 	
 	/**
 	 * Creates a "more" button based the option value passed in.

@@ -54,7 +54,7 @@ class CoreTheme_Template_Helpers_ArchiveHeader{
 		$category = get_the_category(); 
 		
 		if($this->_builder->get_specific_option('category_header')){
-			$this->_html .= '<div class="hero-unit">';
+			$this->_html .= '<div class="well">';
 			
 			$this->_html .= '<h2>'.$category[0]->cat_name.'</h2>';
 			
@@ -81,7 +81,7 @@ class CoreTheme_Template_Helpers_ArchiveHeader{
 	public function build_tag_function(){
 		
 		if($this->_builder->get_specific_option('tag_header')){
-			$this->_html .= '<div class="hero-unit">';
+			$this->_html .= '<div class="well">';
 			
 			$this->_html .= '<h2>'.single_term_title('', false).'</h2>';
 			
@@ -105,7 +105,7 @@ class CoreTheme_Template_Helpers_ArchiveHeader{
 		$curauth = $wp_query->get_queried_object();
 		
 		if($this->_builder->get_specific_option('author_posts')){
-			$this->_html .= '<div class="hero-unit">';
+			$this->_html .= '<div class="well">';
 			
 			$this->_html .= '<h2>'.get_the_author_meta('user_login', $curauth->ID).'</h2>';
 			

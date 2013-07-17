@@ -55,6 +55,20 @@ if(is_multisite()){
 //require the setup file.
 require_once(CORETHEME . 'Setup.php');
 
+// Activate Packages Selected
+$loader = new AisisCore_Loader_Package();
+
+if(count($file_handling->search_for_packages()) > 0){
+    foreach($file_handling->search_for_packages() as $packages){
+        $strip_underscore = explode('_', $options['package_'.basename($packages)]);
+        $base_name = basename($packages);
+        
+        if($strip_underscore[1] == $base_name && is_dir(CUSTOM . '/packages/' . $strip_underscore[1])){
+           $loader->load_package($strip_underscore[1], CUSTOM . 'packages/', true, true);
+        }
+    }
+}
+
 //Don't touch if you dont want "headers alread sent.." shit....
 if(!function_exists('callback')){
 	function callback($buffer){
