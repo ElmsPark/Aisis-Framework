@@ -79,7 +79,7 @@ class CoreTheme_AdminPanel_Widgets_Download extends WP_Widget{
 		echo '<label>Information</label>';
 		
 		if(!isset($instance['info'])){
-			echo '<textarea name="'.$this->get_field_name('info').'"></textarea>';
+			echo '<textarea name="'.$this->get_field_name('info').'" cols="100" rows="10"></textarea>';
 		}else{
 			echo '<textarea name="'.$this->get_field_name('info').'">'.$instance['info'].'</textarea>';
 		}		

@@ -3,10 +3,10 @@
 Template Name: narrow-page
 */
 $option = array(
-	'title_header' => 'h2',
+	'title_header' => array('css' => 'narrowTitle', 'header_tag' => 'h2'),
 	'page' => array(
 		'content' => array(
-			'before' => '<div class="post">',
+			'before' => '<div class="contentNarrowTemplate">',
 			'after' => '</div>'
 		),			
 		'image' => array(
@@ -20,7 +20,7 @@ $option = array(
 );
 
 get_header();
-echo '<div class="container-narrow marginTop60">';
+echo '<div class="container-narrow marginTop60 contentNarrowTemplate">';
 	$loop = new CoreTheme_Template_Helpers_CustomLoop($option);
 	$loop->loop();
 echo '</div>';

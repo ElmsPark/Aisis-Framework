@@ -51,7 +51,7 @@ class CoreTheme_FileHandling_FileHandling{
 	public function search_for_packages(){
 		return $this->_get_files('packages', 'php');
 	}
-	
+
 	/**
 	 * Parse in the folder and the type, looking for specific files.
 	 * 
@@ -68,6 +68,7 @@ class CoreTheme_FileHandling_FileHandling{
 	protected function _get_files($folder_name, $type){
 		$actual_dir_to_use = array();
 		$array_of_files[] = null;
+        $temp_array = null;
 		$path_info[] = null;
 		
 		$array_of_folders = array_filter(glob(CUSTOM . '/' .$folder_name. '/*'), 'is_dir');
@@ -76,7 +77,6 @@ class CoreTheme_FileHandling_FileHandling{
 			if(isset($array_of_files) && !empty($array_of_files)){
 				foreach($array_of_files as $files){
 					$path_info = pathinfo($files);
-					
 					if($type == 'css'){
 						if($path_info['extension'] == 'css'){
 							$actual_dir_to_use[] = $folders;
@@ -85,7 +85,7 @@ class CoreTheme_FileHandling_FileHandling{
 					
 					if($type == 'php'){
 						if($path_info['filename'] == 'Setup' && $path_info['extension'] == 'php'){
-							$actual_dir_to_use[] = $folders;
+                            $actual_dir_to_use[] = $folders;
 						}
 					}
 				}
@@ -94,7 +94,7 @@ class CoreTheme_FileHandling_FileHandling{
 			$array_of_files = array();
 			$path_info = array();
 		}
-		
-		return $actual_dir_to_use;		
+        
+		return array_unique($actual_dir_to_use);		
 	}
 }

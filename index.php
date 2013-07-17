@@ -4,7 +4,10 @@ get_header();
 
 // Set up the loop options array.
 $options = array(
-	'title_header' => 'h2',
+	'title_header' => array(
+        'page' => array('css' => 'pageTitle', 'header_tag' => 'h2'),
+        'single' => array('css' => 'singleTitle', 'header_tag' => 'h2'),
+        'header_tag' => 'h2'),
 	'post_before' => '<div class="marginBottom60">',
 	'post_after' => '</div>',
 	'image' => array(
@@ -31,7 +34,7 @@ $options = array(
 			'size' => 'full',
 			'args' => array(
 				'align' => 'center',
-				'class' => 'marginBottom20 marginTop20 thumbnail'
+				'class' => 'marginBottom20 marginTop20 thumbnail centerSingleThumbnail'
 			)
 		),
 		'post_format' => array(
@@ -133,7 +136,6 @@ if(is_active_sidebar('aisis-side-bar') && !is_home()){
 
 // Call appropriate headers for category, tag and author archives.
 new CoreTheme_Template_Helpers_ArchiveHeader();
-
 // Call the custom loop
 $loop->custom_loop();
 
@@ -142,4 +144,3 @@ echo '</div></div>';
 
 //Get the footer.
 get_footer();
-

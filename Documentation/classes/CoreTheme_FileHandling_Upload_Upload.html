@@ -1,143 +1,323 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-<meta charset="utf-8">
-<title>phpDocumentor » \CoreTheme_FileHandling_Upload_Upload</title>
-<meta name="author" content="Mike van Riel">
-<meta name="description" content="">
-<link href="../css/template.css" rel="stylesheet" media="all">
-<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
-<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
-</head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta charset="utf-8"/>
+    <title>    API Documentation &raquo; \CoreTheme_FileHandling_Upload_Upload
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+            <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
 <body>
-<div class="navbar navbar-fixed-top">
-<div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
-<li class="dropdown">
-<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
-                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
-<li><a>Packages</a></li>
-<li><a href="../packages/AisisCore.html"><i class="icon-folder-open"></i> AisisCore</a></li>
-<li><a href="../packages/CoreTheme.html"><i class="icon-folder-open"></i> CoreTheme</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-</ul>
-</li>
-<li class="dropdown" id="charts-menu">
-<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
-                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
-</li>
-<li class="dropdown" id="reports-menu">
-<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
-                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
-<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">262</span></a></li>
-<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul></ul></a></li>
-<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
-                <span class="label label-info">0</span></a></li>
-</ul>
-</li>
-</ul></div>
-</div></div>
-<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
-</div>
-<div id="___" class="container">
-<noscript><div class="alert alert-warning">
-                            Javascript is disabled; several features are only available
-                            if Javascript is enabled.
-                        </div></noscript>
-<div class="row">
-<div class="span4">
-<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
-<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
-</div>
-<ul class="side-nav nav nav-list">
-<li class="nav-header">
-<i class="icon-custom icon-method"></i> Methods
-                    <ul>
-<li class="method public "><a href="#method___construct" title="__construct :: We need to set up appropriate options that can be updated upon any errors
-that are shown or success messages."><span class="description">We need to set up appropriate options that can be updated upon any errors
-that are shown or success messages.</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#method_accepted_mime_type" title="accepted_mime_type :: Set the mime acceptable type in WordPress to zip."><span class="description">Set the mime acceptable type in WordPress to zip.</span><pre>accepted_mime_type()</pre></a></li>
-<li class="method public "><a href="#method_check_file" title="check_file :: Check the file thats coming in to make sure we are what we want."><span class="description">Check the file thats coming in to make sure we are what we want.</span><pre>check_file()</pre></a></li>
-<li class="method public "><a href="#method_error" title="error :: Create an error message with a code and its associated message."><span class="description">Create an error message with a code and its associated message.</span><pre>error()</pre></a></li>
-<li class="method public "><a href="#method_get_all_errors" title="get_all_errors :: Count the errors in the $_errors array, return the errors or return nothing."><span class="description">Count the errors in the $_errors array, return the errors or return nothing.</span><pre>get_all_errors()</pre></a></li>
-<li class="method public "><a href="#method_get_all_success" title="get_all_success :: Count the messages in the $_messages array, return the errors or return nothing."><span class="description">Count the messages in the $_messages array, return the errors or return nothing.</span><pre>get_all_success()</pre></a></li>
-<li class="method public "><a href="#method_init" title="init :: Over ride me as a constucter in a sub class."><span class="description">Over ride me as a constucter in a sub class.</span><pre>init()</pre></a></li>
-<li class="method public "><a href="#method_reset_errors" title="reset_errors :: This should be used after you display any errors, this will reset all errors."><span class="description">This should be used after you display any errors, this will reset all errors.</span><pre>reset_errors()</pre></a></li>
-<li class="method public "><a href="#method_reset_success" title="reset_success :: This should be used after you display any messages, this will reset all messages."><span class="description">This should be used after you display any messages, this will reset all messages.</span><pre>reset_success()</pre></a></li>
-<li class="method public "><a href="#method_success" title="success :: Create a success message in an array of messages."><span class="description">Create a success message in an array of messages.</span><pre>success()</pre></a></li>
-<li class="method public "><a href="#method_upload_file" title="upload_file :: Check the file coming in and upload it."><span class="description">Check the file coming in and upload it.</span><pre>upload_file()</pre></a></li>
-</ul>
-</li>
-<li class="nav-header protected">» Protected
-                    <ul><li class="method protected "><a href="#method__cred_check" title="_cred_check :: Do we need to display the FTP Creds or can we go ahead?"><span class="description">Do we need to display the FTP Creds or can we go ahead?</span><pre>_cred_check()</pre></a></li></ul>
-</li>
-<li class="nav-header">
-<i class="icon-custom icon-property"></i> Properties
-                    <ul></ul>
-</li>
-<li class="nav-header private">» Private
-                    <ul>
-<li class="property private "><a href="#property__errors" title="$_errors :: "><span class="description">array</span><pre>$_errors</pre></a></li>
-<li class="property private "><a href="#property__file" title="$_file :: "><span class="description">array</span><pre>$_file</pre></a></li>
-<li class="property private "><a href="#property__messages" title="$_messages :: "><span class="description">array</span><pre>$_messages</pre></a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="span8">
-<a id="\CoreTheme_FileHandling_Upload_Upload"></a><ul class="breadcrumb">
-<li>
-<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
-</li>
-<li><a href="../namespaces/global.html">global</a></li>
-<li class="active">
-<span class="divider">\</span><a href="../classes/CoreTheme_FileHandling_Upload_Upload.html">CoreTheme_FileHandling_Upload_Upload</a>
-</li>
-</ul>
-<div class="element class">
-<p class="short_description">Allows you to upload a file, zip only, to WordPress and then move it
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">API Documentation</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                                            </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            <div class="row">
+        <div class="span4">
+                    <span class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
+    </span>
+    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                    <li class="method public">
+        <a href="#method___construct" title="__construct :: We need to set up appropriate options that can be updated upon any errors
+that are shown or success messages.">
+            <span class="description">We need to set up appropriate options that can be updated upon any errors
+that are shown or success messages.</span><pre>__construct</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_init" title="init :: Over ride me as a constucter in a sub class.">
+            <span class="description">Over ride me as a constucter in a sub class.</span><pre>init</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_check_file" title="check_file :: Check the file thats coming in to make sure we are what we want.">
+            <span class="description">Check the file thats coming in to make sure we are what we want.</span><pre>check_file</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_upload_file" title="upload_file :: Check the file coming in and upload it.">
+            <span class="description">Check the file coming in and upload it.</span><pre>upload_file</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_accepted_mime_type" title="accepted_mime_type :: Set the mime acceptable type in WordPress to zip.">
+            <span class="description">Set the mime acceptable type in WordPress to zip.</span><pre>accepted_mime_type</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_error" title="error :: Create an error message with a code and its associated message.">
+            <span class="description">Create an error message with a code and its associated message.</span><pre>error</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_success" title="success :: Create a success message in an array of messages.">
+            <span class="description">Create a success message in an array of messages.</span><pre>success</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_get_all_errors" title="get_all_errors :: Count the errors in the $_errors array, return the errors or return nothing.">
+            <span class="description">Count the errors in the $_errors array, return the errors or return nothing.</span><pre>get_all_errors</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_get_all_success" title="get_all_success :: Count the messages in the $_messages array, return the errors or return nothing.">
+            <span class="description">Count the messages in the $_messages array, return the errors or return nothing.</span><pre>get_all_success</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_reset_errors" title="reset_errors :: This should be used after you display any errors, this will reset all errors.">
+            <span class="description">This should be used after you display any errors, this will reset all errors.</span><pre>reset_errors</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_reset_success" title="reset_success :: This should be used after you display any messages, this will reset all messages.">
+            <span class="description">This should be used after you display any messages, this will reset all messages.</span><pre>reset_success</pre>
+        </a>
+    </li>
+
+                                                                                                        </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li class="method protected">
+                            <a href="#method__cred_check" title="_cred_check :: Do we need to display the FTP Creds or can we go ahead?">
+                                <span class="description">Do we need to display the FTP Creds or can we go ahead?</span><pre>_cred_check</pre>
+                            </a>
+                        </li>
+                                                </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                            </ul>
+        </li>
+    </ul>
+
+
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>CoreTheme_FileHandling_Upload_Upload</h1>
+                <small style="display: block; text-align: right">
+                                                                Implements <a href="../classes/AisisCore_Interfaces_Upload.html">\AisisCore_Interfaces_Upload</a>
+                                    </small>
+                <p class="short_description">Allows you to upload a file, zip only, to WordPress and then move it
 to either custom/themes or custom/packages.</p>
-<div class="details">
-<div class="long_description"></div>
-<table class="table table-bordered"><tr>
-<th>package</th>
-<td><a href="../packages/CoreTheme.FileHandling.Upload.html">CoreTheme_FileHandling_Upload</a></td>
-</tr></table>
-<h3>
-<i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
-<h2>We need to set up appropriate options that can be updated upon any errors
+                <div class="details">
+                    <div class="long_description">
+                        
+
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                <p>CoreTheme_FileHandling_Upload</p>
+
+                                    </td>
+                                </tr>
+                                                                        </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method___construct"></a>
+                        <div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+                            <h2>We need to set up appropriate options that can be updated upon any errors
 that are shown or success messages.</h2>
-<pre>__construct() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"><p>Use the init() function to be a sub classes constructer</p></div></div></div>
+                            <pre>__construct() </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Use the init() function to be a sub classes constructer</p>
 </div>
-<a id="method_accepted_mime_type"></a><div class="element clickable method public method_accepted_mime_type" data-toggle="collapse" data-target=".method_accepted_mime_type .collapse">
-<h2>Set the mime acceptable type in WordPress to zip.</h2>
-<pre>accepted_mime_type(array $mime) : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$mime</h4>
-<code>array</code>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_init"></a>
+                        <div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
+                            <h2>Over ride me as a constucter in a sub class.</h2>
+                            <pre>init() </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<h3>Returns</h3>
-<div class="subelement response"><code>array</code></div>
-</div></div>
-</div>
-<a id="method_check_file"></a><div class="element clickable method public method_check_file" data-toggle="collapse" data-target=".method_check_file .collapse">
-<h2>Check the file thats coming in to make sure we are what we want.</h2>
-<pre>check_file(array $file, string $size) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>The file thats coming in must be of type zip, and must be less then
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_check_file"></a>
+                        <div class="element clickable method public method_check_file" data-toggle="collapse" data-target=".method_check_file .collapse">
+                            <h2>Check the file thats coming in to make sure we are what we want.</h2>
+                            <pre>check_file(array $file, string $size) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>The file thats coming in must be of type zip, and must be less then
 the max size that was set when the form element for file handeling was set up.</p>
 
 <p>We also check the file type for the words "package" or "theme". If either exist
@@ -145,147 +325,566 @@ we continue to process, if neither exist we freak out.</p>
 
 <p>All errors will redirect back to the upload page to tell you what happened.</p>
 
-<p>We do a credential check to see if you must import the ftp credntials before we go any further.</p></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$file</h4>
-<code>array</code>
+<p>We do a credential check to see if you must import the ftp credntials before we go any further.</p>
 </div>
-<div class="subelement argument">
-<h4>$size</h4>
-<code>string</code>
-</div>
-</div></div>
-</div>
-<a id="method_error"></a><div class="element clickable method public method_error" data-toggle="collapse" data-target=".method_error .collapse">
-<h2>Create an error message with a code and its associated message.</h2>
-<pre>error(\type $code, \type $message) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$code</h4>
-<code>\type</code>
-</div>
-<div class="subelement argument">
-<h4>$message</h4>
-<code>\type</code>
-</div>
-</div></div>
-</div>
-<a id="method_get_all_errors"></a><div class="element clickable method public method_get_all_errors" data-toggle="collapse" data-target=".method_get_all_errors .collapse">
-<h2>Count the errors in the $_errors array, return the errors or return nothing.</h2>
-<pre>get_all_errors() : null</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>null</code>or $_errors</div>
-</div></div>
-</div>
-<a id="method_get_all_success"></a><div class="element clickable method public method_get_all_success" data-toggle="collapse" data-target=".method_get_all_success .collapse">
-<h2>Count the messages in the $_messages array, return the errors or return nothing.</h2>
-<pre>get_all_success() : null</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>null</code>or $_messages</div>
-</div></div>
-</div>
-<a id="method_init"></a><div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
-<h2>Over ride me as a constucter in a sub class.</h2>
-<pre>init() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="method_reset_errors"></a><div class="element clickable method public method_reset_errors" data-toggle="collapse" data-target=".method_reset_errors .collapse">
-<h2>This should be used after you display any errors, this will reset all errors.</h2>
-<pre>reset_errors() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="method_reset_success"></a><div class="element clickable method public method_reset_success" data-toggle="collapse" data-target=".method_reset_success .collapse">
-<h2>This should be used after you display any messages, this will reset all messages.</h2>
-<pre>reset_success() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="method_success"></a><div class="element clickable method public method_success" data-toggle="collapse" data-target=".method_success .collapse">
-<h2>Create a success message in an array of messages.</h2>
-<pre>success(\type $message) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$message</h4>
-<code>\type</code>
-</div>
-</div></div>
-</div>
-<a id="method_upload_file"></a><div class="element clickable method public method_upload_file" data-toggle="collapse" data-target=".method_upload_file .collapse">
-<h2>Check the file coming in and upload it.</h2>
-<pre>upload_file(array $file) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>We use WordPresses functions like wp_handle_upload, download_url and
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$file</h4>
+                                                <code>array</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$size</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_upload_file"></a>
+                        <div class="element clickable method public method_upload_file" data-toggle="collapse" data-target=".method_upload_file .collapse">
+                            <h2>Check the file coming in and upload it.</h2>
+                            <pre>upload_file(array $file) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>We use WordPresses functions like wp_handle_upload, download_url and
 unzip_file to upload the file, download the zip and then unpack it to the
-appropriate place.</p></div>
-<table class="table table-bordered"><tr>
-<th>global</th>
-<td>WordPress $wp_filesystem</td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$file</h4>
-<code>array</code><ul>
+appropriate place.</p>
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    global
+                                                </th>
+                                                <td>
+                                                                                                                                                                    <p>WordPress $wp_filesystem</p>
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$file</h4>
+                                                <code>array</code><p><ul>
 <li>the $_FILE[] array</li>
 </ul>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_accepted_mime_type"></a>
+                        <div class="element clickable method public method_accepted_mime_type" data-toggle="collapse" data-target=".method_accepted_mime_type .collapse">
+                            <h2>Set the mime acceptable type in WordPress to zip.</h2>
+                            <pre>accepted_mime_type(array $mime) : array</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$mime</h4>
+                                                <code>array</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_error"></a>
+                        <div class="element clickable method public method_error" data-toggle="collapse" data-target=".method_error .collapse">
+                            <h2>Create an error message with a code and its associated message.</h2>
+                            <pre>error(\type $code, \type $message) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method__cred_check"></a><div class="element clickable method protected method__cred_check" data-toggle="collapse" data-target=".method__cred_check .collapse">
-<h2>Do we need to display the FTP Creds or can we go ahead?</h2>
-<pre>_cred_check() : boolean</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>boolean</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$code</h4>
+                                                <code>\type</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$message</h4>
+                                                <code>\type</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_success"></a>
+                        <div class="element clickable method public method_success" data-toggle="collapse" data-target=".method_success .collapse">
+                            <h2>Create a success message in an array of messages.</h2>
+                            <pre>success(\type $message) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<h3>
-<i class="icon-custom icon-property"></i> Properties</h3>
-<a id="property__errors"> </a><div class="element clickable property private property__errors" data-toggle="collapse" data-target=".property__errors .collapse">
-<h2>array</h2>
-<pre>$_errors : \$_errors</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$message</h4>
+                                                <code>\type</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_get_all_errors"></a>
+                        <div class="element clickable method public method_get_all_errors" data-toggle="collapse" data-target=".method_get_all_errors .collapse">
+                            <h2>Count the errors in the $_errors array, return the errors or return nothing.</h2>
+                            <pre>get_all_errors() : null</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="property__file"> </a><div class="element clickable property private property__file" data-toggle="collapse" data-target=".property__file .collapse">
-<h2>array</h2>
-<pre>$_file : \$_file</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>or $_errors</p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_get_all_success"></a>
+                        <div class="element clickable method public method_get_all_success" data-toggle="collapse" data-target=".method_get_all_success .collapse">
+                            <h2>Count the messages in the $_messages array, return the errors or return nothing.</h2>
+                            <pre>get_all_success() : null</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="property__messages"> </a><div class="element clickable property private property__messages" data-toggle="collapse" data-target=".property__messages .collapse">
-<h2>array</h2>
-<pre>$_messages : \$_messages</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>or $_messages</p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_reset_errors"></a>
+                        <div class="element clickable method public method_reset_errors" data-toggle="collapse" data-target=".method_reset_errors .collapse">
+                            <h2>This should be used after you display any errors, this will reset all errors.</h2>
+                            <pre>reset_errors() </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_reset_success"></a>
+                        <div class="element clickable method public method_reset_success" data-toggle="collapse" data-target=".method_reset_success .collapse">
+                            <h2>This should be used after you display any messages, this will reset all messages.</h2>
+                            <pre>reset_success() </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method__cred_check"></a>
+                        <div class="element clickable method protected method__cred_check" data-toggle="collapse" data-target=".method__cred_check .collapse">
+                            <h2>Do we need to display the FTP Creds or can we go ahead?</h2>
+                            <pre>_cred_check() : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                    
+                    
+                                                                <h3><i class="icon-custom icon-property"></i> Properties</h3>
+                                                    <a id="property__file"> </a>
+                            <div class="element clickable property private property__file" data-toggle="collapse" data-target=".property__file .collapse">
+                                <h2>array</h2>
+                                <pre>_file</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>array</p>
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property__errors"> </a>
+                            <div class="element clickable property private property__errors" data-toggle="collapse" data-target=".property__errors .collapse">
+                                <h2>array</h2>
+                                <pre>_errors</pre>
+                                <div class="labels">
+                                                                        <span class="label">static</span>                                </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<div class="row"><footer class="span12">
-            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-06-07T07:00:19-06:00.<br></footer></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>array</p>
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property__messages"> </a>
+                            <div class="element clickable property private property__messages" data-toggle="collapse" data-target=".property__messages .collapse">
+                                <h2>array</h2>
+                                <pre>_messages</pre>
+                                <div class="labels">
+                                                                        <span class="label">static</span>                                </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-</body>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>array</p>
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                            </div>
+            </div>
+            <a id="\CoreTheme_FileHandling_Upload_Upload"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../namespaces/default.html">\</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/CoreTheme_FileHandling_Upload_Upload.html">CoreTheme_FileHandling_Upload_Upload</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Wed, 17 Jul 2013 13:02:34 -0600.<br/>
+    </footer>
+    </body>
 </html>

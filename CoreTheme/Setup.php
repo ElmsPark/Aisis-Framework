@@ -2,9 +2,21 @@
 // Load the autoloader.
 require_once(get_template_directory() . '/AisisCore/Loader/AutoLoader.php');
 
+//Load the hooks
+require_once(get_template_directory() . '/CoreTheme/ThemeHooks.php');
+
 // Setup the autoloader.
-$auto_loader = AisisCore_Loader_AutoLoader::get_instance();
-$auto_loader->register_auto_loader();
+
+
+// Add custom packages to the dir list if it exists.
+if(is_dir(get_template_directory() . '/custom/packages/')){
+    $auto_loader = AisisCore_Loader_AutoLoader::get_instance(get_template_directory() . '/custom/packages/');
+}else{
+    $auto_loader = AisisCore_Loader_AutoLoader::get_instance();
+}
+
+// Register the auto loader.
+$auto_loader->register_auto_loader(); 
 
 // Set up the exception handler.
 new CoreTheme_Exceptions_ExceptionHandler();
@@ -102,7 +114,6 @@ $theme_setup = array(
 	),
 	'navigation' => array(
 		'main_nav' => 'The Main Menu',
-		'footer_links' => 'Footer Links'
 	),		
 	'theme_support' => array(
 		'post_formats' => array(
@@ -182,18 +193,4 @@ $package->load_package('AdminPanel', CORETHEME, false, true);
 if(!is_child_theme()){
 	new CoreTheme_CustomPostTypes_Types();
 	new CoreTheme_CustomPostTypes_MetaBoxes();
-}
-
-// Activate Packages Selected
-$loader = new AisisCore_Loader_Package();
-
-if(count($file_handling->search_for_packages()) > 0){
-    foreach($file_handling->search_for_packages() as $packages){
-        $strip_underscore = explode('_', $options['package_'.basename($packages)]);
-        $base_name = basename($packages);
-        
-        if($strip_underscore[1] == $base_name && is_dir(CUSTOM . '/packages/' . $strip_underscore[1])){
-           $loader->load_package($strip_underscore[1], CUSTOM . 'packages/', true, true);
-        }
-    }
 }

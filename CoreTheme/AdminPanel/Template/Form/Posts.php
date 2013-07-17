@@ -116,7 +116,7 @@ class CoreTheme_AdminPanel_Template_Form_Posts{
 			'class' => 'regular',
 			'value' => 'regular_posts',
 			'label' => 'Display normal index of posts. <a href="#" id="regularPosts" rel="popover" 
-			data-content="This is a regular list of posts, it comes with a sidebar and pagination." 
+			data-content="Shows up to three of the latest posts in a list view. Includes a sidebar." 
 			data-trigger="hover"
 			data-original-title="Display as Regular Listing"><i class="icon-info-sign"></i></a>',
 			'option' => 'aisis_options',

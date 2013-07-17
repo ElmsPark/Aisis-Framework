@@ -43,25 +43,25 @@
    	 	<input type="button" onClick="button()" class="btn btn-success pull-right" value="Insert Button"/>
    	 	<h1>Buttons</h1>
 	    <div class="well">
-		    <p>We have incorpertated the <a href="http://twitter.github.com/bootstrap/base-css.html#buttons">Twitter Bootstrap</a> 
-		    button's into WordPress via a simple and easy to fill out short code. Aside from a link and a title, we acept the following
+		    <p>We have incorporated the <a href="http://twitter.github.com/bootstrap/base-css.html#buttons">Twitter Bootstrap</a> 
+		    button's into WordPress via a simple and easy to fill out short code. Aside from a link and a title, we accept the following
 		    custom options:</p>
 		    
 		    <h2>Colors</h2>
 		    
 		    <p>We will allow you to enter in colors such as: <code>blue</code>, <code>red</code>, <code>yellow</code>, <code>light-blue</code>, <code>green</code></p>
 		    
-		    <p>These colors will then corespond to their counter parts and create the appropriate colored button.</p>
+		    <p>These colors will then correspond to their counter parts and create the appropriate colored button.</p>
 		    
 		    <h2>Size</h2>
 		    
 		    <p>For sizes we will take in: <code>large</code>, <code>normal</code>, <code>small</code>, <code>mini</code></p>
 		    
 		    <div class="alert"><strong>ATTN!</strong> The above options must be entered in as you see for the codes. 
-		    Failure to do so may resault in a broken, looking, button.</div>
+		    Failure to do so may result in a broken, looking, button.</div>
 		    
 		    <h2>font_icon</h2>
-		    <p>We use font awesome for all front end icons, thus all you need to do is implment the class of the icon you want, and we will
+		    <p>We use font awesome for all front end icons, thus all you need to do is implement the class of the icon you want, and we will
 		    apply that to the button. Make sure you set the <code>font_icon</code> for the icon.</p>
 		    <div class="alert"><strong>Note:</strong> All you need is the name of the icon, we will do the rest.</div>
 	    </div>
@@ -89,7 +89,7 @@
 	    	<span class="label label-important pull-right marginRight15">Sample Label</span>
 	    	<h2>Error Label Label</h2>
 	    	<p>Error Labels are much like warning labels, accept that warning labels can be used to direct users to pay attention where as these are to heed caution.
-	    	Error Llabels are not to be taken lightly.</p>
+	    	Error Labels are not to be taken lightly.</p>
 	    	<hr>
 	    	<input type="button" onClick="labelInfo()" class="btn btn-success pull-right" value="Insert Info Label"/>
 	    	<span class="label label-info pull-right marginRight15">Sample Label</span>
@@ -99,7 +99,7 @@
 	    	<input type="button" onClick="labelSuccess()" class="btn btn-success pull-right" value="Insert Success Label"/>
 	    	<span class="label label-success pull-right marginRight15">Sample Label</span>
 	    	<h2>Success Label</h2>
-	    	<p>These types of labels can be used to indicate success of some kind. They can demostrate positive messages about some piece of content or action.</p>
+	    	<p>These types of labels can be used to indicate success of some kind. They can demonstrate positive messages about some piece of content or action.</p>
     	</div>
     	<hr>
     	<h1>Alerts</h1>
@@ -118,7 +118,7 @@
 	    	<hr>
 	    	<input type="button" onClick="error()" class="btn btn-success pull-right" value="Insert Error Alert"/>
 	    	<h2>Error</h2>
-	    	<p>Much like warning alerts, error alerts tell the user to pay heed to the content they read and proceede with what ever it is the content is
+	    	<p>Much like warning alerts, error alerts tell the user to pay heed to the content they read and proceed with what ever it is the content is
 	    	about, with extreme caution.</p>
 	    	<div class="alert alert-error">Sample Alert Error</div>
 	    	<hr>
@@ -156,7 +156,7 @@
     	<h1>Image - Polaroid</h1>
     	<div class="well">
     		<p>The image tag used here: <code>[imagePolaroid width="" height="" align="" image_link=""]</code> will help
-    		give the image the polaroid effect.</p>
+    		give the image the Polaroid effect.</p>
     	</div>   
     	<div class="example">
     		<img src="<?php echo get_template_directory_uri() . '/CoreTheme/ShortCodes/assets/images/placeholder.jpg' ?>" class="img-polaroid"/>
@@ -165,20 +165,26 @@
     	<h1>Light Box!</h1>
     	<div class="well">
     		<p>All of the above tags come with an extra set of features called, Light box, these provide the following options:
-    		<code>light_box = "true" // false by default</code>, <code>light_box_captian="Sample"</code> and <code>light_box_class="css-class-name"</code>
+    		<code>light_box = "true" // false by default</code>, <code>light_box_caption="Sample"</code> and <code>light_box_class="css-class-name"</code>
     		</p>
     		<h2>light_box</h2>
     		<p>This option will either allow for the image to be used with bootstrap lightbox or not. By default this is set to <code>"false"</code>.
     		Setting it to <code>"true"</code> will turn on the light box.</p>
-    		<h2>light_box_captian</h2>
-    		<p>Here you can enter a short captian about the image it's self.</p>
+    		<h2>light_box_caption</h2>
+    		<p>Here you can enter a short caption about the image it's self.</p>
     		<h2>light_box_class</h2>
     		<p>Each image must have a class in order to use the lightbox. Each class should be different from the last used.</p>
     		<div class="alert alert-error">
     		<strong>ATTN!!</strong> All class names must be different and must follow css standard naming. that is we accept class names such as:
     		<code>someClass</code> or <code>some-class</code>. You do not need the preceeding period for the class name. That's taken care of for you.
     		</div>
-    	</div>  	  	    	   	
+    	</div>
+        <h1>Feature!</h1>
+        <div class="well">
+            <p>This is not to be confused with the featured image selection for posts, pages in WordPress. If enabled to <code>true</code> then we
+                will add two new classes to the image it's self so that you can use it on pages in the <code>[feature][/feature]</code> tags when
+                creating feature pages.</p>
+        </div>
     </div>
     <div id="code" class="tab-pane">
     	<input type="button" onClick="code()" class="btn btn-success pull-right" value="Insert Code Tags"/>
@@ -186,11 +192,11 @@
     	<div class="well">
     		<p>The <code>[pre][/pre]</code> tags are meant to be used to house multiple lines of code when demonstrating the use of API's or other
     		bits of code.</p>
-		<div class="alert"><strong>Note:</strong> Please be careful of indentation. </a>
-    	</div> 
+            <div class="alert"><strong>Note:</strong> Please be careful of indentation. </a></div>
+        </div>
     	<hr>
     	<input type="button" onClick="inlineCode()" class="btn btn-success pull-right" value="Insert Inline Code"/>
-    	<h1>Code - Inline Code</h1>
+    	<h1>Code - in line Code</h1>
     	<div class="well">
     		<p>The <code>[code code=""]</code> tag is meant to demonstrate a small sample of code, much Like we have with this description.</p>
     	</div>    	

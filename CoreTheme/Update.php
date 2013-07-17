@@ -75,7 +75,7 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 	protected function _cred_check(){
 		$aisis_file_system_structure = WP_Filesystem();
 		if($aisis_file_system_structure == false){
-			echo '<div class="alert"><strog>NOTE!</strong> We need your ftp creds before we continue!</div>';
+			echo '<div class="alert"><strong>ATTN!!</strong> We need your ftp creds before we continue!</div>';
 			return true;
 		}		 
 		

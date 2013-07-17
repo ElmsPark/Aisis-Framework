@@ -9,10 +9,10 @@ $helper = new CoreTheme_Template_Helpers_CommentsHelper();
 
 
 if(post_password_required()){ ?>
-<p class="text-info">
+<div class="alert">
 	It seem's this post has no comments attached to it. Why not go ahead
 	and add one!
-</p>
+</div>
 <?php
 	return;
 }
@@ -46,10 +46,7 @@ if(have_comments()){?>
 <?php if ('open' == $post->comment_status){ ?>
 <div id="respond">
 <div class="well generalPadding">
-	<h3><?php comment_form_title('Whats on your mind?'); ?></h3>
-	<div class="cancel-comment-reply">
-		<small><?php cancel_comment_reply_link(); ?></small>
-	</div>	 
+	<h3><?php comment_form_title('Whats on your mind?'); ?></h3> 
 <?php if ( get_option('comment_registration') && !$user_ID ){ ?>
 <p>You must be 
 	<a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=
@@ -108,14 +105,16 @@ if(have_comments()){?>
 		<div class="control-group marginTop20">
 			<div class="controls">
 				<label class="control-label"><strong>Your comment!</strong></label>
-				<textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"
-					class="input-xlarge"></textarea>
+				<textarea name="comment" id="comment" cols="100" rows="10" tabindex="4"></textarea>
 			</div>
 		</div>
+        
+        <div class="alert alert-info">You can use: 'a', 'p', 'strong' and 'br' tags.</div>
 
 		<div class="form-actions">
 			<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" 
 				class="btn btn-primary" />
+            <?php $helper->cancel_reply('Cancel Reply'); ?>
 			<?php comment_id_fields(); ?>
 		</div>
 

@@ -30,14 +30,14 @@ class CoreTheme_Template_Helpers_CommentsHelper {
 		
 		if($comment->comment_approved == '0'){
 			$html .= '<div class="alert">';
-			$html .= '<p><strong>Awaiting Moderation!</strong> We are currently moderating your
-					post. It should be available soon!</p>';
+			$html .= '<strong>Awaiting Moderation!</strong> We are currently moderating your
+					post. It should be available soon!';
 			$html .= '</div>';
 		}
 		
 		$html .= '<div class="pull-left">'.$this->the_commenter_avatar().'</div>';
 		$html .= '<div class="media-body">';
-		$html .= '<strong class="media-heading"><h4>'.get_comment_author_link().'</h4></strong>';
+		$html .= '<strong class="media-heading"><h3 class="commentDecoration">'.get_comment_author_link().'</h3>';
 				
 		$html .= '<p>'.get_comment_text().'</p>'; 
 		
@@ -89,4 +89,22 @@ class CoreTheme_Template_Helpers_CommentsHelper {
 	    $avatar = str_replace( "class='avatar", "class='img-rounded avatar", get_avatar( $comment, "64" ) );
 	    return $avatar;
 	}
+    
+    /**
+     * This function acts the same way as cancel_comment_reply_link() from WordPress, with the exception
+     * that we give a style specific to cancel reply link.
+     * 
+     * @param $text text of the link
+     * @link http://codex.wordpress.org/Function_Reference/cancel_comment_reply_link 
+     */
+    public function cancel_reply($text_link = ''){
+        $text = $text_link;
+
+        if(isset($_GET['replytocom'])){}else{
+            $css = 'style="display:none;"';
+        } 
+            
+        $link = esc_html( remove_query_arg('replytocom') ) . '#respond';
+        echo apply_filters('cancel_comment_reply_link', '<a rel="nofollow" id="cancel-comment-reply-link" href="' . $link . '"class="btn btn-danger" ' . $css . '>' . $text . '</a>', $link, $text);
+    }
 }

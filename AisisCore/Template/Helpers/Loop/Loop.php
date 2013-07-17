@@ -11,7 +11,14 @@
  * <p>
  * <code>
  * $options = array(
- *     'title_header' => 'h1', // h1, h2, h3, h4
+ *     'title_header' => 'h1', // h1, h2, h3, h4 - See title($option) function
+ *     //or:
+ *     'title_header' => array('css' => 'css_class', 'header_tag' => 'h3'),
+ *     //You can also give specific Css to specific pars of the title:
+ *     'title_header' => array('page' => array('css' => 'css_class', 'header' => 'h3')),
+ *     // The above works for page, single and index
+ *     'author_date_class' => '', // Optional class for the author and date.
+ *     // for allowing an array to be passed.
  *     'excerpt' => array(
  * 			'length' => 60, // # of words
  * 			'content' => 'More...' // The title of the link for the read more.
@@ -59,7 +66,7 @@
  * 			'after_the_title_additions' => array(
  * 				'name'=>$function(), // Names should be unique.
  * 			), // Houses a series of functions that will echo content after the title (after the date and author).
- * 			'after_the_title_additions' => array(
+ * 			'after_the_content_additions' => array(
  * 				'name'=>$function(), // Names should be unique.
  * 			) // Houses a series of functions that will echo content after the content (before the navigation).
  * 		),
@@ -119,6 +126,16 @@ class AisisCore_Template_Helpers_Loop_Loop{
 	 * @var AisisCore_Template_Helpers_Loop_LoopComponents $_components
 	 */
 	protected $_components = null;
+	
+	/**
+	 * @var int $_count 
+	 */
+	protected $_count = null;
+	
+	/**
+	 * @var string $_type 
+	 */
+	protected $_type = null;
 	
 	/**
 	 * Set the wp_query object as a class level object if
@@ -196,7 +213,6 @@ class AisisCore_Template_Helpers_Loop_Loop{
 			}
 		}elseif(is_single()){			
 			$this->_single_post();	
-			
 			if('open' == $post->comment_status){
 				comments_template();
 			}
@@ -211,8 +227,9 @@ class AisisCore_Template_Helpers_Loop_Loop{
 	/**
 	 * This is the most basic loop. All were doing is returning a list of posts.
 	 */	
-	protected function _general_wordpress_loop(){
-		query_posts("post_type=post");
+	protected function _general_wordpress_loop(){	
+		$this->_set_count_and_type();
+		query_posts("post_type=post");	
 		if($this->_wp_query->have_posts()){
 			while($this->_wp_query->have_posts()){
 				$this->_wp_query->the_post();
@@ -231,16 +248,54 @@ class AisisCore_Template_Helpers_Loop_Loop{
 					echo $this->_options['post_after'];
 				}
 			}
-
-			if(isset($this->_options['navigation_wrap'])){
-				$this->_components->loop_navigation($this->_options['navigation_wrap']);
-			}else{
-				$this->_components->loop_navigation();
-			}
-						
+			
+			$this->_general_loop_pagination();			
 		}else{
 			$this->_components->error_page($this->_options);
 		}
+	}
+	
+	/**
+	 * Sets the $_count and the $_type depending if we are on a 
+	 * category or a tag or if we are on anything else. This helps
+	 * us set the navigation element.
+	 */
+	protected function _set_count_and_type(){
+		if(is_category()){
+			$category = get_the_category();
+			$this->_count = $category[0]->count;
+			$this->_type = "category";
+		}elseif(is_tag()){
+			$tag = get_tags();
+			$this->_count = $tag[0]->count;
+			$this->_type = "tag";
+		}else{
+			$this->_type="front";
+		}
+	}
+	
+	/**
+	 * General loop pagination
+	 */
+	protected function _general_loop_pagination(){
+		if($this->_count > get_option('posts_per_page') && $this->_type == "category"){
+			$this->_general_loop_nav();
+		}elseif($this->_count > get_option('posts_per_page') && $this->_type == "tag"){
+			$this->_general_loop_nav();
+		}elseif(wp_count_posts('published') > get_option('posts_per_page') && $this->_type == "front"){
+			$this->_general_loop_nav();
+		}	
+	}
+	
+	/**
+	 * Pagination used in the general loop.
+	 */
+	protected function _general_loop_nav(){
+		if(isset($this->_options['navigation_wrap'])){
+			$this->_components->loop_navigation($this->_options['navigation_wrap']);
+		}else{
+			$this->_components->loop_navigation();
+		}		
 	}
 	
 	/**
@@ -446,5 +501,5 @@ class AisisCore_Template_Helpers_Loop_Loop{
 		}else{
 			return ' <a href="'.get_permalink().'"><em>Read More...</em></a>';
 		}
-	}	
+	}
 }

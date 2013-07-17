@@ -23,6 +23,9 @@ class CoreTheme_CustomPostTypes_Types {
 			add_action('init', array($this, 'aisis_mini_feed'));
 			$this->aisis_mini_feed();
 		}
+        
+        add_action( 'init', array($this, 'block'));
+        $this->block();
 	}
 	
 	/**
@@ -126,6 +129,49 @@ class CoreTheme_CustomPostTypes_Types {
 	
 		register_post_type( 'carousel', $args );
 	}
+    
+    /**
+     * Creates block custom post type for
+     * the widget.
+     */
+    function block() {
+
+        $labels = array(
+            'name'                => 'Blocks',
+            'singular_name'       => 'Block',
+            'menu_name'           => 'Blocks',
+            'parent_item_colon'   => 'Parent Block:',
+            'all_items'           => 'All Blocks',
+            'view_item'           => 'View Block',
+            'add_new_item'        => 'Add New Block',
+            'add_new'             => 'New Block',
+            'edit_item'           => 'Edit Block',
+            'update_item'         => 'Update Block',
+            'search_items'        => 'Search Blocks',
+            'not_found'           => 'No blocks found',
+            'not_found_in_trash'  => 'No blocks found in Trash',
+        );
+        $args = array(
+            'label'               => 'block',
+            'description'         => 'Creates a post that can be used in the custom post type widget',
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_icon'           => get_template_directory_uri() . '/assets/images/blocks.png',
+            'can_export'          => true,
+            'has_archive'         => false,
+            'exclude_from_search' => true,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+        );
+        register_post_type( 'block', $args );
+
+    }    
 	
 	/**
 	 * Set up the rewrite rules and flush them.
