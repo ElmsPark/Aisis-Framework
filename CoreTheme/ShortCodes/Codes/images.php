@@ -9,6 +9,7 @@
 function aisis_image_circle($atts, $content = null){
 	$html = '';
 	$class = '';
+    $feature_class = '';
 	
 	extract (
 		shortcode_atts (
@@ -20,18 +21,23 @@ function aisis_image_circle($atts, $content = null){
 				'light_box' => 'false',
 				'light_box_caption' => '',
 				'light_box_class' => '',
+                'feature' => 'false'
 			),
 			$atts
 		)
 	);
 	
-	if($align == 'center'){
+	if($align == 'center' && !is_page()){
 		$class = 'marginCenter';
 	}
+    
+    if($feature == 'true'){
+        $feature_class = 'featurette-image featureImageShadow';
+    }
 	
 	if($light_box != 'false' && $light_box_class != ''){
 		$html .= '<a data-toggle="lightbox" href=".'.$light_box_class.'">';
-		$html .= '<img src="'.$image_link.'" class="'.$class.' img-circle marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		$html .= '<img src="'.$image_link.'" class="'.$class.$feature_class.' img-circle marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 		$html .= '</a>';
 		
 		$html .= '<div class="lightbox hide fade '.$light_box_class.'"  tabindex="-1" role="dialog" aria-hidden="true">';
@@ -48,7 +54,7 @@ function aisis_image_circle($atts, $content = null){
 		
 		return $html;
 	}else{
-		return '<img src="'.$image_link.'" class="'.$class.' img-circle marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		return '<img src="'.$image_link.'" class="'.$class.$feature_class.' img-circle marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 	}
 	
 }
@@ -62,6 +68,7 @@ function aisis_image_circle($atts, $content = null){
 function aisis_image_rounded($atts, $content = null){
 	$html = '';
 	$class = '';
+    $feature_class = '';
 	
 	extract (
 		shortcode_atts (
@@ -72,19 +79,24 @@ function aisis_image_rounded($atts, $content = null){
 				'image_link' => '',
 				'light_box' => 'false',
 				'light_box_caption' => '',
-				'light_box_class' => ''				
+				'light_box_class' => ''	,
+                'feature' => 'false'
 			),
 			$atts
 		)
 	);
 	
-	if($align == 'center'){
+	if($align == 'center' && !is_page()){
 		$class = 'marginCenter';
 	}
+    
+    if($feature == 'true'){
+        $feature_class = 'featurette-image featureImageShadow';
+    }    
 
 	if($light_box != 'false' && $light_box_class != ''){
 		$html .= '<a data-toggle="lightbox" href=".'.$light_box_class.'">';
-		$html .= '<img src="'.$image_link.'" class="'.$class.' img-rounded marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		$html .= '<img src="'.$image_link.'" class="'.$class.$feature_class.' img-rounded marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 		$html .= '</a>';
 	
 		$html .= '<div class="lightbox hide fade '.$light_box_class.'"  tabindex="-1" role="dialog" aria-hidden="true">';
@@ -94,14 +106,14 @@ function aisis_image_rounded($atts, $content = null){
 		$html .= '<div class="lightbox-content">';
 		$html .= '<img src="'.$image_link.'">';
 		if($light_box_caption != ""){
-			$html .= '<div class="'.$class.' lightbox-caption"><p>'.$light_box_caption.'</p></div>';
+			$html .= '<div class="lightbox-caption"><p>'.$light_box_caption.'</p></div>';
 		}
 		$html .= '</div>';
 		$html .= '</div>';
 	
 		return $html;
 	}else{
-		return '<img src="'.$image_link.'" class="'.$class.' img-rounded marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		return '<img src="'.$image_link.'" class="'.$class.$feature_class.' img-rounded marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 	}
 }
 
@@ -114,6 +126,7 @@ function aisis_image_rounded($atts, $content = null){
 function aisis_image_polaroid($atts, $content = null){
 	$html = '';
 	$class = '';
+    $feature_class = '';
 	
 	extract (
 		shortcode_atts (
@@ -124,19 +137,24 @@ function aisis_image_polaroid($atts, $content = null){
 				'image_link' => '',
 				'light_box' => 'false',
 				'light_box_caption' => '',
-				'light_box_class' => ''					
+				'light_box_class' => '',
+                'feature' => 'false'
 			),
 			$atts
 		)
 	);
 	
-	if($align == 'center'){
+	if($align == 'center' && !is_page()){
 		$class = 'marginCenter';
 	}
+    
+    if($feature == 'true'){
+        $feature_class = 'featurette-image featureImageShadow';
+    }    
 
 	if($light_box != 'false' && $light_box_class != ''){
 		$html .= '<a data-toggle="lightbox" href=".'.$light_box_class.'">';
-		$html .= '<img src="'.$image_link.'" class="'.$class.' img-polaroid marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		$html .= '<img src="'.$image_link.'" class="'.$class.$feature_class.' img-polaroid marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 		$html .= '</a>';
 		
 		$html .= '<div class="lightbox hide fade '.$light_box_class.'"  tabindex="-1" role="dialog" aria-hidden="true">';
@@ -153,7 +171,7 @@ function aisis_image_polaroid($atts, $content = null){
 		
 		return $html;
 	}else{
-		return '<img src="'.$image_link.'" class="'.$class.' img-polaroid marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
+		return '<img src="'.$image_link.'" class="'.$class.$feature_class.' img-polaroid marginLeftRight10" width="'.$width.'" height="'.$height.'" align="'.$align.'"/>';
 	}
 }
 

@@ -28,7 +28,7 @@ wp_head();
 ?>
 
 </head>
-<body onload="prettyPrint()" <?php body_class(); ?>>
+<body <?php body_class(); ?>>
 <?php
 $template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 $header_helper = new CoreTheme_Template_Helpers_Header($template);

@@ -37,11 +37,29 @@ blockquote {
 	margin: 10px 20px 20px !important;
 }
 
+textarea{
+    width:96% !important;
+}
+
 .wrapper {
 	min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -60px;
+}
+
+img{
+    margin: 0 10px 0 10px;
+}
+
+.item img, .pull-left img{
+    margin: 0 !important;
+}
+
+img .photo{
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 /* OTHER ELEMENTS - core fixes
@@ -321,6 +339,10 @@ body.customize-support .navbar-fixed-top{
 	width: 98%;
 }
 
+.centerSingleThumbnail{
+    margin: 0 auto;
+}
+
 .post, .title{
 	position: relative;
 	margin: 20px 0 20px 0;
@@ -336,6 +358,33 @@ body.customize-support .navbar-fixed-top{
 	padding: 10px;
 	border: rgb(221, 221, 221) 1px solid;
 	margin: 20px 0 20px 0;
+}
+
+.contentNarrowTemplate{
+    color: #333;
+}
+
+.contentNarrowTemplate h1, .contentNarrowTemplate h2, .contentNarrowTemplate h3,
+.contentNarrowTemplate h4, .contentNarrowTemplate h5, .contentNarrowTemplate h6{
+    color: #333;
+}
+
+.contentNarrowTemplate p{
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.contentNarrowTemplate a{
+    color: #08c;
+}
+
+.contentNarrowTemplate a:hover{
+    color: #08c;
+    text-decoration: none;
+}
+
+.commentDecoration{
+    color: rgb(148, 148, 148);
 }
 
 /* CONTENT SUBHEADLINES
@@ -544,7 +593,8 @@ body.customize-support .navbar-fixed-top{
     -------------------------------------------------- */
 
 .featureImageShadow{
-    box-shadow: 10px 10px 5px #000;
+    box-shadow: 2px 1px 5px rgb(209, 206, 206);
+    margin: 0 10px 0 10px;
 }
 
 /* FOOTER CUSTOM

@@ -60,7 +60,7 @@ class CoreTheme_Template_Helpers_LoopComponents extends AisisCore_Template_Helpe
 		
 		if(isset($option['before'])){
 			echo $option['before'];
-		}		
+		}	
 	}
 	
 	/**

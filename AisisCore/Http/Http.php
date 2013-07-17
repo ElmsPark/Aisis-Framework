@@ -109,16 +109,6 @@ class AisisCore_Http_Http {
 	}
 	
 	/**
-	 * Simple way for returning the WordPress error message based on the cod you pass in.
-	 * 
-	 * @param int $code
-	 * @return string
-	 */
-	function get_wp_error_message($code){
-		return get_error_message($get_error_code($code));
-	}
-	
-	/**
 	 * Return the array of post values.
 	 * 
 	 * @return array

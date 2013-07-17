@@ -1,0 +1,3090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; 
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+            <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
+<body>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">API Documentation</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                                            </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            
+    <div class="row">
+
+        <div class="span4">
+            <div class="btn-group view pull-right" data-toggle="buttons-radio">
+                <button class="btn details" title="Show descriptions and method names">
+                    <i class="icon-list"></i></button><button class="btn simple" title="Show only method names">
+                    <i class="icon-align-justify"></i>
+                </button>
+            </div>
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">
+                    <i class="icon-map-marker"></i> Packages
+                </li>
+                    
+        <li>
+        <a href="../packages/CoreTheme_AdminPanel_Template_Form_SubSection.html" title="CoreTheme_AdminPanel_Template_Form_SubSection">
+            <i class="icon-th"></i> CoreTheme_AdminPanel_Template_Form_SubSection
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_Form.html" title="CoreTheme_Form">
+            <i class="icon-th"></i> CoreTheme_Form
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_CustomPostTypes.html" title="CoreTheme_CustomPostTypes">
+            <i class="icon-th"></i> CoreTheme_CustomPostTypes
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_Template_Helpers.html" title="CoreTheme_Template_Helpers">
+            <i class="icon-th"></i> CoreTheme_Template_Helpers
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_Exceptions.html" title="AisisCore_Exceptions">
+            <i class="icon-th"></i> AisisCore_Exceptions
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_Form_Elements.html" title="AisisCore_Form_Elements">
+            <i class="icon-th"></i> AisisCore_Form_Elements
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_Loader.html" title="CoreTheme_Loader">
+            <i class="icon-th"></i> CoreTheme_Loader
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_Loader.html" title="AisisCore_Loader">
+            <i class="icon-th"></i> AisisCore_Loader
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme.html" title="CoreTheme">
+            <i class="icon-th"></i> CoreTheme
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_FileHandling_Upload.html" title="CoreTheme_FileHandling_Upload">
+            <i class="icon-th"></i> CoreTheme_FileHandling_Upload
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_Template_Form.html" title="CoreTheme_Template_Form">
+            <i class="icon-th"></i> CoreTheme_Template_Form
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_CustomPostTypes_Form.html" title="CoreTheme_CustomPostTypes_Form">
+            <i class="icon-th"></i> CoreTheme_CustomPostTypes_Form
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_Template_Helpers_Loop.html" title="AisisCore_Template_Helpers_Loop">
+            <i class="icon-th"></i> AisisCore_Template_Helpers_Loop
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_AdminPanel_Template_Form.html" title="CoreTheme_AdminPanel_Template_Form">
+            <i class="icon-th"></i> CoreTheme_AdminPanel_Template_Form
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_FileHandeling.html" title="AisisCore_FileHandeling">
+            <i class="icon-th"></i> AisisCore_FileHandeling
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_Form.html" title="AisisCore_Form">
+            <i class="icon-th"></i> AisisCore_Form
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_Http.html" title="AisisCore_Http">
+            <i class="icon-th"></i> AisisCore_Http
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_Factory.html" title="AisisCore_Factory">
+            <i class="icon-th"></i> AisisCore_Factory
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore.html" title="AisisCore">
+            <i class="icon-th"></i> AisisCore
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_Adminpanel_Widgets.html" title="CoreTheme_Adminpanel_Widgets">
+            <i class="icon-th"></i> CoreTheme_Adminpanel_Widgets
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_Interfaces.html" title="AisisCore_Interfaces">
+            <i class="icon-th"></i> AisisCore_Interfaces
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_Exceptions.html" title="CoreTheme_Exceptions">
+            <i class="icon-th"></i> CoreTheme_Exceptions
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_Template.html" title="AisisCore_Template">
+            <i class="icon-th"></i> AisisCore_Template
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_FileHandling.html" title="CoreTheme_FileHandling">
+            <i class="icon-th"></i> CoreTheme_FileHandling
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_AdminPanel.html" title="CoreTheme_AdminPanel">
+            <i class="icon-th"></i> CoreTheme_AdminPanel
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_Template_helpers.html" title="CoreTheme_Template_helpers">
+            <i class="icon-th"></i> CoreTheme_Template_helpers
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/AisisCore_FileHandling.html" title="AisisCore_FileHandling">
+            <i class="icon-th"></i> AisisCore_FileHandling
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_Form_Elements_Submit.html" title="CoreTheme_Form_Elements_Submit">
+            <i class="icon-th"></i> CoreTheme_Form_Elements_Submit
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/CoreTheme_AdminPanel_Template_Helper.html" title="CoreTheme_AdminPanel_Template_Helper">
+            <i class="icon-th"></i> CoreTheme_AdminPanel_Template_Helper
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+    
+            </ul>
+        </div>
+
+        <div class="span8 package-contents">
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+        </ul>
+
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-function"></i> Functions</h3>
+                                        <div id="aisis_code" class="element ajax clickable function">
+        <h1>aisis_code<a href="../namespaces/.html#function_aisis_code">¶</a></h1>
+        <p class="short_description">Created the pre tags and uses pretty print. The style we use is css.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_code" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_inline_code" class="element ajax clickable function">
+        <h1>aisis_inline_code<a href="../namespaces/.html#function_aisis_inline_code">¶</a></h1>
+        <p class="short_description">Created the code tags for general use of code.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_inline_code" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_info" class="element ajax clickable function">
+        <h1>aisis_info<a href="../namespaces/.html#function_aisis_info">¶</a></h1>
+        <p class="short_description">Creates a info alert.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_info" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_update" class="element ajax clickable function">
+        <h1>aisis_update<a href="../namespaces/.html#function_aisis_update">¶</a></h1>
+        <p class="short_description">Creates a update alert.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_update" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_error" class="element ajax clickable function">
+        <h1>aisis_error<a href="../namespaces/.html#function_aisis_error">¶</a></h1>
+        <p class="short_description">Creates a error alert.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_error" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_note" class="element ajax clickable function">
+        <h1>aisis_note<a href="../namespaces/.html#function_aisis_note">¶</a></h1>
+        <p class="short_description">Creates a note alert.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_note" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_label" class="element ajax clickable function">
+        <h1>aisis_label<a href="../namespaces/.html#function_aisis_label">¶</a></h1>
+        <p class="short_description">Creates a label.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_label" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_label_info" class="element ajax clickable function">
+        <h1>aisis_label_info<a href="../namespaces/.html#function_aisis_label_info">¶</a></h1>
+        <p class="short_description">Creates a info label.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_label_info" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_label_warning" class="element ajax clickable function">
+        <h1>aisis_label_warning<a href="../namespaces/.html#function_aisis_label_warning">¶</a></h1>
+        <p class="short_description">Creates a warning label.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_label_warning" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_label_error" class="element ajax clickable function">
+        <h1>aisis_label_error<a href="../namespaces/.html#function_aisis_label_error">¶</a></h1>
+        <p class="short_description">Creates a error label.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_label_error" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_label_success" class="element ajax clickable function">
+        <h1>aisis_label_success<a href="../namespaces/.html#function_aisis_label_success">¶</a></h1>
+        <p class="short_description">Creates a success label.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_label_success" class="more">« More »</a>
+    </div>
+
+                                        <div id="remove_tags" class="element ajax clickable function">
+        <h1>remove_tags<a href="../namespaces/.html#function_remove_tags">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_remove_tags" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_media_buttons_link" class="element ajax clickable function">
+        <h1>aisis_media_buttons_link<a href="../namespaces/.html#function_aisis_media_buttons_link">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_media_buttons_link" class="more">« More »</a>
+    </div>
+
+                                        <div id="parse_aisis_request" class="element ajax clickable function">
+        <h1>parse_aisis_request<a href="../namespaces/.html#function_parse_aisis_request">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_parse_aisis_request" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_require_code_display_page" class="element ajax clickable function">
+        <h1>aisis_require_code_display_page<a href="../namespaces/.html#function_aisis_require_code_display_page">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_require_code_display_page" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_page_button_link" class="element ajax clickable function">
+        <h1>aisis_page_button_link<a href="../namespaces/.html#function_aisis_page_button_link">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_page_button_link" class="more">« More »</a>
+    </div>
+
+                                        <div id="parse_aisis_page_request" class="element ajax clickable function">
+        <h1>parse_aisis_page_request<a href="../namespaces/.html#function_parse_aisis_page_request">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_parse_aisis_page_request" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_require_page_code_display_page" class="element ajax clickable function">
+        <h1>aisis_require_page_code_display_page<a href="../namespaces/.html#function_aisis_require_page_code_display_page">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_require_page_code_display_page" class="more">« More »</a>
+    </div>
+
+                                        <div id="the_bootstrap_nav_menu_css_class" class="element ajax clickable function">
+        <h1>the_bootstrap_nav_menu_css_class<a href="../namespaces/.html#function_the_bootstrap_nav_menu_css_class">¶</a></h1>
+        <p class="short_description">Adds the active CSS class</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_the_bootstrap_nav_menu_css_class" class="more">« More »</a>
+    </div>
+
+                                        <div id="hide_page_title" class="element ajax clickable function">
+        <h1>hide_page_title<a href="../namespaces/.html#function_hide_page_title">¶</a></h1>
+        <p class="short_description">Allows you to hide a page title based on the page title class.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_hide_page_title" class="more">« More »</a>
+    </div>
+
+                                        <div id="register_download" class="element ajax clickable function">
+        <h1>register_download<a href="../namespaces/.html#function_register_download">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_register_download" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_image_circle" class="element ajax clickable function">
+        <h1>aisis_image_circle<a href="../namespaces/.html#function_aisis_image_circle">¶</a></h1>
+        <p class="short_description">Creates a circle image.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_image_circle" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_image_rounded" class="element ajax clickable function">
+        <h1>aisis_image_rounded<a href="../namespaces/.html#function_aisis_image_rounded">¶</a></h1>
+        <p class="short_description">Creates a rounded image.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_image_rounded" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_image_polaroid" class="element ajax clickable function">
+        <h1>aisis_image_polaroid<a href="../namespaces/.html#function_aisis_image_polaroid">¶</a></h1>
+        <p class="short_description">Creates a pollaroid.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_image_polaroid" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_jumbotron" class="element ajax clickable function">
+        <h1>aisis_jumbotron<a href="../namespaces/.html#function_aisis_jumbotron">¶</a></h1>
+        <p class="short_description">Creates the jubotron</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_jumbotron" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_marketing_title" class="element ajax clickable function">
+        <h1>aisis_marketing_title<a href="../namespaces/.html#function_aisis_marketing_title">¶</a></h1>
+        <p class="short_description">Creates the title</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_marketing_title" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_marketing_lead" class="element ajax clickable function">
+        <h1>aisis_marketing_lead<a href="../namespaces/.html#function_aisis_marketing_lead">¶</a></h1>
+        <p class="short_description">Creates the lead</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_marketing_lead" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_marketing_row" class="element ajax clickable function">
+        <h1>aisis_marketing_row<a href="../namespaces/.html#function_aisis_marketing_row">¶</a></h1>
+        <p class="short_description">Creates the rows</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_marketing_row" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_marketing_column_one" class="element ajax clickable function">
+        <h1>aisis_marketing_column_one<a href="../namespaces/.html#function_aisis_marketing_column_one">¶</a></h1>
+        <p class="short_description">Creates the column one</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_marketing_column_one" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_marketing_column_two" class="element ajax clickable function">
+        <h1>aisis_marketing_column_two<a href="../namespaces/.html#function_aisis_marketing_column_two">¶</a></h1>
+        <p class="short_description">Creates the column two</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_marketing_column_two" class="more">« More »</a>
+    </div>
+
+                                        <div id="after_single_post" class="element ajax clickable function">
+        <h1>after_single_post<a href="../namespaces/.html#function_after_single_post">¶</a></h1>
+        <p class="short_description">This function allows us to add actions AFTER a single based loop
+and BEFORE the comments section.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_after_single_post" class="more">« More »</a>
+    </div>
+
+                                        <div id="after_main_loop" class="element ajax clickable function">
+        <h1>after_main_loop<a href="../namespaces/.html#function_after_main_loop">¶</a></h1>
+        <p class="short_description">Allows us to add actions that appear AFTER the main loop, in such
+files as the index.php and BEFORE anything that happens after the loop.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_after_main_loop" class="more">« More »</a>
+    </div>
+
+                                        <div id="after_page_loop" class="element ajax clickable function">
+        <h1>after_page_loop<a href="../namespaces/.html#function_after_page_loop">¶</a></h1>
+        <p class="short_description">Allows us to add stuff AFTER the loop on a page.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_after_page_loop" class="more">« More »</a>
+    </div>
+
+                                        <div id="after_query_loop" class="element ajax clickable function">
+        <h1>after_query_loop<a href="../namespaces/.html#function_after_query_loop">¶</a></h1>
+        <p class="short_description">Allows you to do things AFTER the loop for a specific query.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_after_query_loop" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_feature_divider" class="element ajax clickable function">
+        <h1>aisis_feature_divider<a href="../namespaces/.html#function_aisis_feature_divider">¶</a></h1>
+        <p class="short_description">Creates feature divider.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_feature_divider" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_feature" class="element ajax clickable function">
+        <h1>aisis_feature<a href="../namespaces/.html#function_aisis_feature">¶</a></h1>
+        <p class="short_description">Creates a feature div (opening and closing).</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_feature" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_feature_header" class="element ajax clickable function">
+        <h1>aisis_feature_header<a href="../namespaces/.html#function_aisis_feature_header">¶</a></h1>
+        <p class="short_description">Creates the feature header.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_feature_header" class="more">« More »</a>
+    </div>
+
+                                        <div id="register_custom_post_type_widget" class="element ajax clickable function">
+        <h1>register_custom_post_type_widget<a href="../namespaces/.html#function_register_custom_post_type_widget">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_register_custom_post_type_widget" class="more">« More »</a>
+    </div>
+
+                                        <div id="callback" class="element ajax clickable function">
+        <h1>callback<a href="../namespaces/.html#function_callback">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_callback" class="more">« More »</a>
+    </div>
+
+                                        <div id="add_ob_start" class="element ajax clickable function">
+        <h1>add_ob_start<a href="../namespaces/.html#function_add_ob_start">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_add_ob_start" class="more">« More »</a>
+    </div>
+
+                                        <div id="flush_ob_end" class="element ajax clickable function">
+        <h1>flush_ob_end<a href="../namespaces/.html#function_flush_ob_end">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_flush_ob_end" class="more">« More »</a>
+    </div>
+
+                                        <div id="dependencies" class="element ajax clickable function">
+        <h1>dependencies<a href="../namespaces/.html#function_dependencies">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_dependencies" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_toc" class="element ajax clickable function">
+        <h1>aisis_toc<a href="../namespaces/.html#function_aisis_toc">¶</a></h1>
+        <p class="short_description">Creates a table of contents.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_toc" class="more">« More »</a>
+    </div>
+
+                                        <div id="aisis_button" class="element ajax clickable function">
+        <h1>aisis_button<a href="../namespaces/.html#function_aisis_button">¶</a></h1>
+        <p class="short_description">Creates a button.</p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_aisis_button" class="more">« More »</a>
+    </div>
+
+                                        <div id="register_bootstrap" class="element ajax clickable function">
+        <h1>register_bootstrap<a href="../namespaces/.html#function_register_bootstrap">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#function_register_bootstrap" class="more">« More »</a>
+    </div>
+
+                            </div>
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-constant"></i> Constants</h3>
+                                        <div id="SHORTCODES_CODES" class="element ajax clickable constant">
+        <h1>SHORTCODES_CODES<a href="../namespaces/.html#constant_SHORTCODES_CODES">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_SHORTCODES_CODES" class="more">« More »</a>
+    </div>
+
+                                        <div id="THEME" class="element ajax clickable constant">
+        <h1>THEME<a href="../namespaces/.html#constant_THEME">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_THEME" class="more">« More »</a>
+    </div>
+
+                                        <div id="CORETHEME" class="element ajax clickable constant">
+        <h1>CORETHEME<a href="../namespaces/.html#constant_CORETHEME">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CORETHEME" class="more">« More »</a>
+    </div>
+
+                                        <div id="CORETHEME_LOADER" class="element ajax clickable constant">
+        <h1>CORETHEME_LOADER<a href="../namespaces/.html#constant_CORETHEME_LOADER">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CORETHEME_LOADER" class="more">« More »</a>
+    </div>
+
+                                        <div id="CORETHEME_TEMPLATE_VIEW" class="element ajax clickable constant">
+        <h1>CORETHEME_TEMPLATE_VIEW<a href="../namespaces/.html#constant_CORETHEME_TEMPLATE_VIEW">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CORETHEME_TEMPLATE_VIEW" class="more">« More »</a>
+    </div>
+
+                                        <div id="CORETHEME_META_TEMPLATES" class="element ajax clickable constant">
+        <h1>CORETHEME_META_TEMPLATES<a href="../namespaces/.html#constant_CORETHEME_META_TEMPLATES">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CORETHEME_META_TEMPLATES" class="more">« More »</a>
+    </div>
+
+                                        <div id="CORETHEME_ADMIN" class="element ajax clickable constant">
+        <h1>CORETHEME_ADMIN<a href="../namespaces/.html#constant_CORETHEME_ADMIN">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CORETHEME_ADMIN" class="more">« More »</a>
+    </div>
+
+                                        <div id="CORETHEME_ADMIN_TEMPLATE" class="element ajax clickable constant">
+        <h1>CORETHEME_ADMIN_TEMPLATE<a href="../namespaces/.html#constant_CORETHEME_ADMIN_TEMPLATE">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CORETHEME_ADMIN_TEMPLATE" class="more">« More »</a>
+    </div>
+
+                                        <div id="CORETHEME_ADMIN_PARTIAL_TEMPLATE" class="element ajax clickable constant">
+        <h1>CORETHEME_ADMIN_PARTIAL_TEMPLATE<a href="../namespaces/.html#constant_CORETHEME_ADMIN_PARTIAL_TEMPLATE">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CORETHEME_ADMIN_PARTIAL_TEMPLATE" class="more">« More »</a>
+    </div>
+
+                                        <div id="CORETHEME_SHORTCODES" class="element ajax clickable constant">
+        <h1>CORETHEME_SHORTCODES<a href="../namespaces/.html#constant_CORETHEME_SHORTCODES">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CORETHEME_SHORTCODES" class="more">« More »</a>
+    </div>
+
+                                        <div id="CORETHEME_ADMIN_TWITTER" class="element ajax clickable constant">
+        <h1>CORETHEME_ADMIN_TWITTER<a href="../namespaces/.html#constant_CORETHEME_ADMIN_TWITTER">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CORETHEME_ADMIN_TWITTER" class="more">« More »</a>
+    </div>
+
+                                        <div id="CUSTOM" class="element ajax clickable constant">
+        <h1>CUSTOM<a href="../namespaces/.html#constant_CUSTOM">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_CUSTOM" class="more">« More »</a>
+    </div>
+
+                                        <div id="WIDGETS" class="element ajax clickable constant">
+        <h1>WIDGETS<a href="../namespaces/.html#constant_WIDGETS">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../namespaces/.html#constant_WIDGETS" class="more">« More »</a>
+    </div>
+
+                            </div>
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_AdminPanel_Template_Form_SelectPackages" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_SelectPackages<a href="../classes/CoreTheme_AdminPanel_Template_Form_SelectPackages.html">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_SelectPackages.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Widgets_CustomPostType" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Widgets_CustomPostType<a href="../classes/CoreTheme_AdminPanel_Widgets_CustomPostType.html">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_AdminPanel_Widgets_CustomPostType.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_SelectTheme" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_SelectTheme<a href="../classes/CoreTheme_AdminPanel_Template_Form_SelectTheme.html">¶</a></h1>
+        <p class="short_description"></p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_SelectTheme.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Exceptions_ExceptionHandler" class="element ajax clickable class">
+        <h1>AisisCore_Exceptions_ExceptionHandler<a href="../classes/AisisCore_Exceptions_ExceptionHandler.html">¶</a></h1>
+        <p class="short_description">Deals with catching exception in Aisis.</p>
+        <div class="details collapse">&lt;p&gt;When a new exception is thrown this class will catch that exception
+and spit it out. This is used in the case where you do not have try/catch
+blocks.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Exceptions_ExceptionHandler.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_AdminPanel_Template_Form_SubSection.html">CoreTheme_AdminPanel_Template_Form_SubSection</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_AdminPanel_Template_Form_SubSection_Lists" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_SubSection_Lists<a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Lists.html">¶</a></h1>
+        <p class="short_description">This class is responsible for creating a sub section called Lists.</p>
+        <div class="details collapse">&lt;p&gt;When displaying posts on the home page, you have the option of lists, rows or general. This will display a lis of 5 posts + the
+sticky posts. You also have the option of displaying a read more button by entering a link hat should link to a page with the content on it.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Lists.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_SubSection_Rows" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_SubSection_Rows<a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Rows.html">¶</a></h1>
+        <p class="short_description">This class is responsible for creating a sub section called Rows.</p>
+        <div class="details collapse">&lt;p&gt;When displaying posts on the home page, you have the option of lists, rows or general. This will allow you to pick up to 3, 6 or 9 posts to display
+in rows of three. This will not display sticky posts. You also have the option of displaying a read more button by entering a link hat should link to a page with the content on it.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Rows.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_SubSection_Jumbotron" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_SubSection_Jumbotron<a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Jumbotron.html">¶</a></h1>
+        <p class="short_description">This class is responsible for creating a sub section called Jumbotron.</p>
+        <div class="details collapse">&lt;p&gt;This allows you o create a single jumbotron that is then displayed on the home page. This is only displayed if you do not select a static page
+as the front page.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Jumbotron.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_SubSection_Category" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_SubSection_Category<a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Category.html">¶</a></h1>
+        <p class="short_description">This class is responsible for creating a sub section called Category.</p>
+        <div class="details collapse">&lt;p&gt;This sub section contains elements and options relating to the category page and how specific
+content about the category is displayed.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Category.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_SubSection_Author" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_SubSection_Author<a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Author.html">¶</a></h1>
+        <p class="short_description">This class is responsible for creating a sub section called Author.</p>
+        <div class="details collapse">&lt;p&gt;This sub section contains elements and options relating to the author page and how specific
+content about the author is displayed.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Author.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_SubSection_Carousel" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_SubSection_Carousel<a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Carousel.html">¶</a></h1>
+        <p class="short_description">This class is responsible for creating a sub section called Carousel</p>
+        <div class="details collapse">&lt;p&gt;This sub section contains elements and options relating to the carousel.this then allows you to decide if you want to display a
+Jumbotron and/or the socialbar.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Carousel.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_SubSection_Tag" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_SubSection_Tag<a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Tag.html">¶</a></h1>
+        <p class="short_description">This class is responsible for creating a sub section called Tag.</p>
+        <div class="details collapse">&lt;p&gt;This sub section contains elements and options relating to the tags page and how specific
+content about the tag is displayed.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_SubSection_Tag.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_Form.html">CoreTheme_Form</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_Form_TabbedForm" class="element ajax clickable class">
+        <h1>CoreTheme_Form_TabbedForm<a href="../classes/CoreTheme_Form_TabbedForm.html">¶</a></h1>
+        <p class="short_description">This is a new form that allows you to create tabbed forms.</p>
+        <div class="details collapse">&lt;p&gt;This means that no matter the tab you are on with in the form you can hit submit at any time.
+This type of form use an array of elements to create the elemts for said tab.&lt;/p&gt;
+
+&lt;p&gt;The following is an example of how to  set up one tab in the tabbed form.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$array = array(
+		&#039;method&#039; =&gt; &#039;post&#039;,
+	&#039;action&#039; =&gt; &#039;options.php&#039;,
+	&#039;class&#039; =&gt; &#039;form-vertical&#039;,
+	&#039;settings&#039; =&gt; &#039;aisis_options&#039;,
+	array(
+		&#039;tab&#039; =&gt; &#039;Posts&#039;,
+		&#039;elements&#039; =&gt; array(
+			$posts-&gt;elements()
+		),
+	),
+ );&lt;/code&gt;&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Form_TabbedForm.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_Upload" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_Upload<a href="../classes/CoreTheme_AdminPanel_Template_Form_Upload.html">¶</a></h1>
+        <p class="short_description">Builds an upload form.</p>
+        <div class="details collapse">&lt;p&gt;This class is to be extended by any class that creates a form.
+that class is then called into the template where you want that form to
+be displated. From there you pass it a data structure such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+   &#039;method&#039; =&gt; &#039;post&#039;,
+   &#039;action&#039; =&gt; &#039;your form action&#039;,
+   &#039;enctype&#039; =&gt; &#039;enctype&#039;
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;id&#039; =&gt; &#039;css id&#039;
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This array then gets passed to the constructor of this class when instantiating it in the
+the template.&lt;/p&gt;
+
+&lt;p&gt;When you go to create a form you extend this class, create a series of protected functions
+that will be the elements, from there you pass those into the init method of that class
+and with in there you do $this-&gt;_create_form().&lt;/p&gt;
+
+&lt;p&gt;All forms can have one sub section, these sub sections are shown above the submit button but
+bellow all elements.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_Upload.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Form_Form" class="element ajax clickable class">
+        <h1>CoreTheme_Form_Form<a href="../classes/CoreTheme_Form_Form.html">¶</a></h1>
+        <p class="short_description">This is an extension of the AisisCore Form.</p>
+        <div class="details collapse">&lt;p&gt;This class is to be extended by any class that creates a form.
+that class is then called into the template where you want that form to
+be displated. From there you pass it a data structure such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+   &#039;method&#039; =&gt; &#039;post&#039;,
+   &#039;action&#039; =&gt; &#039;your form action&#039;,
+   &#039;enctype&#039; =&gt; &#039;enctype&#039;
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;id&#039; =&gt; &#039;css id&#039;
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This array then gets passed to the constructor of this class when instantiating it in the
+the template.&lt;/p&gt;
+
+&lt;p&gt;When you go to create a form you extend this class, create a series of protected functions
+that will be the elements, from there you pass those into the init method of that class
+and with in there you do $this-&gt;_create_form().&lt;/p&gt;
+
+&lt;p&gt;All forms can have one sub section, these sub sections are shown above the submit button but
+bellow all elements.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Form_Form.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_CustomPostTypes.html">CoreTheme_CustomPostTypes</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_CustomPostTypes_Types" class="element ajax clickable class">
+        <h1>CoreTheme_CustomPostTypes_Types<a href="../classes/CoreTheme_CustomPostTypes_Types.html">¶</a></h1>
+        <p class="short_description">This class is used to generate and create all custom post types.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_CustomPostTypes_Types.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_CustomPostTypes_MetaBoxes" class="element ajax clickable class">
+        <h1>CoreTheme_CustomPostTypes_MetaBoxes<a href="../classes/CoreTheme_CustomPostTypes_MetaBoxes.html">¶</a></h1>
+        <p class="short_description">This class sets up and creates the appropropriate meta boxes for the custom post types.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_CustomPostTypes_MetaBoxes.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_Template_Helpers.html">CoreTheme_Template_Helpers</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_Template_Helpers_ThemeUtil" class="element ajax clickable class">
+        <h1>CoreTheme_Template_Helpers_ThemeUtil<a href="../classes/CoreTheme_Template_Helpers_ThemeUtil.html">¶</a></h1>
+        <p class="short_description">This is a utillity class with useful functions for the theme and for view pages.</p>
+        <div class="details collapse">&lt;p&gt;This class is meant to house utillity based functions that help the developers, designers and
+implementers create views with ease.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Template_Helpers_ThemeUtil.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Template_Helpers_CommentsHelper" class="element ajax clickable class">
+        <h1>CoreTheme_Template_Helpers_CommentsHelper<a href="../classes/CoreTheme_Template_Helpers_CommentsHelper.html">¶</a></h1>
+        <p class="short_description">Creates Twitter boostrap comment lay out.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_Template_Helpers_CommentsHelper.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Template_Helpers_CustomLoop" class="element ajax clickable class">
+        <h1>CoreTheme_Template_Helpers_CustomLoop<a href="../classes/CoreTheme_Template_Helpers_CustomLoop.html">¶</a></h1>
+        <p class="short_description">This class extends Aisis Core Loop to create a series of custom loops.</p>
+        <div class="details collapse">&lt;p&gt;This class relies on AisisCore_Template_Helpers_Loop_Loop to allow for us to create a
+series of custom loops for the custom post types that Aisis Theme Supports.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Template_Helpers_CustomLoop.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Template_Helpers_LoopComponents" class="element ajax clickable class">
+        <h1>CoreTheme_Template_Helpers_LoopComponents<a href="../classes/CoreTheme_Template_Helpers_LoopComponents.html">¶</a></h1>
+        <p class="short_description">This class is used to make modifications to the core aspects of Aisis Core Loop Components.</p>
+        <div class="details collapse">&lt;p&gt;Each of the following methods ith in this class are to be called inside the loop when creating a new loop.
+These take in an option in the form of a specifically designed array which can be seen in the class AisisCore_Template_Helpers_Loop_Loop.
+&lt;/p&gt;
+
+&lt;p&gt;Each method is a helper component, designed wor creating and filling out the loop to be a lot easier and cleaner.&lt;/p&gt;
+
+&lt;p&gt;These methods are abstratced components of a typical wordpress loop.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Template_Helpers_LoopComponents.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Template_Helpers_ArchiveHeader" class="element ajax clickable class">
+        <h1>CoreTheme_Template_Helpers_ArchiveHeader<a href="../classes/CoreTheme_Template_Helpers_ArchiveHeader.html">¶</a></h1>
+        <p class="short_description">This class will build the &quot;header&quot; that sits at the top of category, author and tag
+related archives.</p>
+        <div class="details collapse">&lt;p&gt;The well box that is created by selecting various options for the tags, category and author &quot;headers&quot;
+are then demonstrated and built bellow.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Template_Helpers_ArchiveHeader.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_Exceptions.html">AisisCore_Exceptions</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_Exceptions_Exception" class="element ajax clickable class">
+        <h1>AisisCore_Exceptions_Exception<a href="../classes/AisisCore_Exceptions_Exception.html">¶</a></h1>
+        <p class="short_description">This class extends the exception class to allow you to pass a message into
+the exception class and have it be returned wrapped in divs.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/AisisCore_Exceptions_Exception.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Exceptions_UpdateException" class="element ajax clickable class">
+        <h1>CoreTheme_Exceptions_UpdateException<a href="../classes/CoreTheme_Exceptions_UpdateException.html">¶</a></h1>
+        <p class="short_description">Any exceptions thrown during update process.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_Exceptions_UpdateException.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_Form_Elements.html">AisisCore_Form_Elements</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_Form_Elements_Button" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Button<a href="../classes/AisisCore_Form_Elements_Button.html">¶</a></h1>
+        <p class="short_description">This class returns a button based element.</p>
+        <div class="details collapse">&lt;p&gt;This class is responsible for taking in an array of attributes to return
+a button based element.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$array = array(
+  &#039;type&#039; =&gt; &#039;type of button&#039;,
+  &#039;id&#039; =&gt; &#039;css id&#039;,
+  &#039;class&#039; =&gt; &#039;css class&#039;,
+  &#039;name&#039; =&gt; &#039;name of the button&#039;,
+	 &#039;value&#039; =&gt; &#039;value of said button&#039;,
+);
+&lt;/code&gt;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Button.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Form_Elements_Url" class="element ajax clickable class">
+        <h1>CoreTheme_Form_Elements_Url<a href="../classes/CoreTheme_Form_Elements_Url.html">¶</a></h1>
+        <p class="short_description">Extension of the Aisis Core Form Url.</p>
+        <div class="details collapse">&lt;p&gt;We add  a few styles to the url.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Form_Elements_Url.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Submit" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Submit<a href="../classes/AisisCore_Form_Elements_Submit.html">¶</a></h1>
+        <p class="short_description">This class will allow you to create a submit button element.</p>
+        <div class="details collapse">&lt;p&gt;The input type is already set to that of submit.&lt;/p&gt;
+
+&lt;p&gt;The options below are what we allow for the submit option to be created.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$array = array(
+    &#039;id&#039; =&gt; &#039;css id&#039;,
+    &#039;class&#039; =&gt; &#039;css class&#039;,
+    &#039;value&#039; =&gt; &#039;string value&#039;,
+	   &#039;name&#039; =&gt; &#039;element name&#039;,
+);
+&lt;/code&gt;
+&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Submit.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Content" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Content<a href="../classes/AisisCore_Form_Elements_Content.html">¶</a></h1>
+        <p class="short_description">Allows you to create a content element.</p>
+        <div class="details collapse">&lt;p&gt;This element should be created above all other elements.&lt;/p&gt;
+
+&lt;p&gt;The options you could pass in should look like:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+  &#039;class&#039; =&gt; &#039;css class&#039;,
+  &#039;id&#039; =&gt; &#039;css id&#039;,
+  &#039;content&#039; =&gt; &#039;either html, simple string or what ever you wish.&#039;
+);
+&lt;/code&gt;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Content.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Select" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Select<a href="../classes/AisisCore_Form_Elements_Select.html">¶</a></h1>
+        <p class="short_description">This class is modeled after the input class, how ever deals with passwords.</p>
+        <div class="details collapse">&lt;p&gt;The basic data structure for this class is as such:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$array = array(
+   &#039;id&#039; =&gt; &#039;css id&#039;,
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+	  &#039;required&#039; =&gt; true, //default false.
+	  &#039;disabled&#039; =&gt; true //disable the element
+	  &#039;select_options&#039; =&gt; array(
+	      array(
+           &#039;value&#039; =&gt; &#039;some value&#039;,
+           &#039;content&#039; =&gt; &#039;some value&#039;, // should be the same as value
+           &#039;option&#039; =&gt; &#039;option&#039; /// $option[&#039;key&#039;] - the containing option
+           &#039;key&#039; =&gt; &#039;key&#039; // $option[&#039;key&#039;] - the key for the option
+       ),
+       // Add other options for the select here.
+   ),
+	  &#039;label&#039; =&gt; array(
+       &#039;class&#039; =&gt; &#039;css_class&#039;
+       &#039;value&#039; =&gt; &#039;label value&#039;
+   )
+);
+&lt;/code&gt;
+&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Select.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Form_Elements_Checkbox" class="element ajax clickable class">
+        <h1>CoreTheme_Form_Elements_Checkbox<a href="../classes/CoreTheme_Form_Elements_Checkbox.html">¶</a></h1>
+        <p class="short_description">Extension of the Aisis Core Form checkbox.</p>
+        <div class="details collapse">&lt;p&gt;We add  a few styles to the checkbox.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Form_Elements_Checkbox.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Radio" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Radio<a href="../classes/AisisCore_Form_Elements_Radio.html">¶</a></h1>
+        <p class="short_description">Based on the options passed in we will create a radio element for you. This element
+is tired to the other radio elements by name.</p>
+        <div class="details collapse">&lt;p&gt;The options you wanna pass in is:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$array = array(
+   &#039;id&#039; =&gt; &#039;css id&#039;,
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;name&#039; =&gt; &#039;options[&#039;options_name&#039;]&#039;,
+   &#039;required&#039; =&gt; true,
+   &#039;value&#039; =&gt; &#039;options_name&#039;,
+   &#039;option&#039; =&gt; &#039;options&#039;,
+   &#039;key&#039; =&gt; &#039;options_name&#039;m
+   &#039;label&#039; =&gt; &#039;some label&#039;,
+   &#039;disabled&#039; =&gt; true
+);
+&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Optional values include: &#039;data-target-selector=&quot;.class or #id&quot;&#039;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Radio.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Email" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Email<a href="../classes/AisisCore_Form_Elements_Email.html">¶</a></h1>
+        <p class="short_description">This class is modeled after the input class, how ever deals with emails.</p>
+        <div class="details collapse">&lt;p&gt;The basic data structure for this class is as such:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$array = array(
+   &#039;id&#039; =&gt; &#039;css id&#039;,
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;placeholder&#039; =&gt; &#039;html5 place holder&#039;,
+   &#039;required&#039; =&gt; true // html5 required validation
+   &#039;value&#039; =&gt; &#039;value to fill the input with&#039;,
+   &#039;aria-required&#039; =&gt; true ,// WordPress validation
+	  &#039;disabled&#039; =&gt; true //disable the element
+	  &#039;label&#039; =&gt; array(
+       &#039;class&#039; =&gt; &#039;css_class&#039;
+       &#039;value&#039; =&gt; &#039;label value&#039;
+   )
+);
+&lt;/code&gt;
+&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Email.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_TextArea" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_TextArea<a href="../classes/AisisCore_Form_Elements_TextArea.html">¶</a></h1>
+        <p class="short_description">This class will allow you create a text area element.</p>
+        <div class="details collapse">&lt;p&gt;The options you would want to pass in for this element to be passed in
+are listed below: &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+    &#039;id&#039; =&gt; &#039;css id&#039;,
+    &#039;class&#039; =&gt; &#039;css class&#039;,
+    &#039;rows&#039; =&gt; &#039;5&#039;,
+    &#039;cols&#039; =&gt; &#039;6&#039;,
+    &#039;content&#039; =&gt; &#039;content string&#039;,
+    &#039;disabled&#039; =&gt; true,
+    &#039;required&#039; =&gt; true
+);
+&lt;/code&gt;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_TextArea.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Form_Elements_Input" class="element ajax clickable class">
+        <h1>CoreTheme_Form_Elements_Input<a href="../classes/CoreTheme_Form_Elements_Input.html">¶</a></h1>
+        <p class="short_description">Extension of the Aisis Core Form input.</p>
+        <div class="details collapse">&lt;p&gt;We add  a few styles to the input.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Form_Elements_Input.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_FileUpload" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_FileUpload<a href="../classes/AisisCore_Form_Elements_FileUpload.html">¶</a></h1>
+        <p class="short_description">This class returns a file upload element.</p>
+        <div class="details collapse">&lt;p&gt;This class is responsible for creating a file upload element which, by default
+will set a file upload size of 10mb&#039;s (10240 kbs).&lt;/p&gt;
+
+&lt;p&gt;You can over ride this with the &lt;code&gt;max&lt;/code&gt; set to true and the &lt;/code&gt;max_value&lt;/code&gt;
+set to a value of your choice.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$array = array(
+  &#039;type&#039; =&gt; &#039;type of button&#039;,
+  &#039;id&#039; =&gt; &#039;css id&#039;,
+  &#039;class&#039; =&gt; &#039;css class&#039;,
+  &#039;name&#039; =&gt; &#039;name of the button&#039;,
+	 &#039;placeholder&#039; =&gt; &#039;place holder text&#039;,
+  &#039;max&#039; =&gt;true // or false - allows you to set max value for file upload.
+  &#039;max_value&#039; =&gt; 10240 // this allows to set 10 mb&#039;s as upload.
+  &#039;action&#039; =&gt; &#039;&#039; // This should be used with the over-ride for wp_handle_upload,
+                    if left blank we will use: &#039;wp_handle_upload&#039;. This way you won&#039;t have to
+                    do an override.
+);
+&lt;/code&gt;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_FileUpload.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Form_Elements_Radio" class="element ajax clickable class">
+        <h1>CoreTheme_Form_Elements_Radio<a href="../classes/CoreTheme_Form_Elements_Radio.html">¶</a></h1>
+        <p class="short_description">Extension of the Aisis Core Form radio.</p>
+        <div class="details collapse">&lt;p&gt;We add  a few styles to the radio.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Form_Elements_Radio.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Form_Elements_TextArea" class="element ajax clickable class">
+        <h1>CoreTheme_Form_Elements_TextArea<a href="../classes/CoreTheme_Form_Elements_TextArea.html">¶</a></h1>
+        <p class="short_description">Extension of the Aisis Core Form text area.</p>
+        <div class="details collapse">&lt;p&gt;We add  a few styles to the test area.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Form_Elements_TextArea.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Url" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Url<a href="../classes/AisisCore_Form_Elements_Url.html">¶</a></h1>
+        <p class="short_description">Based on the elements that are passed in below this class will create a url element.</p>
+        <div class="details collapse">&lt;p&gt;The options to pass in are:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+    &#039;id&#039; =&gt; &#039;css id&#039;,
+    &#039;class&#039; =&gt; &#039;css class&#039;,
+    &#039;value&#039; =&gt; &#039;string&#039;,
+    &#039;placeholder&#039; =&gt; &#039;string&#039;,
+    &#039;required&#039; =&gt; true,
+	  &#039;label&#039; =&gt; array(
+       &#039;class&#039; =&gt; &#039;css_class&#039;
+       &#039;value&#039; =&gt; &#039;label value&#039;
+   )
+);
+&lt;/code&gt;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Url.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Input" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Input<a href="../classes/AisisCore_Form_Elements_Input.html">¶</a></h1>
+        <p class="short_description">Allows you to create a input based element. This element is of type text.</p>
+        <div class="details collapse">&lt;p&gt;The following options will help you create a text based input element.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$array = array(
+   &#039;id&#039; =&gt; &#039;css id&#039;,
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+	  &#039;name&#039; =&gt; &#039;name&#039;
+   &#039;placeholder&#039; =&gt; &#039;html5 place holder&#039;,
+   &#039;required&#039; =&gt; true // html5 required validation
+   &#039;value&#039; =&gt; &#039;value to fill the input with&#039;,
+   &#039;aria-required&#039; =&gt; true ,// WordPress validation
+	  &#039;disabled&#039; =&gt; true //disable the element
+	  &#039;label&#039; =&gt; array(
+       &#039;class&#039; =&gt; &#039;css_class&#039;
+       &#039;value&#039; =&gt; &#039;label value&#039;
+   )
+);
+&lt;/code&gt;
+&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Input.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Password" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Password<a href="../classes/AisisCore_Form_Elements_Password.html">¶</a></h1>
+        <p class="short_description">This class is modeled after the input class, how ever deals with passwords.</p>
+        <div class="details collapse">&lt;p&gt;The basic data structure for this class is as such:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$array = array(
+   &#039;id&#039; =&gt; &#039;css id&#039;,
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;placeholder&#039; =&gt; &#039;html5 place holder&#039;,
+   &#039;required&#039; =&gt; true // html5 required validation
+   &#039;value&#039; =&gt; &#039;value to fill the input with&#039;,
+   &#039;aria-required&#039; =&gt; true ,// WordPress validation
+	  &#039;disabled&#039; =&gt; true //disable the element
+	  &#039;label&#039; =&gt; array(
+       &#039;class&#039; =&gt; &#039;css_class&#039;
+       &#039;value&#039; =&gt; &#039;label value&#039;
+   )
+);
+&lt;/code&gt;
+&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Password.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Checkbox" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Checkbox<a href="../classes/AisisCore_Form_Elements_Checkbox.html">¶</a></h1>
+        <p class="short_description">This class will allow you to create a checkbox based element.</p>
+        <div class="details collapse">&lt;p&gt;This class will create you a checbox element that you can then
+use in your form. To make it checked your value should be the value
+that is coming from the options array. That is, for example &#039;aisis_core[&#039;check&#039;]&#039;
+would be the name. the option would be aisis_core, then the key out be check while the
+value would be check.&lt;/p&gt;
+
+&lt;p&gt;The options being passed in would look something like:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$checkbox = array(
+   &#039;id&#039; =&gt; &#039;css id&#039;,
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;name&#039; =&gt; &#039;options[&#039;option_name&#039;]&#039;,
+   &#039;value&#039; =&gt; &#039;option_name&#039;,
+   &#039;option&#039; =&gt; &#039;options&#039;,
+   &#039;key&#039; =&gt; &#039;option_name&#039;,
+   &#039;required&#039; =&gt; &#039;true&#039;,
+   &#039;label&#039; =&gt; &#039;string label&#039;,
+	  &#039;disabled&#039; =&gt; true //disable the element
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Optional values include: &#039;data-target-selector=&quot;.class or #id&quot;&#039;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Checkbox.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_Loader.html">CoreTheme_Loader</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_Loader_Asset" class="element ajax clickable class">
+        <h1>CoreTheme_Loader_Asset<a href="../classes/CoreTheme_Loader_Asset.html">¶</a></h1>
+        <p class="short_description">We extend the AisisCore_Loader_Asset class to add extra functionality.</p>
+        <div class="details collapse">&lt;p&gt;This class is responsible for handleing, two seperate arrays and loading the assets of both.
+One is the front end and the other is the admin.&lt;/p&gt;
+
+&lt;p&gt;The core difference betwen the front end and the admin is the prefix of admin on to the array keys.&lt;/p&gt;
+
+&lt;p&gt;The array is comprised of a multi-dimentsional array of mult-dimensional arrays. That is each asset is apart of it&#039;s own array.&lt;/p&gt;
+
+&lt;p&gt;An example of how to set up the front end array out be as such:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$assets = new aray(
+    &#039;css&#039; =&gt; array(
+        array(
+            &#039;name&#039; =&gt; &#039;style-sheet-name&#039;,
+            &#039;path&#039; =&gt; &#039;path/to/stylesheet.css&#039;
+        ),
+    ),
+    &#039;js&#039; =&gt; array(
+        array(
+            &#039;name&#039; =&gt; &#039;js-namee&#039;,
+            &#039;path&#039; =&gt; &#039;path/to/js.js&#039;
+        ),
+    ),
+    &#039;front_jquery_version&#039; =&gt; &#039;1.9.1&#039;
+);
+
+new AisisCore_Loader_Asset($assets);
+&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The above will load the css, js and register a new version of jquery for the front end only.&lt;/p&gt;
+
+&lt;p&gt;All java script will be put into the foot, with the exception of the added jquery script.&lt;/p&gt;
+
+&lt;p&gt;The admin set up is the exact same with some key differences:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$assets = new aray(
+    &#039;admin_css&#039; =&gt; array(
+        array(
+            &#039;name&#039; =&gt; &#039;style-sheet-name&#039;,
+            &#039;path&#039; =&gt; &#039;path/to/stylesheet.css&#039;
+        ),
+    ),
+    &#039;admin_js&#039; =&gt; array(
+        array(
+            &#039;name&#039; =&gt; &#039;js-namee&#039;,
+            &#039;path&#039; =&gt; &#039;path/to/js.js&#039;
+        ),
+    ),
+    &#039;admin_pages&#039; =&gt; array(
+        &#039;theme_options&#039; =&gt; &#039;page_name&#039;
+    ),
+);
+
+new AisisCore_Loader_Asset($assets);
+&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;One this script is only run if we are an admin, how ever we advise that you put this array into the Admin/Setup.php folder, and then call the
+Admin package into your Core Setup.php. The other thing is, we will only load the scripts if there are admin pages set, that is the pages
+should be the name of the pagge, for example in: &lt;code&gt;http://localhost/wordpress/wp-admin/admin.php?page=aisis-core-options&lt;/code&gt;
+your page name would be aisis-core-options&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Loader_Asset.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_Loader.html">AisisCore_Loader</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_Loader_LoaderException" class="element ajax clickable class">
+        <h1>AisisCore_Loader_LoaderException<a href="../classes/AisisCore_Loader_LoaderException.html">¶</a></h1>
+        <p class="short_description">Class for deailing with loader specific issues and exceptions.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/AisisCore_Loader_LoaderException.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Loader_Asset" class="element ajax clickable class">
+        <h1>AisisCore_Loader_Asset<a href="../classes/AisisCore_Loader_Asset.html">¶</a></h1>
+        <p class="short_description">This is the asset loading class - we will load all WordPress assets here.</p>
+        <div class="details collapse">&lt;p&gt;This class is responsible for handleing, two seperate arrays and loading the assets of both.
+One is the front end and the other is the admin.&lt;/p&gt;
+
+&lt;p&gt;The core difference betwen the front end and the admin is the prefix of admin on to the array keys.&lt;/p&gt;
+
+&lt;p&gt;The array is comprised of a multi-dimentsional array of mult-dimensional arrays. That is each asset is apart of it&#039;s own array.&lt;/p&gt;
+
+&lt;p&gt;An example of how to set up the front end array out be as such:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$assets = new aray(
+    &#039;css&#039; =&gt; array(
+        array(
+            &#039;name&#039; =&gt; &#039;style-sheet-name&#039;,
+            &#039;path&#039; =&gt; &#039;path/to/stylesheet.css&#039;
+        ),
+    ),
+    &#039;js&#039; =&gt; array(
+        array(
+            &#039;name&#039; =&gt; &#039;js-namee&#039;,
+            &#039;path&#039; =&gt; &#039;path/to/js.js&#039;
+        ),
+    ),
+    &#039;front_jquery_version&#039; =&gt; &#039;1.9.1&#039;
+);
+
+new AisisCore_Loader_Asset($assets);
+&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The above will load the css, js and register a new version of jquery for the front end only.&lt;/p&gt;
+
+&lt;p&gt;All java script will be put into the foot, with the exception of the added jquery script.&lt;/p&gt;
+
+&lt;p&gt;The admin set up is the exact same with some key differences:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$assets = new aray(
+    &#039;admin_css&#039; =&gt; array(
+        array(
+            &#039;name&#039; =&gt; &#039;style-sheet-name&#039;,
+            &#039;path&#039; =&gt; &#039;path/to/stylesheet.css&#039;
+        ),
+    ),
+    &#039;admin_js&#039; =&gt; array(
+        array(
+            &#039;name&#039; =&gt; &#039;js-namee&#039;,
+            &#039;path&#039; =&gt; &#039;path/to/js.js&#039;
+        ),
+    ),
+    &#039;admin_pages&#039; =&gt; array(
+        &#039;theme_options&#039; =&gt; &#039;page_name&#039;
+    ),
+);
+
+new AisisCore_Loader_Asset($assets);
+&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;One this script is only run if we are an admin, how ever we advise that you put this array into the Admin/Setup.php folder, and then call the
+Admin package into your Core Setup.php. The other thing is, we will only load the scripts if there are admin pages set, that is the pages
+should be the name of the pagge, for example in: &lt;code&gt;http://localhost/wordpress/wp-admin/admin.php?page=aisis-core-options&lt;/code&gt;
+your page name would be aisis-core-options&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Loader_Asset.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Loader_AutoLoader" class="element ajax clickable class">
+        <h1>AisisCore_Loader_AutoLoader<a href="../classes/AisisCore_Loader_AutoLoader.html">¶</a></h1>
+        <p class="short_description">This class is responsible for loaifing and auto loading classes based on the path structure.</p>
+        <div class="details collapse">&lt;p&gt;This class should be instantiated first before all else, as it will allow you to call
+classes or instantiate classes with out having to do a require_once() or an include any
+where in the file.&lt;/p&gt;
+
+&lt;p&gt;Classes need to be path/to/class.php This means that classes need to be
+named: path_to_class&lt;/p&gt;
+
+&lt;p&gt;This class is not to be instantiated as an object but instead you would do:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;new AisisCore_Loader_AutoLoader::get_instance()&lt;/code&gt;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Loader_AutoLoader.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Loader_Package" class="element ajax clickable class">
+        <h1>AisisCore_Loader_Package<a href="../classes/AisisCore_Loader_Package.html">¶</a></h1>
+        <p class="short_description">This class is used to load a package of code.</p>
+        <div class="details collapse">&lt;p&gt;The core purpose of this class is to load two types of packages, custom and internal.&lt;/p&gt;
+
+&lt;p&gt;Custom packages live in the custom/packages folder and are custom to each theme. This allows
+the theme some flexabillity. All custom packages need to contain a Setup.php which is then loaded
+by the theme.&lt;/p&gt;
+
+&lt;p&gt;Internal packages are packages that are internal to the theme. That is, packages which help
+the theme run or are dependant to the theme.&lt;/p&gt;
+
+&lt;p&gt;The basic structure of a package is such that:&lt;p&gt;
+
+&lt;p&gt;
+PackageName
+|-- Files, Folders, Assets ...
+|-- Setup.php
+&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Loader_Package.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme.html">CoreTheme</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_Activation" class="element ajax clickable class">
+        <h1>CoreTheme_Activation<a href="../classes/CoreTheme_Activation.html">¶</a></h1>
+        <p class="short_description">This class implements the Activation interface and allows for you set up what is suppose to happen upon
+activation of the theme.</p>
+        <div class="details collapse">&lt;p&gt;This class will create approproiate fooldrs based on the multisite, so each site is different among
+the rest.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Activation.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_Update" class="element ajax clickable class">
+        <h1>CoreTheme_Update<a href="../classes/CoreTheme_Update.html">¶</a></h1>
+        <p class="short_description">This file is responsible for getting, checking for and physically updating Aisis.</p>
+        <div class="details collapse">&lt;p&gt;To update Aisis we simply pull a zip, unzip it using WordPress and overwrite any files we need to in the update.
+We check and XML file for an update and pull the notes from the same location as the xml file.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Update.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_NavWalker" class="element ajax clickable class">
+        <h1>CoreTheme_NavWalker<a href="../classes/CoreTheme_NavWalker.html">¶</a></h1>
+        <p class="short_description">nav-menu-walker.php</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_NavWalker.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_MultiSite" class="element ajax clickable class">
+        <h1>CoreTheme_MultiSite<a href="../classes/CoreTheme_MultiSite.html">¶</a></h1>
+        <p class="short_description">This class deals with mutlti site installation and activation of this theme.</p>
+        <div class="details collapse">&lt;p&gt;This class will create approproiate fooldrs based on the multisite, so each site is different among
+the rest.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_MultiSite.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_FileHandling_Upload.html">CoreTheme_FileHandling_Upload</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_FileHandling_Upload_Upload" class="element ajax clickable class">
+        <h1>CoreTheme_FileHandling_Upload_Upload<a href="../classes/CoreTheme_FileHandling_Upload_Upload.html">¶</a></h1>
+        <p class="short_description">Allows you to upload a file, zip only, to WordPress and then move it
+to either custom/themes or custom/packages.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_FileHandling_Upload_Upload.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_Template_Form.html">CoreTheme_Template_Form</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_Template_Form_NavSearch" class="element ajax clickable class">
+        <h1>CoreTheme_Template_Form_NavSearch<a href="../classes/CoreTheme_Template_Form_NavSearch.html">¶</a></h1>
+        <p class="short_description">Create the search form for the navigation.</p>
+        <div class="details collapse">&lt;p&gt;This class is to be extended by any class that creates a form.
+that class is then called into the template where you want that form to
+be displated. From there you pass it a data structure such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+   &#039;method&#039; =&gt; &#039;post&#039;,
+   &#039;action&#039; =&gt; &#039;your form action&#039;,
+   &#039;enctype&#039; =&gt; &#039;enctype&#039;
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;id&#039; =&gt; &#039;css id&#039;
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This array then gets passed to the constructor of this class when instantiating it in the
+the template.&lt;/p&gt;
+
+&lt;p&gt;When you go to create a form you extend this class, create a series of protected functions
+that will be the elements, from there you pass those into the init method of that class
+and with in there you do $this-&gt;_create_form().&lt;/p&gt;
+
+&lt;p&gt;All forms can have one sub section, these sub sections are shown above the submit button but
+bellow all elements.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Template_Form_NavSearch.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_CustomPostTypes_Form.html">CoreTheme_CustomPostTypes_Form</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_CustomPostTypes_Form_Carousel" class="element ajax clickable class">
+        <h1>CoreTheme_CustomPostTypes_Form_Carousel<a href="../classes/CoreTheme_CustomPostTypes_Form_Carousel.html">¶</a></h1>
+        <p class="short_description">Creates a form for use in a meta box inside the carousel custom post type.</p>
+        <div class="details collapse">&lt;p&gt;This class is to be extended by any class that creates a form.
+that class is then called into the template where you want that form to
+be displated. From there you pass it a data structure such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+   &#039;method&#039; =&gt; &#039;post&#039;,
+   &#039;action&#039; =&gt; &#039;your form action&#039;,
+   &#039;enctype&#039; =&gt; &#039;enctype&#039;
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;id&#039; =&gt; &#039;css id&#039;
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This array then gets passed to the constructor of this class when instantiating it in the
+the template.&lt;/p&gt;
+
+&lt;p&gt;When you go to create a form you extend this class, create a series of protected functions
+that will be the elements, from there you pass those into the init method of that class
+and with in there you do $this-&gt;_create_form().&lt;/p&gt;
+
+&lt;p&gt;All forms can have one sub section, these sub sections are shown above the submit button but
+bellow all elements.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_CustomPostTypes_Form_Carousel.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_CustomPostTypes_Form_MiniFeed" class="element ajax clickable class">
+        <h1>CoreTheme_CustomPostTypes_Form_MiniFeed<a href="../classes/CoreTheme_CustomPostTypes_Form_MiniFeed.html">¶</a></h1>
+        <p class="short_description">Creates a form for use in a meta box inside the mini feeds custom post type.</p>
+        <div class="details collapse">&lt;p&gt;This class is to be extended by any class that creates a form.
+that class is then called into the template where you want that form to
+be displated. From there you pass it a data structure such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+   &#039;method&#039; =&gt; &#039;post&#039;,
+   &#039;action&#039; =&gt; &#039;your form action&#039;,
+   &#039;enctype&#039; =&gt; &#039;enctype&#039;
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;id&#039; =&gt; &#039;css id&#039;
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This array then gets passed to the constructor of this class when instantiating it in the
+the template.&lt;/p&gt;
+
+&lt;p&gt;When you go to create a form you extend this class, create a series of protected functions
+that will be the elements, from there you pass those into the init method of that class
+and with in there you do $this-&gt;_create_form().&lt;/p&gt;
+
+&lt;p&gt;All forms can have one sub section, these sub sections are shown above the submit button but
+bellow all elements.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_CustomPostTypes_Form_MiniFeed.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_Template_Helpers_Loop.html">AisisCore_Template_Helpers_Loop</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_Template_Helpers_Loop_LoopComponents" class="element ajax clickable class">
+        <h1>AisisCore_Template_Helpers_Loop_LoopComponents<a href="../classes/AisisCore_Template_Helpers_Loop_LoopComponents.html">¶</a></h1>
+        <p class="short_description">Each of the following are a component of a loop, be it single or index or even archive.</p>
+        <div class="details collapse">&lt;p&gt;Each of the following methods ith in this class are to be called inside the loop when creating a new loop.
+These take in an option in the form of a specifically designed array which can be seen in the class AisisCore_Template_Helpers_Loop_Loop.
+&lt;/p&gt;
+
+&lt;p&gt;Each method is a helper component, designed wor creating and filling out the loop to be a lot easier and cleaner.&lt;/p&gt;
+
+&lt;p&gt;These methods are abstratced components of a typical wordpress loop.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Template_Helpers_Loop_LoopComponents.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Template_Helpers_Loop_PostTypes" class="element ajax clickable class">
+        <h1>AisisCore_Template_Helpers_Loop_PostTypes<a href="../classes/AisisCore_Template_Helpers_Loop_PostTypes.html">¶</a></h1>
+        <p class="short_description">This class deals with all the default post types that are present in WordPress.</p>
+        <div class="details collapse">&lt;p&gt;The contents of this class are meant to be used with in a single, custom loop.
+That is, we expect you to use the WordPress Conditionals to then create a single loop
+that then allows for us to check which post type you are on and how the content should be called.&lt;/p&gt;
+
+&lt;p&gt;All of the functions bellow are designed to be called with in the WordPress loop.&lt;/p&gt;
+
+&lt;p&gt;Styling of the individual post types is up to you, some of them we expect the title to be passed
+in while others we do not, this is due to how the content should be laid out.&lt;/p&gt;
+
+&lt;p&gt;It should be noted that in all cases, the title will show up in the index of posts, how ever in some cases
+it will not show up on the single page.&lt;/p&gt;
+
+&lt;p&gt;These are currently integrated into the main AisisCore_Template_Helpers_Loop class.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+// Example:
+
+$post_types = new AisisCore_Template_Helpers_PostTypes();
+
+if(have_posts()){
+    while(have_posts()){
+        the_post();
+        if(is_aside()){
+            // Note how we use get_the_content() and not the_content().
+            $post_types-&gt;aside(get_the_content());
+        }
+    }
+}
+&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We use the AisisCore_Template_Helpers_Loop options to be passed in, how ever in case you are using this class on your own,
+what we suggest is an array of options such as:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$array = array(
+    &#039;single&#039; =&gt; array(
+        &#039;post_format&#039; =&gt; array(
+            &#039;aside&#039; =&gt; array(
+                &#039;before&#039; =&gt; &#039;&#039; // Dive wrapper
+                &#039;after&#039; =&gt; &#039;&#039; // Div wrapper close
+            ),
+        ),
+    ),
+);
+&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This array out then be passed in and used to wrape the appropriate post type in a div wrapper,
+or place content before and after the content.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Template_Helpers_Loop_PostTypes.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Template_Helpers_Loop_Loop" class="element ajax clickable class">
+        <h1>AisisCore_Template_Helpers_Loop_Loop<a href="../classes/AisisCore_Template_Helpers_Loop_Loop.html">¶</a></h1>
+        <p class="short_description">Easy and efficient way of building loops with in template files.</p>
+        <div class="details collapse">&lt;p&gt;This class is designed to allow for you to build loops with in your
+own theme or theme framework.&lt;/p&gt;
+
+&lt;p&gt;To use this class all you have to do is create a data structure that
+you can pass to the constructor of this class.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$options = array(
+    &#039;title_header&#039; =&gt; &#039;h1&#039;, // h1, h2, h3, h4 - See title($option) function
+    //or:
+    &#039;title_header&#039; =&gt; array(&#039;css&#039; =&gt; &#039;css_class&#039;, &#039;header_tag&#039; =&gt; &#039;h3&#039;),
+    //You can also give specific Css to specific pars of the title:
+    &#039;title_header&#039; =&gt; array(&#039;page&#039; =&gt; array(&#039;css&#039; =&gt; &#039;css_class&#039;, &#039;header&#039; =&gt; &#039;h3&#039;)),
+    // The above works for page, single and index
+    &#039;author_date_class&#039; =&gt; &#039;&#039;, // Optional class for the author and date.
+    // for allowing an array to be passed.
+    &#039;excerpt&#039; =&gt; array(
+			&#039;length&#039; =&gt; 60, // # of words
+			&#039;content&#039; =&gt; &#039;More...&#039; // The title of the link for the read more.
+		),
+		&#039;post_before&#039; =&gt; &#039;&#039;, // Something before the post in an index list.
+		&#039;post_after&#039; =&gt; &#039;&#039;, // Something after the post in an index list,
+		// Used for the general index.
+		&#039;image&#039; =&gt; array(
+			&#039;size&#039; =&gt; &#039;medium&#039;, // The size given by WordPress.
+			&#039;args&#039; =&gt; array(), // Image arguments given by WordPress.
+		),
+     &#039;navigation_wrap&#039; =&gt; array(
+			&#039;before&#039; =&gt; &#039;&#039; // Div wrapper.
+			&#039;after&#039; =&gt; &#039;&#039; // Div wrapper close.
+     ),
+		&#039;single&#039; =&gt; array(
+			&#039;show_categories&#039; =&gt; true, // Or false.
+			&#039;show_tags&#039; =&gt; true, // Or false.
+		    &#039;image&#039; =&gt; array(
+			    &#039;size&#039; =&gt; &#039;medium&#039;, // The size given by WordPress.
+			    &#039;args&#039; =&gt; array(), // Image arguments given by WordPress.
+		    ),
+			&#039;title_and_date&#039; =&gt; array(
+				&#039;before&#039; =&gt; &#039;&#039; // Div wrapper.
+				&#039;after&#039; =&gt; &#039;&#039; // Div wrapper close.
+			),
+			&#039;content&#039; =&gt; array(
+				&#039;before&#039; =&gt; &#039;&#039; // Div wrapper.
+    			&#039;after&#039; =&gt; &#039;&#039; // Div wrapper close.
+			),
+			&#039;post_format&#039; =&gt; array(
+				&#039;name&#039; =&gt; array(
+					&#039;before&#039; =&gt; &#039;&#039; // Div wrapper.
+					&#039;after&#039; =&gt; &#039;&#039; // Div wrapper close.
+				)
+			),
+			&#039;sticky_posts&#039; =&gt; array(
+				&#039;before&#039; =&gt; &#039;&#039; // Div wrapper.
+				&#039;after&#039; =&gt; &#039;&#039; // Div wrapper close.
+			),
+			&#039;navigation_wrap&#039; =&gt; array(
+				&#039;before&#039; =&gt; &#039;&#039; // Div wrapper.
+				&#039;after&#039; =&gt; &#039;&#039; // Div wrapper close.
+			),
+			&#039;after_the_title_additions&#039; =&gt; array(
+				&#039;name&#039;=&gt;$function(), // Names should be unique.
+			), // Houses a series of functions that will echo content after the title (after the date and author).
+			&#039;after_the_content_additions&#039; =&gt; array(
+				&#039;name&#039;=&gt;$function(), // Names should be unique.
+			) // Houses a series of functions that will echo content after the content (before the navigation).
+		),
+		&#039;page&#039; =&gt; array(
+			&#039;content&#039; =&gt; array(
+				&#039;before&#039; =&gt; &#039;&#039; // Div wrapper.
+				&#039;after&#039; =&gt; &#039;&#039; // Div wrapper close.
+			),
+			&#039;image&#039; =&gt; array(
+				&#039;size&#039; =&gt; &#039;medium&#039;, // The size given by WordPress.
+				&#039;args&#039; =&gt; array(), // Image arguments given by WordPress.
+			),
+		),
+		&#039;query&#039; =&gt; array(), // The main query given by WordPress.
+		&#039;remove_nav_from_query&#039; =&gt; true/false // Should we remove the nav from the query posts index?
+		&#039;404_template&#039; =&gt; &#039;&#039; // Name of the Template.
+);
+&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This data structure is then passed into the class constructor like so:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$loop = new AisisCore_Template_Loop($options);
+$loop-&gt;loop();
+&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you choose to pass in no arguments we will use defaults for everything.&lt;/p&gt;
+
+&lt;p&gt;We also deal with pagination, reseting the query and dealing with checking if
+you are on a single page or. All you need is to call the class and the function.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Template_Helpers_Loop_Loop.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_AdminPanel_Template_Form.html">CoreTheme_AdminPanel_Template_Form</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_AdminPanel_Template_Form_Update" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_Update<a href="../classes/CoreTheme_AdminPanel_Template_Form_Update.html">¶</a></h1>
+        <p class="short_description">Deals with updateing the theme and createing the form to do so.</p>
+        <div class="details collapse">&lt;p&gt;This class is to be extended by any class that creates a form.
+that class is then called into the template where you want that form to
+be displated. From there you pass it a data structure such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+   &#039;method&#039; =&gt; &#039;post&#039;,
+   &#039;action&#039; =&gt; &#039;your form action&#039;,
+   &#039;enctype&#039; =&gt; &#039;enctype&#039;
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;id&#039; =&gt; &#039;css id&#039;
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This array then gets passed to the constructor of this class when instantiating it in the
+the template.&lt;/p&gt;
+
+&lt;p&gt;When you go to create a form you extend this class, create a series of protected functions
+that will be the elements, from there you pass those into the init method of that class
+and with in there you do $this-&gt;_create_form().&lt;/p&gt;
+
+&lt;p&gt;All forms can have one sub section, these sub sections are shown above the submit button but
+bellow all elements.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_Update.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_Reset" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_Reset<a href="../classes/CoreTheme_AdminPanel_Template_Form_Reset.html">¶</a></h1>
+        <p class="short_description">Deals with resetting the form options.</p>
+        <div class="details collapse">&lt;p&gt;This class is to be extended by any class that creates a form.
+that class is then called into the template where you want that form to
+be displated. From there you pass it a data structure such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+   &#039;method&#039; =&gt; &#039;post&#039;,
+   &#039;action&#039; =&gt; &#039;your form action&#039;,
+   &#039;enctype&#039; =&gt; &#039;enctype&#039;
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;id&#039; =&gt; &#039;css id&#039;
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This array then gets passed to the constructor of this class when instantiating it in the
+the template.&lt;/p&gt;
+
+&lt;p&gt;When you go to create a form you extend this class, create a series of protected functions
+that will be the elements, from there you pass those into the init method of that class
+and with in there you do $this-&gt;_create_form().&lt;/p&gt;
+
+&lt;p&gt;All forms can have one sub section, these sub sections are shown above the submit button but
+bellow all elements.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_Reset.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_Posts" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_Posts<a href="../classes/CoreTheme_AdminPanel_Template_Form_Posts.html">¶</a></h1>
+        <p class="short_description">Deals mostly with posts and how some of the archive pages are displayed.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_Posts.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_Other" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_Other<a href="../classes/CoreTheme_AdminPanel_Template_Form_Other.html">¶</a></h1>
+        <p class="short_description">Creates a form for you to use for the creation of the footer content.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_Other.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_CustomPost" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_CustomPost<a href="../classes/CoreTheme_AdminPanel_Template_Form_CustomPost.html">¶</a></h1>
+        <p class="short_description">Deals mostly with how custom post types are displayed on the site and where to display them.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_CustomPost.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CoreTheme_AdminPanel_Template_Form_Social" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Form_Social<a href="../classes/CoreTheme_AdminPanel_Template_Form_Social.html">¶</a></h1>
+        <p class="short_description">Deals mostly with the social aspects and how we display the social media icons.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Form_Social.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_FileHandeling.html">AisisCore_FileHandeling</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_FileHandling_File" class="element ajax clickable class">
+        <h1>AisisCore_FileHandling_File<a href="../classes/AisisCore_FileHandling_File.html">¶</a></h1>
+        <p class="short_description">This class allows for you to deal with files in the WordPress theme structure.</p>
+        <div class="details collapse">&lt;p&gt;The core concept of this class is to allow for the developer to handel, process,
+create and add files.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_FileHandling_File.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_Form.html">AisisCore_Form</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_Form_Xhtml" class="element ajax clickable class">
+        <h1>AisisCore_Form_Xhtml<a href="../classes/AisisCore_Form_Xhtml.html">¶</a></h1>
+        <p class="short_description">This class simply extends the core element class to inherit all the
+element functionality.</p>
+        <div class="details collapse">&lt;p&gt;This class is responsible for creating a element based on a set of attributes you
+pass to it in the form of an array. That is we take that array of options and create an
+element that is then considered valid html.&lt;/p&gt;
+
+&lt;p&gt;The set of options you pass is is dependent on the element you are creating.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Xhtml.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Elements_Label" class="element ajax clickable class">
+        <h1>AisisCore_Form_Elements_Label<a href="../classes/AisisCore_Form_Elements_Label.html">¶</a></h1>
+        <p class="short_description">Allows you to create a label for an element or for in general.</p>
+        <div class="details collapse">&lt;p&gt;Allows you to create a label for an element, how ever most elements
+have a $element-&gt;set_label(); option which is then assigned to that element.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+    &#039;class&#039; =&gt; &#039;css class&#039;,
+    &#039;value&#039; =&gt; &#039;string, some html is allowed&#039;
+);
+&lt;/code&gt;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Elements_Label.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Form" class="element ajax clickable class">
+        <h1>AisisCore_Form_Form<a href="../classes/AisisCore_Form_Form.html">¶</a></h1>
+        <p class="short_description">This class inherits the subsection functionality to allow forms to have
+one subsection.</p>
+        <div class="details collapse">&lt;p&gt;This class is to be extended by any class that creates a form.
+that class is then called into the template where you want that form to
+be displated. From there you pass it a data structure such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+   &#039;method&#039; =&gt; &#039;post&#039;,
+   &#039;action&#039; =&gt; &#039;your form action&#039;,
+   &#039;enctype&#039; =&gt; &#039;enctype&#039;
+   &#039;class&#039; =&gt; &#039;css class&#039;,
+   &#039;id&#039; =&gt; &#039;css id&#039;
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This array then gets passed to the constructor of this class when instantiating it in the
+the template.&lt;/p&gt;
+
+&lt;p&gt;When you go to create a form you extend this class, create a series of protected functions
+that will be the elements, from there you pass those into the init method of that class
+and with in there you do $this-&gt;_create_form().&lt;/p&gt;
+
+&lt;p&gt;All forms can have one sub section, these sub sections are shown above the submit button but
+bellow all elements.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Form.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_Element" class="element ajax clickable class">
+        <h1>AisisCore_Form_Element<a href="../classes/AisisCore_Form_Element.html">¶</a></h1>
+        <p class="short_description">This will create a element, each element can have a subsection associated with it.</p>
+        <div class="details collapse">&lt;p&gt;This class is responsible for creating a element based on a set of attributes you
+pass to it in the form of an array. That is we take that array of options and create an
+element that is then considered valid html.&lt;/p&gt;
+
+&lt;p&gt;The set of options you pass is is dependent on the element you are creating.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_Element.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Form_SubSection" class="element ajax clickable class">
+        <h1>AisisCore_Form_SubSection<a href="../classes/AisisCore_Form_SubSection.html">¶</a></h1>
+        <p class="short_description">This class is extended by both forms and elements to allow for them to have subsections.</p>
+        <div class="details collapse">&lt;p&gt;Sub sections in Aisis Core are sections that are a set of elements that are related to
+either the element in question or the form its self.&lt;/p&gt;
+
+&lt;p&gt;It is known that each form may have one sub section that will appear above the submit element
+but below the rest of the elements.&lt;/p&gt;
+
+&lt;p&gt;How ever each element, including sub section elements, can have a sub section that contains multiple
+elements. those in turn, as stated can also have a sub section.&lt;/p&gt;
+
+&lt;p&gt;Sub sections are created by the data structure listed bellow:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$array = array(
+    &#039;sub_elements&#039; =&gt; array(
+		//elements
+	),
+	&#039;sub_content_options&#039; =&gt; array(
+		&#039;class&#039; =&gt; &#039;sample class&#039;,
+		&#039;sub_elements_div&#039; =&gt; array(
+			&#039;class&#039; =&gt; &#039;sample class&#039;
+		),
+	),
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This array is then passed into either the create_form() for the sub section or into the
+instantiation of that form object as a sub section of the form.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Form_SubSection.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_Http.html">AisisCore_Http</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_Http_Http" class="element ajax clickable class">
+        <h1>AisisCore_Http_Http<a href="../classes/AisisCore_Http_Http.html">¶</a></h1>
+        <p class="short_description">This class is used to deal with $_GET and $_POST.</p>
+        <div class="details collapse">&lt;p&gt;The core concept of this class is to reinvent the way that
+the user deals with request and posts.&lt;/p&gt;
+
+&lt;p&gt;The other option is to allow you to get the value of the page
+that is, when the page states page=&#039;&#039;&lt;/p&gt;
+
+&lt;p&gt;This class also deals with some basic url options as well.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Http_Http.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_Factory.html">AisisCore_Factory</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_Factory_Pattern" class="element ajax clickable class">
+        <h1>AisisCore_Factory_Pattern<a href="../classes/AisisCore_Factory_Pattern.html">¶</a></h1>
+        <p class="short_description">This class is designed to allow to you to pass in the class name and its dependencies
+to then allow you to return a object of that class.</p>
+        <div class="details collapse">&lt;p&gt;There is a data structure that allows you to pass in the classes despendencies.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$dependencies = array(
+    &#039;class_name&#039; =&gt; array(
+        &#039;params&#039; =&gt; array(
+           &#039;class_param&#039;,
+           &#039;class_param2&#039;
+        )
+    ),
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then all you need to do:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$object = AisisCore_Factory_Pattern::create(&#039;class_name&#039;)
+// From there you can do:
+$object-&gt;class_name_method();
+&lt;/code&gt;&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Factory_Pattern.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore.html">AisisCore</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_Theme" class="element ajax clickable class">
+        <h1>AisisCore_Theme<a href="../classes/AisisCore_Theme.html">¶</a></h1>
+        <p class="short_description">This class is responsible for setting up the theme and
+it&#039;s core componenets.</p>
+        <div class="details collapse">&lt;p&gt;We take in an array that looks like:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;
+$options = array(
+   &#039;widgets&#039; =&gt; array(),
+   &#039;navigation&#039; =&gt; array(),
+	  &#039;theme_support&#039; =&gt; array(
+       &#039;post_formats&#039; = array(),
+       &#039;thumbnails&#039; =&gt; array(
+           &#039;exceptions&#039; =&gt; array(),
+       )
+   ),
+   &#039;custom_theme&#039; =&gt; array(
+       &#039;custom-header&#039; =&gt; array(),
+       &#039;custom-background&#039; =&gt; array()
+   )
+
+);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This then gets called into the class such as:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;
+$theme = new AisisCore_Theme($options);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;At any point you may call one of the public functions below to change the options, making sure to
+set the appopriate $key, $value in the $options array.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Theme.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_Adminpanel_Widgets.html">CoreTheme_Adminpanel_Widgets</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_AdminPanel_Widgets_Download" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Widgets_Download<a href="../classes/CoreTheme_AdminPanel_Widgets_Download.html">¶</a></h1>
+        <p class="short_description">This class is responsible for creating a WordPress Widget for use in the Aisis Theme.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/CoreTheme_AdminPanel_Widgets_Download.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_Interfaces.html">AisisCore_Interfaces</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                                        <div id="AisisCore_Interfaces_Upload" class="element ajax clickable interface">
+        <h1>AisisCore_Interfaces_Upload<a href="../classes/AisisCore_Interfaces_Upload.html">¶</a></h1>
+        <p class="short_description">This interface is designed to be used to allow users to upload files
+to WordPress.</p>
+        <div class="details collapse">&lt;p&gt;This interface, when implemented should use the WordPress functions
+wp_handle_upload, download_url and unzip_file which will make the upload process
+much easier and much more clean.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Interfaces_Upload.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Interfaces_Upgrade" class="element ajax clickable interface">
+        <h1>AisisCore_Interfaces_Upgrade<a href="../classes/AisisCore_Interfaces_Upgrade.html">¶</a></h1>
+        <p class="short_description">This interface is meant to be used for doing upgrades to your theme.</p>
+        <div class="details collapse">&lt;p&gt;When implementing this class we check the current theme version against
+that of the remote version, ve it in an xml file or some where else.&lt;/p&gt;
+
+&lt;p&gt;We then get the latest version of the theme and then - delete the contents,
+accept for some required files of the theme (only if we need to), and then from there
+we simply replace the current files with those in the zip.&lt;/p&gt;
+
+&lt;p&gt;Note: we use the version in the style.css to compare against whats remote.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Interfaces_Upgrade.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Interfaces_MultiSite" class="element ajax clickable interface">
+        <h1>AisisCore_Interfaces_MultiSite<a href="../classes/AisisCore_Interfaces_MultiSite.html">¶</a></h1>
+        <p class="short_description">This interface is responsible for allowing you to implement multisite features into your site.</p>
+        <div class="details collapse">&lt;p&gt;Assuming you are running a multisite cms installation of WordPress, this interface can be used to
+implement features of your theme for each blog installed via multisite.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Interfaces_MultiSite.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Interfaces_Admin" class="element ajax clickable interface">
+        <h1>AisisCore_Interfaces_Admin<a href="../classes/AisisCore_Interfaces_Admin.html">¶</a></h1>
+        <p class="short_description">This interface is used to create the admin panel for WordPress themes.</p>
+        <div class="details collapse">&lt;p&gt;This interface allows for you to set up a class that allows for the developer
+of the WordPress theme to create an admin panel. We provide the baic methods,
+such as the abillity to create a menu (including submenus), set up the
+settings and allows for you to create a global validator for your options
+and finally a function to register a template used for the admin panel it&#039;s self.&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Interfaces_Admin.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Interfaces_Activation" class="element ajax clickable interface">
+        <h1>AisisCore_Interfaces_Activation<a href="../classes/AisisCore_Interfaces_Activation.html">¶</a></h1>
+        <p class="short_description">This interface has two main functions, one for activation and one for deactivation.</p>
+        <div class="details collapse">&lt;p&gt;This interface when implemented will allow you to choose what happens when a theme
+is activated and when the theme is deactivated. There are appropriate hooks to use
+for this provided by WordPress: after_setup_theme hook and the function
+check_theme_switched() for deactivation of said theme.  &lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Interfaces_Activation.html" class="more">« More »</a>
+    </div>
+
+                
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_Exceptions.html">CoreTheme_Exceptions</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_Exceptions_ExceptionHandler" class="element ajax clickable class">
+        <h1>CoreTheme_Exceptions_ExceptionHandler<a href="../classes/CoreTheme_Exceptions_ExceptionHandler.html">¶</a></h1>
+        <p class="short_description">Style exception messages.</p>
+        <div class="details collapse">&lt;p&gt;When a new exception is thrown this class will catch that exception
+and spit it out. This is used in the case where you do not have try/catch
+blocks.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Exceptions_ExceptionHandler.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_Template.html">AisisCore_Template</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_Template_Builder" class="element ajax clickable class">
+        <h1>AisisCore_Template_Builder<a href="../classes/AisisCore_Template_Builder.html">¶</a></h1>
+        <p class="short_description">This class is used to build templates or to register the templates based on options.</p>
+        <div class="details collapse">&lt;p&gt;We take in two core peices of information. Any options, this would be wordpress options.&lt;/p&gt;
+
+&lt;p&gt;These options come from the admin panel that you would create with the options
+you would set.&lt;/p&gt;
+
+&lt;p&gt;Based on this, if the options are set we return an array of options that we can then use.&lt;/p&gt;
+
+&lt;p&gt;The array datastructure we accept for this class is:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$array = array(
+    &#039;admin_options&#039; =&gt; &#039;admin_option&#039;
+    &#039;template_view_path&#039; =&gt; &#039;path&#039;
+    &#039;partial_view_path&#039; =&gt; &#039;path&#039;
+)
+
+&lt;/code&gt;
+&lt;/p&gt;</div>
+        <a href="../classes/AisisCore_Template_Builder.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="AisisCore_Template_TemplateException" class="element ajax clickable class">
+        <h1>AisisCore_Template_TemplateException<a href="../classes/AisisCore_Template_TemplateException.html">¶</a></h1>
+        <p class="short_description">Class for dealing with template cased exceptions.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/AisisCore_Template_TemplateException.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_FileHandling.html">CoreTheme_FileHandling</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_FileHandling_FileHandling" class="element ajax clickable class">
+        <h1>CoreTheme_FileHandling_FileHandling<a href="../classes/CoreTheme_FileHandling_FileHandling.html">¶</a></h1>
+        <p class="short_description">This class is used to get a list of all directories in the packages and themes directory.</p>
+        <div class="details collapse">&lt;p&gt;When the user uploads a package or a theme in Aisis Theme we will then parse
+the themes or packages folder looking for sub folders that then contain specific files.
+from there we will go and return an array of folders in the themes or packages folder
+that are viable themes or packages the user can choose from to activate.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_FileHandling_FileHandling.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_AdminPanel.html">CoreTheme_AdminPanel</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_AdminPanel_Admin" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Admin<a href="../classes/CoreTheme_AdminPanel_Admin.html">¶</a></h1>
+        <p class="short_description">Helps set up the admin panel and organize the code better.</p>
+        <div class="details collapse">&lt;p&gt;The whole purpose for this class is to set up the admin panel and
+keep the logic seperated and clead by implementing the interface.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Admin.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_Template_helpers.html">CoreTheme_Template_helpers</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_Template_Helpers_Header" class="element ajax clickable class">
+        <h1>CoreTheme_Template_Helpers_Header<a href="../classes/CoreTheme_Template_Helpers_Header.html">¶</a></h1>
+        <p class="short_description">This class is designed to help remove some of the complexity from the header.php</p>
+        <div class="details collapse">&lt;p&gt;This class contains helper methods that help remove complexity from the helper.php
+file for the default WordPress template file.&lt;/p&gt;
+
+&lt;p&gt;This class must be passed an object of AisisCore_Template_Builder in order for us
+to properly build out the headr objects here.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Template_Helpers_Header.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/AisisCore_FileHandling.html">AisisCore_FileHandling</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="AisisCore_FileHandling_FileException" class="element ajax clickable class">
+        <h1>AisisCore_FileHandling_FileException<a href="../classes/AisisCore_FileHandling_FileException.html">¶</a></h1>
+        <p class="short_description">A class used for dealing with File based exceptions.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/AisisCore_FileHandling_FileException.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_Form_Elements_Submit.html">CoreTheme_Form_Elements_Submit</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_Form_Elements_Submit" class="element ajax clickable class">
+        <h1>CoreTheme_Form_Elements_Submit<a href="../classes/CoreTheme_Form_Elements_Submit.html">¶</a></h1>
+        <p class="short_description">Recreates the submit button for the use of CoreTheme.</p>
+        <div class="details collapse">&lt;p&gt;The input type is already set to that of submit.&lt;/p&gt;
+
+&lt;p&gt;The options below are what we allow for the submit option to be created.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;code&gt;
+$array = array(
+    &#039;id&#039; =&gt; &#039;css id&#039;,
+    &#039;class&#039; =&gt; &#039;css class&#039;,
+    &#039;value&#039; =&gt; &#039;string value&#039;,
+	   &#039;name&#039; =&gt; &#039;element name&#039;,
+);
+&lt;/code&gt;
+&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_Form_Elements_Submit.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/CoreTheme_AdminPanel_Template_Helper.html">CoreTheme_AdminPanel_Template_Helper</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="CoreTheme_AdminPanel_Template_Helper_FormHelper" class="element ajax clickable class">
+        <h1>CoreTheme_AdminPanel_Template_Helper_FormHelper<a href="../classes/CoreTheme_AdminPanel_Template_Helper_FormHelper.html">¶</a></h1>
+        <p class="short_description">This class is designed to give helper functions for repeated functions, which are commonly used.</p>
+        <div class="details collapse">&lt;p&gt;The functions with in this class are designed for forms, as they may get specific values of options,
+return classes for elements or tdo other commonly used functions.&lt;/p&gt;
+
+&lt;p&gt;Do not use these helper functions to get tivial values from the options table. instead use the factory pattern to create an instance
+of the Aisis_template_Builder class and use the get_specific_option() method.&lt;/p&gt;</div>
+        <a href="../classes/CoreTheme_AdminPanel_Template_Helper_FormHelper.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+    
+        </div>
+    </div>
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Wed, 17 Jul 2013 13:02:34 -0600.<br/>
+    </footer>
+    </body>
+</html>

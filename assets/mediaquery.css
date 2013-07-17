@@ -72,6 +72,9 @@
 }
 
 @media (max-width: 480px){
+    textarea{
+        width:94% !important;
+    }
 	.marginCenter{
 		margin-left:0;
 	}

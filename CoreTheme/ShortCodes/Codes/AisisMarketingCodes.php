@@ -42,22 +42,22 @@ function aisis_marketing_row($atts, $content = null) {
 }
 
 /**
- * Creates the collumn one
+ * Creates the column one
  *
  * @param WordPress $atts
  * @param WordPress $content
  */
-function aisis_marketing_collumn_one($atts, $content = null) {
+function aisis_marketing_column_one($atts, $content = null) {
 	return '<div class="span6">'.$content.'</div>';
 }
 
 /**
- * Creates the collumn two
+ * Creates the column two
  *
  * @param WordPress $atts
  * @param WordPress $content
  */
-function aisis_marketing_collumn_two($atts, $content = null) {
+function aisis_marketing_column_two($atts, $content = null) {
 	return '<div class="span6">'.$content.'</div>';
 }
 
@@ -65,7 +65,7 @@ function aisis_marketing_collumn_two($atts, $content = null) {
 add_shortcode( 'jumbotron', 'aisis_jumbotron' );
 add_shortcode( 'marketingTitle', 'aisis_marketing_title' );
 add_shortcode( 'marketingLead', 'aisis_marketing_lead' );
-add_shortcode( 'collumnOne', 'aisis_marketing_collumn_one' );
-add_shortcode( 'collumnTwo', 'aisis_marketing_collumn_two' );
+add_shortcode( 'columnOne', 'aisis_marketing_column_one' );
+add_shortcode( 'columnTwo', 'aisis_marketing_column_two' );
 add_shortcode( 'row', 'aisis_marketing_row');
 add_shortcode( 'button', 'aisis_button' );

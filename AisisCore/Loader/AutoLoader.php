@@ -26,10 +26,20 @@ class AisisCore_Loader_AutoLoader{
 	
 	/**
 	 * Returns an instance of the of the class.
+     * 
+     * <p>You can pass in a list of extra directories in either array form or string form.
+     * Which allows the system to check for other loacations where the class 
+     * in questio could exist.</p>
+     * 
+     * <p>This can be either an array or a single directory pushed through. 
+     * This is then appended to the end of directories to load.</p>
+     * 
+     * <p>The default places to look are the Parent Theme and the Child theme.
+     * Anything else is appended to the end of the $_directories array.</p>
 	 * 
 	 * @return AisisCore_Loader_AutoLoader $_instance
 	 */
-	public function get_instance(){
+	public static function get_instance($directories = null){
 		if(null == self::$_instance){
 			self::$_instance = new self();
 		}
@@ -38,14 +48,15 @@ class AisisCore_Loader_AutoLoader{
 			get_template_directory(),
 			get_stylesheet_directory(),
 		);
-		
-		return self::$_instance;
+        
+        self::add_directories($directories);
+        return self::$_instance;
 	}
 	
 	/**
 	 * Reset the instance of this class
 	 */
-	public function reset_instance(){
+	public static function reset_instance(){
 		self::$_instance = null;
 	}
 	
@@ -57,6 +68,15 @@ class AisisCore_Loader_AutoLoader{
 	public function register_auto_loader(){
 		spl_autoload_register(array($this, 'load_class'));
 	}
+    
+    /**
+     * Returns an array of directories.
+     * 
+     * @return array
+     */
+    public function get_directories(){
+        return self::$_directories;
+    }
 	
 	/**
 	 * Load a class based on the directory gien in the class name.
@@ -67,9 +87,29 @@ class AisisCore_Loader_AutoLoader{
 	public function load_class($class){
 		$path = str_replace('_', '/', $class);
 		foreach(self::$_directories as $directories){
+            var_dump($directories);
+            var_dump($path);
 			if(file_exists($directories . '/' . $path . '.php')){
 				require_once($directories . '/' . $path . '.php');
 			}
 		}
-	}	
+	}
+    
+    /**
+     * Appends custom directories to the end of the $_directories array.
+     * 
+     * @param string|array $directories
+     */
+    public static function add_directories($directories = null){
+        if($directories != null){
+            if(is_array($directories)){
+                foreach($directories as $direct){
+                    array_push(self::$_directories, $direct);
+                }
+            }else{
+                self::$_directories[] = $directories;
+                var_dump(self::$_directories);
+            }
+        }
+    }
 }

@@ -200,22 +200,24 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	 * 
 	 * <p>If were on the page (is_page()) and we have set the page thumbnail options $array['page']['image']
 	 * we will then set the thumbnail for the page.</p>
+	 * 
+	 * <p>Titles can also have a class, this allows you to style a class individually of the the rest of
+	 * the post. this depends on the <code>$options['title_header']['css']</code> and the <code>$options['title_header']['header_tag']</code>.
+	 * The header_tag is the h1-6. If you do not provide a header tag then we will wrap the title in a div with the class.
+	 * if neither are provided in this array we will just display a normal title.</p>
+	 * 
+	 * <p><code>
+	 * //Inside the options array you can do:
+	 * 'title_header' => array('css' => 'css_class', 'header_tag' => 'h3'),
+	 * </code></p>
 	 *
 	 * @param array $options
 	 */
 	public function title($options){
 		if(is_single() && isset($options) || is_page() && isset($options)){
-			if(isset($options['title_header'])){
-				the_title('<'.$options['title_header'].'>','</'.$options['title_header'].'>');
-			}else{
-				the_title();
-			}
+			$this->_title_wrapper($options);
 		}elseif(isset($options) && isset($options['title_header'])){
-			the_title(
-			'<'.$this->_options['title_header'].'>
-			<a href="'.get_permalink().'">', '</a>
-			</'.$this->_options['title_header'].'>'
-			);
+			$this->_index_title_wrapper($options['title_header']);
 		}else{
 			the_title('<a href="'.get_permalink().'">', '</a>');
 		}
@@ -226,14 +228,70 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	}
 	
 	/**
+	 * Depending on the options passed into the loop we will then wrap the title up.
+	 * the parent function this is called into, <code>title($options)</code> has a more
+	 * detailed explanation as to how to deal with wrapping the title in both header tags
+	 * and a css class.
+	 * 
+	 * @param array $options
+	 */
+	protected function _title_wrapper($options){
+        if(is_array($options['title_header'])){
+            if(is_single() && isset($options['title_header']['single'])){
+               $this->_single_title_wrapper($options['title_header']['single']);
+            }elseif(is_page() && isset($options['title_header']['page'])){
+               $this->_page_title_wrapper($options['title_header']['page']);
+            }else{
+               $this->_title_wrapper_options($options['title_header']);
+            }
+		}elseif(isset($options['title_header']) && !is_array($options['title_header'])){
+			the_title('<'.$options['title_header'].'>','</'.$options['title_header'].'>');
+		}else{
+			the_title();
+		}		
+	}
+	
+	/**
+	 * This function is called for index pages so that the title element can still contain
+	 * the options that were chosen.
+     * 
+     * <p>Requires that $options['title_header'] has been passed in</p>
+	 * 
+	 * @param array $options
+	 */	
+	protected function _index_title_wrapper($options){
+		if(is_array($options)){
+			if(isset($options['css']) && isset($options['header_tag'])){
+				the_title('<'.$options['header_tag'].' 
+					class="'.$options['css'].'"><a href="'.get_permalink().'">','</a></'.$options['header_tag'].'>');
+			}elseif(isset($options['css'])){
+				the_title('<div class="'.$options['css'].'"><a href="'.get_permalink().'">','</a></div>');
+            }elseif(isset($options['header_tag'])){
+                the_title('<'.$options['header_tag'].'><a href="'.get_permalink().'">','</a></'.$options['header_tag'].'>');
+			}else{
+				the_title();
+			}
+		}elseif(isset($options) && !is_array($options)){
+			the_title('<'.$options.'><a href="'.get_permalink().'">','</a></'.$options.'>');
+		}else{
+			the_title();
+		}		
+	}	
+	
+	/**
 	 * Deals with the author and date, and how we should display them.
 	 */
 	protected function _author_and_date(){
 		$author = get_the_author();
+	    if(isset($this->_options['author_date_class'])){
+            echo '<span class="'.$this->_options['author_date_class'].'">Written by: <a href="'.get_author_posts_url(get_the_author_meta( 'ID' )).'">'.$author.'</a></span>';
+            the_date('F j, Y', ' on: <em>', '</em>');
+        }else{
+             echo 'Written by: <a href="'.get_author_posts_url(get_the_author_meta( 'ID' )).'">'.$author.'</a>';
+             the_date('F j, Y', ' on: <em>', '</em>');
+        }
 			
-		echo 'Written by: <a href="'.get_author_posts_url(get_the_author_meta( 'ID' )).'">'.$author.'</a>';
-			
-		the_date('F j, Y', ' on: <em>', '</em>');
+		
 	}
 	
 	/**
@@ -326,5 +384,59 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 			$link = '<a href="'.get_permalink( $next->ID ).'">'.$next->post_title.'</a>';
 			return $link;
 		}
-	}		
+	}
+    
+    /**
+     * This wraps the title, for single posts, in advanced title options.
+     * 
+     * <p>depends on <code>$options['title_header']['single']</code></p>
+     * 
+     * @param array $options
+     */
+    private function _single_title_wrapper($options){
+        if(isset($options['css']) && isset($options['header_tag'])){
+            the_title('<'.$options['header_tag'].' 
+                class="'.$options['css'].'">','</'.$options['header_tag'].'>');
+        }elseif(isset($options['css'])){
+            the_title('<div class="'.$options['css'].'">','</div>');
+        }else{
+            the_title();
+        }        
+    }
+        
+    /**
+     * This wrapps the title, for pages, in advanced title options.
+     * 
+     * <p>depends on <code>$options['title_header']['page']</code></p>
+     * 
+     * @param array $options
+     */
+    private function _page_title_wrapper($options){
+        if(isset($options['css']) && isset($options['header_tag'])){
+            the_title('<'.$options['header_tag'].' 
+                class="'.$options['css'].'">','</'.$options['header_tag'].'>');
+        }elseif(isset($options['css'])){
+            the_title('<div class="'.$options['css'].'">','</div>');
+        }else{
+            the_title();
+        }        
+    }
+    
+    /**
+     * This wrapps the title, for general posts, pages and single posts, in advanced title options.
+     * 
+     * <p>depends on <code>$options['title_header']</code></p> being an array.
+     * 
+     * @param array $options
+     */    
+    private function _title_wrapper_options($options){
+        if(isset($options['css']) && isset($options['header_tag'])){
+            the_title('<'.$options['header_tag'].' 
+                class="'.$options['css'].'">','</'.$options['header_tag'].'>');
+        }elseif(isset($options['css'])){
+            the_title('<div class="'.$options['css'].'">','</div>');
+        }else{
+            the_title();
+        }        
+    }    
 }
