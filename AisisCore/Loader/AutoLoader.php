@@ -108,7 +108,6 @@ class AisisCore_Loader_AutoLoader{
                 }
             }else{
                 self::$_directories[] = $directories;
-                var_dump(self::$_directories);
             }
         }
     }
