@@ -87,8 +87,6 @@ class AisisCore_Loader_AutoLoader{
 	public function load_class($class){
 		$path = str_replace('_', '/', $class);
 		foreach(self::$_directories as $directories){
-            var_dump($directories);
-            var_dump($path);
 			if(file_exists($directories . '/' . $path . '.php')){
 				require_once($directories . '/' . $path . '.php');
 			}
@@ -108,6 +106,7 @@ class AisisCore_Loader_AutoLoader{
                 }
             }else{
                 self::$_directories[] = $directories;
+                var_dump(self::$_directories);
             }
         }
     }
