@@ -1,6 +1,6 @@
 /.project
-/.settings
-/nbproject
+/.buildpath
 nbproject
-.settings
-nbproject/private/
+nbproject/private
+/.settings
+
