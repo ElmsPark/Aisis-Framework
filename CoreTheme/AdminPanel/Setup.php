@@ -38,7 +38,8 @@ $scripts_to_load  = array(
 );
 
 // Load the scripts
-new CoreTheme_Loader_Asset($scripts_to_load);
+$assets = new CoreTheme_Loader_Asset($scripts_to_load);
+$assets->register_assets();
 
 // Load Bootstrap on only one page.
 function register_bootstrap(){

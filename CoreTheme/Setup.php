@@ -98,7 +98,8 @@ $scripts_to_load  = array(
 );
 
 // Load the scripts
-new CoreTheme_Loader_Asset($scripts_to_load);
+$assets = new CoreTheme_Loader_Asset($scripts_to_load);
+$assets->register_assets();
 
 // Set up theme support.
 $theme_setup = array(
