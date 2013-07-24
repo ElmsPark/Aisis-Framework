@@ -451,63 +451,15 @@ class AisisCore_Template_Helpers_Loop_Loop{
 		}elseif(has_post_format('audio')){
 			$post_type->audio($this->_components->title_and_date_wrapper($this->_options['single']['title_and_date']), get_the_content());
 		}else{
-            $this->_single_title_and_date($this->_options['single']['title_and_date']);
+            $this->_components->single_title_and_date($this->_options['single']['title_and_date']);
 			if(is_sticky()){
-                $this->_single_sticky_post_content($this->_options['single']['sticky_post']);
+                $this->_components->single_sticky_post_content($this->_options['single']['sticky_post']);
 			}else{
-                $this->_single_post_content($this->_options['single']['content']);
+                $this->_components->single_post_content($this->_options['single']['content']);
 			}
 	
 		}
 	}
-    
-    /**
-     * Deals with setting up the title, date and author for a single post.
-     * 
-     * <p>depends on: options['single']['title_and_date']</p>
-     * 
-     * @param array $option
-     */
-    protected function _single_title_and_date($option){
-		if(isset($option)){
-			$this->_components->title_and_date_wrapper($option);
-		}else{
-			$this->_components->title($this->_options);
-			$this->_components->author_and_date();
-		}	        
-    }
-    
-    /**
-     * Deals with setting up the content for a single, sticky post.
-     * 
-     * <p>Depends on: $this->_options['single']['sticky_post']</p>
-     * 
-     * @param array $option
-     */
-    protected function _single_sticky_post_content($option){
-        if(isset($option)){
-            $this->_components->content_wrapper($option);
-        }else{
-            the_content();
-            $this->_components->categories_and_tags();
-        }
-    }
-    
-    /**
-     * Deals with setting up regular post (single) content.
-     * 
-     * <p>Depends on: $this->_options['single']['content']</p>
-     * 
-     * @param array $option
-     */
-    protected function _single_post_content($option){
-        if(isset($option)){
-            $this->_components->content_wrapper($option);
-        }else{
-            the_content();
-            $this->_components->categories_and_tags();
-        }        
-    }
 
 	/**
 	 * The new excerpt_length added into action
