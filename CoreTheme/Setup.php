@@ -1,4 +1,16 @@
 <?php
+/**
+ * This file is designed to essentially be a bootstrap file.
+ * 
+ * <p>The core pourpose of this file is to set up the auto loader first and formost.
+ * from there we move into the idea that we need to set up the assets, theme componentsm,
+ * factory pattern for specific classes, built in core packages and finally what to do
+ * if we are not a child theme.
+ * </p>
+ * 
+ * @package CoreTheme
+ */
+
 // Load the autoloader.
 require_once(get_template_directory() . '/AisisCore/Loader/AutoLoader.php');
 
@@ -23,12 +35,11 @@ new CoreTheme_Exceptions_ExceptionHandler();
 
 // Activate Themes Selected - BootStrap Only
 $file_handling = new CoreTheme_FileHandling_FileHandling();
-$aisis_file_handling = new AisisCore_FileHandling_File();
 $options = get_option('aisis_options');
 
 if(count($file_handling->search_for_themes()) > 0){
     foreach($file_handling->search_for_themes() as $themes){
-		$folder_contents = $aisis_file_handling->dir_tree($themes);
+		$folder_contents = $file_handling->dir_tree($themes);
 		$file = basename($folder_contents[0]);
         
 		$strip_underscore = explode('_', $options[basename($themes)]);
@@ -144,18 +155,6 @@ $theme_setup = array(
 // Set up the theme.
 new AisisCore_Theme($theme_setup);
 
-// Custom Folders
-$custom_folders = array(
-	'packages' => 'packages',
-    'themes' => 'themes'
-);
-
-// Custom Folder MultiSite.
-if(!is_child_theme()){
-	$activation = new CoreTheme_Activation($custom_folders);
-	$activation->on_activation();
-}
-
 // Create a list of dependencies that can be used in a factory class.
 function dependencies(){
 	
@@ -189,9 +188,17 @@ $package->load_package('ShortCodes', CORETHEME);
 
 // Get and Load the Admin Panel	
 $package->load_package('AdminPanel', CORETHEME, false, true);
-	
-// Load custom Post Types and Meta Boxes.
+
+// Custom Folders
+$custom_folders = array(
+	'packages' => 'packages',
+    'themes' => 'themes'
+);
+
+// Load custom Post Types and Meta Boxes. As well as what to do on activation.
 if(!is_child_theme()){
 	new CoreTheme_CustomPostTypes_Types();
 	new CoreTheme_CustomPostTypes_MetaBoxes();
+    $activation = new CoreTheme_Activation($custom_folders);
+	$activation->on_activation();
 }
