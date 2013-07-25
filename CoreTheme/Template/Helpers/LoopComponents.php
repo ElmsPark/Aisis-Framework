@@ -71,7 +71,7 @@ class CoreTheme_Template_Helpers_LoopComponents extends AisisCore_Template_Helpe
 	protected function _single_navigation_previous(){
 		$previous = get_previous_post();
 		
-		if(isset($previous) && !empty($previous)){	
+		if(!empty($previous)){	
 			$link = '<a href="'.get_permalink( $previous->ID ).'">&larr; '.substr($previous->post_title, 0 , 15).'...</a>';
 			return $link;
 		}
@@ -85,7 +85,7 @@ class CoreTheme_Template_Helpers_LoopComponents extends AisisCore_Template_Helpe
 	protected function _single_navigation_next(){
 		$next = get_next_post();
 		
-		if(isset($next) && !empty($next)){	
+		if(!empty($next)){	
 			$link = '<a href="'.get_permalink( $next->ID ).'">'.substr($next->post_title, 0, 15).'... &rarr;</a>';
 			return $link;
 		}		

@@ -49,16 +49,22 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	 * <p>Depends upon $array['navigation_wrap'].</p>
 	 *
 	 * @param array $option
+     * @param int max_pages - determines the max pages to display.
 	 * @link http://codex.wordpress.org/Function_Reference/get_next_posts_link
 	 * @link http://codex.wordpress.org/Function_Reference/get_previous_posts_link
 	 */
-	public function loop_navigation(array $option){
+	public function loop_navigation(array $option, $max_pages = 0){
 		if(isset($option['before'])){
 			echo $option['before'];
 		}
 		
-		echo get_next_posts_link('&laquo; Older Entries');
-		echo get_previous_posts_link('Newer Entries &raquo;');
+        if($max_pages > 0){
+            echo get_next_posts_link('&laquo; Older Entries', $max_pages);
+            echo get_previous_posts_link('Newer Entries &raquo;', $max_pages);
+        }else{
+            echo get_next_posts_link('&laquo; Older Entries');
+            echo get_previous_posts_link('Newer Entries &raquo;');
+        }
 		
 		if(isset($option['after'])){
 			echo $option['after'];
@@ -74,7 +80,7 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	 * @see _single_navigation_previous
 	 * @see _single_navigation_next
 	 */
-	public function single_navigation(array $option){
+	public function single_navigation(array $option, $max_pages = 0){
 		if(isset($option['before'])){
 			echo $option['before'];
 		}
