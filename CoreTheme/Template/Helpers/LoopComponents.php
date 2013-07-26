@@ -40,7 +40,7 @@ class CoreTheme_Template_Helpers_LoopComponents extends AisisCore_Template_Helpe
 	 * 
 	 * @see AisisCore_Template_Helpers_Loop::loop_navigation()
 	 */
-	public function loop_navigation(array $option = null){
+	public function loop_navigation(array $option = null, $max_posts = 0){
 		if(isset($option['before'])){
 			echo $option['before'];
 		}
@@ -49,10 +49,18 @@ class CoreTheme_Template_Helpers_LoopComponents extends AisisCore_Template_Helpe
 		
 		$pagination .= '<ul class="pager">';
   		$pagination .= '<li class="previous">';
-    	$pagination	.= get_next_posts_link('&larr; Older Entries');			
+        if($max_posts > 0){
+            $pagination	.= get_next_posts_link('&larr; Older Entries', $max_posts);
+        }else{
+            $pagination	.= get_next_posts_link('&larr; Older Entries');
+        }
   		$pagination .= '</li>';
   		$pagination .= '<li class="next">';
-    	$pagination .= get_previous_posts_link('Newer Entries &rarr;');
+        if($max_posts > 0){
+            $pagination	.= get_previous_posts_link('Newer Entries &rarr;', $max_posts);
+        }else{
+            $pagination .= get_previous_posts_link('Newer Entries &rarr;');
+        }
   		$pagination .= '</li>';
 		$pagination .= '</ul>';
 		
