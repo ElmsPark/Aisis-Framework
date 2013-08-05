@@ -374,15 +374,6 @@ body.customize-support .navbar-fixed-top{
     line-height: 1.5em;
 }
 
-.contentNarrowTemplate a{
-    color: #08c;
-}
-
-.contentNarrowTemplate a:hover{
-    color: #08c;
-    text-decoration: none;
-}
-
 .commentDecoration{
     color: rgb(148, 148, 148);
 }
