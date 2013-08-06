@@ -1,0 +1,25 @@
+<?php $update = new CoreTheme_Update(); 
+
+// Display the update button or the download button
+if($update->check_download() != 'yes'){
+    if(isset($_POST['aisis_update'])){
+        $update->upgrade();
+    }
+
+    $form = new CoreTheme_AdminPanel_Template_Form_Update(array(
+        'action' => '',
+        'method' => 'post',
+    ));
+
+    echo $form;
+}else{
+   ?>
+     <p>
+        <a href="http://adambalan.com/aisis/aisis_update/AisisUpdate.zip" class="btn btn-primary">
+            Grab the Latest Aisis Theme!
+        </a>
+     </p>
+   <?php
+}
+
+?>

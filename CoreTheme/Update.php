@@ -22,7 +22,7 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 	 * @see simplexml_load_file
 	 */
 	public function __construct(){
-		$this->_xml_object = simplexml_load_file('http://adambalan.com/aisis/aisis_update/aisis_version.xml');
+		$this->_xml_object = simplexml_load_file('http://adambalan.com/aisis/aisis_update/Test/aisis_version.xml');
 	}
 	
 	/**
@@ -91,6 +91,16 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 		$aisis_version = $this->_xml_object->version[0];
 		return trim($aisis_version);	
 	}
+    
+    /**
+     * Do we need to download the version? or can we just update as normal?
+     * 
+     * @return string $aisis_download
+     */
+    public function check_download(){
+        $aisis_download = $this->_xml_object->download[0];
+        return trim($aisis_download);
+    }
 	
 	/**
 	 * Get the current version from the themes style.css
