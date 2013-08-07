@@ -23,6 +23,10 @@ input{
 	height: 32px !important;
 }	
 
+textarea{
+    width:100%;
+}
+
 /* OTHER
     -------------------------------------------------- */
 
