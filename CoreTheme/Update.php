@@ -92,6 +92,11 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 		return trim($aisis_version);	
 	}
     
+    public function grab_link(){
+        $aisis_version = $this->_xml_object->update_notes[0];
+		return trim($aisis_version);
+    }
+    
     /**
      * Do we need to download the version? or can we just update as normal?
      * 
