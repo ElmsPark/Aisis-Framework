@@ -47,6 +47,7 @@ class AisisCore_Loader_AutoLoader{
 		self::$_directories = array(
 			get_template_directory(),
 			get_stylesheet_directory(),
+            trailingslashit(AISISPLUGINDIR)
 		);
         
         self::add_directories($directories);
