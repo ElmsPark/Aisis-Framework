@@ -44,11 +44,18 @@ class AisisCore_Loader_AutoLoader{
 			self::$_instance = new self();
 		}
 		
-		self::$_directories = array(
-			get_template_directory(),
-			get_stylesheet_directory(),
-            trailingslashit(AISISPLUGINDIR)
-		);
+        if(defined('AISISPLUGINDIR')){
+            self::$_directories = array(
+                get_template_directory(),
+                get_stylesheet_directory(),
+                trailingslashit(AISISPLUGINDIR)
+            );
+        }else{
+            self::$_directories = array(
+                get_template_directory(),
+                get_stylesheet_directory(),
+            );
+        }
         
         self::add_directories($directories);
         return self::$_instance;

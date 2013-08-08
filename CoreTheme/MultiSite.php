@@ -26,7 +26,7 @@ class CoreTheme_MultiSite implements AisisCore_Interfaces_MultiSite{
 		
 		$file = new AisisCore_FileHandling_File();
 		if($blog_id >= 1 && $file->check_dir(CUSTOM, true)){
-			chmod(CUSTOM, 0755);
+			@chmod(CUSTOM, 0755);
 			if(is_array($this->_options) && !empty($this->_options)){
 				foreach($this->_options as $folder_type=>$name){	
 					if($chmod != null){

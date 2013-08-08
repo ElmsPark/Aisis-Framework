@@ -80,7 +80,7 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	 * @see _single_navigation_previous
 	 * @see _single_navigation_next
 	 */
-	public function single_navigation(array $option, $max_pages = 0){
+	public function single_navigation(array $option){
 		if(isset($option['before'])){
 			echo $option['before'];
 		}

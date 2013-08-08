@@ -29,7 +29,7 @@ class AisisCore_Template_Builder {
 	/**
 	 * @var array $_options
 	 */
-	protected static $_options;
+	protected $_options;
 	
 	/**
 	 * @var array $_option

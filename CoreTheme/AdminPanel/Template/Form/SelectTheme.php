@@ -34,8 +34,7 @@ Class CoreTheme_AdminPanel_Template_Form_SelectTheme{
 	}	
 	
 	protected function _create_radio(){
-		
-		
+        $radio_element = array();
 		if(count($this->_file_handling->search_for_themes()) > 0){
 			foreach($this->_file_handling->search_for_themes() as $theme){
 				$radio_box = array(
