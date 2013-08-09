@@ -22,7 +22,7 @@ class CoreTheme_Update implements AisisCore_Interfaces_Upgrade{
 	 * @see simplexml_load_file
 	 */
 	public function __construct(){
-		$this->_xml_object = simplexml_load_file('http://adambalan.com/aisis/aisis_update/Test/aisis_version.xml');
+		$this->_xml_object = simplexml_load_file('http://adambalan.com/aisis/aisis_update/aisis_version.xml');
 	}
 	
 	/**

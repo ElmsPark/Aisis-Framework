@@ -22,7 +22,7 @@
 			all of the themes and activated packages back to default." 
 			data-trigger="hover"
 			data-original-title="Resetting Themes and Packages"><i class="icon-info-sign"></i></a></div>';
-
+            var_dump(get_option('aisis_options'));
 			$template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
 			$template->render_partial('uploadFormPartial');
 			$template->render_partial('pickThemePackage');

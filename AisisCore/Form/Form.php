@@ -178,7 +178,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 		$this->open_form();
 		
 		if(is_admin() && $settings != ''){
-			$this->aisis_sesttings_fields($settings);
+			$this->aisis_settings_fields($settings);
 		}
 		
 		$this->elements($elements, $sub_section);	
@@ -195,7 +195,7 @@ class AisisCore_Form_Form extends AisisCore_Form_SubSection {
 	 * 
 	 * @link http://codex.wordpress.org/Function_Reference/settings_fields
 	 */
-	public function aisis_sesttings_fields($setting){	
+	public function aisis_settings_fields($setting){	
 		$this->_html .= '<input type="hidden" name="option_page" value="' . esc_attr($setting) . '" />';
 		$this->_html .= '<input type="hidden" name="action" value="update" />';
 	 	$this->_html .= wp_nonce_field("$setting-options", "_wpnonce", true, false);

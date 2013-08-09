@@ -40,7 +40,7 @@ Class CoreTheme_AdminPanel_Template_Form_SelectTheme{
 				$radio_box = array(
 					'name' => 'aisis_options['.basename($theme).']',
 					'value' => basename($theme),
-					'label' => basename($theme),
+					'label' => basename($theme) . ' <a href="#">(Disable)</a>',
 					'option' => 'aisis_options',
 					'key' =>  basename($theme),    
 				);
