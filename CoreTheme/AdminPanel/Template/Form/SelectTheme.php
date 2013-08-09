@@ -21,12 +21,12 @@ Class CoreTheme_AdminPanel_Template_Form_SelectTheme{
 	protected function _content_header(){
 		$content = array(
 			'class' => 'modified-hero-unit',
-			'content' => '
+			'content' => "
 				<h2>Pick your Theme!</h2>
 				<p>You can select one of the installed themes below and activate it. Upon doing so watch your
 				site experience change!</p>
-				<p>See no Themes? Try uploading some!</p>
-			'
+				<p>Don't see any themes? Try uploading some by following 
+                <a href='http://aisis.adambalan.com/tutorials/uploads-packages-and-themes/'>this tutorial</a>.</p>"
 		);
 		
 		$content_header = new AisisCore_Form_Elements_Content($content);

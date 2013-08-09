@@ -21,12 +21,13 @@ Class CoreTheme_AdminPanel_Template_Form_SelectPackages{
 	protected function _content_header(){
 		$content = array(
 			'class' => 'modified-hero-unit',
-			'content' => '
+			'content' => "
 				<h2>Pick your Packages!</h2>
 				<p>You can select any or all the packages below. Upon doing so you will watch new and interesting
 				features come alive in all parts of your site!</p>
-				<p>See no packages? Try uploading some!</p>
-			'
+				<p>Don't see any packages? Try uploading some by following 
+                <a href='http://aisis.adambalan.com/tutorials/uploads-packages-and-themes/'>this tutorial</a>.</p>"
+			
 		);
 		
 		$content_header = new AisisCore_Form_Elements_Content($content);

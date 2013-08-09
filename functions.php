@@ -63,8 +63,10 @@ if(count($file_handling->search_for_packages()) > 0){
         $strip_underscore = explode('_', $options['package_'.basename($packages)]);
         $base_name = basename($packages);
         
-        if($strip_underscore[1] == $base_name && is_dir(CUSTOM . '/packages/' . $strip_underscore[1])){
-           $loader->load_package($strip_underscore[1], CUSTOM . 'packages/', true, true);
+        if(isset($strip_underscore[1])){
+            if($strip_underscore[1] == $base_name && is_dir(CUSTOM . '/packages/' . $strip_underscore[1])){
+               $loader->load_package($strip_underscore[1], CUSTOM . 'packages/', true, true);
+            }
         }
     }
 }
