@@ -80,7 +80,7 @@ $scripts_to_load  = array(
         ),
         array(
             'name'=>'font-awesome',
-            'path'=>get_template_directory_uri() . '/assets/FontAwesome/css/font-awesome.min.css'
+            'path'=>'//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
         ),	
     	array(
     		'name' => 'prettyfy-css',

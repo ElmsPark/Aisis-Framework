@@ -7,8 +7,19 @@ if($update->check_for_update()){
          <a href="<?php echo $update->grab_link() ?>" 
            class="btn btn-success pull-right marginTop14 marginright210">Read the latest update notes!</a>
         <h2>Aisis Theme <?php echo $update->check_theme_version(); ?> Has Arrived!</h2>
-        <p>We have an update for you! <?php echo $update->check_theme_version(); ?> packs a whole new punch with all kinds of new goodies and 
-        features and fixes! We are so excited!</p>
+        <?php if($update->check_download() != 'yes'){ ?>
+            <p>
+                We have an update for you! <?php echo $update->check_theme_version(); ?> 
+                packs a whole new punch with all kinds of new goodies and 
+                features and fixes! We are so excited!
+            </p>
+        <?php }else{ ?>
+            <p>
+                Good news! We have a new update for you! Aisis <?php echo $update->check_theme_version() ?>
+                comes with new features, fixes and improvements! How ever, you will have to download this
+                version instead of on-click-installing it. We provided the download link for you.
+            </p>
+        <?php } ?>
         <div class="alert">
             <strong>Note:</strong> 
             We suggest that you put your site into maintenance mode.
