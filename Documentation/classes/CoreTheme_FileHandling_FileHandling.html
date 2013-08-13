@@ -137,7 +137,73 @@ class.</span><pre>__construct</pre>
         </a>
     </li>
 
-                                                                                                        </ul>
+                                                                                                                                                                <li class="method public inherited">
+        <a href="#method_check_exists" title="check_exists :: This function checks to see if a files exists, if not - create the file.">
+            <span class="description">This function checks to see if a files exists, if not - create the file.</span><pre>check_exists</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_check_writable" title="check_writable :: Check if the file is writable or not.">
+            <span class="description">Check if the file is writable or not.</span><pre>check_writable</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_check_dir" title="check_dir :: Check if the dir exists, if not, create the directory.">
+            <span class="description">Check if the dir exists, if not, create the directory.</span><pre>check_dir</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_aisis_get_dir" title="aisis_get_dir :: Return a directory of files in an array.">
+            <span class="description">Return a directory of files in an array.</span><pre>aisis_get_dir</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_all_files" title="all_files :: Returns all files of a directory, either by extension or not.">
+            <span class="description">Returns all files of a directory, either by extension or not.</span><pre>all_files</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_dir_tree" title="dir_tree :: Returns a path to every single file in a directory.">
+            <span class="description">Returns a path to every single file in a directory.</span><pre>dir_tree</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_aisis_chmod" title="aisis_chmod :: Chmod any directory, file, based on any mode, recursivly keeping in mind any exceptions.">
+            <span class="description">Chmod any directory, file, based on any mode, recursivly keeping in mind any exceptions.</span><pre>aisis_chmod</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_write_to_file" title="write_to_file :: Write contents to a file based on the directory.">
+            <span class="description">Write contents to a file based on the directory.</span><pre>write_to_file</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_get_contents" title="get_contents :: Get the contents of a file assuming that file exists.">
+            <span class="description">Get the contents of a file assuming that file exists.</span><pre>get_contents</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_get_directory_of_files" title="get_directory_of_files :: This will return a set of files based on the path and the extension passed in.">
+            <span class="description">This will return a set of files based on the path and the extension passed in.</span><pre>get_directory_of_files</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_load_directory_of_files" title="load_directory_of_files :: This function will load an entire directory of php files.">
+            <span class="description">This function will load an entire directory of php files.</span><pre>load_directory_of_files</pre>
+        </a>
+    </li>
+
+                                                </ul>
         </li>
         <li class="nav-header protected">» Protected
             <ul>
@@ -146,11 +212,11 @@ class.</span><pre>__construct</pre>
                                 <span class="description">Parse in the folder and the type, looking for specific files.</span><pre>_get_files</pre>
                             </a>
                         </li>
-                                                </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
-                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -166,6 +232,7 @@ class.</span><pre>__construct</pre>
             <div class="element class">
                 <h1>CoreTheme_FileHandling_FileHandling</h1>
                 <small style="display: block; text-align: right">
+                                            Extends <a href="../classes/AisisCore_FileHandling_File.html">\AisisCore_FileHandling_File</a>
                                                         </small>
                 <p class="short_description">This class is used to get a list of all directories in the packages and themes directory.</p>
                 <div class="details">
@@ -397,6 +464,547 @@ packages or themes to load.</p>
                                                                     </div>
                             </div>
                         </div>
+                                            <a id="method_check_exists"></a>
+                        <div class="element clickable method public method_check_exists inherited" data-toggle="collapse" data-target=".method_check_exists .collapse">
+                            <h2>This function checks to see if a files exists, if not - create the file.</h2>
+                            <pre>check_exists(string $filename, bool $create_file = false) : bool</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>If possible, or if the create_file param is set - we will create the file
+if it does not exist.</p>
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$filename</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$create_file</h4>
+                                                <code>bool</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_check_writable"></a>
+                        <div class="element clickable method public method_check_writable inherited" data-toggle="collapse" data-target=".method_check_writable .collapse">
+                            <h2>Check if the file is writable or not.</h2>
+                            <pre>check_writable(string $path, string $filename) : bool</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$path</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$filename</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_check_dir"></a>
+                        <div class="element clickable method public method_check_dir inherited" data-toggle="collapse" data-target=".method_check_dir .collapse">
+                            <h2>Check if the dir exists, if not, create the directory.</h2>
+                            <pre>check_dir(string $dir, bool $create_dir = false) : bool</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dir</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$create_dir</h4>
+                                                <code>bool</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_aisis_get_dir"></a>
+                        <div class="element clickable method public method_aisis_get_dir inherited" data-toggle="collapse" data-target=".method_aisis_get_dir .collapse">
+                            <h2>Return a directory of files in an array.</h2>
+                            <pre>aisis_get_dir(string $dir) : array</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dir</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>$_directory_files</p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_all_files"></a>
+                        <div class="element clickable method public method_all_files inherited" data-toggle="collapse" data-target=".method_all_files .collapse">
+                            <h2>Returns all files of a directory, either by extension or not.</h2>
+                            <pre>all_files(string $dir, string $path_extension = &#039;&#039;) : array</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dir</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$path_extension</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>$files</p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_dir_tree"></a>
+                        <div class="element clickable method public method_dir_tree inherited" data-toggle="collapse" data-target=".method_dir_tree .collapse">
+                            <h2>Returns a path to every single file in a directory.</h2>
+                            <pre>dir_tree(mixed $dir) : array</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dir</h4>
+                                                <code>mixed</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>$path</p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_aisis_chmod"></a>
+                        <div class="element clickable method public method_aisis_chmod inherited" data-toggle="collapse" data-target=".method_aisis_chmod .collapse">
+                            <h2>Chmod any directory, file, based on any mode, recursivly keeping in mind any exceptions.</h2>
+                            <pre>aisis_chmod(string $path, bool $mode = false, bool $recursive = true, array $exceptions = array()) </pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$path</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$mode</h4>
+                                                <code>bool</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$recursive</h4>
+                                                <code>bool</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$exceptions</h4>
+                                                <code>array</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_write_to_file"></a>
+                        <div class="element clickable method public method_write_to_file inherited" data-toggle="collapse" data-target=".method_write_to_file .collapse">
+                            <h2>Write contents to a file based on the directory.</h2>
+                            <pre>write_to_file(string $filename, string $contents, string $dir) : bool</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>If the file and the directory exists - put the contents into that file.
+We do trimp the contents to remove any white spaces.</p>
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    see
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$filename</h4>
+                                                <code>string</code><p><p>(plus extension)</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$contents</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dir</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_get_contents"></a>
+                        <div class="element clickable method public method_get_contents inherited" data-toggle="collapse" data-target=".method_get_contents .collapse">
+                            <h2>Get the contents of a file assuming that file exists.</h2>
+                            <pre>get_contents(string $path, string $filename) : string</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    see
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$path</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$filename</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><ul>
+<li>contents of the file.</li>
+</ul>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_get_directory_of_files"></a>
+                        <div class="element clickable method public method_get_directory_of_files inherited" data-toggle="collapse" data-target=".method_get_directory_of_files .collapse">
+                            <h2>This will return a set of files based on the path and the extension passed in.</h2>
+                            <pre>get_directory_of_files(string $path, string $filename, string $extension) : array</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$path</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$filename</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$extension</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>$files</p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_load_directory_of_files"></a>
+                        <div class="element clickable method public method_load_directory_of_files inherited" data-toggle="collapse" data-target=".method_load_directory_of_files .collapse">
+                            <h2>This function will load an entire directory of php files.</h2>
+                            <pre>load_directory_of_files(string $path) </pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$path</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
                     
                     
                                                                 <h3><i class="icon-custom icon-property"></i> Properties</h3>
@@ -406,6 +1014,84 @@ packages or themes to load.</p>
                                 <pre>_fileHandling</pre>
                                 <div class="labels">
                                                                                                         </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
+</div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property__directory_files"> </a>
+                            <div class="element clickable property protected property__directory_files inherited" data-toggle="collapse" data-target=".property__directory_files .collapse">
+                                <h2>_directory_files</h2>
+                                <pre>_directory_files</pre>
+                                <div class="labels">
+                                    <span class="label">inherited</span>                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
+</div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property__files_got_back"> </a>
+                            <div class="element clickable property protected property__files_got_back inherited" data-toggle="collapse" data-target=".property__files_got_back .collapse">
+                                <h2>_files_got_back</h2>
+                                <pre>_files_got_back</pre>
+                                <div class="labels">
+                                    <span class="label">inherited</span>                                                                    </div>
                                 <div class="row collapse">
                                     <div class="detail-description">
                                         <div class="long_description">
@@ -459,7 +1145,7 @@ packages or themes to load.</p>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Wed, 17 Jul 2013 13:02:34 -0600.<br/>
+            generated on Tue, 13 Aug 2013 16:37:35 -0600.<br/>
     </footer>
     </body>
 </html>

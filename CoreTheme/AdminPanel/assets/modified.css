@@ -23,6 +23,10 @@ input{
 	height: 32px !important;
 }	
 
+textarea{
+    width:100%;
+}
+
 /* OTHER
     -------------------------------------------------- */
 
@@ -115,6 +119,18 @@ h1 small{
 .containerTop{
 	padding-top:30px;
 	padding-bottom:5px;
+}
+
+.marginTop10{
+    margin-top:10px;
+}
+
+.marginTop14{
+    margin-top:14px;
+}
+
+.marginright210{
+    margin-right:210px;
 }
 
 .marginRight10px{
