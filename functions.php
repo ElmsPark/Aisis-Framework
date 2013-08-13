@@ -33,6 +33,10 @@ if(!defined('CORETHEME_ADMIN_PARTIAL_TEMPLATE')){
 	define('CORETHEME_ADMIN_PARTIAL_TEMPLATE', get_template_directory() . '/CoreTheme/AdminPanel/Template/Partial/');
 }
 
+if(!defined('CORETHEME_ADMIN_TEMPLATE_HELPER_URL')){
+	define('CORETHEME_ADMIN_TEMPLATE_HELPER_URL', get_template_directory_uri() . '/CoreTheme/AdminPanel/Template/Helper/');
+}
+
 if(!defined('CORETHEME_SHORTCODES')){
 	define('CORETHEME_SHORTCODES', get_template_directory() . '/CoreTheme/ShortCodes/');
 }
@@ -59,9 +63,12 @@ require_once(CORETHEME . 'Setup.php');
 $loader = new AisisCore_Loader_Package();
 
 if(count($file_handling->search_for_packages()) > 0){
+    $template = AisisCore_Factory_Pattern::create('AisisCore_Template_Builder');
     foreach($file_handling->search_for_packages() as $packages){
-        $strip_underscore = explode('_', $options['package_'.basename($packages)]);
-        $base_name = basename($packages);
+        if($template->get_specific_option('package_'.basename($packages))){
+            $strip_underscore = explode('_', $options['package_'.basename($packages)]);
+            $base_name = basename($packages);
+        }
         
         if(isset($strip_underscore[1])){
             if($strip_underscore[1] == $base_name && is_dir(CUSTOM . '/packages/' . $strip_underscore[1])){

@@ -41,7 +41,7 @@ Class CoreTheme_AdminPanel_Template_Form_SelectPackages{
 				$checbox_element = array(
 					'name' => 'aisis_options[package_'.basename($package).']',
 					'value' => 'package_'.basename($package),
-					'label' => basename($package) . ' <a href="#">(Disable)</a>',
+					'label' => basename($package) . ' <a href="#" class="unslectPackages">(Disable)</a>',
 					'option' => 'aisis_options',
 					'key' => 'package_'.basename($package),    
 				);

@@ -1,4 +1,6 @@
 <?php
+require_once(CORETHEME_ADMIN . 'Ajax.php');
+
 // Set up the Admin Pannel assets
 $scripts_to_load  = array(
 	'admin_css' => array(			
@@ -27,7 +29,7 @@ $scripts_to_load  = array(
 		array(
 			'name'=>'thickbox',
 			'path'=>WPINC . '/js/thickbox/thickbox.js'
-		),				
+		),	
 	),
 	'admin_jquery_version' => '1.9.1',
 	'admin_pages' => array(

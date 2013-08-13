@@ -42,14 +42,15 @@ if(count($file_handling->search_for_themes()) > 0){
 		$folder_contents = $file_handling->dir_tree($themes);
 		$file = basename($folder_contents[0]);
         
-		$strip_underscore = explode('_', $options[basename($themes)]);
-        $base_name = basename($themes);
-        
-		if($strip_underscore[0] == $base_name && is_dir(CUSTOM . '/themes/' . $strip_underscore[0])){
-            $path_to_css = get_template_directory_uri() . '/custom/themes/' . $strip_underscore[0] . '/'. $file;
+        if(isset($options[basename($themes)])){
+            if(is_dir(CUSTOM . '/themes/' . basename($themes))){
+                $path_to_css = get_template_directory_uri() . '/custom/themes/' . basename($themes) . '/'. $file;
+            }else{
+                $path_to_css = get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css';
+            }
         }else{
-			$path_to_css = get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css';
-		}
+            $path_to_css = get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css';
+        }
     }
 }else{
     $path_to_css = get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css';
@@ -103,7 +104,7 @@ $scripts_to_load  = array(
         array(
         	'name' => 'prettyfy-js',
         	'path' => 'http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js'
-        ),            
+        ), 
      ),
 	'front_jquery_version' => '1.9.1',	  
 );
