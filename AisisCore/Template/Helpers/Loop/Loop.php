@@ -227,9 +227,7 @@ class AisisCore_Template_Helpers_Loop_Loop{
 	/**
 	 * This is the most basic loop. All were doing is returning a list of posts.
 	 */	
-	protected function _general_wordpress_loop(){	
-		$this->_set_count_and_type();
-		query_posts("post_type=post");	
+	protected function _general_wordpress_loop(){
 		if($this->_wp_query->have_posts()){
 			while($this->_wp_query->have_posts()){
 				$this->_wp_query->the_post();
@@ -248,54 +246,10 @@ class AisisCore_Template_Helpers_Loop_Loop{
 					echo $this->_options['post_after'];
 				}
 			}
-			
-			$this->_general_loop_pagination();			
+            $this->_general_loop_nav();
 		}else{
 			$this->_components->error_page($this->_options);
 		}
-	}
-	
-	/**
-	 * Sets the $_count and the $_type depending if we are on a 
-	 * category or a tag or if we are on anything else. This helps
-	 * us set the navigation element.
-	 */
-	protected function _set_count_and_type(){
-		if(is_category()){
-			$category = get_the_category();
-			$this->_count = $category[0]->count;
-			$this->_type = "category";
-		}elseif(is_tag()){
-			$tag = get_tags();
-			$this->_count = $tag[0]->count;
-			$this->_type = "tag";
-		}else{
-			$this->_type="front";
-		}
-	}
-	
-	/**
-	 * General loop pagination
-	 */
-	protected function _general_loop_pagination(){
-		if($this->_count > get_option('posts_per_page') && $this->_type == "category"){
-			$this->_general_loop_nav();
-		}elseif($this->_count > get_option('posts_per_page') && $this->_type == "tag"){
-			$this->_general_loop_nav();
-		}elseif(wp_count_posts('published') > get_option('posts_per_page') && $this->_type == "front"){
-			$this->_general_loop_nav();
-		}	
-	}
-	
-	/**
-	 * Pagination used in the general loop.
-	 */
-	protected function _general_loop_nav(){
-		if(isset($this->_options['navigation_wrap'])){
-			$this->_components->loop_navigation($this->_options['navigation_wrap']);
-		}else{
-			$this->_components->loop_navigation();
-		}		
 	}
 	
 	/**
@@ -335,11 +289,7 @@ class AisisCore_Template_Helpers_Loop_Loop{
 				}				
 			}
 			if($remove_nav != true){
-				if(isset($this->_options['navigation_wrap'])){
-					$this->_components->loop_navigation($this->_options['navigation_wrap']);
-				}else{
-					$this->_components->loop_navigation();
-				}
+                $this->_general_loop_nav($wp_query->max_num_pages);
 			}
 		}else{
 			$this->_components->error_page($this->_options);
@@ -392,6 +342,34 @@ class AisisCore_Template_Helpers_Loop_Loop{
 			$this->_components->error_page($this->_options);
 		}		
 	}
+    
+	/**
+	 * Pagination used in the general loop.
+     * 
+     * <p>The max_pages parameter used here is what determines how many pages
+     * we should create. the object you would pass in is:</p>
+     * 
+     * <p><code>
+     * $query->max_num_pages
+     * </code></p>
+     * 
+     * @param int $max_pages - pass in the query object for max pages.
+	 */
+	protected function _general_loop_nav($max_pages = 0){
+        if($max_pages != 0){
+            if(isset($this->_options['navigation_wrap'])){
+                $this->_components->loop_navigation($this->_options['navigation_wrap'], $max_pages);
+            }else{
+                $this->_components->loop_navigation(array(), $max_pages);
+            }
+        }else{
+            if(isset($this->_options['navigation_wrap'])){
+                $this->_components->loop_navigation($this->_options['navigation_wrap'], $max_pages);
+            }else{
+                $this->_components->loop_navigation(array(), $max_pages);
+            }    
+        }
+	}    
 	
 	/**
 	 * Disaply a sidebar so long as  the options key does not match. Also
@@ -451,27 +429,11 @@ class AisisCore_Template_Helpers_Loop_Loop{
 		}elseif(has_post_format('audio')){
 			$post_type->audio($this->_components->title_and_date_wrapper($this->_options['single']['title_and_date']), get_the_content());
 		}else{
-			if(isset($this->_options['single']['title_and_date'])){
-				$this->_components->title_and_date_wrapper($this->_options['single']['title_and_date']);
-			}else{
-				$this->_components->title($this->_options);
-				$this->_components->author_and_date();
-			}
-				
+            $this->_components->single_title_and_date($this->_options['single']['title_and_date']);
 			if(is_sticky()){
-				if(isset($this->_options['single']['sticky_post'])){
-					$this->_components->content_wrapper($this->_options['single']['sticky_post']);
-				}else{
-					the_content();
-					$this->_components->categories_and_tags();
-				}
+                $this->_components->single_sticky_post_content($this->_options['single']['sticky_post']);
 			}else{
-				if(isset($this->_options['single']['content'])){
-					$this->_components->content_wrapper($this->_options['single']['content']);
-				}else{
-					the_content();
-					$this->_components->categories_and_tags();
-				}
+                $this->_components->single_post_content($this->_options['single']['content']);
 			}
 	
 		}

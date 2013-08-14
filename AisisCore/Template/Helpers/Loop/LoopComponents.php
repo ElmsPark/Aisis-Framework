@@ -49,16 +49,22 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 	 * <p>Depends upon $array['navigation_wrap'].</p>
 	 *
 	 * @param array $option
+     * @param int max_pages - determines the max pages to display.
 	 * @link http://codex.wordpress.org/Function_Reference/get_next_posts_link
 	 * @link http://codex.wordpress.org/Function_Reference/get_previous_posts_link
 	 */
-	public function loop_navigation(array $option){
+	public function loop_navigation(array $option, $max_pages = 0){
 		if(isset($option['before'])){
 			echo $option['before'];
 		}
 		
-		echo get_next_posts_link('&laquo; Older Entries');
-		echo get_previous_posts_link('Newer Entries &raquo;');
+        if($max_pages > 0){
+            echo get_next_posts_link('&laquo; Older Entries', $max_pages);
+            echo get_previous_posts_link('Newer Entries &raquo;', $max_pages);
+        }else{
+            echo get_next_posts_link('&laquo; Older Entries');
+            echo get_previous_posts_link('Newer Entries &raquo;');
+        }
 		
 		if(isset($option['after'])){
 			echo $option['after'];
@@ -86,6 +92,39 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 			echo $option['after'];
 		}
 	}
+    
+	/**
+	 * Based on if were single, a title_header or if were an index we will then display
+	 * the title.
+	 * 
+	 * <p>If were on the page (is_page()) and we have set the page thumbnail options $array['page']['image']
+	 * we will then set the thumbnail for the page.</p>
+	 * 
+	 * <p>Titles can also have a class, this allows you to style a class individually of the the rest of
+	 * the post. this depends on the <code>$options['title_header']['css']</code> and the <code>$options['title_header']['header_tag']</code>.
+	 * The header_tag is the h1-6. If you do not provide a header tag then we will wrap the title in a div with the class.
+	 * if neither are provided in this array we will just display a normal title.</p>
+	 * 
+	 * <p><code>
+	 * //Inside the options array you can do:
+	 * 'title_header' => array('css' => 'css_class', 'header_tag' => 'h3'),
+	 * </code></p>
+	 *
+	 * @param array $options
+	 */
+	public function title($options){
+		if(is_single() && isset($options) || is_page() && isset($options)){
+			$this->_title_wrapper($options);
+		}elseif(isset($options) && isset($options['title_header'])){
+			$this->_index_title_wrapper($options['title_header']);
+		}else{
+			the_title('<a href="'.get_permalink().'">', '</a>');
+		}
+		
+		if(isset($this->_options['page']) && isset($this->_options['page']['image']) && is_page()){
+			$this->thumbnail($this->_options['page']);
+		}
+	}    
 	
 	/**
 	 * This will wrap the title and the author as well as date information in appropriate div tags.
@@ -117,6 +156,22 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 			echo $options['after'];
 		}
 	}
+    
+    /**
+     * Deals with setting up the title, date and author for a single post.
+     * 
+     * <p>depends on: options['single']['title_and_date']</p>
+     * 
+     * @param array $option
+     */
+    public function single_title_and_date($option){
+		if(isset($option)){
+			$this->title_and_date_wrapper($option);
+		}else{
+			$this->title($this->_options);
+			$this->author_and_date();
+		}	        
+    }  
 
 	/**
 	 * Deals with the thumb nail and how we should display it.
@@ -158,6 +213,38 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 		
 		$this->_after_the_content();
 	}
+    
+    /**
+     * Deals with setting up the content for a single, sticky post.
+     * 
+     * <p>Depends on: $this->_options['single']['sticky_post']</p>
+     * 
+     * @param array $option
+     */
+    public function single_sticky_post_content($option){
+        if(isset($option)){
+            $this->content_wrapper($option);
+        }else{
+            the_content();
+            $this->categories_and_tags();
+        }
+    }
+    
+    /**
+     * Deals with setting up regular post (single) content.
+     * 
+     * <p>Depends on: $this->_options['single']['content']</p>
+     * 
+     * @param array $option
+     */
+    public function single_post_content($option){
+        if(isset($option)){
+            $this->content_wrapper($option);
+        }else{
+            the_content();
+            $this->categories_and_tags();
+        }        
+    }      
 	
 	/**
 	 * Wrapper function for categories and tags.
@@ -193,39 +280,6 @@ class AisisCore_Template_Helpers_Loop_LoopComponents{
 			echo "Sorry. No posts were found.";
 		}
 	}	
-	
-	/**
-	 * Based on if were single, a title_header or if were an index we will then display
-	 * the title.
-	 * 
-	 * <p>If were on the page (is_page()) and we have set the page thumbnail options $array['page']['image']
-	 * we will then set the thumbnail for the page.</p>
-	 * 
-	 * <p>Titles can also have a class, this allows you to style a class individually of the the rest of
-	 * the post. this depends on the <code>$options['title_header']['css']</code> and the <code>$options['title_header']['header_tag']</code>.
-	 * The header_tag is the h1-6. If you do not provide a header tag then we will wrap the title in a div with the class.
-	 * if neither are provided in this array we will just display a normal title.</p>
-	 * 
-	 * <p><code>
-	 * //Inside the options array you can do:
-	 * 'title_header' => array('css' => 'css_class', 'header_tag' => 'h3'),
-	 * </code></p>
-	 *
-	 * @param array $options
-	 */
-	public function title($options){
-		if(is_single() && isset($options) || is_page() && isset($options)){
-			$this->_title_wrapper($options);
-		}elseif(isset($options) && isset($options['title_header'])){
-			$this->_index_title_wrapper($options['title_header']);
-		}else{
-			the_title('<a href="'.get_permalink().'">', '</a>');
-		}
-		
-		if(isset($this->_options['page']) && isset($this->_options['page']['image']) && is_page()){
-			$this->thumbnail($this->_options['page']);
-		}
-	}
 	
 	/**
 	 * Depending on the options passed into the loop we will then wrap the title up.

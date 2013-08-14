@@ -30,6 +30,52 @@ if((count($file->search_for_themes()) == 0) && (count($file->search_for_packages
 
 	$tabbed_form = new CoreTheme_Form_TabbedForm($array);
 	echo $tabbed_form;
-}
-
-
+} ?>
+<script>
+(function($){	
+    $(document).ready(function(){
+        $('.unslectPackages').click(function(e){
+          var el = $(this).prev('input[type="checkbox"]');
+          if(el.is(':checked')){
+               el.prop('checked',false); 
+               $.ajax({
+                  url  : 'http://adambalan.com/wp-admin/admin-ajax.php',
+                  type : 'POST',
+                  data : { 
+                      action : 'uncheck_package',
+                      element_value : el.val()
+                  },      
+                  success: function(result){
+                    console.log(result);
+                  },
+                  error: function(jqXHR, textStatus, errorThrown ){
+                    console.log(jqXHR, textStatus, errorThrown);
+                  } 
+              });
+          }
+           e.preventDefault();
+        });
+        $('.unslectThemes').click(function(e){
+          var el = $(this).prev('input[type="radio"]');
+          if(el.is(':checked')){
+               el.prop('checked',false); 
+               $.ajax({
+                  url  : 'http://adambalan.com/wp-admin/admin-ajax.php',
+                  type : 'POST',
+                  data : { 
+                      action : 'uncheck_themes',
+                      element_value : el.val()
+                  },      
+                  success: function(result){
+                    console.log(result);
+                  },
+                  error: function(jqXHR, textStatus, errorThrown ){
+                    console.log(jqXHR, textStatus, errorThrown);
+                  } 
+              });
+          }
+           e.preventDefault();
+        });        
+    }); 
+ })(jQuery);
+ </script>
