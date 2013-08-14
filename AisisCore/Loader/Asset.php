@@ -82,21 +82,18 @@ abstract class AisisCore_Loader_Asset {
 	protected $_options;
 	
 	/**
-	 * Takes inthe array of options and sets them.
+	 * Takes in an optional set of options which is the array of styles and js.
+     * 
+     * <p>If the options is set we will set them globally in the class so we can use them
+     * to register the styles and scripts.</p>
 	 * 
 	 * @param array $options
 	 */
-	public function __construct(array $options) {
+	public function __construct($options = null) {
 		
-		if(is_array($options)){
+		if(is_array($options) && $options != null){
 			$this->_options = $options;
 		}
-		
-		add_action ('wp_enqueue_scripts', array ($this, 'load_front_css' ));
-		add_action ('wp_enqueue_scripts', array ($this, 'load_front_jquery' ));
-		add_action ('wp_footer', array ($this, 'load_front_js' ));
-		
-		$this->_load_admin_scripts();
 		
 		$this->init();
 	}
@@ -105,6 +102,43 @@ abstract class AisisCore_Loader_Asset {
 	 * When extending this class, place constructor logic here.
 	 */
 	public function init() {}
+    
+    /**
+     * Call me to register the assets and load them.
+     */
+    public function register_assets(){
+		add_action ('wp_enqueue_scripts', array ($this, 'load_front_css' ));
+		add_action ('wp_enqueue_scripts', array ($this, 'load_front_jquery' ));
+		add_action ('wp_footer', array ($this, 'load_front_js' ));
+		
+		$this->_load_admin_scripts();        
+    }
+    
+    /**
+     * Takes in an array[key] and an associative array of name, path to load the asset.
+     * 
+     * <p>Allows you to create new assets on the fly, for example you might do:</p>
+     * 
+     * <p><code>
+     * $array = array(
+     *     'name' => 'name_of_file',
+     *     'path' => 'where is this located?'
+     * );
+     * 
+     * $assets->create_assets('css', $array);
+     * </code></p>
+     * 
+     * <p>The above will tell the asset loader to add this new asset to the existing list of css assets.</p>
+     * 
+     * @param string $type
+     * @param array $array
+     */
+    public function create_assets($type, $array){
+        if(isset($this->_options[$type]) && is_array($this->_options[$type]) && is_array($array)){
+            array_push($this->_options[$type], $array);
+            $this->register_assets();
+        }
+    }
 	
 	/**
 	 * Load the front end css.

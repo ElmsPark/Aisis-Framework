@@ -10,7 +10,7 @@
  * @see AisisCore_FileHandling_File
  * @package CoreTheme_FileHandling
  */
-class CoreTheme_FileHandling_FileHandling{
+class CoreTheme_FileHandling_FileHandling extends AisisCore_FileHandling_File{
 	
 	/**
 	 * @var AisisCore_FileHandling_File 

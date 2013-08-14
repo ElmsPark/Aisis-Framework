@@ -40,7 +40,7 @@ class CoreTheme_Form_TabbedForm extends CoreTheme_Form_Form{
 		
 		if(is_admin() && isset($this->_options['settings']) && $this->_options['settings'] != ''){
 			$settings = $this->_options['settings'];
-			$this->aisis_sesttings_fields($settings);
+			$this->aisis_settings_fields($settings);
 		}
 		
 		$this->close_form();

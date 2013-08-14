@@ -136,8 +136,22 @@
     </li>
 
                                                                                                         <li class="method public">
+        <a href="#method_title" title="title :: Based on if were single, a title_header or if were an index we will then display
+the title.">
+            <span class="description">Based on if were single, a title_header or if were an index we will then display
+the title.</span><pre>title</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
         <a href="#method_title_and_date_wrapper" title="title_and_date_wrapper :: This will wrap the title and the author as well as date information in appropriate div tags.">
             <span class="description">This will wrap the title and the author as well as date information in appropriate div tags.</span><pre>title_and_date_wrapper</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_single_title_and_date" title="single_title_and_date :: Deals with setting up the title, date and author for a single post.">
+            <span class="description">Deals with setting up the title, date and author for a single post.</span><pre>single_title_and_date</pre>
         </a>
     </li>
 
@@ -154,6 +168,18 @@
     </li>
 
                                                                                                         <li class="method public">
+        <a href="#method_single_sticky_post_content" title="single_sticky_post_content :: Deals with setting up the content for a single, sticky post.">
+            <span class="description">Deals with setting up the content for a single, sticky post.</span><pre>single_sticky_post_content</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_single_post_content" title="single_post_content :: Deals with setting up regular post (single) content.">
+            <span class="description">Deals with setting up regular post (single) content.</span><pre>single_post_content</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
         <a href="#method_categories_and_tags" title="categories_and_tags :: Wrapper function for categories and tags.">
             <span class="description">Wrapper function for categories and tags.</span><pre>categories_and_tags</pre>
         </a>
@@ -165,19 +191,11 @@
         </a>
     </li>
 
-                                                                                                        <li class="method public">
-        <a href="#method_title" title="title :: Based on if were single, a title_header or if were an index we will then display
-the title.">
-            <span class="description">Based on if were single, a title_header or if were an index we will then display
-the title.</span><pre>title</pre>
-        </a>
-    </li>
-
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </ul>
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                    <li class="method protected">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li class="method protected">
                             <a href="#method__title_wrapper" title="_title_wrapper :: Depending on the options passed into the loop we will then wrap the title up.">
                                 <span class="description">Depending on the options passed into the loop we will then wrap the title up.</span><pre>_title_wrapper</pre>
                             </a>
@@ -228,7 +246,7 @@ the options that were chosen.</span><pre>_index_title_wrapper</pre>
         </li>
         <li class="nav-header private">» Private
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li class="method private">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li class="method private">
                             <a href="#method__single_title_wrapper" title="_single_title_wrapper :: This wraps the title, for single posts, in advanced title options.">
                                 <span class="description">This wraps the title, for single posts, in advanced title options.</span><pre>_single_title_wrapper</pre>
                             </a>
@@ -390,7 +408,7 @@ These take in an option in the form of a specifically designed array which can b
                                             <a id="method_loop_navigation"></a>
                         <div class="element clickable method public method_loop_navigation" data-toggle="collapse" data-target=".method_loop_navigation .collapse">
                             <h2>Builds loop navigation for the general and the queried loop.</h2>
-                            <pre>loop_navigation(array $option) </pre>
+                            <pre>loop_navigation(array $option, $max_pages) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -437,6 +455,11 @@ These take in an option in the form of a specifically designed array which can b
                                                                                     <div class="subelement argument">
                                                 <h4>$option</h4>
                                                 <code>array</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$max_pages</h4>
+                                                <code></code><p>
 </p>
                                             </div>
                                                                             
@@ -499,6 +522,63 @@ These take in an option in the form of a specifically designed array which can b
                                                                     </div>
                             </div>
                         </div>
+                                            <a id="method_title"></a>
+                        <div class="element clickable method public method_title" data-toggle="collapse" data-target=".method_title .collapse">
+                            <h2>Based on if were single, a title_header or if were an index we will then display
+the title.</h2>
+                            <pre>title(array $options) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>If were on the page (is_page()) and we have set the page thumbnail options $array['page']['image']
+we will then set the thumbnail for the page.</p>
+
+<p>Titles can also have a class, this allows you to style a class individually of the the rest of
+the post. this depends on the <code>$options['title_header']['css']</code> and the <code>$options['title_header']['header_tag']</code>.
+The header_tag is the h1-6. If you do not provide a header tag then we will wrap the title in a div with the class.
+if neither are provided in this array we will just display a normal title.</p>
+
+<p><code>
+//Inside the options array you can do:
+'title_header' => array('css' => 'css_class', 'header_tag' => 'h3'),
+</code></p>
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$options</h4>
+                                                <code>array</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
                                             <a id="method_title_and_date_wrapper"></a>
                         <div class="element clickable method public method_title_and_date_wrapper" data-toggle="collapse" data-target=".method_title_and_date_wrapper .collapse">
                             <h2>This will wrap the title and the author as well as date information in appropriate div tags.</h2>
@@ -540,6 +620,51 @@ We depend on single conditionals. We aslo depend on $array['single']['image']</p
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$options</h4>
+                                                <code>array</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_single_title_and_date"></a>
+                        <div class="element clickable method public method_single_title_and_date" data-toggle="collapse" data-target=".method_single_title_and_date .collapse">
+                            <h2>Deals with setting up the title, date and author for a single post.</h2>
+                            <pre>single_title_and_date(array $option) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>depends on: options['single']['title_and_date']</p>
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$option</h4>
                                                 <code>array</code><p>
 </p>
                                             </div>
@@ -641,6 +766,96 @@ We depend on single conditionals. We aslo depend on $array['single']['image']</p
                                                                     </div>
                             </div>
                         </div>
+                                            <a id="method_single_sticky_post_content"></a>
+                        <div class="element clickable method public method_single_sticky_post_content" data-toggle="collapse" data-target=".method_single_sticky_post_content .collapse">
+                            <h2>Deals with setting up the content for a single, sticky post.</h2>
+                            <pre>single_sticky_post_content(array $option) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Depends on: $this->_options['single']['sticky_post']</p>
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$option</h4>
+                                                <code>array</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_single_post_content"></a>
+                        <div class="element clickable method public method_single_post_content" data-toggle="collapse" data-target=".method_single_post_content .collapse">
+                            <h2>Deals with setting up regular post (single) content.</h2>
+                            <pre>single_post_content(array $option) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Depends on: $this->_options['single']['content']</p>
+</div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$option</h4>
+                                                <code>array</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
                                             <a id="method_categories_and_tags"></a>
                         <div class="element clickable method public method_categories_and_tags" data-toggle="collapse" data-target=".method_categories_and_tags .collapse">
                             <h2>Wrapper function for categories and tags.</h2>
@@ -691,63 +906,6 @@ We depend on single conditionals. We aslo depend on $array['single']['image']</p
                                     <div class="long_description"><p>If you have created a 404 phtml file in your theme or even a 404.php then you can
 place the path in $options[404_template] and we will render that view for when no posts are
 found on either a queried loop, regular loop or a single loop.</p>
-</div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$options</h4>
-                                                <code>array</code><p>
-</p>
-                                            </div>
-                                                                            
-                                                                    </div>
-                            </div>
-                        </div>
-                                            <a id="method_title"></a>
-                        <div class="element clickable method public method_title" data-toggle="collapse" data-target=".method_title .collapse">
-                            <h2>Based on if were single, a title_header or if were an index we will then display
-the title.</h2>
-                            <pre>title(array $options) </pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"><p>If were on the page (is_page()) and we have set the page thumbnail options $array['page']['image']
-we will then set the thumbnail for the page.</p>
-
-<p>Titles can also have a class, this allows you to style a class individually of the the rest of
-the post. this depends on the <code>$options['title_header']['css']</code> and the <code>$options['title_header']['header_tag']</code>.
-The header_tag is the h1-6. If you do not provide a header tag then we will wrap the title in a div with the class.
-if neither are provided in this array we will just display a normal title.</p>
-
-<p><code>
-//Inside the options array you can do:
-'title_header' => array('css' => 'css_class', 'header_tag' => 'h3'),
-</code></p>
 </div>
 
                                     <table class="table">
@@ -1367,7 +1525,7 @@ the options that were chosen.</h2>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Wed, 17 Jul 2013 13:02:34 -0600.<br/>
+            generated on Tue, 13 Aug 2013 18:48:17 -0600.<br/>
     </footer>
     </body>
 </html>
