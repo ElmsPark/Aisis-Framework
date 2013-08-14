@@ -30,7 +30,11 @@ if((count($file->search_for_themes()) == 0) && (count($file->search_for_packages
 
 	$tabbed_form = new CoreTheme_Form_TabbedForm($array);
 	echo $tabbed_form;
-} ?>
+} 
+
+$url = ($_SERVER['HTTPS'] ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/'; 
+
+?>
 <script>
 (function($){	
     $(document).ready(function(){
@@ -39,7 +43,7 @@ if((count($file->search_for_themes()) == 0) && (count($file->search_for_packages
           if(el.is(':checked')){
                el.prop('checked',false); 
                $.ajax({
-                  url  : 'http://adambalan.com/wp-admin/admin-ajax.php',
+                  url  : '<?php echo $url . 'wp-admin/admin-ajax.php' ?>',
                   type : 'POST',
                   data : { 
                       action : 'uncheck_package',
@@ -60,7 +64,7 @@ if((count($file->search_for_themes()) == 0) && (count($file->search_for_packages
           if(el.is(':checked')){
                el.prop('checked',false); 
                $.ajax({
-                  url  : 'http://adambalan.com/wp-admin/admin-ajax.php',
+                  url  : '<?php echo $url . 'wp-admin/admin-ajax.php' ?>',
                   type : 'POST',
                   data : { 
                       action : 'uncheck_themes',
