@@ -7,3 +7,4 @@ This branch contains the latest version of Aisis Theme at the time of this readm
 
 - [Aisis 1.2.1](http://aisis.adambalan.com/news/aisis-1-2-1-is-finally-here/)
 - [Aisis 1.2.2](http://wp.me/p2viJH-sN)
+- [Aisis 1.2.3](http://aisis.adambalan.com/news/aisis-1-2-3-is-here-and-were-a-year-old/)
